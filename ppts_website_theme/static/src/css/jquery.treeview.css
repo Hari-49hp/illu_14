@@ -1,0 +1,84 @@
+	.treeview,
+	.treeview * {
+		user-select: none;
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+	}
+
+	.treeview p {
+		padding-left: 20px;
+		margin: 0px;
+	}
+
+	.treeview .item {
+		cursor: pointer;
+		display: inline-block;
+		padding: 4px;
+		width: calc(100% - 30px)
+	}
+
+	.treeview .item:hover {
+		background: #DDD;
+	}
+
+	.treeview .group [fold-button] {
+		display: inline-block;
+		padding: 10px;
+		width: 30px;
+		text-align: center;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+
+	.treeview .group [fold-button]:hover {
+		background: #AAA;
+	}
+
+	.treeview .item i {
+		margin-right: 10px;
+	}
+
+	.treeview .item[check-value="2"] i {
+		width: 18px;
+		height: 18px;
+		max-width: 18px;
+		max-height: 18px;
+		border: 1px solid #E8E8E8 !important;
+		box-sizing: border-box;
+		border-radius: 4px;
+	}
+
+	.treeview .item[check-value="1"] i {
+		width: 18px;
+		height: 18px;
+		max-width: 18px;
+		max-height: 18px;
+		border: 1px solid #E8E8E8 !important;
+		box-sizing: border-box;
+		border-radius: 4px;
+	}
+
+	.treeview .item[check-value="1"] i::before {
+		content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxOSAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUuNDI2MzIgMTEuODMxNUMxMC41MjQgNC43NzAzMiAxNy42NzM2IDAuNzA5NTkzIDE4LjQ4ODQgMS4wMDA5MUMxOC41MTU2IDEuMDEwNjIgMTguNTE1NiAxLjAxMDYyIDE4LjUwNTkgMS4wMzc3OEMxOC40NzY3IDEuMTE5MjcgOC4xNjUxNSA4Ljc5NzcgNS44OTI4NSAxNS4xNTM1QzUuNzU2OSAxNS41MzM4IDMuNTgzNjkgMTUuNjE0NiAzLjc2ODIgMTUuMDk4NUM0LjA2OTIzIDE0LjI1NjUgMi42MDY0NCA3LjYzNzQ5IDAuNDYwNjc0IDYuODcwMzVDLTAuMjE4MzY4IDYuNjI3NTggMS44MjMxMiA1Ljg4NzA0IDIuNzQ2NjEgNi4yMTcyQzQuNDAzNDcgNi44MDk1NSA1LjEzNTcxIDEwLjUwMjMgNS40MjYzMiAxMS44MzE1WiIgZmlsbD0iIzAwQUVDNyIvPgo8L3N2Zz4K") !important;
+		width: 15px;
+		height: 15px;
+		margin-left: 3px;
+		position: absolute;
+		margin-top: -3px !important;
+	}
+
+	.treeview .item[check-value="0"] i {
+		content: '';
+		box-sizing: content-box;
+		width: 15px;
+		height: 15px;
+		border: 1px solid #E8E8E8;
+		transition: 0.2s border-color ease;
+		border-radius: 4px;
+	}
+
+	.treeview .item[check-value="0"] i::before {
+		border: none;
+		content: '';
+	}

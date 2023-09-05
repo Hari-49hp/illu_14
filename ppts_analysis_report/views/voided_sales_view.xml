@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="voided_sales_sumy_tree" model="ir.ui.view">
+            <field name="name">voided.sales.summary.tree.view</field>
+            <field name="model">voided.sales.summary</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" invisible="1"/>
+                    <field name="sale_date"/>
+                    <field name="ticket_void" sum="Total Voided"/>
+                    <field name="cash" widget="monetary" sum="Total Cash"/>
+                    <field name="net_bank" widget="monetary" sum="Total Net Banking"/>
+                    <field name="bank" widget="monetary" sum="Total Bank"/>
+                    <field name="others" widget="monetary" sum="Others"/>
+                    <field name="total" widget="monetary" sum="Grand Total"/>
+                    <field name="pos_id" optional="hide"/>
+                    <field name="apt_id" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+        <record id="voided_sales_sumy_form" model="ir.ui.view">
+            <field name="name">voided.sales.summary.form.view</field>
+            <field name="model">voided.sales.summary</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+							<field name="name" invisible="1"/>
+                            <field name="sale_date"/>
+                            <field name="ticket_void"/>
+                            <field name="cash" widget="monetary"/>
+                            <field name="net_bank" widget="monetary"/>
+                            <field name="bank" widget="monetary"/>
+                            <field name="others" widget="monetary"/>
+                            <field name="total" widget="monetary"/>
+                            <field name="pos_id" invisible="1"/>
+                            <field name="apt_id" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+        <record id="sales_void_sumy_search" model="ir.ui.view">
+            <field name="name">voided.sales.summary.search.ppts</field>
+            <field name="model">voided.sales.summary</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Voided">
+                    <group expand="0" string="Group By">
+                        <filter string="Void Date" name="xdate_group" domain="[]" context="{'group_by': 'sale_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="voided_sales_sumy_action_view" model="ir.actions.act_window">
+            <field name="name">Voided Sales-Summary View</field>
+            <field name="res_model">voided.sales.summary</field>
+            <field name="context">{'search_default_xdate_group': 1, 'expand': 0}</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('voided_sales_sumy_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('voided_sales_sumy_form')})]"/>
+        </record>
+
+<!--        Detail  View-->
+
+        <record id="voided_detail_tree_view" model="ir.ui.view">
+            <field name="name">voided.sales.detail.tree</field>
+            <field name="model">voided.sales.detail</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" invisible="1"/>
+                    <field name="date"/>
+                    <field name="client"/>
+                    <field name="sold_by"/>
+                    <field name="voided_by"/>
+                    <field name="notes"/>
+                    <field name="color"/>
+                    <field name="size"/>
+                    <field name="price" widget="monetary"/>
+                    <field name="qty"/>
+                    <field name="sub_total" widget="monetary" sum="Total"/>
+                    <field name="discount"/>
+                    <field name="vat" widget="monetary" sum="Total VAT"/>
+                    <field name="total" widget="monetary" sum="Grand Total"/>
+                    <field name="amt_paid" widget="monetary" sum="Amount Paid Total"/>
+                    <field name="appointment_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="voided_detail_form_view" model="ir.ui.view">
+            <field name="name">voided.sales.detail.form</field>
+            <field name="model">voided.sales.detail</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+                            <field name="name" invisible="1"/>
+                            <field name="date"/>
+                            <field name="client"/>
+                            <field name="sold_by"/>
+                            <field name="voided_by"/>
+                            <field name="notes"/>
+                            <field name="color"/>
+                            <field name="size"/>
+                            <field name="price" widget="monetary"/>
+                            <field name="qty"/>
+                            <field name="sub_total" widget="monetary"/>
+                            <field name="discount"/>
+                            <field name="vat" widget="monetary"/>
+                            <field name="total" widget="monetary"/>
+                            <field name="amt_paid" widget="monetary"/>
+                            <field name="appointment_id" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+        <record id="sales_voided_detail_search" model="ir.ui.view">
+            <field name="name">sales.voided.detail.search.ppts</field>
+            <field name="model">voided.sales.detail</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Voided Detail">
+                    <filter string="Date" name="date" date="date"/>
+                    <separator/>
+
+                    <filter string="Today" name="today_booking_date" domain="[('date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday_date" domain="[('date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]" help="Yesterday"/>
+                    <filter string="Tomorrow"  name="tomorrow_date" domain="[('date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]" help="Tomorrow"/>
+                    <separator/>
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Date" name="xsale_date_group" domain="[]" context="{'group_by': 'date'}"/>
+                        <filter string="Voided By" name="xvoid_group" domain="[]" context="{'group_by': 'voided_by'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+        <record id="sales_voided_detail_action_view" model="ir.actions.act_window">
+            <field name="name">Voided Sales Detail View</field>
+            <field name="res_model">voided.sales.detail</field>
+            <field name="view_mode">tree,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('voided_detail_tree_view')})]"/>
+        </record>
+    </data>
+</odoo>

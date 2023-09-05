@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+	<data>
+
+		<record id="pos_session_tree_view_inherit" model="ir.ui.view">
+			<field name="name">pos.session</field>
+			<field name="model">pos.session</field>
+			<field name="inherit_id" ref="point_of_sale.view_pos_session_tree" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='state']" position="replace">
+					<field name="state" widget="badge" decoration-info="state in ('opening_control')" decoration-success="state == 'closed'" decoration-warning="state in ('opened','closing_control')"/>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="pos_order_filter_view_inherit" model="ir.ui.view">
+			<field name="name">pos.order</field>
+			<field name="model">pos.order</field>
+			<field name="inherit_id" ref="point_of_sale.view_pos_order_filter" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//filter[@name='invoiced']" position="before">
+					<field name="date_order"/>
+					<filter name="order_today" string="Orders Today" domain="[('date_order', '&gt;=', datetime.datetime.now().strftime('%m-%d-%Y 00:00:00')),('date_order', '&lt;=',datetime.datetime.now().strftime('%m-%d-%Y 23:23:59'))]"/>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="pos_order_form_view_inherit_cu_pos" model="ir.ui.view">
+			<field name="name">pos.order</field>
+			<field name="model">pos.order</field>
+			<field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//group[@name='order_total']" position="after">
+					<div class="pos_order_btm_div_apt">
+						<!-- <button name="edit_appointment" string="Edit Sale" type="object"  attrs="{'invisible':[('state', '!=','invoiced')]}"/>
+						<button name="return_all_credit_note" string="Return All" type="object"  attrs="{'invisible':[('state', '!=','invoiced')]}"/> -->
+						<button name="return_products" string="Return All" type="object"  attrs="{'invisible':[('state', '!=','invoiced')]}"/>
+						<!-- <button name="appointment_void" string="Void" type="object" attrs="{'invisible':[('state', '!=','invoiced')]}"/> -->
+					</div>
+				</xpath>
+				<xpath expr="//field[@name='amount_tax']" position="after">
+					<field name="pos_discount" invisible="1"/>
+				</xpath>
+
+			</field>
+		</record>
+
+		<!-- <record id="point_of_sale.action_pos_pos_form" model="ir.actions.act_window">
+			<field name="context">{'search_default_order_today':1}</field>
+		</record> -->
+
+
+	</data>
+</odoo>

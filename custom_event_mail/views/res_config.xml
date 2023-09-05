@@ -1,0 +1,55 @@
+<odoo>
+	<data>
+
+		<!-- Ir Config Settings Inherit -->
+		<record id="view_general_configuration_event_registrations" model="ir.ui.view">
+			<field name="name">Event Registrations</field>
+			<field name="model">res.config.settings</field>
+			<field name="inherit_id" ref="event.res_config_settings_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[@id='sell_tickets']" position='after'>
+					<div class="col-12 col-lg-6 o_setting_box" id="event_reg_expiry">
+						<div class="o_setting_left_pane">
+							
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="interval_number" string="Interval Number"/>
+							<field name="interval_number"/><br/>
+							<label for="interval_type" string="Interval Type"/>
+							<field name="interval_type"/><br/>
+
+							<!-- <button name="set_cron_intervals" string="Set Interval" type="object" class="fa fa-arrow-right oe_link"/> -->
+
+							<div class="text-muted">
+								Expiry mail inverval
+							</div>
+						</div>
+					</div>
+				</xpath>
+			</field>
+		</record>
+		<!-- Ir Config Settings Inherit -->
+
+		<record id="view_general_configuration_event_hr_mail" model="ir.ui.view">
+			<field name="name">Event Registrations</field>
+			<field name="model">res.config.settings</field>
+			<field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//div[@id='presence_reporting_setting']" position='after'>
+					<div class="col-12 col-lg-6 o_setting_box" id="hr_mail_availability_hr_setting" title="Minimum Availability Hrs of employee">
+						<div class="o_setting_left_pane">
+						</div>
+						<div class="o_setting_right_pane">
+							<label for="availability_minimum_mail"/>
+							<field name="availability_minimum_mail"/>
+							<div class="text-muted" name="availability_minimum_mail_advanced">
+								If the employee doesn't have the minimum availability mail will be send
+							</div>
+						</div>
+					</div>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>

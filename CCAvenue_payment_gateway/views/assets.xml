@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_frontend" inherit_id="web.assets_frontend">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/CCAvenue_payment_gateway/static/src/js/payment_form.js"></script>
+           <!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <script type="text/javascript" src="/CCAvenue_payment_gateway/static/src/js/jquery-1.7.2.min.js"></script> -->
+            <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> -->
+            
+        </xpath>
+    </template>
+</odoo>

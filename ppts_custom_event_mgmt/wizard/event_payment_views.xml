@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="event_payment_confirmation" model="ir.ui.view">
+			<field name="name">Pay Now</field>
+			<field name="model">event.payment.confirmation</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Pay Now" class="pay_now_wiz_frm_cls">
+					<center>
+						<field name="event_id" invisible="1"/>
+
+						<img src="\ppts_custom_event_mgmt\static\img\shop-cart.png" style="width:45%;"/>
+
+						<h1 style="font-size: 24px;margin: 10px;">Would you like to Process the Invoice for Payment?</h1>
+
+						<button name="pay_now" class="oe_highlight" string="Pay Now" type="object" style="font-size: 18px;"/>
+						<button name="pay_later" type="object" string="Pay Later" style="background: orange;border: 1px solid orange;color: #ffff;margin-left: 20px;font-size: 18px;"/>
+					</center>
+					<footer style="border: none;"></footer>
+				</form>
+			</field>
+		</record>
+	</data>
+</odoo>

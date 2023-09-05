@@ -1,0 +1,25 @@
+.highlight-availability{
+    background: #21c021;
+    color: #fff;
+}
+
+.datepicker-dropdown{
+    padding: 0 !important;
+}
+
+.datepicker .datepicker-switch, .datepicker .next, .datepicker .prev, .datepicker tfoot tr th{
+    /* background: #51BBEB !important; */
+}
+
+td.day.highlight-availability:hover {
+    background: gray !important;
+    border-radius: 0 !important;
+}
+
+.datepicker table tr td.active.active, .datepicker table tr td.active.highlighted.active, 
+.datepicker table tr td.active.highlighted:active, .datepicker table tr td.active:active {
+    color: #fff;
+    background-color: grey !important;
+    border-radius: 0 !important;
+    border-color: grey !important;
+}

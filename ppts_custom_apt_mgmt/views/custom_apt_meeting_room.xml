@@ -1,0 +1,80 @@
+<odoo>
+	<data>
+			<record id="view_apt_meeting_room_form_inherited" model="ir.ui.view">
+			<field name="name">apt.meeting.room</field>
+			<field name="model">event.meeting.room</field>
+			<field name="inherit_id" ref="website_event_meet.event_meeting_room_view_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='event_id']" position="after">
+					<field name="appointment_id" attrs="{'invisible':[('booking_types', '!=','appointment')]}"/>
+					<field name="apt_therapist_id" attrs="{'invisible':[('booking_types', '!=','appointment')]}"/>
+					<field name="apt_location_id" attrs="{'invisible':[True]}"/>
+				</xpath>
+
+				<xpath expr="//field[@name='reception_id']" position="after">
+					<field name="apt_start_dt" attrs="{'invisible':[('booking_types', '!=','appointment')]}"/>
+					<field name="apt_end_dt" attrs="{'invisible':[('booking_types', '!=','appointment')]}"/>
+ 					<field name="apt_duration" widget="float_time" attrs="{'invisible':[('booking_types', '!=','appointment')]}"/>
+ 					<field name="apt_max_seats" attrs="{'invisible':[('booking_types', '!=','appointment')]}"/>
+				</xpath>
+
+				<xpath expr="//field[@name='event_start_dt']" position="attributes">
+					<attribute name="attrs">{'invisible':[('booking_types', '=','appointment')]}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='event_end_dt']" position="attributes">
+					<attribute name="attrs">{'invisible':[('booking_types', '=','appointment')]}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='duration']" position="attributes">
+					<attribute name="attrs">{'invisible':[('booking_types', '=','appointment')]}</attribute>
+				</xpath>
+
+<!--				<xpath expr="//field[@name='event_id']" position="attributes">-->
+<!--					<attribute name="attrs">{'invisible':[('booking_types', '=','appointment')]}</attribute>-->
+<!--				</xpath>-->
+
+				<xpath expr="//field[@name='therapist_ids']" position="attributes">
+					<attribute name="attrs">{'invisible':[('booking_types', '=','appointment')]}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='event_location_id']" position="attributes">
+					<attribute name="attrs">{'invisible':[('booking_types', '=','appointment')]}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='max_seats']" position="attributes">
+					<attribute name="attrs">{'invisible':[('booking_types', '=','appointment')]}</attribute>
+				</xpath>
+				<xpath expr="//field[@name='event_id']" position="attributes">
+					<attribute name="attrs">{'invisible':[('booking_types', '=','appointment')]}</attribute>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record id="event_meeting_room_view_tree_appts" model="ir.ui.view">
+        <field name="name">event.meeting.room.tree.ppts</field>
+        <field name="model">event.meeting.room</field>
+		<field name="inherit_id" ref="website_event_meet.event_meeting_room_view_tree" />
+        <field name="arch" type="xml">
+
+			<xpath expr="//field[@name='event_start_dt']" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</xpath>
+
+			<xpath expr="//field[@name='event_id']" position="attributes">
+				<attribute name="invisible">1</attribute>
+			</xpath>
+
+			<xpath expr="//field[@name='name']" position="after">
+				<field name="event_id" invisible="1"/>
+ 				<field name="apt_start_dt" readonly="1"/>
+
+			</xpath>
+		</field>
+		</record>
+
+	</data>
+</odoo>

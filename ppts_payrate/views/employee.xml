@@ -1,0 +1,54 @@
+<odoo>
+	<data>
+		<!-- Form_view Event -->
+		<record id="view_calendar_hr_employee_inherited_recc" model="ir.ui.view">
+			<field name="name">hr.employee</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//page[5]" position="after">
+					<page string="Service Details" name="payrate">
+						<field name="pay_rate_ids">
+							<tree editable="bottom" class="booking_apt_state_book">
+								<field name="service_category_type_id" required="1" domain="[('is_appointment','=',True)]" options="{'no_create_edit': True,  'no_create': True}"/>
+								<field name="appoinment_type_id" domain="[('service_categ_id','=',service_category_type_id)]" options="{'no_create_edit': True,  'no_create': True}"
+								/>
+								<field name="duration_id" required="1" options="{'no_create_edit': True,  'no_create': True}"/>
+								<field name="unit_price"/>
+								<field name="staff_rate" invisible="1"/>
+								<field name="staff_rate_percentage" invisible="1"/>
+								<field name="unit_price_type" invisible="1"/>
+
+							</tree>
+						</field>
+					</page>
+				</xpath>
+			</field>
+		</record>
+
+<!-- 		<record id="view_apt_hr_rate_form_inherited" model="ir.ui.view">
+			<field name="name">event event form</field>
+			<field name="model">calendar.appointment.type</field>
+			<field name="inherit_id" ref="website_calendar.calendar_appointment_type_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='country_ids']" position="after">
+					<field name="service_categ_id" invisible="1"/>
+				</xpath>
+
+			</field>
+		</record>
+ -->
+<!--		<record id="view_apt_therapits_rate_form_inherited" model="ir.ui.view">-->
+<!--			<field name="name">appointment.line.id.rate</field>-->
+<!--			<field name="model">appointment.line.id</field>-->
+<!--			<field name="inherit_id" ref="ppts_custom_apt_mgmt.appointments_appointments_from_view" />-->
+<!--			<field name="arch" type="xml">-->
+<!--				<xpath expr="//field[@name='appointments_type_id']" position="after">-->
+<!--					<field name="therapist_id_rate"/>-->
+<!--				</xpath>-->
+<!--			</field>-->
+<!--		</record>-->
+
+
+	</data>
+</odoo>

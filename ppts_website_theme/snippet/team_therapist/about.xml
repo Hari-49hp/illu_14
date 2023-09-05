@@ -1,0 +1,81 @@
+<odoo>
+	<data>
+		<template id="template_therapist_about_page" name="About">
+			<!-- about therapist start -->
+			<section class="top-btmspace aboutillumination">
+				<div>
+					<div class="about_top_wave" data-aos="slide-up" data-aos-delay="300">
+						<svg id="svg-top-s" da="da" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 350" version="1.1" x="0px" y="0px" width="100%" style="enable-background:new 0 0 1440 350;">
+							<g>
+								<path fill="#f8f1e8" d="M0.8,286.2c0,0-0.8-167.1,133.6-111.2C239.1,144.1,256.1,74.5,443,129.4c162.9,60.9,309.4-27.9,671.7,56.6c126.2-18.7,114.9-92.5,221.1-70.4c141.4,29.3,88.8,213.4,264.1,188.5v46H716.6l-395.3,0L0.8,350C0.8,351.4,0.8,286.2,0.8,286.2z"/>
+							</g>
+						</svg>
+					</div>
+
+					<div class="container-fluid questtobehappy aboutherapest lightbrown-bg">
+						<div class="row">
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="500">
+								<span class="">About</span>
+								<h2 class="">Irine Lekishvili</h2>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+								<h6 data-aos="fade-up" data-aos-delay="900">Dr. Irine Lekishvili is a well-known hypnotherapist, psychotherapist &amp; trans-generational healer focusing on resolved inherited family programs.
+								</h6>
+
+								<p data-aos="fade-up" data-aos-delay="900">Theta Healing™ is a powerful technique that teaches us how to put to use our natural intuition, to experience instantaneous physical and emotional healing. By altering our brain wave cycle to include the “Theta” state, one can identify and replace limiting beliefs and negative life patterns, which are stored deep in our core, genetic, historic and soul level.</p>
+								<hr data-aos="fade-up" data-aos-delay="1000" class="myhr">
+									<h6 data-aos="fade-up" data-aos-delay="1100">Services offered:</h6>
+									<div class="abouttherappoints" data-aos="fade-up" data-aos-delay="1200">
+										<div>
+											<ul>
+												<li> Relationship Coaching </li>
+												<li> Private Consultations </li>
+												<li> Private Consultations </li>
+											</ul>
+										</div>
+										<div>
+											<ul>
+												<li> Empowerment Workshops </li>
+												<li> Corporate &amp; Certified Training Programs </li>
+											</ul>
+										</div>
+									</div>
+								</hr>
+							</div>
+						</div>
+						<div class="row" data-aos="fade-left" data-aos-delay="750">
+							<div class="owl-carousel aboutTherapist" id="aboutTherapist-image">
+								<div class="leadercont">
+									<img src="/ppts_website_theme/static/src/img/therapist1.jpg" class="userimage" alt=""/>
+								</div>
+								<div class="leadercont">
+									<img src="/ppts_website_theme/static/src/img/therapist2.jpg" class="userimage" alt=""/>
+								</div>
+								<div class="leadercont">
+									<img src="/ppts_website_theme/static/src/img/therapist4.jpg" class="userimage" alt=""/>
+								</div>
+								<div class="leadercont">
+									<img src="/ppts_website_theme/static/src/img/therapist3.jpg" class="userimage" alt=""/>
+								</div>
+							</div>
+							<div class="caresolearrow">
+								<button class="ourExpertNextBtn"> <i class="fas fa-caret-left"></i> </button>
+								<button class="ourExpertPrevBtn"> <i class="fas fa-caret-right"></i> </button>
+							</div>
+						</div>
+					</div>
+					<div class="about_bottom_wave" data-aos="slide-down" data-aos-delay="400" style="transform: scaleY(-1);margin-top: -2px;">
+						<svg id="svg-btm-s" da="da" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 290" version="1.1" x="0px" y="0px" width="100%" style="enable-background:new 0 0 1440 350;">
+							<g>
+								<path fill="#f8f1e8" translate="" d="M0.5,125c0,0-13.6-59.1,94.4-105c104.7-44.5,279.6,109.9,391.5,7.7c117.7-88.7,320.2,144.7,461,11.6 c86.8-81,183.3,67.7,289.6,99.4c141.5,42.2,145.9-47.4,203.5,11.9v138.2H716.7H321.2H0.5C0.5,290.8,0.5,125,0.5,125z"/>
+							</g>
+						</svg>
+					</div>
+				</div>
+			</section>
+
+			<script src='/ppts_website_theme/static/src/js/therapist/about.js'></script>
+			<!-- about therapist end -->
+		</template>
+	</data>
+</odoo>

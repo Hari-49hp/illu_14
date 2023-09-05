@@ -1,0 +1,432 @@
+<odoo>
+	<data>
+
+		<record id="view_apt_main_form_inherited_ppts_new" model="ir.ui.view">
+			<field name="name">calendar.appointment.form.add</field>
+			<field name="model">calendar.appointment.type</field>
+			<field name="inherit_id" ref="website_calendar.calendar_appointment_type_view_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//label[@for='name']" position="attributes">
+					<attribute name="string">Sub Category Name</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="placeholder">e.g. Spiritual Response Therapy</attribute>
+				</xpath>
+
+
+				<xpath expr="//notebook/page[@name='schedule_availability']" position="after">
+					<page string="Pricing" name="pricing_list_tab" invisible="1">
+						<group>
+							<h4>Pricing</h4>
+						</group>
+						<group>
+							<field name="apt_price_list_ids" nolabel="1">
+								<tree editable="bottom">
+									<field name="product_id" required="1"/>
+									<field name="price_list_id" invisible="1"/>
+									<field name="unit_price"/>
+								</tree>
+							</field>
+						</group>
+
+						<group>
+							<h4>Duration Price</h4>
+						</group>
+						<group>
+							<field name="duration_price_ids" nolabel="1">
+								<tree editable="bottom">
+									<field name="time_id" required="1"/>
+									<field name="apt_type_id" invisible="1"/>
+									<field name="price" required="1"/>
+								</tree>
+							</field>
+						</group>
+					</page>
+				</xpath>
+
+				<xpath expr="//field[@name='employee_ids']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+				<xpath expr="//page[@name='schedule_availability']/separator" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+				<xpath expr="//page[@name='schedule_availability']" position="attributes">
+					<attribute name="string">Website</attribute>
+				</xpath>
+
+				<xpath expr="//div[@class='oe_title']" position="before">
+					<div class="oe_button_box" name="button_box" groups="base.group_user">
+						<field name="is_published" widget="website_redirect_button"/>
+					</div>
+				</xpath>
+
+				<xpath expr="//div[@class='oe_title']" position="after">
+					<group>
+						<group>
+							<field name="type_code" required ="1"/>
+							<field name="is_appointment" invisible='1'/>
+							<field name="is_event" invisible='1'/>
+							<field name="is_training" invisible='1'/>
+							<field name="domain_filter" invisible='1'/>
+							<field name="type_appointment" string ="Mode of Event" required ="0" invisible="1"/>
+							<field name="service_categ_id" required ="1"  options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}"/>
+							<field name="category_type"/>
+							<field name="service_code"/>
+							<field name="cancel_interval_price" groups="base.group_no_one"/>
+							<field name="appointment_categ_id" required ="0" invisible="1"/>
+							<field name="duration_ids" widget="many2many_tags" invisible="1"/>
+
+							<label for="appointment_duration" invisible="1" groups="base.group_no_one"/>
+							<div groups="base.group_no_one" invisible="1">
+								<field name="appointment_duration" class="oe_inline" />
+								<span> hours</span>
+							</div>
+
+							<label for="min_cancellation_hours" string="Early Cancel" invisible="1"/>
+							<div invisible="1">
+								<div>
+									<field name="min_cancellation_hours" class="oe_inline" widget="float_time"/>
+									<span> hours before</span>
+								</div>
+							</div>
+
+							<!-- Hide as per customer sugesstion -->
+
+							<!-- 
+							<label for="cancel_interval_number" string="Early Cancel"/>
+							<div>
+								<div>
+									<field name="cancel_interval_number" class="oe_inline" required="1"/>
+									<field name="cancel_interval_range" class="oe_inline"/>
+								</div>
+							</div>
+
+							<label for="cancel_interval_price" string="Early Cancel Charge"/>
+							<div>
+								<div>
+									<field name="cancel_interval_price" class="oe_inline" required="1"/>
+								</div>
+							</div> -->
+
+
+							<!-- Hide as per customer sugesstion -->
+
+
+						</group>
+						<group>
+							<field name="appointment_tz" invisible="1"/>
+							<field name="reminder_ids" widget="many2many_tags" invisible="1"/>
+							<field name="location" invisible="1"/>
+							<field name="assignation_method" invisible="1"/>
+							<field name="country_ids" widget="many2many_tags" groups="base.group_no_one" invisible="1"/>
+							<field name="cpt_code" invisible="1"/>
+							<field name="company_id" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" widget="many2many_tags"/>
+							<field name="product_id" invisible="1"/>
+							<field name="comp_id" invisible="1"/>
+							<field name="company_currency_id" invisible="1"/>
+							<field name="product_price" widget="monetary" options="{'currency_field': 'company_currency_id'}" invisible="1"/>
+							<field name="revenue_category_id" invisible="1"/>
+							<field name="image"/>
+							<field name="website_url" invisible="1"/>
+							<field name="training_website_url" invisible="1"/>
+							<field name="website_publish"/>
+							<field name="feature_in_homepage" invisible='1'/>
+							<field name="feature_in_header"/>
+							<field name="tag_ids" widget="many2many_tags" required ="0"/>
+							<field name="allow_online" invisible="1"/>
+							<field name="show_additional" invisible="1"/>
+							<field name="allow_addon" attrs="{'invisible':[('show_additional', '=',False)]}"/>
+							<label for="interval_number" string="Expiry On" groups="base.group_no_one"/>
+							<div groups="base.group_no_one">
+								<div>
+									<field name="interval_number" class="oe_inline"/>
+									<field name="interval_range" class="oe_inline"/>
+								</div>
+							</div>
+							<field name="color_code" widget="color_picker" attrs="{'invisible':[('show_additional', '=',False)]}"/>
+							<field name="capacity" widget="integer" invisible="1"/>
+							<field name="deducted" widget="integer" invisible="1"/>
+							<field name="sort_order" widget="integer" invisible="1"/>
+						</group>
+
+					</group>
+				</xpath>
+
+				<xpath expr="//page[@name='schedule_availability']/group[1]" position="after">
+					<group>
+						<!-- <group name="app_left_details"> -->
+						<!-- <label for="type_code"/>
+							<div>
+								<field name="type_code" required ="1"/>
+							</div>
+							<label for="type_appointment" invisible="1"/>
+							<div>
+								<field name="type_appointment" string ="Mode of Event" required ="0" invisible="1"/>
+							</div> -->
+
+						<!-- <label for="service_categ_id"/>
+							<div>
+								<field name="service_categ_id" required ="1"/>
+							</div> -->
+
+						<!-- <label for="category_type"/>
+							<div>
+								<field name="category_type"/>
+							</div> -->
+
+						<!-- <label for="service_code"/>
+							<div>
+								<field name="service_code"/>
+							</div> -->
+						<!-- <label for="appointment_categ_id"/>
+							<div>
+								<field name="appointment_categ_id" required ="0"/>
+							</div> -->
+
+						<!-- <label for="cancel_interval_number" string="Early Cancel"/>
+							<div>
+								<div>
+									<field name="cancel_interval_number" class="oe_inline" required="1"/>
+									<field name="cancel_interval_range" class="oe_inline"/>
+								</div>
+							</div>
+
+							<label for="cancel_interval_price" string="Early Cancel Charge"/>
+							<div>
+								<div>
+									<field name="cancel_interval_price" class="oe_inline" required="1"/>
+								</div>
+							</div> -->
+
+						<!-- </group>
+
+						<group name="appt_right_details">
+
+
+						</group> -->
+					</group>
+
+					<group string="Online Description" invisible="1">
+						<!-- <group string="Online Description" attrs="{'invisible':[('allow_online', '=',False)],'required':[('allow_online', '=',True)]}"> -->
+						<field name="message_intro" nolabel="1"/>
+					</group>
+					<group string="">
+						<field name="short_description"/>
+						<field name="description"/>
+						<field name="certifications" attrs="{'invisible':[('is_appointment', '=',True)]}"/>
+						<field name="qualifications" attrs="{'invisible':[('is_appointment', '=',True)]}"/>
+						<field name="about_training" attrs="{'invisible':[('is_appointment', '=',True)]}"/>
+					</group>
+				</xpath>
+				<xpath expr="//page[@name='schedule_availability']" position="after">
+					<page string="Healing" attrs="{'invisible':[('category_type', '!=','healing')]}">
+						<field name="healing_content_ids">
+							<tree>
+								<field name="healing_id"/>
+							</tree>
+							<form>
+								<sheet>
+									<group>
+										<field name="healing_id"/>
+										<field name="html" widget="html"/>
+									</group>
+								</sheet>
+							</form>
+						</field>
+					</page>
+
+					<page string="Therapy" attrs="{'invisible':[('category_type', '!=','therapy')]}">
+						<group string="Description">
+							<field name="therapy_did_you_know"/>
+							<field name="therapy_learn_more"/>
+							<field name="therapy_full_description_list"/>
+						</group>
+
+						<group string="Healing &amp; Therapy Solutions:">
+							<field name="therapy_healing_therapy_header"/>
+							<field name="therapy_healing_therapy_learn_more"/>
+						</group>
+					</page>
+					<page string="Training Level" attrs="{'invisible':[('is_training', '=',False)]}">
+						<field name="training_line_id">
+							<tree>
+								<field name="sequence" widget="handle"/>
+								<field name="name"/>
+							</tree>
+							<form>
+								<sheet>
+									<group>
+										<field name="name"/>
+										<field name="notes" widget="html"/>
+									</group>
+								</sheet>
+							</form>
+						</field>
+					</page>
+					<page string="Training Question" attrs="{'invisible':[('is_training', '=',False)]}">
+						<field name="training_question_line_id">
+							<tree>
+								<field name="name"/>
+							</tree>
+							<form>
+								<sheet>
+									<group>
+										<field name="name"/>
+										<field name="html" widget="html"/>
+									</group>
+								</sheet>
+							</form>
+						</field>
+					</page>
+				</xpath>
+
+				<xpath expr="//page[@name='messages']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+				<xpath expr="//page[@name='questions']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+				<xpath expr="//page[@name='slots']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+				<xpath expr="//button[@name='action_calendar_meetings']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='is_published']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+				<xpath expr="//group[@name='right_details']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+				<xpath expr="//group[@name='left_details']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+			</field>
+		</record>
+
+		<!--		Appointments Type changed to Sub categories-->
+		<record id="custom_calendar_appointment_type_action" model="ir.actions.act_window">
+			<field name="name">Sub Category</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">calendar.appointment.type</field>
+			<field name="context">{'search_default_service_categ_id_group': 1,'default_is_appointment' : True}</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('service_categ_id.is_appointment','=',True)]</field>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new appointment sub category
+				</p>
+				<p>
+				Allow your customers to book an appointment on your website
+				by creating appointment sub category here.
+				</p>
+			</field>
+		</record>
+
+
+
+		<!--	tree view changes -->
+		<record id="calendar_appointment_type_view_tree_apt" model="ir.ui.view">
+			<field name="name">calendar.appointment.type.tree.add</field>
+			<field name="model">calendar.appointment.type</field>
+			<field name="inherit_id" ref="website_calendar.calendar_appointment_type_view_tree" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="string">Name</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='location']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+				<xpath expr="//field[@name='appointment_tz']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+				<xpath expr="//field[@name='employee_ids']" position="attributes">
+					<attribute name="invisible">True</attribute>
+				</xpath>
+
+			</field>
+		</record>
+
+
+
+		<!-- <record id="product_template_apt_hide_inherit_form" model="ir.ui.view">
+		<field name="name">product.template</field>
+		<field name="model">product.template</field>
+		<field name="inherit_id" ref="product.product_template_only_form_view" />
+		<field name="arch" type="xml">
+
+			<xpath expr="//page[@name='variants']" position="attributes">
+				<attribute name="attrs">{'invisible': [('product_used', '=','appointments')]}</attribute>
+			</xpath>
+
+			<xpath expr="//page[@name='general_information']" position="attributes">
+				<attribute name="attrs">{'invisible': [('product_used', '=','appointments')]}</attribute>
+			</xpath>
+
+			<xpath expr="//page[@name='invoicing']" position="attributes">
+				<attribute name="attrs">{'invisible': [('product_used', '=','appointments')]}</attribute>
+			</xpath>
+
+			<xpath expr="//page[@name='shop']" position="attributes">
+				<attribute name="attrs">{'invisible': [('product_used', '=','appointments')]}</attribute>
+			</xpath>
+
+			<xpath expr="//page[@name='sales']" position="attributes">
+				<attribute name="attrs">{'invisible': [('product_used', '=','appointments')]}</attribute>
+			</xpath>
+		</field>
+	</record> -->
+
+
+
+		<record id="healing_question_from_view" model="ir.ui.view">
+			<field name="name">Healing Question Form</field>
+			<field name="model">healing.question</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="html" widget="html"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="healing_question_tree_view" model="ir.ui.view">
+			<field name="name">Healing Question</field>
+			<field name="model">healing.question</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="healing_question_action_view" model="ir.actions.act_window">
+			<field name="name">Healing Question</field>
+			<field name="res_model">healing.question</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="healing_question_tree_view" />
+		</record>
+
+		<menuitem id="apppointments_master_healing_question" name="Healing Content" parent="menu_appointments_configuration" sequence="1000"/>
+		<menuitem id="apppointments_master_healing_content_menu" action="healing_question_action_view" name="Healing Content" parent="apppointments_master_healing_question" sequence="1"/>
+
+	</data>
+</odoo>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="event_waiting_normal_action_view" model="ir.actions.act_window">
+            <field name="name">Event</field>
+            <field name="res_model">event.event</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="event.view_event_tree" />
+        </record>
+
+        <!--        Parent My Practice-->
+        <menuitem name="My Center" id="menu_my_practice" sequence="68" web_icon="ppts_my_practice,static/description/icon.png" groups="ppts_my_practice.group_my_center_user" />
+
+        <!-- <menuitem id="menu_dashboard" name="Dashboard" parent="ppts_my_practice.menu_my_practice" action="ppts_my_practice.dashboard_action_view" sequence="101" /> -->
+        <!--        CRM Menu-->
+        <menuitem id="menu_my_crm" name="My Dashboard" parent="ppts_my_practice.menu_my_practice" sequence="102" groups="ppts_custom_event_mgmt.group_user" />
+        <!-- groups="ppts_my_practice.group_my_crm" -->
+        <menuitem id="menu_my_pipeline" name="Pipeline" parent="ppts_my_practice.menu_my_crm" action="crm.action_your_pipeline" sequence="103" />
+        <menuitem id="menu_my_activity" name="Sales Leads Activity" parent="ppts_my_practice.menu_my_crm" action="crm.crm_lead_action_my_activities" sequence="104" groups="ppts_custom_event_mgmt.group_manager"/>
+        <!-- <menuitem id="menu_my_lead" name="My Lead" parent="ppts_my_practice.menu_my_crm" action="crm.crm_lead_all_leads" sequence="105" /> -->
+        <!--        Tele Calling-->
+        <menuitem id="menu_tele_calling" name="CRM" parent="ppts_my_practice.menu_my_practice" sequence="202" groups="ppts_custom_event_mgmt.group_user" />
+        <!-- <menuitem id="menu_my_campaign" name="" parent="ppts_my_practice.menu_tele_calling" action="asterisk_dialer.campaign_crm_view_action" sequence="205" /> -->
+        <menuitem id="menu_campaign" name="Campaign Creator" parent="ppts_my_practice.menu_tele_calling" action="asterisk_dialer.asterisk_dialer_campaign_action" sequence="205" groups="ppts_custom_event_mgmt.group_admin_head"  />
+        <menuitem id="menu_my_call_histories" name="Sales Agent Calls history" parent="ppts_my_practice.menu_tele_calling" action="asterisk_calls.asterisk_calls_action" sequence="205" groups="ppts_custom_event_mgmt.group_manager"/>
+        <!--        Clients-->
+        <!-- <menuitem id="menu_clients" name="Clients" parent="ppts_my_practice.menu_my_practice" action="custom_partner.action_client" sequence="203" /> -->
+        <!--        Appointment-->
+        <menuitem id="menu_my_booking_activity" name="Activity calendar" parent="ppts_my_practice.menu_my_practice" action="ppts_custom_apt_mgmt.action_open_calendar_url" sequence="203" groups="ppts_custom_event_mgmt.group_user" />
+        
+
+        <menuitem id="menu_my_appointment" name="Appointment Page" parent="ppts_my_practice.menu_my_practice" sequence="204" />
+
+        <menuitem id="menu_my_appointment_addup" name="Appointment" parent="ppts_my_practice.menu_my_appointment" action="ppts_custom_apt_mgmt.appointments_appointments_action_view" sequence="2"/>
+
+
+        <menuitem id="menu_my_event_send_add" name="Event page" parent="ppts_my_practice.menu_my_practice" sequence="205" groups="ppts_my_practice.group_my_center_user"/>
+        <menuitem id="menu_my_event_even_calendar" name="Events Calendar" parent="ppts_my_practice.menu_my_event_send_add" action="ppts_custom_event_mgmt.open_view_even_calendar" sequence="204"/>
+        <menuitem id="menu_my_event_send_add_create" name="Event Creator" parent="ppts_my_practice.menu_my_event_send_add" action="ppts_my_practice.event_waiting_normal_action_view" sequence="205" groups="ppts_custom_event_mgmt.group_admin_head"/>
+        <menuitem id="menu_my_event_approved" name="Event Approval Page" parent="ppts_my_practice.menu_my_event_send_add" action="ppts_custom_checklist.action_event_waiting" sequence="207" groups="ppts_custom_event_mgmt.group_manager"/>
+	<menuitem id="menu_my_event_published" name="Client Registration Page" parent="ppts_my_practice.menu_my_event_send_add"
+                  action="ppts_event_registration_view.action_client_registrations" sequence="208" groups="ppts_my_practice.group_my_center_user" />
+       <!--  <menuitem id="menu_my_event_summary" name="Summary Page" parent="ppts_my_practice.menu_my_event_send_add" action="ppts_custom_event_mgmt.event_event_summary_tree_action" sequence="206" /> -->
+
+        <!--        POS-->
+        <menuitem id="menu_my_pos" name="POS" parent="ppts_my_practice.menu_my_practice" sequence="208" groups="ppts_custom_event_mgmt.group_admin_head" />
+        <menuitem id="menu_my_pos_dashboard" name="POS Dashboard" parent="ppts_my_practice.menu_my_pos" action="point_of_sale.action_pos_config_kanban" sequence="206" />
+        <menuitem id="menu_my_pos_order" name="Order" parent="ppts_my_practice.menu_my_pos" action="point_of_sale.action_pos_pos_form" sequence="207" />
+        <menuitem id="menu_my_pos_sessions" name="Cash Drawer" parent="ppts_my_practice.menu_my_pos" action="point_of_sale.action_pos_session" sequence="208" />
+        <menuitem id="menu_my_pos_payment" name="Payment" parent="ppts_my_practice.menu_my_pos" action="point_of_sale.action_pos_payment_form" sequence="209" />
+        <!-- employee -->
+        <menuitem id="menu_my_employee" name="Employee" parent="ppts_my_practice.menu_my_practice" sequence="405" />
+        
+        <menuitem id="menu_my_availabilit_men" name="Availability" parent="ppts_my_practice.menu_my_employee" action="ppts_employee_availability.availability_action_view" sequence="1" groups="ppts_custom_event_mgmt.group_admin_head" />
+        <menuitem id="menu_my_employee_employee" name="Employee" parent="ppts_my_practice.menu_my_employee" action="hr.open_view_employee_list_my" sequence="2" />
+
+        <!--            Reports--> 
+        <menuitem id="menu_my_reports" name="Reports" parent="ppts_my_practice.menu_my_practice" sequence="407" groups="ppts_custom_event_mgmt.group_admin_head"/>
+        <menuitem id="menu_my_sales_reports" name="Sales" parent="ppts_my_practice.menu_my_reports" action="sale.action_order_report_all" sequence="306" />
+        <!-- <menuitem id="menu_sales_report" name="Sales" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.service_summary_action_wizard" sequence="307"/>
+        <menuitem id="menu_sales_service" name="Sales By Service" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.sale_service_summary_action_wizard" sequence="308"/>
+        <menuitem id="menu_sales_category" name="Sales By Category" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.sale_by_category_action_wizard" sequence="309"/>
+        <menuitem id="menu_sales_rep" name="Sales By Rep" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.sale_rep_summary_action_wizard" sequence="310"/>
+        <menuitem id="menu_sales_product" name="Sales By Product" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.sale_product_summary_action_wizard" sequence="311"/>
+        <menuitem id="menu_sales_tax_summary" name="Sales Tax" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.sale_tax_summary_action_wizard" sequence="312"/>
+        <menuitem id="menu_best_sellers_summary" name="Best Sellers" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.sale_sellers_summary_action_wizard" sequence="313"/>
+        <menuitem id="menu_invoice_report" name="Invoice" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.invoice_action_wizard" sequence="314"/>
+        <menuitem id="menu_attendance_revenue" name="Attendance With Revenue" parent="ppts_my_practice.menu_my_reports" action="ppts_analysis_report.attendance_wizard_action_wizard" sequence="315"/> -->
+
+
+    </data>
+</odoo>

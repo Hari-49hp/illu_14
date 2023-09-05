@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="crm_stage_inherit_form" model="ir.ui.view">
+        <field name="name">crm.stage.inherit.form</field>
+        <field name="model">crm.stage</field>
+        <field name="inherit_id" ref="crm.crm_stage_form"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//form/sheet/group/group/field[@name='is_won']" position='before'>
+                <field name="campaign_type_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}"/>
+            </xpath>
+ -->
+            <xpath expr="//form/sheet/group/group/field[@name='is_won']" position='after'>
+                <field name="create_contact" groups="base.group_no_one" invisible="1"/>
+                <field name="paid_booking" groups="base.group_no_one" invisible="1"/>
+                <field name="is_register" groups="base.group_no_one" invisible="1"/>
+                <field name="quick_remarks_id" required="1"/>
+
+        </xpath>
+    </field>
+    </record>
+
+</odoo>

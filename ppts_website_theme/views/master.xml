@@ -1,0 +1,130 @@
+<odoo>
+    <data>
+
+        <menuitem id="website_master_menu_view_top" name="Masters" parent="website.menu_website_configuration" sequence="80" />
+
+        <!-- Form_view Testimonial -->
+        <record id="master_testimonial_from_view" model="ir.ui.view">
+            <field name="name">Testimonial</field>
+            <field name="model">testimonial</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Title"/>
+                            </h1>
+                            <div class="o_row">
+                                <label for="website_publish" string="Website Publish"/>
+                                <field name="website_publish" widget="boolean_toggle"/>
+                                <label for="feature_in_homepage" string="Feature in Homepage"/>
+                                <field name="feature_in_homepage" widget="boolean_toggle"/>
+                                <label for="in_training_individual_page" string="In Training Individual page"/>
+                                <field name="in_training_individual_page" widget="boolean_toggle"/>
+                                <label for="in_retreats_page"/>
+                                <field name="in_retreats_page" widget="boolean_toggle"/>
+                            </div>
+                        </div>
+                        <group>
+                            <group>
+                                <!-- <field name="image_1920" class="oe_avatar" widget="image" options="{&quot;preview_image&quot;: &quot;image_128&quot;}"/> -->
+                                <!-- style="float:left;max-width: 90px;max-height: 90px;" -->
+                                <field name="image_av"/>
+                            </group>
+                            <group>
+                                <!--                                <field name="video_1920" />-->
+                                <field name="video_url" />
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="description"/>
+                                <field name="partner_id" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True}"/>
+                                <field name="service_type" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True}"/>
+                            </group>
+                            <group>
+                                <field name="employee_id" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True}"/>
+                                <field name="employee_type" widget="many2many_tags" placeholder="Job Position" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True, 'color_field': 'color'}"/>
+                                <field name="tags_ids" widget="many2many_tags" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True}"/>
+                                <field name="priority" widget="priority"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form -->
+
+        <!-- Tree_view -->
+        <record id="master_testimonial_tree_view" model="ir.ui.view">
+            <field name="name">Testimonial</field>
+            <field name="model">testimonial</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="partner_id" />
+                    <field name="service_type" />
+                    <field name="employee_id" />
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="master_testimonial_action_view" model="ir.actions.act_window">
+            <field name="name">Testimonial</field>
+            <field name="res_model">testimonial</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="master_testimonial_tree_view" />
+        </record>
+        <!-- Action -->
+
+        <record id="ppts_custom_appt_type_search" model="ir.ui.view">
+            <field name="name">Testimonial</field>
+            <field name="model">testimonial</field>
+            <field name="arch" type="xml">
+                <search string="Search Appointment Type">
+                    <field name="partner_id" string="Customer"/>
+                    <field name="website_publish" string="Published"/>
+                    <field name="feature_in_homepage" string="Featured"/>
+
+                    <filter string="Published" name="website_publish" domain="[('website_publish','=',True)]"/>
+                    <filter string="Featured" name="feature_in_homepage" domain="[('feature_in_homepage','=',True)]"/>
+
+                    <group expand="1" string="Group By">
+                        <filter string="Employe Type" name="employee_type" domain="[]" context="{'group_by': 'employee_type'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Tree_view -->
+        <record id="master_testimonial_tags_tree_view" model="ir.ui.view">
+            <field name="name">Testimonial Tags</field>
+            <field name="model">testimonial.tags</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" />
+                    <field name="website_publish" widget="boolean_toggle"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="master_testimonial_tags_action_view" model="ir.actions.act_window">
+            <field name="name">Testimonial Tags</field>
+            <field name="res_model">testimonial.tags</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="master_testimonial_tags_tree_view" />
+        </record>
+        <!-- Action -->
+
+        <menuitem id="website_sub_master_menu_view_testimonial" name="Testimonial" parent="ppts_website_theme.website_master_menu_view_top" sequence="1" />
+        <menuitem id="website_master_menu_view_testimonial" name="Testimonial" action="ppts_website_theme.master_testimonial_action_view" parent="ppts_website_theme.website_sub_master_menu_view_testimonial" sequence="1" />
+        <menuitem id="website_master_menu_view_testimonial_tags" name="Tags" action="ppts_website_theme.master_testimonial_tags_action_view" parent="ppts_website_theme.website_sub_master_menu_view_testimonial" sequence="2" />
+
+    </data>
+</odoo>

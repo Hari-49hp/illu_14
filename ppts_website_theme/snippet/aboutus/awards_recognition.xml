@@ -1,0 +1,75 @@
+<odoo>
+	<data>
+		<template id="illuminations_awards_recognition_snippet" name="Awards &amp; Recognition">
+			<!-- Awards & Recognition start -->
+			<section class="top-btmspace aboutillumination sectiion_top_padding80" data-aos="fade-up">
+                <div class="abovefooter">
+                    <div id="AwardSectionLiHoverVisible" class="wardimagemorping aboutmoro" data-aos="fade-up" data-aos-delay="600">
+                        <img src="/ppts_website_theme/static/src/img/abt-achive.png" />
+                    </div>
+                    <div class="noanimate_top_wave" >
+                        <svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 165"
+                            preserveAspectRatio="xMinYMax meet" version="1.1">
+                            <g>
+                                <path class="light-brown-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+                                    c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+                                    l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="container-fluid questtobehappy awardreg section_padd_left_right190_80 sectiion_btm_padding80 lightbrown-bg">
+
+                            <div class="row">
+                                <div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up"
+                                    data-aos-delay="800">
+                                    <div class="arrow-scroll leftside">
+                                        <svg viewBox="0 0 426 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+                                                <path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4"></path>
+                                                <path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                                                    c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z"></path>
+                                                </g>
+
+                                            </svg>
+                                        </div>
+                                        <h2 class="">Awards &amp; Recognition
+                                        </h2>
+                                        <p>Pioneering Dubai’s Well-being Movement Since 2006!</p>
+
+                                    </div>
+                                    <div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo" data-aos="fade-up"  data-aos-delay="900">
+
+                                        <div>
+                                            <ul class="awardlists listwithdots">
+                                                <li>
+                                                    Founder Awarded the Young Asian Entrepreneurs Award
+                                                </li>
+                                                <li>
+                                                    Featured on the Cover of Start Up Magazine &amp; Several Leading Publications
+                                                </li>
+                                                <li>
+                                                    Organizing Large Scale Events &amp; Trainings for World Renowned Author &amp; Healer
+                                                </li>
+                                                <li>
+                                                    1st Center to Organize Regular Non Profit Awareness Seminar on Different Holistic &amp;
+                                                    Well-Being Topics
+                                                </li>
+                                                <li>
+                                                    Largest Holistic Training Academy &amp; Student Base
+                                                </li>
+                                                <li>
+                                                    1st Center to Pioneer the Regular Meditation Classes
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+                    <!-- Awards & Recognition end -->
+                </template>
+            </data>
+        </odoo>

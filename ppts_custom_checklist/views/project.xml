@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!--Event State -->
+	<record id="custom_event_event_form_view_inherit" model="ir.ui.view">
+		<field name="name">Stages</field>
+		<field name="model">project.task.type</field>
+		<field name="inherit_id" ref="project.task_type_edit" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='name']" position="after">
+				<field name="event_stage" string="Event State"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>

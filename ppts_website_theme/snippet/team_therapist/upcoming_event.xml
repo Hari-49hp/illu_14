@@ -1,0 +1,11 @@
+<odoo>
+	<data>
+		<template id="template_therapist_upcomingsection_page" name="Offers">
+
+			<!-- UPCOMING EVENTS Section Start -->
+			<t t-call="ppts_website_theme.upcoming_calendar_website_all"/>
+			<!-- UPCOMING EVENTS Section END -->
+
+		</template>
+	</data>
+</odoo>

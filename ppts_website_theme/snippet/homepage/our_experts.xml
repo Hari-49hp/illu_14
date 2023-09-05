@@ -1,0 +1,96 @@
+<odoo>
+	<data>
+		<template id="illuminations_our_experts_snippet" name="Our Experts">
+			<!-- OUREXPERT SECTION STARTS -->
+			<section class="ourexpert_more-container " id="ourexperts">
+				<div class="section ourexpertsec sectionspace">
+					<div class="outexpert-background ">
+						<!-- <svg class="wavecss" style="background: #fff;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+							<path id="ourexpert-top-wave" d="" /></svg> -->
+						<div class="top-wave-svg">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="full-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+											c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+											c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+											c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z" />
+								</g>
+							</svg>
+						</div>
+						<div class="bgblueexpert"></div>
+						<div class="bottom-wave-svg" style="background-color: #f8feff">
+							<svg class="topsvg svgclass btnsvg-reverse"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="full-blue-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+									c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+									l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z" />
+								</g>
+							</svg>
+						</div>
+						<!-- <svg class="wavecss" version="1.1" style="transform: scaleY(-1);" xmlns="http://www.w3.org/2000/svg">
+							<path id="ourexpert-btm-wave" d="" /></svg> -->
+					</div>
+					<div class="ourexpert-wrapper eachsection">
+
+						<div class="ourexpert-container eachsection">
+							<div class="arrow-scroll leftside">
+								<svg viewBox="0 0 426 142" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+										<path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+										<path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+										c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+									</g>
+
+								</svg>
+							</div>
+							<div class="row animation-test mycontainer">
+
+								<div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+									<div class="ourteam-typo" data-aos="fade-up" data-aos-delay="200">
+										<span> Thetapists </span>
+										<h2> Our Experts </h2>
+										<p>Illuminations is a one stop shop for all
+											your well-being needs! Select from our wide range of services. Stop shop for all
+											your well-being needs!</p>
+										<div>
+											<a href="/appointment/checkout">
+												<button type="button" class="white-btn">Book An Appointment</button>
+											</a>
+											<a href="/team">
+												<button type="button" class="viewallbtn-white">View All</button>
+											</a>
+										</div>
+
+									</div>
+								</div>
+								<div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+
+									<div class="owl-carousel exper-slider-caresole">
+
+
+									</div>
+									<div class="col-xl-11 col-lg-4 col-md-4 col-sm-4 col-xs-4 ourexpert_arrow" data-aos="fade-left" data-aos-delay="750">
+										<button class="ourExpertNextBtn">
+											<i class="fas fa-chevron-left"></i>
+										</button>
+										<button class="ourExpertPrevBtn">
+											<i class="fas fa-chevron-right"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- OUREXPERT SECTION END -->
+
+			<script src='/ppts_website_theme/static/src/js/homepage/our_experts.js'></script>
+
+			<!-- OUREXPERT SECTION END -->
+		</template>
+	</data>
+</odoo>

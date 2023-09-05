@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="templateposProductScreen" xml:space="preserve">
+
+
+	 <t t-name="ProductsWidgetControlPanel_custom" owl="1">
+                   <input t-ref="search-word-input" class="custom-panel-field-search" type="text" placeholder="Search Products..." t-on-keyup="updateSearch" />
+    </t>
+    
+    
+        <t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+        
+        	<xpath expr="//div[hasclass('rightpane')]/ProductsWidget" position="before">
+        		<ProductsWidgetControlPanel breadcrumbs="[]" subcategories="[]" hasNoCategories="hasNoCategories" />
+        	</xpath>
+        	
+        
+        </t>
+
+    <t t-name="ProductsWidget" t-inherit="point_of_sale.ProductsWidget" t-inherit-mode="extension" owl="1">
+    
+    	
+    
+    	<xpath expr="//ProductsWidgetControlPanel" position="before">
+    					
+   		                <div class="center-pane"  t-on-load="_switchCategory" style="width:70%;">
+	   		                	<!-- <div class="products-widget-control">
+	   		                		<div class="rightpane-header green-border-bottom">
+	   		                			<span class="custom-category-search-box">Products</span>
+	   		                		</div>
+	   		                	</div> -->
+	   		                	
+	   		                	<div class="custom-pos-search-boxes" style="background:rgb(236,236,236);padding:5px;">
+		   		                	<!-- <nav>
+										  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+										    <button class="nav-link active" t-on-click="get_type_search_product" id="nav-products-tab" data-bs-toggle="tab" data-bs-target="#nav-products" type="button" role="tab" aria-controls="nav-products" style="width:32%;">Products</button>
+										    <button class="nav-link" t-on-click="get_type_search_service" id="nav-service-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" style="width:32%;">Service</button>
+										    <button class="" t-on-click="" id="" data-bs-toggle="tab" data-bs-target="" type="button" role="tab" aria-controls="nav-products" style="color:white;background-color:white;width:36%;border-top:0px;border-right:0px;" >#</button>
+										  </div>
+										</nav> -->
+										<div class="tab-content" id="nav-tabContent" style="width:100%;">
+										  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+										  	<div style="width:100%;display:flex;">
+										  		<div style="width:12%;padding:8px;text-align:inherit;padding-left:inherit !important;">
+										  			<label for="custom-category-search">Show :</label>
+										  		</div>
+										  		<div style="width:75%">
+													<select name="custom-category-search" class="custom-category-search" t-on-change="_switchCategory">
+													
+														<option value="-1" selected="selected" t-on-change="_switchCategory">
+															<span>---Select Category---</span>
+														</option>
+														<option value="0" t-on-change="_switchCategory">
+															<span>All Categories</span>
+														</option>
+													  <!-- categories -->
+								                        <t t-foreach="subcategories" t-as="category" t-key="category.id">
+								                        	<option t-att-value="category.id" t-on-change="_switchCategory">
+									                            <span class="category-simple-button"
+														              t-on-change="_switchCategory">
+														            <t t-esc="category.name" />
+														        </span>
+													        </option>
+								                        </t>
+													</select>
+												</div>
+											</div>
+										
+													
+													<br/>
+													<hr style="width:72%;"/>
+													<br/>
+													
+													
+											<div style="width:100%;display:flex;">
+										  		<div style="width:12%;padding:8px;text-align:inherit;padding-left:inherit !important;">
+										  			<label for="custom-field-search">Search By :</label>
+										  		</div>
+										  		<div style="width:75%">
+													<select name="custom-field-search" class="custom-field-search" t-on-change="_switchFieldSearch">
+													  <!-- Fields -->
+													  
+													  	<option value="all_fields" t-on-change="" selected="selected">
+									                            <span class="">
+									                            	All Fields
+														        </span>
+													        </option>
+													  
+								                        <t t-foreach="env.pos.db.product_fields" t-as="field" t-key="field.id">
+								                        	<option t-att-value="field.name" t-on-change="" >
+									                            <span class=""
+														              t-on-change="">
+														            <t t-esc="field.field_description" />
+														        </span>
+													        </option>
+								                        </t>
+													</select>
+												</div>
+											</div>
+													
+													<br/>
+													
+											<div style="width:100%;display:flex;">
+										  		<div style="width:12%;padding:8px;padding-left:inherit !important;">
+										  		</div>
+										  		<div style="width:75%">
+													<ProductsWidgetControlPanel_custom/>
+												</div>
+											</div>
+													
+										  
+										  </div>
+										</div>
+	   		                	
+								</div>
+	   		                	
+		                </div>
+    	
+    	</xpath>
+    	
+    	<xpath expr="//ProductsWidgetControlPanel" position="replace">
+    	</xpath>
+    	
+    </t>
+    
+    
+    <t t-name="ProductsWidgetControlPanel" t-inherit="point_of_sale.ProductsWidgetControlPanel" t-inherit-mode="extension" owl="1">
+    
+    	<xpath expr="//div[hasclass('breadcrumbs')]" position="before">
+        		<div class="category-simple-button nav-link active" t-on-click="get_type_search_product" id="nav-products-tab">Products</div>
+        		<div class="category-simple-button nav-link" t-on-click="get_type_search_service" id="nav-service-tab">Services</div>
+        		<div class="category-simple-button nav-link" t-on-click="" id="nav-membership-tab">Membership</div>
+        		<div class="category-simple-button nav-link" t-on-click="" id="nav-subscription-tab">Subscription</div>
+        </xpath>
+        	
+        	<xpath expr="//Portal" position="replace"/>
+        	
+    </t>
+    
+    
+    <t t-name="ProductScreen" t-inherit="point_of_sale.ProductScreen" t-inherit-mode="extension" owl="1">
+
+    
+    	<xpath expr="//div[hasclass('subpads')]" position="replace">
+    		
+
+	    	 <div class="subpads">
+			    <div class="actionpad">
+			  
+			    	
+		            <button class="button set-customer" t-att-class="{'decentered': isLongName}"
+		                    t-on-click="trigger('click-customer')">
+		                <t t-if="!env.isMobile"><i class="fa fa-user" role="img" aria-label="Customer" title="Customer" /></t>
+		                <t t-if="client">
+		                    <t t-esc="client.name" />
+		                </t>
+		                <t t-else="">
+		                    Customer
+		                </t>
+		            </button>
+		        </div>
+	        	<NumpadWidget activeMode="state.numpadMode" />
+	        	<ActionpadWidget client="client"/>
+	        </div>
+        </xpath>
+        	
+    </t>
+    
+     <t t-name="ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
+     
+     
+    
+    	<xpath expr="//div[hasclass('actionpad')]/button[2]" position="replace">
+    		 <br/>
+	    	 <button class="button pay set-customer" t-on-click="trigger('click-pay')">
+                 <div class="pay-circle"> 
+                    <i class="fa fa-chevron-right" role="img" aria-label="Pay" title="Pay" />
+                </div>
+                <div style="padding: 13px 13px 13px 13px;color:green;font-size: 17px;">Proceed</div>
+            </button>
+            <br/>
+        </xpath>
+        
+        
+        <xpath expr="//div[hasclass('actionpad')]/button[1]" position="replace">
+	    	 <!-- <button class="button pay set-customer" t-on-click="trigger('click-pay')">
+                 <div class="pay-circle"> 
+                    <i class="fa fa-chevron-right" role="img" aria-label="Pay" title="Pay" />
+                </div>
+                <div style="padding: 13px 13px 13px 13px">Payment</div>
+            </button> -->
+        </xpath>
+        	
+    </t>
+    
+    
+
+</templates>

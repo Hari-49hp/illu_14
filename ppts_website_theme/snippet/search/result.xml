@@ -1,0 +1,613 @@
+<odoo>
+	<data>
+		<template id="theme_search_page_result" name="Search">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure">
+					<style>
+						.side_side {
+						width: 378px;
+						height: 100%;
+						background: #fff;
+						clip-path: url(#slopeclip);
+						-webkit-clip-path: url(#slopeclip);
+						position: absolute;
+						right: 0;
+						transition: 1s;
+						-webkit-transition: 1s;
+						-moz-transition: 1s;
+						-ms-transition: 1s;
+						-o-transition: 1s;
+						transform: translate(0px, 0px);
+						-webkit-transform: translate(0px, 0px);
+						-moz-transform: translate(0px, 0px);
+						-ms-transform: translate(0px, 0px);
+						-o-transform: translate(0px, 0px);
+						}
+
+						.side_sidel {
+							width: 378px;
+							height: 100%;
+							background: #fff;
+							clip-path: url(#slopeclipl);
+							-webkit-clip-path: url(#slopeclipl);
+							position: absolute;
+							right: 0;
+							transition: 1s;
+							-webkit-transition: 1s;
+							-moz-transition: 1s;
+							-ms-transition: 1s;
+							-o-transition: 1s;
+							transform: translate(0px, 0px);
+							-webkit-transform: translate(0px, 0px);
+							-moz-transform: translate(0px, 0px);
+							-ms-transform: translate(0px, 0px);
+							-o-transform: translate(0px, 0px);
+						}
+
+						.wrapper:hover .side_side {
+						background: #E0F3F9;
+						clip-path: url("#ameba");
+						transition: all ease 150ms;
+						transform: translate(20px, 20px);
+						}
+
+						.wrapper:hover .side_sidel {
+							background: #E0F3F9;
+							clip-path: url("#amebal");
+							transition: all ease 150ms;
+							transform: translate(20px, 20px);
+						}
+
+						footer > section > div{
+                            background: #fff;
+                        }
+
+					</style>
+
+					<section class="subpage-top-hero-section-two light-blue-bg">
+						<div class="row hero-section-two search-page-banner mycontainer">
+							<div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12 ">
+								<div class="hero-two-left">
+
+									<p>Find what are you looking for</p>
+									<h1>Start your jouney with Illuminations</h1>
+									<div class="search-input-wrapper">
+										<div class="searchinputform">
+											<form class="row" action="/search/result" method="post" data-mark="*">
+												<input type="search" name="searchinput" t-att-value="search_result" placeholder="Search..." class="searchicon" autocomplete="off" autofocus="True"/>
+												<button class="searchfillbtn" type="submit">Start journey</button>
+											</form>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12 searchpagerightsection">
+								<div class="hero-two-right">
+									<div class="image-orvideocpnt">
+										<img src="/ppts_website_theme/static/src/img/searchbanner.jpg" />
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<Section class="search-result-wrapper">
+						<div class="fqa-wrapperlistsitems mycontainer">
+							<!-- Start Tabs -->
+							<h2>Search results: “<t t-esc="search_result"/>
+”</h2>
+							<div class="nav-tabs-wrapper " data-aos="fade-up" data-aos-delay="50">
+								<ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+									<li class="nav-item">
+										<a class="nav-link active" data-toggle="tab" href="#tabA">All</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tabB">Articles</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tabC">Services</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tabD">Events</a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" data-toggle="tab" href="#tabE">Therapists</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="tab-content ">
+								<div class="tab-pane fade show active" id="tabA">
+									<section class="featured-post sectionspace" data-aos="fade-up" data-aos-delay="100">
+										<div class="search-subheader-cont row">
+											<h3>Articles:</h3>
+											<div class="ourexpert_arrow align-items-center">
+												<button class="searchresultArticleNextBtn">
+													<i class="fas fa-chevron-left"></i>
+												</button>
+
+												<button class="searchresultArticlePrevBtn">
+													<i class="fas fa-chevron-right"></i>
+												</button>
+											</div>
+										</div>
+
+										<div class="row owl-carousel mostlike-this_slider" id="searchresult-article">
+											<t t-foreach="blog_data[:5]" t-as="each_blog">
+												<div class="featurecard-items">
+													<div class="oberlay-tags">
+														<t t-foreach="each_blog['idt'].tag_ids" t-as="tags_id">
+															<label>
+																<t t-esc="tags_id.name"/>
+															</label>
+														</t>
+													</div>
+													<img t-att-src="each_blog['image']" class="userimage" alt=""/>
+													<a t-attf-href="/blog/{{slug(each_blog['idt'].blog_id)}}/{{each_blog['idt'].id}}">
+														<h5>
+															<t t-esc="each_blog['name']"/>
+														</h5>
+														<p>
+															<t t-esc="each_blog['subtitle']"/>
+														</p>
+													</a>
+													<div class="post-infos">
+														<label class="views">
+															<t t-esc="each_blog['visits']"/>
+														</label>
+														<label class="dates">
+															<t t-esc="each_blog['date']"/>
+														</label>
+														<label class="user">
+															<t t-esc="each_blog['author_id']"/>
+														</label>
+													</div>
+												</div>
+											</t>
+
+											<div t-if="not blog_data" class="" data-aos="fade-up" data-aos-delay="250" style="width: 100%;text-align: center;">
+												<h3 style="margin: 0;">
+													No Article
+												</h3>
+											</div>
+
+											<div class="text-center padtop30 d-block d-md-none" data-aos="fade-up" data-aos-delay="300">
+												<button class="borderedbtn">Show More <i class="fas fa-caret-down"></i>
+												</button>
+											</div>
+
+										</div>
+
+									</section>
+									<!-- Articles: SECTION END -->
+
+									<!-- SERVICES SECTION START -->
+									<!-- <t t-if="service_data"> -->
+									<section class="section sectionspace therapestservice">
+										<div class="services-wrapper">
+											<h3 data-aos="fade-up" data-aos-delay="100">Services</h3>
+											<div class="row">
+
+												<t t-foreach="service_data[:3]" t-as="each_service">
+													<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="250">
+														<div class="service-lists-item">
+															<img t-att-src="each_service['image']" alt="serviceimageone" loading="lazy"/>
+															<div class="service-svg-shapes-overlay">
+																<div class="wrapper">
+																	<div class="side_side"></div>
+																	<svg class="side_wave" id="gt">
+																		<clipPath id="slopeclip">
+																			<path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68 C291.52,25.62,277.81,69.57,251.96,125.52z" />
+																		</clipPath>
+																	</svg>
+																	<svg class="morp">
+																		<clipPath id="ameba">
+																			<path fill="#9cccfd">
+																				<animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+																					c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+																					c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+																					c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+																					
+																					M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+																					c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+																					c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+																					C48.9,198.6,57.8,191,51,171.3z;
+																					
+																					M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+																					c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+																					c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+																					c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+																			</path>
+																		</clipPath>
+																	</svg>
+
+																</div>
+																<h4>
+																	<t t-esc="each_service['name']"/>
+
+																</h4>
+															</div>
+														</div>
+													</div>
+												</t>
+
+												<div t-if="not service_data" class="" data-aos="fade-up" data-aos-delay="250" style="width: 100%;text-align: center;">
+													<h3 style="margin: 0;">
+															No Service
+													</h3>
+												</div>
+
+
+
+
+											</div>
+										</div>
+									</section>
+									<section class="upcomingsection">
+										<h3 data-aos="fade-up" data-aos-delay="100">Events:</h3>
+										<div class="calendar-wrapper">
+											<t t-foreach="event_data[:3]" t-as="each_event">
+
+												<div class="calenday-eventlist-item">
+													<div class="cal-event-img">
+														<label class="filtercatlabel">
+															<t t-esc="each_event['platform']"/>
+														</label>
+														<img t-att-src="each_event['image']" alt="eventimageone" loading="lazy"/>
+													</div>
+													<div class="eventfullinfos">
+														<div class="event-typoingo">
+															<div class="eventtitleinfos">
+																<a class="a-clr" t-attf-href="/event/{{slug(each_event['id'])}}/register" data-toggle="tooltip" data-placement="top" t-att-title="each_event['name']">
+																	<h5>
+																		<t t-esc="each_event['name']"/>
+																	</h5>
+																</a>
+																<label class="training chipsone">
+																	<t t-esc="each_event['event_sub_categ_id']"/>
+																</label>
+															</div>
+															<div class="eventinfos">
+																<label>
+																	<img src="/ppts_website_theme/static/src/img/location-icon.svg" width="24px" height="24px"/>
+																	<t t-esc="each_event['location']"/>
+																</label>
+																<label>
+																	<img src="/ppts_website_theme/static/src/img/calendar-icon.svg" width="24px" height="24px"/>
+																	<t t-esc="each_event['date']"/>
+																</label>
+																<label>
+																	<img src="/ppts_website_theme/static/src/img/time-icon.svg" width="24px" height="24px"/>
+																	<t t-esc="each_event['time']"/>
+																</label>
+																<label>
+																	<img src="/ppts_website_theme/static/src/img/person-icon.svg" width="24px" height="24px"/>
+																	<a style="text-decoration: underline !important;" t-attf-href="/team/therapists/{{each_event['facilitator_id']}}">
+																		<t t-esc="each_event['sale_person_id']"/>
+																	</a>
+																</label>
+															</div>
+															<div class="calc-list-event-price">
+																<span>
+																	<t t-esc="each_event['price']"/>
+																</span>
+																<span> AED</span>
+															</div>
+														</div>
+														<div class="event-listbtn">
+															<t t-raw="each_event['book_btn']"/>
+														</div>
+													</div>
+												</div>
+											</t>
+
+											<div t-if="not event_data" class="" data-aos="fade-up" data-aos-delay="250" style="width: 100%;text-align: center;">
+												<h3 style="margin: 0;">
+														No Event
+												</h3>
+											</div>
+
+										</div>
+									</section>
+									<!--  EVENTS Section END -->
+									<script src="/ppts_website_theme/static/src/js/events/upcoming_events.js"></script>
+									<script src="/ppts_website_theme/static/src/js/events/events.js"></script>
+									<!-- Therapists Section Start -->
+									<section class="top-btmspace">
+										<div class="therapists-wrapper " data-aos="fade-up" data-aos-delay="100">
+
+
+											<div class="search-subheader-cont row">
+												<h3>Therapist:</h3>
+												<div class="ourexpert_arrow align-items-center">
+													<button class="SearchTherapistSliderPrevBtn">
+														<i class="fas fa-chevron-left"></i>
+													</button>
+
+													<button class="SearchTherapistSliderNextBtn">
+														<i class="fas fa-chevron-right"></i>
+													</button>
+												</div>
+											</div>
+											<div class="owl-carousel search-therapist-this_slider" id="searchresult-therapist">
+												<t t-foreach="employee_data" t-as="each_employee">
+													<div class="therapest-list-container">
+														<img t-att-src="each_employee['image']" lass="userimage" alt="" />
+														<a t-attf-href="/team/therapists/{{each_employee['id']}}">
+															<h5>
+																<t t-esc="each_employee['name']"/>
+															</h5>
+															<p>
+																<t t-esc="each_employee['job']"/>
+															</p>
+														</a>
+														<label class="therapestlocation">
+															<t t-esc="each_employee['location']"/>
+														</label>
+														<a t-attf-href="/appointment/checkout?therapist_id={{each_employee['id']}}" class="buttonwithbtnshape"> Book an appointment </a>
+
+													</div>
+												</t>
+
+												<div t-if="not employee_data" class="" data-aos="fade-up" data-aos-delay="250" style="width: 100%;text-align: center;">
+													<h3 style="margin: 0;">
+														No Therapist
+													</h3>
+												</div>
+
+											</div>
+											<div class="text-center padtop30 d-block d-md-none" data-aos="fade-up" data-aos-delay="100">
+												<a href="/team">
+													<button class="borderedbtn">
+													Show More
+														<i class="fas fa-caret-down"></i>
+													</button>
+												</a>
+											</div>
+										</div>
+									</section>
+									<!-- Therapists Section END -->
+								</div>
+								<div class="tab-pane fade" id="tabB">
+									<!-- Articles: SECTION START -->
+									<section class="featured-post sectionspace">
+										<h3 data-aos="fade-up" data-aos-delay="100">Articles:</h3>
+										<div class="row">
+
+											<t t-foreach="blog_data" t-as="each_blog_tab">
+												<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="200">
+													<div class="oberlay-tags">
+														<t t-foreach="each_blog_tab['idt'].tag_ids" t-as="tags_id">
+															<label>
+																<t t-esc="tags_id.name"/>
+															</label>
+														</t>
+													</div>
+													<img t-att-src="each_blog_tab['image']" lass="userimage" alt=""/>
+													<a t-attf-href="/blog/{{slug(each_blog_tab['idt'].blog_id)}}/{{each_blog_tab['idt'].id}}">
+														<h5>
+															<t t-esc="each_blog_tab['name']"/>
+														</h5>
+														<p>
+															<t t-esc="each_blog_tab['subtitle']"/>
+														</p>
+													</a>
+													<div class="post-infos">
+														<label class="views">
+															<t t-esc="each_blog_tab['visits']"/>
+														</label>
+														<label class="dates">
+															<t t-esc="each_blog_tab['date']"/>
+														</label>
+														<label class="user">
+															<t t-esc="each_blog_tab['author_id']"/>
+														</label>
+													</div>
+												</div>
+											</t>
+
+											<div t-if="not blog_data" class="" data-aos="fade-up" data-aos-delay="250" style="width: 100%;text-align: center;">
+												<h3 style="margin: 0;">
+													No Article
+												</h3>
+											</div>
+										</div>
+									</section>
+									<!-- Articles: SECTION END -->
+								</div>
+								<div class="tab-pane fade" id="tabC">
+									<section class="section sectionspace therapestservice">
+										<div class="services-wrapper">
+											<h3 data-aos="fade-up" data-aos-delay="100">Services</h3>
+											<div class="row">
+
+												<t t-foreach="service_data" t-as="each_service">
+													<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="250">
+														<div class="service-lists-item">
+															<img t-att-src="each_service['image']" alt="serviceimageone" loading="lazy"/>
+															<div class="service-svg-shapes-overlay">
+																<div class="wrapper">
+																	<div class="side_sidel"></div>
+																	<svg class="side_wave" id="gt">
+																		<clipPath id="slopeclipl">
+																			<path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68 C291.52,25.62,277.81,69.57,251.96,125.52z" />
+																		</clipPath>
+																	</svg>
+																	<svg class="morp">
+																		<clipPath id="amebal">
+																			<path fill="#9cccfd">
+																				<animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+																					c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+																					c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+																					c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+																					
+																					M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+																					c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+																					c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+																					C48.9,198.6,57.8,191,51,171.3z;
+																					
+																					M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+																					c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+																					c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+																					c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+																			</path>
+																		</clipPath>
+																	</svg>
+
+																</div>
+																<h4>
+																	<t t-esc="each_service['name']"/>
+
+																</h4>
+															</div>
+														</div>
+													</div>
+												</t>
+
+												<div t-if="not service_data" class="" data-aos="fade-up" data-aos-delay="250" style="width: 100%;text-align: center;">
+													<h3 style="margin: 0;">
+															No Service
+													</h3>
+												</div>
+
+
+											</div>
+										</div>
+									</section>
+								</div>
+								<div class="tab-pane fade" id="tabD">
+									<section class="upcomingsection">
+										<h3 data-aos="fade-up" data-aos-delay="100">Events:</h3>
+										<div class="calendar-wrapper">
+											<t t-foreach="event_data" t-as="each_event">
+												<div class="calenday-eventlist-item">
+													<div class="cal-event-img">
+														<label class="filtercatlabel">
+															<t t-esc="each_event['platform']"/>
+														</label>
+														<img t-att-src="each_event['image']" alt="eventimageone" loading="lazy"/>
+													</div>
+													<div class="eventfullinfos">
+														<div class="event-typoingo">
+															<div class="eventtitleinfos">
+																<a class="a-clr" t-attf-href="/event/{{slug(each_event['id'])}}/register" data-toggle="tooltip" data-placement="top" t-att-title="each_event['name']">
+																	<h5>
+																		<t t-esc="each_event['name']"/>
+																	</h5>
+																</a>
+																<label class="training chipsone">
+																	<t t-esc="each_event['event_sub_categ_id']"/>
+																</label>
+															</div>
+															<div class="eventinfos">
+																<label>
+																	<img src="/ppts_website_theme/static/src/img/location-icon.svg" width="24px" height="24px"/>
+																	<t t-esc="each_event['location']"/>
+																</label>
+																<label>
+																	<img src="/ppts_website_theme/static/src/img/calendar-icon.svg" width="24px" height="24px"/>
+																	<t t-esc="each_event['date']"/>
+																</label>
+																<label>
+																	<img src="/ppts_website_theme/static/src/img/time-icon.svg" width="24px" height="24px"/>
+																	<t t-esc="each_event['time']"/>
+																</label>
+																<label>
+																	<img src="/ppts_website_theme/static/src/img/person-icon.svg" width="24px" height="24px"/>
+																	<a style="text-decoration: underline !important;" t-attf-href="/team/therapists/{{each_event['facilitator_id']}}">
+																		<t t-esc="each_event['sale_person_id']"/>
+																	</a>
+																</label>
+															</div>
+															<div class="calc-list-event-price">
+																<span>
+																	<t t-esc="each_event['price']"/>
+																</span>
+																<span> AED</span>
+															</div>
+														</div>
+														<div class="event-listbtn">
+															<t t-raw="each_event['book_btn']"/>
+														</div>
+													</div>
+												</div>
+											</t>
+											<div t-if="not event_data" class="" data-aos="fade-up" data-aos-delay="250" style="width: 100%;text-align: center;">
+												<h3 style="margin: 0;">
+													No Event
+												</h3>
+											</div>
+										</div>
+									</section>
+								</div>
+								<div class="tab-pane fade" id="tabE">
+									<section class="top-btmspace">
+										<div class="therapists-wrapper " data-aos="fade-up" data-aos-delay="100">
+
+
+											<div class="search-subheader-cont row">
+												<h3>Therapist:</h3>
+												<div class="ourexpert_arrow align-items-center">
+													<button class="featuredin_PrevBtn">
+														<i class="fas fa-chevron-left"></i>
+													</button>
+
+													<button class="featuredin_NextBtn">
+														<i class="fas fa-chevron-right"></i>
+													</button>
+												</div>
+											</div>
+											<div class="owl-carousel MostlikeThisSliderTherapist" id="searchresult-therapist">
+												<t t-foreach="employee_data" t-as="each_employee">
+													<div class="therapest-list-container">
+														<img t-att-src="each_employee['image']" lass="userimage" alt="" />
+														<a t-attf-href="/team/therapists/{{each_employee['id']}}">
+															<h5>
+																<t t-esc="each_employee['name']"/>
+															</h5>
+															<p>
+																<t t-esc="each_employee['job']"/>
+															</p>
+														</a>
+														<label class="therapestlocation">
+															<t t-esc="each_employee['location']"/>
+														</label>
+														<a t-attf-href="/appointment/checkout?therapist_id={{each_employee['id']}}" class="buttonwithbtnshape"> Book an appointment </a>
+
+													</div>
+												</t>
+
+												<div t-if="not employee_data" class="" data-aos="fade-up" data-aos-delay="250" style="width: 100%;text-align: center;">
+													<h3 style="margin: 0;">
+														No Therapist
+													</h3>
+												</div>
+
+											</div>
+											<div class="text-center padtop30 d-block d-md-none" data-aos="fade-up" data-aos-delay="100">
+												<a href="/team">
+													<button class="borderedbtn">
+													Show More
+														<i class="fas fa-caret-down"></i>
+													</button>
+												</a>
+											</div>
+										</div>
+									</section>
+								</div>
+							</div>
+							<!-- End Tabs -->
+						</div>
+					</Section>
+				</div>
+
+
+			</t>
+		</template>
+	</data>
+</odoo>

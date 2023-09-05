@@ -1,0 +1,302 @@
+@media screen and (min-width: 2000px) {
+
+    .megamenu-dropdowncontainer {
+        max-width: 1820px;
+    }
+
+    .top-menu-header-wrapper .navbar {
+        font-size: 26px;
+    }
+
+    .top-info-headerwrapper {
+
+        font-size: 24px;
+    }
+
+    .top-menu-header-wrapper .header-search-icon img,
+    .top-menu-header-wrapper .header-cart-icon img {
+        width: 42px;
+    }
+
+    .top-menu-header-wrapper .header-search-icon,
+    .top-menu-header-wrapper .header-cart-icon {
+
+        width: 56px;
+        height: 56px;
+    }
+
+    .top-menu-header-wrapper .navbar a.freeconsultant-btn {
+        font-size: 24px;
+    }
+
+    .navbar-brand img {
+        width: 250px;
+    }
+
+    .top-menu-header-wrapper .dropdown-menu-right .dropdown-item {
+
+        font-size: 30px;
+
+
+        padding: 10px 14px;
+
+    }
+
+    .top-menu-header-wrapper .dropdown-header {
+        font-size: 29px;
+        line-height: 130%;
+    }
+
+    .rightinfo-header h6 {
+        font-size: 30px;
+        line-height: 120%;
+    }
+
+    .rightinfo-header .capsspacetext {
+        font-size: 20px;
+    }
+
+    .top-menu-header-wrapper .dropdown-menu-right .biglistitemheader .dropdown-item {
+        font-size: 28px;
+        line-height: 130%;
+    }
+
+    .rightinfo-header p {
+        font-size: 24px;
+    }
+
+    .menu-booknowbtn , .viewallbtn-white {
+        font-weight: 500;
+        padding: 20px 16px;
+        font-size: 30px;
+    }
+
+    .post-infos label {
+        font-size: 28px;
+    }
+
+    .dates,
+    .user,
+    .views {
+        background-position: left center;
+        background-size: 36px;
+        background-repeat: no-repeat;
+        padding-left: 46px;
+    }
+
+    /* ________________________________________________________________ */
+    .mycontainer {
+        max-width: 1820px;
+    }
+    .oberlay-tags label{
+        font-size: 16px;
+    }
+    .clientsaboutillu-slider-caresole .leadercont p{
+        font-size: 20px;
+        /* max-width: 580px; */
+    }
+    .clientsaboutillu-slider-caresole .leadercont p:before{
+        top: 40px;
+    }
+    .clientsaboutillu-slider-caresole .leadercont p{
+        padding-left: 60px;
+    }
+    .featurecard-items p, .popular-typos p{
+        font-size: 24px;
+    }
+    .seeallpost-btns{
+        font-size: 26px;
+    }
+    .popular-typos h6 {
+        font-size: 30px;
+  
+        line-height: 120%;
+    }
+    .clientsaboutillu-slider-caresole .leadercont h4 {
+        font-size: 24px;}
+    body {
+        font-size: 2rem;
+    }
+    .featurecard-items h5{
+        font-size: 32px;
+    }
+    .section_padd_left_right190_80{
+        padding-left: 0px;
+    }
+    .hero-intro-text h1,
+    .mainherotext {
+        font-weight: 600;
+        font-size: 5.5rem;
+        line-height: 130%;
+    }
+
+    .hero-intro-text {
+        max-width: 55%;
+    }
+    .clipped {
+        width: 1300px;
+        height: 860px;
+        right: 0;
+        top: 0;
+        clip-path: url('#clip-pathbog');
+        -webkit-clip-path: url('#clip-pathbog');
+        /* transform: translate(10px, 0%); */
+        overflow: hidden;
+    }
+    .hero-intro-text p,
+    .herotxtprag {
+
+        font-size: 1.5rem;
+
+        line-height: 150%;
+        max-width: 80%;
+    }
+    textPath#transcls{
+        font-size: 28px;
+    }
+    .roundredbutton{
+        bottom: 4vw;
+        right: 570px;
+        transform: scale(1.8);
+    }
+    .fullbutton, .white-btn, .borderedbtn{
+        font-size: 1.1rem;
+        min-width: 300px;
+        padding: 12px 16px;
+    }
+
+    .hpmehero-wrap {
+        padding: 10rem 0;
+    }
+
+    .hero-intro-text h6,
+    .hearblackstyletext {
+
+        font-size: 4rem;
+        letter-spacing: 6px;
+
+    }
+
+    .smallcaptxt {
+
+        font-size: 1.75rem;
+
+    }
+
+    .hero-card-container {
+
+        grid-template-columns: repeat(3, 360px);
+    }
+
+    .hero-card-list-item-container {
+        height: 170px;
+    }
+
+    .hero-card-list-shape label{
+        font-size: 24px;
+        line-height: 120%;
+        margin-bottom: 18px;
+        max-width: 210px;
+    }
+    .hero-card-list-shape span {
+     
+        font-size: 1.5rem;}
+    /* ================== */
+    .aboutus-title h2, .main-heading, .upcomingsection h2, .becomeparctition h2, .ourteam-typo h2, .achivemt-wrapper h2 , .book-free-consultant h2{
+        font-size: 82px;
+    }
+
+    .form-control, .inputwrap>button:hover, .inputwrap>button:active, .inputwrap .dropdown-item, .inputwraptwo .dropdown-item{
+        font-size: 28px;
+    }
+ 
+    .inputwrap .dropdown-item, .inputwraptwo .dropdown-item{
+        padding: 10px 16px;
+    }
+    .aboutus-title span, .blakwordtexts, .ourteam-typo span {
+
+        font-size: 52px;
+    }
+    .ourexpert-container{
+        padding: 300px 0px 80px  0px;
+    }
+    ::placeholder {
+        font-size: 28px;
+        color: #acacac;
+    }
+    .book-free-consultant p{
+        font-size: 26px;
+    }
+    .abt-text-desc {
+        max-width: 40%;
+    }
+    .h5, h5{
+        font-size: 2rem;
+    }
+    .checkboxlabel{
+        font-size: 24px;
+    }
+    .formsubmitbtn{
+        font-size: 24px;
+    }
+    .abt-txt-info h3 {
+        max-width: 70%;
+        font-size: 34px;
+    }
+    .becomeparctition .fullbutton {
+        min-width: 380px;
+    }
+    .ourteam-typo p{
+        max-width: 100%;
+    }
+    .abt-text-desc p, .service-heading-typos p , .becomeparctition p, .ourteam-typo p, .achivemt-wrapper p{
+        line-height: 150%;
+        font-size: 24px;
+        max-width: 80%;
+    }
+    .becomeparctition p{
+        max-width: 80%;
+        line-height: 150%;
+    }
+    .calendar-header-one-right .wid_160 {
+        width: 200px;
+    }
+    .calendar-header-one-right .wid_135 {
+        width: 190px;
+    }
+    .calendar-weeklybutton .fc-day-header span{
+        font-size: 20px;
+    }
+    .inputwrap>button, .calendar-header-one-right.homecalendar > div .form-control[readonly]{
+        font-size: 20px;
+    }
+    .service-svg-shapes-overlay h4 {
+   
+        bottom: 20px;
+        font-size: 30px;}
+
+
+
+
+        .calendernextpreviewbtns label, .filter-buttons-lists button{
+            font-size: 20px;
+        }
+
+
+
+        .becomeparctition img{
+            width: 100%;
+        }
+
+
+
+
+        .exper-slider-caresole .leadercont h5{
+            font-size: 30px;
+        }
+        .exper-slider-caresole .leadercont p{
+            font-size: 20px;
+        }
+
+
+}

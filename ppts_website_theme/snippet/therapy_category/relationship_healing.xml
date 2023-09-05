@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <template id="illuminations_therapy_category_relationship_healing" name="Relationship Healing">
+
+
+            <section class="section-topbtm-padding aboutillumination">
+                <div>
+                    <div class="noanimate_top_wave">
+                        <svg class="topsvg svgclass" viewBox="0 0 1440 180" preserveAspectRatio="none" version="1.1">
+                            <path class="light-brown-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                            c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                            c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                            c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                              </svg>
+                    </div>
+                    <div class="container-fluid questtobehappy aboutherapest lightbrown-bg">
+                        <div class="eachsection">
+                            <div class="mycontainer">
+                                <div class="row">
+                                    <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                        <h2 class="" style="color: #00AEC7;">Relationship Healing </h2>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <ul class="awardlists listwithdots font16">
+                                            <li> Learn to love yourself and others more fully and deeply. </li>
+                                            <li> Release negative emotions that block love from entering or flourishing. </li>
+                                            <li> Understand your barriers to love, relationships &amp; healthy communication. </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <h4 class="bigpragraph">Did You Know?!</h4>
+                                        <p>In several research and studies completed worldwide, it was found that couples who
+                                            enjoyed the long lasting happiness &amp; fulfillment in romantic relationships were the
+                                            ones who experienced the greatest degree of self-love and acceptance!</p>
+                                    </div>
+                                </div>
+                                <br />
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-6"> <img src="/ppts_website_theme/static/src/img/relationshiphealing.jpg" style="width: 100%;margin-bottom: 20px;" class="img-fluid" alt="Cinque Terre" />  </div>
+                                    <div class="col-lg-6 faqtabs-contentcontainer textaccording">
+                                        <div id="accordion">
+                                            <div class="card  transcard">
+                                                <div class="card-header" id="headingaOne">
+                                                    <h5 class="mb-0">
+                                                        <button class="btn btn-link notopborder" data-toggle="collapse"
+                                                            data-target="#collapse_sfive" aria-expanded="true"
+                                                            aria-controls="collapseOne">Learn More<a class="accarrow"></a>
+                                                        </button>
+                                                    </h5>
+                                                </div>
+                                                <div id="collapse_sfive" class="collapse show" aria-labelledby="headingaOne"
+                                                    data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <p>The journey towards self-love requires the courage to embrace, accept
+                                                            and heal the parts of ourselves we don’t like, or we are afraid to
+                                                            confront.Many of us carry underlying emotions such as fear, anger,
+                                                            rejection &amp; lack of self-worth, rooted from past painful experiences
+                                                            in childhood.As a result, the partners we attract and the romantic
+                                                            relationships we experience, most often reflect these limiting
+                                                            emotions. If left unresolved, it tends to unconsciously surface in
+                                                            our interactions with our partners, often resulting in
+                                                            miscommunication, emotional outbursts, confusion &amp; breakdown. Our
+                                                            Relationship Program guides you on a journey of awareness, healing
+                                                            and acceptance in order to experience fulfilling and happier
+                                                            relationships. By becoming aware of our emotions and our responses,
+                                                            we can learn to respond and deal with situations in a more
+                                                            empowering and positive manner and achieve the following.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="noanimtionbtm-wave  ">
+                        <svg class="topsvg svgclass" viewBox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg"
+                            preserveAspectRatio="xMinYMax meet" version="1.1">
+                            <path class="light-brown-svg" clip-rule=" evenodd "
+                                d=" M1440 117.866V0H0V73.5068C19.1681 83.3977 38.333 94.0027 57.4609 104.587C81.5364 117.909
+                                105.553 131.198 129.444 142.991C184.872 170.351 242.702 168.004 310.495 165.252C366.178 162.992
+                                428.583 160.46 501.9 173.892C576.426 187.545 648.519 172.448 722.07 157.045C808.986 138.843
+                                897.938 120.214 995.347 148.101C1088.43 174.75 1160.53 156.195 1236.64 136.606C1261.76 130.141
+                                1287.31 123.564 1314.2 118.461C1360.3 109.715 1402.24 112.146 1440 117.866Z " />
+                        </svg>
+                    </div>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

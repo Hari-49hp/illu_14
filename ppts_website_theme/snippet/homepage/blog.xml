@@ -1,0 +1,131 @@
+<odoo>
+    <data>
+        <template id="illuminations_blog_snippet" name="Blog">
+            <!-- FEATURES POST SECTION START -->
+            <section class="featured-post section-topbtm-padding mycontainer blog_homepage_feature" data-aos="fade-up" data-aos-delay="200">
+
+
+                    <!-- <t t-if="len(blog_id) >= 2">
+                        <t t-set="second_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[1].id)])" />
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items">
+                            <div class="oberlay-tags">
+                                <t t-foreach="second_blog_id.tag_ids" t-as="tags">
+                                    <label>
+                                        <t t-esc="tags.name" />
+                                    </label>
+                                </t>
+                            </div>
+                            <a t-attf-href="/blog/{{slug(second_blog_id.blog_id)}}/{{second_blog_id.id}}">
+                                <img t-attf-src="/web/image?model=blog.post&amp;id={{second_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+                                <h5>
+                                    <t t-esc="second_blog_id.name"/>
+                                </h5>
+                                <p>
+                                    <t t-esc="second_blog_id.subtitle"/>
+                                </p>
+                                <div class="post-infos">
+                                    <label class="views">
+                                        <t t-esc="second_blog_id.visits"/>
+                                    </label>
+                                    <label class="dates">
+                                        <t t-esc="second_blog_id.create_date" t-options='{"widget": "date"}'/>
+                                    </label>
+                                    <label class="user">
+                                        <t t-esc="second_blog_id.author_id.name"/>
+                                    </label>
+                                </div>
+                            </a>
+                        </div>
+                    </t>
+
+                    <t t-if="len(blog_id) >= 3">
+                        <t t-set="third_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[2].id)])" />
+                        <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 popularpost-cont" data-aos="fade-left" data-aos-delay="200">
+                            <h5>Popular Posts</h5>
+                            <div class="owl-carousel popularpost-caresole-mobile">
+
+                                <div class="popularpost-list">
+                                    <a t-attf-href="/blog/{{slug(third_blog_id.blog_id)}}/{{third_blog_id.id}}">
+                                        <img t-attf-src="/web/image?model=blog.post&amp;id={{third_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+                                        <div class="popular-typos">
+                                            <h5>
+                                                <t t-esc="third_blog_id.name"/>
+                                            </h5>
+                                            <p>
+                                                <t t-esc="third_blog_id.subtitle"/>
+                                            </p>
+                                            <div class="oberlay-tags">
+                                                <t t-foreach="third_blog_id.tag_ids" t-as="tags">
+                                                    <label>
+                                                        <t t-esc="tags.name" />
+                                                    </label>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <t t-if="len(blog_id) >= 4">
+                                    <t t-set="fourth_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[3].id)])" />
+                                    <div class="popularpost-list">
+                                        <a t-attf-href="/blog/{{slug(fourth_blog_id.blog_id)}}/{{fourth_blog_id.id}}">
+                                            <img t-attf-src="/web/image?model=blog.post&amp;id={{fourth_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+                                            <div class="popular-typos">
+                                                <h5>
+                                                    <t t-esc="fourth_blog_id.name"/>
+                                                </h5>
+                                                <p>
+                                                    <t t-esc="fourth_blog_id.subtitle"/>
+                                                </p>
+                                                <div class="oberlay-tags">
+                                                    <t t-foreach="fourth_blog_id.tag_ids" t-as="tags">
+                                                        <label>
+                                                            <t t-esc="tags.name" />
+                                                        </label>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </t>
+
+
+                                <t t-if="len(blog_id) >= 5">
+                                    <t t-set="fifth_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[4].id)])" />
+                                    <div class="popularpost-list">
+                                        <a t-attf-href="/blog/{{slug(fifth_blog_id.blog_id)}}/{{fifth_blog_id.id}}">
+                                            <img t-attf-src="/web/image?model=blog.post&amp;id={{fifth_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+                                            <div class="popular-typos">
+                                                <h5>
+                                                    <t t-esc="fifth_blog_id.name"/>
+                                                </h5>
+                                                <p>
+                                                    <t t-esc="fifth_blog_id.subtitle"/>
+                                                </p>
+                                                <div class="oberlay-tags">
+                                                    <t t-foreach="fifth_blog_id.tag_ids" t-as="tags">
+                                                        <label>
+                                                            <t t-esc="tags.name" />
+                                                        </label>
+                                                    </t>
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </t> -->
+               <!--  </div> -->
+                <div class="text-center">
+                    <a href="/blog">
+                        <button type="button" class="seeallpost-btns">See All Post</button>
+                    </a>
+                </div>
+            </section>
+                    
+            <!-- FEATURES POST SECTION END -->
+        </template>
+    </data>
+</odoo>

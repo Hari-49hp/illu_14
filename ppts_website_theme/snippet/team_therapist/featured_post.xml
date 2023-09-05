@@ -1,0 +1,70 @@
+<odoo>
+	<data>
+		<template id="template_therapist_featured_post_page" name="About">
+			<!-- FEATURES POST SECTION START -->
+			<section>
+				<div class="featured-post sectionspace light-blue-bg">
+					<h2 data-aos="fade-up" data-aos-delay="100">Featured Post</h2>
+					<div class="row">
+						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up"
+							data-aos-delay="200">
+							<div class="oberlay-tags">
+								<label> SPIRITUAL HEALING </label>
+								<label> MEDITATION </label>
+							</div>
+							<img src="/ppts_website_theme/static/src/img/post1.png" />
+							<h5>
+								Family Constellations: Heals Family and Baggages &amp; Ancestral Trauma
+							</h5>
+							<p>At illumination our holistics approaach to self development focuses on releasing the limitations </p>
+							<div class="post-infos"> 
+								<label class="views"> 1.3K </label>
+								<label class="dates"> 21.20.2020 </label>
+								<label class="user">Irina Dhan</label>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="300">
+							<div class="oberlay-tags">
+								<label> SPIRITUAL HEALING </label>
+								<label> MEDITATION </label>
+							</div>
+							<img src="/ppts_website_theme/static/src/img/post2.png" />
+							<h5>Family Constellations: Heals Family and Baggages &amp; Ancestral Trauma </h5>
+							<p> At illumination our holistics approaach to self development focuses on releasing the limitations </p>
+							<div class="post-infos">
+								<label class="views">1.3K</label>
+								<label class="dates"> 21.20.2020 </label>
+								<label class="user">Irina Dhan</label>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="300">
+							<div class="oberlay-tags">
+								<label> SPIRITUAL HEALING </label>
+								<label> MEDITATION </label>
+							</div>
+							<img src="/ppts_website_theme/static/src/img/post2.png" />
+							<h5>Family Constellations: Heals Family and Baggages &amp; Ancestral Trauma </h5>
+							<p>At illumination our holistics approaach to self development focuses on releasing the limitations </p>
+							<div class="post-infos"> <label class="views">1.3K</label>
+							<label class="dates"> 21.20.202</label>
+							<label class="user">Irina Dhan</label>
+						</div>
+					</div>
+				</div>
+				<div class="text-center" data-aos="fade-up" data-aos-delay="800">
+					<button type="button" class="seeallpost-btns">See All Post</button>
+				</div>
+			</div>
+			<div>
+				<svg class="clientaoutillu-btm-waves" style="transform: scaleY(-1);background:#ffffff;" id="svg-top-s" da="da" viewBox="0 0 1440 260" version="1.1" x="0px" y="0px" width="100%">
+					<g>
+						<path fill="#F6FDFF" d="M0.5,125c0,0-13.6-59.1,94.4-105c104.7-44.5,279.6,109.9,391.5,7.7c117.7-88.7,320.2,144.7,461,11.6 c86.8-81,183.3,67.7,289.6,99.4c141.5,42.2,145.9-47.4,203.5,11.9v138.2H716.7H321.2H0.5C0.5,290.8,0.5,125,0.5,125z"/>
+					</g>
+				</svg>
+
+			</div>
+		</section>
+		<!-- FEATURES POST SECTION END -->
+	</template>
+</data>
+</odoo>

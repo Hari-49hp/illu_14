@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="FormView.buttons">
+        <t t-jquery=".o_form_button_save" t-operation="replace">
+            <t t-if="widget.modelName == 'appointment.appointment'">
+                <button id="SaveRedirectHeadDTMBOO" type="button" class="btn btn-primary btn-sm o_form_save_redirect">
+                    Book
+                </button>
+            </t>
+            <t t-elif="widget.modelName == 'event.registration'">
+
+            </t>
+           <!--  <t t-elif="widget.modelName == 'res.partner'">
+
+            </t> -->
+            <t t-elif="widget.modelName == 'availability.availability'">
+                <!-- <button id="SaveRedirectHeadDTMBOO" type="button" class="btn btn-primary btn-sm o_form_save_redirect" onclick="getElementById('SaveRedirectHeadDTM').click();">
+                    Save
+                </button> -->
+                <button type="button" class="btn btn-primary btn-sm o_form_button_save" accesskey="s">
+                    Save
+                </button>
+            </t>
+            <t t-else="">
+                <button type="button" class="btn btn-primary btn-sm o_form_button_save" accesskey="s">
+                    Save
+                </button>
+            </t>
+        </t>
+        <t t-jquery=".o_form_button_create" t-operation="replace">
+            <t t-if="widget.modelName == 'appointment.appointment'">
+            </t>
+            <t t-elif="widget.modelName == 'availability.availability'">
+
+            </t>
+            <t t-else="">
+                <button t-if="widget.is_action_enabled('create')" type="button" class="btn btn-secondary o_form_button_create" accesskey="c">
+                Create
+                </button>
+            </t>
+        </t>
+
+    </t>
+</templates>

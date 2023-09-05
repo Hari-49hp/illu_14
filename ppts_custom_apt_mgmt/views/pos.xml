@@ -1,0 +1,95 @@
+<odoo>
+	<data>
+		<record id="pos_order_form_view_inherit_apt_pos" model="ir.ui.view">
+			<field name="name">pos.order</field>
+			<field name="model">pos.order</field>
+			<field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//group[@name='order_fields']" position="inside">
+					<field name="commission_recipient"/>
+				</xpath>
+
+				<xpath expr="//page[@name='extra']/group" position="inside">
+					<group string="Appointment Information" name="grp_appointment_info">
+						<field name="appt_sale_id" string="Appointment"/>
+						<field name="apt_booking_date" />
+						<field name="apt_booked_by" readonly="1" widget="many2one_avatar_user"/>
+						<field name="sale_type_for"/>
+					</group>
+				</xpath>
+
+				<xpath expr="//field[@name='lines']//tree" position="replace">
+					<tree string="Order lines" editable="bottom">
+						<field name="appointment_set_id" attrs="{'column_invisible':[('parent.appt_sale_id', '==', False)]}"/>
+						<field name="full_product_name"/>
+						<field name="pack_lot_ids" widget="many2many_tags" groups="stock.group_production_lot"/>
+						<field name="qty"/>
+						<field name="product_uom_id" string="UoM" groups="uom.group_uom"/>
+						<field name="price_unit" widget="monetary"/>
+						<field name="session_remaining" attrs="{'column_invisible':[('parent.appt_sale_id', '==', False)]}"/>
+						<field name="discount" string="Disc.%" widget="monetary"/>
+						<field name="tax_ids" widget="many2many_tags" string="VAT" invisible="1" force_save="1"/>
+						<field name="tax_ids_after_fiscal_position" widget="many2many_tags" string="VAT" force_save="1"/>
+						<field name="price_subtotal" widget="monetary" force_save="1" optional="hide"/>
+						<field name="price_subtotal_incl" widget="monetary" force_save="1"/>
+						<field name="commission_recipient" force_save="1" optional="hide"/>
+						<field name="commission_type" invisible="1"/>
+						<field name="therapist_commission_type" invisible="1"/>
+						<field name="therapist_commission" widget="monetary" invisible="1"/>
+
+						<field name="product_id" invisible="1" force_save="1"/>
+						<field name="appt_sale_id" invisible="1"/>
+						<field name="currency_id" invisible="1"/>
+						<field name="service_used" invisible="1"/>
+						<field name="service_used_count" invisible="1"/>
+						<field name="package_product" invisible="1"/>
+						<field name="event_ticket" invisible="1"/>
+						<field name="service_used" invisible="1"/>
+						<field name="appt_sale_id" invisible="1"/>
+						<field name="appt_line_id" invisible="1"/>
+						<field name="session_type" invisible="1"/>
+						<field name="booking_type" invisible="1"/>
+						<field name="service_used_count" invisible="1"/>
+						<field name="package_product" invisible="1"/>
+						<field name="event_ticket" invisible="1"/>
+						<field name="default_product" invisible="1"/>
+					</tree>
+				</xpath>
+
+				<!-- <xpath expr="//field[@name='lines']/tree" position="inside">
+					
+				</xpath> -->
+
+			</field>
+		</record>
+
+		<record id="pos_product_form_view_inherit_apt_pos" model="ir.ui.view">
+			<field name="name">product.product</field>
+			<field name="model">product.product</field>
+			<field name="inherit_id" ref="product.product_normal_form_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='available_in_pos']" position="after">
+					<field name="package_product"/>
+					<field name="event_id"/>
+					<field name="event_ticket"/>
+					<field name="event_ticket_id"/>
+				</xpath>
+
+				<xpath expr="//notebook/page[5]" position="after" attrs="{'invisible': [('product_used', '!=', 'appointments')]}">
+					<page string="Pricing" name="pricing_tab">
+						<group>
+							<field name="duration_ids" nolabel="1" readonly="1">
+								<tree editable="bottom">
+									<field name="time_id" required="1"/>
+									<field name="apt_type_id" invisible="1"/>
+									<field name="price" required="1"/>
+								</tree>
+							</field>
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

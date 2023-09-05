@@ -1,0 +1,55 @@
+<odoo>
+	<data>
+
+		<!-- <record id="account_payment_bulk_payment_form_view_inherit" model="ir.ui.view">
+			<field name="name">Account Payment</field>
+			<field name="model">account.payment</field>
+			<field name="inherit_id" ref="account.view_account_payment_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='move_id']" position="after">
+					<field name="appointments_id" groups="base.group_no_one" />
+				</xpath>
+
+				<xpath expr="//field[@name='is_internal_transfer']" position="attributes">
+					<attribute name="groups">base.group_no_one</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='payment_method_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='partner_bank_id']" position="attributes">
+					<attribute name="groups">base.group_no_one</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='journal_id']" position="attributes">
+					<attribute name="string">Payment Method</attribute>
+				</xpath>
+
+				<xpath expr="//header" position="after">
+					<style>
+						.modal-footer{
+							display: none !important;
+						}
+					</style>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="account_payment_account_payment_register_as_form_view_inherit" model="ir.ui.view">
+			<field name="name">Account Payment Register</field>
+			<field name="model">account.payment.register</field>
+			<field name="inherit_id" ref="account.view_account_payment_register_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='communication']" position="after">
+					<field name="appointment_id" />
+				</xpath>
+
+			</field>
+		</record> -->
+
+	</data>
+</odoo>

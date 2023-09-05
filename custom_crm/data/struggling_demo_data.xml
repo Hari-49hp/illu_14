@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		
+		<record model="master.struggling" id="struggling_demo_data1">
+			<field name="name">Relationships</field>
+		</record>
+		
+		<record model="master.struggling" id="struggling_demo_data2">
+			<field name="name">Addictions</field>
+		</record>
+		
+		<record model="master.struggling" id="struggling_demo_data3">
+			<field name="name">Stress</field>
+		</record>
+		
+		<record model="master.struggling" id="struggling_demo_data4">
+			<field name="name">Fears &amp; Phobias</field>
+		</record>
+		
+		<record model="master.struggling" id="struggling_demo_data5">
+			<field name="name">Anxiety, Depression/Mental Health</field>
+		</record>
+		
+		<record model="master.struggling" id="struggling_demo_data6">
+			<field name="name">Sleep</field>
+		</record>
+		
+		<record model="master.struggling" id="struggling_demo_data7">
+			<field name="name">Chronic Aches &amp; Pains</field>
+		</record>
+	
+	</data>
+</odoo>

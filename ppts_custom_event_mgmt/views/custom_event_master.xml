@@ -1,0 +1,318 @@
+<odoo>
+	<data>
+
+		<!-- Form_view Master -->
+		<record id="event_type_from_view" model="ir.ui.view">
+			<field name="name">Event Type Form</field>
+			<field name="model">eventtype.master</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="event_type" required="1" />
+
+							<field name="type_code"/>
+							<field name="event_color" widget="color" />
+							<field name="event_notes"/>
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_ids"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="event_type_tree_view" model="ir.ui.view">
+			<field name="name">Event Type Tree</field>
+			<field name="model">eventtype.master</field>
+			<field name="arch" type="xml">
+				<tree default_order="type_code asc">
+					<field name="event_type" />
+					<field name="type_code"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="eventtype_master_search" model="ir.ui.view">
+			<field name="name">eventtype.master.search</field>
+			<field name="model">eventtype.master</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="event_type"/>
+					<field name="type_code"/>
+					<field name="event_notes"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="event_type_action_view" model="ir.actions.act_window">
+			<field name="name">Event Type</field>
+			<field name="res_model">eventtype.master</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="event_type_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="event_custom_master" name="Event" parent="event.menu_event_configuration" sequence="2" />
+
+		<!-- event_type_action_view-->
+
+		<record id="view_event_type_tree_inherited_title" model="ir.ui.view">
+			<field name="name">event.type.tree</field>
+			<field name="model">event.type</field>
+			<field name="inherit_id" ref="event.view_event_type_tree" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="string">Name</attribute>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="view_event_type_form_inherited_title" model="ir.ui.view">
+			<field name="name">event.type.forms</field>
+			<field name="model">event.type</field>
+			<field name="inherit_id" ref="event.view_event_type_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//label[@for='name']" position="attributes">
+					<attribute name="string">Name</attribute>
+				</xpath>
+				
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_event_type_temp">
+			<field name="name">Event Category</field>
+			<field name="res_model">event.type</field>
+		</record>
+		
+
+
+	 <!-- menu  to view configuration under event configuration -->
+
+		<!-- <menuitem id="event_type_master" action="ppts_custom_event_mgmt.action_event_type_temp" name="Event Category" parent="event_custom_master" sequence="5" />
+ -->
+ 		<menuitem id="event_service_category_master" action="ppts_custom_apt_mgmt.event_service_category_action" name="Event Category" parent="event_custom_master" sequence="5" />
+
+		 <!-- menu  to view configuration under event configuration -->
+
+
+		<!--main category		-->
+		<!-- Form_view Master -->
+		<record id="event_maincateg_from_view" model="ir.ui.view">
+			<field name="name">Event MainCateg Form</field>
+			<field name="model">event.maincateg.master</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="event_maincateg" required="1" />
+							<field name="maincateg_code"/>
+							<field name="maincateg_notes"/>
+
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_ids"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+
+		<!-- Tree_view -->
+		<record id="event_maincateg_tree_view" model="ir.ui.view">
+			<field name="name">Event Main Categ Tree</field>
+			<field name="model">event.maincateg.master</field>
+			<field name="arch" type="xml">
+				<tree default_order="maincateg_code asc">
+					<field name="event_maincateg" required="1" />
+					<field name="maincateg_code"/>
+					<field name="maincateg_notes"/>
+				</tree>
+			</field>
+		</record>
+		<!--	Search vioew main categ	-->
+
+		<record id="event_maincateg_master_search" model="ir.ui.view">
+			<field name="name">event.maincateg.master.search</field>
+			<field name="model">event.maincateg.master</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="event_maincateg"/>
+					<field name="maincateg_code"/>
+					<field name="maincateg_notes"/>
+				</search>
+			</field>
+		</record>
+
+
+		<!-- Action_view -->
+		<record id="event_maincateg_action_view" model="ir.actions.act_window">
+			<field name="name">Event Main Category</field>
+			<field name="res_model">event.maincateg.master</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="event_maincateg_tree_view" />
+		</record>
+		<!--Event main category is not need.. because event type is considered as main category :::: by Pravin-->
+
+		<!--		<menuitem id="event_maincateg_master" action="event_maincateg_action_view"-->
+		<!-- name="Main Category" parent="event_custom_master" sequence="6" />-->
+
+		<record id="event.action_event_view" model="ir.actions.act_window">
+			<field name="view_mode">calendar,kanban,tree,form,pivot,graph</field>
+			<field name="view_id" ref="event.view_event_calendar" />
+		</record>
+
+		<!--Sub category		-->
+		<!-- Form_view Master -->
+		<record id="event_subcateg_from_view" model="ir.ui.view">
+			<field name="name">Event Sub Categ Form</field>
+			<field name="model">event.subcateg.master</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="event_subcateg" required="1" />
+							<field name="event_categ_id" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+							<field name="subcateg_code"/>
+							<field name="subcateg_notes"/>
+
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_ids"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+
+		<!-- Tree_view -->
+		<record id="event_subcateg_tree_view" model="ir.ui.view">
+			<field name="name">Event Sub Categ Tree</field>
+			<field name="model">event.subcateg.master</field>
+			<field name="arch" type="xml">
+				<tree default_order="subcateg_code asc">
+					<field name="event_subcateg"/>
+					<field name="subcateg_code"/>
+					<field name="event_categ_id"/>
+					<field name="subcateg_notes"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="event_subcateg_action_view" model="ir.actions.act_window">
+			<field name="name">Event Sub Category</field>
+			<field name="res_model">event.subcateg.master</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="event_subcateg_tree_view" />
+		</record>
+
+	 <!-- menu action to view configuration under event configuration -->
+		<record id="event_sub_categoty_action" model="ir.actions.act_window">
+			<field name="name">Sub Category</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">calendar.appointment.type</field>
+			<field name="context">{'search_default_service_categ_id_group': 1,'default_is_event' : True}</field>
+			<field name="domain">[('service_categ_id.is_event', '=', True)]</field> 
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new Event sub category
+				</p>
+			</field>
+		</record>
+
+<!-- 		<menuitem id="event_subcateg_master" action="event_subcateg_action_view" name="Sub Category" parent="event_custom_master" sequence="6" /> -->
+		<menuitem id="event_subcateg_master" action="event_sub_categoty_action" name="Sub Category" parent="event_custom_master" sequence="6" />
+	 	<!-- menu action to view configuration under event configuration -->
+
+
+		
+
+		<record id="event_subcateg_master_search" model="ir.ui.view">
+			<field name="name">event.subcateg.master.search</field>
+			<field name="model">event.subcateg.master</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="event_subcateg"/>
+					<field name="subcateg_code"/>
+					<field name="event_categ_id"/>
+					<field name="subcateg_notes"/>
+					<group expand="0" string="Group By">
+						<filter string="Event Category" name="event_categ_id" domain="[]" context="{'group_by': 'event_categ_id'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="event_venue_from_view" model="ir.ui.view">
+			<field name="name">Event venue.venue</field>
+			<field name="model">venue.venue</field>
+			<field name="arch" type="xml">
+				<form>
+					<header>
+						<button name="open_google_map" type="object" string="Open in Google Map"/>
+					</header>
+					<sheet>
+						<group>
+							<field name="name" required="1" />
+
+							<label for="street" string="Address"/>
+							<div class="o_address_format">
+								<field name="street" placeholder="Street..." class="o_address_street" required="1"/>
+								<field name="street2" placeholder="Street 2..." class="o_address_street" required="1"/>
+								<field name="city" placeholder="City" class="o_address_city" invisible='1'/>
+								<field name="city_id" placeholder="City" class="o_address_city" required='1' options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+								<field name="state_id" class="o_address_state" placeholder="State" required="1" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}" context="{'default_country_id': country_id}"/>
+								<field name="zip" placeholder="ZIP" class="o_address_zip" required="1"/>
+								<field name="country_id" placeholder="Country" class="o_address_country" required="1" options='{"no_open": True, "no_create": True}'/>
+								<field name="company_id" invisible="1"/>
+							</div>
+							<field name="about_venue"/>
+
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_ids"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="event_venue_tree_view" model="ir.ui.view">
+			<field name="name">Event Venue Tree</field>
+			<field name="model">venue.venue</field>
+			<field name="arch" type="xml">
+				<tree default_order="name asc">
+					<field name="name"/>
+					<field name="city_id"/>
+					<field name="state_id"/>
+					<field name="country_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="event_venue_action_view" model="ir.actions.act_window">
+			<field name="name">Venue</field>
+			<field name="res_model">venue.venue</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="event_venue_tree_view" />
+		</record>
+
+		<menuitem id="event_venue_master" action="event_venue_action_view" name="Venue" parent="event_custom_master" sequence="16" />
+
+		<!-- 	<menuitem id="event_mailing_list" name="Mailing List" parent="event.menu_event_configuration" sequence="2" />
+
+	<menuitem id="event_mailing_list_sub" action="mass_mailing.action_view_mass_mailing_lists" name="Mailing List" parent="event_mailing_list" sequence="1"/>
+
+	<menuitem id="event_mailing_list_contact" action="mass_mailing.action_view_mass_mailing_contacts" name="Mailing List Contact" parent="event_mailing_list" sequence="2"/> -->
+
+
+	</data>
+</odoo>

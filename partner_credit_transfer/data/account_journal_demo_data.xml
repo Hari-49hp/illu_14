@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		
+		<record model="account.journal" id="account_partner_transfer">
+			<field name="name">Partner Transfer</field>
+			<field name="type">general</field>
+			<field name="code">PT</field>
+		</record>
+	</data>
+</odoo>

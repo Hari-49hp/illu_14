@@ -1,0 +1,13 @@
+<odoo>
+	<data>
+		<template id="assets_backend_apt" name="Backend Assets" inherit_id="web.assets_backend">
+			<xpath expr="//link[last()]" position="after">
+				<link rel="stylesheet" type="text/css" href="/ppts_custom_apt_mgmt/static/src/css/style.css"/>
+				<script type="text/javascript" src="/ppts_custom_apt_mgmt/static/src/js/ListView.js"></script>
+				<script type="text/javascript" src="/ppts_custom_apt_mgmt/static/src/js/message.js"></script>
+			</xpath>
+		</template>
+
+
+	</data>
+</odoo>

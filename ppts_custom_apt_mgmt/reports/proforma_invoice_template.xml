@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="report_proforma_invoice">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+                    <t t-set="address">
+                        <div t-field="o.partner_id"
+                             t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                        <p t-if="o.single_line_address">
+                            <span t-field="o.mobile"/>
+                            <span t-field="o.email"/>
+                        </p>
+                    </t>
+                    <div class="page">
+                        <h2 class="mt16">
+                            <span>Pro-Forma Invoice #</span>
+                            <span t-esc="o.sequence"/>
+                        </h2>
+
+                        <div class="row mt32 mb32" id="information">
+                            <div t-if="o.partner_id" class="col-auto col-3 mw-100 mb-2">
+                                <strong>Customer Name:</strong>
+                                <p class="m-0" t-field="o.partner_id"/>
+                            </div>
+
+                            <div t-if="o.appointments_id.booking_date" class="col-auto col-3 mw-100 mb-2">
+                                <strong>Appointment Date:</strong>
+                                <p class="m-0" t-field="o.appointments_id.booking_date"/>
+                            </div>
+
+                          
+                        </div>
+
+                        <div class="row mt32 mb32" id="Therapist Room Details">
+                            <div t-if="o.appointments_id.therapist_id" class="col-auto col-3 mw-100 mb-2">
+                                <strong>Therapist :</strong>
+                                <p class="m-0" t-field="o.appointments_id.therapist_id"/>
+                            </div>
+
+                            <div t-if="o.appointments_id.apt_room_id" class="col-auto col-3 mw-100 mb-2">
+                                <strong>Room :</strong>
+                                <p class="m-0" t-field="o.appointments_id.apt_room_id"/>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt32 mb32" id="Therapist Room Details">
+                            <div t-if="o.sales_rep_id.name" class="col-auto col-3 mw-100 mb-2">
+                                <strong>Salesperson:</strong>
+                                <p class="m-0" t-field="o.sales_rep_id"/>
+                            </div>
+
+                            <div t-if="o.location_ids" class="col-auto col-3 mw-100 mb-2">
+                                <strong>Location :</strong>
+                                <p class="m-0" t-field="o.location_ids"/>
+                            </div>
+
+                        </div>
+
+                        <table  class="table table-sm table-bordered" border="1">
+                            <thead style="display: table-row-group">
+                                <tr>
+                                    <th name="th_description" class="text-left">Description</th>
+                                    <th name="th_quantity" class="text-right">Qty</th>
+                                    <th name="th_price_unit" class="text-left">Price</th>
+                                    <th name="th_discount_type" class="text-right">Discount Type</th>
+                                    <th name="th_discount" class="text-left">
+                                        <span>Discount</span>
+                                    </th>
+                                    <th name="th_subtotal" class="text-right">
+                                        <span>Amount</span>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="sale_tbody">
+                                <t t-foreach="o.lines" t-as="line">
+                                    <tr t-att-class="'bg-200 font-weight-bold o_line_section'">
+                                        <td name="td_name" class="text-left">
+                                            <span t-field="line.product_id"/>
+                                        </td>
+                                        <td name="td_name" class="text-right">
+                                            <span t-field="line.qty"/>
+                                        </td>
+                                        <td name="td_name" class="text-left">
+                                            <span t-field="line.price_unit"/>
+                                        </td>
+                                        <td name="td_name" class="text-right">
+                                            <span t-field="line.discount_type"/>
+                                        </td>
+                                        <td name="td_name" class="text-left">
+                                            <span t-field="line.discount"/>
+                                        </td>
+                                        <td name="td_name" class="text-right">
+                                            <span t-field="line.price_subtotal_incl"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="clearfix" name="so_total_summary">
+                            <div id="total" class="row" name="total">
+                                <div t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                                    <table class="table table-sm">
+                                        <tr class="border-black o_subtotal" style="">
+                                            <td name="td_amount_untaxed_label">
+                                                <strong>Subtotal</strong>
+                                            </td>
+                                            <td name="td_amount_untaxed" class="text-right">
+                                                <span t-field="o.subtotal_overall"/>
+                                            </td>
+                                        </tr>
+                                          <t t-if ="o.amount_discount">
+                                        <tr class="border-black o_subtotal" style="">
+                                            <td name="td_amount_untaxed_label">
+                                                <strong>Discount</strong>
+                                            </td>
+                                            <td name="td_discount_amount" class="text-right">
+                                                <span t-field="o.amount_discount"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                        <tr class="border-black o_subtotal" style="">
+                                            <td name="td_amoun_shipping_label">
+                                                <strong>Shipping &amp; Handling</strong>
+                                            </td>
+                                            <td name="td_shipping" class="text-right">
+                                                <span t-field="o.shipping_handling_overall"/>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-black o_subtotal" style="">
+                                            <td name="td_amoun_taxes_label">
+                                                <strong>Taxes</strong>
+                                            </td>
+                                            <td name="td_shipping" class="text-right">
+                                                <span t-field="o.taxes_overall"/>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-black o_total">
+                                            <td name="td_amount_total_label">
+                                                <strong>Total</strong>
+                                            </td>
+                                            <td name="td_amount_total" class="text-right">
+                                                <span t-field="o.total_overall"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="proforma_invoice_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="ppts_custom_apt_mgmt.report_proforma_invoice" t-lang="o.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_pro_forma_invoice">
+        <t t-call="web.html_container">
+            <t t-set="is_pro_forma" t-value="True"/>
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="ppts_custom_apt_mgmt.report_proforma_invoice" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>

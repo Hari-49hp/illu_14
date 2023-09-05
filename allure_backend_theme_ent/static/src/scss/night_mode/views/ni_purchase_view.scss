@@ -1,0 +1,42 @@
+@mixin ni-purchase-view() {
+    .o_purchase_dashboard {
+        background-color: $night;
+        .table {
+            tbody, thead {
+                > tr {
+                    > td {
+                        &:not(.o_text) {
+                            background-color: $btn-secondary;
+                            color: var(--font-color);
+                            &:hover {
+                                background-color: darken($btn-secondary, 7%);
+                            }
+                            a {
+                                color: var(--font-color);
+                            }
+                        }
+                        &.o_main {
+                            background-color: $btn-primary;
+                            &:hover {
+                                background-color: darken($btn-primary, 7%);
+                            }
+                            a {
+                                color: var(--font-color);
+                            }
+                        }
+                        &.o_text{
+                            background-color: $night-light;
+                            color: var(--font-color);
+                            a {
+                                color: var(--font-color);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .o_expense_purple {
+        color: $night-hover;
+    }
+}

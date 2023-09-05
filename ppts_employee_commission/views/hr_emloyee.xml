@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <!-- Form -->
+        <record id="view_commission_view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="ppts_employee_availability.view_event_view_employee_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='departure']" position="after">
+
+                	<group name="commission" string="Commission">
+                    
+                        <field name="enable_commission"/>
+	                    <field name="retail_commission" attrs="{'invisible': [('enable_commission', '!=', True)]}"/>
+	                    <field name="services_commission" attrs="{'invisible': [('enable_commission', '!=', True)]}"  />
+                	</group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

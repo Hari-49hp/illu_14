@@ -1,0 +1,24 @@
+<odoo>
+<!--    used to send remainder -->
+    <!-- <record id="ir_cron_edi_remainder_mails" model="ir.cron">
+        <field name="name">Appointment Remainder</field>
+        <field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+        <field name="state">code</field>
+        <field name="code">model.appointment_remainder()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record> -->
+
+   <!--  <record id="ir_cron_edi_remainder_mails_hrs_apt" model="ir.cron">
+        <field name="name">Appointment Remainder HHrs</field>
+        <field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+        <field name="state">code</field>
+        <field name="code">model.appointment_remainder_hrs()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record> -->
+</odoo>

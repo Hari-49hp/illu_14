@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_event_form_survy_inherit" model="ir.ui.view">
+			<field name="name">event event form survey</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="ppts_custom_event_mgmt.new_event_form_view" />
+			<field name="arch" type="xml">
+				
+
+				<xpath expr="//field[@name='sale_incharge_id']" position="after">
+
+					<field name="event_approver_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}" required="1" attrs="{'readonly':[('stage_id', '!=', 1)]}"/>
+				</xpath>
+
+				<xpath expr="//field[@name='company_id']" position="after">
+					<field name="event_survey_id" domain="[('is_template', '=', True)]" attrs="{'required': [('class_type', '=', False)],'readonly':[('event_publish', '!=',False)]}" options="{'no_create_edit': True, 'no_open': True,'no_create': True}"/>
+					<field name="reject_value" invisible="1"/>
+					<field name="approve_value" invisible="1"/>
+					<field name="survey_id" readonly="1" invisible="1"/>
+				</xpath>
+				<xpath expr="//form/sheet/notebook/page[10]" position="after">
+					<page string="Reject Info" attrs="{'invisible':[('reject_value', '!=', True)]}">
+						<group>
+							<group>
+								<field name="reject_reason_id" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}" />
+					<field name="reject_desc"/>
+					<field name="reject_id" readonly="1"/>
+					<field name="reject_on" readonly="1"/>
+
+
+							</group>
+						</group>
+					</page>
+				</xpath>
+
+				<xpath expr="//form/sheet/notebook/page[11]" position="after">
+					<page string="Approved Info" attrs="{'invisible':[('approve_value', '!=', True)]}">
+						<group>
+							<group>
+					<field name="eve_approved_by" readonly="1" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}"/>
+					<field name="eve_approved_on" readonly="1"/>
+
+
+							</group>
+						</group>
+					</page>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="view_event_inherit_survey_attach" model="ir.ui.view">
+			<field name="name">event.event.form</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[@name='button_box']" position="inside">
+
+					<button type="object"  name="action_send_email" class="oe_stat_button" icon="fa-envelope" groups="base.group_user" string="Send Email" attrs="{'invisible':[True]}"></button>
+					<button  name="action_survey_response_list_view"
+						type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible':[True]}">
+						<field name="survery_count" widget="statinfo"
+							string="Responses" />
+					</button>
+					<button  name="event_survey" type="object" class="oe_stat_button" string="Survey" icon="fa-bullhorn" attrs="{'invisible':[True]}"/>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="view_event_inherit_survey_survey_form" model="ir.ui.view">
+			<field name="name">survey.survey</field>
+			<field name="model">survey.survey</field>
+			<field name="inherit_id" ref="survey.survey_form" />
+			<field name="arch" type="xml">
+
+<!--				<xpath expr="//header" position="inside">-->
+<!--					<button name="%(survey.action_survey_question_form)d" type="action" string="print Survey" />-->
+<!--				</xpath>-->
+
+				<xpath expr="//field[@name='active']" position="after">
+					<field name="is_template" attrs="{'required': True,'invisible':[('event_active', '=', True)]}"/>
+					<field name="event_active" widget="boolean_toggle"  attrs="{'invisible':[('is_template', '=', True)]}"/>
+					<field name="event_id" attrs="{'invisible':[('event_active', '!=', True)]}"/>
+
+				</xpath>
+			</field>
+		</record>
+		
+		<record id="survey_view_action" model="ir.actions.act_window">
+			<field name="name">Surveys</field>
+			<field name="res_model">survey.user_input</field>
+			<field name="type">ir.actions.act_window</field>
+			<!--<field name="view_type">tree</field>-->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="survey.survey_user_input_view_tree" />
+		</record>
+
+		<record id="event_class_form_view_survey_inherit" model="ir.ui.view">
+		<field name="name">Event Class Inherit Survey</field>
+		<field name="model">event.class.master</field>
+		<field name="inherit_id" ref="ppts_custom_event_mgmt.event_class_from_view" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='address_id']" position="after">
+				<field name="event_survey_id" required="1"  options="{'no_open': True, 'no_create': True, 'no_quick_create': True}" domain="[('is_template', '=', True)]"/>
+			</xpath>
+		</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="event_action_survey_form">
+        <field name="name">Event Survey Template</field>
+        <field name="res_model">survey.survey</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+		<field name="domain">[('is_template', '=', True)]</field>
+        <field name="context">{'search_default_groupby_state': 1,'default_is_template': 1}</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Add a new survey
+          </p><p>
+            You can create survey template for Event.
+          </p><p>
+            Design easily your survey, send invitations and analyze answers.
+          </p>
+        </field>
+    </record>
+
+	<!-- <record id="survey_survey_view_search_ppts" model="ir.ui.view">
+        <field name="name">survey.survey.search.ppts</field>
+        <field name="model">survey.survey</field>
+		<field name="inherit_id" ref="survey.survey_survey_view_search" />
+		<field name="arch" type="xml">
+			<xpath expr="//search" position="inside">
+				<filter string="Templates" name="is_template" help="Templates" domain="[('is_template', '=', True)]"/>
+			</xpath>
+		</field>
+	</record> -->
+
+	<menuitem id="event_survey_master" action="event_action_survey_form"
+	name="Surveys" parent="ppts_custom_event_mgmt.event_custom_master"
+	sequence="17" />
+
+	</data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xml:space="preserve">
+	<t t-extend="ListView.buttons">
+		<t t-jquery="button.o_list_button_add" t-operation="after">
+			<button t-if="widget.modelName == 'mail.whatsapp'" class="btn btn-primary oe_action_whatsapp_sync" type="button" accesskey="f">
+				<i class="fa fa-refresh"/> Template Sync
+			</button>
+
+			<button t-if="widget.modelName == 'mailing.contact'" class="btn btn-primary oe_import_partner_mailing_def" type="button" accesskey="f">
+				<i class="fa fa-refresh"/> Import Partners
+			</button>
+		</t>
+	</t>
+</template>

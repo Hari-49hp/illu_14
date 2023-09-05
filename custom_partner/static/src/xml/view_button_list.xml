@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+    <t t-extend="ListView.buttons">
+        <t t-jquery="button.o_list_export_xlsx" t-operation="before">
+            <a href="/booking/url/redirect/customer_create" type="button"  
+            t-if='widget.modelName == "res.partner"' class="btn btn-primary oe_action_button" accesskey="f">Create
+            </a>
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,12 @@
+<odoo>
+	<data>
+		<template id="assets_backend_custom_partner" name="Backend Assets" inherit_id="web.assets_backend">
+			<xpath expr="//link[last()]" position="after">
+				<script type="text/javascript" src="/custom_partner/static/src/js/ListView.js"></script>
+			</xpath>
+			<xpath expr="." position="inside">
+            <script src="/custom_partner/static/src/js/dialler.js" type="text/javascript"/>
+        </xpath>
+		</template>
+	</data>
+</odoo>

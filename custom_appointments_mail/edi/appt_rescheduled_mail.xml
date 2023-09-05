@@ -1,0 +1,27 @@
+<odoo>
+	<data>
+		<record id="appointment_rescheduled_mail" model="mail.template">
+			<field name="name">Reschedule : Appointment Rescheduled</field>
+			<field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+			<field name="email_from">test@illumination.com</field>
+			<field name="email_to" >${object.email}</field>
+			<field name="lang">${object.partner_id.lang}</field>
+			<field name="subject">Appointment Rescheduled - ${object.name}</field>
+			<field name="auto_delete" eval="False"/>
+			<field name="body_html"><![CDATA[
+
+				<p>Dear ${object.partner_id.name or ''},</p>
+				<p>
+
+					This message is to inform you that Appointment ${object.name}, we have to rescheduled as per your request.
+
+					We will share you the new schedule as soon as possible.
+
+				</p>
+				<br/>
+				<p>Best Regards</p>
+				<p>${user.company_id.name}</p>
+				]]></field>
+			</record>
+		</data>
+	</odoo>

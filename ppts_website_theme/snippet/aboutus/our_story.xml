@@ -1,0 +1,58 @@
+<odoo>
+	<data>
+		<template id="illuminations_our_story_snippet" name="Our Story">
+			<!-- our story header start-->
+
+			<section class="subpage-top-hero-section-two abouttophero eachsection">
+		      
+		        <div class="row hero-section-two ourstory mycontainer">
+		            <div class="col-lg-6 col-md-12 col-xl-6  order-2 order-lg-1   order-sm-2  ">
+		                <div class="breadcrum-sec topbreadcrum desktopbread">
+		                    <label>
+		                        <a>Home /</a>
+		                        <a>About Us</a>
+		                    </label>
+		                </div>
+		                <div class="hero-two-left herotexcenter"> 
+		                    <h1 data-aos="fade-up" data-aos-delay="50">Our story</h1>
+		                    <div class="quotestypo" >
+		                        <p class="quotesdescrip" data-aos="fade-up" data-aos-delay="150">When dealing with the stress that comes from the demands of living in a modern fast-paced
+		                            world, or struggling with the challenges that life throws our way, all we need is the space
+		                            &amp; opportunities to positively deal with these
+		                            issues in this journey of life!</p>
+		                        <div class="sub-quotestypo" data-aos="fade-up" data-aos-delay="200">
+		                            <p>Illuminations was designed to encourage people to take charge of their life, through
+		                                reconnecting with their inner self to discover what truly makes them happy!</p>
+
+		                            <div class="quotes-auth">
+		                                <p>Soniyaa Kiran Punjabi</p>
+		                                <span>Founder of Illuminations</span>
+		                            </div>
+		                        </div>
+
+		                    </div>
+		                </div>
+
+		            </div>
+		           
+		        </div>
+		        <div class="col-lg-6 col-md-12 col-xl-6 order-1 order-lg-2 order-sm-1 rightsideslide">
+		            <div class="hero-two-right">
+		                <div class="breadcrum-sec mobilrbread">
+		                    <label>
+		                        <a>Home /</a>
+		                        <a>About Us</a>
+		                    </label>
+		                </div>
+		                <div class="image-orvideocpnt">
+		                    <img src="ppts_website_theme/static/src/img/aboutsitting.jpg" />
+		                    <a class="playicon"></a>
+		                </div>
+		            </div>
+		        </div>
+
+		    </section>
+					<!-- our story header end -->
+				</template>
+			</data>
+		</odoo>

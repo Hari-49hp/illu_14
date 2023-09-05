@@ -1,0 +1,34 @@
+<odoo>
+    <record id="invoice_wizard_form" model="ir.ui.view">
+        <field name="name">invoice.wizard</field>
+        <field name="model">invoice.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Invoice">
+            <group>
+            <group string="Dates">
+                <field name="date_from" required="0"/>
+                <field name="date_to" required="0"/>
+                <field name="date_range" widget="radio"/>
+            </group>
+            <group string="Filter">
+                <field name="company_id" invisible="0"/>
+                <field name="status" invisible="0"/>
+            </group>
+        </group>
+            <footer>
+                <button name="action_apply" string="Apply" type="object" class="btn btn-sm btn-primary"/>
+                <button string="Cancel" class="btn btn-sm btn-default" special="cancel"/>
+            </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="invoice_action_wizard" model="ir.actions.act_window">
+        <field name="name">Invoice</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">invoice.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="invoice_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

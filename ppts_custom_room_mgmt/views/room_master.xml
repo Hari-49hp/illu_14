@@ -1,0 +1,256 @@
+<odoo>
+	<data>
+
+		<!-- Form_view Master -->
+		<record id="room_type_from_view" model="ir.ui.view">
+			<field name="name">Room Type Form</field>
+			<field name="model">roomtype.master</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="room_type" />
+							<field name="type_code" invisible="1"/>
+							<field name="room_maincateg_id"/>
+							<field name="company_id" groups="base.group_multi_company"/>
+							<field name="room_notes"  invisible="1"/>
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+                         <field name="message_ids"/>
+                    </div>
+				</form>
+			</field>
+		</record>
+
+
+		<!-- Tree_view -->
+		<record id="room_type_tree_view" model="ir.ui.view">
+			<field name="name">Room Type Tree</field>
+			<field name="model">roomtype.master</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="room_type" />
+<!--					<field name="type_code"/>-->
+					<field name="room_maincateg_id"/>
+<!--					<field name="room_notes"/>-->
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="room_type_action_view" model="ir.actions.act_window">
+			<field name="name">Room</field>
+			<field name="res_model">roomtype.master</field>
+ 			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="room_type_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="room_custom_master" name="Rooms"
+			parent="event.menu_event_configuration" sequence="4" />
+
+		<menuitem id="room_type_master" action="room_type_action_view"
+			name="Rooms" parent="room_custom_master"
+			sequence="5" />
+
+<!--main category		-->
+				<!-- Form_view Master -->
+		<record id="room_maincateg_from_view" model="ir.ui.view">
+			<field name="name">Room MainCateg Form</field>
+			<field name="model">room.maincateg.master</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="room_maincateg" required="1" />
+							<field name="roomcateg_code"/>
+							<field name="roomcateg_notes"/>
+
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+                         <field name="message_ids"/>
+                    </div>
+				</form>
+			</field>
+		</record>
+
+
+		<!-- Tree_view -->
+		<record id="room_maincateg_tree_view" model="ir.ui.view">
+			<field name="name">Room Main Categ Tree</field>
+			<field name="model">room.maincateg.master</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="room_maincateg"/>
+					<field name="roomcateg_code"/>
+ 				</tree>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="room_maincateg_action_view" model="ir.actions.act_window">
+			<field name="name">Room Category</field>
+			<field name="res_model">room.maincateg.master</field>
+ 			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="room_maincateg_tree_view" />
+		</record>
+
+		<menuitem id="room_maincateg_master" action="room_maincateg_action_view"
+			name="Category" parent="room_custom_master" sequence="6" />
+
+<!--	room booking	-->
+						<!-- Form_view Master -->
+		<record id="room_booking_from_view" model="ir.ui.view">
+			<field name="name">Room Booking Form</field>
+			<field name="model">room.booking</field>
+			<field name="arch" type="xml">
+				<form>
+					<header>
+						<button name="event_calendar_create" type="object" string="Confirm Booking"/>
+					</header>
+					<sheet>
+						<group>
+							<group>
+								<field name="event_id"/>
+								<label for="event_start_dt"/>
+								<div>
+									<field name="event_start_dt" string="Duration" class="oe_inline"/>
+									<span> <b>  End Date : </b></span>
+									<field name="event_end_dt" string="End" class="oe_inline"/>
+								</div>
+								<field name="room_categ_id"/>
+								<field name="room_id" required="0"/>
+
+							</group>
+							<group>
+								<field name="therapist_id"/>
+								<field name="event_location_id"/>
+								<field name="appointment_id"/>
+								<field name="room_incharge_id"/>
+							</group>
+						</group>
+
+						<notebook>
+						<page name="page_recurrency" string="Booking Info" invisible="1">
+							<group>
+							<group>
+								<!-- <field name="start_datetime" required="1"/>
+								<field name="stop_datetime" required="1"/> -->
+								<label for="duration"/>
+								<div>
+									<field name="duration" widget="float_time" string="Duration" class="oe_inline"/>
+									<span> hours</span>
+								</div>
+								<field name="allday"/>
+							</group>
+
+							<group>
+									<div>
+										<group>
+											<field name="recurrency"/>
+										</group>
+										<div attrs="{'invisible': [('recurrency', '=', False)]}">
+											<group>
+												<label for="interval"/>
+												<div class="o_row">
+													<field name="interval" attrs="{'required': [('recurrency', '=', True)]}"/>
+													<field name="rrule_type" attrs="{'required': [('recurrency', '=', True)]}"/>
+												</div>
+												<label string="Until" for="end_type"/>
+												<div class="o_row">
+													<field name="end_type" attrs="{'required': [('recurrency', '=', True)]}"/>
+													<field name="count" attrs="{'invisible': [('end_type', '!=', 'count')], 'required': [('recurrency', '=', True)]}"/>
+													<field name="final_date" attrs="{'invisible': [('end_type', '!=', 'end_date')], 'required': [('end_type', '=', 'end_date'), ('recurrency', '=', True)]}"/>
+												</div>
+											</group>
+											<group attrs="{'invisible': [('rrule_type', '!=', 'weekly')]}" name="weekdays">
+												<field name="mo"/>
+												<field name="tu"/>
+												<field name="we"/>
+												<field name="th"/>
+												<field name="fr"/>
+												<field name="sa"/>
+												<field name="su"/>
+											</group>
+											<group attrs="{'invisible': [('rrule_type', '!=', 'monthly')]}">
+												<label string="Day of Month" for="month_by"/>
+												<div class="o_row">
+													<field name="month_by"/>
+													<field name="day"
+														attrs="{'required': [('month_by', '=', 'date'), ('rrule_type', '=', 'monthly')],
+																'invisible': [('month_by', '!=', 'date')]}"/>
+													<field name="byday" string="The"
+														attrs="{'required': [('recurrency', '=', True), ('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
+																'invisible': [('month_by', '!=', 'day')]}"/>
+													<field name="week_list" nolabel="1"
+														attrs="{'required': [('recurrency', '=', True), ('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
+																'invisible': [('month_by', '!=', 'day')]}"/>
+												</div>
+											</group>
+
+											<button name="recurrent" type="object" string="Create Recurrent"/>
+
+										</div>
+									</div>
+							</group>
+							</group>
+						</page>
+						</notebook>
+
+						<group>
+							<field name="description"/>
+						</group>
+
+					</sheet>
+<!--					<div class="oe_chatter">-->
+<!--                         <field name="message_ids"/>-->
+<!--                    </div>-->
+				</form>
+			</field>
+		</record>
+
+
+		<!-- Tree_view -->
+		<record id="room_booking_tree_view" model="ir.ui.view">
+			<field name="name">Room booking Tree</field>
+			<field name="model">room.booking</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="event_id"/>
+					<field name="room_categ_id"/>
+					<field name="room_id" required="0"/>
+					<field name="therapist_id"/>
+					<field name="event_location_id"/>
+ 				</tree>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="room_booking_action_view" model="ir.actions.act_window">
+			<field name="name">Room Booking</field>
+			<field name="res_model">room.booking</field>
+ 			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="room_booking_tree_view" />
+		</record>
+
+<!--		<menuitem id="room_booking_master" action="website_event_meet.event_meeting_room_action" name="Room Booking" parent="room_custom_master" sequence="7" groups="base.group_no_one"/>-->
+	<menuitem id="website_event.menu_website_event_menu"
+        name="Website Menus"
+        action="website_event.website_event_menu_action"
+        parent="event.menu_event_configuration"
+        groups="base.group_no_one"
+		active="False"
+        sequence="99"/>
+
+	<menuitem name="Lead Generation"
+        id="event_crm.event_lead_rule_menu"
+        action="event_crm.event_lead_rule_action"
+        parent="event.menu_event_configuration"
+        sequence="10"
+		active="False"
+        groups="event.group_event_manager"/>
+
+	</data>
+</odoo>

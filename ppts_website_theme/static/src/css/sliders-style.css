@@ -1,0 +1,40 @@
+
+/* ******************************Therapy Category screen************************************** */
+/* casestudy-slider css */
+
+.casestudy-slider{
+
+}
+.casestudeslider-lists{
+    display: grid;
+    grid-template-columns: .15fr 1fr;
+    max-width: 600px;
+    grid-gap: 8px;
+}
+
+.youhaveaproblem-slider .owl-stage, 
+.youhaveaproblem-slider .owl-item{
+    /* width: 100% !important; */
+
+}
+
+.youhaveaproblem-slider .service-lists-item{
+    margin-bottom: 30px;
+}
+.youhave-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.youhave-container .service-lists-item,
+.youhave-container .service-lists-items-wrapper{
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+    .youhave-container,
+    .casestudeslider-lists{
+        grid-template-columns: auto;
+    }
+}

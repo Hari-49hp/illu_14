@@ -1,0 +1,36 @@
+<odoo>
+	<data>
+		<template id="illuminations_contactus_corporates" name="Corporates">
+			<section class="contactus-sections mycontainer">
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+						<h2>Corporates</h2>
+						<p class="contacticons">
+							<a href="mailto:info@illuminationsworld.com">
+								<i class="far fa-envelope"></i>
+							</a>
+							<a href="tel:+971044487043">
+								<i class="fas fa-phone"></i>
+							</a>
+						</p>
+						<a href="https://wa.me/971044487043" class="contactwhatsapp">call now via whatsapp </a>
+						<!-- <a href="tel:+971044487043" class="phonetext">+971-04-448
+							7043</a>
+						<a href="mailto:info@illuminationsworld.com" class="emailtext">info@illuminationsworld.com</a>
+						<a href="mailto:info@illuminationsworld.com" class="emailtext">
+							<small>(CC)</small> alex@illuminationsworld.com</a> -->
+
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+						<p>Our corporate wellness sector is dedicated to delivering powerful &amp; effective tools and techniques
+							based on wellness, stress management, work life balance, to enhance productivity &amp; happiness!
+							Illuminations aim to create a culture of success and happiness, by focusing on the individual’s
+							physical, mental and emotional well-being in order to achieve optimal results in their performance
+							in the workplace! We offer executive wellness packages where we combine a range of our services to
+							provide your company a complete 360% solution to managing stress.</p>
+					</div>
+				</div>
+			</section>
+		</template>
+	</data>
+</odoo>

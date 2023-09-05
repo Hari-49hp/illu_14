@@ -1,0 +1,271 @@
+<odoo>
+	<data>
+
+		<record id="view_event_form_inherited_ppts_new_room_in" model="ir.ui.view">
+			<field name="name">event event form</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="ppts_custom_event_mgmt.new_event_form_view" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='facilitator_evnt_ids']" position="after">
+					<field name="room_id" options="{'no_quick_create':True,'no_create':True,'no_open':True}" attrs="{'readonly':[('event_publish', '!=',False)]}" domain="[('room_maincateg_id.roomcateg_code','=','EVT'),('company_id', '=', company_id)]"/>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="view_event_meeting_room_calendar_inherited" model="ir.ui.view">
+			<field name="name">event.meeting.room</field>
+			<field name="model">event.meeting.room</field>
+			<field name="arch" type="xml">
+				<calendar string="Service Request"
+					date_start="event_start_dt"
+					date_stop="event_end_dt"
+					event_open_popup="true"
+					mode="month"
+					color="event_id"
+					quick_add="False">
+					<field name="event_id"/>
+				</calendar>
+			</field>
+		</record>
+
+		<record id="website_event_meet.event_meeting_room_action" model="ir.actions.act_window">
+			<field name="name">Room Booking</field>
+			<field name="res_model">event.meeting.room</field>
+			<field name="view_mode">tree,form,calendar</field>
+		</record>
+
+<!--		<record id="view_event_meeting_room_form_inherited" model="ir.ui.view">-->
+<!--			<field name="name">event.meeting.room</field>-->
+<!--			<field name="model">event.meeting.room</field>-->
+<!--			<field name="inherit_id" ref="website_event_meet.event_meeting_room_view_form" />-->
+<!--			<field name="arch" type="xml">-->
+
+<!--				<xpath expr="//field[@name='event_id']" position="before">-->
+<!--					<field name="booking_types"/>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//field[@name='event_id']" position="after">-->
+<!--&lt;!&ndash;					<field name="therapist_id" string="Facilitator"/>&ndash;&gt;-->
+<!--					<field name="therapist_ids" widget="many2many_tags" string="Facilitator"/>-->
+<!--					<field name="room_categ_id"/>-->
+<!--					<field name="room_id" domain="[('room_maincateg_id','=',room_categ_id)]"/>-->
+<!--					<field name="event_location_id"/>-->
+<!--					<field name="remainder"/>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//label[@for='name']" position="replace">-->
+<!--					<label for="name" string="Title"/>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//field[@name='chat_room_id']" position="after">-->
+<!--					<field name="room_incharge_id"/>-->
+<!--					<field name="reception_id"/>-->
+<!--					<field name="event_start_dt" readonly="1"/>-->
+<!--					<field name="event_end_dt" readonly="1"/>-->
+<!--					<field name="max_seats"/>-->
+<!--					<field name="duration" widget="float_time"/>-->
+<!--					<field name="internal_note"/>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//field[@name='chat_room_id']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//field[@name='room_participant_count']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//field[@name='is_published']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+<!--				<xpath expr="//field[@name='summary']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//field[@name='target_audience']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+<!--				<xpath expr="//field[@name='is_pinned']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+<!--				<xpath expr="//field[@name='room_lang_id']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+<!--				<xpath expr="//field[@name='room_max_capacity']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+<!--				<xpath expr="//page[@name='Reporting']" position="attributes">-->
+<!--					<attribute name="invisible">1</attribute>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//form/sheet/notebook/page[1]" position="after">-->
+<!--					<page name="page_recurrency" string="Booking Info" invisible="1">-->
+<!--						<group>-->
+<!--							<group>-->
+<!--								&lt;!&ndash; <field name="start_datetime" required="1"/>-->
+<!--								<field name="stop_datetime" required="1"/> &ndash;&gt;-->
+<!--								<label for="duration"/>-->
+<!--								<div>-->
+<!--									<field name="duration" widget="float_time" string="Duration" class="oe_inline"/>-->
+<!--									<span> hours</span>-->
+<!--								</div>-->
+<!--								<field name="allday"/>-->
+<!--							</group>-->
+
+<!--							<group>-->
+<!--								<div>-->
+<!--									<group>-->
+<!--										<field name="recurrency"/>-->
+<!--									</group>-->
+<!--									<div attrs="{'invisible': [('recurrency', '=', False)]}">-->
+<!--										<group>-->
+<!--											<label for="interval"/>-->
+<!--											<div class="o_row">-->
+<!--												<field name="interval" attrs="{'required': [('recurrency', '=', True)]}"/>-->
+<!--												<field name="rrule_type" attrs="{'required': [('recurrency', '=', True)]}"/>-->
+<!--											</div>-->
+<!--											<label string="Until" for="end_type"/>-->
+<!--											<div class="o_row">-->
+<!--												<field name="end_type" attrs="{'required': [('recurrency', '=', True)]}"/>-->
+<!--												<field name="count" attrs="{'invisible': [('end_type', '!=', 'count')], 'required': [('recurrency', '=', True)]}"/>-->
+<!--												<field name="final_date" attrs="{'invisible': [('end_type', '!=', 'end_date')], 'required': [('end_type', '=', 'end_date'), ('recurrency', '=', True)]}"/>-->
+<!--											</div>-->
+<!--										</group>-->
+<!--										<group attrs="{'invisible': [('rrule_type', '!=', 'weekly')]}" name="weekdays">-->
+<!--											<field name="mo"/>-->
+<!--											<field name="tu"/>-->
+<!--											<field name="we"/>-->
+<!--											<field name="th"/>-->
+<!--											<field name="fr"/>-->
+<!--											<field name="sa"/>-->
+<!--											<field name="su"/>-->
+<!--										</group>-->
+<!--										<group attrs="{'invisible': [('rrule_type', '!=', 'monthly')]}">-->
+<!--											<label string="Day of Month" for="month_by"/>-->
+<!--											<div class="o_row">-->
+<!--												<field name="month_by"/>-->
+<!--												<field name="day"-->
+<!--													attrs="{'required': [('month_by', '=', 'date'), ('rrule_type', '=', 'monthly')],-->
+<!--													'invisible': [('month_by', '!=', 'date')]}"/>-->
+<!--													<field name="byday" string="The"-->
+<!--														attrs="{'required': [('recurrency', '=', True), ('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],-->
+<!--														'invisible': [('month_by', '!=', 'day')]}"/>-->
+<!--														<field name="week_list" nolabel="1"-->
+<!--															attrs="{'required': [('recurrency', '=', True), ('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],-->
+<!--															'invisible': [('month_by', '!=', 'day')]}"/>-->
+<!--														</div>-->
+<!--													</group>-->
+
+<!--													<button name="recurrent" type="object" string="Create Recurrent"/>-->
+
+<!--												</div>-->
+<!--											</div>-->
+<!--								meet		</group>-->
+<!--									</group>-->
+<!--								</page>-->
+
+<!--&lt;!&ndash;					<div class="oe_chatter">&ndash;&gt;-->
+<!--&lt;!&ndash;                         <field name="message_ids"/>&ndash;&gt;-->
+<!--&lt;!&ndash;					</div>&ndash;&gt;-->
+
+<!--				</xpath>-->
+
+<!--			</field>-->
+<!--		</record>-->
+
+
+
+		<record id="meeting_room_tree_view_form_inherited" model="ir.ui.view">
+			<field name="name">event.meeting.room.inherit</field>
+			<field name="model">event.meeting.room</field>
+			<field name="inherit_id" ref="website_event_meet.event_meeting_room_view_tree" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="string">Title</attribute>
+				</xpath>
+		</field>
+		</record>
+
+		<record id="event_meeting_room_view_tree_ppts" model="ir.ui.view">
+        <field name="name">event.meeting.room.tree.ppts</field>
+        <field name="model">event.meeting.room</field>
+		<field name="inherit_id" ref="website_event_meet.event_meeting_room_view_tree" />
+
+
+        <field name="arch" type="xml">
+
+				<xpath expr="//field[@name='summary']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='target_audience']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='is_pinned']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='room_lang_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='room_max_capacity']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='is_published']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='room_is_full']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='room_participant_count']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='name']" position="after">
+					<field name="event_id"/>
+					<field name="room_categ_id"/>
+					<field name="event_start_dt" readonly="1"/>
+					<field name="room_id"/>
+					<field name="event_location_id"/>
+					<field name="room_incharge_id"/>
+ 				</xpath>
+
+
+
+		</field>
+		</record>
+
+		<record id="ppts_custom_event_room_search" model="ir.ui.view">
+        <field name="name">event.event.search.ppts</field>
+        <field name="model">event.event</field>
+		<field name="inherit_id" ref="event.view_event_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+
+                <field name="room_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Room" name="room_id" domain="[]" context="{'group_by': 'room_id'}"/>
+                </group>
+			</xpath>
+        </field>
+    	</record>
+
+
+    	<record id="mulitidate_wizard_inherit" model="ir.ui.view">
+        <field name="name">multi.date.wizard</field>
+        <field name="model">multi.date.wizard</field>
+		<field name="inherit_id" ref="ppts_custom_event_mgmt.view_multidate_wizard_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='facilitator_evnt_ids']" position="after">
+				<field name="company_id" groups="base.group_multi_company" invisible="1"/>
+            	<field name="room_id" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" domain="[('room_maincateg_id.roomcateg_code','=','EVT'),('company_id','=',company_id)]" />
+
+                
+			</xpath>
+        </field>
+    	</record>
+
+	</data>
+
+</odoo>

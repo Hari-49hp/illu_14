@@ -1,0 +1,123 @@
+<odoo>
+	<data>
+
+		<!--appointment.package-->
+		<!-- Form_view Master -->
+		<record id="appointment_package_from_view" model="ir.ui.view">
+			<field name="name">Appointment package Form</field>
+			<field name="model">appointment.package</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<h2><b>
+								<field name="name" placeholder="Name of Package" required="1"/></b></h2>
+							</group>
+
+							<group>
+								<group>
+									<field name="ser_categ"  widget="many2many_tags"/>
+									<field name="package_qty" required="1"/>
+									<field name="product_id" readonly="1"/>
+
+									<field name="discount"/>
+
+								</group>
+								<group>
+									<field name="sub_categ" widget="many2many_tags"/>
+									<field name="product_price" />
+									<field name="location_ids" widget="many2many_tags" />
+
+									<field name="members_only_ids" invisible="1"/>
+								</group>
+
+							</group>
+
+							<!-- <group>
+								<group>
+									<field name="code" invisible="1"/>
+									<field name="notes" invisible="1"/>
+									<field name="sell_online"/>
+									<field name="ser_categ"  widget="many2many_tags"/>
+									<field name="product_id" readonly="1"/>
+								</group>
+								<group>
+
+									<field name="members_only_ids" invisible="1"/>
+									<field name="sub_categ" widget="many2many_tags"/>
+									<field name="product_price" />
+									<field name="is_discontinued"/>
+									<field name="qty_count" invisible="1"/>
+									<field name="location_ids" widget="many2many_tags" />
+								</group>
+
+							</group> -->
+							<group>
+								<notebook>
+										<page string="Cancellation Charges" name="cancellation_charge">
+											<field name="package_cancel_charge_ids">
+												<tree editable="bottom">
+													<field name="package_of_cancel"/>
+													<field name="domain"/>
+													<field name="package_of_total" force_save="1"/>
+													<field name="original_rate" force_save="1" attrs="{'readonly': [('original_rate_charge', '=', True)]}"/>
+													<field name="original_rate_charge"/>
+													<field name="package_id" invisible="1"/>
+												</tree>
+											</field>
+										</page>
+
+									</notebook>
+								</group>
+
+							</sheet>
+							<div class="oe_chatter">
+								<field name="message_ids"/>
+							</div>
+						</form>
+					</field>
+				</record>
+
+				<!-- Tree_view -->
+				<record id="appointment_package_tree_view" model="ir.ui.view">
+					<field name="name">Appointment Main package Tree</field>
+					<field name="model">appointment.package</field>
+					<field name="arch" type="xml">
+						<tree default_order="sequence asc">
+							<field name="sequence" widget="handle"/> 
+							<field name="name"/>
+							<field name="sell_online"/>
+							<field name="is_discontinued"/>
+
+						</tree>
+					</field>
+				</record>
+				<!--	Search vioew appointment.package	-->
+
+				<record id="appointment_package_master_search" model="ir.ui.view">
+					<field name="name">appointment.package.search</field>
+					<field name="model">appointment.package</field>
+					<field name="arch" type="xml">
+						<search string="Search Package">
+							<field name="name"/>
+
+							<group expand="0" string="Group By">
+								<filter string="Online Package" name="sell_online" domain="[]" context="{'group_by': 'sell_online'}"/>
+								<filter string="Discontinued Package Category" name="is_discontinued" domain="[]" context="{'group_by': 'is_discontinued'}"/>
+							</group>
+
+						</search>
+					</field>
+				</record>
+
+				<!-- Action_view -->
+				<record id="apppointment_package_action_view" model="ir.actions.act_window">
+					<field name="name">Appointment Package</field>
+					<field name="res_model">appointment.package</field>
+					<field name="view_mode">tree,form</field>
+					<field name="view_id" ref="appointment_package_tree_view" />
+				</record>
+
+
+			</data>
+		</odoo>

@@ -1,0 +1,40 @@
+@mixin sync_map_view() {
+    .o_map_view {
+        .o_pin_list_container {
+            background-color: $btn-secondary;
+            .o_pin_list_header {
+                header {
+                    color: var(--font-color);
+                }
+                .fa-list {
+                    color: $night-hover;
+                }
+            }
+            .o_pin_list_details {
+                & > li {
+                    background-color: $night;
+                    color: var(--font-color);
+                    margin-bottom: 5px;
+                    &:hover {
+                        border-left-color: $night-hover;
+                    }
+                }
+            }
+        }
+        .o_map_container {
+            filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+            .leaflet-pane {
+                .leaflet-popup {
+                    .leaflet-popup-content-wrapper {
+                        background-color: $night-light;
+                    }
+                    .leaflet-popup-tip-container {
+                        .leaflet-popup-tip {
+                            background-color: $night-light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

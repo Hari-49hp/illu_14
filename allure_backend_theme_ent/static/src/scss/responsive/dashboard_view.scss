@@ -1,0 +1,31 @@
+@mixin deshbord-view-xs() {
+    .o_dashboard_view {
+        .o_group {
+            & > .o_group.o_group_col_2.o_has_widget {
+                flex-wrap: wrap;
+            }
+        }
+    }
+    .o_action_manager {
+        .o_action {
+            .o_content {
+                .o_lunch_content {
+                    position: relative;
+                    overflow: auto;
+                    .fixed-bottom {
+                        position: sticky;
+                        top: 0;
+                        left: 0;
+                        bottom: auto;
+                        width: 100%;
+                        z-index: 2;
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.o_web_client.ad_mobile {
+    @include deshbord-view-xs();
+}

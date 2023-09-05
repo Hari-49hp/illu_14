@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="CampaignRenderer">
+        <div class="o_owl_tree_view">
+
+
+
+            <!-- t-name="ppts_campaign_dashboard.CampaignRenderer" -->
+            <table class="campaign_table">
+
+                <thead>
+                    <tr>
+                        <th>List</th>
+                        <th>Type</th>
+                        <th>Created Date</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <t t-foreach="items" t-as="item">
+                        <tr>
+                            <td >
+                                <button id="btn_redirect_partner" t-att-data-partners="item.partner" t-att-data-form="item.form_id" t-att-data-tree="item.tree_id" t-att-data-campaign="item.campaign_id" style="width:400px;overflow:auto">
+                                    <t t-esc="item.campaign_name"/>
+                                </button>
+                            </td>
+                            <td>
+                                <t t-esc="item.campaign_type"/>
+                            </td>
+                            <td>
+                                <t t-esc="item.create_date"/>
+                            </td>
+                            
+                            <td>
+                                <t t-esc="item.state"/>
+                            </td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" t-att-aria-valuenow="item.progress" aria-valuemin="0" aria-valuemax="100" t-attf-style="width:{{item.progress}}%">
+                                        <t t-esc="item.progress"/>
+                                        %
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </t>
+                    <!-- <tr>
+                        <td>Arnold</td>
+                        <td>Declined</td>
+                        <td>12/04/2022</td>
+                        <td>Fineshed</td>
+                        <td>80%</td>
+                    </tr>
+                    <tr>
+                        <td>Arnold</td>
+                        <td>Declined</td>
+                        <td>12/04/2022</td>
+                        <td>Fineshed</td>
+                        <td>80%</td>
+                    </tr> -->
+
+                </tbody>
+
+            </table>
+
+            <!-- <t t-esc="props.items"/> -->
+            <!-- <t t-foreach="props.items" t-as="item" t-key="item.id">
+                <p>
+                    <t t-esc="props"/>
+                    <t t-esc="props.items"/>
+                    <t t-esc="item"/>
+                </p>
+            </t> -->
+
+        </div>
+    </t>
+
+</templates>

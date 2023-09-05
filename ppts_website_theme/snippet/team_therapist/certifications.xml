@@ -1,0 +1,59 @@
+<odoo>
+	<data>
+		<template id="template_therapist_certifications_qualifications_page" name="Certifications &amp; Qualifications">
+			<section class="top-btmspace aboutillumination certificationqualifation">
+				<div class="abovefooter">
+					<div class="container-fluid questtobehappy awardreg">
+						<div class="row justify-content-end">
+							<div class="wardimagemorping" data-aos="fade-up" data-aos-delay="600">
+								<img src="/ppts_website_theme/static/src/img/list1.png" />
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="800">
+								<h2 class="">Certifications &amp; Qualifications</h2>
+								<p>Pioneering Dubai’s Well-being Movement Since 2006!</p>
+							</div>
+							<div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo" data-aos="fade-up" data-aos-delay="900">
+								<div>
+									<ul class="awardlists">
+										<li>
+											Clinical Hypnotherapist, EKAA/ Illuminations, India/ UAE
+										</li>
+										<li>
+											Certified Trainer for Clinical Hypnotherapy Level 1, EKAA/ Illuminations, India/ UAE
+										</li>
+										<li>
+											Family Constellations (Level 1, 2, 3) – Illuminations, UAE
+										</li>
+										<li>
+											Metaphor Therapy – The Counselling Company/ Illuminations, India/UAE
+										</li>
+										<li>
+											Child and Teen Counselling- The Counselling Company/ Illuminations, India/UAE
+										</li>
+										<li>
+											Applied Psychology - The Counselling Company/ Illuminations, India/UAE
+										</li>
+										<li>
+											MBA, Human Resources, International Management Institute, India
+										</li>
+										<li>
+											B.Sc. Economics, Presidency College, India
+										</li>
+										<li>
+											Certified Trainer and Facilitator, Carlton Advanced Management Institute
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</section>
+		</template>
+	</data>
+</odoo>

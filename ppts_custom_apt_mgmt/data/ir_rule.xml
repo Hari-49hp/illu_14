@@ -1,0 +1,74 @@
+<odoo>
+	<data>
+		<record id="apt_model_company_based_user" model="ir.rule">
+			<field name="name">Appointment Company Based</field>
+			<field name="model_id" ref="model_appointment_appointment"/>
+			<field name="perm_read" eval="True"/>
+			<field name="perm_write" eval="True"/>
+			<field name="perm_create" eval="False"/>
+			<field name="perm_unlink" eval="False"/>
+			<field name="domain_force">[('company_id', 'in', company_ids)]</field>
+		</record>
+
+		<record id="apt_model_company_based_user_appointment_revenue" model="ir.rule">
+			<field name="name">Appointment Revenue</field>
+			<field name="model_id" ref="model_appointment_revenue"/>
+			<field name="perm_read" eval="True"/>
+			<field name="perm_write" eval="True"/>
+			<field name="perm_create" eval="False"/>
+			<field name="perm_unlink" eval="False"/>
+			<field name="domain_force">[('company_id', 'in', company_ids)]</field>
+		</record>
+
+
+
+		<record id="appointment_user_access" model="ir.rule">
+			<field name="name">Appointment User Access</field>
+			<field name="model_id" ref="model_appointment_appointment"/>
+			<field name="perm_read" eval="True"/>
+			<field name="perm_write" eval="True"/>
+			<field name="perm_create" eval="True"/>
+			<field name="perm_unlink" eval="True"/>
+			<field name="domain_force">[('sales_rep_id', '=', user.id)]</field>
+		</record>
+
+		<record id="appointment_other_user_access" model="ir.rule">
+			<field name="name">Appointment Other User Access</field>
+			<field name="model_id" ref="model_appointment_appointment"/>
+			<field name="perm_read" eval="True"/>
+			<field name="perm_write" eval="True"/>
+			<field name="perm_create" eval="True"/>
+			<field name="perm_unlink" eval="True"/>
+			<field name="domain_force">[('sales_rep_id', '!=', user.id)]</field>
+		</record>
+
+		<record id="event_user_access" model="ir.rule">
+			<field name="name">Event User Access</field>
+			<field name="model_id" ref="model_event_event"/>
+			<field name="perm_read" eval="True"/>
+			<field name="perm_write" eval="True"/>
+			<field name="perm_create" eval="True"/>
+			<field name="perm_unlink" eval="True"/>
+			<field name="domain_force">[('sale_incharge_id', '=', user.id)]</field>
+		</record>
+
+		<record id="event_other_user_access" model="ir.rule">
+			<field name="name">Event Other User Access</field>
+			<field name="model_id" ref="model_event_event"/>
+			<field name="perm_read" eval="True"/>
+			<field name="perm_write" eval="True"/>
+			<field name="perm_create" eval="True"/>
+			<field name="perm_unlink" eval="True"/>
+			<field name="domain_force">[('sale_incharge_id', '!=', user.id)]</field>
+		</record>
+
+		<!-- <record id="hr.hr_employee_public_comp_rule" model="ir.rule">
+			<field name="domain_force">['|',('location_ids','=',False),('location_ids', 'in', company_ids)]</field>
+		</record>
+
+		<record id="hr.hr_employee_public_comp_rule" model="ir.rule">
+			<field name="domain_force">['|',('location_ids','=',False),('location_ids', 'in', company_ids)]</field>
+		</record> -->
+
+	</data>
+</odoo>

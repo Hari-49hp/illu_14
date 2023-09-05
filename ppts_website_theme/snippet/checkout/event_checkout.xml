@@ -1,0 +1,236 @@
+<odoo>
+    <data>
+
+
+        <template id="website_event_checkout_page" name="Event Checkout">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <!-- TOP NAVIGATION END style ="max-height : 53px !important;" -->
+                    <style>
+                    footer > section > div > svg{
+                        background: #fff;
+                    }
+                    </style>
+                    <t t-call="ppts_website_theme.website_checkout_assets_css"/>
+
+
+                    <section class="fqa-wrapperlistsitems  bookaappointment-wrapper">
+
+                        <div class="eachsection">
+                            <div class="mycontainer">
+
+
+                                <input hidden="hidden" name="customer_sale_id" id="customer_sale_id" type="text" placeholder="Event Sale ID" />
+                                <input hidden="hidden" name="customer_event_id" id="customer_event_id" type="text" placeholder="Event ID" />
+
+
+                                <div class="breadcrum-sec topbreadcrum">
+                                    <label>
+                                        <a>Cart /</a>
+                                        <a>Checkout</a>
+
+                                    </label>
+                                </div>
+                                <!-- Start Tabs -->
+                                <div class="nav-tabs-wrapper faqtabwrapper-header" data-aos="fade-up" data-aos-delay="50">
+
+                                    <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="open-appointment-cuustomer-menu">Customer details</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link">Payment details</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="tab-content" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="tab-pane fade show active">
+                                        <div class="bookappointment-subheader">
+                                            <!-- <a class="backbuttontext" id="">
+                                                <i class="fas fa-chevron-left"></i>Back</a> -->
+                                            <div class="row bookapptab-headersub">
+                                                <div class="col-xl-4 col-lg-4">
+                                                    <h5 class="bookappsubheading">Customer details</h5>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="bookappointmain">
+                                            <form class="row">
+                                                <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="event_customer_name" id="event_customer_name" type="text" placeholder="Full name" autocomplete="off"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="event_email" id="event_email" type="email" placeholder="Enter your email" autocomplete="off"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="event_phone" id="event_phone" type="tel" placeholder="Phone" autocomplete="off"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-12">
+
+                                                            <div class="form-group">
+                                                                <t t-set="country_ids" t-value="request.env['res.country'].sudo().search([])" />
+                                                                <select style ="max-height : 53px !important;" name="event_appointment_country_id" id="event_appointment_country_id" class="multi-dropdown-toggle-dep appointment-time-drop-down dropdown-toggle form-control inputwrap ">
+                                                                    <option value="" disabled="disabled" selected="selected">Select a Country/Region</option>
+                                                                    <t t-foreach="country_ids" t-as="country_id">
+                                                                        <option t-att-value="country_id.id">
+                                                                            <t id="search_country_id" t-esc="country_id.name" />
+                                                                        </option>
+                                                                    </t>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <t t-set="city_ids" t-value="request.env['city.master'].sudo().search([])" />
+                                                                <select style ="max-height : 53px !important;" name="event_appointment_city_id" id="event_appointment_city_id" class="multi-dropdown-toggle-dep appointment-time-drop-down dropdown-toggle form-control inputwrap event_check_out_filters_id">
+                                                                    <option value="" disabled="disabled" selected="selected">Select a City/Town</option>
+                                                                    <t t-foreach="city_ids" t-as="city_id">
+                                                                        <option t-att-value="city_id.id">
+                                                                            <t t-esc="city_id.name" />
+                                                                        </option>
+                                                                    </t>
+                                                                </select>
+                                                            </div>
+
+                                                            <!-- <button class="formsubmitbtn" id="submit-appointment">Submit</button> -->
+                                                            <div class="form-group">
+                                                                <input class="form-control" name="event_street" id="event_street" type="text" placeholder="Street Address" autocomplete="off"/>
+                                                            </div>
+                                                            <!-- <button class="fullblurbookbtn" id="submit-appointment">Book</button> -->
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                            <div class="bookapp-footersection rigthsidebtn">
+                                                <a class="backbuttontext">
+                                                    <i class="fas fa-chevron-left"></i>Back</a>
+
+                                                <button class="fullblurbookbtn" id="event-submit-appointment"> Continue to Register and Pay</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="">
+                                        <div class="bookappointment-subheader">
+                                            <a class="backbuttontext">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+
+                                        </div>
+                                        <div class="bookappointmain">
+                                            <div class="row">
+                                                <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                    <h5 class="bookappsubheading">Payment method</h5>
+
+                                                    <div class="paymentmethod-list">
+                                                        <label>
+                                                            <input type="radio" />
+ Credit card (Visa, Master Card) </label>
+                                                        <div class="cardfield row">
+                                                            <div class="form-group col-xl-7 col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                                                <input type="text" class="form-control" placeholder="XXXX- XXXX-XXXX-XXXX" />
+                                                            </div>
+                                                            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 col-6">
+                                                                <input type="text" placeholder="MM/YY" />
+                                                            </div>
+                                                            <div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 col-6">
+                                                                <input type="text" placeholder="CVV" />
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="paymentmethod-list">
+                                                        <label>
+                                                            <input type="radio" />
+ PayPal</label>
+                                                    </div>
+                                                    <div class="paymentmethod-list">
+                                                        <label>
+                                                            <input type="radio" />
+ G Pay </label>
+                                                    </div>
+                                                    <div class="paymentmethod-list">
+                                                        <label>
+                                                            <input type="radio" />
+ Apple Pay </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="paymentdetailscard-container">
+                                                        <div class="paymentdetailscard-header">
+                                                            <h5 class="bookappsubheading">Your Appointment is:</h5>
+                                                            <div class="oberlay-tags tagsrelative">
+                                                                <label> SPIRITUAL HEALING </label>
+                                                                <label> MEDITATION </label>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class=" ">
+                                                                <h6>
+                                                                    <small> Service:</small> Healing </h6>
+                                                                <h6>
+                                                                    <small> Facilitator:</small> Irine Dhara </h6>
+                                                                <div class="paymentdetail-event">
+                                                                    <label>
+                                                                        <i class="fas fa-map-marker-alt"></i> Illuminations
+                                                        JLT</label>
+                                                                    <label>
+                                                                        <i class="far fa-calendar-minus"></i>14 December</label>
+                                                                    <label>
+                                                                        <i class="far fa-clock"></i> 15:30 (UTC+3)</label>
+                                                                    <label>
+                                                                        <i class="fas fa-list-ul"></i> Naturopathy</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="coupon_code_container">
+                                                            <div class="coupon_code_fields">
+                                                                <input type="text" placeholder="Coupon Code" class="" />
+                                                                <button type="submit" class="couponapplybtn">Apply</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="total-amount-foot">
+                                                            <h4>
+                                                                <label>Total: </label>
+                                                                <span>120 د.إ </span>
+                                                            </h4>
+                                                            <small>Included in the price VAT ( Adding Tax Booking Amount)</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bookapp-footersection rigthsidebtn">
+                                                <a class="backbuttontext">
+                                                    <i class="fas fa-chevron-left"></i>Back</a>
+
+                                                <button class="fullblurbookbtn"> Continue to Date</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Tabs -->
+                                    <br />
+                                    <p class="alert alert-warning" id="event-warning"></p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </section>
+                    <!-- <t t-call="ppts_website_theme.website_checkout_assets_js"/> -->
+
+                    <script src="/ppts_website_theme/static/src/js/events/events.js"></script>
+
+                </div>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <template id="illuminations_achivements_snippet" name="Achivements">
+            <!-- ACHIVEMENT SECTION START -->
+            <section class="achivemt-wrapper light-blue-bg section-topbtm-padding">
+                <div class="mycontainer">
+                    <div class="row  align-items-center">
+                        <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12  align-items-center">
+                            <div class="trainingacc" data-aos="fade-up" data-aos-delay="50">
+                                <h2 class="main-heading">
+                                    Achievements
+                                    <br />
+                                    in Numbers
+                                </h2>
+                                <p>We believe that our achievements are the result of hard
+                                work and the provision of quality services to our
+                                clients. Our mission is to ensure that all clients,
+                                students and families are happy and healthy.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                            <div class="row achivementinfo">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="150">
+                                    <span class="blakwordtexts">40+</span>
+                                    <p>Wellness Practitioners</p>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+                                    <span class="blakwordtexts"> 18000+</span>
+                                    <p>Satisfied Customers</p>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="250">
+                                    <span class="blakwordtexts">20+</span>
+                                    <p>Wellness Retreats Conducet</p>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="300">
+                                    <span class="blakwordtexts">4000+</span>
+                                    <p>Students Certified</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+            <!-- ACHIVEMENT SECTION END -->
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<odoo>
+	<data>
+		<template id="assets_frontend_mindbody" inherit_id="website.assets_frontend"
+			name="Custom Portal">
+			<xpath expr="." position="inside">
+				<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css'/>
+				<!-- <script src="/ppts_mindbody_calendar/static/src/js/calendar.js"/> -->
+			</xpath>
+		</template>
+	</data>
+</odoo>

@@ -1,0 +1,12 @@
+@mixin ni-lunch-view() {
+    .o_lunch_content {
+        .o_lunch_banner {
+            background-color: $btn-secondary;
+            .o_lunch_widget_info {
+                .card-body {
+                    color: white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="employee_remainder_mail_event" model="mail.template">
+            <field name="name">Employee Remainder Mail</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to">${object.work_email}</field>
+            <field name="subject">Please Update Your Available Date</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.name or ''},</p>
+                <p>
+                    Please update your available Date & Time slots to plan Events accordingly. Please ignore if you alreay done.
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]>            </field>
+        </record>
+
+        <!-- <record model="ir.cron" id="employee_vailability_remainder_event">
+            <field name="name">Employee Availability Remainder</field>
+            <field name="model_id" ref="custom_event_mail.model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model.mail_remainder()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">weeks</field>
+            <field name="numbercall">-1</field>
+            <field name="priority">1</field>
+            <field name="doall" eval="True" />
+        </record> -->
+    </data>
+</odoo>

@@ -1,0 +1,100 @@
+<odoo>
+	<data>
+		<template id="illuminations_general_inquiry_header" name="General Inquiry">
+			<section class="section-topbtm-padding">
+
+				<div class="noanimate_top_wave">
+					<svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+						<g>
+							<path class="light-brown-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+								c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+								c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+								c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z" />
+						</g>
+					</svg>
+				</div>
+				<div class="bookafreetrial lightbrown-bg ">
+					<div class="  book-free-consultant  section_padd_left_right190_80  eachsection">
+
+						<div class="arrow-scroll leftside">
+							<svg viewBox="0 0 426 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+									<path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+									<path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+									c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+								</g>
+
+							</svg>
+						</div>
+						<div class="row align-items-center mycontainer">
+							<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+
+								<h2>
+									general
+									<br />
+									Inquiry
+								</h2>
+								<p>Experience Our Wide Range of Powerful Healing &amp; Therapy Service</p>
+							</div>
+
+							<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+								<div class="bookafree-card" data-aos="fade-up" data-aos-delay="100">
+									<h5>Fill in only these 4 fields</h5>
+									<form class="row" onsubmit="return onsubmit_general_enquiry(this);">
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="form-group">
+												<input class="form-control" type="text" name="customer_fullname" placeholder="Full name" autocomplete="off"/>
+											</div>
+											<div class="form-group">
+												<input class="form-control" type="email" placeholder="Enter your email" name="customer_email" autocomplete="off"/>
+											</div>
+											<div class="form-group">
+												<input class="form-control" type="email" placeholder="Phone" name="customer_phone" autocomplete="off"/>
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="form-group textgroup">
+												<textarea class="form-control textheightfull" placeholder="Message" name="customer_message" value="" autocomplete="off"></textarea>
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="form-group">
+
+												<label class="checkboxlabel">
+													<input class="" type="checkbox" />
+													I agree to the
+													Privacy
+													Policy &amp; Terms and Conditions
+												</label>
+											</div>
+											<button type="button" class="formsubmitbtn">Chat with us</button>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<div class="form-group text-center">
+												<label class="checkboxlabel"> or Connect Now and speak with our Wellness Advisor
+												</label>
+											</div>
+											<button type="button" class="formsubmitbtn">Click to Call</button>
+										</div>
+									</form>
+
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="noanimtionbtm-wave btnsvg-reverse">
+					<svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+						<g>
+							<path class="light-brown-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+							c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+							l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z" />
+						</g>
+					</svg>
+				</div>
+			</section>
+		</template>
+	</data>
+</odoo>

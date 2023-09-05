@@ -1,0 +1,123 @@
+<odoo>
+	<data>
+
+		<record id="custom_attendee_event_tree_view" model="ir.ui.view">
+			<field name="name">Attendee Event Tree View</field>
+			<field name="model">event.registration</field>
+			<field name="inherit_id" ref="event.view_event_registration_tree" />
+			<field name="arch" type="xml">
+				<xpath expr="//tree" position="attributes">
+					<attribute name="decoration-danger">event_payment_status == 'no_paid'</attribute>
+					<attribute name="decoration-warning">event_payment_status == 'partially_paid'</attribute>
+					<attribute name="decoration-success">event_payment_status in ('paid','payment_received')</attribute>
+
+					<attribute name="class">eventRegistration</attribute>
+				</xpath>
+				<xpath expr="//button[@name='action_confirm']" position="after">
+	            	<button string="Confirms" name="open_wizard" type="object"  states="draft" icon="fa-check"/>
+	            </xpath>
+				<xpath expr="//tree/button[@name='action_confirm']" position='attributes'>
+					<attribute name='invisible'>1</attribute>
+				</xpath>
+				<xpath expr="//tree/field[@name='name']" position="after">	
+					<button name="action_open_registration" string="[Assign]" type="object" icon="fa-users" class="assign_event_btn"/>
+					</xpath>
+				<field name='phone' position='replace'/>
+				<field name='mobile' position='replace'>
+					<field name='mobile' optional='show'/>
+				</field>
+				<field name='event_ticket_id' position='after'>
+
+					<field name="event_payment_status" string="Payment Status"  optional='show' decoration-danger="event_payment_status == 'no_paid'" decoration-success="event_payment_status in ('paid','payment_received')" widget="badge"/>
+				</field>
+				<field name="company_id" position='after'>
+					<button name="event_payment" type="object" icon="fa-usd" string="Pay" attrs="{'invisible': [('event_payment_status', '=', 'paid')]}"/>
+				</field>
+			</field>
+		</record>
+
+
+		<record id="custom_attendee_event_coupon_pos" model="ir.ui.view">
+			<field name="name">Attendee Event POS</field>
+			<field name="model">event.registration</field>
+			<field name="inherit_id" ref="event.view_event_registration_form" />
+			<field name="arch" type="xml">
+				 <xpath expr="//form" position="inside">
+					<script>
+						$("#saveeventconfirm").click(function(){
+							
+							if (localStorage.getItem("open_log") == "edit" || localStorage.getItem("open_log") == "1") {
+								localStorage.setItem("open_log", "book");	
+							}
+							
+						});
+
+						setTimeout(function(){ 
+							$("#saveeventconfirm").click(function(){
+								if (localStorage.getItem("open_log") == "edit" || localStorage.getItem("open_log") == "1") {
+									localStorage.setItem("open_log", "book");
+								}
+							}); 
+						}, 2000);
+                    </script>
+	            </xpath>
+	            <xpath expr="//field[@name='partner_id']" position="after">
+	            	<field name="pos_order_id" required="0" groups="base.group_no_one"/>
+	            	<field name="is_send_mail_gift" invisible="1"/>
+
+	            </xpath>
+
+	            <xpath expr="//button[@name='action_confirm']" position="replace">
+	            	<button string="Save &amp; Confirm" id="saveeventconfirm" name="open_wizard" type="object"  states="draft"/>
+	            </xpath>
+	            <xpath expr="//button[@name='cancel_registration']" position="after">
+	            	<button name="action_view_event_pos" class="oe_highlight" icon="fa-shopping-cart" groups="base.group_no_one" string="View Cart" attrs="{'invisible':[('pos_order_id', '=', False)]}" type="object"/>
+	            </xpath>
+
+	            	
+
+	            <xpath expr="//div[@name='button_box']" position="inside">
+	            	<button name="event_payment" type="object" class="oe_stat_button" icon="fa-usd" string="Pay" attrs="{'invisible': [('event_payment_status', '=', 'paid')]}">
+	            	</button>
+	            	<h2 style="padding:10px">
+	            		<field name="event_payment_status" readonly="1" nolabel="1" />
+						<field name="event_refund_status" invisible="1"/>
+	            	</h2>
+
+	            </xpath>
+
+				<!-- <xpath expr="//field[@name='partner_id']" position="after">
+					<field name="attendee_partner_id" domain="[('is_company','=',False),('employee','=',False)]" attrs="{'invisible': [('type_booking', '=', 'type_gift')],'required': [('type_booking', '!=', 'type_gift')]}"/>
+				</xpath>
+			-->
+			<xpath expr="//field[@name='mobile']" position="after">
+				<field name="sales_person" />
+				<!-- <field name="event_payment_status" readonly='1'/> -->
+				<field name="is_pos_order" invisible='1'/>
+			</xpath>
+			<xpath expr="//field[@name='phone']" position="attributes">
+				<attribute name="groups">base.group_no_one</attribute>
+			</xpath>
+
+		</field>
+	</record>
+
+	<record id="view_event_registration_search_inherit" model="ir.ui.view">
+		<field name="name">Event Registration Search</field>
+		<field name="model">event.registration</field>
+		<field name="inherit_id" ref="event.view_registration_search" />
+		<field name="arch" type="xml">
+			<filter name="group_event_ticket_id" position='after'>
+				<filter string="Sales Person" name="group_sales_person" domain="[]" context="{'group_by':'sales_person'}"/>
+				<filter string="Campaign" name="group_campaign" domain="[]" context="{'group_by':'utm_campaign_id'}"/>
+				<filter string="Source" name="group_source" domain="[]" context="{'group_by':'utm_source_id'}"/>
+				<filter string="Medium" name="group_medium" domain="[]" context="{'group_by':'utm_medium_id'}"/>
+			</filter>
+		</field>
+	</record>
+
+
+
+
+</data>
+</odoo>

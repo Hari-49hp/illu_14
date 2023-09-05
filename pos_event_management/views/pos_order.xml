@@ -1,0 +1,21 @@
+<odoo>
+	<data>
+		<record id="pos_order_form_view_inherit_event_pos" model="ir.ui.view">
+			<field name="name">pos.order.event.extended</field>
+			<field name="model">pos.order</field>
+			<field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='lines']/tree" position="inside">
+					<field name="event_reg_id" invisible='1'/>
+				</xpath>
+				<xpath expr="//page[@name='extra']/group" position="inside">
+					<group string="Event Information" name="grp_event_info">
+						<field name="event_reg_id" readonly='1'/>
+					</group>
+				</xpath>
+			</field>
+		</record>
+
+		
+	</data>
+</odoo>

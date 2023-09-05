@@ -1,0 +1,30 @@
+<odoo>
+	<data>
+		<record id="event_pos_sale_extended" model="ir.ui.view">
+			<field name="name">Event Sale POS</field>
+			<field name="model">event.registration</field>
+			<field name="inherit_id" ref="event_sale.event_registration_ticket_view_form" />
+			<field name="arch" type="xml">
+				 <button name="action_view_sale_order" position="attributes">
+				 	<attribute name='attrs'>{'invisible':[('is_pos_order', '!=', False)]}</attribute>
+				 </button>
+				<xpath expr="//group/group[3]" position="attributes">
+				 	<attribute name='attrs'>{'invisible':[('is_pos_order', '!=', False)]}</attribute>
+			 	</xpath>
+
+			</field>
+		</record>
+		<record id="event_pos_invoice_extended" model="ir.ui.view">
+			<field name="name">Event invoice POS</field>
+			<field name="model">event.registration</field>
+			<field name="inherit_id" ref="custom_event_mail.event_registration_form_view_inherit_custom_event" />
+			<field name="arch" type="xml">
+				 <button name="attendees_invoice" position="attributes">
+						<attribute name='attrs'>{'invisible':[('is_pos_order', '!=', False)]}</attribute>
+				 </button>
+
+			</field>
+		</record>
+
+	</data>
+</odoo>

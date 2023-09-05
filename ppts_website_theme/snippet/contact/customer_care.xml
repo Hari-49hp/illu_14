@@ -1,0 +1,17 @@
+<odoo>
+	<data>
+		<template id="illuminations_customer_care_header" name="Customer Care">
+			<section class="contactus-sections">
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<h2>Customer Care</h2>
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<a href="tel:+971044487043" class="phonetext">+971-04-448 7043</a> <br/>
+						<a href="mailto:info@illuminationsworld.com" class="emailtext">info@illuminationsworld.com</a><br/>
+					</div>
+				</div>
+			</section>
+		</template>
+	</data>
+</odoo>

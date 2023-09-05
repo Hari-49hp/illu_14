@@ -1,0 +1,29 @@
+ <odoo>
+    <data>
+        <template id="illuminations_free_introduction" name="Free Introduction"> 
+
+            <section class="eachsection section-topbtm-padding">
+                <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row approchcontainer meditationtext">
+                        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-xs-12 col-12 section-typo withvertcenter">
+                            <div class="section-typo-inner" style="max-width: 100%;">
+                                <span class="blakwordtexts ">test </span>
+                                <h2 class="">Free introduction to Meditation for the Modern Soul </h2>
+                                <p class="" style="max-width: 500px;">Don’t know how to start meditate take a short test and we
+                                    will determine which meditation is right for you and suggest a more suitable one
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12  meditationsantuary">
+                            <img src="/ppts_website_theme/static/src/img/freeitro.jpg" alt="" class="img-fluid"/>
+                            <h6 style="font-weight: 600;">Take a short test and we will determine which meditation is right for
+                                you and suggest a more suitable one</h6>
+                            <a href= "#book_free_apt_snippet"><button type="button" class="fullbutton">let’s get you started</button></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+        </template>
+    </data>
+</odoo>

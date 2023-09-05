@@ -1,0 +1,120 @@
+@mixin ni_spreadsheet_view() {
+    .o_spreadsheet_cp {
+        background-color: $night-light;
+    }
+    .o_spreadsheet_action {
+        .o_spreadsheet_container {
+            .o-spreadsheet-topbar {
+                background-color: $night;
+                .o-topbar-top {
+                    border-color: $border;
+                    .o-topbar-topleft {
+                        .o-menu {
+                            background: $night;
+                            .o-menu-item:hover {
+                                background: $btn-primary;
+                            }
+                        }
+                        .o-topbar-menu {
+                            &:hover {
+                                background: $btn-primary;
+                            }
+                        }
+                    }
+                    .o-topbar-topright {
+                        .o_filter_component {
+                            .o_topbar_filter_icon {
+                                &:hover {
+                                    background-color: $btn-primary;
+                                }
+                            }
+                        }
+                    }
+                }
+                .o-toolbar-tools {
+                    color: $font-color;
+                    .o-icon {
+                        path, polygon {
+                            fill: $font-color;
+                        }
+                    }
+                    .o-tool {
+                        &.active {
+                            background-color: $btn-primary;
+                        }
+                        .o-color-picker {
+                            background-color: $night;
+                        }
+                    }
+                    .o-tool:not(.o-disabled):hover {
+                        background-color: $btn-primary;
+                    }
+                    .o-dropdown {
+                        .o-dropdown-content {
+                            background-color: $night;
+                        }
+                    }
+                }
+            }
+            .o-spreadsheet-bottom-bar {
+                background-color: $night;
+                border: 0;
+                .o-icon {
+                    path, polygon, rect {
+                        fill: $font-color;
+                    }
+                }
+                .o-all-sheets {
+                    .o-sheet-item {
+                        background-color: $btn-secondary;
+                        color: $font-color;
+                        box-shadow: unset;
+                        &.active {
+                            background-color: $btn-primary;
+                            color: white;
+                        }
+                    }
+                }
+                .o-menu {
+                    background-color: $night;
+                }
+            }
+            .o-sidePanel {
+                background-color: $night-light;
+                border: 0;
+                .o-sidePanelHeader {
+                    border-color: $border;
+                    background-color: $btn-secondary;
+                    .o-sidePanelClose {
+                        &:hover {
+                            background-color: $btn-primary;
+                        }
+                    }
+                }
+                .o-sidePanelBody {
+                    background-color: $night-light;
+                    .o_spreadsheet_global_filters_side_panel {
+                        background-color: $night-light;
+                    }
+                    .o_side_panel_section {
+                        background-color: $night-light;
+                    }
+                }
+            }
+            .o-menu {
+                background-color: $night;
+                .o-menu-item:hover {
+                    background: $btn-primary;
+                }
+            }
+        }
+        .o-sidePanelButton {
+            &:hover {
+                background-color: $btn-secondary;
+            }
+        }
+        .o-divider {
+            border-color: $border;
+        }
+    }
+}

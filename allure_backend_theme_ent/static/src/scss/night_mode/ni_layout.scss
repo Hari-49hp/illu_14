@@ -1,0 +1,212 @@
+body {
+    &.o_web_client.oe_night_mode:not(.oe_base_menu):not(.o_in_studio), &.o_web_client.oe_base_menu.oe_night_mode:not(.o_in_studio) {
+        background-color: $night;
+        @include common-layout();
+        @include sync_window_chat_view();
+        @include sync_attendance_view();
+        & > header {
+            @include sync_header_layout();
+        }
+        &.nav-sm {
+            & > header {
+                @include sync_menu_background();
+            }
+        }
+        & > div.o_action_manager {
+            & > .o_widget_Discuss {
+                div.o_control_panel {
+                    @include sync_control_panel_layout();
+                }
+                @include mail_view();
+            }
+            & > div.o_action {
+                @include ni_spreadsheet_view();
+                background-color: $night-light;
+                &.o_view_controller {
+                    background-color: $night-light;
+                }
+                & > div.o_control_panel {
+                    @include sync_control_panel_layout();
+                }
+                & > .o_controller_with_searchpanel {
+                    .o_search_panel {
+                        @include sync_search_panel_layout();
+                    }
+                    summary {
+                        background-color: $btn-primary;
+                        box-shadow: inset 0px -3px 0px 0px var(--border);
+                    }
+                    .o_searchview_input_container {
+                        .o_searchview_facet {
+                            background-color: $night;
+                            border-color: var(--border);
+                            .o_facet_values {
+                                color: $font-color;
+                            }
+                        }
+                    }
+                }
+                div.o_content {
+                    background-color: $btn-secondary;
+                    border-right: 0;
+                    @include website_dashboards_view();
+                    @include web_settings_dashboard_view();
+                    @include sync_import_view();
+                    @include gernal_setting_view();
+                    @include sync_kanban_view();
+                    @include common-layout();
+                    @include sync_list_view();
+                    @include sync_graph_layout();
+                    @include sync_activity_layout();
+                    @include sync_pivot_view();
+                    @include sync_calander_view();
+                    @include sync_form_view();
+                    @include sync_map_view();
+                    @include sync_dashboards_view();
+                    @include syn_cohort_view();
+                    @include syn_grid_view();
+                    @include sync_gantt_view();
+                    @include ni-purchase-view();
+                    @include ni-lunch-view();
+                }
+            }
+        }
+        &.o_home_menu_background, .o_home_menu_background {
+            background-image: radial-gradient(circle, $night, $btn-secondary);
+        }
+        @include sync_model_view();
+        @include dropdown_view();
+        &.open_customize_theme {
+            .o_technical_modal {
+                .modal-dialog {
+                    .modal-content {
+                        & > .form-group {
+                            border-left: 1px solid var(--border);
+                        }
+                    }
+                }
+            }
+        }
+        &.ad_mobile {
+            .settings_tab {
+                background-color: $btn-primary !important;
+            }
+            header {
+                .o_main_navbar {
+                    .o_menu_sections {
+                        & > li {
+                            .dropdown-header {
+                                background-color: $btn-primary !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.o_web_client.oe_night_mode:not(.oe_base_menu), &.o_web_client.oe_night_mode:not(.oe_base_menu).ad_mobile {
+        & > header {
+            @include sync_header_vlayout();
+            nav.o_main_navbar {
+                #menu_toggle {
+                    background-color: $night !important;
+                    .icon {
+                        background-color: $font-color;
+                        &:before, &:after {
+                            border: 3px solid $night;
+                        }
+                    }
+                    &.fa-chevron-left:not(.d-none) {
+                        .icon {
+                            background-color: $night;
+                            &:before, &:after {
+                                border: 3px solid $font-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.o_web_client.oe_night_mode.oe_base_menu:not(.ad_mobile) {
+        & > header {
+            nav.o_main_navbar {
+                #menu_toggle {
+                    background-color: $night !important;
+                    &.fa-chevron-left:not(.d-none) {
+                        .icon {
+                            background-color: $night;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.o_web_client.oe_night_mode.oe_base_menu.ad_mobile {
+        & > header {
+            nav.o_main_navbar {
+                #menu_toggle {
+                    &.fa-chevron-left:not(.d-none) {
+                        .icon {
+                            background-color: #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.o_web_client.oe_night_mode.oe_base_menu, &.o_web_client.oe_night_mode.oe_base_menu.ad_mobile {
+        & > header {
+            nav.o_main_navbar {
+                #menu_toggle {
+                    .icon {
+                        background-color: $font-color;
+                        &:before, &:after {
+                            border: 3px solid $night;
+                        }
+                    }
+                    &.fa-chevron-left:not(.d-none) {
+                        .icon {
+                            &:before, &:after {
+                                border: 3px solid $font-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Ent [start]
+    .o_home_menu {
+        .o_apps_header {
+            .o_menu_search {
+                .o_menu_search_input {
+                    background-color: transparent !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $screen-xs-max) {
+    body {
+        &.o_web_client.oe_night_mode:not(.oe_base_menu) , &.o_web_client.oe_base_menu.oe_night_mode {
+            &.ad_mobile {
+                .settings_tab {
+                    background-color: $btn-primary !important;
+                }
+                header {
+                    .o_main_navbar {
+                        .o_menu_sections {
+                            & > li {
+                                .dropdown-header {
+                                    background-color: $btn-primary !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

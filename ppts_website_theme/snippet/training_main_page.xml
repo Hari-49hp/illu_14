@@ -1,0 +1,767 @@
+<odoo>
+    <data>
+        <template id="training_main_page" name="Training">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <!--  header start-->
+                    <section class="subpage-top-hero-section-two abouttophero  light-blue-bg">
+                        <div class="eachsection">
+
+
+                            <div class="row hero-section-two ourstory mycontainer">
+                                <div class="col-lg-6 col-md-6 col-xl-6  col-sm-12" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="breadcrum-sec topbreadcrum  ">
+                                        <label>
+                                            <a href="/" style="text-decoration:none;">Home /</a>
+                                            <a>Training Academy</a>
+                                        </label>
+                                    </div>
+                                    <div class="hero-two-left subintrotext herotexcenter">
+                                        <h1 class="mainherotext ">Vision of the Academy</h1>
+                                        <p class="herotxtprag ">Illuminations offers a wide range of training programs so that clients
+                                            can qualify as a wellness practitioner to not only enhance their own quality of life, but
+                                            also gain professional certification to help others.</p>
+
+                                        <a href="#book_free_apt_snippet" style="text-decoration:none;min-width:220px;" type="button" class="fullbutton">Enquire Now</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-xl-6  col-sm-12 rightsideslide">
+                                <div class="hero-two-right">
+                                    <div class="image-orvideocpnt">
+                                        <img src="/ppts_website_theme/static/src/img/trainingaccadamybanner.jpg" />
+                                        <!-- <a class="playicon"></a> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--  header end -->
+                    <!-- browse our courses SECTION START -->
+                    <section class="browse-our-courses section-topbtm-padding ">
+
+                        <div class="section_padd_left_right190_80 eachsection">
+                            <div class="arrow-scroll leftside">
+                                <svg viewBox="0 0 426 142" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+                                        <path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+                                        <path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                                    c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <div class="animation-test mycontainer" data-aos="fade-up" data-aos-delay="100">
+
+                                <div class="questtobehappy">
+                                    <span>Get started </span>
+                                    <h2 style="max-width: 100%;">Trainings we offer</h2>
+                                </div>
+                                <div class="">
+                                    <div class="browse-our-courses-list owl-carousel smowinmobile" id="ourcourse">
+                                        <t t-set="training_ids" t-value="request.env['calendar.appointment.type'].sudo().search([('is_training','=',True)])" />
+                                        <t t-foreach="training_ids" t-as="training_id">
+
+
+                                            <div class="browse-our-courses-list-item">
+                                                <div class="browsecourse-left-img">
+                                                    <t t-if="training_id.image">
+                                                        <img t-attf-src="/web/image?model=calendar.appointment.type&amp;id={{training_id.sudo().id}}&amp;field=image" />
+                                                    </t>
+
+                                                    <t t-if="not training_id.image">
+                                                        <img src="/ppts_website_theme/static/src/img/tailimage.jpg" />
+                                                    </t>
+                                                </div>
+                                                <div style="overflow:auto;margin:auto;height:410px;">
+                                                    <h5 class="course-header" t-att-title="training_id.name">
+                                                        <t t-esc="training_id.name"/>
+                                                    </h5>
+                                                    <p class="course-subheader">Certification</p>
+                                                    <p class="course-content" t-att-title="training_id.certifications">
+                                                        <t t-raw="training_id.certifications"/>
+                                                    </p>
+                                                    <p class="course-subheader">About</p>
+                                                    <p class="course-content" t-att-title="training_id.about_training">
+                                                        <t t-raw="training_id.about_training"/>
+                                                    </p>
+
+                                                    <a t-attf-href="/training/{{slug(training_id)}}/individual/page" class="fullbutton">Learn more</a>
+                                                </div>
+                                            </div>
+                                        </t>
+
+
+                                    </div>
+                                    <div class="col-sm-12 pc-hidden">
+                                        <button class="borderedbtn   mt-3">Show more <i class="fas fa-caret-down"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 align-items-center justify-content-center mobile-hidden">
+                                    <div class="caresolearrow align-items-center">
+                                        <button class="ourExpertNextBtn" id="ourcourse-right">
+                                            <i class="fas fa-caret-left"></i>
+                                        </button>
+                                        <button class="ourExpertPrevBtn" id="ourcourse-left">
+                                            <i class="fas fa-caret-right"></i>
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- browse our courses SECTION END -->
+                    <!--  EVENTS Section Start -->
+                    <t t-call="ppts_website_theme.training_upcoming_session_section">
+                        <t t-set="training_head_content" t-value="'Upcoming Courses'"/>
+                    </t>
+                    <!--  EVENTS Section END -->
+                    <!-- train with us SECTION START -->
+                    <section class="train-with-us eachsection section-topbtm-padding">
+                        <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+
+
+                            <div class="row train-with-us-wrapper align-items-end">
+                                <div class="col-lg-5 col-md-6 col-xl-5 col-sm-12 col-xs-12">
+                                    <h4 class="train-with-us-header">3 reasons to<br class="display-only-pc"/>
+ train with us</h4>
+                                </div>
+                                <div class="col-lg-7 col-md-6 col-xl-6  col-sm-12 col-xs-12">
+                                    <p class="train-with-us-content">
+                                        Our small initiative began by organizing non-profit events to give people the opportunity to
+                                        discover and explore the powerful resources residing within their inner self.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class=" ">
+                                <div class=" ">
+                                    <div class="reasototrainflow">
+
+
+
+                                        <div class="reasontodescrip reasontodes_01">
+                                            <h4>01</h4>
+                                            <p>Our small initiative began by organizing non-profit events to give people the opportunity
+                                                to discover and explore the powerful resources residing within their inner self.</p>
+                                        </div>
+                                        <div class="reasontodescrip reasontodes_02">
+                                            <h4>02</h4>
+                                            <p>Our small initiative began by organizing non-profit events to give people the opportunity
+                                                to discover and explore the powerful resources residing within their inner self.</p>
+                                        </div>
+
+
+                                        <div class="reasontotrain_withimges">
+
+
+                                            <div class="reasontodescrip reasontodes_03">
+                                                <h4>03</h4>
+                                                <p>From rented hotel apartments, to a tiny room in a villa, to a small space in downtown
+                                                    Dubai, we moved all around Dubai offering our services.</p>
+                                            </div>
+                                            <div class="reasonimgcont">
+                                                <img src="/ppts_website_theme/static/src/img/reasontrainimg.png" class="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- train with us SECTION END -->
+
+
+
+                    <t t-call="ppts_website_theme.training_accreditations_section"/>
+
+                    <section class="our-students eachsection section-topbtm-padding">
+                        <div class="row mycontainer" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-sm-12">
+                                <h2 class="our-students-heading">Our students</h2>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="abt-title-img our-students-image">
+                                    <img src="/ppts_website_theme/static/src/img/ourstudent.jpg" class="img-fluid" loading="lazy"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6"></div>
+                            <div class="col-md-6">
+                                <p class="our-students-content">Our small initiative began by organizing non-profit events to give
+                                    people the opportunity to discover and explore the powerful resources residing within their inner
+                                    self.
+                                </p>
+                                <a href="/student" style="text-decoration:none;" class="fullbutton">See Our students</a>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <section class="accreditations-certifying section-topbtm-padding">
+                        <div class="bookfree_top_wave">
+                            <svg class="topsvg svgclass" viewBox="0 0 1440 180">
+                                <path fill-rule="evenodd" class="light-blue-svg" clip-rule="evenodd" d="M1440 109.816V180H0V97.238C16.0593 97.3265 33.8952 99.8623 53.3392 102.627C98.6462 109.068 152.684 116.751 213.319 97.6057C236.457 90.3001 258.319 81.636 279.807 73.1203C344.918 47.316 406.59 22.8749 489.892 41.7282C578.399 61.7595 645.196 46.836 711.393 32.0467C765.565 19.9439 819.336 7.93092 884.272 15.238C949.335 22.5593 1003.7 14.8786 1052.21 8.02532C1111.27 -0.31843 1161.65 -7.43594 1212.09 15.238C1233.83 25.011 1255.78 36.2646 1277.8 47.5457C1332.37 75.5178 1387.28 103.659 1440 109.816Z" />
+                            </svg>
+
+
+                        </div>
+                        <div class="light-blue-bg">
+
+                            <div class="eachsection">
+                                <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+
+
+                                    <div class="row align-items-center">
+                                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                                            <h3 class=" accreditations-certifying-header">Snapshots of Our Training</h3>
+
+                                        </div>
+                                        <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="ourexpert_arrow align-items-center">
+                                                <button class="featuredin_NextBtn snapoftraining-left" id="snapoftraining-left">
+                                                    <i class="fas fa-caret-left"></i>
+                                                </button>
+                                                <button class="featuredin_PrevBtn snapoftraining-right" id="snapoftraining-right">
+                                                    <i class="fas fa-caret-right"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="  align-items-center featuresin-wrapper">
+                                        <div class="sliderupdownimgs" data-aos="fade-left" data-aos-delay="750">
+                                            <div class="owl-carousel " id="snapoftraining">
+                                                <t t-set="training_ids" t-value="request.env['our.training'].sudo().search([('website_publish','=',True)])" />
+                                                <t t-foreach="training_ids" t-as="each_training">
+                                                    <div class="leadercont">
+                                                        <img t-attf-src="/web/image?model=our.training&amp;id={{each_training.sudo().id}}&amp;field=image" class="userimage" alt=""/>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about_bottom_wave">
+                            <svg class="topsvg svgclass" viewBox="0 0 1440 180" fill="none">
+                                <path fill-rule="evenodd" class="light-blue-svg" clip-rule="evenodd" d="M1440 82.5708V0H0V70.0293C52.6198 76.2637 107.414 104.347 161.88 132.262C183.892 143.543 205.849 154.796 227.588 164.569C278.023 187.243 328.404 180.126 387.464 171.782C435.974 164.929 490.341 157.248 555.403 164.569C620.34 171.876 674.11 159.864 728.283 147.761C794.48 132.971 861.277 118.048 949.784 138.079C1033.09 156.933 1094.76 132.491 1159.87 106.687C1181.36 98.1714 1203.22 89.5073 1226.36 82.2017C1286.99 63.0562 1341.03 70.7388 1386.34 77.1807C1405.91 79.9639 1423.86 82.5151 1440 82.5708Z" />
+                            </svg>
+
+                        </div>
+                    </section>
+
+                    <!-- CLIENTS ABOUT ILLUMINATION IN SECTION START -->
+                    <section class="client-about-illumincations clientaboutillu_btn_wave section-topbtm-padding" style="background:#fff !important;">
+                        <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+                            <div class="row client-about-illumincations-headings align-items-center">
+                                <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-xs-8">
+                                    <!-- <label>REAL STORIES REAL PEOPLE</label> -->
+                                    <h3>Clients About Illuminations</h3>
+                                    <br />
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 align-items-center justify-content-center">
+                                    <div class="ourexpert_arrow align-items-center">
+                                        <button class="featuredin_NextBtn clisneillum-left" id="clisneillum-left">
+                                            <i class="fas fa-caret-left"></i>
+                                        </button>
+                                        <button class="featuredin_PrevBtn clisneillum-right" id="clisneillum-right">
+                                            <i class="fas fa-caret-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="owl-carousel clientsaboutillu-slider-caresole" id="clientsaboutillu-slider-caresole">
+
+                                        <t t-set="about_ids" t-value="request.env['testimonial'].sudo().search([('in_training_individual_page','=',True)])" />
+                                        <t t-foreach="about_ids" t-as="each_about">
+                                            <div class="leadercont">
+                                                <div class="textomin-user">
+                                                    <img t-attf-src="/web/image?model=testimonial&amp;id={{each_about.sudo().id}}&amp;field=image_av" class="userimage" alt=""/>
+                                                    <h4>
+                                                        <t t-esc="each_about.partner_id.name"/>
+                                                    </h4>
+                                                </div>
+                                                <p t-att-title="each_about.description">
+                                                    <t t-set="star" t-value='5'/>
+                                                    <t t-set="active_star" t-value='each_about.priority'/>
+                                                    <t t-set="inactive_star" t-value="star-int(active_star)" />
+                                                    <span class="ratingstar">
+                                                        <t t-foreach="range(0, int(active_star))" t-as="i">
+                                                            <i class="fas fa-star"/>
+                                                        </t>
+                                                        <t t-foreach="range(0, int(inactive_star))" t-as="j">
+                                                            <i class="far fa-star"/>
+                                                        </t>
+                                                    </span>
+                                                    <t t-raw="each_about.description"/>
+                                                </p>
+                                            </div>
+                                        </t>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </section>
+                    <!-- CLIENTS ABOUT ILLUMINATION IN SECTION END -->
+
+
+                    <section class="  eachsection section-topbtm-padding">
+                        <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+
+
+                            <div class="row hero-section-two therapists-detail-hero" style="margin:0px">
+                                <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-xs-12">
+                                    <h3 class="section-header-content">
+                                        Frequently Asked <br class="display-only-pc"/>
+ Questions
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="tab-content faqtabs-contentcontainer">
+                                <div class="tab-pane fade show active" id="tabA">
+                                    <div id="accordion">
+                                        <t t-set="all_faq" t-value="request.env['website.faq'].sudo().search([('website_publish','=',True),('feature_in_training','=',True)])" />
+                                        <t t-set="aos_delay" t-value="100"/>
+                                        <t t-set="value_collapse" t-value="1"/>
+                                        <t t-set="collapse_id" t-value="str('collapse')+'_'+str(value_collapse)"/>
+                                        <t t-set="target_id" t-value="str('#')+str(collapse_id)"/>
+                                        <t t-foreach="all_faq" t-as="al">
+                                            <div class="card" data-aos="fade-up" t-attf-data-aos-delay="{{aos_delay}}">
+                                                <div class="card-header" id="headingOne">
+                                                    <h5 class="mb-0">
+                                                        <button class="btn btn-link collapsed" data-toggle="collapse" t-attf-data-target="{{target_id}}" aria-expanded="true" aria-controls="collapse_1">
+                                                            <t t-esc="al.name"/>
+                                                            <a class="accarrow"></a>
+                                                        </button>
+
+                                                    </h5>
+                                                </div>
+
+                                                <div t-attf-id="{{collapse_id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <t t-raw="al.description"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <t t-set="aos_delay" t-value="int(aos_delay) + 100"/>
+                                            <t t-set="value_collapse" t-value="int(value_collapse)+1"/>
+                                            <t t-set="collapse_id" t-value="str('collapse')+'_'+str(value_collapse)"/>
+                                            <t t-set="target_id" t-value="str('#')+str(collapse_id)"/>
+
+                                        </t>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Tabs -->
+
+                        </div>
+
+                    </section>
+                    <!-- BOOOK A FREE CONSULTANT SECTION START-->
+                    <t t-call="ppts_website_theme.request_call_for_all_page">
+                        <t t-set="callback_content" t-value="{'req_header': 'Request a Support Call back!', 
+                        'req_desc': 'Learn how we can help you on your healing Journey' }" />
+                    </t>
+                    <!-- BOOOK A FREE CONSULTANT SECTION END-->
+
+                </div>
+            </t>
+        </template>
+
+        <template id="training_upcoming_session_section">
+            <section class="upcomingsection eachsection upcmingcourses upcmingcourses-training-main-sec">
+                <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+
+                    <h2 class="start-today">Start today</h2>
+                    <h3 class="upcomingsection-header">
+                        <t t-esc="training_head_content"/>
+                    </h3>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                            <h4 class="h4-start-your-search">Start your search </h4>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-6 col-xs-12">
+                            <button class="filter-popupbtn" onclick="mobile_filter()">
+                                <span class="input-group-addon iconinoutbtn">
+                                    <img class="input-icon" src="/ppts_website_theme/static/src/img/filter_icon.svg"/>
+                                </span>
+                                Filters
+                            </button>
+                        </div>
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-6 col-xs-12">
+                            <div id="TraningMainDatePicker" class="input-group date inputwrap" data-date-format="dd.mm.yyyy">
+                                <span class="input-group-addon iconinoutbtn">
+                                    <img class="upComingEventDatepicker-img" src="/ppts_website_theme/static/src/img/calendar-icon.svg" />
+                                </span>
+                                <input class="training_main_date_filter" type="text" id ="main-date" name="main-date" readonly=""/>
+                            </div>
+                        </div>
+
+                        <script>
+                            var date = new Date();
+                            var day = date.getDate();
+                            var month = date.getMonth() + 1;
+                            var year = date.getFullYear();
+
+                            if (month &lt; 10) month = "0" + month;
+                            if (day &lt; 10) day = "0" + day;
+
+                            var today = day + "." + month + "." + year 
+                            document.getElementById("main-date").value = today;
+                        
+                            var mobile_filter = () => {
+                                $('#outteamfilter-div').addClass('mobile-model-sidefilter navbarmaincont sidenav activemenu');
+                            }
+                            
+                            var mobile_filter_close = () => {
+                                $('#outteamfilter-div').removeClass('mobile-model-sidefilter navbarmaincont sidenav activemenu');
+                            }
+                        </script>
+
+                        <div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-12 d-xl-flex d-none">
+                            <div class="dropdown inputwrap">
+                                <button class="btn btn-secondary dropdown-toggle d-none" type="button" id="dropdownMenuButtonList" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="input-group-addon iconinoutbtn">
+                                        <i class="fas fa-list-ul"></i>
+                                    </span>
+                                    <span style="color:#ACACAC;margin-right:3px;">View:</span> List
+                                </button>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonGrid" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="input-group-addon iconinoutbtn ">
+                                        <i class="fas fa-th"></i>
+                                    </span>
+                                    <span style="color:#ACACAC;margin-right:3px;">View:</span> Cards
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-4px, 38px, 0px);">
+                                    <button class="dropdown-item" onclick="callist_table_view(0)">
+                                        <label>
+                                            <span style="color:#ACACAC;">View:</span> List</label>
+                                    </button>
+                                    <button class="dropdown-item" onclick="callist_table_view(1)">
+                                        <label>
+                                            <span style="color:#ACACAC;">View:</span> Cards</label>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" id="outteamfilter-div">
+                        <div class="col-lg-3 col-xl-3 col-md-3" id="outteamfilter">
+                            <div class="ourteam-filter ">
+                                <div id="accordion">
+                                    <div class="left-filter-select-div">
+                                        <select name="training-main-event-name" id="training-main-event-name" multiple="multiple">
+                                            <t t-set="course_ids" t-value="request.env['calendar.appointment.type'].sudo().search([('is_training','=',True)])" />
+                                            <t t-foreach="course_ids" t-as="course_id">
+                                                <option t-att-value="course_id.id">
+                                                    <t t-esc="course_id.name" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="left-filter-select-div">
+                                        <select name="training-main-event-level" id="training-main-event-level" multiple="multiple">
+                                            <t t-set="level_ids" t-value="request.env['event.class.level'].sudo().search([])" />
+                                            <t t-foreach="level_ids" t-as="level_id">
+                                                <option t-att-value="level_id.id">
+                                                    <t t-esc="level_id.class_level" />
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="left-filter-select-div">
+                                        <select name="training-main-event-platform" id="training-main-event-platform">
+                                            <option value="type_online">Online</option>
+                                            <option value="type_onsite">Onsite</option>
+                                            <option value="type_hybridss">Online/Onsite</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="left-filter-select-div divtraining-main-event-country" style="border: none;margin-bottom: 16px;">
+                                    <select name="training-main-event-country" id="training-main-event-country" multiple="multiple">
+                                        <t t-set="country_ids" t-value="request.env['res.country'].sudo().search([])" />
+                                        <t t-foreach="country_ids" t-as="country_id">
+                                            <option t-att-value="country_id.id">
+                                                <t t-esc="country_id.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+
+                                <div class="left-filter-select-div divtraining-main-event-city" style="border: none;margin-bottom: 16px;">
+                                    <select name="training-main-event-city" id="training-main-event-city" multiple="multiple">
+                                        <t t-set="city_ids" t-value="request.env['city.master'].sudo().search([])" />
+                                        <t t-foreach="city_ids" t-as="city_id">
+                                            <option t-att-value="city_id.id">
+                                                <t t-esc="city_id.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+
+
+                                <div class="fiterbtn-btns">
+                                    <a class="resetallfilter" href="#" onClick="window.location.reload();return false;">Reset All</a>
+                                    <a class="filterbtn" id="training-filter-btn-main">Apply</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <t t-set="service_categ_id" t-value="request.env['appointment.category'].sudo().search([('is_training','=',True)],limit=1)" />
+                        <t t-set="event_ids" t-value="request.env['event.event'].sudo().search([('event_service_categ_id','=',service_categ_id.id),('is_published_event','=',True)])" />
+                        <div class="col-lg-9 col-xl-9 col-md-12">
+                            <div class="calendar-wrapper" id="calendar_listview">
+                                <div class="calendar-eventlist-view-wrapper main">
+                                    <t t-foreach='event_ids' t-as='event_id'>
+                                        <div class="calenday-eventlist-item" data-aos="fade-up" data-aos-delay="100">
+                                            <div class="cal-event-img">
+                                                <t t-if="event_id.image">
+                                                    <img t-attf-src="/web/image?model=event.event&amp;id={{event_id.sudo().id}}&amp;field=image" />
+                                                </t>
+
+                                                <t t-if="not event_id.image">
+                                                    <img src="/ppts_website_theme/static/src/img/tailimage.jpg" />
+                                                </t>
+                                            </div>
+                                            <div class="eventfullinfos">
+                                                <div class="event-typoingo">
+                                                    <div class="eventtitleinfos">
+                                                        <h5>
+                                                            <a class="a-clr" t-attf-href="/event/{{slug(event_id)}}/register" data-toggle="tooltip" data-placement="top" t-att-title="event_id.name">
+                                                                <t t-esc="event_id.name"/>
+                                                            </a>
+                                                        </h5>
+                                                        <p class="upsmtxt">
+                                                            <t t-esc="event_id.event_sub_categ_id.name"/>
+                                                        </p>
+                                                    </div>
+                                                    <div class="eventinfos">
+                                                        <label style="color:#8A8A8A !important;">
+                                                            <img src="/ppts_website_theme/static/src/img/person-icon.svg" width="24px" height="24px"/>
+                                                            <a class="underline-a" style="color: #8A8A8A;" t-attf-href="/team/therapists/{{event_id.facilitator_evnt_ids[0].id}}">
+                                                                <t t-esc="event_id.get_facilitator_name()"/>
+                                                            </a>
+                                                        </label>
+
+                                                        <label style="color:#8A8A8A !important;">
+                                                            <img src="/ppts_website_theme/static/src/img/calendar-icon.svg" width="24px" height="24px" />
+                                                            <span t-if="event_id.event_multiple_date == 'oneday'" t-field="event_id.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                            <t t-if="event_id.event_multiple_date == 'multiday'">
+                                                                <t t-set="event_start_date" t-value="event_id.multi_date_line_ids.ids[0]"/>
+                                                                <t t-set="event_start_date" t-value="request.env['multi.date.line'].sudo().browse(event_start_date)" />
+                                                                <t t-set="event_end_date" t-value="event_id.multi_date_line_ids.ids[-1]"/>
+                                                                <t t-set="event_end_date" t-value="request.env['multi.date.line'].sudo().browse(event_end_date)" />
+                                                                <span t-field="event_start_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                                To 
+                                                                <span t-field="event_end_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                            </t>
+                                                        </label>
+
+                                                        <label style="color:#8A8A8A !important;">
+                                                            <t t-if="event_id.type_event == 'type_onsite'">
+                                                                <img src="/ppts_website_theme/static/src/img/source_icons_yoga.svg" width="24px" height="24px" />
+                                                            </t>
+                                                            <t t-if="event_id.type_event == 'type_online'">
+                                                                <img src="/ppts_website_theme/static/src/img/source_icons_laptop.svg" width="24px" height="24px" />
+                                                            </t>
+                                                            <t t-if="event_id.type_event == 'type_hybrid'">
+                                                                <img src="/ppts_website_theme/static/src/img/source_icons_user.svg" width="24px" height="24px" />
+                                                            </t>
+                                                            <t t-esc="dict(event_id._fields['type_event'].selection).get(event_id.type_event)"/>
+                                                        </label>
+
+                                                        <label style="color:#8A8A8A !important;">
+                                                            <img src="/ppts_website_theme/static/src/img/location-icon.svg" width="24px" height="24px"/>
+                                                            <t t-esc="event_id.company_id.name"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="event-listbtn">
+                                                    <a class="fullbutton" id="selected-event-ID" t-att-data-event-id="event_id.id" style="color: #ffff !important;">
+                                                        book for 
+                                                        <t t-esc="event_id.get_event_price()"/>
+                                                        AED
+                                                    </a>
+                                                    <a href="#book_free_apt_snippet" style="text-decoration:none;" class="borderedbtn">Enquire Now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+
+                            </div>
+                            <div class="courses_tableview" id="cal_tableview">
+                                <div class="my-responsivetable">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th> Type </th>
+                                                <th> Instructor </th>
+                                                <th> date </th>
+                                                <th> Platform </th>
+                                                <th> Location </th>
+                                                <th></th>
+                                                <th> About </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-body-main">
+
+
+                                            <t t-foreach='event_ids' t-as='list_event_id'>
+                                                <tr>
+                                                    <td>
+                                                        <p class="upsmtxt" style="color: #3A3A3A;">
+                                                            <t t-esc="list_event_id.event_sub_categ_id.name"/>
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <label style="color:#8A8A8A !important;">
+                                                            <img src="/ppts_website_theme/static/src/img/person-icon.svg" width="24px" height="24px"/>
+                                                            <a class="underline-a" style="color: #8A8A8A !important;font-size: 14px;" t-att-title="list_event_id.get_facilitator_name()" t-attf-href="/team/therapists/{{list_event_id.facilitator_evnt_ids[0].id}}">
+                                                                <t t-esc="list_event_id.get_facilitator_name()"/>
+                                                            </a>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="training-list-label" style="color:#8A8A8A !important;">
+                                                            <img src="/ppts_website_theme/static/src/img/calendar-icon.svg" width="24px" height="24px" />
+                                                            <span t-if="list_event_id.event_multiple_date == 'oneday'" t-field="list_event_id.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                            <t t-if="list_event_id.event_multiple_date == 'multiday'">
+                                                                <t t-set="event_start_date" t-value="list_event_id.multi_date_line_ids.ids[0]"/>
+                                                                <t t-set="event_start_date" t-value="request.env['multi.date.line'].sudo().browse(event_start_date)" />
+                                                                <t t-set="event_end_date" t-value="list_event_id.multi_date_line_ids.ids[-1]"/>
+                                                                <t t-set="event_end_date" t-value="request.env['multi.date.line'].sudo().browse(event_end_date)" />
+                                                                <span t-field="event_start_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                                To 
+                                                                <span t-field="event_end_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                            </t>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="training-list-label" style="color:#8A8A8A !important;">
+                                                            <t t-if="list_event_id.type_event == 'type_onsite'">
+                                                                <img src="/ppts_website_theme/static/src/img/source_icons_yoga.svg" width="24px" height="24px" />
+                                                            </t>
+                                                            <t t-if="list_event_id.type_event == 'type_online'">
+                                                                <img src="/ppts_website_theme/static/src/img/source_icons_laptop.svg" width="24px" height="24px" />
+                                                            </t>
+                                                            <t t-if="list_event_id.type_event == 'type_hybrid'">
+                                                                <img src="/ppts_website_theme/static/src/img/source_icons_user.svg" width="24px" height="24px" />
+                                                            </t>
+                                                            <t t-esc="dict(list_event_id._fields['type_event'].selection).get(list_event_id.type_event)"/>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="training-list-label" style="color:#8A8A8A !important;">
+                                                            <img src="/ppts_website_theme/static/src/img/location-icon.svg" width="24px" height="24px"/>
+                                                            <t t-esc="list_event_id.company_id.name"/>
+                                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#book_free_apt_snippet" style="text-decoration:none;">Enquire</a>
+                                                    </td>
+                                                    <td>
+                                                        <a class="fullbutton" id="selected-event-ID" t-att-data-event-id="list_event_id.id" style="color: #ffff !important;">
+                                                            book for 
+                                                            <t t-esc="list_event_id.get_event_price()"/>
+                                                            AED
+                                                        </a>
+                                                    </td>
+                                                </tr>
+
+                                            </t>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js'></script>
+            <script src='/ppts_website_theme/static/src/js/training_main.js'></script>
+
+        </template>
+
+        <template id="training_accreditations_section">
+            <!-- browse our courses SECTION START -->
+            <section class="accreditations-certifying section-topbtm-padding">
+                <div class="bookfree_top_wave">
+                    <svg class="topsvg svgclass" viewBox="0 0 1440 180">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1440 109.816V180H0V97.238C16.0593 97.3265 33.8952 99.8623 53.3392 102.627C98.6462 109.068 152.684 116.751 213.319 97.6057C236.457 90.3001 258.319 81.636 279.807 73.1203C344.918 47.316 406.59 22.8749 489.892 41.7282C578.399 61.7595 645.196 46.836 711.393 32.0467C765.565 19.9439 819.336 7.93092 884.272 15.238C949.335 22.5593 1003.7 14.8786 1052.21 8.02532C1111.27 -0.31843 1161.65 -7.43594 1212.09 15.238C1233.83 25.011 1255.78 36.2646 1277.8 47.5457C1332.37 75.5178 1387.28 103.659 1440 109.816Z" fill="#F9F2EA" />
+                    </svg>
+
+
+                </div>
+                <div class="lightbrown-bg">
+
+                    <div class="eachsection" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mycontainer">
+
+
+                            <div class="row ">
+                                <h3 class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 accreditations-certifying-header">
+                                    Accreditations &amp; Certifying Bodies</h3>
+                            </div>
+                            <div class="row accreditations-certifying-wrapper align-items-center">
+
+                                <div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12">
+                                    <div class="accreditations-certifying-content">Our mission is to lead a movement of well
+                                        being, by creating and providing innovative products and services that facilitate
+                                        personal evolution.</div>
+
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12">
+                                    <p class="accreditations-certifying-content">Our mission is to lead a movement of well
+                                        being, by creating and providing innovative products and services that facilitate
+                                        personal evolution.</p>
+
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12">
+                                    <div class="accreditations-certifying-approver">
+                                        <span>Approved by:</span>
+                                        <img class="approver-image" src="/ppts_website_theme/static/src/img/accer1.1.jpg" />
+                                        <img class="approver-image" src="/ppts_website_theme/static/src/img/accer1.jpg" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12">
+                                    <div class="accreditations-certifying-approver">
+
+                                        <img class="approver-image" src="/ppts_website_theme/static/src/img/accer2.jpg" />
+                                        <!-- <img class="approver-image" src="./assets/img/featured2.png" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about_bottom_wave">
+                    <svg class="topsvg svgclass" viewBox="0 0 1440 180" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1440 82.5708V0H0V70.0293C52.6198 76.2637 107.414 104.347 161.88 132.262C183.892 143.543 205.849 154.796 227.588 164.569C278.023 187.243 328.404 180.126 387.464 171.782C435.974 164.929 490.341 157.248 555.403 164.569C620.34 171.876 674.11 159.864 728.283 147.761C794.48 132.971 861.277 118.048 949.784 138.079C1033.09 156.933 1094.76 132.491 1159.87 106.687C1181.36 98.1714 1203.22 89.5073 1226.36 82.2017C1286.99 63.0562 1341.03 70.7388 1386.34 77.1807C1405.91 79.9639 1423.86 82.5151 1440 82.5708Z" fill="#F9F2EA" />
+                    </svg>
+
+                </div>
+            </section>
+            <!-- browse our courses SECTION END -->
+        </template>
+    </data>
+</odoo>

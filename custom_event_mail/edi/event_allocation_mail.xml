@@ -1,0 +1,198 @@
+
+<!--  This is common template used for sending mail notification
+ to Facilitator, Assistant, Responsible persons
+ Approve, Cancel, Reschedule
+ -->
+
+<odoo>
+    <data>
+        <!-- Event Facilitators -->
+        <record id="event_allocation_mail_for_responsibles" model="mail.template">
+            <field name="name">Event - Approve mail</field>
+            <field name="model_id" ref="event.model_event_event"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${ctx.get('email')}</field>
+            <field name="email_cc" >${object.user_id.login}</field>
+<!--            <field name="lang">${object.eve_therapist_id.lang}</field>-->
+            <field name="subject">${object.name} Event Approved</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+
+                <p> ${object.name} </p>
+                <p> Event Approved </p>
+
+                <br/>
+
+                <br/><br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <!--Facilitator  assist      -->
+        <record id="event_allocation__assist_mail_for_responsibles" model="mail.template">
+            <field name="name">Event - Approve For Event Assistant</field>
+            <field name="model_id" ref="event.model_event_event"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >alex@illuminationsworld.com,admin@illuminationsworld.com,${(object.sale_incharge_id.email or '') | safe}</field>
+<!--            <field name="lang">${object.eve_therapist_id.lang}</field>-->
+            <field name="subject">Email - Alert for Event Added.</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html" type="xml">
+
+                <p>Hey there! This Event is Waiting for Your Approval.</p>
+                <br/>
+
+                <p>Event Name : ${object.name}</p>
+                <br/>
+                <p>Start Date :${object.date_begin}</p>
+                <br/>
+                <p>End Date : ${object.date_end}</p>
+                <br/>
+                <p>Event Type : ${object.event_type_id.name}</p>
+                <br/>
+
+                <p>Login to Your Account to Know More..!!!</p>
+                <br/>
+
+                <br/><br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                </field>
+        </record>
+
+        <!--cancellation for Facilitator -->
+        <record id="event_cancellation_mail_for_responsibles" model="mail.template">
+            <field name="name">Email - Alert for Event Cancelled</field>
+            <field name="model_id" ref="event.model_event_event"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.get_event_facilitator_mail(object.facilitator_evnt_ids)}</field>
+            <field name="email_cc" >${object.user_id.login}</field>
+<!--            <field name="lang">${object.eve_therapist_id.lang}</field>-->
+            <field name="subject">Email - Alert for Event Cancelled</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+
+                <p>Hi! The Event with the below details assigned to you was unexpectedly Cancelled. We Regret for the Inconvenience.</p>
+                <br/>
+
+                <p>Event Name : ${object.name}</p>
+                <br/>
+                <p>Start Date : ${object.date_begin}</p>
+                <br/>
+                <p>End Date : ${object.date_end}</p>
+                <br/>
+                <p>Event Type : ${object.event_type_id.name}</p>
+                <br/>
+
+                <p>Login to Your Account to Know More..!!!</p>
+                <br/>
+
+                <br/><br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <!--cancellation for Facilitator assistant        -->
+        <record id="event_cancellation_mail_for_assistant" model="mail.template">
+            <field name="name">Email - Alert for Event Cancelled</field>
+            <field name="model_id" ref="event.model_event_event"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.get_event_facilitator_mail(object.evnt_assistant)}</field>
+<!--            <field name="lang">${object.eve_therapist_id.lang}</field>-->
+            <field name="subject">Email - Alert for Event Cancelled</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+
+                <p>Hi! The Event with the below details assigned to you was unexpectedly Cancelled. We Regret for the Inconvenience.</p>
+                <br/>
+
+                <p>Event Name : ${object.name}</p>
+                <br/>
+                <p>Start Date : ${object.date_begin}</p>
+                <br/>
+                <p>End Date : ${object.date_end}</p>
+                <br/>
+                <p>Event Type : ${object.event_type_id.name}</p>
+                <br/>
+
+                <p>Login to Your Account to Know More..!!!</p>
+                <br/>
+
+                <br/><br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <!--reschedule for Facilitator -->
+        <record id="event_reschedule_mail_for_responsibles" model="mail.template">
+            <field name="name">Email - Alert for Event Rescheduled</field>
+            <field name="model_id" ref="event.model_event_event"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.get_event_facilitator_mail(object.facilitator_evnt_ids)}</field>
+            <field name="email_cc" >${object.user_id.login}</field>
+<!--            <field name="lang">${object.eve_therapist_id.lang}</field>-->
+            <field name="subject">Email - Alert for Event Rescheduled</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <p>Hi! An Event with the below details assigned to you was unexpectedly re-scheduled. We Regret for the Inconvenience. Will inform you the New details asap.</p>
+                <br/>
+
+                <p>Event Name : ${object.name}</p>
+                <br/>
+                <p>Start Date : ${object.date_begin}</p>
+                <br/>
+                <p>End Date : ${object.date_end}</p>
+                <br/>
+                <p>Event Type : ${object.event_type_id.name}</p>
+                <br/>
+
+                <p>Login to Your Account to Know More..!!!</p>
+                <br/>
+
+                <br/><br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <record id="event_reschedule_mail_for_assistant" model="mail.template">
+            <field name="name">Event - Event Rescheduled</field>
+            <field name="model_id" ref="event.model_event_event"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${ctx.get('email')}</field>
+<!--            <field name="lang">${object.eve_therapist_id.lang}</field>-->
+            <field name="subject">${ctx.get('name')} - Alert for Event Rescheduled</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <p>Hi! An Event with the below details assigned to you was unexpectedly re-scheduled. We Regret for the Inconvenience. Will inform you the New details asap.</p>
+                <br/>
+
+                <p>Event Name : ${object.name}</p>
+                <br/>
+                <p>Start Date : ${object.date_begin}</p>
+                <br/>
+                <p>End Date : ${object.date_end}</p>
+                <br/>
+                <p>Event Type : ${object.event_type_id.name}</p>
+                <br/>
+
+                <p>Login to Your Account to Know More..!!!</p>
+                <br/>
+
+                <br/><br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+    </data>
+</odoo>

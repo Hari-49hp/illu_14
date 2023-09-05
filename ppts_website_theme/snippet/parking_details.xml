@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <template id="illuminations_parking_details" name="parking details">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <t t-raw="comapny_id.parking_guidelines"/>
+
+                </div>
+            </t>
+
+        </template>
+
+        <template id="illuminations_terms_condition_details" name="Terms &amp; Condition">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <t t-raw="comapny_id.terms_condition"/>
+
+                </div>
+            </t>
+
+        </template>
+
+        <template id="illuminations_privacy_policy_details" name="Privacy Policy">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <t t-raw="comapny_id.privacy_policy"/>
+
+                </div>
+            </t>
+
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,185 @@
+<odoo>
+    <data>
+        <template id="theme_faq_page" name="FAQ">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <style>
+                        footer > section > div > svg{
+                            background: #fff;
+                        }
+                    </style>
+
+                    <section class="subpage-top-hero-section-two faq-hero mycontainer">
+                        <div class="row hero-section-two therapists-detail-hero">
+                            <div class="col-lg-6 col-md-8 col-xl-6  col-sm-12 col-xs-12">
+                                <div class="hero-two-left">
+                                    <div class="breadcrum-sec" data-aos="fade-up" data-aos-delay="100">
+                                        <label>
+                                            <a href="/">Home /</a>
+                                            <a>FAQ’s</a>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <h3 data-aos="fade-up" data-aos-delay="150">Frequently Asked Questions</h3>
+                                        <h5 data-aos="fade-up" data-aos-delay="200">Need More help?</h5>
+                                        <div class="faq-headerbtns" data-aos="fade-up" data-aos-delay="300">
+                                            <button class="fullbutton" onclick="open_live_chat()">Ask a question</button>
+                                            <small> or use</small>
+                                            <a class="borderedbtn" href="https://wa.me/+971561538738?text=">
+                                                <img src="/ppts_website_theme/static/src/img/whatsapp.svg" />
+                                                WhatsApp
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12">
+                                <div class="header-form-box-wrapper" data-aos="fade-up" data-aos-delay="400">
+                                    <h4>Request a call back </h4>
+                                    <form autocomplete="off" action="/faq_enquiry/" method="post" data-mark="*">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-6 col-xl-6 col-sm-6 col-xs-12">
+                                                <div>
+                                                    <input class="form-control " type="text " name="name" placeholder="Full name " required='required'/>
+                                                </div>
+                                                <div>
+                                                    <input class="form-control " type="tel " name="phone" placeholder="Phone" required='required' pattern="[0-9]*"/>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-lg-12 col-md-6 col-xl-6 col-sm-6 col-xs-12">
+                                                <div class="form-group textgroup">
+                                                    <textarea class="form-control textheightfull" placeholder="Message" value="" required="required" name="subject"/>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-6 col-xl-6 col-sm-6 col-xs-12">
+                                                <div>
+                                                    <label class="checkboxlabel">
+                                                        <input class="" type="checkbox" required="required"/>
+                                                        I agree to the Privacy Policy &amp; Terms and Conditions
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-6 col-xl-6 col-sm-6 col-xs-12">
+                                                <button type="submit" class="formsubmitbtn"> Call Me Back </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <section class="fqa-wrapperlistsitems sectiion_btm_padding80 mycontainer">
+                        <!-- Start Tabs -->
+                        <div class="nav-tabs-wrapper faqtabwrapper-header" data-aos="fade-up" data-aos-delay="50">
+                            <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tabA">All</a>
+                                </li>
+
+                                <t t-set="tags_ids" t-value="request.env['faq.tags'].sudo().search([('website_publish','=',True)])" />
+                                <t t-foreach="tags_ids" t-as="tags">
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" t-attf-href="#E{{tags.id}}">
+                                            <t t-esc="tags.name"/>
+                                        </a>
+                                    </li>
+                                </t>
+
+
+                            </ul>
+                        </div>
+
+                        <div class="tab-content faqtabs-contentcontainer">
+                            <div class="tab-pane fade show active" id="tabA">
+                                <div id="accordion">
+
+                                    <t t-set="aos_delay" t-value="100"/>
+                                    <t t-set="value_collapse" t-value="1"/>
+                                    <t t-set="collapse_id" t-value="str('collapse')+'_'+str(value_collapse)"/>
+                                    <t t-set="target_id" t-value="str('#')+str(collapse_id)"/>
+                                    <t t-foreach="all_faq" t-as="al">
+                                        <t t-set="faq_lids" t-value="request.env['website.faq'].sudo().browse(int(al['id']))" />
+
+                                        <div class="card" data-aos="fade-up" t-attf-data-aos-delay="{{aos_delay}}">
+                                            <div class="card-header" id="headingOne">
+                                                <h5 class="mb-0">
+                                                    <button class="btn btn-link collapsed" data-toggle="collapse" t-attf-data-target="{{target_id}}" aria-expanded="true" aria-controls="collapse_1">
+                                                        <t t-esc="al['title']"/>
+                                                        <a class="accarrow"></a>
+                                                    </button>
+
+                                                </h5>
+                                            </div>
+
+                                            <div t-attf-id="{{collapse_id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                <div class="card-body">
+                                                    <t t-raw="faq_lids.description"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <t t-set="aos_delay" t-value="int(aos_delay) + 100"/>
+                                        <t t-set="value_collapse" t-value="int(value_collapse)+1"/>
+                                        <t t-set="collapse_id" t-value="str('collapse')+'_'+str(value_collapse)"/>
+                                        <t t-set="target_id" t-value="str('#')+str(collapse_id)"/>
+                                    </t>
+
+
+
+                                </div>
+                            </div>
+                            <t t-foreach="faq_ids" t-as="faq">
+                                <div class="tab-pane fade" t-attf-id="E{{faq['id']}}">
+                                    <div id="accordion">
+                                        <t t-set="aos_delay" t-value="100"/>
+                                        <t t-set="value_collapse" t-value="1"/>
+                                        <t t-set="collapse_id" t-value="str('collapse')+'_'+str(value_collapse)"/>
+                                        <t t-set="target_id" t-value="str('#')+str(collapse_id)"/>
+                                        <t t-foreach="faq['faq_tab']" t-as="faq_data">
+                                            <div class="card" data-aos="fade-up" t-attf-data-aos-delay="{{aos_delay}}">
+                                                <div class="card-header" id="headingOne">
+                                                    <h5 class="mb-0">
+                                                        <button class="btn btn-link collapsed" data-toggle="collapse" t-attf-data-target="{{target_id}}" aria-expanded="true" aria-controls="collapse_1">
+                                                            <t t-esc="faq_data['title']"/>
+                                                            <a class="accarrow"></a>
+                                                        </button>
+
+                                                    </h5>
+                                                </div>
+
+                                                <div t-attf-id="{{collapse_id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                    <div class="card-body">
+                                                        <t t-esc="faq_data['description']"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <t t-set="aos_delay" t-value="int(aos_delay) + 100"/>
+                                            <t t-set="value_collapse" t-value="int(value_collapse)+1"/>
+                                            <t t-set="collapse_id" t-value="str('collapse')+'_'+str(value_collapse)"/>
+                                            <t t-set="target_id" t-value="str('#')+str(collapse_id)"/>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+
+
+                        </div>
+                        <!-- End Tabs -->
+
+                    </section>
+
+                    <script src="/ppts_website_theme/static/src/js/livechat.js"></script>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,32 @@
+ <odoo>
+    <data>
+        <template id="illuminations_therapy_category_booking" name=" Therapy Category Booking">
+            <section>
+                <div class="bookafreetrial  section-topbtm-padding">
+                    <div class="  book-free-consultant  section-topbtm-padding section_padd_left_right190_80  eachsection">
+                        <div class="arrow-scroll leftside">
+                            <svg viewBox="0 0 426 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+                                    <path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83"
+                                        d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+                                    <path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                                    c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="row align-items-center mycontainer" data-aos="fade-up"
+                        data-aos-delay="100">
+                            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12"> <span class="blakwordtexts"  >Get
+                                    Started</span>
+                                <h2>Book an appointment </h2>
+                                <p style="max-width: 100%;">Experience Our Wide Range of Powerful Healing &amp; Therapy Service</p>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12"> <a class="fullbutton wid290">Book a
+                                    meeting</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

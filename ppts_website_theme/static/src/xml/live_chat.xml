@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- <t t-inherit-mode="extension" t-inherit="legacy.mail.AbstractThreadWindow">
+        <xpath expr="//input[hasclass('o_composer_text_field')]" position="after">
+            <span class="input-group-append">
+                <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+                    <i style="color: #2aaec7;" class="fas fa-paper-plane"></i>
+                </button>
+            </span>
+        </xpath>
+    </t> -->
+
+    <!-- <t t-inherit="im_livechat.legacy.mail.AbstractThreadWindow" t-inherit-mode="extension">
+        <xpath expr="//input[hasclass('o_composer_text_field')]" position="replace">
+            <input class="o_composer_text_field" t-att-placeholder="widget.options.placeholder"/>
+            <span class="input-group-append">
+                <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+                    <i style="color: #2aaec7;" class="fas fa-paper-plane"></i>
+                </button>
+            </span>
+        </xpath>
+    </t> -->
+
+</templates>

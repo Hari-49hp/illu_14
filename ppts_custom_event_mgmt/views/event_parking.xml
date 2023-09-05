@@ -1,0 +1,92 @@
+<odoo>
+	<data>
+
+		<record id="parking_type_from_view" model="ir.ui.view">
+			<field name="name">Parking Form</field>
+			<field name="model">parking.master</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="parking_type" required="1"/>
+								<field name="parking_date"/>
+							</group>
+
+						</group>
+						<group string="Parking Guidelines">
+
+								<field name="parking_guidelines" required="1" nolabel="1"/>
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+                         <field name="message_ids"/>
+                    </div>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="event_parking_tree_view" model="ir.ui.view">
+			<field name="name">Event Parking Tree</field>
+			<field name="model">parking.master</field>
+			<field name="arch" type="xml">
+				<tree default_order="parking_type asc">
+					<field name="parking_type" />
+					<field name="parking_date"/>
+<!--					<field name="parking_guidelines"/>-->
+				</tree>
+			</field>
+		</record>
+
+		<record id="eventtype_master_search" model="ir.ui.view">
+        <field name="name">eventtype.master.search</field>
+        <field name="model">eventtype.master</field>
+        <field name="arch" type="xml">
+            <search string="Search Category">
+                <field name="event_type"/>
+				<field name="type_code"/>
+				<field name="event_notes"/>
+            </search>
+        </field>
+    </record>
+
+		<!-- Action_view -->
+		<record id="event_parking_action_view" model="ir.actions.act_window">
+			<field name="name">Event Parking</field>
+			<field name="res_model">parking.master</field>
+ 			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="event_parking_tree_view" />
+		</record>
+
+
+		<menuitem id="event_parking_master" action="event_parking_action_view"
+			name="Parking Details" parent="event_custom_master"
+			sequence="15" />
+
+		<!-- Form_view Parking Tab in event-->
+		<record id="view_event_form_inherited_parking" model="ir.ui.view">
+			<field name="name">Event Parking Form</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//form/sheet/notebook/page[3]" position="after">
+					<page string="Parking Info">
+
+						<group>
+							<group>
+								<field name="parking_type" required="0" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}" attrs="{'readonly':[('event_publish', '!=',False)]}"/>
+ 							</group>
+
+						</group>
+						<group string="Parking Guidelines">
+							<field name="events_parking" nolabel="1" attrs="{'readonly':[('event_publish', '!=',False)]}"/>
+						</group>
+
+					</page>
+				</xpath>
+
+			</field>
+		</record>
+	</data>
+</odoo>

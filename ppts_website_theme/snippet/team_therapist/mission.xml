@@ -1,0 +1,88 @@
+<odoo>
+	<data>
+		<template id="template_therapist_mission_and_vision_page" name="Insipiring &amp; Values">
+			<!-- Our Mission & Vision -->
+
+			<section class="top-btmspace missionvission">
+				<div>
+					<div class="about_top_wave">
+						<svg id="svg-top-s" da="da" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 350" version="1.1" y="0px" width="100%" style="enable-background:new 0 0 1440 350;">
+							<g>
+								<path fill="#00AEC7" d="M0.8,286.2c0,0-0.8-167.1,133.6-111.2C239.1,144.1,256.1,74.5,443,129.4c162.9,60.9,309.4-27.9,671.7,56.6 c126.2-18.7,114.9-92.5,221.1-70.4c141.4,29.3,88.8,213.4,264.1,188.5v46H716.6l-395.3,0L0.8,350C0.8,351.4,0.8,286.2,0.8,286.2z"/>
+							</g>
+						</svg>
+					</div>
+
+					<div class="container-fluid  reviewcaresole" style="background-color: #00AEC7;">
+						<div class="row">
+							<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<label data-aos="slide-up" data-aos-delay="100">Real Stories. Real People.</label>
+								<h2 data-aos="slide-up" data-aos-delay="200">reviews</h2>
+							</div>
+							<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<div class="caresolearrow caresolewhitebtn">
+									<button class="ourExpertNextBtn"> <i class="fas fa-caret-left"></i> </button>
+									<button class="ourExpertPrevBtn"> <i class="fas fa-caret-right"></i> </button>
+								</div>
+							</div>
+						</div>
+
+						<div class="owl-carousel clientsaboutillu-slider-caresole" id="therapist-review-slider" data-aos="slide-up" data-aos-delay="300">
+
+							<div class="leadercont">
+								<div>
+									<img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+									<h4>John Smith</h4>
+								</div>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the </p>
+							</div>
+							<div class="leadercont">
+								<div>
+									<img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+									<h4>John Smith</h4>
+								</div>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the </p>
+							</div>
+							<div class="leadercont">
+								<div>
+									<img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+									<h4>John Smith</h4>
+								</div>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the </p>
+							</div>
+							<div class="leadercont">
+								<div>
+									<img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+									<h4>John Smith</h4>
+								</div>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the </p>
+							</div>
+							<div class="leadercont">
+								<div>
+									<img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+									<h4>John Smith</h4>
+								</div>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the </p>
+							</div>
+							<div class="leadercont">
+								<div>
+									<img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+									<h4>John Smith</h4>
+								</div>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the </p>
+							</div>
+						</div>
+					</div>
+					<div class="about_bottom_wave light-blue-bg" style="transform: scaleY(-1);margin-top: -2px;position: relative;z-index: -1;">
+						<svg id="svg-btm-s" da="da" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 290" version="1.1" x="0px" y="0px" width="100%" style="enable-background:new 0 0 1440 350;">
+							<g>
+								<path fill="#00AEC7" translate="" d="M0.5,125c0,0-13.6-59.1,94.4-105c104.7-44.5,279.6,109.9,391.5,7.7c117.7-88.7,320.2,144.7,461,11.6 c86.8-81,183.3,67.7,289.6,99.4c141.5,42.2,145.9-47.4,203.5,11.9v138.2H716.7H321.2H0.5C0.5,290.8,0.5,125,0.5,125z"/>
+							</g>
+						</svg>
+					</div>
+				</div>
+			</section>
+			<!-- Our Mission & Vision end -->
+		</template>
+	</data>
+</odoo>

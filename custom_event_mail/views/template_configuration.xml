@@ -1,0 +1,170 @@
+<odoo>
+	<data>
+
+		<record id="event_notification_from_view" model="ir.ui.view">
+			<field name="name">Event Notification</field>
+			<field name="model">event.notification</field>
+			<field name="arch" type="xml"> 
+				<form>
+					<sheet>
+						<group>
+							<field name="name" default='Notifications' invisible="1"/>
+
+							<!-- <group>
+								<h2>Mailing List</h2>
+								<field name="mailing_list_id"/>
+							</group>
+							<group>
+								
+							</group> -->
+
+							<group>
+								<h2>Event Creation</h2>
+								<field name="event_active_notification_create" widget="boolean_toggle"/>
+								<field name="event_create_mailing_list" widget="many2many_tags"/>
+<!-- 
+								<field name="event_email_notification_create" invisible="1"/>
+								<field name="event_whatsapp_notification_create"  invisible="1"/> -->
+							</group>
+							<group>
+								<h2>Event Approval</h2>
+								<field name="event_active_notification_approve" widget="boolean_toggle"/>
+								<field name="event_approve_mailing_list" widget="many2many_tags"/>
+								<field name="event_approve_mail" widget="many2many_tags"/>
+								<field name="event_approve_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Event Cancel</h2>
+								<field name="event_active_notification_cancel" widget="boolean_toggle"/>
+								<field name="event_cancel_mailing_list" widget="many2many_tags"/>
+								<field name="event_cancel_mail" widget="many2many_tags"/>
+								<field name="event_cancel_whatsapp"/>
+							</group>
+							<group>
+								<h2>Event Reschedule</h2>
+								<field name="event_active_notification_reschedule" widget="boolean_toggle"/>
+								<field name="event_reschedule_mailing_list" widget="many2many_tags"/>
+								<field name="event_reschedule_mail" widget="many2many_tags"/>
+								<field name="event_reschedule_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Room Allocation</h2>
+								<field name="room_active_notification_allocation" widget="boolean_toggle"/>
+								<field name="room_allocation_mailing_list" widget="many2many_tags"/>
+								<field name="room_allocation_mail" widget="many2many_tags"/>
+								<field name="room_allocation_whatsapp"/>
+							</group>
+							<group>
+								<h2>Event Checklist</h2>
+								<field name="event_active_notification_checklist" widget="boolean_toggle"/>
+								<field name="event_checklist_mailing_list" widget="many2many_tags"/>
+								<field name="event_checklist_mail" widget="many2many_tags"/>
+								<field name="event_checklist_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Attendees Booking</h2>
+								<field name="event_active_notification_attendee_booking" widget="boolean_toggle"/>
+								<field name="event_attendee_booking_list" widget="many2many_tags"/>
+								<field name="event_attendee_booking_mail" widget="many2many_tags"/>
+								<field name="event_attendee_booking_whatsapp"/>
+							</group>
+							<group>
+								<h2>Attendees Booking Confirmation</h2>
+								<field name="event_active_notification_attendee_confirmation" widget="boolean_toggle"/>
+								<field name="event_attendee_confirmation_list" widget="many2many_tags"/>
+								<field name="event_attendee_confirmation_mail" widget="many2many_tags"/>
+								<field name="event_attendee_confirmation_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Attendees Booking Cancellation</h2>
+								<field name="attendees_booking_active_notification_cancellation" widget="boolean_toggle"/>
+								<field name="event_attendee_cancel_list" widget="many2many_tags"/>
+								<field name="event_attendee_cancel_mail" widget="many2many_tags"/>
+								<field name="event_attendee_cancel_whatsapp"/>
+							</group>
+							<group>
+								<h2>Attendees Waiting List</h2>
+								<field name="attendees_waiting_active_notification_list" widget="boolean_toggle"/>
+								<field name="event_attendee_waiting_list" widget="many2many_tags"/>
+								<field name="event_attendee_waiting_list_mail" widget="many2many_tags"/>
+								<field name="event_attendee_waiting_list_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Attendees Reminder mail + What's app before 2 hours</h2>
+								<field name="attendees_remainder_active_notification_2hrs" widget="boolean_toggle"/>
+								<field name="event_attendee_remainder_2hrs_list" widget="many2many_tags"/>
+								<field name="event_attendee_remainder_2hrs_mail" widget="many2many_tags"/>
+								<field name="event_attendee_remainder_2hrs_whatsapp"/>
+							</group>
+							<group>
+								<h2>Attendees Reminder mail before 3 day for events</h2>
+								<field name="attendees_remainder_active_notification_3days" widget="boolean_toggle"/>
+								<field name="event_attendee_remainder_3days_list" widget="many2many_tags"/>
+								<field name="event_attendee_remainder_3days_mail" widget="many2many_tags"/>
+								<field name="event_attendee_remainder_3days_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Attendees Reminder mail before 1 day</h2>
+								<field name="attendees_remainder_active_notification_1days" widget="boolean_toggle"/>
+								<field name="event_attendee_remainder_1days_list" widget="many2many_tags"/>
+								<field name="event_attendee_remainder_1days_mail" widget="many2many_tags"/>
+								<field name="event_attendee_remainder_1days_whatsapp"/>
+							</group>
+							<group>
+								<h2>Attendees after attended the events</h2>
+								<field name="attendees_after_active_notification_event" widget="boolean_toggle"/>
+								<field name="event_attendee_attended_list" widget="many2many_tags"/>
+								<field name="event_attendee_attended_mail" widget="many2many_tags"/>
+								<field name="event_attendee_attended_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Attendees Payment Reminder</h2>
+								<field name="attendees_payment_active_notification_remainder" widget="boolean_toggle"/>
+								<field name="event_attendee_payment_remainder_list" widget="many2many_tags"/>
+								<field name="event_attendee_payment_remainder_mail" widget="many2many_tags"/>
+								<field name="event_attendee_payment_remainder_whatsapp"/>
+							</group>
+							<group>
+								<h2>Attendees Payment</h2>
+								<field name="attendees_active_notification_payment" widget="boolean_toggle"/>
+								<field name="event_attendee_payment_thx_list" widget="many2many_tags"/>
+								<field name="event_attendee_payment_thx_mail" widget="many2many_tags"/>
+								<field name="event_attendee_payment_thx_whatsapp"/>
+							</group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="event_notification_tree_view" model="ir.ui.view">
+			<field name="name">Event Notification</field>
+			<field name="model">event.notification</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record> 
+
+		<record id="event_notification_action_view" model="ir.actions.act_window">
+			<field name="name">Event Notification</field>
+			<field name="res_model">event.notification</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="event_notification_tree_view"/>
+		</record>
+
+		<menuitem id="event_notification_menu_id" name="Notification" 
+			parent="event.menu_event_configuration" action="event_notification_action_view" sequence="1"/>
+
+
+		</data>
+	</odoo>

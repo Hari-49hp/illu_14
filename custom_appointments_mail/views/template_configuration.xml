@@ -1,0 +1,131 @@
+<odoo>
+	<data>
+
+		<record id="appointment_notification_from_view" model="ir.ui.view">
+			<field name="name">Appointment Notification</field>
+			<field name="model">appointment.notification</field>
+			<field name="arch" type="xml"> 
+				<form>
+					<sheet>
+						<group>
+							<field name="name" default='Notifications' invisible="1"/>
+
+							<group>
+								<field name="notification_active" widget="boolean_toggle"/>
+							</group>
+							<group>
+							</group>
+
+							<group>
+								<h2>Appointment Creation</h2>
+								<field name="apt_active_notification_create" widget="boolean_toggle"/>
+								<field name="apt_create_mail_list" widget="many2many_tags"/>
+								<field name="apt_create_mail_template" widget="many2many_tags"/>
+								<field name="apt_create_whatsapp"/>
+							</group>
+							<group>
+								<h2>Appointment Approval</h2>
+								<field name="apt_active_notification_approval" widget="boolean_toggle"/>
+								<field name="apt_approve_mail_list" widget="many2many_tags"/>
+								<field name="apt_aprrove_mail_template" widget="many2many_tags"/>
+								<field name="apt_approve_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Appointment Cancel</h2>
+								<field name="apt_active_notification_cancel" widget="boolean_toggle"/>
+								<field name="apt_cancel_mail_list" widget="many2many_tags"/>
+								<field name="apt_cancel_mail_template" widget="many2many_tags"/>
+								<field name="apt_cancel_whatsapp"/>
+							</group>
+							<group>
+								<h2>Appointment Reschedule</h2>
+								<field name="apt_active_notification_reschedule" widget="boolean_toggle"/>
+								<field name="apt_reschedule_mail_list" widget="many2many_tags"/>
+								<field name="apt_reschedule_mail_template" widget="many2many_tags"/>
+								<field name="apt_reschedule_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Need to notify the staff if any faciliator has not created their availiblity</h2>
+								<field name="avail_active_notification_day" widget="boolean_toggle"/>
+								<field name="avail_day_mail_template" widget="many2many_tags"/>
+								<field name="avail_day_whatsapp"/>
+							</group>
+							<group>
+								<h2>Need to notify the facilitator twice a day Once in the morning + evening ) till they don't complete their availablity</h2>
+								<field name="avail_active_notification_eve" widget="boolean_toggle"/>
+								<field name="avail_eve_mail_template" widget="many2many_tags"/>
+								<field name="avail_eve_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Rooms Allocation</h2>
+								<field name="room_active_notification" widget="boolean_toggle"/>
+								<field name="room_allocation_mail_list" widget="many2many_tags"/>
+								<field name="room_allocation_mail_template" widget="many2many_tags"/>
+								<field name="room_allocation_whatsapp"/>
+							</group>
+							<group>
+								<h2>Attendees Reminder mail before 2 Hours</h2>
+								<field name="attendee_remain_2hrs_active_notification" widget="boolean_toggle"/>
+								<field name="attendee_remain_2hrs_mail_template" widget="many2many_tags"/>
+								<field name="attendee_remain_2hrs_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Attendees Reminder mail before 1 day</h2>
+								<field name="attendee_remain_1day_active_notification" widget="boolean_toggle"/>
+								<field name="attendee_remain_1day_mail_template" widget="many2many_tags"/>
+								<field name="attendee_remain_1day_whatsapp"/>
+							</group>
+							<group>
+								<h2>Attendees after attended the Appointments - Thanks</h2>
+								<field name="attendee_thx_active_notification" widget="boolean_toggle"/>
+								<field name="attendee_thx_mail_template" widget="many2many_tags"/>
+								<field name="attendee_thx_whatsapp"/>
+							</group>
+
+							<group>
+								<h2>Attendees Payment Reminder</h2>
+								<field name="attendee_payment_remainder_active_notification" widget="boolean_toggle"/>
+								<field name="attendee_payment_remainder_mail_template" widget="many2many_tags"/>
+								<field name="attendee_payment_remainder_whatsapp"/>
+							</group>
+							<group>
+								<h2>Invoice &amp; Payment</h2>
+								<field name="attendee_invoice_payment_active_notification" widget="boolean_toggle"/>
+								<field name="attendee_invoice_payment_mail_template" widget="many2many_tags"/>
+								<field name="attendee_invoice_payment_whatsapp"/>
+							</group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="appointment_notification_tree_view" model="ir.ui.view">
+			<field name="name">Appointment Notification</field>
+			<field name="model">appointment.notification</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="appointment_notification_action_view" model="ir.actions.act_window">
+			<field name="name">Appointment Notification</field>
+			<field name="res_model">appointment.notification</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="appointment_notification_tree_view"/>
+		</record>
+
+		<menuitem id="appointment_notification_menu_id" name="Notification" 
+			parent="ppts_custom_apt_mgmt.apppointments_master_parent"
+				  action="appointment_notification_action_view" sequence="4"/>
+
+
+		</data>
+	</odoo>

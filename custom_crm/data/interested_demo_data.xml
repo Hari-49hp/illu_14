@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		
+		<record model="master.intrestedin" id="intrestedin_demo_data1">
+			<field name="name">Daily Classes</field>
+		</record>
+		
+		<record model="master.intrestedin" id="intrestedin_demo_data2">
+			<field name="name">Practitioners Training</field>
+		</record>
+		
+		<record model="master.intrestedin" id="intrestedin_demo_data3">
+			<field name="name">Private 1:1</field>
+		</record>
+		
+		<record model="master.intrestedin" id="intrestedin_demo_data4">
+			<field name="name">Retreats</field>
+		</record>
+		
+		<record model="master.intrestedin" id="intrestedin_demo_data5">
+			<field name="name">Corporate Wellness</field>
+		</record>
+		
+		<record model="master.intrestedin" id="intrestedin_demo_data6">
+			<field name="name">Shop</field>
+		</record>
+		
+		<record model="master.intrestedin" id="intrestedin_demo_data7">
+			<field name="name">Space Rental</field>
+		</record>
+	</data>
+</odoo>

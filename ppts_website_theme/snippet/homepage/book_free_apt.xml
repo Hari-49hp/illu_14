@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <template id="illuminations_book_free_apt_snippet" name="Book Free Appointment">
+
+            <t t-call="ppts_website_theme.request_call_for_all_page">
+                <t t-set="callback_content" t-value="{'req_header': 'Request a Support Call back!', 
+                'req_desc': 'Learn how we can help you on your healing Journey' }" />
+            </t>
+
+        </template>
+    </data>
+</odoo>

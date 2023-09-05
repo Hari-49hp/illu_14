@@ -1,0 +1,307 @@
+<odoo>
+    <data>
+
+        <record id="base_view_partner_form_inherit_custom_partner" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']/button[2]" position="after">
+                    <button class="oe_stat_button" name="attendees_report" string="Attendees Report" type="object" icon="fa-file-o" groups="base.group_no_one">
+                    </button>
+                    <button name="action_partner_appt" type="object" class="oe_stat_button" icon="fa-google-wallet">
+                        <div class="o_form_field o_stat_info">
+                            <span class="o_stat_text">Visits</span>
+                        </div>
+                    </button>
+                </xpath>
+                <xpath expr="//group[@name='accounting_entries']" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </xpath>
+                <xpath expr="//field[@name='property_account_receivable_id']" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </xpath>
+                <xpath expr="//field[@name='property_account_payable_id']" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </xpath>
+                <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </xpath>
+                <xpath expr="//page[@name='sales_purchases']" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </xpath>
+                <xpath expr="//field[@name='firstname']" position="before">
+                    <xpath expr="//field[@name='title']" position="move" style="width: 50%;"/>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='phone']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//label[@for='phone']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//page[@name='internal_notes']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_event_view_partner_inherit_tree_view" model="ir.ui.view">
+            <field name="name">res.partner</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree string="Contacts" create="0" delete="0" >
+                    <field name="sequence" string="Sequence"/>
+                    <field name="display_name" string="Name"/>
+                    <field name="mobile" class="o_force_ltr" optional="show"/>
+                    <field name="email" optional="show"/>
+                    <field name="user_id" optional="show" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
+                    <!-- <field name="city" optional="show"/> -->
+                    <field name="city_id" optional="show"/>
+                    <field name="state_id" optional="hide" readonly="1"/>
+                    <field name="country_id" optional="hide" readonly="1"/>
+                    <field name="vat" optional="hide" readonly="1"/>
+                    <field name="category_id" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                    <field name="latest_quick_remarks"/>
+                    <field name="latest_comment" />
+                    <field name="is_company" invisible="1"/>
+                    <field name="parent_id" invisible="1" readonly="1"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sale_order_form_inherited_add" model="ir.ui.view">
+            <field name="name">sale.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <group name="sale_info" position="after">
+                    <group name="event_set_info" string="Event">
+                        <field name="event_sale_id"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+        <record id="action_event_registration_attendees_view" model="ir.actions.act_window">
+            <field name="type">ir.actions.act_window</field>
+            <field name="name">event.registration</field>
+            <field name="res_model">event.registration</field>
+            <field name="view_mode">pivot,kanban,tree,form,calendar,graph</field>
+            <field name="context">{	'pivot_row_groupby': ['event_id','partner_id'],
+									'group_by': ['event_id','partner_id']}</field>
+        </record>
+        <record id="availability_report_tree_view_partners" model="ir.ui.view">
+            <field name="name">Partners Appointment Report</field>
+            <field name="model">appointment.appointment</field>
+            <field name="arch" type="xml">
+                <tree create="false" expand="context.get('expand', False)">
+                    <field name="booking_date"/>
+                    <field name="date_day"/>
+                    <field name="time_slot_id" string="Start &amp; End Time"/>
+                    <field name="time_id" string="Duration" sum="Durations" invisible="1"/>
+                    <field name="duration" string="Duration" sum="Duration" invisible="1"/>
+                    <field name="session_type"/>
+                    <field name="service_categ_id"/>
+                    <field name="appointments_type_id" string="Sub Category"/>
+                    <field name="therapist_id"/>
+                    <field name="company_id"/>
+                    <field name="apt_room_id"/>
+                    <field name="state" string="Status"/>
+                    <field name="pack_differ" invisible="0"/>
+                    <field name="amount_differ" invisible="0"/>
+                    <field name="payment_status_apt" string="Payment Status"/>
+                    <field name="session_type" optional="show" invisible="1"/>
+                    <field name="booked_by" string="Created By"/>
+                    <field name="creation_date" string="Created On"/>
+                </tree>
+            </field>
+        </record>
+        <!-- <record id="contacts.action_contacts" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+            <field name="view_id" ref="base.view_partner_tree"></field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="context">{'default_gender': False, 'default_is_company': False, 'search_default_customers': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+					Create a contact in your address book
+                </p>
+                <p>
+					Odoo helps you to easily track all activities related to a customer.
+                </p>
+            </field>
+        </record> -->
+        <record id="res_partner_view_tree_inherit" model="ir.ui.view">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='phone']" position="replace">
+                    <field name="mobile" class="o_force_ltr" optional="show"/>
+                </xpath>
+                <xpath expr="//field[@name='display_name']" position="before">
+                    <field name="sequence" class="o_force_ltr" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="res_partner_view_filter_inherit" model="ir.ui.view">
+            <field name="name">res.partner.filter</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="name" string="Name or Mobile or Email" filter_domain="['|', '|', '|', '|', '|', ('name', 'ilike', self), ('mobile', 'ilike', self), ('mobile_num', 'ilike', self), ('phone', 'ilike', self) ,('phone_num', 'ilike', self),('email', 'ilike', self)]"/>
+                </xpath>
+                <xpath expr="//field[@name='phone']" position="before">
+                    <field name="mobile" filter_domain="['|',('mobile', 'ilike', self),('mobile_num', 'ilike', self)]"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="user_ids"/>
+                </xpath>
+                <xpath expr="//filter[@name='type_company']" position="after">
+                    <separator/>
+                    <filter string="Customers" name="customers" domain="[('is_company','=',False),('user_ids','=',False),('is_a_customer','=',True)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- <record id="action_contacts" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="context">{'default_is_company': True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                Create a contact in your address book
+                </p>
+                <p>
+                Odoo helps you to easily track all activities related to a customer.
+                </p>
+            </field>
+        </record> -->
+
+        <!-- <record id="contacts.action_contacts" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                        (0, 0, {'view_mode': 'form', 'view_id': ref('custom_partner.res_partner_history_history_from_view')})]" />
+            <field name="context">{'default_is_company': True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                Create a contact in your address book
+                </p>
+                <p>
+                Odoo helps you to easily track all activities related to a customer.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="org_action_contacts_oo" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('custom_partner.view_event_view_partner_inherit_tree_view')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('custom_partner.res_partner_history_history_from_view')})]" />
+            <field name="context">{'default_is_company': True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                Create a contact in your address book
+                </p>
+                <p>
+                Odoo helps you to easily track all activities related to a customer.
+                </p>
+            </field>
+        </record>
+
+
+        <record id="org_action_contacts" model="ir.actions.act_window">
+            <field name="name">Contacts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="search_view_id" ref="base.view_res_partner_filter"/>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('base.res_partner_kanban_view')}),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('base.view_partner_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('base.view_partner_form')})]"/>
+            <field name="context">{'default_is_company': True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                Create a contact in your address book
+                </p>
+                <p>
+                Odoo helps you to easily track all activities related to a customer.
+                </p>
+            </field>
+        </record> -->
+
+
+        <!-- <menuitem name="Client" id="contacts.menu_contacts" sequence="4" web_icon="contacts,static/description/icon.png" groups="base.group_user,base.group_partner_manager"/> -->
+        <!-- <menuitem id="contacts.res_partner_menu_contacts" name="Clients" action="org_action_contacts_oo" parent="contacts.menu_contacts" sequence="1"/>
+        <menuitem id="res_partner_menu_contacts_org" name="Contacts" action="org_action_contacts" parent="contacts.menu_contacts" sequence="1"/> -->
+
+
+        <record id="base_sing_template_module_inherit" model="ir.ui.view">
+            <field name="name">sign.template</field>
+            <field name="model">sign.template</field>
+            <field name="inherit_id" ref="sign.sign_template_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='group_ids']" position="after">
+                    <field name="is_customer_template"/>
+                </xpath>
+            </field>
+        </record>
+
+    <!-- overrite the base sign action to open tree view as default 12-09-22 -->
+     <record id="sign.sign_template_action" model="ir.actions.act_window">
+        <field name="name">Templates</field>
+        <field name="res_model">sign.template</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="search_view_id" ref="sign.sign_template_view_search"/>
+        <field name="context" eval="{'search_default_favorite': 1}"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No template yet
+            </p><p>
+                <a type="action" name="%(sign.sign_template_tour_action)d" class="btn btn-primary text-white">start with our sample template</a>
+            </p>
+        </field>
+    </record>
+
+
+    <record id="base_sign_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.sign.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="sign.res_partner_view_form"/>
+        <field name="arch" type="xml">
+                  <xpath expr="//div/button[@name='open_signatures']" position="attributes">
+        <attribute name="invisible">1</attribute>
+      </xpath>
+      <xpath expr="//button[@name='action_client_consent_documents']" position="before">
+       <button name="open_signatures" type="object" class="oe_stat_button" icon="fa-file-text-o" attrs="{'invisible': ['|', ('signature_count', '=', 0), ('is_company', '=', True)]}" string="Client Consent Form">
+                     <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="signature_count"/>
+                        </span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,406 @@
+<odoo>
+	<data>
+		<template id="website_meditation_page" name="Meditation">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure">
+
+					<style> 
+						.caldownbtn .borderedbtn{
+							display:none;
+						}
+
+						div.calendar-header-one-right > div.filter-buttons-lists{
+							display:none;
+						}
+
+						footer > section > div > svg{
+                            background: #fff; 
+						} 
+					</style>
+
+					<!--  header start-->
+					<section class="subpage-top-hero-section-two abouttophero ">
+						<div class="eachsection orderchangeflex">
+
+
+							<div class="row hero-section-two ourstory mycontainer order-2 order-sm-2">
+								<div class="col-lg-6 col-md-6 col-xl-6  col-sm-12 " data-aos="fade-up" data-aos-delay="200">
+									<div class="breadcrum-sec topbreadcrum  desktopbread">
+										<label>
+											<a href='/' style="text-decoration:none;">Home /</a>
+											<a>Meditation</a>
+										</label>
+									</div>
+									<div class="hero-two-left subintrotext herotexcenter">
+										<h6 class="hearblackstyletext " data-aos="fade-up" data-aos-delay="10">Introduction</h6>
+										<h1 class="mainherotext ">What is meditation?</h1>
+										<p class="herotxtprag ">Don’t know how to start meditate take a short test and we will determine
+											which meditation is right for you and suggest a more suitable one</p>
+										<ul class="grey_listwithdots">
+											<li>Dubai’s 1st in Meditation Studio</li>
+											<li> Have the best therapists</li>
+											<li> Online/Onsite meditations</li>
+											<li> Group Classes in Daily Meditation</li>
+											<li> Easy way to start</li>
+										</ul>
+										<a href= "#book_free_apt_snippet" class="fullbutton wid209">Start meditation Today </a>
+
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-12 col-xl-6  col-sm-12 order-1 order-sm-1 rightsideslide">
+								<div class="hero-two-right">
+									<div class="breadcrum-sec mobilrbread">
+										<label>
+											<a>Home /</a>
+											<a>Meditation</a>
+										</label>
+									</div>
+									<div class="image-orvideocpnt">
+										<img src="/ppts_website_theme/static/src/img/meditationbanner.jpg" />
+										<!-- <a class="playicon"></a> -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Let’s try to meditate with 5 min quick video -->
+					<section class="section-topbtm-padding aboutillumination  trymeditation">
+						<div class="container-fluid aboutus-wrapper" data-aos="fade-up" data-aos-delay="100">
+							<div class="mycontainer">
+								<div class="aboutus-title row">
+									<h2 class="col-sm-7">Let’s try to meditate with 5 min quick video </h2>
+									<div class="col-12 mb-4 d-sm-block d-md-none text-center">
+										<br />
+										<br />
+										<button type="button" class="fullbutton">Start meditation Today</button>
+										<br />
+										<br />
+									</div>
+								</div>
+								<div class="abt-title-img">
+									<!-- <img src="/ppts_website_theme/static/src/img/trymeditation.jpg" class="img-fluid" loading="lazy"/> -->
+									<iframe src="https://www.youtube.com/embed/utjeYQojrIE"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<style>
+						#section_upcoming_events {
+							background: #F6FDFF;
+						}
+
+						.twobtns .fullbutton {
+							display:none;
+						}
+					</style>
+
+					<div class="noanimate_top_wave ">
+						<svg class="topsvg svgclass"
+							xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+							<g>
+								<path class="light-blue-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+								c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+								l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z">
+								</path>
+							</g>
+						</svg>
+					</div>
+
+					<t t-set="meditation_id" t-value="request.env['appointment.category'].sudo().search([('is_meditation','=',True)],limit=1)" />
+					<t t-call="ppts_website_theme.upcoming_calendar_website_all">
+						<t t-set="enable_waves" t-value="True"/>
+						<t t-set="eventt_content" t-value="{'req_header': 'Find A Meditation Class Near You',}" />
+						<t t-set="calendar_domain" t-value="'meditation'"/>
+						<t t-set="calendar_employee_id" t-value="meditation_id.id"/>
+					</t>
+
+					<div class="noanimtionbtm-wave">
+						<svg class="topsvg svgclass"
+							xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+							<g>
+								<path class="light-blue-svg" d="M148.998 169.897C119.618 178.901 90.0254 180.801 58.8966 179.396C38.7206 180.472 19.2071 180.235 0 177.663V0H263V0.186939H1440V72.305C1392.32 67.2731 1349.05 72.6685 1311.14 77.395L1311.1 77.4006C1304.22 78.2579 1297.52 79.0933 1291 79.8403C1284.48 79.0933 1277.78 78.2579 1270.9 77.4006L1270.86 77.395C1219.21 70.9553 1157.6 63.2741 1088.47 82.4148C1062.13 89.7085 1037.24 98.3559 1012.78 106.857L1012.77 106.862L1012.67 106.895C938.44 132.694 868.13 157.13 773.157 138.281C672.252 118.254 596.098 133.174 520.628 147.96L520.627 147.961C458.866 160.061 397.564 172.071 323.532 164.765C256.831 158.183 199.99 163.73 148.998 169.897Z">
+								</path>
+
+							</g>
+						</svg>
+					</div>
+
+
+					<section class="eachsection section-topbtm-padding">
+						<div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+							<div class="row approchcontainer meditationtext">
+								<div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-xs-12 col-12 section-typo withvertcenter">
+									<div class="section-typo-inner" style="max-width: 100%;margin-top:0px;">
+										<span class="blakwordtexts ">test </span>
+										<h2 class="">Free introduction to Meditation for the Modern Soul </h2>
+										<p class="" style="max-width: 500px;">Don’t know how to start meditate take a short test and we
+											will determine which meditation is right for you and suggest a more suitable one
+										</p>
+									</div>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12  meditationsantuary">
+									<img src="/ppts_website_theme/static/src/img/freeitro.jpg" alt="" class="img-fluid"/>
+									<h6 style="font-weight: 600;">Take a short test and we will determine which meditation is right for
+										you and suggest a more suitable one</h6>
+									<a href= "#book_free_apt_snippet">
+										<button type="button" class="fullbutton">let’s get you started</button>
+									</a>
+								</div>
+							</div>
+						</div>
+					</section>
+
+
+					<section class="eachsection section-topbtm-padding">
+
+						<div class="mycontainer">
+							<div class="section-typo-inner" style="max-width: 100%;">
+								<span class="blakwordtexts ">Types of </span>
+								<h2 class="">Meditation </h2>
+
+							</div>
+							<div class="row typeofmeditation">
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+									<img src="/ppts_website_theme/static/src/img/typeofmeditation1.svg" />
+									<h5>Mindfulness Meditation</h5>
+									<p>These meditations involve focused attention and awareness on the present moment, by observing
+										your natural breath and thought patterns until we are able to move beyond the mind into a place
+										of stillness and silence.</p>
+								</div>
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+									<img src="/ppts_website_theme/static/src/img/typeofmeditation2.svg" />
+									<h5>Movement Meditation</h5>
+									<p> These meditations involve incorporating an activity such as walking or a hobby such as painting
+										or dancing through focused concentration where we move into a space of total oneness with our
+										activity and away from the world of multitasking, in order to channel our creativity, intuition
+										and stillness. </p>
+								</div>
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+									<img src="/ppts_website_theme/static/src/img/typeofmeditation3.svg" />
+									<h5>Spiritual &amp; Energy Based Mediation</h5>
+									<p> These meditations involve establishing a deeper spiritual connection with what we may call the
+										universe, divine, higher self in order increase our faith, by moving beyond our mental control
+										into a space of trust, faith and intuition. </p>
+								</div>
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+									<img src="/ppts_website_theme/static/src/img/typeofmeditation4.svg" />
+									<h5>Sound, Vibration &amp; Mantra Meditation</h5>
+									<p> These meditations involve continuous repetition and chanting of high-energy sounds, vibrations
+										and mantras, which increase our energy vibration, bring us into a space of peace &amp; tranquility &amp;
+										awaken the wisdom and compassion within us. </p>
+								</div>
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+									<img src="/ppts_website_theme/static/src/img/typeofmeditation5.svg" />
+									<h5>Visualization &amp; Guided Meditation</h5>
+									<p> These meditations take you through a beautiful healing journey by guiding your mind and body
+										into a state of deep relaxation through visualization. In this tranquil state, positive
+										reinforcement within the subconscious mind will accelerate the powerful manifestation process of
+										our thoughts into creating an empowering reality. </p>
+								</div>
+								<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+									<img src="/ppts_website_theme/static/src/img/typeofmeditation6.svg" />
+									<h5>Full Moon Meditation</h5>
+									<p> Full moons are about completion, change, releasing and cleansing. Meditating at the time of a
+										full moon offers a powerful healing opportunity supporting you to release blocked energies and
+										limiting beliefs. This powerful guided meditation manifests your dreams and deepest desires,
+										allowing you to come into alignment with your higher self and connect with the endless
+										possibilities the Universe can provide for you.
+									</p>
+								</div>
+							</div>
+						</div>
+
+					</section>
+
+					<section class="section-topbtm-padding">
+						<div class="eachsection">
+							<div class="mycontainer">
+								<div class="aboutus-title row justify-content-between align-items-center">
+									<h2 class="col-sm-12 col-md-4 col-12">Common Myths about meditation </h2>
+									<div class="col-sm-12 col-md-5 col-12">
+										<p>
+											Our small initiative began by organizing non-profit events to give people the opportunity to
+											discover and explore the powerful resources residing within their inner self.
+										</p>
+									</div>
+
+								</div>
+								<div class="commonmithmedication-wrapper">
+									<div class=" commonmith_topcentercontent  commonmith_first_fordrsk">
+										<p class="commonmith_content commonmith_one">
+											Meditation takes a long time
+										</p>
+									</div>
+									<div class="commonmith_secont_container">
+										<div class="commonmith_leftcontent">
+											<p class="commonmith_content">Meditation is when sitting cross-legged</p>
+											<p class="commonmith_content">Meditation is a religious practice</p>
+											<p class="commonmith_content commonmith_first_fordmob"> Meditation takes a long time </p>
+										</div>
+										<div class=" commonmith_centerimgcontent">
+											<img src="/ppts_website_theme/static/src/img/commonmith_center.svg" />
+										</div>
+										<div class="  commonmith_rightcontent">
+											<p class="commonmith_content">Meditation Is Serious</p>
+											<p class="commonmith_content">People meditate to go into trance</p>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+
+					<section class="section-topbtm-padding missionvission blacktexts">
+
+						<div class="noanimate_top_wave ">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="light-blue-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+									c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+									l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z">
+									</path>
+								</g>
+							</svg>
+						</div>
+						<div class="enquireformcontainer light-blue-bg">
+							<div class="eachsection">
+
+
+								<div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+
+
+									<div class="row justify-content-between">
+										<div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-xs-12 missionvission-left ">
+											<span class="blakwordtexts">Why you need this</span>
+											<h2 class="header">A few reasons to start meditate</h2>
+											<p class="desc mt-3 mb-4"> When we meditate, we inject far-reaching and long-lasting benefits into our lives. Here are some reasons to start meditating: </p>
+											<div class="">
+												<a href="/appointment/checkout" class="fullbutton" style="min-width:240px;">Book a free meditation class</a>
+											</div>
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+											<div class="row">
+												<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list ">
+													<span class="moving_shape">
+														<img src="/ppts_website_theme/static/src/img/Holistic1.svg"/>
+													</span>
+													<h4>Psychotherapy &amp; Behavioral Sciences</h4>
+													<p>Theta Healing™ is a powerful technique that teaches us how to put to use our
+														natural intuition
+													</p>
+
+												</div>
+												<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list ">
+													<span class="moving_shape">
+														<img src="/ppts_website_theme/static/src/img/Holistic2.svg"/>
+													</span>
+													<h4>Family <br/>
+ Constellation</h4>
+													<p>Theta Healing™ is a powerful technique that teaches us how to put to use our
+														natural intuition
+													</p>
+
+												</div>
+												<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list ">
+													<span class="moving_shape">
+														<img src="/ppts_website_theme/static/src/img/bb1.svg"/>
+													</span>
+													<h4>Regression<br/>
+ Therapies</h4>
+													<p> Theta Healing™ is a powerful technique that teaches us how to put to use our
+														natural intuition
+													</p>
+
+												</div>
+												<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list ">
+													<span class="moving_shape">
+														<img src="/ppts_website_theme/static/src/img/bb2.svg"/>
+													</span>
+													<h4>NLP<br/>
+ Psychotherapy</h4>
+													<p> Theta Healing™ is a powerful technique that teaches us how to put to use our
+														natural intuition
+													</p>
+
+												</div>
+												<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list ">
+													<span class="moving_shape">
+														<img src="/ppts_website_theme/static/src/img/Holistic5.svg"/>
+													</span>
+													<h4>Metaphor<br/>
+ Therapy</h4>
+													<p>Theta Healing™ is a powerful technique that teaches us how to put to use our
+														natural intuition
+													</p>
+
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="noanimtionbtm-wave">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="light-blue-svg" d="M148.998 169.897C119.618 178.901 90.0254 180.801 58.8966 179.396C38.7206 180.472 19.2071 180.235 0 177.663V0H263V0.186939H1440V72.305C1392.32 67.2731 1349.05 72.6685 1311.14 77.395L1311.1 77.4006C1304.22 78.2579 1297.52 79.0933 1291 79.8403C1284.48 79.0933 1277.78 78.2579 1270.9 77.4006L1270.86 77.395C1219.21 70.9553 1157.6 63.2741 1088.47 82.4148C1062.13 89.7085 1037.24 98.3559 1012.78 106.857L1012.77 106.862L1012.67 106.895C938.44 132.694 868.13 157.13 773.157 138.281C672.252 118.254 596.098 133.174 520.628 147.96L520.627 147.961C458.866 160.061 397.564 172.071 323.532 164.765C256.831 158.183 199.99 163.73 148.998 169.897Z">
+									</path>
+
+								</g>
+							</svg>
+						</div>
+					</section>
+
+					<section class="eachsection section-topbtm-padding">
+						<div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+							<div class="row approchcontainer">
+								<div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-xs-12 col-12 section-typo withvertcenter">
+									<div class="section-typo-inner" style="max-width: 100%;">
+										<span class="blakwordtexts ">shop </span>
+										<h2 class="">Create a Meditation Sanctury with the comfort at the home </h2>
+										<p class="" style="max-width: 500px;">Don’t know how to start meditate take a short test and we
+											will determine which meditation is right for you and suggest a more suitable one
+										</p>
+										<a href="http://shop.illuminations.ae">
+											<button type="button" class="fullbutton">Watch All equipment</button>
+										</a>
+									</div>
+								</div>
+								<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 col-12 meditationsantuary">
+									<img src="/ppts_website_theme/static/src/img/createmedicationimg1.jpg" class="img-fluid"/>
+									<h6>Zafuko Medium Foldable Meditation and Yoga Cushion</h6>
+									<h5>120 <small>AED</small>
+									</h5>
+								</div>
+								<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 col-12  meditationsantuary">
+									<img src="/ppts_website_theme/static/src/img/createmedicationimg2.jpg" class="img-fluid"/>
+									<h6>Meditation Cushion &amp; Yoga Prop, 100% Kapok ...</h6>
+									<h5>120 <small>AED</small>
+									</h5>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<t t-call="ppts_website_theme.request_call_for_all_page">
+						<t t-set="callback_content" t-value="{'req_header': 'Request a Support Call back!', 
+						'req_desc': 'Learn how we can help you on your healing Journey' }" />
+					</t>
+
+				</div>
+			</t>
+		</template>
+	</data>
+</odoo>

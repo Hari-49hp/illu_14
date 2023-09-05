@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_employee_payrate,access_hr_employee_payrate,model_hr_employee_payrate,base.group_user,1,1,1,1
+access_event_pay_rate_line,access_event_pay_rate_line,model_event_pay_rate_line,base.group_user,1,1,1,1
+illum_admin_access_staff_list_line,illum_admin_access_staff_list_line,model_staff_list_line,sales_team.group_sale_manager,1,1,1,1

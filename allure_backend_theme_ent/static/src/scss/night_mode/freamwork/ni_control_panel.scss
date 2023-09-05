@@ -1,0 +1,279 @@
+@mixin sync_control_panel_layout() {
+    background-color: $night-light;
+    border-bottom: 0;
+    @include common-layout();
+    ol.breadcrumb {
+        background-color: $night-light;
+
+        .breadcrumb-item {
+            & > a {
+                color: $font-color;
+            }
+
+            &.active {
+                color: $night-hover;
+            }
+            & + .breadcrumb-item {
+                &:before {
+                    color: $font-color;
+                }
+            }
+        }
+    }
+    .o_cp_searchview {
+        .o_searchview {
+            background-color: $btn-secondary;
+            border: 0;
+
+            .o_searchview_facet {
+                border: 0;
+            }
+
+            .o_searchview_input {
+                padding: 5px 0 5px 5px;
+                background-color: $btn-secondary;
+                color: $font-color;
+
+                &::placeholder {
+                    color: $font-color;
+                }
+            }
+
+            .o_toggle_searchview_full {
+                color: $font-color;
+            }
+
+            .o_enable_searchview {
+                background-color: transparent;
+            }
+
+            .o_searchview_more {
+                color: $font-color;
+            }
+
+            .o_search_recs, .o_search_recs_mobile:before {
+                color: $font-color;
+                border: 0;
+            }
+            .o_search_recs {
+                background: $night;
+            }
+
+            .o-selection-focus {
+                background-color: $btn-primary;
+            }
+
+            .o_searchview_input_container, .o_search_rec_ul, .o_search_rec_ul_mobile {
+                .o_searchview_facet {
+                    border: 0;
+                    background-color: $night-light;
+                    .o_searchview_facet_label {
+                        color: $font-color;
+                        background-color: $btn-primary;
+                        border: 0;
+                    }
+
+                    .o_facet_values {
+                        color: $font-color;
+                        border: 0;
+                    }
+
+                    .o_facet_remove {
+                        color: $font-color;
+                    }
+                }
+                .o_searchview_autocomplete {
+                    .o_selection_focus {
+                        background-color: $btn-primary;
+                        a {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .o_cp_switch_buttons {
+        .btn.btn-link.btn-sm {
+            background-color: transparent;
+            color: $font-color;
+            line-height: 0;
+        }
+        & > .active {
+            background-color: $btn-primary;
+        }
+        .dropdown-menu {
+            .oe_view_btn {
+                button {
+                    background: unset;
+                    &.active , &:hover {
+                        box-shadow: 0px 2px 0px 0px #5bade9;
+                    }
+                }
+            }
+        }
+    }
+    .o_cp_bottom {
+        background-color: $night-light;
+        border-top: 0;
+        border-color: var(--border);
+        .o_cp_bottom_left, .o_cp_bottom_right {
+            .o_cp_buttons{
+                background-color: $night-light;
+                border-color: var(--border);
+                .btn-primary {
+                    background-color: $btn-primary;
+                    color: $font-color;
+                    border: 0;
+
+                    &:hover, &:active, &:focus {
+                        background-color: $btn-secondary;
+                    }
+                }
+                .btn-link {
+                    color: $btn-primary;
+                }
+                .btn-default {
+                    background-color: $btn-secondary;
+                    color: $btn-primary;
+                    border: 0;
+
+                    &:hover, &:active, &:focus {
+                        background-color: $btn-primary;
+                        color: $font-color;
+                    }
+                }
+                .btn-secondary {
+                    background-color: $btn-secondary;
+                    color: $font-color;
+                    border: 0;
+
+                    &:hover, &:active, &:focus {
+                        background-color: $btn-primary;
+                    }
+                }
+                .dropdown-menu {
+                    a.dropdown-item {
+                        &:before {
+                            border-color: $font-color;
+                            color: $font-color;
+                        }
+                    }
+                }
+                .o_list_selection_box {
+                    background-color: $btn-secondary;
+                    color: $btn-primary;
+                    border: 0;
+                }
+            }
+            &.cp_open {
+                background-color: $night-light;
+            }
+            .o_cp_pager {
+                color: $font-color;
+                .o_pager {
+                    .btn-group {
+                        button {
+                            color: $font-color;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    .o_search_options {
+        background-color: $night-light;
+        .o_dropdown {
+            .o_dropdown_toggler_btn {
+                background-color: $night-light;
+            }
+            &.ad_active {
+                .o_dropdown_toggler_btn {
+                    background-color: $btn-primary;
+                }
+            }
+            .o_menu_item, .o_menu_item .list-unstyled {
+                & > .dropdown-item, .o_item_option .dropdown-item {
+                    padding: 6px 30px;
+                    &:before {
+                        border: 2px solid $font-color;
+                        left: 5px;
+                        color: $font-color;
+                    }
+                    &:focus {
+                        background-color: $btn-primary;
+                    }
+                }
+            }
+        }
+    }
+    .o_cp_action_menus {
+        .btn-group {
+            background-color: $night-light;
+            border-color: var(--border);
+            button {
+                color: $font-color;
+                background-color: $night-light !important;
+                &:hover {
+                    background-color: $btn-primary;
+                    color: $font-color;
+                }
+            }
+        }
+    }
+    .o_sidebar_drw {
+        background-color: $btn-primary;
+        border-color: $btn-primary;
+    }
+    & > .o_action {
+        .o_control_panel {
+            background-color: $night-light;
+            border-color: $border;
+        }
+        .o_kanban_quick_create, .oe_kanban_card {
+            background-color: $btn-secondary;
+            border-color: var(--border);
+        }
+    }
+    .o_cp_top {
+        .o_search_options {
+             background-color: $night-light;
+             .o_generator_menu {
+                .o_input {
+                    background-color: $btn-secondary !important;
+                }
+             }
+        }
+    }
+    .ad_js_filters {
+        .o_form_view {
+            background-color: $btn-secondary;
+        }
+    }
+}
+
+@mixin sync_search_panel_layout() {
+    background-color: $night;
+    border-right: 0;
+    color: $font-color;
+    border: 0;
+    .list-group-item {
+        background-color: $night;
+        padding: 2px;
+        margin-bottom: 3px;
+        .list-group-item-action {
+            color: $font-color;
+            margin: 0;
+            border-radius: 0;
+            border-left: 5px solid transparent;
+            background-color: transparent;
+            &.active , &:hover {
+                border-left: 5px solid $btn-primary;
+            }
+        }
+    }
+    .o_search_panel_label_title {
+        color: $font-color;
+    }
+}

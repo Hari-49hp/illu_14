@@ -1,0 +1,245 @@
+/* ***************** Dropdown Select Css******************* */
+/* Default for this app */
+
+.inputwrap .dropdown-item,
+.inputwraptwo .dropdown-item {
+    border-radius: 6px;
+    transition: .3s;
+    white-space: normal;
+    line-height: 20px;
+}
+
+.inputwrap .dropdown-item:focus,
+.inputwrap .dropdown-item:hover,
+.inputwraptwo .dropdown-item:focus,
+.inputwraptwo .dropdown-item:hover {
+    background-color: #e6fcff;
+}
+
+
+.inputwrap {
+    background: transparent;
+    border: 2px solid #00aec7;
+    border-radius: 4px;
+    /* max-width: 170px; */
+    min-height: 42px;
+    width: 100%;
+    max-height: 42px;
+    margin-bottom: 16px;
+    min-width: 100px;
+
+}
+
+.inputwrap>button {
+    background: transparent;
+    color: #000;
+    border: 0px;
+    min-width: 130px;
+    padding-right: 30px;
+    text-align: left;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 26px;
+    /* padding-top: 8px; */
+}
+
+.popover {
+    z-index: 999 !important;
+}
+
+.inputwrap>button:hover,
+.inputwrap>button:active,
+.inputwrap .dropdown-toggle {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    width: 100%;
+}
+
+.inputwrap .dropdown-toggle::after {
+    border-top-color: #00aec7;
+    position: absolute;
+    right: 10px;
+    top: 45%
+}
+
+.inputwrap .dropdown-item {
+    /* padding: .5rem 1.5rem; */
+    padding: 0.5rem .8rem;
+}
+
+.inputwrap .dropdown-item label {
+    margin: 0;
+    display: block;
+    cursor: pointer;
+}
+
+.inputwrap .dropdown-menu {
+    box-shadow: 0px 4px 13px -2px #dcdcdc;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 0px;
+    max-width: 100%;
+    padding: 8px;
+    width: 100%;
+    min-width: 100px;
+}
+
+.inputwraptwo {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+
+.date.inputwrap::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+    border-top-color: #00aec7;
+    margin-top: 16px;
+    margin-right: 10px;
+    background: transparent;
+}
+
+.date.inputwrap .input-group-addon.iconinoutbtn {
+    padding: 4px 0px 4px 10px;
+}
+
+.inputwrap>input,
+.inputwrap .form-control[readonly] {
+    background: transparent;
+    border: 0px;
+    cursor: pointer;
+    box-shadow: none;
+    padding: 0px;
+}
+
+.form-control {
+    min-height: 42px;
+
+}
+
+.heading-right-fields .inputwrap:nth-child(1),
+.heading-right-fields .inputwrap:nth-child(2),
+.heading-right-fields .inputwrap:nth-child(3) {
+    border: 2px solid #E8E8E8;
+}
+
+
+.inputwraptwo .dropdownbtn {
+    border: 2px solid #00AEC7;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 21px;
+    background: transparent;
+    color: #585858;
+    min-width: 124px;
+    height: 40px;
+    text-align: left;
+    position: relative;
+    padding: 8px 10px;
+    width: 100%;
+}
+
+.inputwraptwo .dropdown-menu {
+    max-width: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
+    border: 0px;
+    padding: 8px;
+}
+
+.inputwraptwo .dropdownbtn.dropdown-toggle::after {
+    border-top: .3em solid #00AEC7;
+    position: absolute;
+    right: 12px;
+    top: 45%;
+}
+
+.greyborderes-drop.inputwraptwo .dropdownbtn {
+    border: 2px solid #BDBDBD;
+}
+
+/* ******************************* */
+.enquireform .form-control.inputwrap {
+    max-width: 100%;
+    padding: 4px;
+}
+
+.enquireform .form-control.inputwrap .dropdown-toggle {
+    width: 100%;
+}
+
+/* ************************ */
+.multicheckfilters .row>div {
+    padding-right: 0px;
+}
+
+
+
+.multicheckfilters label {
+    display: block;
+    cursor: pointer;
+    margin: 2px 0;
+    font-size: 14px;
+}
+
+.multicheckfilters label input {
+    margin-right: 4px;
+}
+
+
+/* ****************************** */
+
+/* ***********************************************Input style css********************************************************************* */
+
+
+
+/* ******search input style in blog  input style ****** */
+
+.searchinput-icon {
+    width: 100%;
+    height: 46px;
+    background: #FFFFFF;
+    border: 1px solid rgba(172, 172, 172, 0.5);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 9px 8px 8px 40px;
+    background-image: url(../img/header-search-icon.svg);
+    background-position: 10px center;
+    background-size: 26px;
+    background-repeat: no-repeat;
+    outline: 0;
+}
+
+
+
+/* ******Default input style ****** */
+input[type="text"]:focus,
+.form-control:focus,
+input[type="search"]:focus {
+    box-shadow: none;
+    border-color: #00AEC7;
+    box-shadow: 0 0 0 1px #00AEC7;
+}
+
+#aptReschedule-model label {
+    font-size: 15px !important;
+}
+
+#aptReschedule-model input {
+    border: none;
+}
+
+#aptReschedule-model .time-slot-de {
+    font-size: 15px !important;
+    width: 55px !important;
+}

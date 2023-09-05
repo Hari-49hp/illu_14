@@ -1,0 +1,278 @@
+<odoo>
+	<data>
+		<record id="availability_from_view" model="ir.ui.view">
+			<field name="name">Availability</field>
+			<field name="model">availability.availability</field>
+			<field name="arch" type="xml">
+				<form class="availability_form_backend">
+					<header>
+						<button name="set_to_draft" type="object" string="Set To Draft" attrs="{'invisible': ['|', '|',('state', '=', 'draft'), ('id', '=', False), ('date_range', '=','custom')]}" />
+						<button name="confirm_ongoing" type="object" string="Confirm" style="background: #9b4545;color: #fff;border: none;" attrs="{'invisible': ['|', '|',('state', '!=', 'draft'), ('id', '=', False), ('date_range', '=','custom')]}"/>
+						<button id="SaveRedirectHeadDTM" name="save_redirect" type="object" string="Book" style="display:none;" />
+						<field name="state" default="draft" statusbar_visible="draft,availability_created" widget="statusbar" />
+					</header>
+
+					<style>
+						.checkbox-toggles {
+						overflow: hidden;
+						display: inline-block;
+						clear: both;
+						border: 1px solid rgba(0,0,0,0.2);
+						border-bottom: none;
+						border-radius: 3px;
+						box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+						background: #F3F3F3 4%;
+						background-image: linear-gradient(top, #fff 1%, #F3F3F3 4%, #D6D6D6 100%);
+						}
+						.checkbox-toggle {
+						text-align: center;
+						float: left;
+						position: relative;
+						min-width: 45px;
+						height: 25px;
+						cursor: pointer;
+						border-right: 1px solid rgba(0,0,0,0.1);
+						}
+						.toggle-botton-label{
+						margin-bottom: 0px !important;
+						margin-right: 0px !important;
+						margin-top: 2px !important;
+						width: 100%;
+						height: 100%;
+						}
+						.checkbox-toggle:active, .checkbox-toggle.checked {
+						background: #048DD1 4%;
+						background-image: linear-gradient(top, #fff 1%, #048DD1 4%, #0AF 100%);
+						box-shadow: inset 0 0 1px rgba(255,255,255,0.2), inset 0 0 6px rgba(0,0,0,0.15);
+						color:#fff;
+						}
+						.badge-frm-togg{
+						border-radius: 10px;
+						width: 20px;
+						height: 20px;
+						display: inline-block;
+						padding: 3px 0 0 5px;
+						position: relative;
+						top: -2px;
+						font-size: 14px;
+						margin-right: 15px;
+						background: #08C;
+						box-sizing: border-box;
+						text-align: justify;
+						border: 1px solid #00A09D !important;
+						}
+						.warning-message-grp tr{
+							display: grid !important;
+						}
+
+						.warning-message-grp td{
+							width: 100% !important;
+						}
+					</style>
+					<sheet>
+						<div class="oe_button_box" name="button_box" groups="base.group_no_one">
+							<button name="action_view_avail" type="object" class="oe_stat_button" icon="fa-shopping-cart" groups="base.group_no_one" string="View Availability" />
+						</div>
+						<group>
+							<!-- <group style="width:100%" attrs="{'invisible':['|',('state','!=', 'draft'),('id', '=', False)]}" class="warning-message-grp">
+								<div class="alert alert-danger" attrs="{'invisible':[('availability','!=', 'available')]}">
+									<strong>Availability Not Yet Created !!</strong>
+								</div>
+								<div class="alert alert-danger" attrs="{'invisible':[('availability','=', 'available')]}">
+									<strong>Unavailability Not Yet Created !!</strong>
+								</div>
+							</group> -->
+							<group style="width:30%">
+								<div class="form-section-left">
+									<h2>
+										<span class="badge-frm-togg badge">1</span>
+										What
+									</h2>
+								</div>
+							</group>
+							<group style="width:70%">
+								<field name="facilitator" required="1" options="{'no_create_edit': False,'no_quick_create':True,'no_create':True,'no_open':True}" attrs="{'readonly': ['&amp;','|','|',('state', 'in', ['availability_created', 'unavailability_created']),('employee_form','=',True), ('state', '=', 'draft'), ('id', '!=', False)]}" force_save="1" />
+								<field name="availability" widget="radio" options="{'horizontal': true}" attrs="{'readonly': ['&amp;','|',('state', 'in', ['availability_created', 'unavailability_created']), ('state', '=', 'draft'), ('id', '!=', False)]}" />
+								<field name="reason" attrs="{'invisible':[('availability', '!=','unavailable')],'required':[('availability', '=','unavailable')],'readonly': [('state', 'in', ['availability_created', 'unavailability_created'])]}" />
+
+							</group>
+
+							<group style="width:30%">
+								<div class="form-section-left">
+									<h2>
+										<span class="badge-frm-togg badge">2</span>
+										Where
+									</h2>
+								</div>
+							</group>
+							<group style="width:70%">
+								<field name="location_id" widget="selection" attrs="{'readonly': ['&amp;','|',('state', 'in', ['availability_created', 'unavailability_created']), ('state', '=', 'draft'), ('id', '!=', False)]}" />
+							</group>
+
+							<group style="width:30%">
+								<div class="form-section-left">
+									<h2>
+										<span class="badge-frm-togg badge">3</span>
+										When
+									</h2>
+								</div>
+							</group>
+
+							<group style="width:70%">
+								<field name="multi_date_selection" widget="multiple_datepicker" invisible="1" />
+								<field name="is_customly_created" invisible="1" />
+								<field name="employee_form" invisible='1'/>
+								<field name="tree_service_category_ids" invisible="1" />
+
+								<group>
+									<field name="date_range" widget="radio" string="Date Range" options="{'horizontal': true}" attrs="{'readonly': ['&amp;','|',('state', 'in', ['availability_created', 'unavailability_created']), ('state', '=', 'draft'), ('id', '!=', False)]}"/>
+								</group>
+								<group></group>
+
+								<group attrs="{'invisible':[('date_range', '=','custom')]}">
+									<field name="available_date" attrs="{'readonly': ['&amp;','|',('state', 'in', ['availability_created', 'unavailability_created']), ('state', '=', 'draft'), ('id', '!=', False)],'invisible':[('date_range', '=','custom')]}" />
+								</group>
+								<group attrs="{'invisible':[('date_range', '=','custom')]}"></group>
+
+								<group attrs="{'invisible':[('date_range', '!=','custom')]}">
+									<field name="cus_start_date" autocomplete="off" attrs="{'required': [('date_range', '!=', 'ongoing')],'readonly': [('state', 'in', ['availability_created', 'unavailability_created'])],'invisible':[('date_range', '!=','custom')]}" />
+								</group>
+								<group attrs="{'invisible':[('date_range', '!=','custom')]}">
+									<field name="cus_end_date" attrs="{'required': [('date_range', '!=', 'ongoing')],'readonly': [('state', 'in', ['availability_created', 'unavailability_created'])],'invisible':[('date_range', '!=','custom')]}" autocomplete="off" />
+								</group>
+
+								<group>
+									<field name="start_time" autocomplete="off" attrs="{'readonly': [('state', 'in', ['availability_created', 'unavailability_created'])]}" />
+								</group>
+								<group>
+									<field name="end_time" autocomplete="off" attrs="{'readonly': [('state', 'in', ['availability_created', 'unavailability_created'])]}" />
+								</group>
+
+								<button name="set_dates_in" string="Set Dates" type="object" class="oe_highlight" invisible="1"/>
+
+								<button style="width: 21%;margin-left: 5px;" class="oe_highlight" name="create_availability" string="Create" type="object" invisible="1"/>
+
+								<!-- <button name="remove_app_line" type="object" class="oe_inline oe_edit_only fa fa-trash oe_link" attrs="{'invisible':['|',('state', 'in', ['availability_created', 'unavailability_created']),('date_range', '!=','custom')]}" /> -->
+
+								<field name="app_line_id" nolabel="1" force_save="1" readonly="1" attrs="{'required': [('date_range', '=', 'custom')],'invisible':['|',('date_range', '!=','custom'),('state', 'in', ['availability_created', 'unavailability_created'])]}">
+									<tree editable="bottom" detele="true" create="false">
+										<field name="date_app" />
+										<field name="start_time" />
+										<field name="end_time" />
+										<field name="app_id" invisible="1" />
+										<field name="service_category_ids" widget="many2many_tags" invisible="1"/>
+									</tree>
+									<form>
+										<group>
+											<group>
+												<field name="is_services" />
+												<field name="facilitator" invisible="1"/>
+											</group>
+											<group>
+
+											</group>
+											<group>
+												<field name="date_app" />
+												<field name="start_time" />
+												<field name="app_id" invisible="1" />
+												<field name="service_category_ids" widget="many2many_tags" invisible="1"/>
+											</group>
+											<group>
+												<field name="end_time" />
+											</group>
+										</group>
+									</form>
+								</field>
+
+							</group>
+
+							<!-- <group style="width:30%" invisible="1">
+								<div class="form-section-left">
+									<h2>
+										<span class="badge-frm-togg badge">4</span>
+										Other
+									</h2>
+								</div>
+							</group> -->
+							<field name="privacy" invisible="1"/>
+							<field name="dayof_the_week" invisible="1" />
+
+						</group>
+
+						<div class="alert alert-danger" role="alert" attrs="{'invisible': ['|', '|',('state', '!=', 'draft'), ('id', '=', False), ('date_range', '=','custom')]}" style="float: right;font-weight: 600;font-size: 17px;background: #f4f5ec;">
+  							Confirm the availability before save !!!
+						</div>
+
+						<field name="availabilities_ids" nolabel="1" attrs="{'readonly': [('state', 'in', ['availability_created', 'unavailability_created'])],'invisible':['|',('date_range', '!=','custom'),('state', 'not in', ['availability_created', 'unavailability_created'])]}">
+							<tree editable="bottom" delete="true">
+								<field name="facilitator" />
+								<field name="availability" />
+								<field name="location_id" />
+								<field name="cus_start_date" string="Date"/>
+								<field name="cus_end_date" invisible="1"/>
+								<field name="state" />
+								<field name="start_time"/>
+								<field name="end_time"/>
+								<button name="edit_tree" type="object" string="Edit" attrs="{'invisible':[('state', 'in', ['availability_created', 'unavailability_created'])]}"/>
+								<button name="confirm_ongoing" type="object" string="Confirm" attrs="{'invisible': [('state', '!=', 'draft')]}" />
+								<button name="set_to_draft" type="object" string="Set To Draft" context="{'redirect': True}" attrs="{'invisible':[('state', 'not in', ['availability_created', 'unavailability_created'])]}"/>
+								<button name="unlink" type="object" icon="fa-trash" groups="ppts_employee_availability.availability_group_manager_at_manager" />
+							</tree>
+						</field>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="availability_tree_view" model="ir.ui.view">
+			<field name="name">Availability</field>
+			<field name="model">availability.availability</field>
+			<field name="arch" type="xml">
+				<tree class="booking_apt_state_book">
+					<field name="facilitator" />
+					<field name="availability" />
+					<field name="location_id" />
+					<!-- <field name="service_categ_id" widget="many2many_tags"/> -->
+					<field name="cus_start_date" />
+					<field name="cus_end_date" />
+					<field name="state" />
+					<field name="start_time" invisible="1" />
+					<field name="end_time" invisible="1" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="availability_search" model="ir.ui.view">
+			<field name="name">availability.availability.search</field>
+			<field name="model">availability.availability</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="facilitator" />
+					<field name="location_id" />
+					<field name="date_range" string="Type" />
+					<field name="partner_id" />
+					<field name="cus_start_date" />
+					<group expand="0" string="Group By">
+						<filter string="Facilitator" name="name_facilitator" domain="[]" context="{'group_by': 'facilitator'}" />
+						<filter string="Customer" name="partner_id" domain="[]" context="{'group_by': 'partner_id'}" />
+						<filter string="Upcoming Availability" name="name_cus_start_date" domain="[ ('cus_end_date','&gt;=',datetime.datetime.now().strftime('%Y-%m-%d'))]" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="availability_action_view" model="ir.actions.act_window">
+			<field name="name">Availability</field>
+			<field name="res_model">availability.availability</field>
+			<field name="view_mode">tree,form</field>
+			<field name="domain">[('is_customly_created','=',False)]</field>
+			<field name="context">{'search_default_name_facilitator': 1, 'search_default_name_cus_start_date': 1}</field>
+			<field name="view_id" ref="availability_tree_view" />
+		</record>
+
+		<menuitem name="Availability" id="menu_ppts_availability" sequence="4" web_icon="ppts_employee_availability,static/img/quality-control.png" groups="base.group_user,base.group_partner_manager" action="availability_action_view"></menuitem>
+
+		<menuitem name="Availability" id="menu_ppts_availability_addon" sequence="1" parent="menu_ppts_availability" groups="base.group_user,base.group_partner_manager" action="availability_action_view"></menuitem>
+
+	</data>
+</odoo> 

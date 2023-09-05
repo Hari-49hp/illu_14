@@ -1,0 +1,8 @@
+<odoo>
+    <record id="booking_event_attendee_action_view" model="ir.actions.act_window">
+        <field name="name">Attendees</field>
+        <field name="res_model">event.registration</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="event.view_event_registration_tree"/>
+    </record>
+</odoo>

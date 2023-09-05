@@ -1,0 +1,79 @@
+@mixin base_setting_view() {
+    .o_action_manager {
+        .o_view_controller.o_action {
+            .o_content {
+                .o_form_view.oe_form_configuration.o_base_settings {
+                    flex-flow: column nowrap;
+                    .o_setting_container{
+                        flex-flow: column nowrap;
+                        padding-bottom: 52px;
+                        .settings_tab {
+                            display: flex;
+                            flex-direction: row;
+                            padding: 0;
+                            .tab {
+                                display: flex;
+                                .icon.d-none {
+                                    display: block !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .o_control_panel.o_hidden + .o_content{
+                margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+@mixin customize_theme_view(){
+    .open_customize_theme{
+        .modal.o_technical_modal{
+            left: 0;
+            transition: none;
+            .modal-dialog{
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                .modal-content{
+                    .uc_dashboard_image{
+                        display: none;
+                    }
+                    .o_cusomize_theme{
+                        .o_right_panel{
+                            .container{
+                                width: 100%;
+                                max-width: 100%;
+                            }
+                        }
+                        .o_left_panel{
+                            .oe_theme_colorpicker{
+                                justify-content: center;
+                                overflow: hidden;
+                                height: auto;
+                                & > li{
+                                    width: 76px;
+                                }
+                            }
+                        }
+                    }
+                    .modal-body{
+                        overflow: auto;
+                    }
+                    .modal-header, .modal-footer{
+                        display: flex;
+                        width: 100%;
+                        border-top: 1px solid var(--border);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.o_web_client.ad_mobile {
+    @include base_setting_view();
+    @include customize_theme_view();
+}

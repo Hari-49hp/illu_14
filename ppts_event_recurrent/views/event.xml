@@ -1,0 +1,183 @@
+<odoo>
+	<data>
+		<!-- Form_view Event -->
+		<record id="view_event_form_inherited_event_recurrent" model="ir.ui.view">
+			<field name="name">event event form</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_form" />
+			<field name="arch" type="xml">
+				
+				<xpath expr="//div[@name='button_box']" position="inside">
+					<button name="view_recurrent" type="object" string="Recurrent Events" icon="fa-table" attrs="{'invisible':[True]}"/>
+				</xpath>
+
+				<xpath expr="//form/sheet/notebook/page[1]" position="after">
+					<page string="Recurrent Option" name="r_evnt_recurrent" invisible='1'>
+
+						<group>
+							<group>
+								<field name="r_recurrsion_type" attrs="{'required':[True]}"/>
+<!--								'readonly':[('event_publish', '=',True)],-->
+								<field name="r_repeat_type" invisible="1"/>
+								<field name="r_allday" invisible="1"/>
+
+							<table style="width: 100%;" groups="base.group_no_one">
+							<tbody>
+								<tr invisible="1">
+									<td style="width: 100;"><field name="r_start_date" placeholder="Start Date" style="width: 100%;"/></td>
+									<td><field name="r_start_time" attrs="{'invisible': [('r_allday', '=', True)]}"/></td>
+									<td style="text-align: center;">to</td>
+									<td style="width: 100;"><field name="r_end_date" placeholder="End Date" style="width: 100%;"/></td>
+									<td><field name="r_end_time" attrs="{'invisible': [('r_allday', '=', True)]}"/></td>
+								</tr>
+							</tbody>
+							</table>
+
+							</group>
+							<group>
+
+							</group>
+
+							<group string="Weekly Recurrent Setup" attrs="{'invisible': [('r_repeat_end', '!=', 'enddate')]}">
+								<field name="r_repeat_end" attrs="{'invisible': [True]}"/>
+
+								<field name="r_repeat_enddate" attrs="{'invisible': [('r_repeat_end', '!=', 'enddate')],'required': [('r_repeat_end', '=', 'enddate'),('r_recurrsion_type', '!=', 'norepeat')]}"/>
+								<field name="r_repeat_endcount" attrs="{'invisible': [('r_repeat_end', '!=', 'count')]}"/>
+
+								<field name="MO"/>
+								<field name="TU"/>
+								<field name="WE"/>
+								<field name="TH"/>
+								<field name="FR"/>
+								<field name="SA"/>
+								<field name="SU"/>
+
+								<button name="recurrsion" type="object" string="Create Recurrsion"
+									attrs="{'invisible':[('r_recurrsion_type','=','select_custom')]}"/>
+
+							</group>
+
+						</group>
+						<group attrs="{'invisible':[('r_recurrsion_type', '!=','select_custom')]}">
+
+								<group name="multiple_days_group" attrs="{'invisible':[('r_recurrsion_type', '!=','select_custom')]}">
+									<field name="r_multiple_select_date"
+										   widget="multiple_datepicker"
+									 attrs="{'required':[('r_recurrsion_type', '=','select_custom')]}"
+									/>
+
+								</group>
+
+								<group>
+									<button name="multi_process" string="Set Dates" type="object" class="oe_inline fa fa-arrow-right oe_link"/>
+									<button name="base_recurrent" type="object" string="Go to Calendar" icon="fa-table"/>
+									<button name="base_recurrent_event" type="object" string="Create Recurrent" icon="fa-table"/>
+
+								</group>
+
+								<field name="base_recurrent_ids">
+									<tree string="Multi-Date Recurrent" editable="bottom">
+										<field name="start"/>
+										<field name="start_time"/>
+										<field name="end_time"/>
+										<field name="duration" widget="float_time" readonly="1"/>
+										<field name="event_id" invisible="1"/>
+										<field name="event_type" invisible="1"/>
+										<field name="state"/>
+									</tree>
+								</field>
+							</group>
+
+<!--						<table style="width: 100%;" groups="base.group_no_one">-->
+<!--							<tbody>-->
+<!--								<tr>-->
+<!--									<td style="width: 100;"><field name="r_start_date" placeholder="Start Date" style="width: 100%;"/></td>-->
+<!--									<td><field name="r_start_time" attrs="{'invisible': [('r_allday', '=', True)]}"/></td>-->
+<!--									<td style="text-align: center;">to</td>-->
+<!--									<td style="width: 100;"><field name="r_end_date" placeholder="End Date" style="width: 100%;"/></td>-->
+<!--									<td><field name="r_end_time" attrs="{'invisible': [('r_allday', '=', True)]}"/></td>-->
+<!--								</tr>-->
+<!--							</tbody>-->
+<!--						</table>-->
+
+<!--						<group>-->
+<!--							<group>-->
+<!--								<field name="r_allday" attrs="{'readonly':[('event_publish', '=',True)]}"/>-->
+<!--								<field name="r_recurrsion_type" attrs="{'readonly':[('event_publish', '=',True)]}"/><br/>-->
+<!--								<button name="recurrsion" type="object" string="Create Recurrsion"-->
+<!--									attrs="{'invisible':['|',('event_publish', '=',True),('r_recurrsion_type','=','select_custom')]}"-->
+<!--									/>-->
+<!--									&lt;!&ndash;								ppts_custom_event_mgmt.illum_user_access_event_rec_create&ndash;&gt;-->
+<!--								</group>-->
+<!--								<group name="normal_rec_type" attrs="{'invisible':[('r_recurrsion_type', '=','select_custom')]}">-->
+<!--									<table style="width: 100%;">-->
+<!--										<tbody>-->
+<!--											<tr>-->
+<!--												<td style="vertical-align: baseline;"><b>Repeat Every</b></td>-->
+<!--												<td style="width: 10%;">-->
+<!--													<field name="r_repeat_count" attrs="{'readonly':[('event_publish', '=',True)]}"/>-->
+<!--												</td>-->
+<!--												<td style="width: 3%;">-->
+<!--												</td>-->
+<!--												<td style="width: 63%;">-->
+<!--													<field name="r_repeat_type" attrs="{'invisible': [('r_recurrsion_type', '!=','custom')],'required': [('r_recurrsion_type', '=', 'custom')]}"/>-->
+<!--												</td>-->
+<!--											</tr>-->
+<!--										</tbody>-->
+<!--									</table>-->
+
+<!--									<group>-->
+<!--									</group>-->
+<!--									<field name="r_repeat_end" widget='radio' />-->
+
+
+<!--									<group attrs="{'invisible': ['|',('r_recurrsion_type', '!=', 'custom'),('r_repeat_type', '!=', 'week')]}">-->
+<!--										<field name="MO"/>-->
+<!--										<field name="TU"/>-->
+<!--										<field name="WE"/>-->
+<!--										<field name="TH"/>-->
+<!--										<field name="FR"/>-->
+<!--										<field name="SA"/>-->
+<!--										<field name="SU"/>-->
+<!--									</group>-->
+
+<!--									<group attrs="{'invisible': [('r_repeat_type', 'not in', ['month'])]}">-->
+<!--										<field name="r_repeat_type_month"/>-->
+<!--									</group>-->
+
+<!--									<group>-->
+<!--										<field name="r_repeat_enddate" attrs="{'invisible': [('r_repeat_end', '!=', 'enddate')],'required': [('r_repeat_end', '=', 'enddate'),('r_recurrsion_type', '!=', 'norepeat')],'readonly':[('event_publish', '=',True)]}"/>-->
+<!--										<field name="r_repeat_endcount" attrs="{'invisible': [('r_repeat_end', '!=', 'count')],'readonly':[('event_publish', '=',True)]}"/>-->
+<!--									</group>-->
+
+<!--								</group>-->
+
+<!--								<group name="multiple_days_group" attrs="{'invisible':[('r_recurrsion_type', '!=','select_custom')]}">-->
+<!--									<field name="r_multiple_select_date" widget="multiple_datepicker"/>-->
+
+<!--									<button name="multi_process" string="Set Dates" type="object" class="oe_inline fa fa-arrow-right oe_link"/>-->
+<!--								</group>-->
+
+<!--								<group>-->
+<!--									<button name="base_recurrent_event" type="object" string="Multi Recurrent" icon="fa-table"/>-->
+<!--									<button name="base_recurrent" type="object" string="Go to Calendar" icon="fa-table"/>-->
+<!--								</group>-->
+
+<!--								<field name="base_recurrent_ids">-->
+<!--									<tree string="Multi-Date Recurrent" editable="bottom">-->
+<!--										<field name="start"/>-->
+<!--										<field name="start_time"/>-->
+<!--										<field name="end_time"/>-->
+<!--										<field name="event_id"/>-->
+<!--										<field name="event_type"/>-->
+<!--										<field name="state"/>-->
+<!--									</tree>-->
+<!--								</field>-->
+
+<!--							</group>-->
+						</page>
+					</xpath>
+				</field>
+			</record>
+		</data>
+	</odoo>

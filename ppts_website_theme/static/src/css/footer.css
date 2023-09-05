@@ -1,0 +1,319 @@
+/* ******************* FOOTER SECTION CSS START ***************************** */
+
+.footersection {
+    background: #00AEC7;
+}
+
+.footerlogo {
+    max-width: 100%;
+}
+
+.footer-links-cont {
+    padding: 10px 00px 30px 0px;
+}
+
+.footer-links-cont a:hover,
+.footer-links-cont p a:hover,
+.footer-links-cont a:focus,
+.footer-links-cont p a:focus {
+    text-decoration: underline !important;
+}
+
+.socialicons {
+    margin-top: 20px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 220px;
+    margin-bottom: 30px;
+}
+
+.socialicons a {
+    color: #fff;
+    opacity: 0.6;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+}
+
+.socialicons a:hover {
+    opacity: 1;
+}
+
+.footer-links-cont .footer-links {
+    list-style: none;
+    padding: 0px;
+}
+
+.footercards {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.termwithcardicon {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: column;
+    align-items: self-start;
+    justify-content: flex-start;
+}
+
+.termwithcardicon a {
+    color: #fff;
+
+}
+
+.footer-links-cont .footer-links li {
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.footer-links-cont .footer-links li a {
+    color: #ffffff;
+    display: inline-block;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.footer-links-cont .footer-links li i {
+    opacity: 0.7;
+}
+
+.footer-links-cont .footer-links li a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.footer-links.newsletter input {
+    /* color: #fff; */
+    border: 1px solid #fff;
+    box-shadow: none;
+    min-height: 42px;
+    font-size: 14px;
+    color: #fff;
+    background: transparent;
+}
+
+.footer-links.newsletter li {
+    margin-bottom: 6px;
+}
+
+.footer-links.newsletter p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+
+    text-transform: capitalize;
+}
+
+.footer-links.newsletter ::-webkit-input-placeholder {
+    /* Edge */
+    color: #ffffff;
+}
+
+.footer-links.newsletter :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #ffffff;
+}
+
+.footer-links.newsletter ::placeholder {
+    color: #ffffff;
+}
+
+.footer-links.newsletter button {
+    background: #fff;
+    color: #000;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 2px solid #fff;
+    text-align: center;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.footer-links.newsletter button:hover {
+    background: transparent;
+    color: #fff;
+}
+
+.footerbtm-sec {
+    /* margin: 0px 90px; */
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footerbtm-sec p {
+    left: calc(50% - 144px/2 - 72px);
+    bottom: 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 150%;
+    color: #80D7E3;
+}
+
+.footer-links-cont .footer-links li a {
+    word-break: break-all;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .footerbtm-sec>p {
+        width: 100%;
+        text-align: center;
+        border-top: 1px solid #fff;
+        padding-top: 10px;
+    }
+
+    .footer-links.newsletter input,
+    .footer-links.newsletter button {
+        margin: 10px 16px;
+    }
+
+    .mbl-visible {
+        display: flex !important;
+    }
+
+    .mbl-visible-blk {
+        display: block !important;
+    }
+
+    .mbl-margin-btm {
+        margin-bottom: 20px;
+    }
+
+    .l-list-dsk-margin {
+        margin-left: 4px !important;
+    }
+
+    .mbl-d-none {
+        display: none !important;
+    }
+
+    .mbl-visible a img {
+        width: 32px;
+        margin: 0px;
+    }
+
+    .footer-links-cont {
+        padding: 30px 0px;
+    }
+
+    .termwithcardicon {
+        /* margin-bottom: 30px; */
+        width: 100%;
+    }
+
+    .float-sml-right {
+        float: right;
+    }
+
+    .float-sml-left {
+        float: left;
+    }
+
+    .img-sml-margin-65 {
+        margin-left: -65px;
+    }
+
+    .termwithcardicon p span a {
+        float: left;
+        margin: 16px 8px 8px 0px;
+    }
+
+    .termwithcardicon p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 150%;
+    }
+
+    .termwithcardicon p br {
+        display: block !important;
+    }
+
+    .termwithcardicon a img {
+        width: 40px;
+    }
+
+    .footercards {
+        gap: 20px;
+    }
+
+    .company-ryts-mbl span:first-child {
+        float: left;
+    }
+
+    .company-ryts-mbl span:last-child {
+        float: right;
+    }
+
+    .footerbtm-sec {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        margin: 0 0px;
+        text-align: center;
+        flex-direction: column-reverse;
+        border: 0px;
+        align-items: flex-start;
+    }
+
+    .footerbtm-sec p:last-child {
+        padding-bottom: 10px;
+        width: 100%;
+        /* border-bottom: 1px solid #fff !important; */
+    }
+
+    .contactus,
+    .newsletter {
+        margin: 50px 0px 0px;
+    }
+
+    .socialicons {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+    .footer-links-cont {
+        padding: 80px 40px;
+    }
+
+    .contactus,
+    .newsletter {
+        margin: 50px 0px 0px;
+    }
+}
+
+
+/* ******************* FOOTER SECTION CSS END ***************************** */

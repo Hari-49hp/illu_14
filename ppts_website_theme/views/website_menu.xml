@@ -1,0 +1,342 @@
+<odoo>
+	<data>
+		<record id="website_menu_form_view_inherit_mega_menu" model="ir.ui.view">
+			<field name="name">website.menu</field>
+			<field name="model">website.menu</field>
+			<field name="inherit_id" ref="website.menu_tree" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='parent_id']" position="after">
+					<field name="mega_menu_type" attrs="{'readonly': [('is_mega_menu', '=', False)]}"/>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<!-- <record id="hr_jobs_form_view_inherit" model="ir.ui.view">
+			<field name="name">hr.job</field>
+			<field name="model">hr.job</field>
+			<field name="inherit_id" ref="website_hr_recruitment.view_hr_job_form_website_published_button" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='is_published']" position="attributes">
+					<attribute name="groups">base.group_no_one</attribute>
+				</xpath>
+			</field>
+		</record> -->
+
+		<record id="hr_jobs_form_view_inherit" model="ir.ui.view">
+			<field name="name">hr.job</field>
+			<field name="model">hr.job</field>
+			<field name="inherit_id" ref="hr.view_hr_job_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='department_id']" position="after">
+					<field name="job_type"/>
+					<field name="is_therapist"/>
+				</xpath>
+
+				<xpath expr="//field[@name='description']" position="before">
+					<field name="image_av"/>
+				</xpath>
+
+				<xpath expr="//field[@name='description']" position="after">
+					<field name="responsibilities">
+						<tree editable="bottom">
+							<field name="name" required="1"/>
+							<field name="job_id" invisible="1"/>
+						</tree>
+					</field>
+					<field name="qualifications">
+						<tree editable="bottom">
+							<field name="name" required="1"/>
+							<field name="job_id" invisible="1"/>
+						</tree>
+					</field>
+				</xpath>
+
+				<xpath expr="//field[@name='department_id']" position="before">
+					<field name="website_publish"/>
+				</xpath>
+
+				<xpath expr="//field[@name='address_id']" position="attributes">
+					<attribute name="domain">[('is_company','=',True),('is_job_location','=',True),('ref_company_ids','in', company_id)]</attribute>
+					<attribute name="required">True</attribute>
+				</xpath>
+				<xpath expr="//field[@name='company_id']" position="attributes">
+					<attribute name="required">True</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='department_id']" position="attributes">
+					<attribute name="domain">[('website_publish','=',True)]</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='is_published']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record id="view_department_form_form_view_inherit" model="ir.ui.view">
+			<field name="name">hr.department</field>
+			<field name="model">hr.department</field>
+			<field name="inherit_id" ref="hr.view_department_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='parent_id']" position="after">
+					<field name="website_publish"/>
+					<field name="career_type"/>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record id="hr_applicant_view_formform_view_inherit" model="ir.ui.view">
+			<field name="name">hr.applicant</field>
+			<field name="model">hr.applicant</field>
+			<field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='department_id']" position="after">
+					<field name="designation"/>
+					<field name="work_experience"/>
+					<field name="notice_period"/>
+				</xpath>
+				<xpath expr="//group" position="inside">
+					<group string="">
+						<field name="healer"/>
+						<field name="dob"/>
+						<field name="gender"/>
+						<field name="facilitator"/>
+						<field name="country_id"/>
+					</group>
+					<group string="">
+						<field name="url"/>
+						<field name="city_id"/>
+						<field name="relocate"/>
+						<field name="type"/>
+						<field name="others"/>
+					</group>
+				</xpath>
+				<xpath expr="//group" position="after">
+					<notebook>
+						<page string="Approaches">
+							<field name="approaches_ids" readonly="1">
+								<tree editable="bottom">
+									<field name="service_category_id" readonly="1" width="50%"/>
+									<field name="sub_category_id" readonly="1"  width="50%"/>
+								</tree>
+								<form>
+									<sheet>
+										<group>
+											<group>
+												<field name="service_category_id" readonly="1"/>
+											</group>
+											<group>
+												<field name="sub_category_id" readonly="1"/>
+											</group>
+										</group>
+									</sheet>
+								</form>
+							</field>
+						</page>
+						<page string="Question &amp; Answer">
+							<field name="question_answer_ids" readonly="1">
+								<tree editable="bottom">
+									<field name="question_id" readonly="1" width="50%"/>
+									<field name="answer_id" readonly="1" width="50%"/>
+								</tree>
+								<form>
+									<sheet>
+										<group>
+											<group>
+												<field name="question_id" readonly="1"/>
+											</group>
+											<group>
+												<field name="answer_id" readonly="1"/>
+											</group>
+										</group>
+									</sheet>
+								</form>
+							</field>
+
+						</page>
+					</notebook>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="blog_post_view_form_view_inherit" model="ir.ui.view">
+			<field name="name">blog.post</field>
+			<field name="model">blog.post</field>
+			<field name="inherit_id" ref="website_blog.view_blog_post_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='blog_id']" position="before">
+					<field name="image_av"/>
+		
+                        <field name="feature_post" widget="boolean_toggle"/>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="hr_employee_view_form_view_inherit_cmp" model="ir.ui.view">
+			<field name="name">hr.employee</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='phone']" position="after">
+					<field name="lang_ids" widget="many2many_tags"/>
+				</xpath>
+				<xpath expr="//field[@name='department_id']" position="after">
+					<field name="is_student"/>
+				</xpath>
+				<xpath expr="//page/group[@name='qualification']" position="after">
+					<group name="certification">
+						<field name="certification_ids">
+							<tree editable="bottom">
+								<field name="certificate_id"/>
+							</tree>
+						</field>
+					</group>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record id="mass_mailing_mailing_list_view_form_form_view_inherit_cmp" model="ir.ui.view">
+			<field name="name">mailing.list</field>
+			<field name="model">mailing.list</field>
+			<field name="inherit_id" ref="mass_mailing.mailing_list_view_form"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='is_public']" position="after">
+					<field name="is_newsletter"/>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="hr_certification_from_view" model="ir.ui.view">
+			<field name="name">Certification</field>
+			<field name="model">hr.certification</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="name"/>
+							</group>
+							<group>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="hr_certification_tree_view" model="ir.ui.view">
+			<field name="name">Certification</field>
+			<field name="model">hr.certification</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="hr_certification_action_view" model="ir.actions.act_window">
+			<field name="name">Certification</field>
+			<field name="res_model">hr.certification</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="hr_certification_tree_view" />
+		</record>
+
+		<menuitem id="config_menu_certification" name="Certification" parent="hr.menu_human_resources_configuration" sequence="100" />
+		<menuitem id="sub_menu_certification" action="hr_certification_action_view" name="Certification" parent="config_menu_certification" sequence="1"/>
+
+		<record id="initial_application_question_from_view" model="ir.ui.view">
+			<field name="name">Initial Application Form</field>
+			<field name="model">initial.application.question</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="name"/>
+							</group>
+						</group>
+						<notebook>
+							<page name="options" string="Options">
+								<field name="options">
+									<tree editable="bottom">
+										<field name="name"/>
+									</tree>
+									<form>
+										<sheet>
+											<group>
+												<field name="name"/>
+											</group>
+										</sheet>
+									</form>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="initial_application_tree_view" model="ir.ui.view">
+			<field name="name">Initial Application Form</field>
+			<field name="model">initial.application.question</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="initial_application_action_view" model="ir.actions.act_window">
+			<field name="name">Initial Application Form</field>
+			<field name="res_model">initial.application.question</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="initial_application_tree_view" />
+		</record>
+
+		<menuitem id="config_menu_initial_application" name="Initial Application Form" parent="hr_recruitment.menu_hr_recruitment_configuration" sequence="100" />
+		<menuitem id="sub_menu_initial_application" action="initial_application_action_view" name="Initial Application Form" parent="config_menu_initial_application" sequence="1"/>
+
+		<record id="custom_attendee_country" model="ir.ui.view">
+			<field name="name">Custom Attendee Event Coupon</field>
+			<field name="model">event.registration</field>
+			<field name="inherit_id" ref="event.view_event_registration_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="country_id"/>
+					<field name="city_id"/>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="custom_attendee_event_tree_view_inherit" model="ir.ui.view">
+			<field name="name">Inherit Attendee Event Tree View</field>
+			<field name="model">event.registration</field>
+			<field name="inherit_id" ref="event.view_event_registration_tree" />
+			<field name="arch" type="xml">
+				<field name="name" position='before'>
+					<field name='booking_mode'/>
+				</field>
+			</field>
+		</record>
+
+	</data>
+</odoo>

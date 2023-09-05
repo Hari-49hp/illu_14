@@ -1,0 +1,3151 @@
+@media only screen and (min-width: 1601px) {
+
+    .ourexpertsec {
+        min-height: 1000px;
+    }
+
+    .bookafreetrial .arrow-scroll.leftside {
+        /* left: -220px !important; */
+    }
+
+    .ourexpert_arrow {
+        padding-right: 0px;
+    }
+
+    .neverdoubt {
+        min-height: 1040px;
+    }
+
+    .section_padd_left_right190_80 {
+        padding-left: 20px;
+    }
+}
+
+@media only screen and (min-width: 1900px) {}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .o_footer {
+        z-index: -1
+    }
+
+    .hideblofmob {
+        display: none;
+    }
+
+
+
+    .blogbutton-button-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        overflow-y: scroll;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+
+    .abouttherappoints.eventabout div:nth-child(1) {
+        width: 100% !important;
+
+    }
+
+    .mostpopulat .multiselect-container.dropdown-menu.show {
+        transform: translateX(-3px) !important;
+        -webkit-transform: translateX(-3px) !important;
+    }
+
+    .abouttherappoints.eventabout div:nth-child(2) {
+        width: 100% !important;
+
+    }
+
+    .inputwrap .dropdown-item label {
+        font-weight: 400 !important;
+    }
+
+    .uploadedimage-container {
+        grid-template-columns: auto;
+        display: block;
+    }
+
+    .uploadedimage-container img {
+        width: 45%;
+        display: inline-block;
+
+    }
+
+    .calendar_twocardview .cal-event-img {
+        min-height: 160px;
+        height: 160px;
+    }
+
+    .calendar_twocardview .cal-event-img img {
+        min-height: 160px;
+        height: 100%;
+        max-height: 160px;
+    }
+
+    .calendar_twocardview .eventinfos label {
+        margin: 0;
+    }
+
+    .hero-card-list-shape:last-child {
+        background-size: 105%;
+    }
+
+    .hero-card-list-shape {
+        background-image: url(/ppts_website_theme/static/src/img/card-curve-one_mobile.svg);
+    }
+
+    .popular-typos p {
+        display: -webkit-box;
+
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .therapistwerepeat {
+        background-size: cover;
+    }
+
+    .therapistwerepeat h2 {
+        padding-left: 20px;
+        font-size: 46px;
+    }
+
+    .section_padd_left_right190_80 {
+        padding: 0px;
+    }
+
+    .mycontainer {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .ourexpert-container {
+        padding: 300px 0px 0px 0px;
+    }
+
+    .popularpost-cont {
+        margin-top: 30px;
+    }
+
+    .ourexpert-container {
+        padding: 50px 0px 0px 0px;
+    }
+
+    .ourexpert-container .mycontainer>div {
+        padding: 0px;
+    }
+
+    .head-font-56px {
+        font-size: 36px !important;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .therapistwerepeat {
+        background-size: cover;
+    }
+
+    .section_padd_left_right190_80 {
+        padding: 0px;
+    }
+
+    .mycontainer {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .ourexpert-container {
+        padding: 300px 0px 0px 0px;
+    }
+
+    .popularpost-cont {
+        margin-top: 30px;
+    }
+
+    .ourexpert-container {
+        padding: 300px 0px 80px 0px;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+    .section_padd_left_right190_80 {
+        padding: 0px;
+    }
+
+    .mycontainer {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
+    .ourexpert-container {
+        padding: 300px 0px 0px 0px;
+    }
+
+    .popularpost-cont {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 1280px) and (min-width: 1201px) {
+    .section_padd_left_right190_80 {
+        padding: 0px;
+    }
+
+    .ourexpert-container {
+        padding: 300px 0px 80px 0px;
+    }
+
+    .mycontainer {
+        padding-left: 2em !important;
+        padding-right: 2rem !important;
+    }
+}
+
+@media only screen and (max-width: 1310px) and (min-width: 1281px) {
+    .section_padd_left_right190_80 {
+        padding: 0px;
+    }
+
+    .mycontainer {
+        padding-left: 1em !important;
+        padding-right: 1rem !important;
+    }
+
+    .ourexpert-container {
+        padding: 300px 0px 80px 0px;
+    }
+}
+
+@media only screen and (max-width: 1580px) and (min-width: 1311px) {
+    .mycontainer {
+        padding-left: 1em !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* ******************************************* Home page TOP BANNER HERO CSS start ************************************* */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+
+    .mycontainer {
+        padding: 10px 1rem;
+    }
+
+    .ourexpert-container {
+        padding: 300px 0px 80px 0px;
+    }
+}
+
+@media only screen and (max-width: 1600px) and (min-width: 300px) {
+
+
+    .hero-wrapper {
+        height: auto;
+    }
+
+    .hero-intro-text {
+        max-width: 610px;
+    }
+
+}
+
+@media only screen and (max-width: 1311px) and (min-width: 300px) {
+    .arrow-scroll {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1583px) and (min-width: 1441px) {
+    section[data-snippet="illuminations_participents_snippet"] .arrow-scroll {
+        right: -14%;
+    }
+}
+
+@media only screen and (max-width: 1440px) and (min-width: 1311px) {
+    section[data-snippet="illuminations_participents_snippet"] .arrow-scroll {
+        right: -20vw;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1024px) {
+    .hero-intro-text {
+        height: 100%;
+        max-width: 500px;
+    }
+
+    .clipped {
+        width: 600px;
+    }
+
+    .arrow-scroll {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1404px) and (min-width: 1025px) {
+    .hero-container {
+        position: absolute;
+    }
+
+    .roundredbutton {
+        bottom: 2vw;
+        right: 27vw;
+    }
+}
+
+@media only screen and (max-width: 1430px) and (min-width: 1201px) {
+    .roundredbutton {
+        bottom: 3vw;
+        right: 25vw;
+    }
+}
+
+/* ******************************************* Home page TOP BANNER HERO CSS END ************************************* */
+
+/* ******************************************* Home page TOP HERO SECTION FEATURE LIST CSS start ************************************* */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .becomeparctition img {
+        min-height: 184px;
+    }
+
+    .hero-cards-wrapper {
+        padding-left: 0;
+        padding: 0px;
+        margin-top: 8px;
+    }
+
+    .hero-card-container {
+        grid-template-columns: auto;
+    }
+
+    .hero-card-list-shape {
+        text-align: right;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: right;
+        float: right;
+    }
+
+    .testomonial-list-card .userprofiletesto img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .contactwhatsapp {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .articals-press-calenar .event-typoingo h5 {
+        font-weight: 500;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 767px) {
+    .hero-card-container {
+        grid-template-columns: repeat(2, 300px);
+    }
+}
+
+/* ******************************************* Home page TOP HERO SECTION FEATURE LIST CSS END ************************************* */
+
+/* ******************************************* Home page ABOUT US CSS END ************************************* */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .corportatetrainerappsupport {
+        display: block;
+    }
+
+    .sliderupdownimgs .owl-stage {
+        padding-left: 0 !important;
+    }
+
+    .sliderupdownimgs .owl-stage .leadercont img {
+        min-width: 282px;
+        min-height: 173px;
+    }
+
+    .bigpragraph {
+        font-size: 18px;
+        margin: 40px 0px;
+    }
+
+    .whatyoucanexpert .visionmission-list {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        align-items: center;
+        grid-gap: 16px;
+    }
+
+    .ourjourneyimagee {
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 60px;
+        width: 280px;
+        height: 280px;
+    }
+
+    .ourjourneyimagee img {
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+    }
+
+    .wardimagemorping.aboutmoro {
+        display: none
+    }
+
+    .service-lists-item.bigservicecard .side_side {
+        width: 140%;
+    }
+
+    .service-lists-item.bigservicecard {
+        height: 200px;
+    }
+
+    .bigservicecard .service-svg-shapes-overlay h4 {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .clientsaboutillu-slider-caresole .leadercont img {
+        width: 80px !important;
+        height: 80px !important;
+        margin: unset;
+    }
+
+    .clientsaboutillu-slider-caresole .leadercont p {
+        padding-left: 32px;
+        margin-top: 16px;
+    }
+
+    .section_padd_left_right190_80 {
+        padding-left: 0px;
+    }
+
+    .clientsaboutillu-slider-caresole .leadercont p:before {
+        top: 30px;
+        left: -10px;
+    }
+
+    .aboutus-title {
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .abt-text-desc {
+        margin-top: 2rem;
+    }
+
+    /* .aboutus-wrapper {
+        padding: 50px 1rem;
+    } */
+    .abt-txt-info h3 {
+        margin-top: 2rem;
+        font-size: 22px;
+    }
+
+    .aboutus-title h2 {
+        font-size: 40px;
+    }
+
+    .aboutus-title span {
+        font-size: 20px;
+    }
+
+/*    .abt-title-img {
+        width: 100%;
+        height: 230px;
+    }*/
+    .abt-title-img  {
+        width: 100%;
+        height: 100%;
+        object-fit: inherit;
+        object-position: center;
+    }
+
+    .abt-title-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: inherit;
+        object-position: center;
+    }
+
+    .enquireformcontainer .abt-title-img img {
+        min-height: 192px;
+    }
+}
+
+@media only screen and (max-width: 600px) and (min-width: 300px) {
+    .whatyoucanexpert .mobielemultyline .visionmission-list {
+        grid-template-columns: auto;
+        gap: 4;
+    }
+
+    .whatyoucanexpert .mobielemultyline .visionmission-list h4 {
+        margin: 0;
+    }
+
+    .whatyoucanexpert .mobielemultyline .visionmission-list br {
+        display: none;
+    }
+
+    .accfullimg {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        width: 110%;
+    }
+
+    .accfullimg img {
+        border-radius: 0;
+    }
+
+    /* .journeydescripton {
+        width: 90%;
+    } */
+
+    .aboutus-title h2 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+
+}
+
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+    .corwell_therapwrapper {
+        grid-area: auto !important;
+    }
+
+    .corportatetrainerappsupport {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto;
+        grid-template-areas: unset;
+
+    }
+
+    /* .aboutus-wrapper {
+        padding: 140px 40px;
+    } */
+    .section_padd_left_right190_80 {
+        padding-left: 0px;
+    }
+}
+
+/* ******************************************* Home page ABOUT US CSS END ************************************* */
+
+/* ************************************************* Home page SERVICES SECTION CSS start *************************** */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .main-heading {
+        font-size: 40px;
+    }
+
+    .service-heading-typos {
+        margin-bottom: 26px;
+    }
+}
+
+/* ************************************************* Home page SERVICES SECTION CSS END *************************** */
+
+/* *************************** Home page BECOME A PRACTITIONER CSS start ******************************** */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .becomeparctition {
+        padding: 0px 10px;
+    }
+
+    .becomeparctition h2 {
+        font-size: 40px;
+    }
+
+    .becomeparctition .trainingacc {
+        padding-left: 0px;
+        margin-top: 32px;
+    }
+
+    .learnmore-btn,
+    a.learnmore-btn {
+        padding: 6px 6px;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+    .becomeparctition .trainingacc {
+        padding-left: 0px;
+    }
+
+    .becomeparctition {
+        padding: 0px 40px;
+    }
+
+    .learnmore-btn,
+    a.learnmore-btn {
+        padding: 6px 6px;
+    }
+
+    .becomeparctition h2 {
+        font-size: 2.8rem;
+    }
+}
+
+/* *************************** Home page BECOME A PRACTITIONER CSS END ******************************** */
+
+/* ************************ Home page OUREXPERT SECTION CSS start ********************** */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .ourteam-typo h2 {
+        font-size: 40px;
+    }
+
+    .ourexpert-wrapper {
+        padding: 0px;
+    }
+
+    .ourteam-typo {
+        margin-bottom: 32px;
+    }
+
+    .ourexpert_arrow {
+        display: none;
+    }
+
+    .ourteam-typo p {
+        max-width: 90%;
+    }
+
+    .exper-slider-caresole .owl-dots {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+    }
+
+    .exper-slider-caresole .owl-dots .owl-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #fff;
+        margin: 8px 4px;
+        opacity: .7;
+        transition: 1s;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -ms-transition: 1s;
+        -o-transition: 1s;
+    }
+
+    .exper-slider-caresole .owl-dots .owl-dot.active {
+        width: 20px;
+        border-radius: 10px;
+        opacity: 1;
+        transition: 1s;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -ms-transition: 1s;
+        -o-transition: 1s;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+    .ourexpert-wrapper {
+        padding: 0px;
+    }
+}
+
+/* ************************ Home page OUREXPERT SECTION CSS END ********************** */
+
+/* ************************ Home page ACHIVEMENT SECTION CSS start ********************** */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .achivementinfo .blakwordtexts {
+        font-size: 45px;
+    }
+
+    .achivemt-wrapper {
+        padding: 100px 0px 0px 0px;
+    }
+
+    .achivemt-wrapper h2 {
+        font-size: 40px;
+    }
+
+    .featuresin-wrapper h3 {
+        font-size: 36px;
+    }
+
+    .achivemt-wrapper p {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+    .achivemt-wrapper {
+        padding: 40px 0px 0px 0px;
+    }
+
+    .achivemt-wrapper p {
+        max-width: 100%;
+    }
+}
+
+/* ************************ Home page ACHIVEMENT SECTION CSS END ********************** */
+
+/* ************************ Home page FEATURES IN SECTION CSS start ********************** */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .featuresin-wrapper {
+        padding: 20px 0px 0px 0px;
+    }
+
+    .achivemt-wrapper h2 {
+        font-size: 40px;
+    }
+
+    .achivemt-wrapper p {
+        max-width: 100%;
+    }
+
+    .featuresin-wrapper .owl-dots {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+    }
+
+    .featuresin-wrapper .owl-dots .owl-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #2aaec7;
+        margin: 8px 4px;
+        opacity: .4;
+        transition: 1s;
+    }
+
+    .featuresin-wrapper .owl-dots .owl-dot.active {
+        width: 20px;
+        border-radius: 10px;
+        opacity: 1;
+        transition: 1s;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -ms-transition: 1s;
+        -o-transition: 1s;
+    }
+
+    .featuresin-wrapper .ourexpert_arrow {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+    .featuresin-wrapper {
+        padding: 40px 0px 0px 0px;
+    }
+
+    .achivemt-wrapper p {
+        max-width: 100%;
+    }
+}
+
+/* ************************ Home page FEATURES IN SECTION CSS END ********************** */
+
+/* ************************ Home page CLIENTS ABOUT ILLUMINATION SECTION CSS start ********************** */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .clientsaboutillu-slider-caresole {
+        margin-top: 20px;
+    }
+
+    .client-about-illumincations h3,
+    .featured-post h2 {
+        font-size: 40px;
+    }
+
+    .client-about-illumincations-headings,
+    .clientsaboutillu-slider-caresole {
+        padding: 0px;
+    }
+
+    .clientsaboutillu-slider-caresole .owl-dots,
+    .myblue-caresole-dots .owl-dots {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+        width: 100%;
+    }
+
+    .clientsaboutillu-slider-caresole .owl-dots .owl-dot,
+    .myblue-caresole-dots .owl-dots .owl-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #2aaec7;
+        margin: 8px 4px;
+        opacity: .4;
+        transition: 1s;
+    }
+
+    .clientsaboutillu-slider-caresole .owl-dots .owl-dot.active,
+    .myblue-caresole-dots .owl-dots .owl-dot.active {
+        width: 20px;
+        border-radius: 10px;
+        opacity: 1;
+        transition: 1s;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -ms-transition: 1s;
+        -o-transition: 1s;
+    }
+
+    .clientsaboutillu-slider-caresole .leadercont {
+        display: block;
+    }
+
+    .clientsaboutillu-slider-caresole .leadercont>div {
+        text-align: left;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+
+    .client-about-illumincations-headings,
+    .clientsaboutillu-slider-caresole {
+        padding: 20px 0px 0px 0px;
+        align-items: center;
+    }
+}
+
+/* .clientsaboutillu-slider-caresole .owl-item {
+       margin-left: 60px;
+   }
+   
+   .clientsaboutillu-slider-caresole.owl-carousel .owl-stage {
+       margin-left: 90px;
+   } */
+
+/* ************************ Home page CLIENTS ABOUT ILLUMINATION SECTION CSS END ********************** */
+
+/******************** Home page FEATURES POST SECTION CSS START ********************/
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .mostlike-this_slider {
+        margin: 0px;
+    }
+
+    .hero-section-two>div {
+        padding: 0px;
+    }
+
+    .socialshareevents {
+        display: block;
+    }
+
+    .socialshareevents .bannermobileimg {
+        width: 100%;
+        height: 288px;
+        margin-bottom: 20px;
+    }
+
+    .mycontainer>div {
+        padding: 0px;
+    }
+
+    .swapimagesection img {
+        height: 315px;
+        /* object-position: top; */
+    }
+
+    .borderedbtn,
+    .fullbutton {
+        margin: 4px auto;
+    }
+
+    .swpimg,
+    .desktopimg {
+        display: none;
+    }
+
+    .mobileimg {
+        display: block;
+    }
+
+    .swapingsectioncontainer h1 {
+        font-size: 40px;
+        margin-bottom: 0px;
+    }
+
+    .swaptexts h2 {
+        font-size: 36px;
+        max-width: 310px;
+    }
+
+    .topsvg.svgclass {
+        min-width: 1280px;
+        margin: auto;
+        position: relative;
+    }
+
+    .footcontainer>svg {
+        min-width: 1280px;
+        margin: auto;
+        position: relative;
+    }
+
+    .blakwordtexts,
+    .ourteam-typo span {
+        font-size: 20px;
+    }
+
+    .featured-post {
+        padding: 50px 0px;
+    }
+
+    .featurecard-items {
+        margin-bottom: 32px;
+    }
+
+    .popularpost-list {
+        grid-template-columns: auto;
+        max-width: 200px;
+    }
+
+    .popularpost-caresole-mobile .owl-dots {
+        display: block;
+        text-align: center;
+        margin-top: 32px;
+    }
+
+    .popularpost-caresole-mobile .owl-dots .owl-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #2aaec7;
+        margin: 8px 4px;
+        opacity: .4;
+        transition: 1s;
+    }
+
+    .popularpost-caresole-mobile .owl-dots .owl-dot.active {
+        width: 20px;
+        border-radius: 10px;
+        opacity: 1;
+        transition: 1s;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -ms-transition: 1s;
+        -o-transition: 1s;
+    }
+
+    .popularpost-caresole-mobile .leadercont {
+        display: block;
+    }
+
+    .popularpost-caresole-mobile .leadercont>div {
+        text-align: left;
+    }
+
+    .seeallpost-btns {
+        width: 100%;
+        max-width: 400px;
+        padding: 14px 36px;
+    }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 769px) {
+
+    .swptexts {
+        padding-right: 20px;
+    }
+
+    .swptexts.leftpad {
+        padding-left: 20px;
+
+    }
+
+    .featured-post {
+        padding: 80px 40px;
+    }
+
+    .popularpost-list {
+        grid-template-columns: auto;
+        max-width: 300px;
+        padding-right: 10px;
+        width: 100%;
+    }
+}
+
+/******************** Home page FEATURES POST SECTION CSS START ********************/
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .mostlike-this_slider .oberlay-tags {
+        left: 10px;
+
+    }
+
+    .blogs-typos h5 {
+        margin-top: 10px;
+    }
+
+    .textmobnopad .herotexcenter {
+        padding: 0px 0px;
+    }
+
+    .textmobnopad .herotexcenter {
+        margin: 0px;
+        min-height: auto;
+    }
+
+    .popularpost-list img {
+        min-width: 200px;
+        height: 187px;
+    }
+
+    .book-free-consultant {
+        /* padding: 60px  0px  0px 10px; */
+        /* max-width: 400px; */
+        margin: auto;
+    }
+
+    .book-free-consultant>div {
+        padding: 0px;
+    }
+
+    .book-free-consultant h2 {
+        font-size: 40px;
+    }
+
+    .book-free-consultant p {
+        margin-bottom: 40px;
+    }
+
+    .bookafree-card {
+        padding: 20px;
+    }
+
+    .bookafree-card {
+        /* max-width: 360px; */
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+    .book-free-consultant {
+        padding: 80px 0px;
+    }
+}
+
+/* ********************** BOOOK A FREE CONSULTANT SECTION CSS end ****************************** */
+
+/* ********************** About us page css start ***********************/
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+
+    .section-typo-inner.ourfranchies {
+        max-width: 100%;
+    }
+
+    .browsetherap .findthrright-inpu {
+        margin-top: 0px;
+    }
+
+    .chat-bubble-wrapper {
+        right: 20px;
+        bottom: 60px;
+    }
+
+    .chatbtnont .moving_shape {
+        text-indent: 180px;
+        overflow: hidden;
+        background-image: url('/ppts_website_theme/static/src/img/chatmobile.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 16px;
+    }
+
+    .breadcrum-sec label a {
+        white-space: nowrap;
+    }
+
+    .event-page-hero .herotexcenter {
+        padding: 10px 0px;
+    }
+
+    .therapistabouthtecorse h3::before {
+        font-family: unset;
+    }
+
+    .listwithdots li {
+        padding-left: 20px;
+    }
+
+    .facilitabedescript p {
+        font-size: 18px;
+    }
+
+    .ourjourney {
+        padding: 10px;
+        margin-left: 20px;
+        height: auto;
+        position: relative;
+        margin-bottom: 0px;
+    }
+
+    .journemorp {
+        display: none;
+    }
+
+    .ourjourney::before {
+        content: "";
+        padding: 10px;
+        border-left: 2px solid #00AEC7;
+        position: absolute;
+        height: 82%;
+        top: 36px;
+    }
+
+    .journeydescripton {
+        position: relative;
+        left: auto;
+        top: auto;
+        right: auto;
+        text-align: left;
+        align-self: flex-start;
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .jpureywithimage {
+        align-self: flex-start;
+        margin: 0;
+        left: auto;
+        right: auto;
+        justify-content: flex-start;
+    }
+
+    .ourjourneyhead {
+        left: 15px;
+        top: 11px;
+        font-size: 36px;
+        padding-bottom: 20px;
+    }
+
+    .journeydescripton h4 {
+        font-size: 28px;
+    }
+
+    .journeydescripton h4:before,
+    .ourjourneyhead::before,
+    .journeydescripton.cls_13 h4:before,
+    .journeydescripton.cls_08 h4:before,
+    .journeydescripton.cls_16 h4:before,
+    .journeydescripton.clspresent h4:before {
+        left: -6px !important;
+        position: absolute;
+        top: 9px !important;
+        right: auto !important;
+    }
+
+    .ourjourneyhead::before {
+        left: -21px !important;
+    }
+
+    .ourjourney {
+        background: none;
+    }
+
+    .hero-section-two {
+        /* padding: 10px; */
+    }
+
+    .abouttophero {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-direction: column;
+    }
+
+    .ourstory {
+        order: 2;
+        margin: 0px 0px !important;
+    }
+
+    .corpwelless .ourstory {
+        order: 1;
+    }
+
+
+    .corpwelless .hero3btncont button {
+        margin-bottom: 10px;
+    }
+
+    .rightsideslide {
+        position: relative;
+        top: auto;
+        right: auto;
+        height: 100%;
+        padding: 10px 1rem;
+        order: 1;
+    }
+
+    .image-orvideocpnt {
+        max-height: 288px;
+        height: 288px;
+        border-radius: 6px
+    }
+
+    .image-orvideocpnt img {
+        height: 288px;
+        border-radius: 6px;
+    }
+
+    .mobilrbread {
+        display: block;
+    }
+
+    .desktopbread {
+        display: none;
+    }
+
+    .breadcrum-sec {
+        /* margin-bottom: 30px;
+        margin-top: 20px; */
+    }
+
+    .ourstory h1 {
+        font-size: 40px;
+        margin: 20px 0px;
+    }
+
+    .sub-quotestypo {
+        margin-left: 20px;
+    }
+
+    .questtobehappy span,
+    .missionvission-left span {
+        font-size: 20px;
+    }
+
+    .questtobehappy h2 {
+        font-size: 36px;
+        margin-bottom: 16px;
+    }
+
+    .questtobehappytypo img {
+        height: 210px;
+        width: 100%;
+    }
+
+    .questtobehappytypo h6 {
+        font-size: 18px;
+    }
+
+    .section-left80right190,
+    .section-right80left190,
+    .ourjourney {
+        padding: 10px;
+    }
+
+    .section-typo-inner h2,
+    .missionvission-left h2 {
+        font-size: 36px;
+    }
+
+    .section-image img {
+        margin-bottom: 20px;
+    }
+
+    .missionvission-left {
+        margin-bottom: 40px;
+    }
+
+    .wardimagemorping {
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 769px) {
+    .o_footer {
+        z-index: -1
+    }
+
+    .abouttophero {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-direction: column;
+    }
+
+    .ourstory {
+        order: 2;
+        margin: 20px 0px !important;
+    }
+
+    .rightsideslide {
+        position: relative;
+        top: auto;
+        right: auto;
+        height: 100%;
+        padding: 10px 1rem;
+        order: 1;
+    }
+
+    .image-orvideocpnt {
+        max-height: 250px;
+        height: 200px;
+        border-radius: 6px
+    }
+
+    .image-orvideocpnt img {
+        height: 200px;
+        border-radius: 6px;
+    }
+
+    .mobilrbread {
+        display: block;
+    }
+
+    .desktopbread {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .section-typo-inner.ourfranchies {
+        max-width: 100%;
+    }
+
+    .corpwelless .ourstory {
+        order: 1;
+    }
+
+    .corpwelless .herotexcenter {
+        padding: 0;
+    }
+
+    .ourjourney {
+        padding: 10px;
+        margin-left: 20px;
+        height: auto;
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .journemorp {
+        display: none;
+    }
+
+    .ourjourney::before {
+        content: "";
+        padding: 10px;
+        border-left: 2px solid #00AEC7;
+        position: absolute;
+        height: 82%;
+        top: 36px;
+    }
+
+    .journeydescripton {
+        position: relative;
+        left: auto;
+        top: auto;
+        right: auto;
+        text-align: left;
+        align-self: flex-start;
+        padding-left: 20px;
+        margin: 0;
+    }
+
+    .jpureywithimage {
+        align-self: flex-start;
+        margin: 0;
+        left: auto;
+        right: auto;
+    }
+
+    .ourjourneyhead {
+        left: 15px;
+        top: 11px;
+        font-size: 36px;
+        padding-bottom: 20px;
+    }
+
+    .journeydescripton h4 {
+        font-size: 28px;
+    }
+
+    .journeydescripton h4:before,
+    .ourjourneyhead::before,
+    .journeydescripton.cls_13 h4:before,
+    .journeydescripton.cls_08 h4:before,
+    .journeydescripton.cls_16 h4:before,
+    .journeydescripton.clspresent h4:before {
+        left: -6px !important;
+        position: absolute;
+        top: 9px !important;
+        right: auto !important;
+    }
+
+    .ourjourneyhead::before {
+        left: -21px !important;
+    }
+
+    .ourjourney {
+        background: none;
+    }
+
+    .hero-section-two {
+        /* padding: 40px; */
+    }
+
+    .quotestypo {
+        max-width: 100%;
+    }
+
+    /* .abouttophero{
+       display: flex;
+       display: -webkit-box;
+       display: -moz-box;
+       display: -ms-flexbox;
+       display: -webkit-flex;
+       flex-direction: column;
+   }
+   .ourstory {
+       order: 2;
+       margin: 20px 0px !important;
+   }
+       .rightsideslide{
+           position: relative;
+           top: auto;
+           right: auto;
+           height: 100%;
+           padding: 10px 1rem;
+           order: 1;
+        
+       } */
+    /* .image-orvideocpnt {
+            max-height: 250px; 
+           height: 200px; 
+          border-radius: 6px
+       }
+   
+       .image-orvideocpnt img {
+            height: 200px; 
+            border-radius: 6px; 
+       } */
+    /* .mobilrbread {
+           display: block;
+       } */
+    /* 
+       .desktopbread {
+           display: none;
+       } */
+    .breadcrum-sec {
+        margin-bottom: 30px;
+    }
+
+    .ourstory h1 {
+        font-size: 40px;
+        margin: 10px 0px;
+    }
+
+    .sub-quotestypo {
+        margin-left: 20px;
+    }
+
+    .questtobehappy {
+        padding: 0px 10px 0px 10px;
+    }
+
+    .questtobehappy span,
+    .missionvission-left span {
+        font-size: 20px;
+    }
+
+    .questtobehappy h2 {
+        font-size: 36px;
+        margin-bottom: 6px;
+    }
+
+    .questtobehappytypo img {
+        height: 210px;
+        width: 100%;
+    }
+
+    .questtobehappytypo h6 {
+        font-size: 18px;
+    }
+
+    .section-left80right190,
+    .section-right80left190,
+    .ourjourney {
+        padding: 10px;
+    }
+
+    .section-typo-inner h2,
+    .missionvission-left h2 {
+        font-size: 40px;
+    }
+
+    .section-image img {
+        margin-bottom: 20px;
+    }
+
+    .missionvission-left {
+        margin-bottom: 40px;
+    }
+
+    .wardimagemorping {
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+    .journeydescripton {
+        max-width: 340px;
+    }
+
+    .hero-section-two {
+        /* padding: 0px 0px 0px 40px; */
+    }
+
+    .questtobehappy {
+        padding: 0px 40px
+    }
+
+    .section-left80right190,
+    .section-right80left190 {
+        padding: 30px 40px;
+    }
+
+    .ourjourney {
+        padding: 40px 0;
+        margin: 0px 10px;
+        margin: auto;
+    }
+
+    .ourjourneyhead {
+        position: relative;
+        top: 0;
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 130%;
+        color: #333333;
+        left: 0;
+        margin-bottom: 122px;
+    }
+
+    .cls_06 {
+        position: relative;
+        left: -93px;
+        margin-bottom: 50px;
+        align-self: flex-end;
+    }
+
+    .cls_08 {
+        right: -140px;
+        text-align: right;
+    }
+
+    .journeydescripton.cls_08 h4:before {
+        left: 371px !important;
+        top: 25px !important;
+    }
+
+    .ourjourneyhead::before {
+        right: auto;
+        top: 86px;
+        left: 296px;
+    }
+
+    .jpureywithimage {
+        display: flex;
+        display: -webkit-box;
+
+        display: -moz-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+
+        height: auto;
+        margin-top: 60px;
+        align-items: center;
+        justify-content: space-around;
+        right: -20px;
+        position: relative;
+        margin-bottom: 184px;
+    }
+
+    .clspresent {
+        position: relative;
+        /* left: 180px; */
+        top: 26px;
+        align-self: flex-start;
+        left: 290px;
+    }
+}
+
+/* ***************************** therapists page  css start ************************************* */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .heading-right-fields {
+        display: none;
+    }
+
+    .therapists-wrapper {
+        padding: 10px;
+    }
+
+    .therapists-wrapper h2 {
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+
+    .treeview {
+        /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px 40px; */
+
+        display: block;
+
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .treeview {
+        /* display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0px 40px; */
+
+        display: block;
+
+    }
+
+    .heading-right-fields {
+
+        display: none;
+    }
+
+    .filter-popupbtn {
+        max-width: 320px;
+    }
+
+    .therapists-wrapper h2 {
+        /* font-size: 40px; */
+        margin-bottom: 40px;
+    }
+
+    .therapists-wrapper {
+        padding: 40px;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+    .therapists-wrapper .filter-popupbtn {
+        display: none;
+    }
+}
+
+/* ***************************** therapists page  css end ************************************* */
+
+/* ***************************** therapists detailx page  css start ************************************* */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+
+    .commonmith_one,
+    .commonmith_leftcontent p:nth-child(2),
+    .commonmith_leftcontent p:nth-child(1),
+
+    .commonmith_rightcontent p:nth-child(2),
+
+    .commonmith_rightcontent p:nth-child(1) {
+        background: none;
+    }
+
+    .aboutus-title.row.justify-content-between.align-items-center {
+        align-items: flex-start !important;
+    }
+
+    .commonmith_content {
+        font-size: 20px;
+        line-height: 30px;
+        color: #333333;
+        border-bottom: 1px solid #BDBDBD;
+        padding: 15px 0px;
+        margin-top: 15px;
+        list-style: none;
+    }
+
+    .commonmith_content {
+        font-size: 16px;
+        border-bottom: 1px solid #CCEFF4;
+        margin-top: 5px;
+
+
+    }
+
+    .commonmith_content::before {
+        content: "\2022";
+        color: #00AEC7;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+        position: absolute;
+    }
+
+    .orderchangeflex {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-direction: column;
+
+    }
+
+    .herotexcenter {
+        min-height: unset;
+    }
+
+    .meditationsantuary {
+        margin-top: 60px;
+    }
+
+    .meditationsantuary img {
+        width: 100%;
+        height: auto !important;
+    }
+
+    .commonmith_centerimgcontent img {
+        max-width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .commonmith_secont_container {
+        grid-template-columns: auto;
+        grid-gap: 0;
+    }
+
+    .commonmith_leftcontent {
+        order: 2;
+    }
+
+    .commonmith_centerimgcontent {
+        order: 1;
+    }
+
+    .commonmith_leftcontent p:nth-child(1),
+    .commonmith_leftcontent p:nth-child(2),
+    .commonmith_rightcontent p:nth-child(1),
+    .commonmith_rightcontent p:nth-child(2) {
+        right: auto;
+        left: auto;
+    }
+
+    .commonmith_content {
+        background: none;
+        width: 100%;
+        height: 100%;
+        padding: 5px 0px 15px 20px;
+        text-align: left;
+        margin: 8px 0px 10px !important;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 18px;
+
+    }
+
+    .commonmith_rightcontent {
+        order: 3;
+    }
+
+    .commonmith_first_fordmob {
+        display: block;
+    }
+
+    .commonmith_first_fordrsk {
+        display: none;
+    }
+
+    .typeofmeditation-item,
+    .typeofmeditation-item h5,
+    .typeofmeditation-item p {
+        text-align: left;
+    }
+
+    .typeofmeditation {
+        margin-top: 40px;
+    }
+
+    .reviewcaresole h2 {
+        font-size: 30px;
+    }
+
+    .typeofmeditation-item img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .awardlists li {
+        font-size: 18px;
+    }
+
+    .aboutus-wrapper.introductionvideo,
+    .container-fluid.questtobehappy.awardreg,
+    .therapestservice .services-wrapper,
+    .reviewcaresole {
+        padding: 0px;
+    }
+
+    .ero-section-two.therapists-detail-hero {
+        padding-bottom: 40px;
+    }
+
+    .abouttherappoints {
+        gap: 0;
+        flex-direction: column;
+    }
+
+    .abouttherappoints ul {
+        margin: 0;
+    }
+
+    .caresolearrow {
+        display: none;
+    }
+
+    .awardreg .justify-content-end {
+        justify-content: center !important;
+    }
+
+    .listswithdotsandborder h4 {
+        font-size: 24px;
+    }
+}
+
+/* ***************************** therapists detailx page  css end ************************************* */
+
+/* ************************** FAQ css start ***********************************0 */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .itemsheadersection_tab {
+        display: block;
+        padding-bottom: 0;
+        border: 0;
+    }
+
+    .main_tabwrapper_circullam {
+        margin-top: 20px;
+    }
+
+    .itemsheadersection_tab .nav-link {
+        min-width: 10px;
+    }
+
+    .itemsheadersection_tab>div:nth-child(2) {
+        display: none;
+    }
+
+    .clientsaboutillu-slider-caresole .leadercont h4 {
+        margin: 0;
+    }
+
+    .therapists-detail-hero .therapestlocation {
+        margin: 16px 0px 0px 0px;
+    }
+
+    .therapists-detail-hero .onlinegobalicon {
+        margin-bottom: 20px;
+    }
+
+    .therapists-detail-hero p {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+    }
+
+    .therapists-detail-hero p b {
+        width: 140px;
+        min-width: 140px;
+    }
+
+    .textomin-user {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .subpage-top-hero-section-two.faq-hero .hero-section-two>div {
+        padding: 0px;
+    }
+
+    .therapists-detail-hero .hero-two-left .breadcrum-sec {
+        margin-bottom: 16px;
+    }
+
+    .therapists-detail-hero h3 {
+        font-size: 38px;
+    }
+
+    .subpage-top-hero-section-two.faq-hero .therapists-detail-hero h5 {
+        font-size: 22px;
+    }
+
+    .faq-headerbtns {
+        text-align: center;
+        line-height: 16px;
+    }
+
+    .faq-headerbtns .borderedbtn,
+    .faq-headerbtns .fullbutton {
+        width: auto;
+        max-width: 400px;
+        min-width: 1px;
+        /* margin: 0 */
+    }
+
+    .header-form-box-wrapper {
+        background: #FFFFFF;
+        border-radius: 17px;
+        box-shadow: 0px 3px 18px rgba(27, 114, 119, 0.08);
+        padding: 20px;
+        max-width: 100%;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .fqa-wrapperlistsitems .nav-tabs-wrapper {
+        padding: 0px 0px 10px;
+    }
+
+    .faqtabs-contentcontainer {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+
+    .abouttherappoints ul {
+        column-count: 1;
+    }
+
+    .upcomingsection {
+        padding: 20px 10px;
+    }
+
+    .therapists-detail-hero .onlinegobalicon {
+        display: block;
+    }
+
+    .mobileboders .visionmission-list {
+        border-bottom: 1.5px solid #00aec7;
+        margin-top: 0px;
+        padding-bottom: 10px;
+
+    }
+
+    .costwithcardshape-list {
+        max-width: 100%;
+    }
+
+    .smowinmobile.owl-carousel {
+        display: grid;
+    }
+
+    .faq-hero .faq-headerbtns {
+        flex-direction: column;
+    }
+
+    .faq-headerbtns .borderedbtn,
+    .faq-headerbtns .fullbutton {
+        width: 100%;
+        line-height: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) and (min-width: 501px) {
+    .smowinmobile.owl-carousel {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+
+    .commonmith_one,
+    .commonmith_leftcontent p:nth-child(2),
+    .commonmith_leftcontent p:nth-child(1),
+
+    .commonmith_rightcontent p:nth-child(2),
+
+    .commonmith_rightcontent p:nth-child(1) {
+        background: none;
+    }
+
+    .commonmith_content {
+        font-size: 20px;
+        line-height: 30px;
+        color: #333333;
+        border-bottom: 1px solid #BDBDBD;
+        padding: 15px 0px;
+        margin-top: 15px;
+        list-style: none;
+    }
+
+    .commonmith_content {
+        font-size: 16px;
+        border-bottom: 1px solid #CCEFF4;
+        margin-top: 5px;
+
+
+    }
+
+    .commonmith_content::before {
+        content: "\2022";
+        color: #00AEC7;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+        position: absolute;
+    }
+
+
+
+    .herotexcenter {
+        min-height: unset;
+    }
+
+    .meditationsantuary {
+        margin-top: 60px;
+    }
+
+    .meditationsantuary img {
+        width: 100%;
+    }
+
+    .commonmith_centerimgcontent img {
+        max-width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .commonmith_secont_container {
+        grid-template-columns: auto;
+        grid-gap: 0;
+    }
+
+    .commonmith_leftcontent {
+        order: 2;
+    }
+
+    .commonmith_centerimgcontent {
+        order: 1;
+    }
+
+    .commonmith_leftcontent p:nth-child(1),
+    .commonmith_leftcontent p:nth-child(2),
+    .commonmith_rightcontent p:nth-child(1),
+    .commonmith_rightcontent p:nth-child(2) {
+        right: auto;
+        left: auto;
+    }
+
+    .commonmith_content {
+        background: none;
+        width: 100%;
+        height: 100%;
+        padding: 5px 0px 15px 20px;
+        text-align: left;
+        margin: 8px 0px 10px !important;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 18px;
+
+    }
+
+    .commonmith_rightcontent {
+        order: 3;
+    }
+
+    .commonmith_first_fordmob {
+        display: block;
+    }
+
+    .commonmith_first_fordrsk {
+        display: none;
+    }
+
+    .typeofmeditation-item,
+    .typeofmeditation-item h5,
+    .typeofmeditation-item p {
+        text-align: left;
+    }
+
+    .typeofmeditation {
+        margin-top: 40px;
+    }
+
+    .therapists-detail-hero .hero-two-left .breadcrum-sec {
+        margin-bottom: 16px;
+    }
+
+    .fqa-wrapperlistsitems .nav-tabs-wrapper {
+        padding: 0px 40px 10px;
+    }
+
+    .faqtabs-contentcontainer {
+        padding: 40px;
+    }
+
+    .header-form-box-wrapper {
+        background: #FFFFFF;
+        border-radius: 17px;
+        box-shadow: 0px 3px 18px rgba(27, 114, 119, 0.08);
+        padding: 20px;
+        max-width: 95%;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+
+    .commonmith_one,
+    .commonmith_leftcontent p:nth-child(2),
+    .commonmith_leftcontent p:nth-child(1),
+
+    .commonmith_rightcontent p:nth-child(2),
+
+    .commonmith_rightcontent p:nth-child(1) {
+        background: none;
+    }
+
+    .commonmith_content {
+        font-size: 20px;
+        line-height: 30px;
+        color: #333333;
+        border-bottom: 1px solid #BDBDBD;
+        padding: 15px 0px;
+        margin-top: 15px;
+        list-style: none;
+    }
+
+    .commonmith_content {
+        font-size: 16px;
+        border-bottom: 1px solid #CCEFF4;
+        margin-top: 5px;
+
+
+    }
+
+    .commonmith_content::before {
+        content: "\2022";
+        color: #00AEC7;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+        position: absolute;
+    }
+
+
+
+    .herotexcenter {
+        min-height: unset;
+    }
+
+    .meditationsantuary {
+        margin-top: 60px;
+    }
+
+    .meditationsantuary img {
+        width: 100%;
+    }
+
+    .commonmith_centerimgcontent img {
+        max-width: 100%;
+        margin-bottom: 80px;
+    }
+
+    .commonmith_secont_container {
+        grid-template-columns: auto;
+        grid-gap: 0;
+    }
+
+    .commonmith_leftcontent {
+        order: 2;
+    }
+
+    .commonmith_centerimgcontent {
+        order: 1;
+    }
+
+    .commonmith_leftcontent p:nth-child(1),
+    .commonmith_leftcontent p:nth-child(2),
+    .commonmith_rightcontent p:nth-child(1),
+    .commonmith_rightcontent p:nth-child(2) {
+        right: auto;
+        left: auto;
+    }
+
+    .commonmith_content {
+        background: none;
+        width: 100%;
+        height: 100%;
+        padding: 5px 0px 15px 20px;
+        text-align: left;
+        margin: 8px 0px 10px !important;
+        align-items: flex-start;
+        justify-content: flex-start;
+        font-size: 18px;
+
+    }
+
+    .commonmith_rightcontent {
+        order: 3;
+    }
+
+    .commonmith_first_fordmob {
+        display: block;
+    }
+
+    .commonmith_first_fordrsk {
+        display: none;
+    }
+
+    .typeofmeditation-item,
+    .typeofmeditation-item h5,
+    .typeofmeditation-item p {
+        text-align: left;
+    }
+
+    .typeofmeditation {
+        margin-top: 40px;
+    }
+
+    .fqa-wrapperlistsitems .nav-tabs-wrapper {
+        padding: 0px 40px 10px;
+    }
+
+    .faqtabs-contentcontainer {
+        padding: 20px 40px;
+    }
+}
+
+/* ************************** FAQ css end ***********************************0 */
+
+/* ************************** Testimonial css start ************************** */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .needinspirat h5 {
+        text-align: left;
+    }
+
+    .service-svg-shapes-overlay h4 {
+        font-size: 18px;
+    }
+
+    .headertitle-filters {
+        padding: 0px 0px;
+        margin: 0px 0px 20px;
+    }
+
+    .testomonial-list-card {
+        grid-template-columns: auto;
+        grid-gap: 16px;
+        box-shadow: 0px 3px 18px rgba(27, 114, 119, 0.16);
+        padding: 20px;
+    }
+
+    .userprofiletesto {
+        text-align: left;
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        gap: 16px;
+    }
+
+    .testimonials .faqtabwrapper-header {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .headertitle-filters {
+        padding: 0px 40px;
+        margin: 0px 0px 20px;
+    }
+
+    .testimonials .faqtabwrapper-header {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+    .testimonials .heading-right-fields {
+        display: none;
+    }
+
+    .filter-popupbtn {
+        max-width: 300px;
+        /* margin-top: 20px; */
+    }
+
+    .testimonials .faqtabwrapper-header {
+        display: none;
+    }
+}
+
+/* ************************** Testimonial css end ************************** */
+
+/* ************************** Contact us css start  ***************************/
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .swapper-insidecotainer:hover .swap_hoveredcotent {
+        transform: translateX(0%);
+    }
+
+    .fullbutton,
+    .borderedbtn,
+    .seeallpost-btns {
+        height: auto;
+    }
+
+    .twobtns button:first-child,
+    .twobtns a:first-child {
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+
+    .enquireformcontainer h2 {
+        font-size: 2.7rem;
+        margin-bottom: 10px;
+    }
+
+    .enquireformcontainer h2.size56 {
+        font-size: 36px;
+    }
+
+    .enquireformcontainer h4 {
+        font-size: 18px;
+    }
+
+    .section-full-padding {
+        padding: 40px 10px !important;
+    }
+
+    section.contacrus-header {
+        padding: 10px 10px;
+    }
+
+    .mapbox {
+        margin-top: 30px;
+    }
+
+    .contactus-sections p {
+        margin-top: 30px;
+    }
+
+    .contactus-sections h2 {
+        font-size: 36px;
+    }
+
+    .enquireform {
+        max-width: 100%;
+        margin-top: 40px;
+    }
+
+    .enquireformcontainer .header-form-box-wrapper {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .enquireformcontainer h2 {
+        font-size: 2.7rem;
+        margin-bottom: 10px;
+    }
+
+    .section-full-padding {
+        padding: 80px 40px !important;
+    }
+
+    .contactus-sections {
+        padding: 20px 40px;
+    }
+
+    section.contacrus-header {
+        padding: 10px 40px;
+    }
+
+    .mapbox {
+        margin-top: 30px;
+    }
+
+    .contactus-sections p {
+        margin-top: 30px;
+    }
+
+    .contactus-sections h2 {
+        font-size: 36px;
+    }
+
+    .enquireformcontainer .header-form-box-wrapper {
+        margin: 0;
+    }
+}
+
+/* ************************** Contact us css end  ***************************/
+
+/* Search page media */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .search-result-wrapper h2 {
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 130%;
+
+
+        color: #3A3A3A;
+    }
+
+    .subpage-top-hero-section-two {
+        min-height: auto;
+    }
+
+    .search-result-wrapper {
+        /* padding: 50px 10px; */
+    }
+
+    .searchfillbtn {
+        position: relative;
+        right: auto;
+        top: auto;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .search-page-banner h1 {
+        font-size: 36px;
+    }
+
+    .search-page-banner .hero-two-left {
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 300px) {
+    .search-input-wrapper:focus-within {
+        left: 0;
+    }
+
+    .searchpagerightsection {
+        display: none;
+    }
+
+    .search-page-banner {
+        min-height: 400px;
+    }
+
+    .search-input-wrapper {
+        left: auto;
+    }
+
+    .search-result-wrapper {
+        /* padding: 80px 40px; */
+    }
+
+    .upcomingsection {
+        /* padding: 10px; */
+    }
+
+    .section-leftright-padding {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .searchemptypage-footer {
+        position: absolute;
+        width: 100%;
+        bottom: -360px;
+    }
+}
+
+/* calendar events css */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .desktopmedimg {
+        display: none;
+    }
+
+    .mobilewilrogramimg {
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    .calendar_twocardview .calenday-eventlist-item {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 0;
+    }
+
+    .sliderupdownimgs .owl-item:nth-child(even) .leadercont {
+        margin-top: 0px;
+    }
+
+    .sliderupdownimgs .owl-item:nth-child(odd) .leadercont {
+        margin-top: 20px;
+    }
+
+    .calendar_twocardview,
+    .upcomingsection .calendar_twocardview .eventinfos,
+    .calendar_twocardview .event-listbtn {
+        grid-template-columns: 1fr !important;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+
+    .calendar_twocardview .borderedbtn,
+    .calendar_twocardview .fullbutton {
+        width: 100%;
+        margin: auto !important;
+    }
+
+    .blogfootertextcont h2 {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 140%;
+    }
+
+    .blogfootertextcont h6 {
+        font-size: 20px;
+        line-height: 150%;
+        text-transform: capitalize;
+    }
+
+    .articals .event-listbtn .borderedbtn {
+        line-height: 20px;
+    }
+
+    .latmonthfilterrow {
+        grid-template-columns: auto;
+    }
+
+    .blogfootertextcont {
+        padding: 10px;
+    }
+
+    .row.headertitle-filters h2 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .blogsdiffsection h2 {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .event-typoingo h5 {
+        display: block;
+    }
+
+    .sectionspace {
+        padding-top: 50px;
+    }
+
+    .calendar-header-one {
+        display: flex;
+        display: -webkit-box;
+
+        display: -moz-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .calendar-header-one-left,
+    .calendar-header-one-right {
+        width: 50%;
+        max-width: 180px;
+    }
+
+    .datepicker {
+        min-width: 1px;
+        max-width: 350px;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 15px auto;
+    }
+
+    .datepicker table.table-condensed td {
+        padding: 14px 10px;
+    }
+
+    .filter-popupbtn {
+        display: inline-block;
+        margin: 0;
+    }
+
+    .filter-buttons-lists {
+        display: none;
+    }
+
+    .calendar-header-one-right .dropdown,
+    .calendernextpreviewbtns {
+        display: none;
+    }
+
+    .upcomingsection {
+        /* padding: 50px 10px; */
+    }
+
+    .upcomingsection h2 {
+        font-size: 40px;
+    }
+
+    .calenday-eventlist-item,
+    .eventfullinfos {
+        grid-template-columns: auto;
+        gap: 16px;
+    }
+
+    .borderedbtn,
+    .fullbutton {
+        width: 100%;
+        max-width: 400px;
+        padding: 14px 8px;
+    }
+
+    .cal-event-img img {
+        width: 100%;
+        max-height: 200px;
+        border-radius: 4px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+
+    .searchinputform>.row {
+        margin: 0px !important;
+    }
+
+    .searchinputform>.row input[name="searchinput"] {
+        margin-bottom: 5px;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+    .calenday-eventlist-item {
+        grid-template-columns: 140px 1fr;
+        align-items: flex-start;
+    }
+
+    .eventfullinfos {
+        grid-template-columns: auto;
+        grid-gap: 16px;
+    }
+
+    .event-listbtn {
+        text-align: center;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+
+    .calendar-header-one {
+        display: flex;
+        display: -webkit-box;
+
+        display: -moz-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .calendar-header-one-left,
+    .calendar-header-one-right {
+        width: 50%;
+        max-width: 180px;
+    }
+
+    /*.datepicker {
+   min-width: 1px;
+   max-width: 350px;
+   left: 0 !important;
+   right: 0 !important;
+   margin: 15px auto;
+   }*/
+    /* .datepicker table.table-condensed td {
+   padding: 14px 10px;
+   }*/
+    .filter-popupbtn {
+        display: inline-block;
+    }
+
+    .filter-buttons-lists {
+        display: none;
+    }
+
+    .calendar-header-one-right .dropdown,
+    .calendernextpreviewbtns {
+        display: none;
+    }
+
+    .upcomingsection {
+        /* padding: 100px 40px; */
+    }
+
+    .upcomingsection h2 {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 769px) {
+    .section-typo-inner.ourfranchies {
+        margin-top: 20px;
+    }
+
+    .orderchangeflex {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-direction: column;
+
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 300px) {
+    .filter-popupbtn.ourteamfilter {
+        display: inline-block;
+        max-width: 400px;
+    }
+
+    #outteamfilter {
+        display: none;
+        left: -100%;
+
+        animation: heroshapeanimationleft .5s linear forwards;
+        -webkit-animation: heroshapeanimationleft .5s linear forwards;
+    }
+
+    #outteamfilter.activeourteamfilterpopup {
+        display: block;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0;
+        width: 100%;
+        max-width: 330px !important;
+        background: #fff;
+        padding: 16px !important;
+        z-index: 9999;
+        padding-right: 0 !important;
+        left: 0%;
+        box-shadow: 11px 3px 24px rgba(3, 3, 3, 17%);
+        border-right: 1px solid #ccc;
+        /* border-radius: 8px; */
+        /* margin: auto; */
+    }
+
+    @keyframes heroshapeanimationleft {
+        0% {
+            display: block;
+            left: -100%;
+        }
+
+        50% {
+            left: -100%;
+        }
+
+        100% {
+            left: 0%;
+        }
+    }
+
+    @-webkit-keyframes heroshapeanimationleft {
+        0% {
+            display: block;
+            left: -100%;
+        }
+
+        50% {
+            left: -100%;
+        }
+
+        100% {
+            left: 0%;
+        }
+    }
+
+    .ourteam-filter {
+        margin-top: 0;
+        max-height: 98vh;
+        overflow-y: auto;
+        padding-right: 16px;
+        padding-bottom: 20px;
+    }
+
+    #outteamfilter.activeourteamfilterpopup .ourteam-filter #ourteamfilterpopupoe {
+        display: inline-block;
+    }
+
+    .swaptexts .learnmore-btn {
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .safeeffective h2 {
+        font-size: 36px;
+    }
+
+    .safeeffective .cardmocingshape h4 {
+        font-size: 18px;
+    }
+
+    .behandseenwid {
+        padding-top: 80px !important;
+    }
+
+    .centershapes {
+        display: none;
+    }
+
+    .swapper-insidecotainer {
+        overflow: visible;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .swpimg {
+        order: 2;
+    }
+
+    .swptexts {
+        order: 1;
+    }
+
+    .swapimages-texts {
+        display: none;
+    }
+
+    .swaptexts .learnmore-btn {
+        padding: 12px 25px;
+        width: 100%;
+        max-width: 500px;
+        margin: auto auto 20px;
+    }
+
+    .swaptexts .visionmission-list h4 {
+        font-size: 15px;
+    }
+
+    .swaptexts .cardmocingshape h4 {
+        font-size: 18px;
+    }
+
+    .swaptexts .visionmission-list .moving_shape,
+    .swaptexts .cardmocingshape .moving_shape {
+        width: 62px;
+        height: 62px;
+    }
+
+    .swaptexts .missionvission .moving_shape img {
+        width: 32px;
+    }
+
+    .swapper-insidecotainer div {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* ******************* blogs page ****************************** */
+
+@media screen and (max-width: 768px) {
+
+    .neverdoubt h1 {
+        font-size: 30px;
+    }
+
+    .herorightmobilehide {
+        display: none;
+    }
+
+    .blog-details-cont {
+        max-width: 100%;
+    }
+
+    .blogherotext h1 {
+        font-size: 36px;
+    }
+
+    .bloginfocont .userprofile {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .blogs-typos h5 {
+        font-size: 18px;
+    }
+
+    .blogs-typos h3 {
+        font-size: 22px;
+    }
+
+    .blogs-typos h4 {
+        font-size: 18px;
+    }
+
+    .ktexts {
+        font-size: 72px;
+    }
+
+    .ktexts sup {
+        top: -40px;
+    }
+
+    .blogauth-info p {
+        padding-left: 0px;
+        margin-top: 10px;
+    }
+
+    .blogtagsandsocial {
+        grid-template-columns: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tablecontainer table {
+        border: 0;
+    }
+
+    .tablecontainer table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .tablecontainer table tr {
+        display: block;
+        margin-bottom: .625em;
+        border-bottom: 1px solid #CBEEF3;
+    }
+
+    .tablecontainer table td {
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+
+    .tablecontainer table td::before {
+        /*
+             * aria-label has no advantage, it won't be read inside a table
+             content: attr(aria-label);
+             */
+        content: attr(data-label);
+        float: left;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: capitalize;
+        color: #191919;
+    }
+
+    .tablecontainer table td:last-child {
+        border-bottom: 0;
+    }
+}
+
+/* ******************* blogs page ****************************** */
+@media screen and (max-width: 550px) and (min-width: 300px) {
+
+    /* .whofacilitate .service-svg-shapes-overlay{
+        clip-path: url(#slopeclip-mobile);
+    }
+    .whofacilitate .service-lists-item{
+        height: 150px;
+    } */
+    .therapistwerepeat h2::before {
+        left: -40px;
+    }
+
+    .neverdoubt {
+        position: relative;
+        background: url(/ppts_website_theme/static/src/img/wavecareertherapymobile.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom center;
+    }
+
+    .neverdoubt h1::before {
+        font-size: 100px;
+        line-height: 120px;
+        font-family: 'Blacksword';
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        color: #00AEC7;
+        position: absolute;
+        left: 0px;
+        top: -30px;
+    }
+
+    .neverdoubt h1 {
+        padding-left: 60px;
+        right: 16px;
+    }
+
+    .neverdoubt {
+        min-height: 780px;
+    }
+
+    .neverdoubt-inner {
+
+        padding: 100px 0px 80px 0px !important;
+    }
+}
+
+@media screen and (max-width: 959px) and (min-width: 551px) {
+    .neverdoubt {
+        background-position: right top;
+    }
+}
+
+@media screen and (max-width: 1279px) and (min-width: 920px) {
+    .calendar_twocardview .calenday-eventlist-item {
+        grid-template-columns: auto;
+        gap: 16px;
+        margin-bottom: 0;
+    }
+
+    .calendar_twocardview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media screen and (max-width: 1600px) and (min-width: 960px) {
+    .neverdoubt {
+        min-height: 54vw;
+    }
+
+}
+
+@media only screen and (min-width: 3000px) {
+    /* .eachsection {
+        max-width: 1280px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+    } */
+
+}
+
+@media only screen and (max-width: 950px) and (min-width: 300px) {
+
+    .costtable tr th:nth-child(2),
+    .costtable tr td:nth-child(2),
+    .costtable tr th:nth-child(3),
+    .costtable tr td:nth-child(3),
+    .costtable tr th:nth-child(4),
+    .costtable tr td:nth-child(4) {
+        min-width: 180px;
+        width: 22%;
+    }
+
+    .costtable tr td .fullbutton {
+        min-width: 10px;
+        max-width: 180px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .socialshareevents {
+        margin-top: 30px;
+    }
+
+    .costwithcardshape {
+        display: block;
+
+    }
+
+    .desktopcose {
+        display: none;
+    }
+
+
+    .accomaimgtext {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .miniimages {
+        order: 2;
+    }
+
+    .accomaleft {
+        display: none;
+    }
+
+    .accomatexts {
+        order: 1;
+        margin-bottom: 40px;
+
+    }
+
+}

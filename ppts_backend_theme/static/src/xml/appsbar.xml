@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates id="template" xml:space="preserve">
+	
+	<header t-name="ppts_backend_theme.ClientDetailsEditCustom" t-inherit="web_enterprise.Menu" t-inherit-mode="extension" owl="1">
+		<xpath expr="//nav" position="replace">
+
+			<nav class="o_main_navbar">
+				<script type="text/javascript" src="/ppts_backend_theme/static/src/js/web_menus.js" />
+				<link rel="stylesheet" type="text/css" href="/ppts_backend_theme/static/src/css/style.css"/>
+				<style>
+					.o_action_manager{
+					margin-left: 135px;
+					}
+
+					.o_menu_brand{
+					margin-left: 81px;
+					}
+				</style>
+
+				<div id="mySidebar" class="sidebar" style="width: 140px;">
+					<!-- <a href="javascript:void(0)" class="closebtn_sidebar">×</a> -->
+					<a class="nav-link-menu_side" role="menuitem" href="/web#cids=1&amp;home=">
+						<img class="mk_apps_sidebar_icon" src="/ppts_backend_theme/static/src/img/allapps.png" style="width: 23px;"/>
+						<span class="mk_apps_sidebar_name" style="vertical-align: middle;font-size: 13px;">
+							Home
+						</span>
+					</a>
+					<a href="#" class="web_applist_class_replace"></a>
+				</div>
+
+				<a href="#" class="fa fa-th o_menu_toggle" title="Applications" aria-label="Applications" accesskey="h"/>
+				<button type="button" class="fa fa-bars float-right d-block d-md-none o_mobile_menu_toggle" title="Toggle menu" aria-label="Toggle menu"/>
+
+				<a href="#" class="o_menu_brand" role="button" />
+				<ul class="o_menu_sections" role="menu"/>
+				<ul class="o_menu_systray" role="menu"/>
+			</nav>
+
+		</xpath>
+	</header>
+
+</templates>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="my_center" owl="1">
+        <div class="my_center">
+             <div class="" title="My Center" t-on-click="trigger('my_center')">
+                 <h2>
+                     My Center
+                 </h2>
+             </div>
+        </div>
+    </t>
+    <!--</templates>-->
+
+    <!--<templates xml:space="preserve">-->
+    <t t-inherit="point_of_sale.Chrome" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('search-bar-portal')]" position="after">
+                <MyCenter/>
+        </xpath>
+    </t>
+</templates>

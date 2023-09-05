@@ -1,0 +1,349 @@
+<odoo>
+    <data>
+        <template id="healing_apprpage_page" name="Healing">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <t t-call="website.website_publisher"/>
+                    <!--  header start-->
+                    <section class="subpage-top-hero-section-two abouttophero ">
+                        <div class="eachsection">
+
+
+                            <div class="row hero-section-two ourstory mycontainer">
+                                <div class="col-lg-6 col-md-6 col-xl-6  col-sm-12" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="breadcrum-sec topbreadcrum  ">
+                                        <label>
+                                            <a href="/">Home /</a>
+                                            <a href="/healing">Healing /</a>
+                                            <a t-esc="sub_id.name"/>
+                                        </label>
+                                    </div>
+                                    <div class="hero-two-left subintrotext herotexcenter">
+                                        <h1 class="mainherotext ">
+                                            <t t-esc="sub_id.name"/>
+                                        </h1>
+                                        <p class="herotxtprag ">
+                                            <t t-raw="sub_id.description"/>
+                                        </p>
+                                       <a type="button" class="fullbutton" t-att-href="'/appointment/checkout?appointment_type=free&amp;sub_categ_id=%s' % sub_id.id">Book a free general consultation</a>
+                                    </div>
+                                </div>
+                                <div class="d-none d-lg-block col-lg-6 col-md-12 col-xl-6 col-sm-12 ">
+                                    <div class="hero-two-right">
+                                        <div class="image-orvideocpnt">
+                                            <img t-attf-src="/web/image?model=calendar.appointment.type&amp;id={{sub_id.sudo().id}}&amp;field=image" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                    <!--  header end -->
+
+                    <!-- <section class="section-topbtm-padding">
+                        <div>
+                            <div class="noanimate_top_wave">
+                                <svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                    <g>
+                                        <path class="light-brown-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+                                    c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+                                    l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z"/>
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <div class="section_padd_left_right190_80  eachsection   lightbrown-bg">
+                                <div class="arrow-scroll leftside">
+                                    <svg viewBox="0 0 426 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+                                            <path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+                                            <path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                                            c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="row mycontainer align-items-center aboutus-title" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                        <span class="">Get Started</span>
+                                        <h2 class="">Book an appointment </h2>
+                                        <p>Experience Our Wide Range of Powerful Healing &amp; Therapy Service</p>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                                        <a class="fullbutton wid280" href="/appointment/checkout?appointment_type=free">Book a free
+                                            consultation</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="noanimtionbtm-wave">
+                                <svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                    <g>
+                                        <path class="light-brown-svg" d="M148.998 169.897C119.618 178.901 90.0254 180.801 58.8966 179.396C38.7206 180.472 19.2071 180.235 0 177.663V0H263V0.186939H1440V72.305C1392.32 67.2731 1349.05 72.6685 1311.14 77.395L1311.1 77.4006C1304.22 78.2579 1297.52 79.0933 1291 79.8403C1284.48 79.0933 1277.78 78.2579 1270.9 77.4006L1270.86 77.395C1219.21 70.9553 1157.6 63.2741 1088.47 82.4148C1062.13 89.7085 1037.24 98.3559 1012.78 106.857L1012.77 106.862L1012.67 106.895C938.44 132.694 868.13 157.13 773.157 138.281C672.252 118.254 596.098 133.174 520.628 147.96L520.627 147.961C458.866 160.061 397.564 172.071 323.532 164.765C256.831 158.183 199.99 163.73 148.998 169.897Z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+
+                        </div>
+                    </section> -->
+
+                    <section class="section-topbtm-padding">
+                        <div>
+
+                            <div class="noanimate_top_wave">
+                                <svg class="topsvg svgclass"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 98" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                    <g>
+                                        <path class="light-brown-svg" d="M1440 77.3276V98.0001H0V44.6611C7.63016 42.0402 15.26 39.3897 22.8841 36.7412C47.9787 28.0237 73.0121 19.3274 97.796 11.7753C155.296 -5.74615 212.734 -0.246088 280.068 6.20161C335.373 11.4976 397.355 17.4328 471.532 11.7753C545.565 6.12867 606.867 15.4117 668.628 24.7642C744.098 36.1928 820.252 47.7249 921.157 32.2457C1016.13 17.6767 1086.44 36.5637 1160.67 56.504C1185.17 63.0846 1210.09 69.7799 1236.47 75.4253C1305.6 90.2198 1367.21 84.283 1418.86 79.3054C1426.11 78.6073 1433.15 77.9282 1440 77.3276Z"/>
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <div class="section_padd_left_right190_80  eachsection   lightbrown-bg">
+                                <div class="arrow-scroll leftside">
+                                    <svg viewBox="0 0 426 142" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+                                            <path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+                                            <path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                                            c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="row mycontainer align-items-center aboutus-title" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                                        <span class="">Get Started</span>
+                                        <h2 class="">Book an appointment </h2>
+                                        <p>Experience Our Wide Range of Powerful Healing &amp; Therapy Service</p>
+                                    </div>
+                                    <!-- <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                                        <a class="fullbutton wid280" href="/appointment/checkout?appointment_type=free">
+                                            Book a free consultation
+                                        </a>
+                                    </div> -->
+
+                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+
+                                        <a class="fullbutton wid280" t-att-href="'/appointment/checkout?&amp;sub_categ_id=%s&amp;service_selected=%s&amp;general=booking' %(sub_id.id, sub_id.service_categ_id.id)">
+                                            Book an appointment
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="noanimtionbtm-wave">
+                                <svg class="topsvg svgclass"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                    <g>
+                                        <path class="light-brown-svg" d="M1440 17.5901C1392.6 23.8177 1344.17 35.2401 1295.96 46.609C1270.96 52.5043 1246.03 58.3853 1221.33 63.5201C1164.02 75.4333 1106.53 72.3789 1039.13 68.7983C983.771 65.8573 921.729 62.5613 847.62 66.9128C773.654 71.2558 712.255 65.7771 650.397 60.2574C574.809 53.5125 498.534 46.7064 397.806 57.6859C303.001 68.0197 232.49 56.379 158.046 44.0891C133.478 40.0332 108.482 35.9067 82.044 32.4759C53.3115 28.7474 25.9113 27.3251 0 27.2016V0H1440V17.5901Z"></path>
+
+                                    </g>
+                                </svg>
+                            </div>
+
+                        </div>
+                    </section>
+                    <!-- VISION OF THE ACADEMY SECTION END -->
+                    <section class="section training-academy-section section-topbtm-padding mycontainer">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-xl-12  col-sm-12 col-xs-12  ">
+                                <div class="tab-content faqtabs-contentcontainer">
+                                    <div class="tab-pane fade show active" id="tabA">
+                                        <div id="accordion">
+                                            <t t-foreach="sub_id.healing_content_ids" t-as="healing_content_id">
+                                                <div class="card  " data-aos="fade-up" data-aos-delay="100">
+                                                    <div class="card-header" id="headingOne">
+                                                        <h5 class="mb-0">
+                                                            <button class="btn btn-link collapsed" data-toggle="collapse" t-attf-data-target="#collapseOne{{healing_content_id.id}}" aria-expanded="true" aria-controls="collapseOne">
+                                                                <t t-esc="healing_content_id.healing_id.name"/>
+                                                                <a class="accarrow"></a>
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+
+                                                    <div t-attf-id="collapseOne{{healing_content_id.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                                        <div class="card-body">
+                                                            <t t-raw="healing_content_id.html"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <section class="upcomingsection mycontainer" data-aos="fade-up" data-aos-delay="100">
+                        <!-- <span class="blackswordfont">Irine Lekishvili’s</span> -->
+                        <h2>Upcoming events</h2>
+                        <div class="calendar-wrapper ">
+                            <div class="calendar-header-one aos-init aos-animate">
+                                <div class="calendar-header-one-left">
+                                    <div class="filter-buttons-lists">
+                                        <button>All</button>
+                                        <button>Online</button>
+                                        <button class="selectedbtn"> Onsite</button>
+                                    </div>
+                                    <button class="filter-popupbtn">
+                                        <span class="input-group-addon iconinoutbtn">
+                                            <i class="fas fa-filter"></i>
+                                        </span> Filters</button>
+
+                                </div>
+                            </div>
+
+                            <div class="calendar-eventlist-view-wrapper listviewmode" id="positionlistview">
+
+                                <t t-set="most_event_ids" t-value="request.env['event.event'].sudo().search([('stage_id','in',('Published','Announced'))],limit=4, order='seats_expected desc')" />
+
+                                <t t-foreach="most_event_ids" t-as="m_event_id">
+                                    <div class="calenday-eventlist-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                                        <div class="cal-event-img">
+                                            <label class="filtercatlabel">
+                                                <t t-esc="dict(m_event_id._fields['type_event'].selection).get(m_event_id.type_event)"/>
+                                            </label>
+                                            <img style="width: 100%;" t-att-src="'/web/image?model=event.event&amp;id=%s&amp;field=image' % (m_event_id.id) if  m_event_id.image else '/ppts_website_theme/static/src/img/ue1.jpg' " />
+                                            <div class="eventtag-imgoverlay chips-cont">
+                                                <label class="training chipsone other-chips">
+                                                    <t t-esc="m_event_id.event_type_id.name"/>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="eventfullinfos">
+                                            <div class="event-typoingo">
+                                                <div class="eventtitleinfos">
+                                                    <h5 t-esc="m_event_id.name"/>
+                                                </div>
+                                                <div class="eventinfos">
+                                                    <label>
+                                                        <img src="/ppts_website_theme/static/src/img/location-icon.svg" width="24px" height="24px"/>
+                                                        <t t-esc="m_event_id.company_id.name"/>
+                                                    </label>
+                                                    <label class="dateinfo-evt" t-att-title="m_event_id.get_event_dates()">
+                                                        <img src="/ppts_website_theme/static/src/img/calendar-icon.svg" width="24px" height="24px"/>
+                                                        <span t-if="m_event_id.event_multiple_date == 'oneday'" t-field="m_event_id.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                        <t t-if="m_event_id.event_multiple_date == 'multiday'">
+                                                            <t t-set="event_start_date" t-value="m_event_id.multi_date_line_ids.ids[0]"/>
+                                                            <t t-set="event_start_date" t-value="request.env['multi.date.line'].sudo().browse(event_start_date)" />
+                                                            <t t-set="event_end_date" t-value="m_event_id.multi_date_line_ids.ids[-1]"/>
+                                                            <t t-set="event_end_date" t-value="request.env['multi.date.line'].sudo().browse(event_end_date)" />
+                                                            <span t-field="event_start_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                            To 
+                                                            <span t-field="event_end_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                        </t>
+                                                    </label>
+                                                    <label class="" t-if="m_event_id.event_multiple_date == 'oneday'">
+                                                        <img src="/ppts_website_theme/static/src/img/time-icon.svg" width="24px" height="24px"/>
+                                                        <t t-esc="m_event_id.hour_time_begin"/>
+                                                            :                                                            
+                                                        <t t-esc="m_event_id.min_time_begin"/>
+                                                            To 
+                                                        <t t-esc="m_event_id.hour_time_end"/>
+                                                            :                                                        
+                                                        <t t-esc="m_event_id.min_time_end"/>
+                                                    </label>
+
+                                                    <label class="" t-if="m_event_id.event_multiple_date == 'multiday'">
+                                                        <img src="/ppts_website_theme/static/src/img/time-icon.svg" width="24px" height="24px"/>
+                                                        <t t-esc="event_start_date.hour_time_begin"/>
+                                                        : 
+                                                        <t t-esc="event_start_date.min_time_begin"/>
+                                                        To 
+                                                        <t t-esc="event_end_date.hour_time_end"/>
+                                                        :                                                    
+                                                        <t t-esc="event_end_date.min_time_end"/>
+                                                    </label>
+                                                    <label data-toggle="tooltip" data-placement="top" t-att-title="m_event_id.get_facilitator_name()" class="evt-card-rw-label">
+                                                        <img src="/ppts_website_theme/static/src/img/person-icon.svg" width="24px" height="24px"/>
+                                                        <a class="underline-a" t-attf-href="/team/therapists/{{m_event_id.facilitator_evnt_ids[0].id}}">
+                                                            <t t-esc="m_event_id.get_facilitator_name()"/>
+                                                        </a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="event-listbtn">
+                                                <a href="#book_free_apt_snippet" class="borderedbtn">Enquire Now</a>
+                                                <a id="selected-event-ID" t-att-data-event-id="m_event_id.id" class="fullbutton">Book Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+
+
+                            </div>
+                            <div class="text-center padtop30 twobtns ">
+                                <a href="/upcoming/event" class="borderedbtn">Load more events <i class="fas fa-caret-down"></i>
+                                </a>
+                                <a href="/event" class="fullbutton">Go to all events <i class="fas fa-caret-right"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+
+                    <section class="findyourneed mycontainer section-topbtm-padding">
+                        <style>
+                            footer > section > div{
+                                background: #f8f1e8;
+                            }
+                        </style>
+                        <div class="row">
+                            <div class="col-xl-5 col-lg-5 col-md-7 col-sm-12 col-xs-12">
+                                <h3>Can’t find what you need?</h3>
+                                <p>From Mind Sciences, Energy, Spiritual Healing &amp; Physical Well-Being we offer the very best of
+                                    holistic healing approaches to choose from!</p>
+                            </div>
+                            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 therapy-box">
+                                        <div class="therapy-box-inner">
+                                            <h4>Try to find your own holistic therapy</h4>
+                                            <p>   From Mind Sciences, Energy, Spiritual Healing &amp; Physical Well-Being we offer the very best.  </p>
+                                            <a href=""> Book Now </a>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 healing-box">
+                                        <div class="therapy-box-inner">
+                                            <h4>See all holistic healing events</h4>
+                                            <p>
+                                                From Mind Sciences, Energy, Spiritual Healing &amp; Physical Well-Being we offer the very best of
+                                                holistic healing!
+                                            </p>
+                                            <div>
+                                                <a href="/event">
+                                                    See All Events
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </section>
+
+
+                    <!-- BOOOK A FREE CONSULTANT SECTION START-->
+                    <t t-call="ppts_website_theme.request_call_for_all_page">
+                        <t t-set="callback_content" t-value="{'req_header': 'Book An Appointment', 
+                        'req_desc': 'Experience Our Wide Range Of Powerful Healing &amp; Therapy Service' }" />
+                    </t>
+                    <!-- BOOOK A FREE CONSULTANT SECTION END-->
+
+                    <script src="/ppts_website_theme/static/src/js/events/events.js"></script>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

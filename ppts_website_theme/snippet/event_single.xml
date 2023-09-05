@@ -1,0 +1,546 @@
+<odoo>
+    <data>
+
+        <template name="Event" id="website_event.event_description_full">
+
+            <t t-call="website.layout">
+                <div id="wrap" class="o_wevent_index">
+                    <!--  header start-->
+                    <t t-call="ppts_website_theme.disable_edit_website_builder"/>
+                    <t t-call="ppts_website_theme.event_single_herader"/>
+
+
+                    <!--  header end -->
+                    <section class="sectiion_top_padding80 aboutillumination ">
+
+                        <div class="noanimate_top_wave">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-brown-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+                    c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+                    l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="container-fluid questtobehappy aboutherapest lightbrown-bg">
+                            <div class="eachsection  ">
+
+
+                                <div class="row mycontainer">
+                                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="500">
+                                        <span class="">About</span>
+                                        <h2 class="">
+                                            <t t-esc="event.name"/>
+                                        </h2>
+                                    </div>
+                                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                                        <p data-aos="fade-up" data-aos-delay="900">
+                                            <span t-raw="event.evnt_description"/>
+                                        </p>
+                                        <hr data-aos="fade-up" data-aos-delay="1000" class="myhr"/>
+                                        <div class="abouttherappoints eventabout" data-aos="fade-up" data-aos-delay="1200">
+                                            <div>
+                                                <h6 data-aos="fade-up" data-aos-delay="1100">Qualifications:</h6>
+                                                <p>
+                                                    <span t-raw="event.qualification"/>
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <h6 data-aos="fade-up" data-aos-delay="1100">Certification Body:</h6>
+                                                <p>
+                                                    <span t-raw="event.certification"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="noanimtionbtm-wave btnsvg-reverse light-blue-bg">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-brown-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                        c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                        c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                        c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                    </section>
+
+                    <section class="sectiion_btm_padding80">
+                        <div class="light-blue-bg">
+
+                            <div class="eachsection section-topbtm-padding">
+                                <div class="row mycontainer sectiion_top_padding80" data-aos="fade-up" data-aos-delay="100">
+                                    <hr style="border: 1px solid #CBEEF3;" class="myhr col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                                        <div class="therapistabouthtecorse">
+                                            <h4>
+                                                <span>Facilitated</span> by:
+                                            </h4>
+                                            <div class="profile-width-event">
+                                                <img t-attf-src="/web/image?model=hr.employee&amp;id={{event.facilitator_evnt_ids[0].id}}&amp;field=image_1920" />
+                                                <div>
+                                                    <h6>
+                                                        <a t-attf-href="/team/therapists/{{event.facilitator_evnt_ids[0].id}}">
+                                                            <t t-esc="event.facilitator_evnt_ids[0].name"/>
+                                                        </a>
+                                                    </h6>
+                                                    <small t-esc="event.facilitator_evnt_ids[0].employee_type[0].name"/>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12  facilitabedescript">
+                                        <p t-raw="event.facilitator_evnt_ids[0].about_employee"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="noanimtionbtm-wave">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-blue-svg" d="M148.998 169.897C119.618 178.901 90.0254 180.801 58.8966 179.396C38.7206 180.472 19.2071 180.235 0 177.663V0H263V0.186939H1440V72.305C1392.32 67.2731 1349.05 72.6685 1311.14 77.395L1311.1 77.4006C1304.22 78.2579 1297.52 79.0933 1291 79.8403C1284.48 79.0933 1277.78 78.2579 1270.9 77.4006L1270.86 77.395C1219.21 70.9553 1157.6 63.2741 1088.47 82.4148C1062.13 89.7085 1037.24 98.3559 1012.78 106.857L1012.77 106.862L1012.67 106.895C938.44 132.694 868.13 157.13 773.157 138.281C672.252 118.254 596.098 133.174 520.628 147.96L520.627 147.961C458.866 160.061 397.564 172.071 323.532 164.765C256.831 158.183 199.99 163.73 148.998 169.897Z" />
+                                </g>
+                            </svg>
+                        </div>
+                    </section>
+
+                    <section class="section-topbtm-padding aboutillumination certificationqualifation eachsection">
+                        <div class="abovefooter mycontainer">
+                            <div class="container-fluid questtobehappy awardreg ">
+                                <div class="row courseenabledpart">
+                                    <div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="800">
+                                        <div class="listswithdotsandborder mobileimg">
+                                            <h4 class=" ">This course enables participants to learn the following:</h4>
+                                        </div>
+
+                                        <div class="therapistabouthtecorse">
+                                            <h3>
+                                                <span t-raw="event.employe_quote"/>
+                                            </h3>
+                                            <div class="profile-width-event">
+                                                <img t-attf-src="/web/image?model=hr.employee&amp;id={{event.facilitator_evnt_ids[0].id}}&amp;field=image_1920" />
+                                                <div>
+                                                    <h6>
+                                                        <a t-attf-href="/team/therapists/{{event.facilitator_evnt_ids[0].id}}">
+                                                            <t t-esc="event.facilitator_evnt_ids[0].name"/>
+                                                        </a>
+                                                    </h6>
+                                                    <small t-esc="event.facilitator_evnt_ids[0].employee_type[0].name"/>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo" data-aos="fade-up" data-aos-delay="900">
+                                        <div class="listswithdotsandborder">
+                                            <h4 class="desktopimg">This course enables participants to learn the following:</h4>
+                                            <ul class="awardlists listwithdots">
+                                                <t t-foreach="event.certification_ids" t-as="certification_id">
+                                                    <li t-esc="certification_id.certificate_id.name"/>
+                                                </t>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row event-single-certificate-right-align">
+                                    <div class="col-md-6">
+                                        <div class="twobtns padtop30">
+                                            <a type="button" class="fullbutton" id="selected-event-ID" style="margin-right: 35px;" data-toggle="modal" t-att-data-event-id="event.id" t-att-data-event="event" t-att-cart_ticket_id="ticket.id if ticket != 0 else 0">book now</a>
+                                            <a type="button" href="#book_free_apt_snippet" class="borderedbtn">Enquire Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!-- UPCOMING EVENTS Section Start -->
+                    <t t-set="most_event_ids" t-value="request.env['event.event'].sudo().search([('id','!=',event.id),('stage_id','in',('Published','Announced')),('event_type_id','=',event.event_type_id.id)])" />
+
+                    <section class="upcomingsection eachsection" t-if="most_event_ids">
+                        <div class="mycontainer">
+                            <!-- <span class="blackswordfont">Irine Lekishvili’s</span> -->
+                            <h2 data-aos="fade-up" data-aos-delay="50">Similar events</h2>
+                            <div class="calendar-wrapper">
+                                <div class="calendar-header-one" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="calendar-header-one-left">
+                                        <div class="filter-buttons-lists">
+                                            <button onclick="ClnToggleEventType(this)" event-data="all" class="selectedbtn"> All </button>
+                                            <button onclick="ClnToggleEventType(this)" event-data="online" class=""> Online </button>
+                                            <button onclick="ClnToggleEventType(this)" event-data="onsite" class=""> Onsite </button>
+                                            <button onclick="ClnToggleEventType(this)" event-data="online/onsite" class=""> Hybrid </button>
+                                        </div>
+                                        <button class="filter-popupbtn">
+                                            <span class="input-group-addon iconinoutbtn">
+                                                <i class="fas fa-filter"></i>
+                                            </span> Filters
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="calendar-eventlist-view-wrapper">
+
+                                    <t t-foreach="most_event_ids" t-as="event_id">
+                                        <div class="calenday-eventlist-item" data-aos="fade-up" data-aos-delay="100">
+                                            <div class="cal-event-img">
+                                                <label class="filtercatlabel">
+                                                    <t t-esc="dict(event_id._fields['type_event'].selection).get(event_id.type_event)"/>
+                                                </label>
+                                                <img src="/ppts_website_theme/static/src/img/mstp1.jpg" />
+                                            </div>
+                                            <div class="eventfullinfos">
+                                                <div class="event-typoingo">
+                                                    <div class="eventtitleinfos">
+                                                        <h5>
+                                                            <a class="a-clr" t-attf-href="/event/{{slug(event_id)}}/register">
+                                                                <t t-esc="event_id.name"/>
+                                                            </a>
+                                                        </h5>
+                                                        <label class="chipsone fullgreenchip">
+                                                            <t t-esc="event_id.event_type_id.name"/>
+                                                        </label>
+                                                    </div>
+                                                    <div class="eventinfos">
+                                                        <label>
+                                                            <i class="fas fa-map-marker-alt"></i>
+                                                            <t t-esc="event_id.company_id.name"/>
+                                                        </label>
+                                                        <label>
+                                                            <i class="far fa-calendar-minus"></i>
+                                                            <span t-field="event_id.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                                        </label>
+                                                        <label>
+                                                            <i class="far fa-clock"></i>
+                                                            <t t-esc="event_id.hour_time_begin"/>
+ :                                                            <t t-esc="event_id.min_time_begin"/>
+ To <t t-esc="event_id.hour_time_end"/>
+:                                                        <t t-esc="event_id.min_time_end"/>
+                                                    </label>
+                                                    <label>
+                                                        <i class="far fa-user"></i>
+                                                        <t t-esc="event_id.get_facilitator_name()"/>
+                                                    </label>
+                                                    <span class="aedamt">
+                                                        <t t-esc="event_id.get_event_price()"/>
+                                                        <i>AED </i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="event-listbtn">
+                                                <a href="#book_free_apt_snippet" class="borderedbtn">Enquire Now</a>
+                                                <!--                                                <a href="/contactus" class="fullbutton">Book Now</a>-->
+                                                <button type="button" class="fullbutton" id="selected-event-ID" data-toggle="modal" t-att-data-event-id="event.id" t-att-data-event="event" t-att-cart_ticket_id="ticket.id if ticket != 0 else 0">book now</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+
+
+                            </div>
+
+                            <div class="text-center padtop30  twobtns" data-aos="fade-up" data-aos-delay="300">
+                                <a href="/upcoming/event" class="borderedbtn">Load more events <i class="fas fa-caret-down"></i>
+                                </a>
+                                <a href="/event" class="fullbutton">Go to all events <i class="fas fa-caret-right"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </section>
+                <!-- UPCOMING EVENTS Section END -->
+
+
+                <!-- BOOOK A FREE CONSULTANT SECTION START-->
+                <t t-call="ppts_website_theme.request_call_for_all_page">
+                    <t t-set="callback_content" t-value="{'req_header': 'Request a Support Call back!', 
+                    'req_desc': 'Learn how we can help you on your healing Journey' }" />
+                </t>
+                <!-- BOOOK A FREE CONSULTANT SECTION END-->
+
+                <script src="/ppts_website_theme/static/src/js/events/events.js"></script>
+
+            </div>
+
+
+
+        </t>
+    </template>
+
+
+    <template id="event_single_herader">
+        <!-- <section class="subpage-top-hero-section-two event-page-hero ">
+            <div class="eachsection orderchangeflex">
+
+
+                <div class="row hero-section-two mycontainer order-2 order-sm-2">
+                    <div class="col-lg-6 col-md-12 col-xl-6  order-2 order-lg-1   order-sm-2  ">
+                        <div class="hero-two-left">
+                            <div class="breadcrum-sec topbreadcrum  desktopbread" data-aos="fade-up" data-aos-delay="50">
+                                <label>
+                                    <a href="/">Home /</a>
+                                    <a href="/event"> Event /</a>
+                                    <a>
+                                        <u t-esc="event.name"/>
+                                    </a>
+                                </label>
+                            </div>
+                            <div class="herotexcenter">
+                                <label data-aos="fade-up" data-aos-delay="150" class="training chipsone" t-esc="event.event_service_categ_id.name"/>
+                                <h2 data-aos="fade-up" data-aos-delay="200" t-esc="event.name"/>
+                                <div class="event-headerinfo" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="event-headerinfo-events">
+                                        <label class="dates">
+                                            <span t-if="event.event_multiple_date == 'oneday'" t-field="event.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                            <t t-if="event.event_multiple_date == 'multiday'">
+
+                                                <t t-set="event_start_date" t-value="event.multi_date_line_ids.ids[0]"/>
+                                                <t t-set="event_start_date" t-value="request.env['multi.date.line'].sudo().browse(event_start_date)" />
+                                                <t t-set="event_end_date" t-value="event.multi_date_line_ids.ids[-1]"/>
+                                                <t t-set="event_end_date" t-value="request.env['multi.date.line'].sudo().browse(event_end_date)" />
+
+                                                <span t-field="event_start_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+ To <span t-field="event_end_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                            </t>
+                                        </label>
+                                        <br />
+                                        <label class="timetext" t-if="event.event_multiple_date == 'oneday'">
+                                            <t t-esc="event.hour_time_begin"/>
+:                                            <t t-esc="event.min_time_begin"/>
+ To <t t-esc="event.hour_time_end"/>
+:                                        <t t-esc="event.min_time_end"/>
+                                    </label>
+
+                                    <label class="timetext" t-if="event.event_multiple_date == 'multiday'">
+                                        <t t-esc="event_start_date.hour_time_begin"/>
+:                                        <t t-esc="event_start_date.min_time_begin"/>
+To <t t-esc="event_end_date.hour_time_end"/>
+:                                    <t t-esc="event_end_date.min_time_end"/>
+                                </label>
+                                <br />
+
+                                <label class="therapestlocation">
+                                    <u>
+                                        <t t-esc="event.company_id.name"/>
+                                    </u>
+                                </label>
+                                <a class="mobileimg" style="margin:0px;">
+                                    <i class="far fa-user" style="color: #00AEC7;margin-right: 6px;"></i>
+                                    <t t-esc="event.get_facilitator_name()"/>
+                                </a>
+                                <label class="pricetagicon-text desktopimg">
+                                    <b>
+                                        <t t-esc="event.get_event_price()"/>
+                                    </b> د.إ 
+                                </label>
+                                <br />
+
+                            </div>
+                            <div class="event-useringo desktopimg">
+                                <img t-attf-src="/web/image?model=hr.employee&amp;id={{event.facilitator_evnt_ids[0].id}}&amp;field=image_1920" />
+                                <a t-attf-href="/team/therapists/{{event.facilitator_evnt_ids[0].id}}">
+                                    <t t-esc="event.facilitator_evnt_ids[0].name"/>
+                                </a>
+                            </div>
+
+                        </div>
+                        <p class="evnt-description-header">
+                            <t t-esc="event.evnt_description"/>
+                        </p>
+                        <div class="twobtns" data-aos="fade-up" data-aos-delay="500">
+                            <a class="fullbutton" id="selected-event-ID" data-toggle="modal" t-att-data-event-id="event.id" t-att-data-event="event" t-att-cart_ticket_id="ticket.id if ticket != 0 else 0">book now</a>
+                            <a href="#book_free_apt_snippet" class="borderedbtn">Enquire Now</a>
+                        </div>
+
+                        <div class="socialshareevents" data-aos="fade-up" data-aos-delay="600">
+                            <p> Share this event via:</p>
+                            <p>
+                                <a t-attf-href="https://www.facebook.com/sharer/sharer.php?u={{request.httprequest.url}}">
+                                    <img src="/ppts_website_theme/static/src/img/facebook-border.svg" />
+                                </a>
+                                <a t-attf-href="https://twitter.com/intent/tweet?&amp;url={{request.httprequest.url}}">
+                                    <img src="/ppts_website_theme/static/src/img/twitter-border.svg" />
+                                </a>
+                                <a t-attf-href="whatsapp://send?text={{request.httprequest.url}}">
+                                    <img src="/ppts_website_theme/static/src/img/whatsapp.svg" />
+                                </a>
+                                <a t-attf-href="mailto:?subject=''&amp;body={{request.httprequest.url}}">
+                                    <img src="/ppts_website_theme/static/src/img/email-blue.svg" />
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-lg-6 col-md-12 col-xl-6 order-1 order-sm-1  rightsideslide ">
+            <div class="hero-two-right">
+                <div class="breadcrum-sec mobilrbread ">
+                    <label>
+                        <a>Home /</a>
+                        <a>About Us /</a>
+                        <a>
+                            <u>
+                                <t t-esc="event.name"/>
+                            </u>
+                        </a>
+                    </label>
+                </div>
+                <div class="image-orvideocpnt">
+                    <img t-att-src="'/web/image?model=event.event&amp;id=%s&amp;field=image' % (event.id) if  event.image else '/ppts_website_theme/static/src/img/evenrpage-banner.jpg' " />
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+        <section class="subpage-top-hero-section-two event-page-hero eachsection">
+            <div class="row hero-section-two mycontainer">
+                <div class="col-lg-6 col-md-12 col-xl-6  order-2 order-lg-1   order-sm-2  ">
+                    <div class="hero-two-left">
+                        <div class="breadcrum-sec" data-aos="fade-up" data-aos-delay="50">
+                            <label>
+                                <a href="/">Home /</a>
+                                <a href="/event"> Event /</a>
+                                <a>
+                                    <u t-esc="event.name"/>
+                                </a>
+                            </label>
+                        </div>
+                        <div class="herotexcenter only-mobile-block">
+                            <label data-aos="fade-up" data-aos-delay="150" class="training chipsone" t-esc="event.event_service_categ_id.name"/>
+                            <h2 data-aos="fade-up" data-aos-delay="200" t-esc="event.name"/>
+                            <div class="event-headerinfo" data-aos="fade-up" data-aos-delay="400">
+                                <div class="event-headerinfo-events">
+                                    <label class="dates">
+                                        <span t-if="event.event_multiple_date == 'oneday'" t-field="event.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                        <t t-if="event.event_multiple_date == 'multiday'">
+                                            <t t-set="event_start_date" t-value="event.multi_date_line_ids.ids[0]"/>
+                                            <t t-set="event_start_date" t-value="request.env['multi.date.line'].sudo().browse(event_start_date)" />
+                                            <t t-set="event_end_date" t-value="event.multi_date_line_ids.ids[-1]"/>
+                                            <t t-set="event_end_date" t-value="request.env['multi.date.line'].sudo().browse(event_end_date)" />
+                                            <span t-field="event_start_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                            To 
+                                            <span t-field="event_end_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                        </t>
+                                    </label>
+                                    <br/>
+                                    <label class="timetext" t-if="event.event_multiple_date == 'oneday'">
+                                        <t t-esc="event.hour_time_begin"/>
+                                        :
+                                        <t t-esc="event.min_time_begin"/>
+                                        To 
+                                        <t t-esc="event.hour_time_end"/>
+                                        :
+                                        <t t-esc="event.min_time_end"/>
+                                    </label>
+
+                                    <label class="timetext" t-if="event.event_multiple_date == 'multiday'">
+                                        <t t-esc="event_start_date.hour_time_begin"/>
+                                        :
+                                        <t t-esc="event_start_date.min_time_begin"/>
+                                        To 
+                                        <t t-esc="event_end_date.hour_time_end"/>
+                                        :
+                                        <t t-esc="event_end_date.min_time_end"/>
+                                    </label>
+                                    <br/>
+
+                                    <label class="therapestlocation">
+                                        <u>
+                                            <t t-esc="event.company_id.name"/>
+                                        </u>
+                                    </label>
+
+                                    <a class="mobileimg" style="margin:0px;">
+                                        <i class="far fa-user" style="color: #00AEC7;margin-right: 6px;"></i>
+                                        <u>
+                                            <t t-esc="event.get_facilitator_name()"/>
+                                        </u>
+                                    </a>
+                                    <label class="pricetagicon-text desktopimg">
+                                        <b>
+                                            <t t-esc="event.get_event_price()"/>
+                                        </b> د.إ 
+                                    </label>
+                                    <br/>
+
+                                </div>
+
+                                <div class="event-useringo desktopimg">
+                                    <img t-attf-src="/web/image?model=hr.employee&amp;id={{event.facilitator_evnt_ids[0].id}}&amp;field=image_1920" />
+                                    <a t-attf-href="/team/therapists/{{event.facilitator_evnt_ids[0].id}}">
+                                        <t t-esc="event.facilitator_evnt_ids[0].name"/>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="twobtns" data-aos="fade-up" data-aos-delay="500">
+                                <t t-if="event.event_service_categ_id.is_retreats">
+                                    <p>
+                                        <span t-raw="event.evnt_description"/>
+                                    </p>
+                                </t>
+
+                                <a class="fullbutton" id="selected-event-ID" data-toggle="modal" t-att-data-event-id="event.id" t-att-data-event="event" t-att-cart_ticket_id="ticket.id if ticket != 0 else 0">book now</a>
+                                <a href="#book_free_apt_snippet" class="borderedbtn">Enquire Now</a>
+                            </div>
+
+                            <div class="socialshareevents" data-aos="fade-up" data-aos-delay="600">
+                                <img t-att-src="'/web/image?model=event.event&amp;id=%s&amp;field=image' % (event.id) if  event.image else '/ppts_website_theme/static/src/img/evenrpage-banner.jpg' " class="mobileimg  bannermobileimg"></img>
+                                <p> Share this event via:</p>
+                                <p class="mbl-share-event-p">
+                                    <a t-attf-href="https://www.facebook.com/sharer/sharer.php?u={{request.httprequest.url}}">
+                                        <img src="/ppts_website_theme/static/src/img/facebook-border.svg" style="width: 22px !important;height: 22px !important;"/>
+                                    </a>
+                                    <a t-attf-href="https://twitter.com/intent/tweet?&amp;url={{request.httprequest.url}}">
+                                        <img src="/ppts_website_theme/static/src/img/twitter-border.svg" style="width: 22px !important;height: 22px !important;"/>
+                                    </a>
+                                    <a t-attf-href="whatsapp://send?text={{request.httprequest.url}}">
+                                        <img src="/ppts_website_theme/static/src/img/whatsapp.svg" style="width: 22px !important;height: 22px !important;"/>
+                                    </a>
+                                    <a t-attf-href="mailto:?subject=''&amp;body={{request.httprequest.url}}">
+                                        <img src="/ppts_website_theme/static/src/img/email-blue.svg" style="width: 22px !important;height: 22px !important;"/>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-lg-6 col-md-12 col-xl-6 order-1 order-lg-2 order-sm-1 rightsideslide  desktopimg">
+                <div class="hero-two-right">
+                    <div class="image-orvideocpnt">
+                        <img t-att-src="'/web/image?model=event.event&amp;id=%s&amp;field=image' % (event.id) if  event.image else '/ppts_website_theme/static/src/img/evenrpage-banner.jpg' " />
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </template>
+
+
+</data>
+</odoo>

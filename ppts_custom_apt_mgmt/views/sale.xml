@@ -1,0 +1,265 @@
+<odoo>
+	<data>
+
+		<record id="sale_order_form_view_inherit_apt_sale_order" model="ir.ui.view">
+			<field name="name">sale.order</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//header" position="replace">
+					<header>
+						<field name="authorized_transaction_ids" invisible="1"/>
+						<button name="payment_action_capture" type="object" string="Capture Transaction" class="oe_highlight" attrs="{'invisible': [('authorized_transaction_ids', '=', [])]}"/>
+						<button name="payment_action_void" type="object" string="Void Transaction" confirm="Are you sure you want to void the authorized transaction? This action can't be undone." attrs="{'invisible': [('authorized_transaction_ids', '=', [])]}"/>
+						<button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice" type="action" class="btn-primary" attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}"/>
+						<button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice" type="action" context="{'default_advance_payment_method': 'percentage'}" attrs="{'invisible': ['|',('invoice_status', '!=', 'no'), ('state', '!=', 'sale')]}"/>
+
+						<button name="action_confirm" id="action_confirm" string="Confirm" class="btn-primary" type="object" attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>
+						<button name="action_confirm" string="Confirm" type="object" attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+						<button name="action_cancel" type="object" string="Cancel" attrs="{'invisible': ['|', ('state', 'not in', ['draft', 'sent','sale']), ('id', '=', False)]}"/>
+						<button name="action_draft" states="cancel" type="object" string="Set to Quotation"/>
+						<field name="payment_button_show" invisible="1" />
+						<button name="action_sale_register_payment" attrs="{'invisible': [('payment_button_show', '=', False)]}" type="object" string="Pay" invisible="1"/>
+
+						<field name="state" widget="statusbar" statusbar_visible="draft,sale"/>
+
+						<!-- Invisible -->
+						<button name="action_quotation_send" string="Send by Email" type="object" states="draft" class="btn-primary" invisible="1"/>
+						<button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" class="btn-primary" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}" invisible="1"/>
+						<button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" attrs="{'invisible': ['|', ('state', '=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}" invisible="1"/>
+						<button name="action_quotation_send" string="Send by Emaill" type="object" states="sent,sale" invisible="1"/>
+						<!-- Invisible -->
+
+					</header>
+				</xpath>
+
+				<xpath expr="//div[@name='button_box']" position="after">
+					<field name="invoice_payment_status_set" invisible="1"/>
+					<field name="invoice_fully_paid" invisible="1"/>
+					<field name="invoice_partially_paid" invisible="1"/>
+					<field name="invoice_not_paid" invisible="1"/>
+					<widget name="web_ribbon" text="Not Paid" class="not_paid_widget" invisible="1"/> <!-- attrs="{'invisible': [('invoice_not_paid', '=', False)]}" -->
+					<widget name="web_ribbon" text="Partially Paid" class="not_partially_paid_widget" invisible="1"/> <!-- attrs="{'invisible': [('invoice_partially_paid', '=', False)]}"  -->
+					<widget name="web_ribbon" text="Paid"  invisible="1"/> <!-- attrs="{'invisible': [('invoice_fully_paid', '=', False)]}" -->
+				</xpath>
+
+				<!-- <xpath expr="//field[@name='partner_invoice_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath> -->
+				<xpath expr="//field[@name='partner_id']" position="replace">
+					<field name="partner_id"/>
+				</xpath>
+				<xpath expr="//button[@name='preview_sale_order']" position="replace">
+				</xpath>
+
+				<xpath expr="//field[@name='payment_term_id']" position="attributes">
+					<attribute name="groups">base.group_no_one</attribute>
+				</xpath>
+
+
+				<xpath expr="//field[@name='pricelist_id']" position="attributes">
+					<attribute name="groups">base.group_no_one</attribute>
+				</xpath>
+				<xpath expr="//page[@name='other_information']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+
+				<xpath expr="//label[@for='pricelist_id']" position="attributes">
+					<attribute name="groups">base.group_no_one</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='order_line']/tree/field[@name='qty_delivered']" position="attributes">
+					<attribute name="invisible">0</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='order_line']/tree/field[@name='qty_invoiced']" position="attributes">
+					<attribute name="invisible">0</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='tag_ids']" position="after">
+					<field name="appt_sale_id"/>
+					<field name="sale_type_for"/>
+				</xpath>
+
+				<xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+					<field name="session_type" attrs="{'column_invisible': [('parent.sale_type_for', '!=', 'appointment')]}"/>
+					<field name="apt_service_category" attrs="{'column_invisible': [('parent.sale_type_for', '!=', 'appointment')]}"/>
+					<!-- <field name="apt_sub_category" attrs="{'column_invisible': [('parent.sale_type_for', '!=', 'appointment')]}"/> -->
+				</xpath>
+
+				<xpath expr="//group[@name='sale_header']" position="replace">
+
+					<group name="sale_header">
+                        <group name="partner_details">
+                            <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True,'form_view_ref': 'custom_partner.res_partner_history_history_from_view'}" options="{&quot;always_reload&quot;: True}" invisible="1"/>
+                            <field name="customer_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True,'form_view_ref': 'custom_partner.res_partner_history_history_from_view'}" options="{&quot;always_reload&quot;: True}"/>
+                            <field name="partner_invoice_id" groups="sale.group_delivery_invoice_address" context="{'default_type':'invoice','form_view_ref': 'custom_partner.res_partner_history_history_from_view'}" options="{&quot;always_reload&quot;: True}" invisible="1"/>
+                            <field name="partner_inv_id" groups="sale.group_delivery_invoice_address" context="{'default_type':'invoice','form_view_ref': 'custom_partner.res_partner_history_history_from_view'}" options="{&quot;always_reload&quot;: True}"/>
+                            <field name="partner_shipping_id" groups="sale.group_delivery_invoice_address" context="{'default_type':'delivery','form_view_ref': 'custom_partner.res_partner_history_history_from_view'}" options="{&quot;always_reload&quot;: True}" invisible="1"/>
+                            <field name="partner_ship_id" groups="sale.group_delivery_invoice_address" context="{'default_type':'delivery','form_view_ref': 'custom_partner.res_partner_history_history_from_view'}" options="{&quot;always_reload&quot;: True}"/>
+                        </group>
+                        <group name="order_details">
+                            <field name="validity_date" attrs="{'invisible': [('state', 'in', ['sale', 'done'])]}"/>
+                            <div class="o_td_label" groups="base.group_no_one" attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}">
+                                <label for="date_order" string="Quotation Date"/>
+                            </div>
+                            <field name="date_order" nolabel="1" groups="base.group_no_one" attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}"/>
+
+							<div class="o_td_label" attrs="{'invisible': [('state', 'in', ['draft', 'sent'])]}">
+                                <label for="date_order" string="Order Date"/>
+                            </div>
+                            <field name="date_order" attrs="{'required': [('state', 'in', ['sale', 'done'])], 'invisible': [('state', 'in', ['draft', 'sent'])]}" nolabel="1"/>
+                             <field name="user_id"/>
+							<field name="company_id"/>
+							<field name="web_apt_id" invisible="1"/>
+							<field name="web_event_id" invisible="1"/>
+							<field name="show_update_pricelist" invisible="1"/>
+                            <label for="pricelist_id" groups="product.group_product_pricelist" invisible="1"/>
+                            <div groups="product.group_product_pricelist" class="o_row" invisible="1">
+                                <field name="pricelist_id" options="{'no_open':True,'no_create': True}"/>
+                                <button name="update_prices" type="object" string=" Update Prices" help="Recompute all prices based on this pricelist" class="btn-link mb-1 px-0" icon="fa-refresh" confirm="This will update all unit prices based on the currently set pricelist." attrs="{'invisible': ['|', ('show_update_pricelist', '=', False), ('state', 'in', ['sale', 'done','cancel'])]}"/>
+                            </div>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="payment_term_id" options="{'no_open':True,'no_create': True}" invisible="1"/>
+                        </group>
+                    </group>
+
+
+						<div class="box">
+
+							<div class="apt-container-sub" attrs="{'invisible': [('sale_type_for', '!=', 'appointment')]}">
+
+								<div class="box box-head">Appointment Info</div>
+								<div class="box box-content">
+
+									<div class="apt-inner-box">
+										<div class="apt-inner-box-head">
+											<label for="apt_booking_date" string="Appointment Date"/>
+										</div>
+										<div class="apt-inner-box-content">
+											<field name="apt_booking_date" />
+										</div>
+									</div>
+
+									<div class="apt-inner-box">
+										<div class="apt-inner-box-head">
+											<label for="apt_booked_by" string="Created By"/>
+										</div>
+										<div class="apt-inner-box-content">
+											<field name="apt_booked_by" readonly="1" widget="many2one_avatar_user"/>
+										</div>
+									</div>
+
+									<div class="apt-inner-box">
+										<div class="apt-inner-box-head">
+											<label for="user_id" string="Sales Incharge"/>
+										</div>
+										<div class="apt-inner-box-content">
+											<field name="user_id" />
+										</div>
+									</div>
+
+									<div class="apt-inner-box">
+										<div class="apt-inner-box-head">
+											<label for="company_id" string="Branch"/>
+										</div>
+										<div class="apt-inner-box-content">
+											<field name="company_id" />
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+
+
+						</div>
+				</xpath>
+
+				<xpath expr="//page[@name='order_lines']" position="after">
+					<page string="Advanced Payments" name="advanced_payments" invisible="1">
+						<group>
+							<field name="total_advance_amount_paid"/>
+							<field name="due_advance_amount"/>
+						</group>
+
+						<field name="adv_payment_ids" readonly="1">
+							<tree create="false" edit="false" delete="false">
+								<!-- <field name="appointment_id"/>-->
+								<field name="company_id"/>
+								<field name="partner_id"/>
+								<field name="journal_id"/>
+								<field name="destination_account_id"/>
+								<field name="payment_date"/>
+								<field name="amount" string="Amount Paid"/>
+								<field name="amount_taken_from_outstanding"/>
+								<field name="total_amount"/>
+								<field name="amount_due"/>
+
+							</tree>
+
+							<form create="false" edit="false" delete="false">
+								<sheet>
+
+									<group>
+										<field name="company_id" invisible="1"/>
+										<field name="currency_id" invisible="1"/>
+
+										<group>
+											<field name="partner_id" groups="base.group_no_one"/>
+											<field name="journal_id"/>
+
+										</group>
+										<group>
+											<field name="payment_date"/>
+											<field name="ref"/>
+											<field name="destination_account_id" groups="base.group_no_one"/>
+											<field name="appointment_id" groups="base.group_no_one"/>
+										</group>
+
+
+									</group>
+									<group>
+										<group>
+											<field name="amount" string="Amount Paid"/>
+											<field name="total_amount"/>
+										</group>
+										<group>
+											<field name="amount_taken_from_outstanding"/>
+											<field name="amount_due"/>
+										</group>
+
+									</group>
+
+								</sheet>
+							</form>
+						</field>
+					</page>
+				</xpath>
+
+
+                </field>
+            </record>
+
+        </data>
+	<record id="sale_order_tree_view_inherit" model="ir.ui.view">
+	  <field name="name">sale.order</field>
+	  <field name="model">sale.order</field>
+	  <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding" />
+	  <field name="arch" type="xml">
+		  <xpath expr="//field[@name='create_date']" position="after">
+			  <field name="customer_id"/>
+		  </xpath>
+		  <xpath expr="//field[@name='partner_id']" position="attributes">
+			  <attribute name="invisible">1</attribute>
+		  </xpath>
+	  </field>
+	</record>
+    </odoo>

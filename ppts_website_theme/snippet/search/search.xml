@@ -1,0 +1,60 @@
+<odoo>
+	<data>
+		<template id="theme_search_page" name="Search">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure">
+
+					<style>
+						@media only screen and (min-width: 992px) {
+							footer > section > div svg{
+								position: absolute;
+								bottom: 220px;
+							}
+						}
+
+						@media only screen and (min-width: 1200px) {
+							footer > section > div svg{
+								position: absolute;
+								bottom: 220px;
+							}
+						}
+					</style>
+					<!--  header start-->
+					<section class="subpage-top-hero-section-two light-blue-bg">
+						<div class="eachsection">
+							<div class="row hero-section-two search-page-banner mycontainer">
+								<div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12 ">
+									<div class="hero-two-left" data-aos="fade-up" data-aos-delay="100">
+
+										<p>Find what are you looking for</p>
+										<h1>Start your jouney with Illuminations</h1>
+										<div class="search-input-wrapper">
+											<div class="searchinputform">
+												<form class="row" action="/search/result" method="post" data-mark="*">
+													<input type="search" name="searchinput" t-att-value="search_result" placeholder="Search..." class="searchicon" autocomplete="off" autofocus="True"/>
+													<button class="searchfillbtn" type="submit">Start journey</button>
+												</form>
+											</div>
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+							<div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12 rightsideslide searchpagerightsection">
+								<div class="hero-two-right">
+									<div class="image-orvideocpnt">
+										<img src="/ppts_website_theme/static/src/img/Search_includ.png" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!--  header end -->
+				</div>
+			</t>
+		</template>
+	</data>
+</odoo>

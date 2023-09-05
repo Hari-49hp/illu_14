@@ -1,0 +1,382 @@
+<odoo>
+    <data>
+        <template id="initial_application_form_page" name="Initial Application Form">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <style>    input[type="checkbox"]:checked:after {
+                            top: -12px;
+                            left: 4px;
+                        }
+
+
+                            footer > section > div{
+                                background: #fff;
+                            }
+                    </style>
+
+                    <section class="fullviewimage-hero">
+                        <div class="mycontainer subintrotext" data-aos="fade-up" data-aos-delay="150">
+                            <div class="row justify-content-between">
+                                <div class="col-xl-5 blacktext ">
+                                    <div class="hero-intro-text  ">
+                                        <h6 class="hearblackstyletext ">Initial </h6>
+                                        <h1>Application Form.</h1>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <br />
+                                    <br />
+                                    <p style="line-height:28px">
+                                        Thank you for your interest in Joining our team. We'd love to get to know you better and hear
+                                        more about what you do and how you can serve! 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section-topbtm-padding initail-app-sec">
+
+                        <div class="eachsection">
+                            <div class="mycontainer initialappforms" data-aos="fade-up" data-aos-delay="150">
+                                <form class="initial-fill-form" t-attf-action="/initial/application/submit/{{job_id}}" id="InitialApplicationSubmit" method="post" data-mark="*" data-success-mode="redirect" enctype="multipart/form-data" autocomplete="off">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="row">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What is Your First Name? *</label>
+                                                        <div class="form-group">
+                                                            <input class="form-control " type="text " placeholder="Name" required="required" name="name"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What is Your Last Name? *</label>
+                                                        <div class="form-group">
+                                                            <input class="form-control " type="text " placeholder="Last name" required="required" name="last_name"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What is Your Healers Name?</label>
+                                                        <div class="form-group">
+                                                            <input class="form-control " type="text" name="healer" placeholder="What is Your Healers Name?"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What is Your Date of Birth?</label>
+                                                        <div class="form-group">
+                                                            <input class="form-control " type="date" name="dob" placeholder="Example: January 7, 2019"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">Gender</label>
+                                                        <div class="form-group radiocheckgrp">
+                                                            <input type="checkbox" name="flexRadioDefaultGender0" id="flexRadioDefaultGender0" value="female" class="flexRadioDefaultGender"/>
+                                                            <label class="checkradiolabel" for="flexRadioDefaultGender0">Female</label>
+                                                            <input type="checkbox" name="flexRadioDefaultGender1" id="flexRadioDefaultGender1" value="male" class="flexRadioDefaultGender"/>
+                                                            <label class="checkradiolabel" for="flexRadioDefaultGender1">Male</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">Do you want to apply as a Local or Visiting
+                                                            Facilitator?</label>
+                                                        <div class="form-group radiocheckgrp">
+                                                            <input type="checkbox" name="facilitator0" id="facilitator0" class="facilitator" value="local"/>
+                                                            <label class="checkradiolabel" for="facilitator0">Local</label>
+
+                                                            <input type="checkbox" name="facilitator1" id="facilitator1" class="facilitator" value="guest"/>
+                                                            <label class="checkradiolabel" for="facilitator1">Guest/Visiting</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What is Your Contact Number?</label>
+                                                        <div class="form-group phonegroup">
+                                                            <input id="phone" type="tel" name="phone_number[main]" class="form-control " placeholder="Phone number " />
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What is Your Email Adress*</label>
+                                                        <div class="form-group">
+                                                            <input class="form-control " type="text" name="email" required="required" placeholder="Email"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What is Your Nationality?</label>
+                                                        <div class="form-group select-arrow">
+                                                            <t t-set="country_ids" t-value="request.env['res.country'].sudo().search([])" />
+                                                            <select class="form-control" name="country_id" id="country_id">
+                                                                <option value="0">Nationality</option>
+                                                                <t t-foreach="country_ids" t-as="country_id">
+                                                                    <option t-att-value="country_id.id">
+                                                                        <t t-esc="country_id.name" />
+                                                                    </option>
+                                                                </t>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What Are Your Spoken Language?*</label>
+                                                        <div class="form-group">
+                                                            <input class="form-control " type="text " placeholder="Language" required="required" name="url"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">What’s Your Promotional Website, if any?</label>
+                                                        <div class="form-group">
+                                                            <input class="form-control " type="text " placeholder="URL" name="url"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">Where are you based? Which City?</label>
+                                                        <div class="form-group select-arrow">
+                                                            <t t-set="city_ids" t-value="request.env['res.country.state'].sudo().search([])" />
+                                                            <select class="form-control" name="city_id" id="city_id">
+                                                                <option value="0">Select City</option>
+                                                                <t t-foreach="city_ids" t-as="city_id">
+                                                                    <option t-att-value="city_id.country_id.id" t-att-id="city_id.id">
+                                                                        <t t-esc="city_id.name" />
+                                                                    </option>
+                                                                </t>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                                    <div class="form_input_wrapper">
+                                                        <label class="foem_mylabel">Are you willing to relocate and work as a local
+                                                            facilitator in one of illuminations Branches?</label>
+                                                        <div class="form-group radiocheckgrp">
+                                                            <label class="checkradiolabel padding-left-40" for="relocate0">
+                                                                Yes
+                                                                <input type="radio" name="relocate0" id="relocate0" class="relocate" value="yes"/>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+
+                                                            <label class="checkradiolabel padding-left-40" for="relocate1">
+                                                                No
+                                                                <input type="radio" name="relocate1" id="relocate1" class="relocate" value="no"/>
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form_input_wrapper">
+                                                <label class="foem_mylabel">Please Upload a Professional Image of Yourself</label>
+                                                <div class="uploadbtnprogress-input inputwrap">
+                                                    <label for="app_file" style="overflow: hidden;display: inline-block;text-overflow: ellipsis;white-space: nowrap;"> Upload image <i class="fas fa-upload"></i>
+                                                    </label>
+                                                    <input id="app_file" type="file" name="app_file" style="display: none" onchange="preview_image();" multiple="true" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true" accept="image/png, image/gif, image/jpeg" class="dataset"/>
+                                                    <div class="progress hidden">
+                                                        <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="uploadedimage-wrapper">
+                                                <span id="ImagePreviewSpan" class="d-none">Files submitted:</span>
+                                                <div class="uploadedimage-container" id="ImagePreview">
+                                                    <!--                                                <img src="./assets/img/upload1.jpg" />-->
+                                                    <!--                                                <img src="./assets/img/upload2.jpg" />-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <label class="foem_mylabel">Tell Us The Support &amp; Which Approaches Do Your Services Fall Under?</label>
+                                            <!--                                            <div id="tree" class="checktreeinput"></div>-->
+                                            <div id="treeview_new"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row margin-top-45">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form_input_wrapper">
+                                                <label class="foem_mylabel">Your mode of service? (Which platform you provide your services on?)</label>
+                                                <div class="form-group radiocheckgrp">
+                                                    <label class="checkradiolabel padding-left-40" for="type0">
+                                                        Online
+                                                        <input type="checkbox" name="type0" id="type0" class="type" value="type_online"/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+
+                                                    <label class="checkradiolabel padding-left-40" for="type1">
+                                                        Onsite (Face-To-Face)
+                                                        <input type="checkbox" name="type1" id="type1" class="type" value="type_onsite"/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+
+                                                    <label class="checkradiolabel padding-left-40" for="type2">
+                                                        Hybrid
+                                                        <input type="checkbox" name="type2" id="type2" class="type" value="type_hybrid"/>
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <t t-set="question_ids" t-value="request.env['initial.application.question'].sudo().search([])" />
+                                    <div class="row initialformtreeviews" id="DivInitialFormAnswer">
+                                        <t t-foreach="question_ids" t-as="question_id">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <label class="foem_mylabel">
+                                                    <t t-esc="question_id.name"/>
+                                                </label>
+                                                <t t-foreach="question_id.options" t-as="option">
+                                                    <div class="form-group">
+                                                        <input type="checkbox" t-attf-name="AppOptions{{option.id}}" t-attf-data-parent="{{question_id.id}}" t-attf-data-id="{{option.id}}" t-attf-id="AppOptions{{option.id}}" t-attf-value="{{option.id}}" class="InitialFormAnswer"/>
+                                                        <label class="checkradiolabel" t-attf-for="AppOptions{{option.id}}">
+                                                            <t t-esc="option.name"/>
+                                                        </label>
+                                                    </div>
+                                                </t>
+                                            </div>
+                                        </t>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="form_input_wrapper">
+                                                <label class="foem_mylabel">If Other, please name the approach and provide a few details
+                                                    <br />
+ about it</label>
+                                                <div class="form-group">
+                                                    <textarea class="form-control" style="min-height: 100px;" name="others" placeholder="Type text here"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <button type="submit" class="formsubmitbtn " id="btn-apply-initial">Apply</button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"/>
+                    <script type="text/javascript" src="/ppts_website_theme/static/src/js/jquery.treeview.js"></script>
+                    <link href="/ppts_website_theme/static/src/css/jquery.treeview.css" rel="stylesheet"/>
+                    <script type="text/javascript">
+                    </script>
+
+                    <!-- Vendor CSS Files -->
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+                    <!-- Template Main CSS File -->
+                    <!-- Common css for all screens -->
+                    <!-- <link href="/ppts_website_theme/static/src/css/simTree.css" rel="stylesheet"/> -->
+                    <!-- <link href="/ppts_website_theme/static/src/css/elegant-icons.css" rel="stylesheet"> -->
+                    <!-- Vendor JS Files -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+                    <!-- <script src="/ppts_website_theme/static/src/js/simTree.js"></script> -->
+                    <!--  Main JS File -->
+                    <script src="/ppts_website_theme/static/src/js/initial_application.js"></script>
+                    <script>
+                            function openNav() {
+
+                                $('#mySidenav').toggleClass("activemenu");
+                                $('html').toggleClass("menuopened");
+                            }
+                    </script>
+
+                    <script>
+                            const $content = document.querySelector('.content')
+                            const $label = document.querySelector('label')
+                            const $input = document.querySelector('#file')
+                            const $progress = document.querySelector('.progress')
+                            const $progressBar = document.querySelector('.progress-bar')
+                            const $progressBarWraper = document.querySelector('.uploadbtnprogress-input')
+
+
+
+                            const TIME = 10000
+                            const step = 400 / TIME * 16;
+                            let total = 0;
+
+                            const updateProgress = () => {
+                                if (total > 400) {
+                                    updateStatus()
+                                    return
+                                }
+                                $progressBar.style.width = total + 'px';
+                                total += step
+                                requestAnimationFrame(updateProgress)
+                            }
+
+                            const updateStatus = () => {
+                                const success = [1058, 1067, 32, 1055, 1048, 1044, 1054, 1056]
+                                $content.classList.add('success')
+                                //   $content.textContent = success.map(String.fromCharCode).join('')
+                            }
+
+                            $input.addEventListener('change', () => {
+                                $input.classList.toggle('hidden')
+                                $progress.classList.toggle('hidden')
+                                $label.textContent = 'Analyzing...'
+                                requestAnimationFrame(updateProgress)
+
+                            })
+                    </script>
+                    <script>
+                            const phoneInputField = document.querySelector("#phone");
+                            const phoneInput = window.intlTelInput(phoneInputField, {
+                                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+                            });
+
+
+                            var phone_number = window.intlTelInput(document.querySelector("#phone"), {
+                                separateDialCode: true,
+                                preferredCountries: ["in"],
+                                hiddenInput: "full",
+                                utilsScript: "//cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js"
+                            });
+
+                            $("form").submit(function () {
+                                var full_number = phone_number.getNumber(intlTelInputUtils.numberFormat.E164);
+                                $("input[name='phone_number[full]'").val(full_number);
+                            });
+                    </script>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

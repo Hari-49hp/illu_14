@@ -1,0 +1,1240 @@
+<odoo>
+	<data>
+		<template id="pos_wizard" name="pos">
+			<div id="DIV_1" class="popper-content d-none">
+				<div id="DIV_2">
+					<div id="DIV_3">
+						<span id="SPAN_4"></span>
+						<div id="DIV_5">
+							<div id="DIV_6">
+								<div id="DIV_7">
+									<div id="DIV_8">
+										<div id="DIV_9">
+											<div id="DIV_10">
+												<div id="DIV_11">
+													<img src="https://:0/" alt="" id="IMG_12" />
+												</div>
+											</div>
+											<div id="DIV_13">
+												K
+											</div>
+										</div>
+									</div>
+									<div id="DIV_14">
+										Karyn O Grady
+									</div>
+									<div id="DIV_15">
+									</div>
+									<div id="DIV_16">
+										<div id="DIV_17">
+											<img src="https://:0/" alt="" id="IMG_18" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /ko -->
+
+							<!-- ko if: inOverflow -->
+
+							<!-- /ko -->
+
+						</div>
+						<!-- /ko -->
+
+						<div id="DIV_19">
+							<span id="SPAN_20"></span>
+							<div id="DIV_21" style="background: #fff;">
+								<!-- ko if: iconType().stringValue === "Normal" || "Animation" -->
+								<i id="I_22"></i>
+								<!-- /ko -->
+
+								<!-- ko if: iconType().stringValue === "SVG" -->
+
+								<div id="DIV_23">
+									<svg id="svg_24">
+										<!-- <path id="path_25">
+									</path> -->
+								</svg>
+							</div>
+							<!-- /ko -->
+
+							<!-- ko if: text -->
+
+							<!-- /ko -->
+
+						</div><span id="SPAN_26"></span>
+						<div id="DIV_27">
+							<svg style="cursor: pointer;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" data-name="Close"><path d="M10.7,10l7.6-7.6c0.2-0.2,0.2-0.5,0-0.7c-0.2-0.2-0.5-0.2-0.7,0L10,9.3L2.4,1.6c-0.2-0.2-0.5-0.2-0.7,0 c-0.2,0.2-0.2,0.5,0,0.7L9.3,10l-7.6,7.6c-0.2,0.2-0.2,0.5,0,0.7c0.2,0.2,0.5,0.2,0.7,0l7.6-7.6l7.6,7.6c0.2,0.2,0.5,0.2,0.7,0 c0.2-0.2,0.2-0.5,0-0.7L10.7,10z"></path></svg>
+						</div><span id="SPAN_32"></span>
+						<div id="DIV_33">
+							<!-- ko if: iconType().stringValue === "Normal" || "Animation" -->
+							<i id="I_34"></i>
+							<!-- /ko -->
+
+							<!-- ko if: iconType().stringValue === "SVG" -->
+
+							<div id="DIV_35">
+								<svg id="svg_36">
+									<path id="path_37">
+									</path>
+								</svg>
+							</div>
+							<!-- /ko -->
+
+							<!-- ko if: text -->
+
+							<!-- /ko -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="DIV_38">
+				<div id="DIV_39">
+					<!-- ko ifnot: showFatalError -->
+
+					<div id="DIV_40">
+						<!-- ko if: showPostCheckout -->
+
+						<!-- /ko -->
+
+						<!-- ko if: showCompletingSaleAnimationIcon -->
+
+						<!-- /ko -->
+
+						<!-- ko if: showSaleCompleteAnimation -->
+
+						<!-- /ko -->
+
+						<div id="DIV_41">
+							<div id="DIV_42">
+								<div id="DIV_43">
+									<div id="DIV_44">
+										<!-- ko if: showNoList -->
+
+										<div id="DIV_45">
+										</div>
+										<!-- /ko -->
+
+										<!-- ko if: showUnorderedList -->
+
+										<!-- /ko -->
+
+										<!-- ko if: showOrderedList -->
+
+										<!-- /ko -->
+
+									</div>
+								</div>
+							</div>
+							<div id="DIV_46">
+
+
+								<div class="main-content-pos">
+									<div id="DIV_paid_status">
+										UNPAID
+									</div>
+
+										<!-- <div id="DIV_CONTENT_1">
+											<div id="DIV_CONTENT_2">
+												<div id="DIV_CONTENT_3">
+													<div id="DIV_CONTENT_4">
+														<div id="DIV_CONTENT_5">
+															<div id="DIV_CONTENT_6">
+																<div id="DIV_CONTENT_7">
+																	<div id="DIV_CONTENT_8">
+																		<div id="DIV_CONTENT_9">
+																			<div id="DIV_CONTENT_10">
+																				<span id="SPAN_11">Reiki Attunements</span>
+																			</div>
+																			<div id="DIV_CONTENT_28">
+																				16:30 today with Khan, Shazia
+																			</div>
+																		</div>
+																		<div id="DIV_CONTENT_29">
+																			<div id="DIV_CONTENT_30">
+																				<div id="DIV_CONTENT_31">
+																					<div id="DIV_CONTENT_32">
+																						<div id="DIV_CONTENT_33">
+																							<i id="I_34"></i>
+																							<div id="DIV_CONTENT_35">
+																								<svg id="svg_36">
+																									<path id="path_37">
+																									</path>
+																									<path id="path_38">
+																									</path>
+																								</svg>
+																							</div>
+																						</div>
+																					</div>
+																					<div id="DIV_CONTENT_39">
+																					</div>
+																				</div>
+																				<label id="LABEL_40">
+																				</label>
+																			</div>
+																		</div>
+
+
+
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div id="DIV_CONTENT_85">
+														</div>
+														<div id="DIV_CONTENT_86">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div> -->
+										<div class="add-cart-lst-itemms">
+											<!-- <span class="no-item-crt">No item in cart</span> -->
+											<div class="ado-rplace"/>
+										</div>
+
+
+<!-- <div id="DIV_paid_status">
+UNPAID
+</div> -->
+<div id="DIV_addon_ad">
+	<div class="search-serv-nm">Services</div>
+	<input style="border-radius: 0px;width: 100%;" type="text" id="services-searchbar" name="services-searchbar" class="typeahead tt-query" autocomplete="off" spellcheck="false"/>
+	<!-- <span id="SPAN_addon_add_17">Add-on Service</span> -->
+</div>
+
+
+
+<div id="DIV_bottom_btn1">
+	<div id="DIV_bottom_btn2">
+		<div id="DIV_bottom_btn3">
+			<div id="DIV_bottom_btn4">
+				<div id="DIV_bottom_btn5">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="DIV_bottom_btn6">
+		<div id="DIV_bottom_btn7">
+			<a id="A_bottom_btn8">
+				<span id="SPAN_bottom_btn20">Cancel</span>
+			</a>
+		</div>
+		<div id="DIV_bottom_btn23">
+			<a id="A_bottom_btn24">
+				<i id="I_38"></i><span id="SPAN_bottom_btn39">Add to cart</span>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div id="DIV_277">
+	<div id="DIV_278">
+		<skeleton id="SKELETON_279">
+			<div id="DIV_280">
+				<div id="DIV_281">
+					<svg id="svg_282">
+						<defs id="defs_283">
+							<clippath id="clipPath_284">
+								<rect id="rect_285">
+								</rect>
+							</clippath>
+						</defs>
+						<g id="g_286">
+							<g id="g_287">
+								<g id="g_288">
+									<path id="path_289">
+									</path>
+									<path id="path_290">
+									</path>
+								</g>
+							</g>
+							<g id="g_291">
+								<g id="g_292">
+									<path id="path_293">
+									</path>
+									<path id="path_294">
+									</path>
+								</g>
+							</g>
+							<g id="g_295">
+								<g id="g_296">
+									<path id="path_297">
+									</path>
+									<path id="path_298">
+									</path>
+								</g>
+							</g>
+							<g id="g_299">
+								<g id="g_300">
+									<path id="path_301">
+									</path>
+									<path id="path_302">
+									</path>
+								</g>
+							</g>
+							<g id="g_303">
+								<g id="g_304">
+									<path id="path_305">
+									</path>
+									<path id="path_306">
+									</path>
+								</g>
+							</g>
+							<g id="g_307">
+								<g id="g_308">
+									<path id="path_309">
+									</path>
+									<path id="path_310">
+									</path>
+								</g>
+							</g>
+							<g id="g_311">
+								<g id="g_312">
+									<path id="path_313">
+									</path>
+									<path id="path_314">
+									</path>
+								</g>
+							</g>
+							<g id="g_315">
+								<g id="g_316">
+									<path id="path_317">
+									</path>
+									<path id="path_318">
+									</path>
+								</g>
+							</g>
+							<g id="g_319">
+								<g id="g_320">
+									<path id="path_321">
+									</path>
+									<path id="path_322">
+									</path>
+								</g>
+							</g>
+							<g id="g_323">
+								<g id="g_324">
+									<path id="path_325">
+									</path>
+									<path id="path_326">
+									</path>
+								</g>
+							</g>
+							<g id="g_327">
+								<g id="g_328">
+									<path id="path_329">
+									</path>
+									<path id="path_330">
+									</path>
+								</g>
+							</g>
+							<g id="g_331">
+								<g id="g_332">
+									<path id="path_333">
+									</path>
+									<path id="path_334">
+									</path>
+								</g>
+							</g>
+							<g id="g_335">
+								<g id="g_336">
+									<path id="path_337">
+									</path>
+									<path id="path_338">
+									</path>
+								</g>
+							</g>
+							<g id="g_339">
+								<g id="g_340">
+									<path id="path_341">
+									</path>
+									<path id="path_342">
+									</path>
+								</g>
+							</g>
+							<g id="g_343">
+								<g id="g_344">
+									<path id="path_345">
+									</path>
+									<path id="path_346">
+									</path>
+								</g>
+							</g>
+							<g id="g_347">
+								<g id="g_348">
+									<path id="path_349">
+									</path>
+									<path id="path_350">
+									</path>
+								</g>
+								<g id="g_351">
+									<path id="path_352">
+									</path>
+									<path id="path_353">
+									</path>
+								</g>
+							</g>
+						</g>
+					</svg>
+				</div>
+				<div id="DIV_354">
+					<svg id="svg_355">
+						<defs id="defs_356">
+							<clippath id="clipPath_357">
+								<rect id="rect_358">
+								</rect>
+							</clippath>
+						</defs>
+						<g id="g_359">
+							<g id="g_360">
+								<g id="g_361">
+									<path id="path_362">
+									</path>
+									<path id="path_363">
+									</path>
+								</g>
+							</g>
+							<g id="g_364">
+								<g id="g_365">
+									<path id="path_366">
+									</path>
+									<path id="path_367">
+									</path>
+								</g>
+							</g>
+							<g id="g_368">
+								<g id="g_369">
+									<path id="path_370">
+									</path>
+									<path id="path_371">
+									</path>
+								</g>
+							</g>
+							<g id="g_372">
+								<g id="g_373">
+									<path id="path_374">
+									</path>
+									<path id="path_375">
+									</path>
+								</g>
+							</g>
+							<g id="g_376">
+								<g id="g_377">
+									<path id="path_378">
+									</path>
+									<path id="path_379">
+									</path>
+								</g>
+							</g>
+							<g id="g_380">
+								<g id="g_381">
+									<path id="path_382">
+									</path>
+									<path id="path_383">
+									</path>
+								</g>
+							</g>
+							<g id="g_384">
+								<g id="g_385">
+									<path id="path_386">
+									</path>
+									<path id="path_387">
+									</path>
+								</g>
+							</g>
+							<g id="g_388">
+								<g id="g_389">
+									<path id="path_390">
+									</path>
+									<path id="path_391">
+									</path>
+								</g>
+							</g>
+							<g id="g_392">
+								<g id="g_393">
+									<path id="path_394">
+									</path>
+									<path id="path_395">
+									</path>
+								</g>
+							</g>
+							<g id="g_396">
+								<g id="g_397">
+									<path id="path_398">
+									</path>
+									<path id="path_399">
+									</path>
+								</g>
+							</g>
+							<g id="g_400">
+								<g id="g_401">
+									<path id="path_402">
+									</path>
+									<path id="path_403">
+									</path>
+								</g>
+							</g>
+							<g id="g_404">
+								<g id="g_405">
+									<path id="path_406">
+									</path>
+									<path id="path_407">
+									</path>
+								</g>
+							</g>
+							<g id="g_408">
+								<g id="g_409">
+									<path id="path_410">
+									</path>
+									<path id="path_411">
+									</path>
+								</g>
+							</g>
+							<g id="g_412">
+								<g id="g_413">
+									<path id="path_414">
+									</path>
+									<path id="path_415">
+									</path>
+								</g>
+							</g>
+							<g id="g_416">
+								<g id="g_417">
+									<path id="path_418">
+									</path>
+									<path id="path_419">
+									</path>
+								</g>
+							</g>
+							<g id="g_420">
+								<g id="g_421">
+									<path id="path_422">
+									</path>
+									<path id="path_423">
+									</path>
+								</g>
+								<g id="g_424">
+									<path id="path_425">
+									</path>
+									<path id="path_426">
+									</path>
+								</g>
+							</g>
+						</g>
+					</svg>
+				</div>
+				<div id="DIV_427">
+					<svg id="svg_428">
+						<defs id="defs_429">
+							<clippath id="clipPath_430">
+								<rect id="rect_431">
+								</rect>
+							</clippath>
+						</defs>
+						<g id="g_432">
+							<g id="g_433">
+								<g id="g_434">
+									<path id="path_435">
+									</path>
+									<path id="path_436">
+									</path>
+								</g>
+							</g>
+							<g id="g_437">
+								<g id="g_438">
+									<path id="path_439">
+									</path>
+									<path id="path_440">
+									</path>
+								</g>
+							</g>
+							<g id="g_441">
+								<g id="g_442">
+									<path id="path_443">
+									</path>
+									<path id="path_444">
+									</path>
+								</g>
+							</g>
+							<g id="g_445">
+								<g id="g_446">
+									<path id="path_447">
+									</path>
+									<path id="path_448">
+									</path>
+								</g>
+							</g>
+							<g id="g_449">
+								<g id="g_450">
+									<path id="path_451">
+									</path>
+									<path id="path_452">
+									</path>
+								</g>
+							</g>
+							<g id="g_453">
+								<g id="g_454">
+									<path id="path_455">
+									</path>
+									<path id="path_456">
+									</path>
+								</g>
+							</g>
+							<g id="g_457">
+								<g id="g_458">
+									<path id="path_459">
+									</path>
+									<path id="path_460">
+									</path>
+								</g>
+							</g>
+							<g id="g_461">
+								<g id="g_462">
+									<path id="path_463">
+									</path>
+									<path id="path_464">
+									</path>
+								</g>
+							</g>
+							<g id="g_465">
+								<g id="g_466">
+									<path id="path_467">
+									</path>
+									<path id="path_468">
+									</path>
+								</g>
+							</g>
+							<g id="g_469">
+								<g id="g_470">
+									<path id="path_471">
+									</path>
+									<path id="path_472">
+									</path>
+								</g>
+							</g>
+							<g id="g_473">
+								<g id="g_474">
+									<path id="path_475">
+									</path>
+									<path id="path_476">
+									</path>
+								</g>
+							</g>
+							<g id="g_477">
+								<g id="g_478">
+									<path id="path_479">
+									</path>
+									<path id="path_480">
+									</path>
+								</g>
+							</g>
+							<g id="g_481">
+								<g id="g_482">
+									<path id="path_483">
+									</path>
+									<path id="path_484">
+									</path>
+								</g>
+							</g>
+							<g id="g_485">
+								<g id="g_486">
+									<path id="path_487">
+									</path>
+									<path id="path_488">
+									</path>
+								</g>
+							</g>
+							<g id="g_489">
+								<g id="g_490">
+									<path id="path_491">
+									</path>
+									<path id="path_492">
+									</path>
+								</g>
+							</g>
+							<g id="g_493">
+								<g id="g_494">
+									<path id="path_495">
+									</path>
+									<path id="path_496">
+									</path>
+								</g>
+								<g id="g_497">
+									<path id="path_498">
+									</path>
+									<path id="path_499">
+									</path>
+								</g>
+							</g>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<div id="DIV_500">
+			</div>
+			<div id="DIV_501">
+				<div id="DIV_502">
+					<div id="DIV_503">
+						<svg id="svg_504">
+							<defs id="defs_505">
+								<clippath id="clipPath_506">
+									<rect id="rect_507">
+									</rect>
+								</clippath>
+							</defs>
+							<g id="g_508">
+								<g id="g_509">
+									<g id="g_510">
+										<path id="path_511">
+										</path>
+										<path id="path_512">
+										</path>
+									</g>
+								</g>
+								<g id="g_513">
+									<g id="g_514">
+										<path id="path_515">
+										</path>
+										<path id="path_516">
+										</path>
+									</g>
+								</g>
+								<g id="g_517">
+									<g id="g_518">
+										<path id="path_519">
+										</path>
+										<path id="path_520">
+										</path>
+									</g>
+								</g>
+								<g id="g_521">
+									<g id="g_522">
+										<path id="path_523">
+										</path>
+										<path id="path_524">
+										</path>
+									</g>
+								</g>
+								<g id="g_525">
+									<g id="g_526">
+										<path id="path_527">
+										</path>
+										<path id="path_528">
+										</path>
+									</g>
+								</g>
+								<g id="g_529">
+									<g id="g_530">
+										<path id="path_531">
+										</path>
+										<path id="path_532">
+										</path>
+									</g>
+								</g>
+								<g id="g_533">
+									<g id="g_534">
+										<path id="path_535">
+										</path>
+										<path id="path_536">
+										</path>
+									</g>
+								</g>
+								<g id="g_537">
+									<g id="g_538">
+										<path id="path_539">
+										</path>
+										<path id="path_540">
+										</path>
+									</g>
+								</g>
+								<g id="g_541">
+									<g id="g_542">
+										<path id="path_543">
+										</path>
+										<path id="path_544">
+										</path>
+									</g>
+								</g>
+								<g id="g_545">
+									<g id="g_546">
+										<path id="path_547">
+										</path>
+										<path id="path_548">
+										</path>
+									</g>
+								</g>
+								<g id="g_549">
+									<g id="g_550">
+										<path id="path_551">
+										</path>
+										<path id="path_552">
+										</path>
+									</g>
+								</g>
+								<g id="g_553">
+									<g id="g_554">
+										<path id="path_555">
+										</path>
+										<path id="path_556">
+										</path>
+									</g>
+								</g>
+								<g id="g_557">
+									<g id="g_558">
+										<path id="path_559">
+										</path>
+										<path id="path_560">
+										</path>
+									</g>
+								</g>
+								<g id="g_561">
+									<g id="g_562">
+										<path id="path_563">
+										</path>
+										<path id="path_564">
+										</path>
+									</g>
+								</g>
+								<g id="g_565">
+									<g id="g_566">
+										<path id="path_567">
+										</path>
+										<path id="path_568">
+										</path>
+									</g>
+								</g>
+								<g id="g_569">
+									<g id="g_570">
+										<path id="path_571">
+										</path>
+										<path id="path_572">
+										</path>
+									</g>
+									<g id="g_573">
+										<path id="path_574">
+										</path>
+										<path id="path_575">
+										</path>
+									</g>
+								</g>
+							</g>
+						</svg>
+					</div>
+				</div>
+			</div>
+			<div id="DIV_576">
+				<svg id="svg_577">
+					<defs id="defs_578">
+						<clippath id="clipPath_579">
+							<rect id="rect_580">
+							</rect>
+						</clippath>
+					</defs>
+					<g id="g_581">
+						<g id="g_582">
+							<g id="g_583">
+								<path id="path_584">
+								</path>
+								<path id="path_585">
+								</path>
+							</g>
+						</g>
+						<g id="g_586">
+							<g id="g_587">
+								<path id="path_588">
+								</path>
+								<path id="path_589">
+								</path>
+							</g>
+						</g>
+						<g id="g_590">
+							<g id="g_591">
+								<path id="path_592">
+								</path>
+								<path id="path_593">
+								</path>
+							</g>
+						</g>
+						<g id="g_594">
+							<g id="g_595">
+								<path id="path_596">
+								</path>
+								<path id="path_597">
+								</path>
+							</g>
+						</g>
+						<g id="g_598">
+							<g id="g_599">
+								<path id="path_600">
+								</path>
+								<path id="path_601">
+								</path>
+							</g>
+						</g>
+						<g id="g_602">
+							<g id="g_603">
+								<path id="path_604">
+								</path>
+								<path id="path_605">
+								</path>
+							</g>
+						</g>
+						<g id="g_606">
+							<g id="g_607">
+								<path id="path_608">
+								</path>
+								<path id="path_609">
+								</path>
+							</g>
+						</g>
+						<g id="g_610">
+							<g id="g_611">
+								<path id="path_612">
+								</path>
+								<path id="path_613">
+								</path>
+							</g>
+						</g>
+						<g id="g_614">
+							<g id="g_615">
+								<path id="path_616">
+								</path>
+								<path id="path_617">
+								</path>
+							</g>
+						</g>
+						<g id="g_618">
+							<g id="g_619">
+								<path id="path_620">
+								</path>
+								<path id="path_621">
+								</path>
+							</g>
+						</g>
+						<g id="g_622">
+							<g id="g_623">
+								<path id="path_624">
+								</path>
+								<path id="path_625">
+								</path>
+							</g>
+						</g>
+						<g id="g_626">
+							<g id="g_627">
+								<path id="path_628">
+								</path>
+								<path id="path_629">
+								</path>
+							</g>
+						</g>
+						<g id="g_630">
+							<g id="g_631">
+								<path id="path_632">
+								</path>
+								<path id="path_633">
+								</path>
+							</g>
+						</g>
+						<g id="g_634">
+							<g id="g_635">
+								<path id="path_636">
+								</path>
+								<path id="path_637">
+								</path>
+							</g>
+						</g>
+						<g id="g_638">
+							<g id="g_639">
+								<path id="path_640">
+								</path>
+								<path id="path_641">
+								</path>
+							</g>
+						</g>
+						<g id="g_642">
+							<g id="g_643">
+								<path id="path_644">
+								</path>
+								<path id="path_645">
+								</path>
+							</g>
+							<g id="g_646">
+								<path id="path_647">
+								</path>
+								<path id="path_648">
+								</path>
+							</g>
+						</g>
+					</g>
+				</svg>
+			</div>
+		</skeleton>
+		<section id="SECTION_649">
+			<div id="DIV_650">
+				<div id="DIV_651">
+					15 February 2021
+				</div>
+				<div id="DIV_652">
+					<div id="DIV_653">
+						<div id="DIV_654">
+							<i id="I_655"></i>
+						</div>
+					</div>
+					<div id="DIV_656">
+						Illuminations Training Center,JLT - Illuminations Training Center,JLT
+					</div>
+				</div>
+				<div id="DIV_657">
+					<div id="DIV_658">
+						<div id="DIV_659">
+							<i id="I_660"></i>
+						</div>
+					</div>
+					<div id="DIV_661">
+						No Sales Rep Assigned
+					</div>
+				</div>
+			</div>
+<!-- <div id="DIV_662">
+	There are no items in the cart
+</div> -->
+
+<!-- <div class="line-item-cart">
+	<div class="lt-lane">
+		<div class="line-item-pt-icon"><i class="fa fa-chevron-right set-ls-right" style=""></i><i class="fa fa-angle-down set-ls-down" style="display:none;"></i></div>
+		<div class="line-item-pt-name">1/2 private lesson advanced course</div>
+		<div class="line-item-pt-price">150.00AED</div>
+	</div>
+	<div class="lt-lane-add">
+		<div class="lt-lane-details">
+			<div class="line-item-pt-desc"> Paying for 1 service </div>
+		</div>
+		<div class="lt-lane-rmv">
+			<div class="line-item-pt-desc-ed ul-line"> Edit </div>
+			<div class="ul-line"> Remove </div>
+		</div>
+	</div>
+</div> -->
+<div class="koh-tab-content line-item-cart">
+
+	<div class="koh-tab-content-body">
+		<div class="koh-faq">
+			<div class="koh-faq-question">
+				<div class="line-item-pt-icon"><i class="fa fa-chevron-right"></i></div>
+				<div class="line-item-pt-name">1/2 private lesson advanced course</div>
+				<div class="line-item-pt-price">150.00AED</div>
+			</div>
+			<div class="koh-faq-answer lt-lane-add">
+				<div class="lt-lane-details">
+					<div class="line-item-pt-desc"> Paying for 1 service </div>
+				</div>
+				<div class="lt-lane-rmv">
+					<div class="line-item-pt-desc-ed ul-line"> Edit </div>
+					<div class="ul-line"> Remove </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+<div id="DIV_663">
+	<div id="DIV_664">
+	</div>
+</div>
+<div id="DIV_665">
+	<div id="DIV_666" class="promo-input-class">
+
+		<div id="DIV_680">
+			<i id="I_681"></i>
+		</div>
+		<span id="SPAN_682">Promo</span>
+		<div id="DIV_683">
+			<span id="SPAN_684"></span>
+		</div>
+	</div>
+
+	<div id="DIV_666" class="promo-input-div" style="display:none">
+		<form autocomplete="off" action="javascript:void(0);" method="POST">
+			<input name="promo" class="promo-input promo-code-input"/>
+			<input name="order" id="promo-order-id" class="d-none promo-order-input"/>
+			<input name="partner_promo_id" class="d-none promo-partner-input"/>
+			<button name="submit" type="submit" onclick="promo_add_to_order()" class="promo-button promo-button-submit">
+				<i class="fa fa-check"></i>
+			</button>
+			<span name="cancel" id="promo-cancel-btn" class="promo-button promo-button-submit">
+				<i class="fa fa-times"></i>
+			</span>
+		</form>
+	</div>
+
+</div>
+<div id="DIV_685">
+	<div id="DIV_686">
+		<div id="DIV_687">
+			<div id="DIV_688">
+				<div id="DIV_689">
+					Subtotal
+				</div>
+				<div id="DIV_690">
+					0.00AED
+				</div>
+			</div>
+			<div id="DIV_694">
+				<div id="DIV_695">
+					Taxes
+				</div>
+				<div id="DIV_696">
+					0.00AED
+				</div>
+			</div>
+			<div id="DIV_697">
+				<div id="DIV_698">
+					Total
+				</div>
+				<div id="DIV_699">
+					0.00AED
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="DIV_703">
+	<div id="DIV_704">
+		<span id="SPAN_717">CHECKOUT</span>
+	</div>
+	<div id="DIV_720">
+		<a id="A_721"></a>
+		<!-- ko if: loadingIcon -->
+		<span id="SPAN_722"></span>
+		<div id="DIV_723">
+			<!-- ko if: iconType().stringValue === "Normal" || "Animation" -->
+			<i id="I_724"></i>
+			<!-- /ko -->
+
+			<!-- ko if: iconType().stringValue === "SVG" -->
+
+			<!-- /ko -->
+
+			<!-- ko if: text -->
+
+			<!-- /ko -->
+
+			<svg id="svg_725">
+				<defs id="defs_726">
+					<clippath id="clipPath_727">
+						<rect id="rect_728">
+						</rect>
+					</clippath>
+				</defs>
+				<g id="g_729">
+					<g id="g_730">
+						<g id="g_731">
+							<path id="path_732">
+							</path>
+						</g>
+					</g>
+				</g>
+			</svg>
+		</div>
+		<!-- /ko -->
+
+		<!-- ko if: typeString === "Icon" -->
+
+		<!--/ko-->
+
+		<!-- ko ifnot: typeString === "Icon" -->
+
+		<!-- ko if: showIcon -->
+
+		<!-- ko if: iconBeforeText-->
+		<span id="SPAN_733"></span>
+		<!-- ko compose: icon-->
+
+		<div id="DIV_734">
+			<!-- ko if: iconType().stringValue === "Normal" || "Animation" -->
+			<i id="I_735"></i>
+			<!-- /ko -->
+
+			<!-- ko if: iconType().stringValue === "SVG" -->
+
+			<!-- /ko -->
+
+			<!-- ko if: text -->
+
+			<!-- /ko -->
+
+		</div>
+		<!--/ko-->
+
+		<!-- /ko -->
+
+		<!--/ko-->
+
+		<!-- ko if: useHtml-->
+
+		<!-- /ko -->
+
+		<!-- ko ifnot: useHtml-->
+		<span id="SPAN_736">Cart</span>
+		<!-- /ko -->
+
+		<!-- ko if: showIcon -->
+
+		<!-- ko ifnot: iconBeforeText-->
+
+		<!-- /ko -->
+
+		<!--/ko-->
+
+		<!--/ko-->
+
+		<div id="DIV_737">
+			<span id="SPAN_738"></span>
+		</div>
+	</div>
+</div>
+</section>
+</div>
+</div>
+<div id="DIV_739">
+	<!-- ko if: showPaymentSelector -->
+
+	<!-- /ko -->
+
+</div>
+<!-- ko if: editModal -->
+
+<!-- /ko -->
+
+</div>
+<div id="DIV_740">
+</div>
+</div>
+</div>
+<!-- /ko -->
+
+<!-- ko if: showFatalError -->
+
+<!-- /ko -->
+
+</div>
+</div>
+</div>
+</template>
+</data>
+</odoo>

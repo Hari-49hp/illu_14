@@ -1,0 +1,194 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sh_pos_whatsapp_integration
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.1alpha1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-09 12:28+0000\n"
+"PO-Revision-Date: 2020-10-09 12:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "1) Use *text* to make text bold."
+msgstr "1) Verwenden * Text * um Text fett."
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "2) Use _text_ to make text italic."
+msgstr "2) Verwenden Sie _text_ Text kursiv zu machen."
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "3) Use %0A after/before Text if you want to add blank line."
+msgstr "3) Verwendung% 0A nach / vor Text, wenn Sie leere Zeile hinzufügen möchten."
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "4) use %20 after/before any Text if you want to give space."
+msgstr "4) Verwendung% 20 nach / vor jedem Text, wenn Sie Raum geben wollen."
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "5) go to users => preferences to add signature."
+msgstr "5) gehen an Benutzer => Einstellungen Signatur hinzuzufügen."
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Address"
+msgstr "Adresse"
+
+#. module: sh_pos_whatsapp_integration
+#: model:ir.model.fields,field_description:sh_pos_whatsapp_integration.field_pos_config__display_name
+#: model:ir.model.fields,field_description:sh_pos_whatsapp_integration.field_res_users__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Email"
+msgstr "Email"
+
+#. module: sh_pos_whatsapp_integration
+#: model:ir.model.fields,field_description:sh_pos_whatsapp_integration.field_pos_config__enable_whatsapp
+msgid "Enable Whatsapp"
+msgstr "Aktivieren Sie WhatsApp"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Enter Message Here.."
+msgstr "Geben Sie Mitteilung hier .."
+
+#. module: sh_pos_whatsapp_integration
+#: model:ir.model.fields,field_description:sh_pos_whatsapp_integration.field_pos_config__id
+#: model:ir.model.fields,field_description:sh_pos_whatsapp_integration.field_res_users__id
+msgid "ID"
+msgstr "ICH WÜRDE"
+
+#. module: sh_pos_whatsapp_integration
+#: model:ir.model.fields,field_description:sh_pos_whatsapp_integration.field_pos_config____last_update
+#: model:ir.model.fields,field_description:sh_pos_whatsapp_integration.field_res_users____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Message"
+msgstr "Botschaft"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Mobile"
+msgstr "Handy, Mobiltelefon"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Name"
+msgstr "Name"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Note:"
+msgstr "Hinweis:"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: sh_pos_whatsapp_integration
+#: model:ir.model,name:sh_pos_whatsapp_integration.model_pos_config
+msgid "Point of Sale Configuration"
+msgstr "Point of Sale-Konfiguration"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Send By Whatsapp"
+msgstr "Senden von WhatsApp"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Send By Whatsapp Direct"
+msgstr "Senden von WhatsApp Direkt"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Send Whatsapp"
+msgstr "senden WhatsApp"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Send Whatsapp Message"
+msgstr "Senden WhatsApp Nachricht"
+
+#. module: sh_pos_whatsapp_integration
+#: model:ir.model.fields,field_description:sh_pos_whatsapp_integration.field_res_users__sign
+msgid "Signature"
+msgstr "Unterschrift"
+
+#. module: sh_pos_whatsapp_integration
+#: model:ir.model,name:sh_pos_whatsapp_integration.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: sh_pos_whatsapp_integration
+#: model_terms:ir.ui.view,arch_db:sh_pos_whatsapp_integration.pos_config_form_view_inherit
+msgid "Whatsapp Configuration"
+msgstr "WhatsApp Konfiguration"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "Whatsapp Number"
+msgstr "WhatsApp Anzahl"
+
+#. module: sh_pos_whatsapp_integration
+#. openerp-web
+#: code:addons/sh_pos_whatsapp_integration/static/src/xml/pos.xml:0
+#, python-format
+msgid "ZIP"
+msgstr "POSTLEITZAHL"

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+
+
+		<record model="master.online" id="online_demo_data1">
+			<field name="name">Appointments</field>
+		</record>
+		
+		<record model="master.online" id="online_demo_data2">
+			<field name="name">Live Events</field>
+		</record>
+		
+		<record model="master.online" id="online_demo_data3">
+			<field name="name">E- Learning</field>
+		</record>
+		
+		<record model="master.online" id="online_demo_data4">
+			<field name="name">Shop</field>
+		</record>
+		
+		
+
+
+	</data>
+</odoo>

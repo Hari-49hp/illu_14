@@ -1,0 +1,26 @@
+<odoo>
+	<data>
+
+		<record id="availability_model_company_based_user" model="ir.rule">
+			<field name="name">Availability Company Based</field>
+			<field name="model_id" ref="model_availability_availability"/>
+			<field name="perm_read" eval="True"/>
+			<field name="perm_write" eval="True"/>
+			<field name="perm_create" eval="False"/>
+			<field name="perm_unlink" eval="False"/>
+			<field name="domain_force">[('location_id', 'in', company_ids)]</field>
+		</record>
+
+		<record model="ir.module.category" id="availability_group_manager_at">
+			<field name="name">Availability</field>
+			<field name="description">Access to the My Center User</field>
+			<field name="sequence">3</field>
+		</record>
+
+		<record id="availability_group_manager_at_manager" model="res.groups">
+			<field name="name">Manager</field>
+			<field name="category_id" ref="ppts_employee_availability.availability_group_manager_at"/>
+		</record>
+
+	</data>
+</odoo>

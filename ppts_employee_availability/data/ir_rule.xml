@@ -1,0 +1,13 @@
+<odoo>
+	<data>
+
+		<record id="hr.hr_employee_public_comp_rule" model="ir.rule">
+			<field name="domain_force">['|',('location_ids','=',False),('location_ids', 'in', company_ids)]</field>
+		</record>
+
+		<record id="hr.hr_employee_public_comp_rule" model="ir.rule">
+			<field name="domain_force">['|',('location_ids','=',False),('location_ids', 'in', company_ids)]</field>
+		</record>
+
+	</data>
+</odoo>

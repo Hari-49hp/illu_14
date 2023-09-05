@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <tr t-name="ppts_campaign_dashboard.TreeItem" class="o_owl_tree_list_items" owl="1">
+        <td>
+            <button class="campaign_name_DD" t-on-click="toggleChildren">
+                <t t-esc="props.item.campaign_name"/>
+            </button>
+        </td>
+        <td>
+            <t t-esc="props.item.campaign_type"/>
+        </td>
+        <td>
+            <t t-esc="props.item.create_date"/>
+        </td>
+        <td>
+            <t t-esc="props.item.state"/>
+        </td>
+        <td>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                  80%
+                </div>
+            </div>
+        </td>
+    </tr>
+
+</templates>

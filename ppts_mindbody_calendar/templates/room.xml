@@ -1,0 +1,50 @@
+<odoo>
+	<data>
+
+		<template name="Room Dashbord" id="room_dashbord_mindbody">
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.css'/>
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.css'/>
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.css'/>
+
+			<link rel='stylesheet' href='/ppts_mindbody_calendar/static/src/css/room/room.css'/>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+			<div class="legendTools">
+				<div style="background-color: #996699;" class="swatch">Events</div>
+				<div style="background-color: #003F87;" class="swatch">Appointments</div>
+			</div>
+
+			<div class="day-view-filters-div">
+				<select name="header_location" class="header_location header-selection" id="header_location">
+					<option value="all">All</option>
+				</select>
+
+				<select name="header_services" class="header_services header-selection right-margin-header" id="header_services">
+					<option value="all">All Service Category</option>
+				</select> 
+
+				<select name="header_gender" class="header_gender header-selection" id="header_gender">
+					<option value="all">All</option>
+					<option value="event">Event</option>
+					<option value="appointment">Appointment</option>
+				</select>
+			</div>
+
+			<div id='room-calendar-dashbord'></div>
+
+
+
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.js'></script>
+			<script src='/ppts_mindbody_calendar/static/src/js/room/room.js'></script>
+			<script src='/ppts_mindbody_calendar/static/src/js/room/room_booking.js'></script>
+
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.js'></script>
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.js'></script>
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.4.2/main.min.js'></script>
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/resource-common@4.4.2/main.min.js'></script>
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/resource-daygrid@4.4.2/main.min.js'></script>
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/resource-timegrid@4.4.2/main.min.js'></script>
+		</template>
+
+	</data>
+</odoo>

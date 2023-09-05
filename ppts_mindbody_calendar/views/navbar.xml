@@ -1,0 +1,252 @@
+<odoo>
+
+    <template id="mindbody_navbar_top">
+
+        <nav class="o_main_navbar">
+            <a id="menu_toggle" class="o_menu_toggle" accesskey="H" title="Menu" onclick="hideSideBarMainBa()">
+                <span class="fas fa-bars"></span>
+            </a>
+            <a class="o_menu_brand" role="button" >My Center</a>
+
+
+            <ul class="o_menu_sections" role="menu">
+                <li>
+                    <a href="#" class="dropdown-toggle o-no-caret o_menu_header_lvl_1" data-menu-xmlid="ppts_my_practice.menu_my_crm" data-toggle="dropdown" role="button" aria-expanded="false">
+                    My Dashboard
+                    </a>
+                    <div class="dropdown-menu" role="menu">
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=754" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Pipeline</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=752" class="dropdown-item o_menu_entry_lvl_2" groups="ppts_custom_event_mgmt.group_manager">
+                            <span>Sales Leads Activity</span>
+                        </a>
+
+                       <!--  <a role="menuitem" href="/web#menu_id=846&amp;action=1513" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Import Partner</span>
+                        </a> -->
+
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="dropdown-toggle o-no-caret o_menu_header_lvl_1" data-menu-xmlid="ppts_my_practice.menu_tele_calling" data-toggle="dropdown" role="button" aria-expanded="false">
+                    CRM
+                    </a>
+                    <div class="dropdown-menu" role="menu">
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1537" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>My Campaign</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=852" class="dropdown-item o_menu_entry_lvl_2" groups="ppts_custom_event_mgmt.group_manager">
+                            <span>Sales Agent Calls history</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1097" class="dropdown-item o_menu_entry_lvl_2" groups="ppts_custom_event_mgmt.group_admin_head" >
+                            <span>Campaign Creator</span>
+                        </a>
+
+                    </div>
+                </li>
+                <li class="">
+
+                    <a role="menuitem" href="/booking" class="o_menu_entry_lvl_1">
+                        <span>Activity calendar</span>
+                    </a>
+
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle o-no-caret o_menu_header_lvl_1" data-menu-xmlid="ppts_my_practice.menu_my_appointment" data-toggle="dropdown" role="button" aria-expanded="false">
+                    Appointment Page
+                    </a>
+                    <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 45px, 0px);">
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=697" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Appointment</span>
+                        </a>
+
+                    </div>
+                </li>
+
+                <li class="">
+                    <a href="#" class="dropdown-toggle o-no-caret o_menu_header_lvl_1" data-menu-xmlid="ppts_my_practice.menu_my_event_send_add" data-toggle="dropdown" role="button" aria-expanded="false">
+                    Event page
+                    </a>
+                    <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 45px, 0px); top: 0px; left: 0px; will-change: transform;">
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1413" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Events Calendar</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1290" class="dropdown-item o_menu_entry_lvl_2"
+                          groups="ppts_custom_event_mgmt.group_admin_head"  >
+                            <span>Event Creator</span>
+                        </a>
+
+                        <!-- <a role="menuitem" href="/web#menu_id=846&amp;action=1412" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Summary Page</span>
+                        </a> -->
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1179" class="dropdown-item o_menu_entry_lvl_2" groups="ppts_custom_event_mgmt.group_manager">
+                            <span>Event Approval Page</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1415" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Client Registration Page</span>
+                        </a>
+
+                    </div>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle o-no-caret o_menu_header_lvl_1" data-menu-xmlid="ppts_my_practice.menu_my_pos" data-toggle="dropdown" role="button" aria-expanded="false" groups="ppts_custom_event_mgmt.group_admin_head">
+                    POS
+                    </a>
+                    <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 45px, 0px); top: 0px; left: 0px; will-change: transform;">
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=469" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>POS Dashboard</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=454" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Order</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=470" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Cash Drawer</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=466" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Payment</span>
+                        </a>
+
+                    </div>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle o-no-caret o_menu_header_lvl_1" data-menu-xmlid="ppts_my_practice.menu_my_employee" data-toggle="dropdown" role="button" aria-expanded="false">
+                    Employee
+                    </a>
+                    <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 45px, 0px); top: 0px; left: 0px; will-change: transform;">
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=638" class="dropdown-item o_menu_entry_lvl_2" groups="ppts_custom_event_mgmt.group_admin_head" >
+                            <span>Availability</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=502" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Employee</span>
+                        </a>
+
+                    </div>
+                </li>
+                <li class="">
+                    <a href="#" class="dropdown-toggle o-no-caret o_menu_header_lvl_1" data-menu-xmlid="ppts_my_practice.menu_my_reports" data-toggle="dropdown" role="button" aria-expanded="false" groups="ppts_custom_event_mgmt.group_admin_head">
+                    Reports
+                    </a>
+                    <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 45px, 0px);">
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=283" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Sales</span>
+                        </a>
+
+                        <!-- <a role="menuitem" href="/web#menu_id=846&amp;action=1398" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Sales</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1399" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Sales By Service</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1406" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Sales By Category</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1400" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Sales By Rep</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1401" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Sales By Product</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1403" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Sales Tax</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1404" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Best Sellers</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1407" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Invoice</span>
+                        </a>
+
+                        <a role="menuitem" href="/web#menu_id=846&amp;action=1405" class="dropdown-item o_menu_entry_lvl_2">
+                            <span>Attendance With Revenue</span>
+                        </a>
+ -->
+                    </div>
+                </li>
+            </ul>
+
+            <div class="oe_menu_layout oe_menu_base_layout">
+                <ul class="o_menu_systray" role="menu">
+                    <li class="o_user_menu">
+                        <a role="button" class="dropdown-toggle o-no-caret" data-toggle="dropdown" data-display="static" aria-expanded="false" href="#">
+                            <img class="rounded-circle oe_topbar_avatar" src="/web/image?model=res.users&amp;field=image_256&amp;id=2" alt="User"/>
+
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right ad_active" role="menu">
+                            <div class="ad_user_details_box mb16 mt16">
+                                <div class="ad_user_details">
+                                    <div class="ad_avtar_image">
+                                        <img class="img-circle oe_topbar_avatar" src="/web/image?model=res.users&amp;field=image_256&amp;id=2"/>
+                                    </div>
+                                    <div class="oe_user p-2 text-center">
+                                        <b>
+                                            <span class="oe_topbar_name" t-esc="user_id.name"></span>
+                                        </b>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a role="menuitem" href="#" data-menu="documentation" class="dropdown-item">Documentation</a>
+                            <a role="menuitem" href="#" data-menu="support" class="dropdown-item">Support</a>
+
+                            <a role="menuitem" href="#" data-menu="shortcuts" class="dropdown-item d-none d-md-inline-block">Shortcuts</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a role="menuitem" data-menu="settings" class="dropdown-item" href="/my/home">
+                                My Profile
+                            </a>
+                            <a role="menuitem" href="#" data-menu="account" class="dropdown-item">My Odoo.com account</a>
+
+                            <a class="o_menu_logout dropdown-item" href="/web/session/logout?redirect=/">
+                                <i class="fa fa-power-off"></i>
+                                Log out
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <nav class="o_partner_search_panel">
+            <div class="o_partner_search_panel_top d-flex">
+                <form class="resourcesearchform" autocomplete="off">
+                    <div class="searchcontainer">
+                        <i class="fa fa-search searchicon"></i>
+                        <input id="consumerSearchQueryInput" class="customer-autocomplete ui-autocomplete-input" placeholder="Search for client" autocomplete="off" spellcheck="false" maxlength="250" data-name="searchInput" value=""/>
+                        <a class="searchinfo">
+                            <i id="client-circle-tooltip" class="fa fa-info-circle" style="margin-top: 1px;" data-html="true" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Search for clients using multiple terms (like email, phone number, and ID)."></i>
+                        </a>
+                    </div>
+                </form>
+                <a href="/booking/url/redirect/customer_create" class="header-client-add-btn" title="Add New Client" >
+                    <i class="fa fa-plus-circle"></i>
+                </a>
+            </div>
+        </nav>
+    </template>
+
+</odoo>

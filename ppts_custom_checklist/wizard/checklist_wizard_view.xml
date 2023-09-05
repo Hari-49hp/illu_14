@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="view_checklist_wizard_form" model="ir.ui.view">
+			<field name="name">Checklist Wizard</field>
+			<field name="model">checklist.wizard</field>
+			<field name="priority" eval="8" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="case" create="false" edit="false" delete="false">
+					<sheet>
+						<group>
+							<field name="checklist_ids">
+								<tree string="Checklist">
+                                    <field name="name"/>
+                                    <field name="checklist_type"/>
+                                    <field name="category_id"/>
+                                    <field name="responsible"/>
+                                </tree>
+							</field>
+						</group>
+						<footer>
+							<button string="Add Checklist" class="oe_highlight" name="submit_checklist" type="object" />
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="open_view_wiz" model="ir.actions.act_window">
+			<field name="name">Checklist Wizard</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">checklist.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_checklist_wizard_form" />
+		<field name="target">new</field>
+	</record>
+	</data>
+</odoo>

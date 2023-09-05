@@ -1,0 +1,180 @@
+/* .accreditations-certifying .accreditations-certifying-wrapper {
+    padding: 0 80px;
+} */
+
+.accreditations-certifying .accreditations-certifying-header {
+    color: #333333;
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 30px;
+    text-transform: capitalize;
+}
+
+/* .accreditations-certifying .accreditations-certifying-content {
+    color: #333333;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+    margin: 0 0 78px;
+} */
+
+.cursive {
+    font-family: Blacksword;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    color: #00aec7;
+}
+
+.pl-responsive {
+    padding-left: 80px;
+}
+
+.responsive-wrapper {
+    padding: 0 80px;
+}
+
+.header {
+    color: #333;
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+
+.desc {
+    color: #333;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+}
+
+.pc-hidden {
+    display: none;
+}
+
+.mobile-hidden {
+    display: block;
+}
+
+.common-cta {
+    width: auto;
+    min-width: 220px;
+}
+
+.desc-22 {
+    color: #333;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.header-28 {
+    color: #333333;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.6;
+    text-transform: capitalize;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .section-header-content span {
+        display: none;
+    }
+
+    h3.section-header-content {
+        font-size: 40px;
+    }
+
+    button.formsubmitbtn.common-cta {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    h3.header {
+        font-size: 36px;
+    }
+
+    h3.mb-3.desc-22 {
+        font-weight: 600;
+        font-size: 22px;
+        margin-bottom: 0 !important;
+    }
+
+    hr {
+        margin: 10px 0;
+    }
+
+    h3.my-5.header-28 {
+        font-size: 22px;
+        margin-top: 40px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .visionmission-list h4,
+    .cardmocingshape h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    h3.cursive {
+        font-size: 20px;
+    }
+
+    h3.header.mb-3 {
+        font-size: 40px;
+    }
+
+    .service-svg-shapes-overlay h4 {
+        font-size: 18px;
+    }
+
+    section.goals.mx-5 {
+        margin: 0px 16px !important;
+    }
+
+    section.section.sectionspace.therapestservice {
+        padding-bottom: 30px;
+    }
+
+    section.goals.mx-5 h2 {
+        font-size: 40px;
+        font-weight: 600;
+        color: #3a3a3a;
+    }
+
+    ul.list-group.border-0 li.list-group-item {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        align-items: center;
+        font-size: 15px;
+    }
+
+    ul.list-group.border-0 li h4 {
+        padding-right: 28px;
+        font-size: 30px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    h6.cursive {
+        font-size: 20px;
+    }
+
+    section.featuresin-wrapper h3 {
+        font-size: 36px;
+    }
+
+    .common-cta {
+        width: 100%;
+        max-width: 280px;
+    }
+}

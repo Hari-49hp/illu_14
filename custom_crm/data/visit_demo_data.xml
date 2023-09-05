@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		<record model="master.visit" id="visit_demo_data1">
+			<field name="name">In Person</field>
+		</record>
+
+		<record model="master.visit" id="visit_demo_data2">
+			<field name="name">Online</field>
+		</record>
+	</data>
+</odoo>

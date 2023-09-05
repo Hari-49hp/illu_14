@@ -1,0 +1,14 @@
+version 14.0.0.1(17/02/21):
+issue solve:-
+	- rpc not defined traceback given in reciept
+	- if I create credit payment order then next order partner credit amount is not show updated.
+
+Version 14.0.0.2 (06-05-21):
+		- Discard process_order method and use action_pos_order_invoice() for partial credit invoice .
+		- In credit recharge wizard add domain for journal such that only cash and bank journal will be selected for credit.
+		- Hide 'POS Credit Journal' field in account journal , if journal type is not 'Cash'.
+		- Show Credit Coulumn In POS customer screen.
+
+date 15/06/2021
+version 14.0.0.3
+	- credit details update but history not show in customer details issue solve.

@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <template id="illuminations_therapy_category_journey" name=" Therapy Category Journey">
+            <!-- Our journey start -->
+            <section class="section-topbtm-padding therapycategory whatareyoustrugle">
+                <div class="noanimate_top_wave">
+                    <svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180"
+                        preserveAspectRatio="xMinYMax meet" version="1.1">
+                        <g>
+                            <path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                                c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                                c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                                c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="light-blue-bg strugglejourney">
+                    <div class="ourjourney sectiion_btm_padding80" data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="ourjourneyhead">What are you strugling with?</h2>
+                        <div class="journeydescripton cls_06">
+                            <h4>01</h4>
+                            <p>Our small initiative began by organizing non-profit events to give people the opportunity to
+                                discover and explore the powerful resources residing within their inner self.</p>
+                        </div>
+                        <div class="journeydescripton cls_08">
+                            <h4>02</h4>
+                            <p>From rented hotel apartments, to a tiny room in a villa, to a small space in downtown Dubai, we
+                                moved all around Dubai offering our services.</p>
+                        </div>
+                        <div class="jpureywithimage">
+                            <div class="journemorp"> <img class="journeyshapeclipped" src="/ppts_website_theme/static/src/img/whatareyou.png" />
+                                <!-- <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.6 252.84">
+                                    <clipPath id="journeyclip-path">
+                                        <path
+                                            d="M44.74,223.82S3.65,198.06,5.25,156.12s48.9-80.87,48.9-80.87,50.78-44.2,75.23-50.79,55.5-8.08,55.5-8.08,73.45,1.27,80-1.52S325.07,25.12,356,41.32A431.38,431.38,0,0,0,433.85,72.6c17.48,5.07,38.37,19.38,42.68,25.45s21.52,30.14,17.73,52.69-7.48,44.45-30,60.4-46.1,27.61-89.92,38.75-92.82,18.55-114.1,17.29-69.4-12.92-90.42-9.88-91,4.59-125.06-33.48"
+                                            transform="translate(-5.2 -14.48)" style="fill:#fff" />
+                                    </clipPath>
+                                </svg> -->
+                            </div>
+                            <div class="journeydescripton cls_11">
+                                <h4>03</h4>
+                                <p>We found the perfect home and opened the doors to our dream center in Jumeirah Lake Towers in
+                                    October 2011. </p>
+                            </div>
+                        </div>
+                        <div class="journeydescripton cls_13">
+                            <h4>04</h4>
+                            <p>With the success of our 1st Center in Dubai, Illuminations found an opportunity to open our
+                                second center in Pune, India’s 7th largest city and home to many spiritual practices. </p>
+                        </div>
+                        <div class="journeydescripton cls_16">
+                            <h4>05</h4>
+                            <p> Illuminations a Company registered under Illuminations Training Centre DMCC is now the 1st,
+                                Largest &amp; Premiere Well-Being Center of its kind in the middle east. </p>
+                        </div>
+                    </div>
+                    <div class="ourjourneyimagee" data-aos="fade-up" data-aos-delay="200">
+                        <img src="/ppts_website_theme/static/src/img/who2.jpg"/>
+                    </div>
+                </div>
+                <div class="noanimtionbtm-wave btnsvg-reverse">
+                    <svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180"
+                        preserveAspectRatio="xMinYMax meet" version="1.1">
+                        <g>
+                            <path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                                    c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                                    c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                                    c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

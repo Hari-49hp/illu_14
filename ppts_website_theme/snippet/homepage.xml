@@ -1,0 +1,248 @@
+<odoo>
+	<data>
+
+		<template id="illuminations_custom_homepage" inherit_id="website.homepage" name="Illuminations homepage">
+			<xpath expr="//div[@id='wrap']" position="after">
+				<!-- <section class="featured-post section-topbtm-padding mycontainer" data-aos="fade-up" data-aos-delay="200">
+					<h2 data-aos="fade-up" data-aos-delay="100">Featured Post</h2>
+					<div class="row ">
+
+						<t t-set="blog_id" t-value="request.env['blog.post'].sudo().search([], order='visits desc', limit=5)" />
+						<t t-if="len(blog_id) >= 1">
+							<t t-set="first_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[0].id)])" />
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items">
+								<div class="oberlay-tags">
+									<t t-foreach="first_blog_id.tag_ids" t-as="tags">
+										<label>
+											<t t-esc="tags.name" />
+										</label>
+									</t>
+								</div>
+								<a t-attf-href="/blog/{{slug(first_blog_id.blog_id)}}/{{first_blog_id.id}}">
+									<img t-attf-src="/web/image?model=blog.post&amp;id={{first_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+									<h5>
+										<t t-esc="first_blog_id.name"/>
+									</h5>
+									<p>
+										<t t-esc="first_blog_id.subtitle"/>
+									</p>
+									<div class="post-infos">
+										<label class="views">
+											<t t-esc="first_blog_id.visits"/>
+										</label>
+										<label class="dates">
+											<t t-esc="first_blog_id.create_date" t-options='{"widget": "date"}'/>
+										</label>
+										<label class="user">
+											<t t-esc="first_blog_id.author_id.name"/>
+										</label>
+									</div>
+								</a>
+							</div>
+						</t>
+
+						<t t-if="len(blog_id) >= 2">
+							<t t-set="second_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[1].id)])" />
+							<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items">
+								<div class="oberlay-tags">
+									<t t-foreach="second_blog_id.tag_ids" t-as="tags">
+										<label>
+											<t t-esc="tags.name" />
+										</label>
+									</t>
+								</div>
+								<a t-attf-href="/blog/{{slug(second_blog_id.blog_id)}}/{{second_blog_id.id}}">
+									<img t-attf-src="/web/image?model=blog.post&amp;id={{second_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+									<h5>
+										<t t-esc="second_blog_id.name"/>
+									</h5>
+									<p>
+										<t t-esc="second_blog_id.subtitle"/>
+									</p>
+									<div class="post-infos">
+										<label class="views">
+											<t t-esc="second_blog_id.visits"/>
+										</label>
+										<label class="dates">
+											<t t-esc="second_blog_id.create_date" t-options='{"widget": "date"}'/>
+										</label>
+										<label class="user">
+											<t t-esc="second_blog_id.author_id.name"/>
+										</label>
+									</div>
+								</a>
+							</div>
+						</t>
+
+
+						<t t-if="len(blog_id) >= 3">
+							<t t-set="third_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[2].id)])" />
+							<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 popularpost-cont" data-aos="fade-left" data-aos-delay="200">
+								<h5>Popular Posts</h5>
+								<div class="owl-carousel popularpost-caresole-mobile">
+
+									<div class="popularpost-list">
+										<a t-attf-href="/blog/{{slug(third_blog_id.blog_id)}}/{{third_blog_id.id}}">
+											<img t-attf-src="/web/image?model=blog.post&amp;id={{third_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+											<div class="popular-typos">
+												<h5>
+													<t t-esc="third_blog_id.name"/>
+												</h5>
+												<p>
+													<t t-esc="third_blog_id.subtitle"/>
+												</p>
+												<div class="oberlay-tags">
+													<t t-foreach="third_blog_id.tag_ids" t-as="tags">
+														<label>
+															<t t-esc="tags.name" />
+														</label>
+													</t>
+												</div>
+											</div>
+										</a>
+									</div>
+
+									<t t-if="len(blog_id) >= 4">
+										<t t-set="fourth_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[3].id)])" />
+										<div class="popularpost-list">
+											<a t-attf-href="/blog/{{slug(fourth_blog_id.blog_id)}}/{{fourth_blog_id.id}}">
+												<img t-attf-src="/web/image?model=blog.post&amp;id={{fourth_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+												<div class="popular-typos">
+													<h5>
+														<t t-esc="fourth_blog_id.name"/>
+													</h5>
+													<p>
+														<t t-esc="fourth_blog_id.subtitle"/>
+													</p>
+													<div class="oberlay-tags">
+														<t t-foreach="fourth_blog_id.tag_ids" t-as="tags">
+															<label>
+																<t t-esc="tags.name" />
+															</label>
+														</t>
+													</div>
+												</div>
+											</a>
+										</div>
+									</t>
+
+
+									<t t-if="len(blog_id) >= 5">
+										<t t-set="fifth_blog_id" t-value="request.env['blog.post'].sudo().search([('id','=',blog_id[4].id)])" />
+										<div class="popularpost-list">
+											<a t-attf-href="/blog/{{slug(fifth_blog_id.blog_id)}}/{{fifth_blog_id.id}}">
+												<img t-attf-src="/web/image?model=blog.post&amp;id={{fifth_blog_id.sudo().id}}&amp;field=image_av" class="userimage" alt="" />
+												<div class="popular-typos">
+													<h5>
+														<t t-esc="fifth_blog_id.name"/>
+													</h5>
+													<p>
+														<t t-esc="fifth_blog_id.subtitle"/>
+													</p>
+													<div class="oberlay-tags">
+														<t t-foreach="fifth_blog_id.tag_ids" t-as="tags">
+															<label>
+																<t t-esc="tags.name" />
+															</label>
+														</t>
+													</div>
+
+												</div>
+											</a>
+										</div>
+									</t>
+								</div>
+							</div>
+						</t>
+					</div>
+					<div class="text-center">
+						<a href="/blog">
+							<button type="button" class="seeallpost-btns">See All Post</button>
+						</a>
+					</div>
+				</section>
+				<section>
+					<div class="top-wave-svg">
+						<svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+							<g>
+								<path class="light-brown-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                            c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                            c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                            c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z" />
+							</g>
+						</svg>
+					</div>
+					<div class="bookafreetrial lightbrown-bg ">
+						<div class="  book-free-consultant  section_padd_left_right190_80  eachsection">
+							<div class="arrow-scroll leftside">
+								<svg viewBox="0 0 426 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+										<path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+										<path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                                c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+									</g>
+								</svg>
+							</div>
+							<div class="row align-items-center mycontainer">
+								<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+									<h2>Request a Support Call back! </h2>
+									<p>Learn how we can help you on your healing Journey</p>
+								</div>
+
+								<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+									<div class="bookafree-card" data-aos="fade-up" data-aos-delay="100">
+										<h5>Fill in only these 5 fields</h5>
+										<form class="row" autocomplete="off">
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+												<div class="form-group">
+													<input class="form-control" type="text" placeholder="Full name" name ="name" required='required'/>
+												</div>
+												<div class="form-group">
+													<input class="form-control" type="email" placeholder="Enter your email" name="email" required='required'/>
+												</div>
+												<div class="form-group">
+													<select id="" class="multi-dropdown-toggle-dep location-drop-down dropdown-toggle form-control inputwrap ">
+
+													</select>
+												</div>
+												<div class="form-group">
+													<input class="form-control" type="tel" placeholder="Phone" name="phone" required="required"/>
+												</div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+												<div class="form-group ">
+													<textarea class="form-control " style="min-height: 100px;" name="subject" placeholder="Message" value="" required="required"></textarea>
+												</div>
+												<div class="form-group ">
+													<button type="submit" class="formsubmitbtn">Chat with us</button>
+												</div>
+												<div class="form-group text-center">
+													<label class="checkboxlabel"> or Connect Now and speak with our Wellness
+                                                Advisor
+													</label>
+												</div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+												<div class="form-group">
+													<label class="checkboxlabel">
+														<input class="" type="checkbox" required="required"/>
+                                                    I agree to the Privacy Policy &amp; Terms and Conditions
+													</label>
+												</div>
+
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</section> -->
+			</xpath>
+
+		</template>
+
+
+	</data>
+</odoo>

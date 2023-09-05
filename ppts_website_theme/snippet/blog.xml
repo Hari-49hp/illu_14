@@ -1,0 +1,652 @@
+<odoo>
+    <data>
+        <template id="website_blog.blog_post_short" name="Blog" track="1">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure about-page-toppon">
+                    <style>
+                    .light-blue-bg {
+                        background-color: #f8f1e8 !important;
+                    }
+
+                    #wrap > div.o_wblog_post_page_cover{
+                        display: none !important;
+                    }
+                    </style>
+                    <!--  header start-->
+                    <div id="o_wblog_blog_top_droppable" class="d-none"/>
+
+
+                    <section class=" hero-section-two eachsection">
+                        <div class="hero-two-left mycontainer">
+                            <div class="breadcrum-sec">
+                                <label>
+                                    <a href="/">Home /</a>
+                                    <a>Blog</a>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+
+                    <section class="fqa-wrapperlistsitems testimonials eachsection">
+                        <div class="mycontainer">
+
+
+                            <div class="row headertitle-filters align-items-center">
+                                <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+                                    <h2>Illuminations News</h2>
+                                    <!-- <button class="filter-popupbtn"> <span class="input-group-addon iconinoutbtn"><i class="fas fa-filter"></i></span> Filters</button> -->
+                                </div>
+                                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 col-xs-12 " data-aos="fade-up" data-aos-delay="100">
+                                    <div class="">
+                                        <input id="blog-global-search" type="text" placeholder="Search..." autocomplete="off" class="searchinput-icon form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Start Tabs -->
+                            <div class="nav-tabs-wrapper faqtabwrapper-header searchpagetag" data-aos="fade-up" data-aos-delay="200">
+                                <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal withoutbtnactive">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#tabA">All</a>
+                                    </li>
+
+                                    <t t-set="blog_ids" t-value="request.env['blog.blog'].sudo().search([])" />
+                                    <t t-foreach="blog_ids" t-as="b_id">
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" t-attf-href="#E{{b_id.id}}">
+                                                <t t-esc="b_id.name"/>
+                                            </a>
+                                        </li>
+                                    </t>
+
+                                </ul>
+                            </div>
+
+
+                            <div class="tab-content faqtabs-contentcontainer" data-aos="fade-up" data-aos-delay="300">
+                                <div class="tab-pane fade show active" id="tabA">
+                                    <!-- FEATURES POST SECTION START -->
+                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" id="searchmodel-open">
+                                        Sblog modal popup
+                                    </button> -->
+
+                                    <section class="blogsdiffsection">
+                                        <div class="row ">
+
+                                            <t t-set="recent_post_id" t-value="request.env['blog.post'].sudo().search([('is_published','=',True)], order='id desc', limit=1)" />
+                                            <t t-if="recent_post_id">
+                                                <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12 featurecard-items featurecard-items-xpimg" data-aos="fade-up" data-aos-delay="100">
+                                                    <div class="row blog-main-card">
+                                                        <div class="col-xl-5 col-lg-5 col-md-6 col-sm-6 col-xs-12 blogmainimgcont">
+
+                                                            <t t-if="recent_post_id.image_av">
+                                                                <img t-attf-src="/web/image?model=blog.post&amp;id={{recent_post_id.sudo().id}}&amp;field=image_av" />
+                                                            </t>
+
+                                                            <t t-if="not recent_post_id.image_av">
+                                                                <img src="/ppts_website_theme/static/src/img/tailimage.jpg" />
+                                                            </t>
+
+                                                        </div>
+                                                        <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="bloginfotitle">
+                                                                <div class="oberlay-tags tagsrelative">
+                                                                    <t t-foreach="recent_post_id.tag_ids[:2]" t-as="i">
+                                                                        <label t-esc="i.name"/>
+                                                                    </t>
+                                                                </div>
+                                                                <a t-attf-href="/blog/{{slug(recent_post_id.blog_id)}}/{{recent_post_id.id}}">
+                                                                    <h5>
+                                                                        <t t-esc="recent_post_id.name"/>
+                                                                    </h5>
+                                                                    <p>
+                                                                        <t t-esc="recent_post_id.subtitle"/>
+                                                                    </p>
+                                                                </a>
+                                                                <div class="post-infos">
+                                                                    <label class="views">
+                                                                        <t t-esc="recent_post_id.sudo().visits"/>
+                                                                    </label>
+                                                                    <label class="dates">
+                                                                        <span t-esc="recent_post_id.get_post_date()"/>
+                                                                    </label>
+                                                                    <label class="user">
+                                                                        <t t-esc="recent_post_id.sudo().author_id.name"/>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 popularpost-cont">
+
+                                                    <div class="owl-carousel popularpost-caresole-mobile">
+
+                                                        <t t-set="recent_post_ids" t-value="request.env['blog.post'].sudo().search([('is_published','=',True),('id','!=',recent_post_id.id)], order='id desc', limit=3)" />
+                                                        <t t-foreach="recent_post_ids" t-as="p_id">
+                                                            <a t-attf-href="/blog/{{slug(p_id.blog_id)}}/{{p_id.id}}">
+                                                                <div class="popularpost-list" data-aos="fade-left" data-aos-delay="500">
+
+                                                                    <t t-if="p_id.image_av">
+                                                                        <img t-attf-src="/web/image?model=blog.post&amp;id={{p_id.sudo().id}}&amp;field=image_av" />
+                                                                    </t>
+
+                                                                    <t t-if="not p_id.image_av">
+                                                                        <img src="/ppts_website_theme/static/src/img/tailimage.jpg" />
+                                                                    </t>
+
+                                                                    <div class="popular-typos">
+                                                                        <h6>
+                                                                            <t t-esc="p_id.name"/>
+                                                                        </h6>
+                                                                        <p>
+                                                                            <t t-esc="p_id.subtitle"/>
+                                                                        </p>
+                                                                        <div class="oberlay-tags">
+                                                                            <t t-foreach="p_id.tag_ids[:2]" t-as="i">
+                                                                                <label t-esc="i.name"/>
+                                                                            </t>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+
+                                                        </t>
+
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </section>
+                                    <!-- FEATURES POST SECTION END -->
+
+                                    <section class="blogsdiffsection">
+                                        <h2 data-aos="fade-up" data-aos-delay="100">Latest this Month</h2>
+                                        <div class="row">
+
+                                            <t t-set="this_month_post_ids" t-value="request.env['blog.post'].sudo().search([ ('is_published','=',True), ('post_date','&gt;=',datetime.datetime.now().strftime('%%Y-%%m-01')), ('post_date','&lt;',(datetime.datetime.now()+relativedelta(months=1)).strftime('%%Y-%%m-01'))], order='post_date desc')" />
+                                            <t t-foreach="this_month_post_ids[:3]" t-as="p_id">
+
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="200">
+
+                                                    <div class="oberlay-tags">
+                                                        <t t-foreach="p_id.tag_ids[:2]" t-as="i">
+                                                            <label t-esc="i.name"/>
+                                                        </t>
+                                                    </div>
+                                                    <t t-if="p_id.image_av">
+                                                        <img t-attf-src="/web/image?model=blog.post&amp;id={{p_id.sudo().id}}&amp;field=image_av" />
+                                                    </t>
+
+                                                    <t t-if="not p_id.image_av">
+                                                        <img src="/ppts_website_theme/static/src/img/tailimage.jpg" />
+                                                    </t>
+                                                    <a t-attf-href="/blog/{{slug(p_id.blog_id)}}/{{p_id.id}}">
+                                                        <h5>
+                                                            <t t-esc="p_id.name"/>
+                                                        </h5>
+                                                        <p>
+                                                            <t t-esc="p_id.subtitle"/>
+                                                        </p>
+                                                    </a>
+                                                    <div class="post-infos">
+                                                        <label class="views">
+                                                            <t t-esc="p_id.sudo().visits"/>
+                                                        </label>
+                                                        <label class="dates">
+                                                            <span t-esc="p_id.get_post_date()"/>
+                                                        </label>
+                                                        <label class="user">
+                                                            <t t-esc="p_id.sudo().author_id.name"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </t>
+
+                                        </div>
+                                        <div class="text-center" data-aos="fade-up" data-aos-delay="500" t-if="len(this_month_post_ids.ids) &gt; int(3)">
+                                            <a href="/blog/latest">
+                                                <button type="button" class="seeallpost-btns">Load more</button>
+                                            </a>
+                                        </div>
+                                    </section>
+
+
+                                    <t t-call="ppts_website_theme.blog_trending_section">
+                                        <t t-set="high_views_post_ids" t-value="request.env['blog.post'].sudo().search([('is_published','=',True)], order='visits desc', limit=3)" />
+                                    </t>
+
+
+                                    <section class="blogsdiffsection">
+                                        <h2 data-aos="fade-up" data-aos-delay="100">Top Columnists</h2>
+
+                                        <t t-set="top_columnists_sort" t-value="request.env['blog.post']._compute_author_count()" />
+
+                                        <div class="row">
+                                            <t t-if="len(top_columnists_sort) > 1">
+                                                <t t-set="partner_id" t-value="request.env['res.partner'].sudo().search([('id','=',top_columnists_sort[0])])" />
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="200">
+                                                    <img t-attf-src="/web/image?model=res.partner&amp;id={{partner_id.sudo().id}}&amp;field=image_1920" class="userimage" alt="" />
+                                                    <h5>
+                                                        <t t-esc="partner_id.name"/>
+                                                    </h5>
+                                                    <p>
+                                                        <t t-esc="partner_id.blog_quote"/>
+                                                    </p>
+                                                    <div class="oberlay-tags tagsrelative">
+                                                        <t t-foreach="partner_id.tag_ids[:2]" t-as="tags">
+                                                            <label>
+                                                                <t t-esc="tags.name" />
+                                                            </label>
+                                                        </t>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </t>
+                                            <t t-if="len(top_columnists_sort)  >= 2">
+                                                <t t-set="second_partner_id" t-value="request.env['res.partner'].sudo().search([('id','=',top_columnists_sort[1])])" />
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="300">
+                                                    <img t-attf-src="/web/image?model=res.partner&amp;id={{second_partner_id.sudo().id}}&amp;field=image_1920" class="userimage" alt="" />
+                                                    <h5>
+                                                        <t t-esc="second_partner_id.name"/>
+                                                    </h5>
+                                                    <p>
+                                                        <t t-esc="second_partner_id.blog_quote"/>
+                                                    </p>
+                                                    <div class="oberlay-tags tagsrelative">
+                                                        <t t-foreach="second_partner_id.tag_ids[:2]" t-as="tags">
+                                                            <label>
+                                                                <t t-esc="tags.name" />
+                                                            </label>
+                                                        </t>
+                                                    </div>
+                                                </div>
+                                            </t>
+
+
+                                            <t t-if="len(top_columnists_sort)  >= 3">
+                                                <t t-set="third_partner_id" t-value="request.env['res.partner'].sudo().search([('id','=',top_columnists_sort[2])])" />
+                                                <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12 popularpost-cont">
+<!--                                                     <h5 data-aos="fade-up" data-aos-delay="300">Popular Posts</h5>
+ -->                                                    <div class="owl-carousel popularpost-caresole-mobile">
+
+                                                        <div class="popularpost-list" data-aos="fade-left" data-aos-delay="500">
+                                                            <img t-attf-src="/web/image?model=res.partner&amp;id={{third_partner_id.sudo().id}}&amp;field=image_1920" class="userimage" alt="" />
+                                                            <div class="popular-typos">
+                                                                <h6>
+                                                                    <t t-esc="third_partner_id.name"/>
+                                                                </h6>
+                                                                <p>
+                                                                    <t t-esc="third_partner_id.blog_quote"/>
+                                                                </p>
+                                                                <div class="oberlay-tags">
+                                                                    <t t-foreach="second_partner_id.tag_ids[:2]" t-as="tags">
+                                                                        <label>
+                                                                            <t t-esc="tags.name" />
+                                                                        </label>
+                                                                    </t>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <t t-if="len(top_columnists_sort)  >= 4">
+                                                            <t t-set="fourth_partner_id" t-value="request.env['res.partner'].sudo().search([('id','=',top_columnists_sort[3])])" />
+                                                            <div class="popularpost-list" data-aos="fade-left" data-aos-delay="600">
+                                                                <img t-attf-src="/web/image?model=res.partner&amp;id={{fourth_partner_id.sudo().id}}&amp;field=image_1920" class="userimage" alt="" />
+                                                                <div class="popular-typos">
+                                                                    <h6>
+                                                                        <t t-esc="fourth_partner_id.name"/>
+                                                                    </h6>
+                                                                    <p>
+                                                                        <t t-esc="fourth_partner_id.blog_quote"/>
+                                                                    </p>
+                                                                    <div class="oberlay-tags">
+                                                                        <t t-foreach="fourth_partner_id.tag_ids[:2]" t-as="tags">
+                                                                            <label>
+                                                                                <t t-esc="tags.name" />
+                                                                            </label>
+                                                                        </t>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </t>
+
+
+                                                        <t t-if="len(top_columnists_sort)  >= 5">
+                                                            <t t-set="fifth_partner_id" t-value="request.env['res.partner'].sudo().search([('id','=',top_columnists_sort[4])])" />
+                                                            <div class="popularpost-list" data-aos="fade-left" data-aos-delay="700">
+                                                                <img t-attf-src="/web/image?model=res.partner&amp;id={{fifth_partner_id.sudo().id}}&amp;field=image_1920" class="userimage" alt="" />
+                                                                <div class="popular-typos">
+                                                                    <h6>
+                                                                        <t t-esc="fifth_partner_id.name"/>
+                                                                    </h6>
+                                                                    <p>
+                                                                        <t t-esc="fifth_partner_id.blog_quote"/>
+                                                                    </p>
+                                                                    <div class="oberlay-tags">
+                                                                        <t t-foreach="fifth_partner_id.tag_ids[:2]" t-as="tags">
+                                                                            <label>
+                                                                                <t t-esc="tags.name" />
+                                                                            </label>
+                                                                        </t>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </t>
+
+
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                <t t-foreach="blog_ids" t-as="b_id">
+                                    <div class="tab-pane fade " t-attf-id="E{{b_id.id}}">
+
+                                        <div class="row">
+                                            <t t-set="tab_post_ids" t-value="request.env['blog.post'].sudo().search([('is_published','=',True),('blog_id','=',b_id.id)], order='id desc')" />
+                                            <t t-foreach="tab_post_ids" t-as="p_id">
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="200">
+                                                    <div class="oberlay-tags">
+                                                        <t t-foreach="p_id.tag_ids[:2]" t-as="i">
+                                                            <label t-esc="i.name"/>
+                                                        </t>
+                                                    </div>
+                                                    <t t-if="p_id.image_av">
+                                                        <img t-attf-src="/web/image?model=blog.post&amp;id={{p_id.sudo().id}}&amp;field=image_av" />
+                                                    </t>
+
+                                                    <t t-if="not p_id.image_av">
+                                                        <img src="/ppts_website_theme/static/src/img/tailimage.jpg" />
+                                                    </t>
+                                                    <a t-attf-href="/blog/{{slug(p_id.blog_id)}}/{{p_id.id}}">
+                                                        <h5>
+                                                            <t t-esc="p_id.name"/>
+                                                        </h5>
+                                                    </a>
+                                                    <p>
+                                                        <t t-esc="p_id.subtitle"/>
+                                                    </p>
+                                                    <div class="post-infos">
+                                                        <label class="views">
+                                                            <t t-esc="p_id.sudo().visits"/>
+                                                        </label>
+                                                        <label class="dates">
+                                                            <span t-esc="p_id.get_post_date()"/>
+                                                        </label>
+                                                        <label class="user">
+                                                            <t t-esc="p_id.sudo().author_id.name"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </div>
+
+                                    </div>
+                                </t>
+
+
+                            </div>
+                            <!-- End Tabs -->
+
+                        </div>
+                    </section>
+                    <t t-call="ppts_website_theme.bog_quote_section"/>
+
+                    <script src="/ppts_website_theme/static/src/js/blog.js"></script>
+
+                </div>
+            </t>
+        </template>
+
+
+
+        <template id="blog_post_short_latest_this_month" name="Blog" track="1">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure about-page-toppon">
+                    <style>
+                    #wrap > div.o_wblog_post_page_cover{
+                        display: none !important;
+                    }
+                    </style>
+
+                    <section class=" hero-section-two eachsection">
+                        <div class="hero-two-left mycontainer">
+                            <div class="breadcrum-sec">
+                                <label>
+                                    <a href="/">Home /</a>
+                                    <a href="/blog">Blog /</a>
+                                    <a>Latest</a>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="mycontainer">
+                        <section class="blogsdiffsection">
+                            <h2 data-aos="fade-up" data-aos-delay="100">Latest this Month</h2>
+                            <div class="latmonthfilterrow" data-aos="fade-up" data-aos-delay="100">
+                                <div class="latmonthfilterrow-left">
+
+
+                                </div>
+
+                                <div class="latmonthfilterrow-right">
+                                    <div class="dropdown inputwraptwo blog-tags-filter-div-whole">
+
+                                        <select id="blog-tags-filter" multiple="multiple">
+                                            <t t-set="blog_tags_ids" t-value="request.env['blog.tag'].sudo().search([])" />
+                                            <t t-foreach="blog_tags_ids" t-as="b_id">
+                                                <option t-att-value="b_id.id">
+                                                    <t t-esc="b_id.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <t t-set="this_month_post_ids" t-value="request.env['blog.post'].sudo().search([ ('is_published','=',True), ('post_date','&gt;=',datetime.datetime.now().strftime('%%Y-%%m-01')), ('post_date','&lt;',(datetime.datetime.now()+relativedelta(months=1)).strftime('%%Y-%%m-01'))], order='post_date desc')" />
+                                <t t-foreach="this_month_post_ids" t-as="p_id">
+
+
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="oberlay-tags">
+                                            <t t-foreach="p_id.tag_ids[:2]" t-as="i">
+                                                <label t-esc="i.name"/>
+                                            </t>
+                                        </div>
+                                        <t t-if="p_id.image_av">
+                                            <img t-attf-src="/web/image?model=blog.post&amp;id={{p_id.sudo().id}}&amp;field=image_av" />
+                                        </t>
+
+                                        <t t-if="not p_id.image_av">
+                                            <img src="/ppts_website_theme/static/src/img/tailimage.jpg" />
+                                        </t>
+                                        <h5>
+                                            <a t-attf-href="/blog/{{slug(p_id.blog_id)}}/{{p_id.id}}">
+                                                <t t-esc="p_id.name"/>
+                                            </a>
+                                        </h5>
+                                        <p>
+                                            <t t-esc="p_id.subtitle"/>
+                                        </p>
+                                        <div class="post-infos">
+                                            <label class="views">
+                                                <t t-esc="p_id.sudo().visits"/>
+                                            </label>
+                                            <label class="dates">
+                                                <span t-esc="p_id.get_post_date()"/>
+                                            </label>
+                                            <label class="user">
+                                                <t t-esc="p_id.sudo().author_id.name"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                </t>
+
+                            </div>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </section>
+
+                    </div>
+
+
+
+                    <t t-call="ppts_website_theme.bog_quote_section"/>
+
+                    <script src="/ppts_website_theme/static/src/js/blog.js"></script>
+
+                </div>
+            </t>
+        </template>
+
+
+        <template id="blog_post_short_latest_this_month_treanding" name="Trending Blogs" track="1">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure about-page-toppon">
+                    <style>
+                        .load-more-trending{
+                            display:none;
+                        }
+                    </style>
+
+                    <section class=" hero-section-two eachsection">
+                        <div class="hero-two-left mycontainer">
+                            <div class="breadcrum-sec">
+                                <label>
+                                    <a href="/">Home /</a>
+                                    <a href="/blog">Blog /</a>
+                                    <a>Trending</a>
+                                </label>
+                            </div>
+
+                            <div class="latmonthfilterrow" data-aos="fade-up" data-aos-delay="100">
+                                <div class="latmonthfilterrow-left">
+
+
+                                </div>
+
+                                <div class="latmonthfilterrow-right">
+                                    <div class="dropdown inputwraptwo blog-tags-filter-div-whole">
+                                        <select id="blog-tags-filter" multiple="multiple">
+                                            <t t-set="blog_tags_ids" t-value="request.env['blog.tag'].sudo().search([])" />
+                                            <t t-foreach="blog_tags_ids" t-as="b_id">
+                                                <option t-att-value="b_id.id">
+                                                    <t t-esc="b_id.name"/>
+                                                </option>
+                                            </t>
+                                        </select>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <t t-call="ppts_website_theme.blog_trending_section">
+                                <t t-set="high_views_post_ids" t-value="request.env['blog.post'].sudo().search([('is_published','=',True)], order='visits desc')" />
+                            </t>
+
+
+                        </div>
+                    </section>
+
+                    <t t-call="ppts_website_theme.bog_quote_section"/>
+
+                    <script src="/ppts_website_theme/static/src/js/blog.js"></script>
+                </div>
+            </t>
+        </template>
+
+        <template id="blog_trending_section">
+            <section class="blogsdiffsection">
+                <h2 data-aos="fade-up" data-aos-delay="100">Trending Right Now</h2>
+                <div id="high_views_post_ids" class="row">
+                    <!-- <t t-set="high_views_post_ids" t-value="request.env['blog.post'].sudo().search([('is_published','=',True)], order='visits desc', limit=3)" /> -->
+                    <t t-foreach="high_views_post_ids" t-as="p_id">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-xs-12 featurecard-items" data-aos="fade-up" data-aos-delay="200">
+                            <div class="abt-title-img">
+                                <t t-if="p_id.image_av">
+                                    <img t-attf-src="/web/image?model=blog.post&amp;id={{p_id.sudo().id}}&amp;field=image_av" class="img-fluid" loading="lazy"/>
+                                </t>
+
+                                <t t-if="not p_id.image_av">
+                                    <img src="/ppts_website_theme/static/src/img/trend1.jpg" class="img-fluid" loading="lazy"/>
+                                </t>
+                            </div>
+                            <div class="oberlay-tags tagsrelative">
+                                <t t-foreach="p_id.tag_ids[:2]" t-as="i">
+                                    <label t-esc="i.name"/>
+                                </t>
+                            </div>
+                            <a t-attf-href="/blog/{{slug(p_id.blog_id)}}/{{p_id.id}}">
+                                <h5>
+                                    <t t-esc="p_id.name"/>
+                                </h5>
+                            </a>
+                        </div>
+                    </t>
+                </div>
+                <div class="text-center load-more-trending" data-aos="fade-up" data-aos-delay="500" t-if="len(high_views_post_ids.ids) > 3">
+                    <a href="/blog/trending/latest">
+                        <button type="button" class="seeallpost-btns">Load more</button>
+                    </a>
+                </div>
+            </section>
+        </template>
+
+
+        <template id="bog_quote_section">
+
+            <style>
+                .light-blue-bg {
+                    background-color: #f8f1e8 !important;
+                }
+            </style>
+
+            <section class="">
+                <div class="about_top_wave" style="z-index: -1;position: relative;">
+                    <svg class="topsvg svgclass"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                        <g>
+                            <path class="light-brown-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+            c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+            l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="lightbrown-bg text-center section-topbtm-padding">
+                    <div class="blogfootertextcont" data-aos="fade-up" data-aos-delay="700">
+
+                        <h2>"The past is behind, learn from it. The future is ahead, prepare for it. The present is here, live
+            it. " </h2>
+
+                        <h6 class="black36">Thomas S. Monson</h6>
+                    </div>
+                </div>
+
+            </section>
+        </template>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<odoo>
+    <data noupdate="1">
+    <record id="event_proforma_email_template" model="mail.template">
+        <field name="name">Pro-Forma Invoice: Event Registration</field>
+        <field name="model_id" ref="ppts_custom_event_mgmt.model_event_registration_confirmation"/>
+        <field name="email_from">${object.user_id | safe}</field>
+        <field name="partner_to">${object.partner_id.id}</field>
+        <field name="report_template" ref="action_event_reg_proforma_invoice"/>
+        <field name="subject">Event Registration</field>
+        <field name="body_html">
+            <![CDATA[
+                <p>Hello ${object.partner_id.name},
+                <br/>
+                <br/>
+                Your event registration has been confirmed.<br/>
+                Here we are send invoice for your event registration. Please check below attached file.<br/>
+                </p>
+                <br/>
+                <br/>
+                % if object.select_payment_mode == 'online_payment'
+                <p>
+                    Please pay your Event Registration for : ${object.partner_id.name}
+                </p>
+                <br/>
+                <p>
+                 Invoice bill of ${object.total_overall} AED
+             </p>
+             <br/>
+                <a href=${object.payment_link} style="padding: 8px 12px; font-size: 12px; color: #FFFFFF; text-decoration: none !important; font-weight: 400; background-color: #875A7B; border: 0px solid #875A7B; border-radius:3px">
+                                            Paynow
+                </a>
+                <br/>
+                <br/>
+                %endif
+                <br/>
+                <br/>
+                Regards,<br/>
+                ${object.company_id.name}
+            ]]>
+        </field>
+        <field name="report_template" ref="action_event_reg_proforma_invoice"/>
+        <field name="report_name">Event Registration Pro-Forma Invoice</field>
+    </record>
+    </data>
+</odoo>

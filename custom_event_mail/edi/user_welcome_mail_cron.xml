@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="ir.cron" id="user_welcome_mail_cron">
+            <field name="name">New User Welcome Mail</field>
+            <field name="model_id" ref="custom_event_mail.model_res_partner"/>
+            <field name="state">code</field>
+            <field name="code">model.send_welcome_email()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="priority">1</field>
+            <field name="doall" eval="True" />
+        </record>
+    </data>
+</odoo>

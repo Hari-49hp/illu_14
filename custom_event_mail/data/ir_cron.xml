@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <record id="ir_cron_edi_event_mails" model="ir.cron">
+            <field name="name">Event Registration Mails</field>
+            <field name="model_id" ref="mail.model_mail_mail"/>
+            <field name="state">code</field>
+            <field name="code">model.search([('state', '=', 'outgoing'),('message_type','=','email'),('model','=','event.registration')]).send()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+        </record>
+
+        <record model="ir.cron" id="event_registration_remainder_3days_mail">
+            <field name="name">Attendees Reminder mail before 3 day for events</field>
+            <field name="model_id" ref="custom_event_mail.model_event_registration"/>
+            <field name="state">code</field>
+            <field name="code">model.event_remainder_mail_days(remainder_l = 3)</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="priority">1</field>
+            <field name="active">True</field>
+            <field name="doall" eval="True"/>
+        </record>
+
+        <record model="ir.cron" id="event_registration_remainder_1days_mail">
+            <field name="name">Attendees Reminder mail before 1 day for events</field>
+            <field name="model_id" ref="custom_event_mail.model_event_registration"/>
+            <field name="state">code</field>
+            <field name="code">model.event_remainder_mail_days(remainder_l = 1)</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="priority">1</field>
+            <field name="active">True</field>
+            <field name="doall" eval="True"/>
+        </record>
+
+        <record model="ir.cron" id="event_registration_expiry_mail">
+            <field name="name">event_registration_expiry_mail</field>
+            <field name="model_id" ref="custom_event_mail.model_event_registration"/>
+            <field name="state">code</field>
+            <field name="code">model.expiry_mail_cron()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="priority">1</field>
+            <field name="active">True</field>
+            <field name="doall" eval="True"/>
+        </record>
+
+
+        <record model="ir.cron" id="employee_availability_set_remainder_mail">
+            <field name="name">employee_availability_set_remainder_mail</field>
+            <field name="model_id" ref="custom_event_mail.model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model.mail_remainder()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="priority">1</field>
+            <field name="active">True</field>
+            <field name="doall" eval="True"/>
+        </record>
+    </data>
+</odoo>

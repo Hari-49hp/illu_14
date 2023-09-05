@@ -1,0 +1,37 @@
+<odoo>
+	<data>
+		<template id="illuminations_featured_in_snippet" name="Featured In">
+			<!-- FEATURES IN SECTION START -->
+			<section class="featuresin-wrapper section-topbtm-padding light-blue-bg">
+				<div class="mycontainer">
+					<div class="row margin-bottom-40" data-aos="fade-up" data-aos-delay="100">
+						<div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-xs-8">
+							<h3>Featured In</h3>
+						</div>
+						<div class="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 align-items-center justify-content-center">
+							<div class="ourexpert_arrow align-items-center">
+								<button class="featuredin_NextBtn">
+									<i class="fas fa-chevron-left"></i>
+								</button>
+								<button class="featuredin_PrevBtn">
+									<i class="fas fa-chevron-right"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="row" data-aos="fade-up" data-aos-delay="100">
+						<div class="col-xl-12">
+							<div class="owl-carousel featuredin-slider-caresole">
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</section>
+			<!-- FEATURES IN SECTION END -->
+			<script src='/ppts_website_theme/static/src/js/homepage/featured_in.js'></script>
+		</template>
+	</data>
+</odoo>

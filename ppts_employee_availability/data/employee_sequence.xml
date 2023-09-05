@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_employee_apt" model="ir.sequence">
+            <field name="name">Employee Sequence</field>
+            <field name="code">hr.employee</field>
+            <field name="active">TRUE</field>
+            <field name="prefix">AIE/</field>
+            <field name="suffix">/%(y)s</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"></field>
+        </record>
+    </data>
+</odoo>

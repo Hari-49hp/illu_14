@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <record id="event_thanks_mail_custom_event" model="mail.template">
+            <field name="name">Event - Event Thanks</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="subject">Thank you for coming - ${object.partner_id.name}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.partner_id.name or ''},</p>
+                <p>
+                    We are more than thankful that you attended our event. We hope you enjoyed the experience.
+                    Looking forward to meeting you again next time.
+                </p>
+
+                        % if object.event_id.survey_id.certification:
+                    You have been invited to take a new certification.
+                % else:
+                    We are conducting a survey and your response would be appreciated.
+                % endif
+                <div style="margin: 16px 0px 16px 0px;">
+                    <a href="${(object.event_id.survey_id.get_start_url()) | safe}"
+                        style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                        % if object.event_id.survey_id.certification:
+                            Start Certification
+                        % else:
+                            Start Survey
+                        % endif
+                    </a>
+                </div>
+                % if object.event_id.survey_id.deadline:
+                    Please answer the survey for ${format_date(object.event_id.survey_id.deadline)}.<br/><br/>
+                % endif
+                Thank you for your participation.
+
+                <br/>
+
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+    </data>
+</odoo>

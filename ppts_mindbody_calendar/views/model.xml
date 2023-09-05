@@ -1,0 +1,230 @@
+<odoo>
+    <data>
+
+        <template id="calendar_extended_models_code_list">
+
+            <div class="modal fade" id="therapist_service_duration_not_available">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <!-- <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div> -->
+                        <div></div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4 ml-auto">
+                                        <button type="button" class="close" data-dismiss="modal">×</button>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <h6>
+                                        A selected duration isn't available for the selected therapist
+                                    </h6>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="therapist_service_duration_not_available_reschedule">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <!-- <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div> -->
+                        <div></div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4 ml-auto">
+                                        <button type="button" class="close" data-dismiss="modal">×</button>
+                                    </div>
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <h6>
+                                        A selected duration isn't available for the selected therapist
+                                    </h6>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Reschedule -->
+            <div id="aptReschedule-model" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" style="border-bottom: 0px;">
+                            <h4 class="modal-title">Reschedule</h4>
+                            <button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form action="/booking_activities/appointment/reschedule">
+                                <h5 id="re-apt_name"></h5>
+                                <input name='re_apt_id' type="hidden"/>
+                                <div class="form-group">
+                                    <label for="re_date">Date:</label>
+                                    <input name='re_date' type="text" readonly="readonly"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="re_start_time">Time Slot:</label>
+                                    <input class="time-slot-de" name='re_start_time' type="text" readonly="readonly"/>
+                                    <input class="time-slot-de" name='re_end_time' type="text" readonly="readonly"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="re_duration">Duration:</label>
+                                    <input name='re_duration' type="text" readonly="readonly"/>
+                                </div>
+
+                                <button type="button" class="btn btn-danger" style="float: right;margin-right: 10px;" data-dismiss="modal">Discard</button>
+                                <button type="submit" class="btn btn-success" style="float: right;margin-right: 10px;">Confirm</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Reschedule -->
+
+
+            <!-- Cancellation -->
+            <div id="aptCancellation-model" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" style="border-bottom: 0px;">
+                            <h4 class="modal-title">Cancellation</h4>
+                            <button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/booking_activities/appointment/cancel">
+                                <input id="cc_cancellation_appointment_id" name='cc_cancellation_appointment_id' type="hidden"/>
+                                <div class="form-group">
+                                    <label for="cancellation_type">Cancellation Type:</label>
+                                    <select class="form-control" name="cancellation_type" required="required">
+                                        <option value="early">Early Cancel</option>
+                                        <option value="late" selected="selected">Late Cancel</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cancel_reason_template">Reason:</label>
+                                    <select class="form-control" name="cancel_reason_template" required="required">
+                                        <option value="" disabled="disabled" selected="selected"></option>
+                                        <t t-set="cancel_reason_template_ids" t-value="request.env['appointment.cancel.reason'].sudo().search([])" />
+                                        <t t-foreach="cancel_reason_template_ids" t-as="t_id">
+                                            <option t-att-value="t_id.id">
+                                                <t t-esc="t_id.name"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cc_cancellation_charge">Cancellation Charges:</label>
+                                    <input id="cc_cancellation_charge" name='cc_cancellation_charge' type="text" readonly="readonly"/>
+                                    <span class="cc_cancellation_charge">AED</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cancel_options">Cancellation Policy:</label>
+                                    <select class="form-control" name="cancel_options" required="required">
+                                        <option value="" disabled="disabled" selected="selected"></option>
+                                        <option value="now">Apply Now</option>
+                                        <option value="later">Apply Later</option>
+                                        <option value="ignore">Ignore Charges</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="note">Note:</label>
+                                    <textarea name="note" type="text" class="form-control" placeholder="Notes"></textarea>
+                                </div>
+
+                                <button type="button" class="btn btn-danger" style="float: right;" data-dismiss="modal">Discard</button>
+                                <button type="submit" name="submit-type" class="btn btn-success" style="float: right;margin-right: 10px;" value="cancel-appointment">Cancel Appointment</button>
+                                <button type="submit" name="submit-type" class="btn btn-success" style="float: right;margin-right: 10px;" value="cancel-and-create-appointment">Cancel &amp; Create Appointment</button>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Cancellation -->
+
+
+            <!-- No Show -->
+            <div id="aptNoShow-model" class="modal fade" role="dialog">
+                <div class="modal-dialog" style="max-width: 800px;">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" style="border-bottom: 0px;">
+                            <h4 class="modal-title">No Show Processing</h4>
+                            <button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/booking_activities/appointment/noshow">
+                                <input id="cc_noshow_appointment_id" name='cc_noshow_appointment_id' type="hidden"/>
+                                <div class="form-group">
+                                    <label for="noshow_options">No Show Policy:</label>
+                                    <select class="form-control" name="noshow_options" required="required">
+                                        <option value="later">Apply Later</option>
+                                        <option value="ignore">Ignore Charges</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="no_show_charges">No Show Charges:</label>
+                                    <input id="no_show_charges" name='no_show_charges' type="text" readonly="readonly"/>
+                                    <span class="cc_cancellation_charge">AED</span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="note">Note:</label>
+                                    <textarea id="note" name="note" type="text" class="form-control" placeholder="Notes"></textarea>
+                                </div>
+
+                                <div id="no-show-payment-ctnent" class="form-group display-none">
+                                    Appointment is Yet to Pay, So No show Charges will Be added on next Booking..
+                                </div>
+
+                                <button type="button" class="btn btn-danger" style="float: right;" data-dismiss="modal">Discard</button>
+                                <button type="submit" name="submit-type" class="btn btn-success" style="float: right;margin-right: 10px;" value="cancel-appointment">Process Billing</button>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- No Show -->
+
+        </template>
+
+    </data>
+</odoo>

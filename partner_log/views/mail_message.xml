@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+
+        <record id="partner_log_mail_message_form_view_inherit" model="ir.ui.view">
+            <field name="name">Mail Message</field>
+            <field name="model">mail.message</field>
+            <field name="inherit_id" ref="mail.mail_message_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='author_id']" position="after">
+                    <field name="partner_id" readonly="1" />
+                </xpath>
+
+                <xpath expr="//field[@name='model']" position="before">
+                    <field name="model_id" readonly="1" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

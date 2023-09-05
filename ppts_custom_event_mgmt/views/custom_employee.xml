@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <!-- Form_view Event -->
+<!--        <record id="inherit_hr_view_employee_form" model="ir.ui.view">-->
+<!--            <field name="name">view Employee</field>-->
+<!--            <field name="model">e</field>-->
+<!--            <field name="inherit_id" ref="hr.view_employee_form" />-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//group[1]/field[@name='work_email']" position="attributes">-->
+<!--                    <attribute name="required">1</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//group[@name='work_permit']" position="after">-->
+<!--                    <group string="Description" >-->
+<!--                        <field name="employee_desc" nolabel="0"/>-->
+<!--                    </group>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+        <record model="ir.ui.menu" id="hr.menu_view_employee_category_form">
+            <field name="name">Employee Types</field>
+        </record>
+        <record id="hr.open_view_categ_form" model="ir.actions.act_window">
+            <field name="name">Employee Types</field>
+            <field name="res_model">hr.employee.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

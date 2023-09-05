@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sales_report_filter_search" model="ir.ui.view">
+            <field name="name">sales.report.detail.search.ppts</field>
+            <field name="model">sales.report.detail</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Report">
+
+                    <filter string="Today" name="xtoday_date"
+                            domain="[('detail_sale_date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="xyesterday_date"
+                            domain="[('detail_sale_date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('detail_sale_date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]"
+                            help="Yesterday"/>
+                    <filter string="Tomorrow" name="xtomorrow_date"
+                            domain="[('detail_sale_date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('detail_sale_date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]"
+                            help="Tomorrow"/>
+                    <filter string="Last Month" name="xlast_date"
+                            domain="[('detail_sale_date','&gt;=',(context_today()-relativedelta(months=1)).strftime('%%Y-%%m-01')),('detail_sale_date','&lt;',time.strftime('%%Y-%%m-01'))]"/>
+
+                    <!--                <filter string="Online" name="appointment_type" help="Online" domain="[('appointment_type', '=', 'type_online')]"/>-->
+                    <!--                <filter string="Onsite" name="appointment_type" help="Onsite" domain="[('appointment_type', '=', 'type_onsite')]"/>-->
+                    <!--                <filter string="Online | Onsite" name="appointment_type" help="Online | Onsite" domain="[('appointment_type', '=', 'type_onsite')]"/>-->
+                    <!--                <separator/>-->
+
+                    <!--				<filter string="New" name="state" help="New Appointments" domain="[('state', '=', 'new')]"/>-->
+                    <!--                <filter string="Confirmed" name="state" help="Confirmed Appointments" domain="[('state', '=', 'confirm')]"/>-->
+                    <!--                <filter string="Arrived" name="state" help="Arrived Appointments" domain="[('state', '=', 'arrive')]"/>-->
+                    <!--                <filter string="Completed" name="state" help="Completed Appointments" domain="[('state', '=', 'done')]"/>-->
+                    <!--				<separator/>-->
+
+                                    <group expand="0" string="Group By">
+                                        <filter string="Date" name="xstart_date_group" domain="[]" context="{'group_by': 'detail_sale_date'}"/>
+                                        <filter string="Payment Method" name="xstart_date_group" domain="[]" context="{'group_by': 'payment_method'}"/>
+                                     </group>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

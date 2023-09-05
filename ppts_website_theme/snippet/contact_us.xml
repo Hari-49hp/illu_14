@@ -1,0 +1,443 @@
+<odoo>
+    <data>
+        <template id="contactus_page" name="Contact Us">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure about-page-toppon">
+                    <section class="contacrus-header mycontainer">
+                        <div class="">
+                            <div class="breadcrum-sec">
+                                <label data-aos="fade-up" data-aos-delay="50">
+                                    <a href="/">Home /</a>
+                                    <a>Contact Us</a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row therapists-detail-hero">
+                            <div class="col-lg-6 col-md-12 col-xl-6  col-sm-12 col-xs-12">
+                                <div class="hero-two-left">
+                                    <div data-aos="fade-up" data-aos-delay="100">
+                                        <h3>Our Locations</h3>
+                                    </div>
+                                    <div>
+                                        <t t-set="default_company_id" t-value="request.env['res.company'].sudo().browse(1)" />
+                                        <div class="nav-tabs-wrapper" data-aos="fade-up" data-aos-delay="200">
+                                            <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+
+                                                <!-- <t t-foreach="testimonial" t-as="testimonial_id"> -->
+                                                <li class="nav-item">
+                                                    <a class="nav-link map-check-click contact_select_background active" data-toggle="tab" href="#tabAa" onclick="contact_map_load(1)">
+                                                        <t t-esc="default_company_id.display_name"/>
+                                                    </a>
+                                                </li>
+
+                                                <t t-set="company_ids" t-value="request.env['res.company'].sudo().search([('id','!=',1),('website_show_location','=',True)])" />
+
+                                                <t t-foreach="company_ids" t-as="company_id">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link map-check-click contact_select_background" data-toggle="tab" t-attf-href="#Etab{{company_id.id}}" t-attf-onclick="contact_map_load({{company_id.id}})">
+                                                            <t t-esc="company_id.display_name"/>
+                                                        </a>
+                                                    </li>
+                                                </t>
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+                                            <div class="tab-pane fade show active" id="tabAa">
+                                                <label class="timetext">
+                                                    <t t-esc="default_company_id.working_hours_start"/>
+                                                    Daily
+                                                </label>
+                                                <label class="contactlocation">
+                                                    <t t-esc="default_company_id.get_company_address()"/>
+                                                </label>
+
+                                                <label class="contacticons">
+                                                    <a t-attf-href="mailto:{{default_company_id.email}}">
+                                                        <svg width="28" height="20" viewBox="0 0 28 20" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1L1 0H27L28 1V19L27 20H1L0 19V1ZM2 3.07V18H26V3.072L14.62 11.8H13.4L2 3.07ZM24.06 2H3.94L14 9.738L24.06 2Z" fill="#00AEC7"/>
+                                                        </svg>
+                                                    </a>
+                                                    <a t-attf-href="tel:{{ default_company_id.phone }}">
+                                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M25.76 19.352L25.7554 19.3515L22.372 18.9652C22.3714 18.9652 22.3709 18.9651 22.3704 18.965C21.8226 18.9009 21.2674 18.9617 20.7465 19.1428C20.2251 19.3239 19.7517 19.6209 19.3616 20.0113C19.3614 20.0114 19.3613 20.0115 19.3612 20.0116L17.4317 21.9411C14.3369 20.2167 11.7837 17.6635 10.0593 14.5687L12.0024 12.6255C12.792 11.8359 13.1768 10.7334 13.0488 9.61771L13.0488 9.6174L12.6621 6.2574L12.662 6.25628C12.5581 5.36206 12.1289 4.53728 11.4563 3.93898L10.7917 4.68618C10.3024 4.251 9.67015 4.01094 9.01534 4.01172V3.01172H9.01474H6.70867C4.66306 3.01172 2.91265 4.71447 3.04392 6.83355L3.04393 6.83366C3.78187 18.7243 13.2903 28.2185 25.1667 28.9565L25.1668 28.9565C27.2859 29.0877 28.9887 27.3373 28.9887 25.2917V22.9895C29.0044 21.1238 27.6007 19.5707 25.76 19.352ZM25.2287 27.9584C26.7353 28.0517 27.9887 26.7984 27.9887 25.2917V22.9851L25.2287 27.9584Z" stroke="#00AEC7" stroke-width="2"/>
+                                                        </svg>
+
+                                                    </a>
+                                                    <a t-attf-href="https://wa.me/{{ default_company_id.mobile }}">
+                                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M16.004 0H15.996C7.174 0 0 7.176 0 16C0 19.5 1.128 22.744 3.046 25.378L1.052 31.322L7.202 29.356C9.732 31.032 12.75 32 16.004 32C24.826 32 32 24.822 32 16C32 7.178 24.826 0 16.004 0Z" fill="#00AEC7"/>
+                                                            <path d="M25.3131 22.5924C24.9271 23.6824 23.3951 24.5864 22.1731 24.8504C21.3371 25.0284 20.2451 25.1704 16.5691 23.6464C11.8671 21.6984 8.83913 16.9204 8.60313 16.6104C8.37713 16.3004 6.70312 14.0804 6.70312 11.7844C6.70312 9.48841 7.86913 8.37041 8.33913 7.89041C8.72513 7.49641 9.36312 7.31641 9.97512 7.31641C10.1731 7.31641 10.3511 7.32641 10.5111 7.33441C10.9811 7.35441 11.2171 7.38241 11.5271 8.12441C11.9131 9.05441 12.8531 11.3504 12.9651 11.5864C13.0791 11.8224 13.1931 12.1424 13.0331 12.4524C12.8831 12.7724 12.7511 12.9144 12.5151 13.1864C12.2791 13.4584 12.0551 13.6664 11.8191 13.9584C11.6031 14.2124 11.3591 14.4844 11.6311 14.9544C11.9031 15.4144 12.8431 16.9484 14.2271 18.1804C16.0131 19.7704 17.4611 20.2784 17.9791 20.4944C18.3651 20.6544 18.8251 20.6164 19.1071 20.3164C19.4651 19.9304 19.9071 19.2904 20.3571 18.6604C20.6771 18.2084 21.0811 18.1524 21.5051 18.3124C21.9371 18.4624 24.2231 19.5924 24.6931 19.8264C25.1631 20.0624 25.4731 20.1744 25.5871 20.3724C25.6991 20.5704 25.6991 21.5004 25.3131 22.5924Z" fill="#FAFAFA"/>
+                                                        </svg>
+                                                    </a>
+                                                </label>
+                                                <a t-attf-href="/website/parking/details/{{default_company_id.id}}" style="text-decoration: underline !important;" class="linktext">Parking Details</a>
+                                            </div>
+
+                                            <t t-set="company_ids" t-value="request.env['res.company'].sudo().search([('id','!=',1)])" />
+                                            <t t-foreach="company_ids" t-as="company_id">
+                                                <div class="tab-pane fade" t-attf-id="Etab{{company_id.id}}">
+                                                    <label class="timetext">
+                                                        <t t-esc="company_id.working_hours_start"/>
+                                                    </label>
+                                                    <label class="contactlocation">
+                                                        <!-- <span t-field="company_id" t-options="{&quot;widget&quot;: &quot;contact&quot;,&quot;fields&quot;: [&quot;address&quot;]}"/> -->
+                                                        <t t-esc="company_id.get_company_address()"/>
+                                                    </label>
+
+                                                    <label class="contacticons">
+                                                        <a t-attf-href="mailto:{{company_id.email}}">
+                                                            <svg width="28" height="20" viewBox="0 0 28 20" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1L1 0H27L28 1V19L27 20H1L0 19V1ZM2 3.07V18H26V3.072L14.62 11.8H13.4L2 3.07ZM24.06 2H3.94L14 9.738L24.06 2Z" fill="#00AEC7"/>
+                                                            </svg>
+                                                        </a>
+                                                        <a t-attf-href="tel:{{ company_id.phone }}">
+                                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M25.76 19.352L25.7554 19.3515L22.372 18.9652C22.3714 18.9652 22.3709 18.9651 22.3704 18.965C21.8226 18.9009 21.2674 18.9617 20.7465 19.1428C20.2251 19.3239 19.7517 19.6209 19.3616 20.0113C19.3614 20.0114 19.3613 20.0115 19.3612 20.0116L17.4317 21.9411C14.3369 20.2167 11.7837 17.6635 10.0593 14.5687L12.0024 12.6255C12.792 11.8359 13.1768 10.7334 13.0488 9.61771L13.0488 9.6174L12.6621 6.2574L12.662 6.25628C12.5581 5.36206 12.1289 4.53728 11.4563 3.93898L10.7917 4.68618C10.3024 4.251 9.67015 4.01094 9.01534 4.01172V3.01172H9.01474H6.70867C4.66306 3.01172 2.91265 4.71447 3.04392 6.83355L3.04393 6.83366C3.78187 18.7243 13.2903 28.2185 25.1667 28.9565L25.1668 28.9565C27.2859 29.0877 28.9887 27.3373 28.9887 25.2917V22.9895C29.0044 21.1238 27.6007 19.5707 25.76 19.352ZM25.2287 27.9584C26.7353 28.0517 27.9887 26.7984 27.9887 25.2917V22.9851L25.2287 27.9584Z" stroke="#00AEC7" stroke-width="2"/>
+                                                            </svg>
+
+                                                        </a>
+                                                        <a t-attf-href="https://wa.me/{{ company_id.mobile }}">
+                                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M16.004 0H15.996C7.174 0 0 7.176 0 16C0 19.5 1.128 22.744 3.046 25.378L1.052 31.322L7.202 29.356C9.732 31.032 12.75 32 16.004 32C24.826 32 32 24.822 32 16C32 7.178 24.826 0 16.004 0Z" fill="#00AEC7"/>
+                                                                <path d="M25.3131 22.5924C24.9271 23.6824 23.3951 24.5864 22.1731 24.8504C21.3371 25.0284 20.2451 25.1704 16.5691 23.6464C11.8671 21.6984 8.83913 16.9204 8.60313 16.6104C8.37713 16.3004 6.70312 14.0804 6.70312 11.7844C6.70312 9.48841 7.86913 8.37041 8.33913 7.89041C8.72513 7.49641 9.36312 7.31641 9.97512 7.31641C10.1731 7.31641 10.3511 7.32641 10.5111 7.33441C10.9811 7.35441 11.2171 7.38241 11.5271 8.12441C11.9131 9.05441 12.8531 11.3504 12.9651 11.5864C13.0791 11.8224 13.1931 12.1424 13.0331 12.4524C12.8831 12.7724 12.7511 12.9144 12.5151 13.1864C12.2791 13.4584 12.0551 13.6664 11.8191 13.9584C11.6031 14.2124 11.3591 14.4844 11.6311 14.9544C11.9031 15.4144 12.8431 16.9484 14.2271 18.1804C16.0131 19.7704 17.4611 20.2784 17.9791 20.4944C18.3651 20.6544 18.8251 20.6164 19.1071 20.3164C19.4651 19.9304 19.9071 19.2904 20.3571 18.6604C20.6771 18.2084 21.0811 18.1524 21.5051 18.3124C21.9371 18.4624 24.2231 19.5924 24.6931 19.8264C25.1631 20.0624 25.4731 20.1744 25.5871 20.3724C25.6991 20.5704 25.6991 21.5004 25.3131 22.5924Z" fill="#FAFAFA"/>
+                                                            </svg>
+                                                        </a>
+                                                    </label>
+                                                    <a t-attf-href="/website/parking/details/{{company_id.id}}" style="text-decoration: underline !important;" class="linktext">Parking Details</a>
+                                                </div>
+                                            </t>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- <t t-set="company_ids" t-value="request.env['res.company'].sudo().search([('id','!=',1)])" />
+                                        <t t-foreach="company_ids" t-as="company_id">
+                                            <div class="map-responsive tab-pane fade" t-attf-id="Etab{{company_id.id}}">
+                                                <iframe width="600" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Illuminations%20Well%20Being%20Center%20JLT...&amp;t=&amp;z=9&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                            </div>
+                                        </t> -->
+
+
+                            <!-- <t t-set="company_ids" t-value="request.env['res.company'].sudo().search([('id','!=',1)])" />
+                            <t t-foreach="company_ids" t-as="company_id">
+                                
+                            </t> -->
+
+                            <div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+                                <div class="mapbox">
+                                    <div class="mapouter">
+
+                                        <div class="map-responsive">
+                                            <iframe class="contact_gmap_canvas" width="619" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Illuminations%20Well%20Being%20Center%20JLT...&amp;t=&amp;z=9&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+<!--                                             <div id="contact_gmap_canvas"></div>
+ -->                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="mapbox-address mob-show">
+                                    <div class="mapbox-address-card">
+                                        <div>
+                                            <h3>Illuminations Wellbeing Center</h3>
+                                            <p>Fortune Executive - 409 - Cluster T - Jumeirah Lakes Towers - Dubai, UAE.</p>
+                                        </div>
+                                        <div>
+                                            <a>
+                                                <img src="/ppts_website_theme/static/src/img/location.svg"/>
+                                            </a>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="mapbox-address-card-footer">
+                                        <div>
+                                            <img src="/ppts_website_theme/static/src/img/contact_rating.png"/>
+                                        </div>
+                                        <div>
+                                            <a>
+                                                <u>More info</u>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                    </section>
+
+                    <section class="section-topbtm-padding">
+
+                        <div class="noanimate_top_wave">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-brown-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                        c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                        c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                        c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="bookafreetriall bookafreetrial lightbrown-bg ">
+                            <div class="  book-free-consultant  section_padd_left_right190_80  eachsection">
+
+                                <div class="arrow-scroll leftside">
+                                    <svg viewBox="0 0 426 142" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+                                            <path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+                                            <path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                            c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+                                        </g>
+
+                                    </svg>
+                                </div>
+                                <div class="row align-items-center mycontainer">
+                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 PC-top-50 arrow-general-contact-us" data-aos="fade-up" data-aos-delay="100">
+
+                                        <h2>
+                                            General 
+                                            <br/>
+                                            Inquiry 
+                                        </h2>
+                                        <p>Experience Our Wide Range of Powerful Healing &amp; Therapy Service</p>
+                                    </div>
+
+                                    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="bookafree-card" data-aos="fade-up" data-aos-delay="100">
+                                            <h5 class="enq-card_head">Fill in only these 4 fields</h5>
+                                            <form class="row" action="/general_enquiry/" method="post" data-mark="*" data-success-mode="redirect" autocomplete="off">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" placeholder="Full name" name ="full_name" required="required"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="email" placeholder="Enter your email" name ="email" required="required"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="tel" pattern="[0-9]*" placeholder="Phone" name ="phone" required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group textgroup">
+                                                        <textarea class="form-control textheightfull" placeholder="Message" value="" required="required" name="subject"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+
+                                                        <label class="checkboxlabel">
+                                                            <input class="contact-us-checkboxlabel-input" type="checkbox" required="required">I agree to the
+                                            Privacy
+                                            Policy &amp; Terms and Conditions</input>
+                                                        </label>
+                                                    </div>
+                                                    <!-- <div >
+                                                        <button style='margin-bottom:16px' type="submit" class="formsubmitbtn">Submit</button>
+                                                    </div> -->
+                                                    <button type="submit" onclick="opn_live_chat()" class="formsubmitbtn">Chat with us</button>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group text-center">
+                                                        <label class="checkboxlabel"> or Connect Now and speak with our Wellness Advisor
+                                                        </label>
+                                                    </div>
+                                                    <button type="submit" class="formsubmitbtn">Click to Call</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="noanimtionbtm-wave btnsvg-reverse">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-brown-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+                    c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+                    l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </section>
+
+                    <section class="contactus-sections mycontainer">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+                                <h2>Corporates</h2>
+                                <p class="contacticons">
+                                    <a href="mailto:info@illuminationsworld.com">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 7L3 6H29L30 7V25L29 26H3L2 25V7ZM4 9.07V24H28V9.072L16.62 17.8H15.4L4 9.07ZM26.06 8H5.94L16 15.738L26.06 8Z" fill="#00AEC7"/>
+                                        </svg>
+                                    </a>
+                                    <a href="tel:+971044487043">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M25.76 19.352L25.7554 19.3515L22.372 18.9652C22.3714 18.9652 22.3709 18.9651 22.3704 18.965C21.8226 18.9009 21.2674 18.9617 20.7465 19.1428C20.2251 19.3239 19.7517 19.6209 19.3616 20.0113C19.3614 20.0114 19.3613 20.0115 19.3612 20.0116L17.4317 21.9411C14.3369 20.2167 11.7837 17.6635 10.0593 14.5687L12.0024 12.6255C12.792 11.8359 13.1768 10.7334 13.0488 9.61771L13.0488 9.6174L12.6621 6.2574L12.662 6.25628C12.5581 5.36206 12.1289 4.53728 11.4563 3.93898L10.7917 4.68618C10.3024 4.251 9.67015 4.01094 9.01534 4.01172V3.01172H9.01474H6.70867C4.66306 3.01172 2.91265 4.71447 3.04392 6.83355L3.04393 6.83366C3.78187 18.7243 13.2903 28.2185 25.1667 28.9565L25.1668 28.9565C27.2859 29.0877 28.9887 27.3373 28.9887 25.2917V22.9895C29.0044 21.1238 27.6007 19.5707 25.76 19.352ZM25.2287 27.9584C26.7353 28.0517 27.9887 26.7984 27.9887 25.2917V22.9851L25.2287 27.9584Z" stroke="#00AEC7" stroke-width="2"/>
+                                        </svg>
+                                    </a>
+                                </p>
+                                <a href="https://wa.me/971044487043" class="contactwhatsapp">call now via whatsapp </a>
+                                <!-- <a href="tel:+971044487043" class="phonetext">+971-04-448
+                    7043</a>
+                <a href="mailto:info@illuminationsworld.com" class="emailtext">info@illuminationsworld.com</a>
+                <a href="mailto:info@illuminationsworld.com" class="emailtext">
+                    <small>(CC)</small> alex@illuminationsworld.com</a> -->
+
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+                                <p>Our corporate wellness sector is dedicated to delivering powerful &amp; effective tools and techniques based on wellness, stress management, work life balance, to enhance productivity &amp; happiness! Illuminations aim to create a culture of success and happiness, by focusing on the individual’s physical, mental and emotional well-being in order to achieve optimal results in their performance in the workplace! We offer executive wellness packages where we combine a range of our services to provide your company a complete 360% solution to managing stress.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="contactus-sections mycontainer">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+                                <h2>Careers</h2>
+                                <p class="contacticons">
+                                    <a href="mailto:info@illuminationsworld.com">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 7L3 6H29L30 7V25L29 26H3L2 25V7ZM4 9.07V24H28V9.072L16.62 17.8H15.4L4 9.07ZM26.06 8H5.94L16 15.738L26.06 8Z" fill="#00AEC7"/>
+                                        </svg>
+                                    </a>
+                                    <a href="tel:+971044487043">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M25.76 19.352L25.7554 19.3515L22.372 18.9652C22.3714 18.9652 22.3709 18.9651 22.3704 18.965C21.8226 18.9009 21.2674 18.9617 20.7465 19.1428C20.2251 19.3239 19.7517 19.6209 19.3616 20.0113C19.3614 20.0114 19.3613 20.0115 19.3612 20.0116L17.4317 21.9411C14.3369 20.2167 11.7837 17.6635 10.0593 14.5687L12.0024 12.6255C12.792 11.8359 13.1768 10.7334 13.0488 9.61771L13.0488 9.6174L12.6621 6.2574L12.662 6.25628C12.5581 5.36206 12.1289 4.53728 11.4563 3.93898L10.7917 4.68618C10.3024 4.251 9.67015 4.01094 9.01534 4.01172V3.01172H9.01474H6.70867C4.66306 3.01172 2.91265 4.71447 3.04392 6.83355L3.04393 6.83366C3.78187 18.7243 13.2903 28.2185 25.1667 28.9565L25.1668 28.9565C27.2859 29.0877 28.9887 27.3373 28.9887 25.2917V22.9895C29.0044 21.1238 27.6007 19.5707 25.76 19.352ZM25.2287 27.9584C26.7353 28.0517 27.9887 26.7984 27.9887 25.2917V22.9851L25.2287 27.9584Z" stroke="#00AEC7" stroke-width="2"/>
+                                        </svg>
+                                    </a>
+                                </p>
+                                <a href="https://wa.me/971044487043" class="contactwhatsapp">call now via whatsapp </a>
+
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up">
+                                <p>Our corporate wellness sector is dedicated to delivering powerful &amp; effective tools and techniques
+                            based on wellness, stress management, work life balance, to enhance productivity &amp; happiness!
+                            Illuminations aim to create a culture of success and happiness, by focusing on the individual’s
+                            physical, mental and emotional well-being in order to achieve optimal results in their performance
+                            in the workplace! We offer executive wellness packages where we combine a range of our services to
+                            provide your company a complete 360% solution to managing stress.</p>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <section class="">
+                        <div class="noanimate_top_wave">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 169" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-blue-svg" d="M1440.2,170l0.1-69.1c-56,6.2-123.8,19.2-203.6-2.8c-106.3-29.3-189-80.5-315.3-55.6
+                    C737.9,78.7,636.2,0,471.7,16.2c-164.5,16.1-269-41.1-373.7,0C65.7,28.8,33,43.2,0.3,57.7V170"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="light-blue-bg enquireformcontainer ">
+                            <div class="mycontainer sectiion_btm_padding80">
+
+
+                                <div class="row">
+                                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 xl-padding-top-55px">
+                                        <h2 data-aos="fade-up" data-aos-delay="100">Feedback Form</h2>
+                                        <h4 data-aos="fade-up" data-aos-delay="100">We want to hear from you. </h4>
+                                    </div>
+                                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="header-form-box-wrapper " data-aos="fade-up" data-aos-delay="100">
+                                            <h5 class="enq-card_head">Fill in only these 5 fields</h5>
+                                            <form class="enquireform" action="/general_enquiry" autocomplete="off">
+                                                <div class="row">
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="form-group">
+                                                            <input class="form-control " type="text " placeholder="Name" name="full_name" required="required"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="tel" pattern="[0-9]*" placeholder="Phone " name="phone" required="required" />
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="email" placeholder="Email " name="email" required="required"/>
+                                                        </div>
+                                                        <div class="form-group select-contact-arrow">
+                                                            <t t-set="location_ids" t-value="request.env['res.company'].sudo().search([])" />
+                                                            <select id="company_location_id_chat" class="multi-dropdown-toggle-dep dropdown-toggle form-control inputwrap header-location-lt">
+                                                                <t t-foreach="location_ids" t-as="location_id">
+                                                                    <option t-att-value="location_id.id">
+                                                                        <t t-esc="location_id.name" />
+                                                                    </option>
+                                                                </t>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="form-group select-contact-arrow">
+                                                            <select id="" class="multi-dropdown-toggle-dep feedback-category-drop-down dropdown-toggle form-control inputwrap" required="required">
+
+                                                            </select>
+                                                        </div>
+                                                        <div>
+                                                            <textarea style="min-height: 170px;" class="form-control" placeholder="Message" name="subject" value="" required="required"></textarea>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                        <div class="form-group">
+                                                            <label class="checkboxlabel">
+                                                                <input class="contact-us-checkboxlabel-input" type="checkbox" required="required">
+                                                                    I agree to the Privacy Policy &amp; Terms and Conditions
+                                                                </input>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                        <button type="button " class="formsubmitbtn"> Submit
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script> -->
+                    <!-- <script src="//maps.google.com/maps?file=api&amp;v=2&amp;key=YOUR_API_KEY"></script> -->
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0hIr7RHo_F8jCgX0erjKpgWZvgx3Tv4o&amp;callback=initMap&amp;v=weekly&amp;channel=2" async="async"></script>
+                    <script src="/ppts_website_theme/static/src/js/contact_us.js"></script>
+
+                </div>
+            </t>
+
+        </template>
+
+    </data>
+</odoo>

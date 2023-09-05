@@ -1,0 +1,13 @@
+<odoo>
+	<data noupdate="True">
+		<record id="ir_sequence_custom_res_partner" model="ir.sequence">
+			<field name="name">Res Partner</field>
+			<field name="code">res.partner</field>
+			<field name="active">TRUE</field>
+			<field name="prefix">Illu/JLT/</field>
+			<field name="padding">4</field>
+			<field name="number_next">1</field>
+			<field name="number_increment">1</field>
+		</record>		
+	</data>
+</odoo>

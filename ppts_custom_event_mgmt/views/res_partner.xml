@@ -1,0 +1,28 @@
+<odoo>
+	<data>
+		<record id="view_event_res_partner_evnt_loc" model="ir.ui.view">
+			<field name="name">partner form loc</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='category_id']" position="before">
+					<field name="location_flag" />
+
+				</xpath>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_event_form_main_loc">
+			<field name="name">event.event.form.main.inh</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='address_id']" position="attributes">
+					<attribute name="domain">[('location_flag', '=', True)]</attribute>
+					<attribute name="options">{'no_create_edit': True, 'no_open': True,'no_create': True}</attribute>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

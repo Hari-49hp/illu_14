@@ -1,0 +1,77 @@
+<odoo>
+    <record id="view_pos_pos_form_inherit_ppts_custom_pointof_sale" model="ir.ui.view">
+        <field name="name">pos.order.form.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='grp_appointment_info']" position="inside">
+                <field name="pos_payment_ref" readonly="1"/>
+                <field name="appt_sale_id" readonly="1" string="Appoinment Ref"/>
+            </xpath>
+        </field>
+    </record>
+    <!--Hide Return Ref field from tree view-->
+    <record id="view_pos_new_tree_extended_inherit_ppts_custom_pointof_sale" model="ir.ui.view">
+        <field name="name">pos.order.tree.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="product_return_pos.view_pos_new_tree_extended"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='return_ref']" position="replace">
+            </xpath>
+        </field>
+    </record>
+    <!--Hide Return Ref field from form view-->
+    <record id="view_pos_new_form_extended_inherit_ppts_custom_pointof_sale" model="ir.ui.view">
+        <field name="name">pos.order.tree.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="product_return_pos.view_pos_new_form_extended"/>
+        <field name="arch" type="xml">
+            <field name="return_ref" position="replace"/>
+            <field name="return_status" position="replace"/>
+        </field>
+    </record>
+    <!--Updated PoS tree view-->
+    <record id="view_pos_order_tree_inherit_ppts_custom_pointof_sale" model="ir.ui.view">
+        <field name="name">pos.order.tree.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="replace">
+                <tree string="POS Orders" create="0" sample="1" decoration-danger="state=='cancel'" decoration-info="state=='draft'" decoration-warning="state=='invoiced'" decoration-muted="state=='done'" decoration-success="state=='paid'">
+                    <field name="currency_id" invisible="1"/>
+                    <field name="name" decoration-bf="1" string="Order Number"/>
+                    <field name="partner_id" decoration-bf="1"/>
+                    <field name="appt_sale_id" string="Appoinment Ref" decoration-bf="1"/>
+                    <field name="session_id" invisible="1"/>
+                    <field name="date_order"/>
+                    <field name="pos_reference" string="Receipt Reference" decoration-bf="1"/>
+                    <field string="Cashier" name="user_id" widget="many2one_avatar_user"/>
+                    <field name="pos_payment_ref" decoration-bf="1"/>
+                    <field name="amount_total" sum="Amount total" widget="monetary" decoration-bf="1"/>
+                    <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-success="state not in ('draft','cancel')"/>
+                </tree>
+            </xpath>
+        </field>
+    </record>
+    <!--Remove unwanted field from the pos order line tree view-->
+    <!-- <record id="pos_order_form_view_inherit_apt_pos_ppts_custom_pointof_sale" model="ir.ui.view">
+        <field name="name">pos.order.tree.inherit</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="ppts_custom_apt_mgmt.pos_order_form_view_inherit_apt_pos"/>
+        <field name="arch" type="xml">
+            <field name="service_used" position="replace"/>
+            <field name="service_used_count" position="replace"/>
+            <field name="package_product" position="replace"/>
+            <field name="event_ticket" position="replace"/>
+            <field name="service_used" position="replace"/>
+            <field name="appt_sale_id" position="replace"/>
+            <field name="appt_line_id" position="replace"/>
+            <field name="session_type" position="replace"/>
+            <field name="booking_type" position="replace"/>
+            <field name="service_used_count" position="replace"/>
+            <field name="package_product" position="replace"/>
+            <field name="event_ticket" position="replace"/>
+            <field name="appt_sale_id" position="replace"/>
+        </field>
+    </record> -->
+</odoo>

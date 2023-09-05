@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_availability.availability,access_availability.availability,model_availability_availability,sales_team.group_sale_manager,1,1,1,1
+access_availability.availability.line,access_availability.availability.line,model_availability_availability_line,sales_team.group_sale_manager,1,1,1,1
+access_availability_unlink,access_availability.unlink,model_availability_unlink,sales_team.group_sale_manager,1,1,1,1
+access_availability_service_line,access_availability_service_line,model_availability_service_line,sales_team.group_sale_manager,1,1,1,1
+access_availability.setdraft,access_availability.setdraft,model_availability_setdraft,sales_team.group_sale_manager,1,1,1,1

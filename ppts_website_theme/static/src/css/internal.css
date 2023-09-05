@@ -1,0 +1,2209 @@
+html,
+body {
+    height: auto !important;
+    overflow: auto !important;
+}
+
+body.modal-open {
+    overflow: hidden !important;
+}
+
+#wrapwrap,
+html.html-overflow-model {
+    overflow: hidden !important;
+}
+
+.btn {
+    font-family: 'Poppins' !important;
+}
+
+#profiledropdownhead::after {
+    display: none !important;
+}
+
+header#top {
+    display: none !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/* select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-left: 8px;
+    padding-right: 20px;
+} */
+
+select::after {
+    padding-right: 5px !important;
+}
+
+select option:checked {
+    display: none;
+}
+
+/* background-image: url('/ppts_website_theme/static/src/img/arrow_down.svg') !important;
+    ackground-repeat: no-repeat, repeat !important;
+    background-position: center !important;
+    content: "" !important;
+    width: 20px;
+    height: 20px;
+    display: inline-block !important;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}  */
+
+select:focus-visible {
+    outline: 1.2px solid #00AEC7;
+}
+
+.blockUI.blockMsg.blockPage {
+    display: none !important;
+}
+
+.underline-a {
+    text-decoration: underline !important;
+}
+
+.z-index-100 {
+    z-index: 100 !important;
+}
+
+.o_tooltip {
+    display: none !important;
+}
+
+.o_main_navbar {
+    border-bottom: 1px solid #00aec7 !important;
+    background-color: #0291a6 !important;
+}
+
+.dropdown-toggle::after {
+    border-top: 0.3em solid #00AEC7;
+}
+
+.blck-drp-down.dropdown-toggle::after {
+    border-top: 0.3em solid #585858;
+}
+
+.training-list-label {
+    font-size: 14px;
+    color: #3A3A3A;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.z-index-1-relative {
+    z-index: 10;
+    position: relative;
+}
+
+select.btn {
+    text-align: left !important;
+}
+
+select.meditation-location-list,
+.meditation-location-list .btn-group button {
+    padding-left: 35px !important;
+    position: relative !important;
+    background: url('/ppts_website_theme/static/src/img/location-border.svg') !important;
+    background-position: 7px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 22px !important;
+}
+
+select.meditation-service-list,
+.meditation-service-list .btn-group {
+    padding-left: 35px !important;
+    position: relative !important;
+    background: url('/ppts_website_theme/static/src/img/list_icon.png') !important;
+    background-position: 6px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 22px !important;
+    height: 40px !important;
+}
+
+select.meditation-loca-list,
+.meditation-loca-list .btn-group {
+    padding-left: 28px !important;
+    position: relative !important;
+    background: url('/ppts_website_theme/static/src/img/location-border.svg') !important;
+    background-position: 6px center !important;
+    background-repeat: no-repeat !important;
+    background-size: 22px !important;
+    height: 40px !important;
+    border: 1px solid #00aec7 !important;
+}
+
+.multiselect-container .multiselect-all .form-check-label,
+.multiselect-container .multiselect-option .form-check-label {
+    margin-top: -17px;
+    margin-left: 8px;
+}
+
+.multiselect-container input[type="checkbox"]:after {
+    top: -4px;
+}
+
+
+#section_upcoming_events .multiselect-container.dropdown-menu.show {
+    left: -28px !important;
+    min-width: 300px;
+}
+
+.multiselect-container.dropdown-menu.show {
+    top: 2px !important;
+}
+
+.multiselect-container .multiselect-option.active:not(.multiselect-active-item-fallback),
+.multiselect-container .multiselect-group.active:not(.multiselect-active-item-fallback),
+.multiselect-container .multiselect-all.active:not(.multiselect-active-item-fallback),
+.multiselect-container .multiselect-option:not(.multiselect-active-item-fallback):active,
+.multiselect-container .multiselect-group:not(.multiselect-active-item-fallback):active,
+.multiselect-container .multiselect-all:not(.multiselect-active-item-fallback):active {
+    background-color: #e6fcff !important;
+}
+
+.meditation-service-list.meditation-service-list-custom ul.multiselect-container.dropdown-menu.show {
+    right: 35px;
+}
+
+div.meditation-location-list button span {
+    margin-right: 8px;
+}
+
+div.meditation-loca-list .multiselect.dropdown-toggle.custom-select {
+    padding-top: 10px !important;
+}
+
+.o_main_navbar>ul>li>a:hover,
+.o_main_navbar>ul>li>label:hover,
+.o_main_navbar>a:hover,
+.o_main_navbar>a:focus,
+.o_main_navbar>button:hover,
+.o_main_navbar>button:focus {
+    background-color: #1e7886 !important;
+}
+
+.topheader-rightinfo a.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 0.8rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    font-size: 13px;
+    font-family: 'Poppins';
+}
+
+.homepage {
+    overflow-x: hidden !important;
+}
+
+#oe_main_menu_navbar {
+    position: relative !important;
+    margin-top: -46px !important;
+}
+
+.o_main_navbar>ul>li>a:hover,
+.o_main_navbar>ul>li>label:hover {
+    background-color: #2e9dd0;
+}
+
+.o_main_navbar>a:hover,
+.o_main_navbar>a:focus,
+.o_main_navbar>button:hover,
+.o_main_navbar>button:focus {
+    background-color: #2e9dd0;
+}
+
+.o_main_navbar .show .dropdown-toggle {
+    background-color: #2e9dd0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #e1dede;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.btn-secondary {
+    background: #2aaec7;
+    border: none;
+}
+
+.btn-fill-secondary:hover,
+.btn-secondary:hover {
+    color: #FFFFFF;
+    background-color: #2e9dd0;
+    border-color: #2e9dd0;
+}
+
+.desktopbread a {
+    color: inherit !important;
+}
+
+.initail-text-anime-05 {
+    animation: fadeInitail .5s ease-in both;
+    animation-delay: .5s;
+}
+
+.initail-text-anime-1 {
+    animation: fadeInitail .5s ease-in both;
+    animation-delay: 1s;
+}
+
+.initail-text-anime-15 {
+    animation: fadeInitail .5s ease-in both;
+    animation-delay: 1.5s;
+}
+
+@keyframes fadeInitail {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.canvas-footer-wave-container {
+    line-height: 0;
+    margin-bottom: -1px;
+}
+
+.wardimagemorping.aboutmoro {
+    display: none;
+}
+
+.noanimate_top_wave {
+    margin-bottom: -3px;
+}
+
+.heroleftarrow {
+    top: auto !important;
+}
+
+.ourteam-filter .filterlist-container .form-control,
+.left-filter-select-div .btn-group .multiselect-container .multiselect-search {
+    width: -webkit-fill-available !important;
+    margin-top: -18px;
+}
+
+
+
+.left-filter-select-div .btn-group .multiselect-container.dropdown-menu.show {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: auto;
+}
+
+.bookanfree-holisting-heal .checkboxlabel {
+    font-size: 16px;
+    line-height: 180%;
+    color: #585858;
+}
+
+.bookanfree-holisting-heal .checkboxlabel input[type="checkbox"] {
+    top: 5px;
+}
+
+.clipped-change img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.5);
+    animation: backgroundzoom 4s;
+    -webkit-animation: backgroundzoom 4s;
+}
+
+.testimonial_select_field {
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    min-height: 42px;
+    width: 100%;
+    max-height: 42px;
+    margin-bottom: 16px;
+    min-width: 100px;
+    font-size: 14px;
+    padding-left: 5px;
+}
+
+.withbluevorder {
+    border: 1px solid #00aec7 !important;
+}
+
+.studentinnerpopup_container img {
+    width: -webkit-fill-available;
+}
+
+#studentModalform .modal-header {
+    padding: 0
+}
+
+#studentModalform .close {
+    padding: 1rem 1rem 1.5rem 1rem;
+    margin: 0;
+    border-left: 1px solid #c8cacc;
+}
+
+#studentModalLabel {
+    padding: 1rem 1rem;
+}
+
+#studentModalform .close .modal-dialog--close {
+    color: #3a3a3a;
+    display: block !important;
+}
+
+
+/* #studentModalform .modal-footer .modal-title {
+    margin-left: 0px !important;
+    margin-right: auto !important;
+} */
+
+@media (min-width: 992px) {
+    header.top-menu-header-wrapper .navbar .dropdown-menu {
+        overflow-y: visible !important;
+        overflow-x: visible !important;
+    }
+}
+
+.studentinnerpopup_container h4 {
+    margin-bottom: 15px;
+}
+
+#studentModalform .therapyconsultant .text-left {
+    margin-bottom: 20px;
+}
+
+.featurecard-items h5 {
+    color: #3a3a3a;
+}
+
+.breadcrum-sec label a {
+    color: #585858;
+}
+
+.featurecard-items-xpimg img {
+    height: 352px !important;
+}
+
+.latmonthfilterrow {
+    z-index: 1;
+}
+
+.latmonthfilterrow-right .inputwraptwo .btn-group {
+    border: 2px solid #00AEC7;
+    box-sizing: border-box;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.blogsearch-body .oberlay-tags label {
+    margin-right: 5px;
+}
+
+input.multiselect-search {
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"]:after {
+    top: -6px;
+    left: 3px;
+}
+
+.glyphicon {
+    font-family: "FontAwesome" !important;
+}
+
+.glyphicon-remove-circle:before {
+    content: "\f002" !important;
+}
+
+.multi-select-dd .btn-group {
+    width: 100%;
+}
+
+.multi-select-dd .dropdown-toggle {
+    padding-left: 5px;
+}
+
+.multi-select-dd .multiselect-selected-text {
+    float: left;
+    font-size: 14px;
+    color: #585858;
+}
+
+.multiselect-item.filter {
+    margin-bottom: 10px;
+}
+
+.multi-select-dd-services {
+    min-width: 135px !important;
+    background: transparent;
+    border: 1px solid #00aec7;
+    border-radius: 4px;
+}
+
+div.meditation-location-list .dropdown-menu,
+div.meditation-service-list .dropdown-menu {
+    min-width: 261px;
+    left: auto !important;
+    top: 4px !important;
+    max-height: 230px !important;
+}
+
+div.meditation-location-list .dropdown-menu {
+    right: -68px;
+    top: 2px !important;
+}
+
+div.meditation-service-list .dropdown-menu {
+    right: -90px;
+    /* top: 4px !important; */
+}
+
+div.meditation-location-list {
+    min-width: 160px;
+    background: transparent;
+    border: 1px solid #00aec7;
+    border-radius: 4px;
+}
+
+#upComingEventDatepicker input {
+    font-size: 14px;
+    width: 100%;
+}
+
+#upComingEventDatepicker::after {
+    margin-top: 18px !important;
+}
+
+#upComingEventDatepicker input:focus-visible {
+    outline: none !important;
+}
+
+/* .calendar-header-one {
+    padding: 0 15px;
+} */
+
+.meditation-location-list span.multiselect-selected-text,
+.multi-select-dd-services span.multiselect-selected-text {
+    font-size: 14px;
+    margin-top: -6px;
+}
+
+.calendar-eventlist-view-wrapper-homepage .calenday-eventlist-item {
+    /* display: none; */
+}
+
+.calendar-eventlist-view-wrapper-homepage .calenday-eventlist-item:nth-child(1),
+.calendar-eventlist-view-wrapper-homepage .calenday-eventlist-item:nth-child(2),
+.calendar-eventlist-view-wrapper-homepage .calenday-eventlist-item:nth-child(3),
+.calendar-eventlist-view-wrapper-homepage .calenday-eventlist-item:nth-child(4),
+.calendar-eventlist-view-wrapper-homepage .calenday-eventlist-item:nth-child(5) {
+    display: grid;
+}
+
+.evt-card-rw-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.filter-buttons-lists {
+    margin-top: -18px;
+}
+
+/* .calendar-header-one-left {
+    margin-top: -12px;
+} */
+
+.calenday-eventlist-item a:first-child {
+    color: #00AEC7;
+}
+
+.aboutillumination {
+    margin-bottom: 0px !important;
+}
+
+.a-clr {
+    color: #5b5b5b !important;
+}
+
+#upComingEventDatepicker input::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: none !important;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    border-top-color: #00aec7;
+    margin-top: 16px;
+    margin-right: 10px;
+    appearance: none;
+    background: transparent;
+}
+
+@media only screen and (max-width: 991px) and (min-width: 300px) {
+    #outteamfilter.activeourteamfilterpopup {
+        padding-top: 110px !important;
+    }
+
+    .left-filter-select-div .form-check-label {
+        font-size: 16px;
+        line-height: 180%;
+        color: #585858;
+        font-weight: 400 !important;
+        padding: 8px 4px;
+    }
+
+    .ourteam-filter .filterlist-container .form-control,
+    .left-filter-select-div .btn-group .multiselect-container .multiselect-search {
+        min-height: 40px;
+        height: 40px;
+        border: 1px solid #E8E8E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+}
+
+#newsletter-result {
+    color: rgb(207 90 90);
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* section>* {
+    position: unset !important;
+} */
+
+.location-drop-down {
+    padding-left: 32px !important;
+    position: relative;
+    background: url('/ppts_website_theme/static/src/img/location-border.svg');
+    background-position: 7px center;
+    background-repeat: no-repeat;
+    background-size: 27px;
+}
+
+.client-about-illumincations {
+    background: #f6fdff !important;
+}
+
+.header-location-lt {
+    background: url(/ppts_website_theme/static/src/img/location-border.svg) !important;
+    background-repeat: no-repeat !important;
+    background-position: 4px center !important;
+    background-size: 27px !important;
+    padding-left: 36px !important;
+}
+
+.header-list-lt {
+    background: url(/ppts_website_theme/static/src/img/list-ul-solid.svg) !important;
+    background-repeat: no-repeat !important;
+    background-position: 4px center !important;
+    background-size: 21px !important;
+    padding-left: 30px !important;
+}
+
+.header-location-lt:focus-visible {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.l-event-h5-2line-elipsis {
+    height: 56px;
+}
+
+.l-event-h5-2line-elipsis a {
+    display: inline;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+}
+
+
+#therapyteamlider.row.owl-carousel.off {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+
+}
+
+.padding-top-14 {
+    padding-top: 14px;
+}
+
+select#HealingCatFilterSelect {
+    text-align: left !important;
+}
+
+select#HealingSubFilterSelect {
+    text-align: left !important;
+    text-overflow: ellipsis;
+    overflow: hidden !important;
+    width: 95%;
+    white-space: nowrap;
+}
+
+select.meditation-location-list {
+    text-align: left !important;
+}
+
+select.meditation-service-list {
+    text-align: left !important;
+}
+
+select.meditation-service-list {
+    text-align: left !important;
+}
+
+select.meditation-service-list {
+    text-align: left !important;
+}
+
+select#multiselect-filter-tag_id {
+    text-align: left !important;
+    font-size: 30px !important;
+}
+
+#example-selected-parents-container {
+    background-position: 6px 4px !important;
+    background-repeat: no-repeat !important;
+    background-size: 27px !important;
+    padding-left: 26px !important;
+    position: relative;
+    background: url(/ppts_website_theme/static/src/img/location-border.svg);
+}
+
+@media only screen and (max-width: 1580px) {
+    .rightarrow.startyour .arrow-scroll {
+        right: -120px !important;
+        top: 40px !important;
+    }
+}
+
+.multiselect-container input[type="checkbox"]:after {
+    /* top: -13px !important; */
+}
+
+li.multiselect-item.filter div span.input-group-btn button {
+    display: none;
+}
+
+.left-filter-select-div.divtraining-main-event-country .btn-group .multiselect.dropdown-toggle::after,
+.left-filter-select-div.divtraining-main-event-city .btn-group .multiselect.dropdown-toggle::after {
+    margin-left: -4px;
+}
+
+.header-iil-therapy {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 20px;
+    grid-template-rows: 30px 30px 30px 30px;
+    grid-template-columns: 200px 200px;
+}
+
+select.multi-dropdown-toggle-dep {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 992px) {
+    .PC-top-50 {
+        top: 50px;
+    }
+}
+
+#newsletterformfooter {
+    margin-right: 0px !important;
+}
+
+.search-input-wrapper {
+    margin-top: 40px;
+}
+
+.fnt-clr-white {
+    color: #FFFFFF !important;
+}
+
+.padding-0 {
+    padding: 0 !important;
+}
+
+.col-xl-6.neverdoubt-inner {
+    left: -90px;
+}
+
+.ptlooking-therapist-h3 {
+    /* padding-left: 4px !important; */
+}
+
+.ptlooking-therapist-h3 h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-transform: capitalize;
+    color: #3A3A3A;
+}
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.margin-left-8 {
+    margin-left: 8px;
+}
+
+.mobile-model-sidefilter {
+    display: block !important;
+    background: #fff !important;
+    padding: 15px !important;
+    z-index: 9999 !important;
+}
+
+@media only screen and (min-width: 1080px) {
+    .arrow-scroll.leftside.fullleftarrow {
+        right: auto !important;
+        top: 25px;
+    }
+
+    .mt18 {
+        margin-top: 18px;
+    }
+
+    section.sec-bookafreetriall>div.bookafreetriall.lightbrown-bg>div>div.arrow-scroll.leftside.active-arrowanim {
+        top: 10px !important;
+    }
+
+    div.bookafreetrial.lightbrown-bg>div>div.arrow-scroll.leftside.active-arrowanim {
+        top: 40px !important;
+    }
+
+    .arrow-general-contact-us {
+        top: -5px;
+    }
+
+    .xl-padding-top-55px {
+        padding-top: 55px;
+    }
+}
+
+.row.whoseekimg div {
+    padding: 13px;
+}
+
+.opn-p-desc {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: capitalize;
+    color: #333333;
+    margin-top: 5px;
+}
+
+.section-topbtm-padding-150 {
+    padding-top: 150px;
+    padding-bottom: 80px;
+}
+
+.top-padding-8 {
+    margin-top: 8px;
+}
+
+.eventinfos label:nth-child(2),
+.eventinfos label:nth-child(3),
+.eventinfos label:nth-child(4) {
+    /* margin-left: 15px; */
+}
+
+.listviewmode .eventinfos label:nth-child(2),
+.listviewmode .eventinfos label:nth-child(3) {
+    margin-left: 0px;
+}
+
+.blogherotext {
+    width: 100%;
+}
+
+.margin-bottom-25 {
+    margin-bottom: 25px;
+}
+
+.margin-bottom-35 {
+    margin-bottom: 35px;
+}
+
+.margin-bottom-40 {
+    margin-bottom: 40px;
+}
+
+.breadcrum-sec label a:last-child {
+    text-decoration: underline !important;
+}
+
+.color-3a3a {
+    color: #333333;
+}
+
+.color-3a3a3a {
+    color: #3a3a3a;
+}
+
+.over-flow-elipsis-2-line {
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hero-intro-text p {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.abouttherappoints.eventabout div:nth-child(1) {
+    width: 40%;
+    margin-right: auto;
+}
+
+.abouttherappoints.eventabout div:nth-child(2) {
+    width: 40%;
+    margin-left: auto;
+}
+
+.h5-blog {
+    color: #3a3a3a;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.h6-blog {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 22px;
+    color: #3a3a3a;
+    cursor: pointer;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.subtitle-blog {
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 2;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    /* autoprefixer: on */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.o_thread_window {
+    position: fixed;
+    right: 70px !important;
+    bottom: 20px !important;
+    z-index: 10;
+    width: 340px;
+    height: 432px;
+    background: #FFFFFF;
+    border: 2px solid #2aaec7;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 12px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+    transition: height 1s, width 1s, padding 1s, visibility 1s, opacity 0.5s ease-out;
+    animation: fadeInUp 1.5s;
+}
+
+.o_thread_window .o_thread_window_header {
+    background-color: #2aaec7 !important;
+}
+
+.o_thread_window .o_thread_composer input {
+    border-top: 2px solid #2aaec7 !important;
+    border-bottom: 2px solid #2aaec7 !important;
+    border-left: 1px solid #2aaec7;
+    border-right: 1px solid #2aaec7;
+    border-radius: 1px 2px;
+    border-bottom-left-radius: 2px;
+    height: 35px;
+}
+
+.o_thread_window .o_thread_composer input:focus-visible {
+    border-top: 2px solid #2aaec7 !important;
+    border-bottom: 2px solid #2aaec7 !important;
+    border-left: 1px solid #2aaec7;
+    border-right: 1px solid #2aaec7;
+    border-radius: 1px 2px;
+    border-bottom-left-radius: 2px;
+    outline: none;
+}
+
+.service-lists-item:hover h4 {
+    color: #00AEC7;
+}
+
+#therapist-review-slider-home>div.owl-stage-outer>div>div:nth-child(10)>div>p {
+    display: -webkit-box;
+    height: 115px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.questtobehappytypo h5 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-transform: capitalize;
+    color: #333333;
+}
+
+.healing-inside-sec-h4 h4 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-transform: capitalize;
+    color: #333333;
+}
+
+.font_62_m40,
+.font_62_m36 {
+    font-size: 62px;
+}
+
+.font_36_m30,
+.font_36_m36 {
+    font-size: 36px;
+}
+
+.font_72_m40 {
+    font-size: 72px;
+}
+
+.fc-333333 {
+    color: #333333;
+}
+
+.fc-3a3a3a {
+    color: #3a3a3a;
+}
+
+.event-single-certificate-right-align {
+    justify-content: flex-end;
+}
+
+.input-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: -5px;
+}
+
+.mapbox-address {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.mapbox-address h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    color: #3A3A3A;
+    margin-bottom: 4px;
+}
+
+.mapbox-address p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    color: #585858;
+    margin-bottom: 8px;
+}
+
+.mapbox-address-card {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    gap: 20px;
+}
+
+.mapbox-address-card-footer {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.mapbox-address-card-footer a {
+    font-size: 10px;
+    color: #00aec7 !important;
+    font-weight: 600;
+}
+
+.articals-press-calenar .eventinfos label {
+    font-size: 16px;
+    line-height: 25px;
+    text-decoration: none !important;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mob-show {
+    display: none;
+}
+
+.browse-our-courses-list p.course-content {
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.browse-our-courses-list h5.course-header {
+    word-break: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.browse-our-courses .arrow-scroll.leftside.active-arrowanim {
+    top: -15px;
+}
+
+.eventfullinfos .event-typoingo .calc-list-event-price span:first-child {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: capitalize;
+    color: #585858;
+}
+
+.eventfullinfos .event-typoingo .calc-list-event-price span:last-child {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: capitalize;
+    color: #585858;
+}
+
+#snapoftraining .owl-item {
+    max-width: 510px !important;
+    min-width: 282px;
+    /* max-height: 311px !important; */
+}
+
+.meditationsantuary img {
+    max-width: 620px;
+    height: 330px;
+}
+
+.howweworkcurvedpath-heading h4 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-transform: capitalize;
+    color: #333333;
+}
+
+.eventtitleinfos h5 a {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-transform: capitalize;
+    color: #585858 !important;
+}
+
+#upComingCalendarEventsContainer .eventinfos label {
+    margin-right: 19px;
+}
+
+.healing-inside-sec-h4 p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px !important;
+    align-items: center;
+    color: #3A3A3A;
+}
+
+.healing-inside-sec-h4 h2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 56px !important;
+    line-height: 130%;
+    align-items: center;
+    text-transform: capitalize;
+    color: #3A3A3A;
+}
+
+#therapist-list-our-team .therapest-list-container a:first-child img {
+    width: 290px;
+    height: 260px;
+}
+
+#therapist-list-our-team .therapest-list-container a:first-child {
+    height: 100%;
+    display: block;
+}
+
+.evnt-description-header {
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+header .rightinfo-header h6,
+header .rightinfo-header p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.faqtabs-contentcontainer .card-body {
+    /* background-color: #f8f1e8 !important; */
+}
+
+.select-arrow .dropdown-toggle {
+    color: #585858 !important;
+}
+
+.bookanfree-holisting-heal .formsubmitbtn-last-child {
+    /* position: absolute;
+    bottom: 0;
+    width: 300px;
+    margin-bottom: 20px; */
+}
+
+.book-free-consultant .checkboxlabel {
+    color: #ACACAC;
+}
+
+div.select-arrow select,
+.select-contact-arrow select,
+.select-wellness-arrow select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    font-size: 14px;
+    color: #585858 !important;
+    font-weight: normal;
+}
+
+.select-arrow,
+.select-contact-arrow,
+.select-wellness-arrow {
+    overflow: hidden;
+    position: relative;
+}
+
+.select-arrow:after,
+.select-arrow:focus::after,
+.select-contact-arrow:after,
+.select-contact-arrow:focus::after,
+.select-wellness-arrow:after,
+.select-wellness-arrow:focus::after {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #00AEC7;
+    border-bottom: none;
+    position: absolute;
+    content: "";
+    z-index: 98;
+}
+
+.select-arrow:focus-within::after,
+.select-contact-arrow:focus-within::after,
+.select-wellness-arrow:focus-within::after {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #00AEC7;
+    border-top: none;
+    position: absolute;
+    content: "";
+    z-index: 98;
+}
+
+.select-arrow:after {
+    top: 45%;
+    right: 10px;
+}
+
+.select-wellness-arrow:after {
+    top: 32%;
+    right: 24px;
+}
+
+.select-contact-arrow:after {
+    top: 32%;
+    right: 10px;
+}
+
+label.user {
+    text-decoration: underline;
+}
+
+.ServiceHealing-h5 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #3A3A3A;
+}
+
+.checkradiolabel {
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: bottom;
+}
+
+.checkradiolabel input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkradiolabel .checkmark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #E8E8E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.checkradiolabel:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+.checkradiolabel input:checked~.checkmark {
+    background-color: #fff;
+}
+
+
+.checkradiolabel .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.checkradiolabel input:checked~.checkmark:after {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: #00AEC7;
+    border-radius: 2px;
+}
+
+/* Style the indicator (dot/circle) */
+.checkradiolabel .checkmark:after {
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.padding-left-40 {
+    padding-left: 40px;
+}
+
+.margin-top-45 {
+    margin-top: 45px;
+}
+
+.h4-start-your-search {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-transform: capitalize;
+    color: #3A3A3A;
+}
+
+input#main-date {
+    outline: none !important;
+    font-size: 14px;
+    width: 128px;
+}
+
+.careermgntiframetwo {
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
+}
+
+.multiselect-container input[type="checkbox"] {
+    margin-right: 10px;
+    bottom: -2px;
+}
+
+.multiselect-container label.checkbox {
+    font-size: 16px;
+    line-height: 180%;
+    color: #585858;
+}
+
+.uploadbtnprogress-select.inputwrap {
+    padding: 10px 16px;
+    height: 40px;
+    border: 1.5px solid #00AEC7;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #00AEC7;
+    appearance: none;
+
+    background-image: url(/ppts_website_theme/static/src/img/select-down-arrow.svg) !important;
+    background-repeat: no-repeat !important;
+    background-position: 78% center;
+
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    -ms-appearance: none !important;
+    -o-appearance: none !important;
+}
+
+.mobile-block {
+    display: none;
+}
+
+.faqbutton-button-container .nav-link {}
+
+.searchpagetag .nav-link.active {
+    box-shadow: 0px 3px 12px -1px rgba(7, 115, 121, 0.20) !important;
+}
+
+.faqbutton-button-container .searchpagetag .nav-link {
+    color: #585858;
+}
+
+.width-180 {
+    width: 180px;
+}
+
+.initialformtreeviews .treeview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: self-start;
+    justify-content: center;
+
+}
+
+.initialformtreeviews .treeview .group {
+    border-top: 1px solid #CCEFF4;
+    padding: 10px 0px;
+}
+
+.iti.iti--allow-dropdown {
+    width: 100%;
+}
+
+input.contact-us-checkboxlabel-input::after {
+    top: -6px;
+}
+
+#mapDiv>div>div>div:nth-child(5)>div>div {
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 8px !important;
+}
+
+#TraningMainDatePicker .date.inputwrap .input-group-addon.iconinoutbtn {
+    padding-left: 7px;
+    padding-top: 2px;
+}
+
+#contact_gmap_canvas {
+    width: 619px;
+    height: 400px;
+}
+
+html #mapDiv>div>div>div:nth-child(5)>div>div {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.header-location-icon-bbtn {
+    appearance: none;
+    -webkit-appearance: none;
+    -mos-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    font-weight: normal;
+    line-height: 138%;
+    align-items: center;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    color: #00AEC7;
+    background-size: 16px !important;
+    padding-left: 21px !important;
+    margin-top: 2px;
+    margin-bottom: auto;
+    background-position: 4px 48% !important;
+}
+
+#header_lang_dropdown {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #3A3A3A;
+}
+
+.text-align-center {
+    text-align: -webkit-center;
+    text-align: center;
+}
+
+.meditation-location-list .btn-group .multiselect.custom-select,
+.meditation-service-list .btn-group .multiselect.custom-select {
+    /* padding-top: 15px !important; */
+}
+
+.multiselect.custom-select {
+    border: none;
+    height: 40px;
+    min-height: 40px;
+    max-height: 40px;
+    padding-top: 7px !important;
+    background: url(/ppts_website_theme/static/src/img/select-down-arrow.svg) no-repeat 90% !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    -ms-appearance: none !important;
+    -o-appearance: none !important;
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+}
+
+.btn-group .multiselect.custom-select span {
+    text-align: left;
+}
+
+#calendar-mbl-filter .btn-group .multiselect.custom-select {
+    background: url(/ppts_website_theme/static/src/img/select-down-arrow.svg) no-repeat 96% !important;
+}
+
+.meditation-service-list .multiselect.custom-select {
+    padding-top: 1rem !important;
+}
+
+#calendar-mbl-filter .multiselect-container.dropdown-menu.show {
+    left: -14px !important;
+}
+
+#resolution-wholepage-popup .modal-content p {
+    text-align: left;
+    font-size: 15px;
+}
+
+#resolution-wholepage-popup .modal-content {
+    position: fixed;
+    right: 25px;
+    margin-left: auto;
+    bottom: 100px;
+    width: 450px;
+    padding: 0px;
+    border-radius: 15px;
+}
+
+#resolution-wholepage-popup .modal-footer {
+    display: none;
+}
+
+#resolution-wholepage-popup .mymodelstyle .modal-body {
+    padding: 0px 10px 20px 15px;
+}
+
+#resolution-wholepage-popup.modal.fade:not(.in).right .modal-dialog {
+    -webkit-transform: translate3d(25%, 0, 0);
+    transform: translate3d(25%, 0, 0);
+}
+
+#resolution-wholepage-popup.modal.fade .modal-dialog {
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+}
+
+.calendar-eventlist-view-wrapper.positionlistview.listviewmode .cal-event-img {
+    top: 0px;
+    margin-bottom: auto;
+}
+
+.calendar-eventlist-view-wrapper.positionlistview.listviewmode .eventtitleinfos h5 {
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.upcmingcourses-training-main-sec .divtraining-main-event-city button,
+.upcmingcourses-training-main-sec .divtraining-main-event-country button {
+    padding-top: 14px !important;
+}
+
+.browse-our-courses-list .owl-stage {
+    width: 5238px;
+}
+
+.browse-our-courses-list h5.course-header,
+.browse-our-courses-list .course-subheader {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: #3A3A3A;
+}
+
+.swapingsectioncontainer.powerintegraswap .centershapes {
+    top: 36%;
+}
+
+.background-clr-#f8f1e8 {
+    background-color: #f8f1e8 !important;
+}
+
+.background-clr-#f8f1e8 ul li {
+    padding: 0px;
+}
+
+.m-top-30 {
+    margin-top: 30px;
+}
+
+.no-align-justify-center {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.m-width-30 {
+    width: 30%;
+}
+
+.d-50-m-100 {
+    width: 50%;
+}
+
+.upComingEventDatepicker-img {
+    height: 26px;
+    margin-bottom: 4px;
+    width: 26px;
+    margin-left: -5px;
+    margin-right: -2px;
+}
+
+#section_upcoming_events .multi-select-dd-services.meditation-service-list .multiselect.dropdown-toggle.custom-select {
+    padding-top: 15px !important;
+}
+
+.event-fully-booked-calendar {
+    background: #E76666;
+    border: 1px #E76666;
+}
+
+#event-join-waitinglist-popup .modal-title,
+#event-fullybooked-popup .modal-title {
+    border-bottom: none;
+}
+
+#event-fullybooked-popup .modal-dialog,
+#event-join-waitinglist-popup .modal-dialog {
+    width: 480px !important;
+    height: 622px;
+}
+
+#event-fullybooked-popup .calenday-eventlist-item.column-wisecard-listcontainer {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+#event-fullybooked-popup .column-wisecard-listcontainer .eventinfos {
+    grid-template-columns: 1fr 1fr;
+}
+
+#event-fullybooked-popup .column-wisecard-listcontainer .eventinfos label,
+#event-join-waitinglist-popup .modal-header p {
+    text-align: left;
+}
+
+#event-join-waitinglist-popup .modal-header p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+    border-bottom: 2px solid #F2F2F2;
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+#event-join-waitinglist-popup form .form-group {
+    height: 40px;
+}
+
+#event-join-waitinglist-popup form .form-group input.form-control {
+    height: 100%;
+}
+
+#event-join-waitinglist-popup .modal-header h5,
+#event-fullybooked-popup .modal-header h5 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 160%;
+    text-transform: capitalize;
+    color: #333333;
+    text-align: left;
+}
+
+.student-search-category .dropdown.inputwrap .btn-group {
+    width: 100%;
+}
+
+.wellness-col-divretreat {
+    padding: 0;
+    margin: 0;
+}
+
+.multiselect-container .multiselect-filter>.fa-search {
+    z-index: 1;
+    padding-left: 0.75rem;
+    opacity: 0;
+}
+
+.webblogtab {
+    display: block;
+}
+
+.mobileblogtab {
+    display: none;
+}
+
+.fiftyzoom {
+    zoom: .66;
+    -ms-zoom: 0.66;
+    -webkit-zoom: 0.66;
+    /*-moz-transform:  scale(0.66);
+-moz-transform-origin: top center;*/
+
+}
+
+.twentyzoom {
+    zoom: .8;
+    -ms-zoom: 0.8;
+    -webkit-zoom: 0.8;
+    /*-moz-transform:  scale(0.8);
+-moz-transform-origin: top center;*/
+}
+
+.fiftyzoom .arrow-scroll {
+    display: block;
+}
+
+div#zoomOnload-Loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 5vw;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*div#zoomOnload-Loader img {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}*/
+
+div#zoomOnload-Loader .succlogo {
+    width: 45vw;
+    min-width: 240px;
+}
+
+.loaderscreenview {
+    /*  display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;*/
+}
+
+
+.word-break-break-word {
+    word-break: break-word !important;
+}
+
+.initail-app-sec .foem_mylabel {
+    white-space: nowrap;
+}
+
+.initail-app-sec .form-control {
+    height: 40px;
+}
+
+.initail-app-sec select.form-control {
+    padding: 2px 12px;
+}
+
+
+.sessionslistcard.sessionslist-service-location.selected-service-location {
+    background: #CBEEF3;
+}
+
+#open_location_menu {
+    margin-left: 15px;
+}
+
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+    .webblogtab {
+        display: none;
+    }
+
+    .mobileblogtab {
+        display: block;
+    }
+
+    #snapoftraining .owl-item {
+        max-width: 282px !important;
+        min-width: 282px;
+
+    }
+
+    .sectiion_btm_padding80 {
+        padding-bottom: 20px;
+    }
+
+    .wellnessbanner {
+        height: 250px;
+        object-position: right;
+    }
+
+    .aboutus-banner.image-orvideocpnt {
+        max-height: 162px;
+        height: 162px;
+    }
+
+    .aboutus-banner.image-orvideocpnt img {
+        height: 162px;
+    }
+
+    .journeysec {
+        margin-bottom: 0px;
+    }
+
+    .uploadbtnprogress-select.inputwrap {
+        background-position: 72% center;
+    }
+
+    .ourexpert-container {
+        padding: 100px 0px 0px 0px;
+    }
+
+    .ourexpertsec {
+        min-height: 350px;
+    }
+
+    .ourexpert-wrapper {
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    .section-topbtm-padding {
+        padding-top: 0px;
+        padding-bottom: 40px;
+    }
+
+    .careermgntiframetwo {
+
+        height: 220px;
+    }
+
+    .abt-txt-info hr {
+        display: none;
+    }
+
+    .col-xl-6.neverdoubt-inner {
+        left: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+
+    .m-width-30 {
+        width: 100%;
+    }
+
+    .d-50-m-100 {
+        width: 100%;
+    }
+
+    .therapy-intevidual-header-sec .ourstory {
+        order: 0;
+    }
+
+    .m-margin-bottom-25 {
+        margin-bottom: 25px;
+    }
+
+    .m-width-100 {
+        width: 100%;
+    }
+
+    .browse-our-courses-list .owl-stage,
+    .browse-our-courses-list .browsecourse-left-img img {
+        width: 100%;
+    }
+
+    .student-list .student-list-detail .student-list-detail-image {
+        height: 300px;
+        max-width: 100%;
+    }
+
+    .m-filter-border-bottom {
+        border-bottom: 1px solid #CBEEF3;
+    }
+
+    .m-margin-top-20 {
+        margin-top: 20px;
+    }
+
+    #therapist-list-our-team .therapest-list-container a:first-child img {
+        width: 100%;
+        max-width: 100%;
+        height: 260px;
+    }
+
+    #outteamfilter .fiterbtn-btns {
+        display: block;
+    }
+
+    #outteamfilter .fiterbtn-btns .clearbtn {
+        margin-bottom: 16px;
+    }
+
+    .testomonial-videocard .testomonial-imgvideo iframe {
+        width: 100%;
+        height: 260px;
+    }
+
+    .initialformtreeviews .treeview {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 20px;
+    }
+
+    .howweworkcurvedpath-heading h4 {
+        font-size: 18px;
+    }
+
+    .healing-inside-sec-h4 h2 {
+        font-size: 36px !important;
+    }
+
+    .twogrid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 8px;
+    }
+
+    .flexwithwrap {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    .socialshareevents a img {
+        margin: 0px 12px;
+    }
+
+    .testimonials .faqtabwrapper-header.searchpagetag {
+        display: block;
+    }
+
+    .mobile-model-sidefilter.navbarmaincont.sidenav.activemenu>div:nth-child(2) {
+        margin-top: 30px;
+    }
+
+    .mobileorderforinputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sectiion_top_padding80 {
+        padding-top: 40px;
+    }
+
+    .abouttherappoints.eventabout div:nth-child(2) {
+        margin-right: auto;
+        margin-left: 0 !important;
+    }
+
+    .mobileorderforinputs div:first-child {
+        order: 3;
+    }
+
+    .mobileorderforinputs div:nth-child(2) {
+        order: 4;
+    }
+
+    .mobile-block,
+    .only-mobile-block {
+        display: block;
+    }
+
+    .mbl-share-event-p {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        gap: 30px;
+    }
+
+    .profile-width-event {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .font_62_m40 {
+        font-size: 40px;
+    }
+
+    .font_62_m36 {
+        font-size: 36px;
+    }
+
+    .font_36_m30 {
+        font-size: 30px;
+    }
+
+    .font_36_m36 {
+        font-size: 36px;
+    }
+
+    .font_72_m40 {
+        font-size: 40px;
+    }
+
+    .event-single-certificate-right-align {
+        justify-content: center;
+    }
+
+    .enq-card_head {
+        font-size: 16px;
+    }
+
+    .mob-hide {
+        display: none;
+    }
+
+    .mob-show {
+        display: block;
+    }
+
+    .bookafreetrial {
+        padding-top: 10px;
+    }
+
+    /* .top-wave-svg {
+        height: 80px;
+    } */
+
+    .calendar_twocardview .eventtitleinfos h5 {
+        height: auto;
+    }
+
+    section.blog_homepage_feature div.post-infos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media only screen and (min-width: 769px) {
+    .xl-margin-top-135 {
+        margin-top: -135px;
+    }
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1020px) {
+    .uploadbtnprogress-select.inputwrap {
+        background-position: 72% center;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .meditation-service-list-custom .multiselect-container.dropdown-menu.show {
+        top: 142px !important;
+    }
+}
+
+
+
+.holi-filter-tag_margin_set span.multiselect-native-select div#div_button_select_multi_list button span {
+    margin-top: -7px;
+}
+
+
+.holi-filter-tag_margin_set span.multiselect-native-select div#div_button_select_multi_list .multiselect-container.dropdown-menu {
+    top: 1px!important;
+    margin: auto!important;
+    overflow-y: auto!important;
+    transform: translate3d(-90px, 40px, 0px) !important;
+}
+
+
+
+
+}

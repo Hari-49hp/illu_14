@@ -1,0 +1,134 @@
+<odoo>
+	<data>
+		<record id="pos_return_form_views" model="ir.ui.view">
+	        <field name="name">pos.return.form</field>
+	        <field name="model">pos.return</field>
+	        <field name="arch" type="xml">
+            <form string="Return">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="pos_id" readonly="1"/>
+                            <field name="view_returned_qty" />
+                            <field name="return_qty_inv" invisible="1"/>
+                            
+                        	<field name="payment_inv" invisible="1"/>
+                            
+                        </group>
+                    </group>
+                    <notebook>
+                    	<page>
+                            <field name = "po_return_lines" widget="one2many" mode="tree"  style="width:104% !important;" >
+	                            <tree  editable="bottom" create="0" decoration-danger="return_qty == qty" decoration-warning="qty &gt; 0 and returnd_amount &gt; 0">
+	                            	<field name="pos_return_id" invisible="1"/>
+	                            	<field name="pos_line_id" invisible="1"/>
+	                                <field name="selections" />
+	                               <field name="appointment_set_id" readonly="1" force_save="1" string="Reference"/>
+	                                <field name="qty"  attrs="{'readonly': [('selections', '=', False)]}" string="Qty"/>
+	                                <field name="return_qty" force_save="1" readonly="1" string="Returned Qty"  attrs="{'column_invisible': [('parent.return_qty_inv', '=', False)]}"/>
+	                                <field name="reserved_qty" force_save="1" readonly="1" invisible="1"/>
+	                                <field name="price_unit" readonly="1" force_save="1"/>
+	                                <field name="session_remaining" readonly="1" force_save="1" invisible="1"/>
+	                                <field name="amount_discount" readonly="1" force_save="1" string="Discount"/>
+	                                <field name="rtn_discount_amount" readonly="1" force_save="1" string="Base Discount" invisible="1"/>
+	                                <field name="amount_tax" readonly="1" force_save="1" string="Tax"/>
+	                                <field name="full_product_name" readonly="1" force_save="1" string="Product"/>
+	                                <field name="price_subtotal_incl" readonly="1" force_save="1"/>
+	                                <field name="return_amt" readonly="1" force_save="1"  attrs="{'invisible': [('selections', '=', False)]}"/>
+	                                <field name="returnd_amount" readonly="1" force_save="1"  attrs="{'column_invisible': [('parent.view_returned_qty', '=', False)]}"/>
+	                            </tree>
+                        	</field>
+                        </page>
+                    </notebook>
+
+		            <footer>
+		                <button name="action_return_confirm" string="Confirm" type="object" class="oe_highlight"/>
+		                <button string="Cancel" class="btn-secondary" special="cancel"/>
+		            </footer>
+                </sheet>
+                <group>
+               <group>
+                <field name="payment_method_id" attrs="{'invisible':[('payment_inv', '=',False)],'required':[('payment_inv', '=',True)]}" options="{'no_create_edit': True, 'no_open': True,'no_create': True}"/>
+            </group>
+            <group>
+                <field name="return_reason" attrs="{'invisible':[('payment_method_id', '=',False)]}"/>
+            </group>
+        </group>
+            </form>
+        	</field>
+    	</record>
+
+	    <record id="action_pos_return" model="ir.actions.act_window">
+	        <field name="name">PoS Return</field>
+	        <field name="type">ir.actions.act_window</field>
+	        <field name="res_model">pos.return</field>
+	        <field name="view_id" ref="pos_return_form_views"/>
+	        <field name="view_mode">form</field>
+	    </record>
+
+
+    <record id="stock_picking_type_form_inherit" model="ir.ui.view">
+		<field name="name">stock.picking.type.inherit</field>
+		<field name="model">stock.picking.type</field>
+		<field name="priority" eval="5"/>
+		<field name="inherit_id" ref="stock.view_picking_type_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='show_operations']" position="after">
+				<field name="pos_return"/>
+			</xpath>
+
+		</field>
+	</record>
+
+
+	<record id="stock_picking_form_inherit_view" model="ir.ui.view">
+		<field name="name">stock.picking.inherit</field>
+		<field name="model">stock.picking</field>
+		<field name="inherit_id" ref="stock.view_picking_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='owner_id']" position="after">
+				<field name="return_order" invisible="1"/>
+			</xpath>
+
+		</field>
+	</record>
+
+	<record id="pos_order_form_view_inherit" model="ir.ui.view">
+		<field name="name">pos.order.inherit</field>
+		<field name="model">pos.order</field>
+		<field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="/form/sheet/notebook/page/field[@name='lines']/tree/field[@name='qty']" position="after">
+				<field name="return_qty" invisible="1"/>
+			</xpath>
+			<!-- <xpath expr="//form/field[@name='date_order']" position="after">
+				<field name="return_inv" invisible="0"/>
+			</xpath> -->
+
+			<xpath expr="//page[4]" position="after">
+				 <page string="Return Remarks">
+                    <field name ="return_order_reason_ids">
+                        <tree>
+                            <field name = "name" />
+                            <field name="reason_date"/>                       
+                            <field name="return_product_info"/>                                
+                        </tree>
+                        <form>
+                            <group>
+                            <field name = "name"/>
+                            <field name="reason_date"/>
+                            <field name="return_product_info"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+			</xpath>
+
+		</field>
+	</record>
+
+
+    
+	</data>
+
+</odoo>

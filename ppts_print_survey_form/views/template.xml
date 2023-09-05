@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ppts_print_survey_form">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h3 t-if="data">Feedback Form</h3>
+                    <br/>
+                    <h4>
+                        Event : <span t-field="data.title"/>
+                    </h4>
+
+                    <br/>
+
+                    <t t-foreach='data.question_ids' t-as='question'>
+<!--                        <t t-set="answer_lines" t-value="answer.user_input_line_ids.filtered(lambda line: line.question_id == question)"/>-->
+
+                        <span t-field="question.title"/>
+<!--                        <span t-field="question.question_type"/>-->
+
+                        <div class="mb-4">
+                            <t t-if="question.question_type == 'text_box'"><t t-call="ppts_print_survey_form.viewsquestion_text_box"/></t>
+                            <t t-if="question.question_type == 'char_box'"><t t-call="ppts_print_survey_form.view_question_char_box"/></t>
+                            <t t-if="question.question_type == 'numerical_box'"><t t-call="ppts_print_survey_form.view_question_numerical_box"/></t>
+                            <t t-if="question.question_type == 'date'"><t t-call="ppts_print_survey_form.view_question_date"/></t>
+                            <t t-if="question.question_type == 'datetime'"><t t-call="ppts_print_survey_form.view_question_datetime"/></t>
+                            <t t-if="question.question_type == 'simple_choice'"><t t-call="ppts_print_survey_form.view_question_simple_choice"/></t>
+                            <t t-if="question.question_type == 'multiple_choice'"><t t-call="ppts_print_survey_form.view_question_multiple_choice"/></t>
+                            <t t-if="question.question_type == 'matrix'"><t t-call="ppts_print_survey_form.view_question_matrix"/></t>
+
+                        </div>
+                    </t>
+               </div>
+            </t>
+        </t>
+
+    </template>
+
+    <template id="viewsquestion_text_box" name="Question: free text box">
+    <div class="o_survey_comment_container p-0">
+        <textarea class="form-control o_survey_question_text_box bg-transparent text-dark rounded-0 p-0" rows="3" t-att-name="question.id"
+                  t-att-data-question-type="question.question_type"> </textarea>
+    </div>
+    </template>
+
+    <template id="view_question_char_box" name="Question: text box">
+        <div class="o_survey_comment_container p-0">
+            <input t-att-type="'email' if question.validation_email else 'text'"
+               class="form-control o_survey_question_text_box bg-transparent text-dark rounded-0 p-0" t-att-name="question.id"
+               />
+        </div>
+    </template>
+
+    <template id="view_question_numerical_box" name="Question: numerical box">
+        <input type="number" step="any" class="form-control o_survey_question_numerical_box bg-transparent text-dark rounded-0 p-0"
+               t-att-name="question.id" t-att-value="answer_lines[0].value_numerical_box if answer_lines else None"
+               t-att-data-question-type="question.question_type"
+               t-att-data-validation-float-min="question.validation_min_float_value if question.validation_required else False"
+               t-att-data-validation-float-max="question.validation_max_float_value if question.validation_required else False"/>
+    </template>
+
+    <template id="view_question_date" name="Question: date box">
+        <div class="input-group o_survey_form_date" t-attf-id="datetimepicker_#{question.id}" data-target-input="nearest"
+                t-att-data-mindate="question.validation_min_date"
+                t-att-data-maxdate="question.validation_max_date">
+            <input type="text" class="form-control datetimepicker-input o_survey_question_date bg-transparent text-dark rounded-0 p-0"
+                   t-attf-data-target="#datetimepicker_#{question.id}" t-att-name="question.id"
+                   t-att-value="format_date(answer_lines[0].value_date) if answer_lines else None"
+                   t-att-data-question-type="question.question_type"/>
+            <div t-if="not survey_form_readonly" class="input-group-append position-absolute" t-attf-data-target="#datetimepicker_#{question.id}" data-toggle="datetimepicker">
+                <div class="input-group-text text-primary border-0 bg-transparent p-0"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="view_question_datetime" name="Question: datetime box">
+        <div class="input-group o_survey_form_date" t-attf-id="datetimepicker_#{question.id}" data-target-input="nearest"
+                t-att-data-mindate="question.validation_min_datetime"
+                t-att-data-maxdate="question.validation_max_datetime">
+            <input type="text" class="form-control datetimepicker-input o_survey_question_datetime bg-transparent text-dark rounded-0 p-0"
+                   t-attf-data-target="#datetimepicker_#{question.id}" t-att-name="question.id"
+                   t-att-value="format_datetime(answer_lines[0].value_datetime) if answer_lines else None"
+                   t-att-data-question-type="question.question_type"/>
+            <div t-if="not survey_form_readonly" class="input-group-append position-absolute" t-attf-data-target="#datetimepicker_#{question.id}" data-toggle="datetimepicker">
+                <div class="input-group-text text-primary border-0 bg-transparent p-0"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="view_question_simple_choice" name="Question: simple choice">
+
+        <div class="row o_survey_form_choice"
+             t-att-data-name="question.id"
+             data-question-type="simple_choice_radio">
+            <t t-set="item_idx" t-value="0"/>
+            <div t-attf-class="col-lg-12 d-flex flex-wrap">
+                <t t-set="has_correct_answer" t-value="scoring_display_correction and any(label.is_correct for label in question.suggested_answer_ids)"/>
+                <t t-foreach='question.suggested_answer_ids' t-as='label'>
+                    <t t-set="item_idx" t-value="label_index"/>
+
+                    <label t-att-for="str(question.id) + '_' + str(label.id)"
+                           t-att-class="'o_survey_choice_btn mr-2 mb-2 py-1 px-3 rounded %s %s' % (answer_class, 'o_survey_selected' if answer_selected else '')">
+                        <span class="ml-2" t-field='label.value'/>
+                        <i class="fa fa-circle-thin float-center mt-1 position-relative"></i>
+                    </label>
+                </t>
+            </div>
+        </div>
+    </template>
+
+    <template id="view_question_multiple_choice" name="Question: multiple choice">
+        <div class="row o_survey_form_choice o_survey_question_multiple_choice"
+             t-att-data-name="question.id"
+             t-att-data-question-type="question.question_type">
+            <t t-set="item_idx" t-value="0"/>
+            <div class="d-flex flex-wrap col-lg-12">
+                <t t-set="has_correct_answer" t-value="scoring_display_correction and any(label.is_correct for label in question.suggested_answer_ids)"/>
+                <t t-foreach='question.suggested_answer_ids' t-as='label'>
+                    <t t-set="item_idx" t-value="label_index"/>
+
+                    <label t-att-class="'o_survey_choice_btn mr-2 py-1 px-3 rounded %s %s' % (answer_class, 'o_survey_selected' if answer_line else '')">
+
+                        <input type="checkbox" t-att-value='label.id' class="o_survey_form_choice_item invisible position-absolute"
+                               t-att-name="question.id"
+                               t-att-data-selection-key="letters[item_idx] if useKeySelection else ''"/>
+                        <span class="ml-2" t-field='label.value'/>
+                        <i class="fa fa-square-o float-center mt-1 position-relative"></i>
+                    </label>
+                </t>
+            </div>
+        </div>
+    </template>
+
+    <template id="view_question_matrix" name="Question: matrix">
+        <table class="table table-hover o_survey_question_matrix  text-center mb-0"
+               t-att-data-name="question.id"
+               t-att-data-question-type="question.question_type"
+               t-att-data-sub-questions="question.matrix_row_ids.ids">
+            <thead>
+                <tr>
+                    <th class="border-0"> </th>
+                    <th class="border-0 font-weight-normal" t-foreach="question.suggested_answer_ids" t-as="col_label"><span t-field="col_label.value" /></th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-set="item_idx" t-value="0"/>
+                <!-- For matrix, we have an extra check because we have rows * columns total options -->
+                <t t-set="useKeySelection" t-value="useKeySelection and (len(question.suggested_answer_ids) * len(question.matrix_row_ids)) &lt; len(letters)" />
+                <tr  class="border-0 font-weight-normal" t-foreach="question.matrix_row_ids" t-as="row_label" t-att-id="row_label.id">
+                    <th class="border-0 font-weight-normal text-left"> <span t-field="row_label.value" /></th>
+                    <t t-foreach="question.suggested_answer_ids" t-as="col_label">
+                        <td t-att-class="'o_survey_matrix_btn text-primary border-0 position-relative %s'
+                        % ('o_survey_selected' if answer else '')">
+                            <input t-att-type="'checkbox' if question.matrix_subtype == 'multiple' else 'radio'"
+                                   t-att-name="'%s_%s' % (question.id, row_label.id)" t-att-value='col_label.id'
+                                   t-att-checked="'checked' if answer else None"
+                                   t-att-data-row-id="row_label.id"
+                                   t-att-data-selection-key="letters[item_idx] if useKeySelection else ''"
+                                   class="o_survey_form_choice_item d-none"/>
+
+                            <i t-att-class="'o_survey_matrix_empty_checkbox fa fa-%s position-relative'
+                            % ('square-o' if question.matrix_subtype == 'multiple' else 'circle-thin')"></i>
+                            <t t-set="item_idx" t-value="item_idx + 1"/>
+                        </td>
+                    </t>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+</odoo>

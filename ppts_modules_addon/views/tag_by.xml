@@ -1,0 +1,113 @@
+<odoo>
+	<data>
+
+		<record id="tag_by_healing_from_view" model="ir.ui.view">
+			<field name="name">Tag By Healing</field>
+			<field name="model">tag.by.healing</field>
+			<field name="arch" type="xml"> 
+				<form>
+					<sheet>
+						<group>
+							<field name="name"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="tag_by_healing_tree_view" model="ir.ui.view">
+			<field name="name">Tag By Healing</field>
+			<field name="model">tag.by.healing</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="tag_by_healing_action_view" model="ir.actions.act_window">
+			<field name="name">Tag By Healing</field>
+			<field name="res_model">tag.by.healing</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="tag_by_healing_tree_view"/>
+		</record>
+
+		 <menuitem id="tag_by_master" name="Tags" parent="ppts_custom_apt_mgmt.menu_appointments_configuration" sequence="8" />
+
+		<record id="tag_by_sub_healing_from_view" model="ir.ui.view">
+			<field name="name">Tag By Sub Healing</field>
+			<field name="model">tag.by.sub.healing</field>
+			<field name="arch" type="xml"> 
+				<form>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="parent_id"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="tag_by_sub_healing_tree_view" model="ir.ui.view">
+			<field name="name">Tag By Sub Healing</field>
+			<field name="model">tag.by.sub.healing</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="parent_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="tag_by_sub_healing_action_view" model="ir.actions.act_window">
+			<field name="name">Tag By Sub Healing</field>
+			<field name="res_model">tag.by.sub.healing</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="tag_by_sub_healing_tree_view" />
+		</record>
+
+
+		<record id="tag_by_therapy_from_view" model="ir.ui.view">
+			<field name="name">Tag By Therapy</field>
+			<field name="model">tag.by.therapy</field>
+			<field name="arch" type="xml"> 
+				<form>
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="parent_id" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="tag_by_therapy_tree_view" model="ir.ui.view">
+			<field name="name">Tag By Therapy</field>
+			<field name="model">tag.by.therapy</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="tag_by_therapy_action_view" model="ir.actions.act_window">
+			<field name="name">Tags</field>
+			<field name="res_model">tag.by.therapy</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="tag_by_therapy_tree_view" />
+		</record>
+
+		<menuitem id="apt_tag_by_master" name="Tag By" parent="event.menu_event_configuration" sequence="8" />
+		<menuitem id="tag_by_therapy" action="tag_by_therapy_action_view" name="Tags" parent="tag_by_master" sequence="3"/>
+
+		<menuitem id="apt_tag_by_healing_master" action="tag_by_healing_action_view" name="Tag By Healing" parent="apt_tag_by_master" sequence="1"/>
+
+		<menuitem id="apt_tag_by_healing_sub_master"  action="tag_by_sub_healing_action_view" name="Tag By Sub Healing" parent="apt_tag_by_master" sequence="2"/>
+
+		<menuitem id="apt_tag_by_therapy" action="tag_by_therapy_action_view" name="Tag By Therapy" parent="apt_tag_by_master" sequence="3"/>
+		<menuitem id="event.menu_event_category" active="False"/>
+	</data>
+</odoo>

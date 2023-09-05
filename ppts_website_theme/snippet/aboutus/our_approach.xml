@@ -1,0 +1,33 @@
+<odoo>
+	<data>
+		<template id="illuminations_our_approach_snippet" name="Our Approach">
+			<section class="top-btmspace section-left80right190">
+				<div class="row approchcontainer">
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 section-image">
+						<img src="/ppts_website_theme/static/src/img/image2.jpg" data-aos="fade-up"  data-aos-delay="100"/>
+
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 section-typo">
+						<div class="arrow-scroll approchright">
+							<svg viewBox="0 0 426 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+									<path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4"></path>
+									<path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+										c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z"></path>
+									</g>
+
+								</svg>
+							</div>
+
+							<div class="section-typo-inner" >
+								<h2 data-aos="fade-up"  data-aos-delay="200">Our Approach</h2>
+								<p data-aos="fade-up"  data-aos-delay="300">At Illuminations our holistic approach to self-development, focuses on releasing the limitations we have set in our mental, emotional &amp; physical levels, so that we can focus on long lasting transformation.
+								</p>
+							</div>
+						</div>
+
+					</div>
+				</section>
+			</template>
+		</data>
+	</odoo>

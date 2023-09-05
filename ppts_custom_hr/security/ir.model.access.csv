@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_by.support,access_by.support,model_by_support,sales_team.group_sale_manager,1,1,1,1
+access_by.solution,access_by.solution,model_by_solution,sales_team.group_sale_manager,1,1,1,1
+access_by.employee.qualifications,access_by.employee.qualifications,model_employee_qualifications,,1,1,1,1
+access_by.employee.qualified,access_by.employee.qualified,model_employee_qualified_in,,1,1,1,1
+access_by.employee.help,access_by.employee.help,model_employee_help,,1,1,1,1

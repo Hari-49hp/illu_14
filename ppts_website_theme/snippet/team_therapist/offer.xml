@@ -1,0 +1,79 @@
+<odoo>
+	<data>
+		<template id="template_therapist_offers_page" name="Offers">
+			<section class="top-btmspace missionvission blacktexts">
+				<div class="container-fluid section-right80left190 ">
+					<div class="row">
+						<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 missionvission-left" data-aos="fade-up" data-aos-delay="100">
+							<div class="arrow-scroll leftside">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" version="1.1" id="Layer_1" x="0px" y="0px" width="600" enable-background="new 0 0 0 0">
+									<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+										<path class="arrow-head" fill="#000000" d="M161.87,152.65l-0.27-2.83l-13.93,1.31l-0.28-13.98l-2.84,0.1l0.3,17.08L161.87,152.65z" />
+										<path id="discoverqq" class="arrow-line" stroke="#000000" stroke-width="2.83" d="M147.56,151.34c159.2-121.03,387.38-105.15,528.01,43.4c39.99,42.24,68.85,90.97,86.75,142.58" />
+									</g>
+								</svg>
+							</div>
+							<span class="">Offers</span>
+							<h2 class="">Holistic <br/> Approaches <br/> Include:</h2>
+						</div>
+						<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 questtobehappytypo">
+							<div class="row">
+								<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list" data-aos="fade-up" data-aos-delay="300">
+									<span class="moving_shape">
+										<img src="/ppts_website_theme/static/src/img/Holistic1.svg"/>
+									</span>
+									<h4>Psychotherapy &amp; Behavioral Sciences</h4>
+									<p>Theta Healing™ is a powerful technique that teaches us how to put to use our natural intuition  </p>
+								</div>
+								<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list" data-aos="fade-up" data-aos-delay="400">
+									<span class="moving_shape">
+										<img src="/ppts_website_theme/static/src/img/Holistic2.svg"/>
+									</span>
+									<h4>Family <br/> Constellation</h4>
+									<p>Theta Healing™ is a powerful technique that teaches us how to put to use our natural intuition  </p>
+								</div>
+								<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list" data-aos="fade-up" data-aos-delay="300">
+									<span class="moving_shape">
+										<img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+									</span>
+									<h4>Regression <br/> Therapies</h4>
+									<p> Theta Healing™ is a powerful technique that teaches us how to put to use our natural intuition </p>
+
+								</div>
+								<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list" data-aos="fade-up" data-aos-delay="400">
+									<span class="moving_shape">
+										<img src="/ppts_website_theme/static/src/img/Holistic4.svg"/>
+									</span>
+									<h4>NLP <br/> Psychotherapy</h4>
+									<p> Theta Healing™ is a powerful technique that teaches us how to put to use our natural intuition </p>
+
+								</div>
+								<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list" data-aos="fade-up" data-aos-delay="300">
+									<span class="moving_shape">
+										<img src="/ppts_website_theme/static/src/img/Holistic5.svg"/>
+									</span>
+									<h4>Metaphor <br/> Therapy</h4>
+									<p>Theta Healing™ is a powerful technique that teaches us how to put to use our natural intuition  </p>
+
+
+								</div>
+								<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 visionmission-list" data-aos="fade-up" data-aos-delay="400">
+									<span class="moving_shape">
+										<img src="/ppts_website_theme/static/src/img/Holistic6.svg"/>
+									</span>
+									<h4>Life <br/> Coaching</h4>
+									<p>Theta Healing™ is a powerful technique that teaches us how to put to use our natural intuition  </p>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+
+			</section>
+		</template>
+	</data>
+</odoo>

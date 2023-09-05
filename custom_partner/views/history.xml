@@ -1,0 +1,895 @@
+<odoo>
+    <data>
+        <record id="res_partner_history_history_from_view" model="ir.ui.view">
+            <field name="name">Client</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form string="Partner" confirm="Are you sure to save client record? Make sure Notes and Quick Remarks field is updated!">
+                    <style>
+                        .o_form_button_create{
+                        display: none !important;
+                        }
+                    </style>
+                    <script src="/custom_partner/static/src/js/action_call.js" type="text/javascript"/>
+                    <!--                     <header id="client_header">
+
+                        <button name="%(ppts_custom_apt_mgmt.action_open_calendar_url)d" style="flex-flow: row-reverse wrap-reverse;align-self: stretch;align-items: stretch;" class="oe_highlight" type="action" string="Booking Activities" />
+                    </header> -->
+                    <sheet class="history_page">
+
+                        <div class="alert alert-warning oe_edit_only" role="alert" attrs="{'invisible': [('same_vat_partner_id', '=', False)]}">
+                          A partner with the same <span>
+                            <span class="o_vat_label">Tax ID</span>
+                        </span> already exists (<field name="same_vat_partner_id"/>
+), are you sure to create a new one?
+                    </div>
+                    <div>
+                        <button style='margin-right:16px' name="book_event" class="oe_highlight" type="object" string="Book Events" />
+                        <button style='margin-right:16px' name="book_appointment" class="oe_highlight" type="object" string="Book Appointments" />
+                        <button style='margin-right:16px' name="action_send_sign_template" class="oe_highlight" type="object" string="E-Sign" />
+                    </div>
+
+                    <div class="oe_button_box" name="button_box">
+                        <button name="button_membership" type="object" class="oe_stat_button" string="Membership" icon="fa-ticket" style="width: 130px;max-width: 130px !important;"/>
+                        <button name="credit_transfer" type="object" class="oe_stat_button" string="Credit Transfer" icon="fa-exchange"/>
+
+                        <button id="move-to-page-misc" title="Misc Info" icon="fa-google-wallet" string="Misc Info" style ="background-color:#56c4db" attrs="{'invisible': [('show_address_tab', '=', False)]}"/>
+                        <button id="move-to-page-misc" title="Misc Info" icon="fa-google-wallet" string="Misc Info" attrs="{'invisible': [('show_address_tab', '=', True)]}"/>
+
+
+                        <!--  <button type="button" name="credit_transfer" class="btn oe_stat_button">
+                            <i class="fa fa-fw o_button_icon fa-exchange"></i>
+                            <span>Credit Transfer</span>
+                        </button> -->
+
+                        <button id="move-to-page-misc-btn" name="button_show_address" type="object" class="oe_stat_button d-none" string="Misc Info" icon="fa-google-wallet"/>
+
+                        <button name="action_client_consent_documents" type="object" class="oe_stat_button" style ="width: 170px;max-width: 161px !important;" icon="fa-file-text-o" string="Client Consent Form" invisible="1">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="document_count"/>
+                                </span>
+                            </div>
+                        </button>
+                         <button name="open_signatures" type="object" class="oe_stat_button" icon="fa-file-text-o" attrs="{'invisible': [('sign_template_inv', '!=', True)]}" string="Client Consent Form">
+                     <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value">
+                            <field name="signature_count"/>
+                        </span>
+                    </div>
+                </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <field name="image_1920" widget='image' class="oe_avatar" options='{"preview_image": "image_128"}'/>
+                    <div class="oe_title">
+                        <field name="is_company" invisible="1"/>
+                        <field name="commercial_partner_id" invisible="1"/>
+                        <field name="active" invisible="1"/>
+                        <field name="company_type" widget="radio" class="oe_edit_only" options="{'horizontal': true}"/>
+                        <h1>
+                            <field name="name" readonly='0' force_save='1' placeholder="Name" attrs="{'required' : ['|',('type', '=', 'contact'),('company_type','=','company')],'readonly':[('company_type','=','person')]}"/>
+                        </h1>
+                    </div>
+                    <group colspan="4" col="2" attrs="{'invisible' : [('check_bool', '=', False)]}">
+                        <group>
+                            <field name="customer_balance" string="Balance"  decoration-danger="customer_balance &lt; 1" decoration-success="customer_balance > 0" />
+                            <field name="last_visit_details" string="Last Visit" />
+                            <field name="next_visit_details" string="Next Visit" />
+                            <field name="current_packages" />
+
+                        </group>
+                        <group>
+                            <field name="topay_cancellation_charge" attrs="{'invisible': ['|',('topay_cancellation_charge','&lt;=', 0),('topay_cancellation_charge','=',0)]}" style="background-color: #fe0a0a;color: #fff;padding: 5px;font-weight: 700;font-size: 11px;" string="Cancellation Charge"/>
+                            <field name="topay_cancellation_charge" attrs="{'invisible': ['|',('topay_cancellation_charge','&gt;', 0),('topay_cancellation_charge','=',0)]}" string="Cancellation Charge"/>
+
+                            <field name="topay_no_show_charges" attrs="{'invisible': ['|',('topay_no_show_charges','&lt;=', 0),('topay_no_show_charges','=',0)]}" style="background-color: #fe0a0a;color: #fff;padding: 5px;font-weight: 700;font-size: 11px;" string="No Show Charge"/>
+                            <field name="topay_no_show_charges" attrs="{'invisible': ['|',('topay_no_show_charges','&gt;', 0),('topay_no_show_charges','=',0)]}" string="No Show Charge"/>
+                        </group>
+                    </group>
+
+
+
+                    <group>
+                        <group>
+                            <field name="title" options='{"no_open": True}' placeholder="e.g. Mister" attrs="{'invisible': [('is_company', '=', True)]}" default_focus="1"/>
+                            <field name="sign_template_inv" invisible="1"/>
+                            <t id="show-address-tab-client">
+                                <field name="show_address_tab" style="display:none"/>
+                            </t>
+                            <field name="firstname" attrs="{'required': [('is_company', '=', False)],'invisible':[('company_type','=','company')]}" />
+                            <field name="lastname" attrs="{'required': [('is_company', '=', False)],'invisible':[('company_type','=','company')]}" />
+                            <field name="parent_id" widget="res_partner_many2one" placeholder="Company" domain="[('is_company', '=', True)]" context="{'default_is_company': True, 'show_vat': True}" attrs="{'invisible': ['|', '&amp;', ('is_company','=', True),('parent_id', '=', False),('company_name', '!=', False),('company_name', '!=', '')]}" invisible='1' />
+                            <field name="company_name" attrs="{'invisible': ['|', '|', ('company_name', '=', False), ('company_name', '=', ''), ('is_company', '=', True)]}" />
+                            <field name="sub_parent_id" domain="['|',('is_a_customer','=',True),('is_a_vendor','=',True),('is_company','=',True)]" attrs="{'invisible': ['|', '&amp;', ('is_company','=', True),('sub_parent_id', '=', False),('company_name', '!=', False),('company_name', '!=', '')]}" widget="res_partner_many2one" placeholder="Company" string="Company" options="{'no_quick_create': True}" context="{'default_company_type': 'company', 'default_is_company': True}" />
+                            <field name="sequence" string="Customer Code" />
+                            <field name="type" groups="base.group_no_one" attrs="{'invisible': [('is_company','=', True)], 'readonly': [('user_ids', '!=', [])]}"/>
+                            <span class="o_form_label o_td_label" name="address_name">
+                                <b attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}">Company Address</b>
+                                <b attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'invoice')]}">Invoice Address</b>
+                                <b attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'delivery')]}">Delivery Address</b>
+                                <b attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'other')]}">Other Address</b>
+                                <b attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'private')]}">Private Address</b>
+                                <b attrs="{'invisible': ['&amp;', ('parent_id', '!=', False), ('type', '!=', False)]}">Address</b>
+                            </span>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}' attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" required='1'/>
+                                <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" required='1'/>
+                                <field name="city_id" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" required='1' options="{'no_create': True,'no_open':True, 'no_edit': True}"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+
+                            </div>
+                            <field name="vat" placeholder="e.g. BE0477472701" attrs="{'readonly': [('parent_id','!=',False)] ,'invisible': [('company_type', '!=', 'company')]}"/>
+                            <field name="dob" attrs="{'invisible': [('company_type', '!=', 'person')]}" />
+                            <field name="gender" attrs="{'required': [('is_company', '=', False)],'invisible': [('company_type', '!=', 'person')] }" />
+                            <field name="branch_id" invisible="1" />
+                            <field name="location_ids" widget="many2many_tags" options="{'no_create_edit': False,'no_quick_create':True,'no_create':True,'no_open':True}" />
+                        </group>
+                        <group>
+
+                            <label for="mobile" string="Mobile" />
+                            <div class="address_format">
+                                <field name="mobile" style="width: auto" required='1'/>
+                                <!-- <button type="object" name="call_originate_extension" class="originate-call-lg-btn originate_extension_button btn btn-lg btn-primary fa fa-phone" aria-label="Call" title="Call" style="width: 10%"/> -->
+                                
+                                <button  onclick="open_dialler_func()"  class="
+                                        fa
+                                        fa-fw
+                                        fa-phone"
+                                    role="img" title="partner dialler" style="color:green"></button>
+
+                            </div>
+
+                            <field name="email" widget="email" required='1'/>
+                            <field name="user_ids" invisible="1"/>
+                            <field name="url" invisible="1"/>
+                            <field name="alternate_mobile" widget="base_originate_call" options="{'enable_sms': True}" />
+                            <field name="alternate_email" widget="email" />
+                            <field name="reffer_type_id" string="Lead Source" required="1" force_save="1" />
+                            <field name="function" attrs="{'invisible': [('is_company', '=', False)] }"/>
+                            <field name="point_of_contact" attrs="{'invisible': [('is_company', '=', False)] }"/>
+                            <field name="comment" placeholder="Internal note..." />
+                            <field name="quick_remarks_id"/>
+                            <field name="lead_id" invisible="1"/>
+                            <button name="compute_update_data" type="object" icon="fa-edit" string="Update"/>
+
+                            <field name="latest_quick_remarks" invisible='1'/>
+                            <field name="latest_comment" invisible='1'/>
+
+                            <field name="user_id" invisible="1"/>
+                            <field name="lang" invisible="1"/>
+                            <field name="check_bool" invisible='1'/>
+                            <field name="dummy_for_default_get" invisible="1" />
+                        </group>
+                    </group>
+                    <t id="show-address-tab-client">
+                        <field name="show_address_tab" style="display:none"/>
+                    </t>
+
+
+
+
+                    <notebook>
+                        <page string="Misc Info" name="mis_info" attrs="{'invisible': [('show_address_tab','=',False)]}" autofocus="autofocus" class="mis-info-page">
+                            <div class="alert alert-info" role="alert">
+                                <h3>Other Contacts And Addresses</h3>
+                            </div>
+                            <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id, 'default_street': street, 'default_street2': street2, 'default_city_id': city_id, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_lang': lang, 'default_user_id': user_id, 'default_type': 'other'}">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="color"/>
+                                    <field name="name"/>
+                                    <field name="title"/>
+                                    <field name="type"/>
+                                    <field name="email"/>
+                                    <field name="parent_id"/>
+                                    <field name="is_company"/>
+                                    <field name="function"/>
+                                    <field name="phone"/>
+                                    <field name="street"/>
+                                    <field name="street2"/>
+                                    <field name="zip"/>
+                                    <field name="city_id"/>
+                                    <field name="country_id"/>
+                                    <field name="mobile"/>
+                                    <field name="state_id"/>
+                                    <field name="image_128"/>
+                                    <field name="lang"/>
+                                    <!-- fields in form x2many view to diminish requests -->
+                                    <field name="comment"/>
+                                    <field name="display_name"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
+                                            <div t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'">
+                                                <div class="o_kanban_image">
+                                                    <img alt="Contact image" t-if="record.image_128.raw_value" t-att-src="kanban_image('res.partner', 'image_128', record.id.raw_value)"/>
+                                                    <t t-if="!record.image_128.raw_value">
+                                                        <img alt="Delivery" t-if="record.type.raw_value === 'delivery'" t-att-src='_s + "/base/static/img/truck.png"'/>
+                                                        <img alt="Invoice" t-if="record.type.raw_value === 'invoice'" t-att-src='_s + "/base/static/img/money.png"'/>
+                                                        <t t-if="record.type.raw_value !== 'invoice' &amp;&amp; record.type.raw_value !== 'delivery'">
+                                                            <img alt="Logo" t-if="record.is_company.raw_value === true" t-att-src='_s + "/base/static/img/company_image.png"'/>
+                                                            <img alt="Avatar" t-if="record.is_company.raw_value === false" t-att-src='_s + "/base/static/img/avatar_grey.png"'/>
+                                                        </t>
+                                                    </t>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <field name="name"/>
+                                                    <div t-if="record.function.raw_value">
+                                                        <field name="function"/>
+                                                    </div>
+                                                    <div t-if="record.email.raw_value">
+                                                        <field name="email" widget="email"/>
+                                                    </div>
+                                                    <div t-if="record.type.raw_value != 'contact'">
+                                                        <div>
+                                                            <field name="zip"/>
+                                                            <field name="city_id"/>
+                                                        </div>
+                                                        <field t-if="record.state_id.raw_value" name="state_id"/>
+                                                        <field name="country_id"/>
+                                                    </div>
+                                                    <div t-if="record.phone.raw_value">Phone: <t t-esc="record.phone.value"/>
+                                                    </div>
+                                                    <div t-if="record.mobile.raw_value">Mobile: <t t-esc="record.mobile.value"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                                <form string="Contact / Address">
+                                    <sheet>
+                                        <!-- parent_id and type fields needed in attrs in base_address_city module which overwrites
+                                            _fields_view_get() of partner. It would be better to put those fields there but the web client
+                                            dosen't support when a field is displayed several times in the same view.-->
+                                        <field name="type" required="1" widget="radio" options="{'horizontal': true}"/>
+                                        <field name="parent_id" invisible="1"/>
+                                        <hr/>
+                                        <group col="12">
+                                            <group colspan="5">
+                                                <field name="name" string="Contact Name" attrs="{'required' : [('type', '=', 'contact')]}"/>
+                                                <field name="title" placeholder="e.g. Mr." attrs="{'invisible': [('type','!=', 'contact')]}"/>
+                                                <field name="function" placeholder="e.g. Sales Director" attrs="{'invisible': [('type','!=', 'contact')]}"/>
+                                                <label for="street" string="Address" attrs="{'invisible': [('type','=', 'contact')]}"/>
+                                                <div attrs="{'invisible': [('type','=', 'contact')]}">
+                                                    <div class="o_address_format" name="div_address">
+                                                        <field name="street" placeholder="Street..." class="o_address_street"/>
+                                                        <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                                        <field name="city_id" class="o_address_city" options="{'no_create': True,'no_open':True, 'no_edit': True}"/>
+                                                        <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>
+                                                        <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+                                                        <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                                                    </div>
+                                                </div>
+                                                <field name="comment" placeholder="Internal notes..."/>
+                                            </group>
+                                            <group colspan="5">
+                                                <field name="email" widget="email"/>
+                                                <field name="phone" widget="phone"/>
+                                                <field name="mobile" widget="phone"/>
+                                                <field name="company_id" invisible="1"/>
+                                            </group>
+                                            <group colspan="1">
+                                                <field name="image_1920" widget="image" class="oe_avatar" nolabel="1" options="{'image_preview': 'image_128'}"/>
+                                            </group>
+                                        </group>
+                                        <field name="lang" invisible="True"/>
+                                        <field name="user_id" invisible="True"/>
+                                        <field name="image_128" invisible="1"/>
+                                    </sheet>
+                                </form>
+                            </field>
+                            <div class="alert alert-info" role="alert">
+                                <h3>Bank Details</h3>
+                            </div>
+                            <group>
+                                <field name="bank_ids"/>
+                            </group>
+                            <div class="alert alert-info" role="alert">
+                                <h3>Online Survey</h3>
+                            </div>
+                            <group>
+                                <field name="master_aboutus" />
+                                <field name="master_intrestedin" />
+                                <field name="master_struggling" />
+                                <field name="master_holistic" />
+                                <field name="master_membership" invisible="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Package Remaining" name="contact_sessions_remaining">
+                            <group class="emp_grp_bg_other_info" string="Package Remaining"></group>
+                            <field name="appointment_line_history_ids" readonly="1">
+                                <tree delete="false" class="booking_apt_state_book" create="false" id="contact_session_remaining_tree" limit="20">
+                                   
+                                    <field name="session_type" string="Type" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="appointments_package_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="appointment_type" string="PLATFORM" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="service_categ_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="appointments_type_id" string="Sub Category" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="state" string="Package State" invisible="1" options='{"bg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="state_line" string="Session State" invisible="1" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="package_expired_date" string="Expiry Date" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="payment_status_apt" string="Payment Status" decoration-danger="payment_status_apt == 'no_paid'" decoration-success="payment_status_apt in ('paid','payment_received')" decoration-warning="payment_status_apt == 'partially_paid'" widget="badge" />
+                                    <!-- <button name="move_to_pos_client" type="object" string="Pay Now" class="oe_highlight" invisible="1"/> -->
+                                    <button name="action_claim_pack" type="object" string="Book" attrs="{'invisible':[('state_line','!=','draft')]}" context="{'claim_operation': True, 'partner_id': parent.id, 'appointment_visit_wiz': True}" />
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="therapist_id" readonly='1'/>
+                                                <field name="session_type" readonly='1'/>
+                                            </group>
+                                            <group>
+                                                <field name="service_categ_id" readonly="1"/>
+                                                <field name="appointments_type_id" readonly="1"/>
+                                            </group>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+
+                            <field name="session_single_history_ids" readonly="1" attrs="{'invisible': [('session_single_history_ids', '=', [])]}">
+                                <tree delete="false" create="false" id="contact_session_remaining_tree" limit="20">
+                                    <field name="booking_mode" string="Mode" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="therapist_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="session_type" string="Type" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="service_categ_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="appointments_type_id" string="Sub Category" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="state" string="State" invisible="1" />
+                                    <field name="payment_status_apt" string="Payment Status" decoration-danger="payment_status_apt == 'no_paid'" decoration-success="payment_status_apt in ('paid','payment_received')" widget="badge"/>
+                                    <!-- <button name="move_to_pos_client" type="object" string="Pay Now" class="oe_highlight" invisible="1"/> -->
+                                    <button name="action_single_session_remaining_customer" type="object" string="Book" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Visit" name="contact_visit">
+                            <field name="visit_history_ids" readonly="1">
+                                <tree id="contact_visit_tree" class="booking_apt_state_book" default_order='booking_date desc' limit="20" delete="0" create="0">
+                                    <field name="state" invisible='1'/>
+                                    <field name="booking_mode" string="Mode" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="booking_date" string="Date" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="time_slot_id" string="Time" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="descriptions" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="therapist_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="company_id" string="Location" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="apt_room_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="payment_status_apt" string="Payment Status" decoration-danger="payment_status_apt == 'no_paid'" decoration-success="payment_status_apt in ('paid','payment_received')" widget="badge"/>
+                                    <field name="pos_order_id" string="Payment Info" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="created_by" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                </tree>
+                            </field>
+                            <group name="total">
+                                <field name="total_visits" class="oe_subtotal_footer_separator" />
+                                <field name="total_hours_visits" class="oe_subtotal_footer_separator" />
+                            </group>
+                            <group class="emp_grp_bg_other_info" string="Event"></group>
+                            <field name="event_visit_ids" readonly="1" delete="0" create="0">
+                                <tree limit="20" decoration-danger="event_payment_status == 'no_paid'" decoration-warning="event_payment_status == 'partially_paid'" decoration-success="event_payment_status in ('paid','payment_received')">
+                                    <field name="booking_mode" class="customer_history_font"/>
+                                    <field name="pos_order_id" class ="customer_history_font"/>
+                                    <field name="event_id" class ="customer_history_font"/>
+                                    <field name="event_ticket_id" class ="customer_history_font"/>
+                                    <field name="ticket_price" class ="customer_history_font"/>
+                                    <field name="partner_balance" class ="customer_history_font"/>
+                                    <field name="date_open" class ="customer_history_font"/>
+                                    <field name="date_closed" class ="customer_history_font"/>
+                                    <field name="event_payment_status" string="Payment Status" decoration-info="event_payment_status == 'no_paid'" decoration-success="event_payment_status in ('paid','payment_received')" widget="badge" class ="customer_history_font"/>
+                                    <field name="sales_person" string="Booked By" class ="customer_history_font"/>
+                                    <field name="state" class ="customer_history_font"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Upcoming Session" name="upcoming_session">
+                            <group class="emp_grp_bg_other_info" string="For Confirmation"></group>
+                            <field name="avail_for_use_history_ids" readonly="0" default_order='date_order desc' limit="20" attrs="{'invisible': [('avail_for_use_history_ids', '=', [])]}" options="{'no_quick_create':True,'no_create':True}">
+                                <tree id="contact_visit_tree" class="booking_apt_state_book remove-add-line-and-delete-one2many" default_order='booking_date desc' limit="20" create='false' >
+                                    <field name="pos_order_id" string="Sale Id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="booking_mode" string="Mode" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="booking_date" string="Date" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="time_slot_id" string="Time" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="therapist_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="company_id" string="Location" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="apt_room_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="descriptions" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="appointments_type_id" string="Type Purchased" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="session_type" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" string="Package"/>
+                                    <field name="invoice_balance" options='{"fg_color": "red: invoice_balance &lt; 0;green: invoice_balance == 0""}' class ="customer_history_font" string="Balance"/>
+                                    <field name="session_remaining" string="Sessions Remaining" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="state" options='{"bg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <button name="action_confirm" type="object" class="custom_identifier" data-toggle="tooltip" title="Confirm" icon="fa-shopping-cart" help="Confirm" attrs="{'invisible': ['|',('state', '!=', 'new'),('session_type','=','type_package')]}" />
+                                    <button name="action_arrived" type="object" icon="fa-clock-o" data-toggle="tooltip" title="Arrived" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('session_type','=','type_package')]}" />
+                                    <button name="action_done" type="object" icon="fa-check" data-toggle="tooltip" title="Completed" attrs="{'invisible': ['|',('state', '!=', 'arrive'),('session_type','=','type_package')]}" />
+
+
+
+                                    <field name="created_by" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="is_package_claim" invisible='1'/>
+                                    <field name="payment_status_apt" string="Payment Status" decoration-danger="payment_status_apt == 'no_paid'" decoration-success="payment_status_apt in ('paid','payment_received')" decoration-warning="payment_status_apt == 'partially_paid'" widget="badge"/>
+                                    <!-- <button name="action_move_to_pos" class="oe_highlight" type="object" string="Pay" invisible="1" context="{'move_to_pos_tree': True}" /> -->
+                                    <!-- <button name="move_to_pos_client" type="object" string="Pay Now" class="oe_highlight" attrs="{'invisible':['|',('payment_status_apt','not in',('no_paid','partially_paid')),('state', 'in', ['no_show','cancel'])]}"/> -->
+                                    <!-- attrs="{'invisible': ['|','|',('pos_order_id', '!=', False), ('is_package_claim', '!=', False), ('state', 'in', ['no_show','cancel'])]}" -->
+
+                                    <!-- alex requested to remove notes from upcoming session 22/11/2022 -->
+                                    
+                                    <!-- <field name="notes" string="Note" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/> -->
+
+                                    <!-- alex requested to remove notes from upcoming session 22/11/2022 -->
+
+                                </tree>
+                            </field>
+                            <group class="emp_grp_bg_other_info" string="Confirmed"></group>
+                            <field name="booked_apt_history_ids" readonly="1" default_order='date_order desc' limit="20" attrs="{'invisible': [('booked_apt_history_ids', '=', [])]}">
+                                <tree id="contact_visit_tree" default_order='booking_date desc' limit="20" delete="false" create="false">
+                                    <field name="pos_order_id" string="Sale Id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="booking_mode" string="Mode" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="booking_date" string="Date" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="time_slot_id" string="Time" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="therapist_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="company_id" string="Location" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" />
+                                    <field name="apt_room_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="descriptions" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="appointments_type_id" string="Type Purchased" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="session_type" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font" string="Package"/>
+                                    <field name="invoice_balance" options='{"fg_color": "red: invoice_balance &lt; 0;green: invoice_balance == 0""}' class ="customer_history_font" string="Balance"/>
+                                    <field name="session_remaining" string="Sessions Remaining" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="state" options='{"bg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <button name="action_confirm" type="object" class="custom_identifier" data-toggle="tooltip" title="Confirm" icon="fa-shopping-cart" help="Confirm" attrs="{'invisible': ['|',('state', '!=', 'new'),('session_type','=','type_package')]}" />
+                                    <button name="action_arrived" type="object" icon="fa-clock-o" data-toggle="tooltip" title="Arrived" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('session_type','=','type_package')]}" />
+                                    <button name="action_done" type="object" icon="fa-check" data-toggle="tooltip" title="Completed" attrs="{'invisible': ['|',('state', '!=', 'arrive'),('session_type','=','type_package')]}" />
+
+
+                                    <field name="created_by" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="is_package_claim" invisible='1'/>
+                                    <field name="payment_status_apt" string="Payment Status" decoration-danger="payment_status_apt == 'no_paid'" decoration-success="payment_status_apt in ('paid','payment_received')" widget="badge"/>
+                                    <button name="move_to_pos_client" type="object" string="Pay Now" class="oe_highlight" attrs="{'invisible':['|',('payment_status_apt','not in',('no_paid','partially_paid')),('state', 'in', ['no_show','cancel'])]}"/>
+                                    <!-- attrs="{'invisible': ['|','|',('pos_order_id', '!=', False), ('is_package_claim', '!=', False), ('state', 'in', ['no_show','cancel'])]}" -->
+                                    <!-- alex requested to remove notes from upcoming session 22/11/2022 -->
+<!--                                     <field name="notes" string="Note" options='{"fg_color": "#046304:state ==  \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+ -->        
+                                    <!-- alex requested to remove notes from upcoming session 22/11/2022 -->
+           
+
+                         </tree>
+                            </field>
+
+                            <group class="emp_grp_bg_other_info" string="Event"></group>
+                            <field name="event_history_ids" readonly="1" delete="0" create="0">
+                                <tree limit="20" decoration-danger="event_payment_status == 'no_paid'" decoration-warning="event_payment_status == 'partially_paid'" decoration-success="event_payment_status in ('paid','payment_received')">
+                                    <field name="booking_mode" class="customer_history_font"/>
+                                    <field name="pos_order_id" class ="customer_history_font"/>
+                                    <field name="event_id" class ="customer_history_font"/>
+                                    <field name="event_ticket_id" class ="customer_history_font"/>
+                                    <field name="ticket_price" class ="customer_history_font"/>
+                                    <field name="partner_balance" class ="customer_history_font"/>
+                                    <field name="date_open" class ="customer_history_font"/>
+                                    <field name="date_closed" class ="customer_history_font"/>
+                                    <field name="event_payment_status" string="Payment Status" decoration-info="event_payment_status == 'no_paid'" decoration-success="event_payment_status in ('paid','payment_received')" widget="badge" class ="customer_history_font"/>
+                                    <field name="sales_person" string="Booked By" class ="customer_history_font"/>
+                                    <field name="state" class ="customer_history_font"/>
+                                    <button name="open_event_payment_wizard" type="object" string="Pay Now" class="oe_highlight" attrs="{'invisible':['|',('event_payment_status','not in',('no_paid','partially_paid')),('state', '=','cancel')]}"/>
+
+                                </tree>
+                            </field>
+
+                        <group class="emp_grp_bg_other_info" string="Gift Event"></group>
+                                <field name="gift_event_history_ids" readonly="1" delete="0" create="0">
+                                <tree limit="20" decoration-danger="event_payment_status == 'no_paid'" decoration-warning="event_payment_status == 'partially_paid'" decoration-success="event_payment_status in ('paid','payment_received')">
+                                    <field name="booking_mode" class="customer_history_font"/>
+                                    <field name="pos_order_id" class ="customer_history_font"/>
+                                    <field name="event_id" class ="customer_history_font"/>
+                                    <field name="event_ticket_id" class ="customer_history_font"/>
+                                    <field name="ticket_price" class ="customer_history_font"/>
+                                    <field name="partner_balance" class ="customer_history_font"/>
+                                    <field name="date_open" class ="customer_history_font"/>
+                                    <field name="date_closed" class ="customer_history_font"/>
+                                    <field name="event_payment_status" string="Payment Status" decoration-info="event_payment_status == 'no_paid'" decoration-success="event_payment_status in ('paid','payment_received')" widget="badge" class ="customer_history_font"/>
+                                    <field name="sales_person" string="Booked By" class ="customer_history_font"/>
+                                    <field name="state" class ="customer_history_font"/>
+
+                                </tree>
+                            </field>
+
+                        </page>
+                        <page string="Appointment" name="contact_appointment">
+                            <group></group>
+                            <field name="appointment_history_ids" readonly="0">
+                                <tree class="booking_apt_state_book remove-add-line-and-delete-one2many" default_order='creation_datetime desc' limit="20">
+                                    <field name="creation_datetime" string="Creation Date" invisible="1" />
+                                    <field name="booking_mode" string="Mode" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="booking_date" string="Date" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="time_slot_id" string="Time" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="therapist_id" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="company_id" string="Location" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="descriptions" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="appointments_type_id" string="Type Purchased" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="session_remaining" string="Sessions Remaining" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="state" string="Status" options='{"bg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <button name="action_confirm" type="object" class="custom_identifier" data-toggle="tooltip" title="Confirm" icon="fa-shopping-cart" help="Confirm" attrs="{'invisible': ['|',('state', '!=', 'new'),('session_type','=','type_package')]}" />
+                                    <button name="action_arrived" type="object" icon="fa-clock-o" data-toggle="tooltip" title="Arrived" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('session_type','=','type_package')]}" />
+                                    <button name="action_done" type="object" icon="fa-check" data-toggle="tooltip" title="Completed" attrs="{'invisible': ['|',('state', '!=', 'arrive'),('session_type','=','type_package')]}" />
+                                    <!-- <button name="action_move_to_pos" type="object" icon="fa-exchange" data-toggle="tooltip" title="Move to POS" invisible="1" context="{'move_to_pos_in_visit': True}" /> -->
+                                    <!-- attrs="{'invisible': ['|','|',('pos_order_id', '!=', False), ('is_package_claim', '!=', False), ('state', 'in', ['no_show','cancel'])]}" -->
+
+                                    <field name="created_by" string="Created By" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/>
+                                    <field name="payment_status_apt" string="Payment Status" force_save="1" decoration-danger="payment_status_apt == 'no_paid'" decoration-success="payment_status_apt in ('paid','payment_received')" widget="badge"/>
+                                    <button name="move_to_pos_client" type="object" string="Pay Now" class="oe_highlight" attrs="{'invisible':['|',('payment_status_apt','not in',('no_paid','partially_paid')),('state', 'in', ['no_show','cancel'])]}"/>
+                                    <!-- alex requested to remove notes from upcoming session 22/11/2022 -->
+
+
+<!--                                     <field name="notes" string="Notes" widget="dynamic_notes_tooltip" options='{"fg_color": "#046304:state == \"new\"; rgb(153 102 153):state==\"confirm\" ; rgb(133 16 83):state==\"arrive\";#30b9e7:state==\"done\";#f79595:state==\"no_show\";#ff3333:state==\"cancel\" ; #b8b6b6:state==\"void\" ; #9c5f33:state==\"ongoing\""}' class ="customer_history_font"/> -->
+
+                                    <!-- alex requested to remove notes from upcoming session 22/11/2022 -->
+
+
+                                    <field name="session_type" invisible="1" />
+
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Cancellation" name="contact_cancellation">
+                            <group class="emp_grp_bg_other_info" string="Package Session" attrs="{'invisible': [('credit_note_history_ids', '=', [])]}"></group>
+                            <field name="credit_note_history_ids" readonly="1" delete="0" create="0" attrs="{'invisible': [('credit_note_history_ids', '=', [])]}">
+                                <tree limit="20" class="booking_apt_state_book">
+                                    <field name="cancellation_datetime" string="Date/Time of Cancellation" />
+                                    <field name="sequence" string="Conf #" class ="customer_history_font"/>
+                                    <field name="altered_booked_by" string="Cancelled By" />
+                                    <field name="booking_date" string="Date" />
+                                    <field name="time_slot_id" string="Time" />
+                                    <field name="service_categ_id" string="Type" />
+                                    <field name="cancel_charge" invisible='1'/>
+                                    <field name="company_id" string="Location" />
+                                    <field name="therapist_id" string="Therapist" />
+                                    <field name="cancellation_type" string="Method" />
+                                </tree>
+                            </field>
+                            <group class="emp_grp_bg_other_info" string="Sessions" attrs="{'invisible': [('apt_single_cancel_ids', '=', [])]}"></group>
+                            <field name="apt_single_cancel_ids" readonly="1" delete="0" create="0" attrs="{'invisible': [('apt_single_cancel_ids', '=', [])]}">
+                                <tree limit="20">
+                                    <field name="cancellation_datetime" string="Date/Time of Cancellation" />
+                                    <field name="sequence" string="Conf #" />
+                                    <field name="altered_booked_by" string="Cancelled By" />
+                                    <field name="booking_date" string="Date" />
+                                    <field name="time_slot_id" string="Time" />
+                                    <field name="service_categ_id" string="Type" />
+                                    <field name="topay_cancellation_charge" invisible='1'/>
+                                    <field name="company_id" string="Location" />
+                                    <field name="therapist_id" string="Therapist" />
+                                    <field name="cancellation_type" string="Method" />
+                                    <field name="cancel_options" string="Cancel Status"/>
+                                </tree>
+                            </field>
+                            <group class="emp_grp_bg_other_info" string="Event" attrs="{'invisible': [('event_cancel_ids', '=', [])]}"></group>
+                            <field name="event_cancel_ids" readonly="1" delete="0" create="0" attrs="{'invisible': [('event_cancel_ids', '=', [])]}">
+                                <tree limit="20">
+                                    <field name="booking_mode" />
+                                    <field name="event_id" />
+                                    <field name="event_ticket_id"/>
+                                    <field name="ticket_price"/>
+                                    <field name="date_open"/>
+                                    <field name="date_closed"/>
+                                    <field name="state" invisible='1'/>
+                                    <field name="sales_person" string="Booked By"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Purchase" name="contact_purchase">
+                            <label for="purchase_detail_view" class="purchase_detail_view_toggle" string="Show detailed view" attrs="{'invisible':[('purchase_detail_view','=',True)]}" />
+                            <label for="purchase_detail_view" class="purchase_detail_view_toggle" string="Show summary view" attrs="{'invisible':[('purchase_detail_view','=',False)]}" />
+                            <field name="purchase_detail_view" widget="boolean_toggle" class="purchase_detail_view_toggle" />
+                            <field name="purchase_history_ids" readonly="1" attrs="{'invisible':[('purchase_detail_view','=',True)]}">
+                                <tree limit="20" delete="0" create="0" class="booking_apt_state_book">
+                                    <field name="reference_no" string="Sale ID" />
+                                    <button name="send_mail" type="object" icon="fa-envelope-open" string=""/>
+                                    <button name="%(point_of_sale.pos_invoice_report)d" type="action" icon="fa-print" string=""/>
+                                    <!--                                         <button onclick="printReceipt" class="button print actions buttons" icon="fa-print" string="" /> -->
+                                    <field name="date_order" string="Sale Date" />
+                                    <field name="descriptions" string="Descriptions" />
+                                    <field name="payment_methods" string="Payment Method" />
+                                    <field name="company_id" string="Location" />
+                                    <field name="amount_total" string="Subtotal" />
+                                    <!-- <field name="pos_discount" /> -->
+                                    <field name="pos_discount" class="oe_row_bg_color" string="Discount" />
+                                    <field name="amount_paid" string="Amount Paid" />
+                                    <field name="name" string="Payment Ref #" />
+                                    <field name="state" string="states" invisible="1" />
+                                    <!-- <button name="redirect_to_appointment" type="object" class="redirect_to_appointment" data-toggle="tooltip" title="Redirect" icon="fa-arrow-right" help="Redirect"/> -->
+                                    <button name="redirect_to_modification" type="object" class="redirect_to_appointment" data-toggle="tooltip" title="Redirect" icon="fa-arrow-right" help="Modification"/>
+                                    <field name="appt_sale_id" invisible="1"/>
+                                    <field name="event_reg_id" invisible="0"/>
+                                    <button name="return_products" string="Return All" type="object" attrs="{'invisible':[('state', '!=','invoiced')]}"/>
+                                    <button name="redirect_to_appointment" type="object" string ="Void" help="Redirect" groups="ppts_custom_apt_mgmt.appointment_void_super_user"/>
+                                    <button name="action_view_invoice" string="Edit Sale" type="object" attrs="{'invisible':[('state','!=','invoiced')]}"/>
+                                </tree>
+                            </field>
+
+                            <field name="purchase_detailed_history_ids" readonly="1" attrs="{'invisible':[('purchase_detail_view','=',False)]}">
+                                <tree limit="20" delete="0" create="0">
+
+                                    <field name="reference_no" string="Sale ID" />
+                                    <field name="date_order" string="Sale Date" />
+                                    <field name="payment_methods" string="Payment Method" />
+                                    <field name="full_product_name" string="Description" />
+                                    <field name="company_id" string="Location" />
+                                    <field name="price_unit" string="Price" />
+                                    <field name="qty" string="Quantity" />
+                                    <field name="amount_discount" string="Discount" class="oe_row_bg_color"/>
+                                    <field name="amount_tax" string="Taxes" />
+                                    <field name="price_subtotal_incl" string="Amount Paid"/>
+                                    <field name="pos_payment_ref" string="Payment Ref #" />
+                                    <button name="redirect_to_appointment" type="object" class="redirect_to_appointment" data-toggle="tooltip" title="Redirect" icon="fa-arrow-right" help="Redirect"/>
+                                    <field name="appt_sale_id" invisible="1"/>
+                                    <field name="event_reg_id" invisible="0"/>
+
+                                </tree>
+                            </field>
+
+                             <group class="emp_grp_bg_other_info" string="Website Orders"></group>
+                             <label for="website_detail_view" class="purchase_detail_view_toggle" string="Show detailed view" attrs="{'invisible':[('purchase_detail_view','=',True)]}" />
+                            <label for="website_detail_view" class="purchase_detail_view_toggle" string="Show summary view" attrs="{'invisible':[('purchase_detail_view','=',False)]}" />
+                            <field name="website_detail_view" widget="boolean_toggle" class="purchase_detail_view_toggle" />
+                            <field name="website_sale_ids" readonly="1" attrs="{'invisible':[('website_detail_view','=',True)]}">
+                                <tree  limit="20" delete="0" create="0" class="booking_apt_state_book">
+                                    <field name="type"/>
+                                    <field name="web_apt_id" string="Sale Id"/>
+                                    <button name="action_open_invoice_wizard" type="object" icon="fa-envelope-open" string=""/>
+                                     <button name="action_invoice_report" type="object" icon="fa-print" string=""/>
+<!--                                     <button name="action_send_mail" type="object" icon="fa-envelope-open" string=""/>-->
+                                    <field name="date_order" string="Sale Date"/>
+                                     <field name="descriptions"/>
+                                    <field name="payment_type"/>
+                                     <field name="company_id" string="Location"/>
+                                    <field name="amount_total" string="Subtotal"/>
+                                    <field name="discount" class="oe_row_bg_color"/>
+                                    <field name="amount_paid"/>
+                                    <field name="name" string="Payment Ref #"/>
+                                    <button name="redirect_to_web_invoice" type="object" class="redirect_to_appointment" data-toggle="tooltip" title="Redirect" icon="fa-arrow-right" help="Modification"/>
+                                    <field name="web_event_id" string="Event Ref"/>
+                                    <field name="state" invisible="1"/>
+
+                                </tree>
+                            </field>
+                            <field name="website_sale_line_ids" readonly="1" attrs="{'invisible':[('website_detail_view','=',False)]}">
+                                <tree  limit="20" delete="0" create="0" >
+                                    <field name="type"/>
+                                    <field name="apt_id"/>
+                                    <field name="date_order"/>
+                                    <field name="payment_type"/>
+                                    <field name="name" string="Descriptions"/>
+                                    <field name="company_id" string="Location"/>
+                                    <field name="price_unit" string="Price"/>
+                                    <field name="product_uom_qty"/>
+                                    <field name="discount" string="Discount"  class="oe_row_bg_color"/>
+                                    <field name="tax_id" widget="many2many_tags"/>
+                                    <field name="amount_paid"/>
+<!--                                    <field name="price_total" string="Subtotal"/>-->
+
+
+                                    <field name="reference_no"/>
+                                    <button name="redirect_to_appointment_event" type="object" class="redirect_to_appointment" data-toggle="tooltip" title="Redirect" icon="fa-arrow-right" help="Modification"/>
+                                    <field name="event_id" invisible="1"/>
+                                    <field name="web_event" string="Event Ref"/>
+
+                                </tree>
+                            </field>
+
+                        </page>
+                        <page string="Account Details" name="contact_account_details" id="client-account-detail-report-view">
+
+                        </page>
+                        <page string="History of Calls">
+                            <field name="call_history_partner_ids" >
+                                <tree create="0" edit="0" delete="0">
+                                    <field name="quick_remark" readonly="1"/>
+                                    <field name="remarks" readonly="1"/> 
+                                    <field name="user_id" readonly="1"/>
+                                    <field name="call_date" readonly="1"/>
+                                </tree>
+                             </field>
+                        </page>
+                        <page string="Campaign Remarks" invisible='1'>
+                            <field name="campaign_partner_ids" >
+                                <tree>
+                                    <field name="campaign_id" />
+                                    <field name="remarks" /> 
+                                    <field name="comment"/>
+                                </tree>
+                             </field>
+                        </page>
+
+
+
+                        <page string="Account Details" name="contact_account_details" invisible='1'>
+                            <group></group>
+
+
+                            <field name="available_for_use_history_ids" default_order='date_order desc' limit="20" invisible="1">
+                                <tree id="contact_visit_tree" class="booking_apt_state_book" default_order='date_order desc' limit="20" delete="0" create="0">
+                                    <field name="date_order" string="Paid" />
+                                    <field name="pos_payment_ref" string="Payment Ref #" />
+                                    <field name="descriptions" />
+                                    <field name="remaining_session" />
+                                    <field name="payment_methods" string="Payment Method" />
+                                    <field name="amount_total" string="Amount" />
+                                    <field name="creation_date" />
+                                    <field name="notes" />
+                                </tree>
+                            </field>
+                            <group class="emp_grp_bg_other_info" string="Completed" invisible='1'></group>
+                            <field name="inactive_for_use_history_ids" readonly="1" invisible='1'>
+                                <tree id="contact_visit_tree" default_order='date_order desc' limit="20" delete="0" create="0">
+                                    <field name="date_order" string="Paid" />
+                                    <field name="pos_payment_ref" string="Payment Ref #" />
+                                    <field name="descriptions" />
+                                    <field name="remaining_session" />
+                                    <field name="payment_methods" string="Payment Method" />
+                                    <field name="amount_total" string="Amount" />
+                                    <field name="creation_date" />
+                                    <field name="notes" />
+                                </tree>
+                            </field>
+                            <group class="emp_grp_bg_other_info" string="Customer Journal" invisible='1'></group>
+                            <field name="customer_journal_ids" readonly="1" invisible='1'>
+                                <tree id="contact_visit_tree" default_order='id desc' limit="20" delete="0" create="0">
+                                    <field name="id" string="Sequence" invisible="1" />
+                                    <field name="date" string="Paid" />
+                                    <field name="move_name" string="Account Activity #" />
+                                    <field name="name" string="Descriptions" />
+                                    <field name="credit" string="Account Credit" />
+                                    <field name="debit" string="Account Debit" />
+                                    <field name="balance" string="Balance" />
+                                </tree>
+                            </field>
+                            <field name="invoice_details_ids" readonly="1" invisible='1'>
+                                <tree id="contact_account_tree" default_order='id desc' limit="20" delete="0" create="0">
+                                    <field name="name" />
+                                    <field name="invoice_date" />
+                                    <field name="invoice_date_due" />
+                                    <field name="amount_untaxed_signed" />
+                                    <field name="amount_total_signed" />
+                                    <field name="amount_residual_signed"/>
+                                    <field name='payment_state'/>
+                                    <field name="state" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Log" name="contact_log_details" invisible='1'>
+                            <group></group>
+                            <field name="message_ids" readonly="1">
+                                <tree id="contact_visit_tree" default_order='date desc' limit="20" delete="0" create="0">
+                                    <field name="date" string="Time Stamp" />
+                                    <field name="model_id" string="Line of bussines" />
+                                    <field name="body" string="Message" />
+                                    <field name="author_id" string="Created By" />
+                                </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+                    <button type="object" id="partner_ledger_button_history" icon="fa-pencil-square-o" name="open_partner_ledger" string="Account Detail" context="{'default_partner_id': active_id}" style="display:none"/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+
+                <script>
+                              $('body > div.o_action_manager > div > div.o_content > div > div.o_form_sheet_bg > div > div.o_notebook > div.o_notebook_headers > ul > li:nth-child(8) > a').on('click', function () {
+                              $("#partner_ledger_button_history").click()
+                              });
+
+                              $('#move-to-page-misc').on('click',function(){
+                              $('#move-to-page-misc-btn').click();
+
+                              setTimeout(function(){
+                              var checkbox_val = document.querySelector('#show-address-tab-client input.custom-control-input').checked
+                              console.log(checkbox_val)
+                              if(checkbox_val){
+                              document.querySelector("div.o_form_sheet_bg").scrollTo(0,2000);
+                              document.querySelector("body > div.o_action_manager > div > div.o_content > div > div.o_form_sheet_bg > div > div.o_notebook > div.o_notebook_headers > ul > li.nav-item.mis-info-page > a").click()
+                              }
+                              }, 3000);
+                              
+                              });                                                            
+                </script>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_partner_summary_tree_view" model="ir.ui.view">
+        <field name="name">res.partner</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Contacts">
+                <field name="sequence" string="Sequence"/>
+                <button name="redirect_to_contact_form" type="object" icon="fa-user" string="Edit Contact"/>
+                <field name="display_name" string="Name"/>
+                <field name="mobile" class="o_force_ltr" optional="show"/>
+                <field name="email" optional="show"/>
+                <field name="user_id" optional="show" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
+                <field name="city_id" optional="show"/>
+                <field name="campaign_quick_remarks" optional="show" />
+                <field name="campaign_latest_comment" optional="show"/>
+                <field name="state_id" optional="hide" readonly="1"/>
+                <field name="country_id" optional="hide" readonly="1"/>
+                <field name="vat" optional="hide" readonly="1"/>
+                <field name="category_id" optional="hide" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                <field name="is_company" invisible="1"/>
+                <field name="parent_id" invisible="1" readonly="1"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_client_edit" model="ir.actions.act_window">
+        <field name="name">Client</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban,activity</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter" />
+        <!-- <field name="context">{'default_gender': False, 'default_is_company': False, 'search_default_customers': 1}</field> -->
+        <field name="domain">[('is_company','=',False),('user_ids','=',False),('is_a_customer','=',True)]</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('res_partner_history_history_from_view')})]" />
+        <field name="context">{'form_view_initial_mode': 'edit', 'force_detailed_view': 'true'}</field>
+        <field name="target">current</field>
+        <field name="help" type="html">
+
+
+            <p class="o_view_nocontent_smiling_face">
+                            Create a contact in your address book
+            </p>
+            <p>
+                            Odoo helps you to easily track all activities related to a customer.
+            </p>
+        </field>
+    </record>
+
+
+
+    <record id="action_client" model="ir.actions.act_window">
+        <field name="name">Client</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban,activity</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter" />
+        <!-- <field name="context">{'default_gender': False, 'default_is_company': False, 'search_default_customers': 1}</field> -->
+        <field name="domain">[('is_company','=',False),('user_ids','=',False),('is_a_customer','=',True)]</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                        (0, 0, {'view_mode': 'tree', 'view_id': ref('view_event_view_partner_inherit_tree_view')}),
+                        (0, 0, {'view_mode': 'form', 'view_id': ref('res_partner_history_history_from_view')})]" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                               Create a contact in your address book
+            </p>
+            <p>
+                               Odoo helps you to easily track all activities related to a customer.
+            </p>
+        </field>
+    </record>
+    <menuitem id="res_partner_menu_clients" name="Clients" action="action_client" parent="contacts.menu_contacts" sequence="1" groups="base.group_no_one"/>
+
+
+    <record id="client_pos_order_form_view_inherit_event_pos" model="ir.ui.view">
+        <field name="name">pos.order</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="partner_id" context="{'res_partner_search_mode': 'customer'}" attrs="{'readonly': [('state','=','invoiced')]}"/>
+                <field name="payment_methods"/>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</odoo>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record model="ir.actions.act_window" id="action_event_view_new_eve">
+           <field name="name">Events</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">event.event</field>
+           <field name="view_mode">form,kanban,calendar,tree,pivot,graph</field>
+           <field name="search_view_id" ref="event.view_event_search"/>
+           <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Add a new event
+              </p><p>
+                Schedule and organize your events efficiently:
+                track registrations and participations, automate the confirmation emails, sell tickets, etc.
+              </p>
+            </field>
+        </record>
+
+	<record model="ir.actions.act_window" id="action_event_view_new">
+           <field name="name">Events</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">event.event</field>
+           <field name="view_mode">tree,form,pivot,graph,kanban</field>
+           <field name="search_view_id" ref="event.view_event_search"/>
+           <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Add a new event
+              </p><p>
+                Schedule and organize your events efficiently:
+                track registrations and participations, automate the confirmation emails, sell tickets, etc.
+              </p>
+            </field>
+        </record>
+
+			<record id="inherit_event_stage_form_view" model="ir.ui.view">
+				<field name="name">event.stage.form.view</field>
+				<field name="model">event.stage</field>
+				<field name="inherit_id" ref="event.event_stage_view_form" />
+				<field name="arch" type="xml">
+					<xpath expr="//field[@name='pipe_end']" position="after">
+						<field name="is_published"/>
+						<field name='is_waiting'/>
+						<field name='is_reject'/>
+					</xpath>
+				</field>
+		</record>
+
+     <record id="action_event_publish" model="ir.actions.act_window">
+            <field name="name">Events</field>
+            <field name="res_model">event.event</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form,kanban,calendar,pivot,graph</field>
+            <field name="search_view_id" ref="event.view_event_search"/>
+            <field name="domain">[('is_published_event', '=',True)]</field>
+        </record>
+
+       <record id="action_event_waiting" model="ir.actions.act_window">
+            <field name="name">Events</field>
+            <field name="res_model">event.event</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form,kanban,calendar,pivot,graph</field>
+            <field name="search_view_id" ref="event.view_event_search"/>
+            <field name="domain">[('is_waiting', '=',True)]</field>
+        </record>
+
+		<menuitem name="Create New Event"
+            id="event_event_menu_create"
+            action="ppts_custom_checklist.action_event_view_new_eve"
+            sequence="4"
+            parent="event.menu_event_event" />
+
+  		<menuitem name="Event Published"
+            id="event_event_publish_menu"
+            action="action_event_publish"
+            sequence="2"
+            parent="event.menu_event_event" />
+
+   		<menuitem name="Event Waiting For Approve"
+            id="event_event_waiting_menu"
+            action="action_event_waiting"
+            sequence="1"
+            parent="event.menu_event_event" />
+
+		<menuitem name="Events"
+            id="event_event_all_menu"
+            action="action_event_view_new"
+            sequence="0"
+            parent="event.menu_event_event" />
+
+	<!--Checklist Smartbutton-->
+	<record id="event_form_view_inherit" model="ir.ui.view">
+		<field name="name">Event</field>
+		<field name="model">event.event</field>
+		<field name="inherit_id" ref="event.view_event_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//div[@name='button_box']" position="inside">
+				<button name="checklist" type="object" string="View Checklist" icon="fa-check text-success"/>
+				<button name="project_task" type="object" string="Project" icon="fa-indent" attrs="{'invisible':[True]}"/>
+			</xpath>
+			<xpath expr="//header" position="inside">
+				<button name="create_task" type="object" string="Create Checklist" attrs="{'invisible':[True]}"/>
+<!--				attrs="{'invisible':[('create_checklist_active', '=', True)]}"-->
+			</xpath>
+			<xpath expr="//field[@name='company_id']" position="after">
+				<field name="create_checklist_active" invisible="1"/>
+				<field name="project_id" invisible="1"/>
+				<field name="project_d_id" readonly="1" invisible="1"/>
+				<field name='is_waiting' invisible="1"/>
+				<field name='is_published_event' invisible="1"/>
+			</xpath>
+		</field>
+	</record>
+
+		<record id="view_event_tree_inherited" model="ir.ui.view">
+            <field name="name">event inherited tree</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="event.view_event_tree"/>
+            <field name="arch" type="xml">
+				<field name="stage_id" position='after'>
+              		<field name='is_waiting' invisible="1"/>
+					<field name='is_published_event' invisible="1"/>
+				</field>
+                <xpath expr="//tree" position="attributes">
+                	<attribute name="decoration-danger">is_waiting == True </attribute>
+                	<attribute name="decoration-success">is_published_event == True </attribute>
+
+            	</xpath>
+        	</field>
+    	</record>
+
+
+	<record id="project_task_form_view_inherit" model="ir.ui.view">
+		<field name="name">project.task</field>
+		<field name="model">project.task</field>
+		<field name="inherit_id" ref="project.view_task_form2"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='date_deadline']" position="after">
+				<field name="start_date"/>
+				<field name="end_date"/>
+				<field name="responsible_id"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>

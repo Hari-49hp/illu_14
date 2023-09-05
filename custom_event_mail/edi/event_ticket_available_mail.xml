@@ -1,0 +1,158 @@
+<odoo>
+    <data>
+        <record id="event_available_ticket_for_registration" model="mail.template">
+            <field name="name">Event Ticket Available For Register</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="subject">${object.event_id.name} - Tickets available to books Hurry!! (1 Left)</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.name},</p>
+                <p>
+                    ${object.event_id.name} - Tickets available to books only one left hurry and grab your chance.
+
+                    Note - You have only 1 hr to book
+
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <record id="event_attendee_remainder_three_days_mail" model="mail.template">
+            <field name="name">Event - Event Remainder 3 Days</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="subject">${object.event_id.name} - in 3 Days</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.name},</p>
+                <p>
+                    ${object.event_id.name} - going to happen in 3 days
+
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <record id="event_attendee_remainder_one_days_mail" model="mail.template">
+            <field name="name">Event - Event Remainder 1 Days</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="subject">${object.event_id.name} - in 1 Days</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.name},</p>
+                <p>
+                    ${object.event_id.name} - going to happen in 1 days
+
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <record id="event_attendee_remainder_2_hrs_mail" model="mail.template">
+            <field name="name">Event - Event Remainder 2 Hrs</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="subject">${object.event_id.name} - in 2 Hrs</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.name},</p>
+                <p>
+                    ${object.event_id.name} - going to happen in 2 Hrs
+
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <record id="event_attendee_attended_mail" model="mail.template">
+            <field name="name">Event - Event Attended</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="subject">${object.event_id.name} - Attended</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.name},</p>
+                <p>
+                    Thanks for attending the event ${object.event_id.name}
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <record id="event_expired_ticket_for_registration" model="mail.template">
+            <field name="name">Event Ticket Expired For Register</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="subject">${object.event_id.name} - Ticket Booking Time of your chance got expired</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.name},</p>
+                <p>
+                    For ${object.event_id.name} - Tickets booking time got expired.
+                    
+                    Better luck next time!
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+
+        <record id="event_expired_ticket_for_all_attendees" model="mail.template">
+            <field name="name">Event Ticket Expired For All Attendees</field>
+            <field name="model_id" ref="event.model_event_registration"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >team@illuminations.com</field>
+            <field name="subject">${object.event_id.name} - Ticket Booking Time of your chance got expired for all attendees</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Hi Team,</p>
+                <p>
+                    For ${object.event_id.name} - No one books ticket, all the attendees booking time got expired.
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+    </data>
+</odoo>

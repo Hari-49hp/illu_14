@@ -1,0 +1,16 @@
+<odoo>
+    <data noupdate="1">
+        <record id="payment_acquirer_CCAvenue" model="payment.acquirer">
+            <field name="name">CCAvenue</field>
+            <field name="provider">CCAvenue</field>
+            <field name="company_id" ref="base.main_company"/>
+            <!-- <field name="image_128" type="base64" file="CCAvenue_payment_gateway/static/description/icon.png"/> -->
+            <field name="view_template_id" ref="CCAvenue_form"/>
+           <!--  <field name="registration_view_template_id" ref="CCAvenue_s2s_form"/> -->
+            <field name="state">test</field>
+            <field name="CCAvenue_merchant_key">demo</field>
+            <field name="CCAvenue_access_code">demo</field>
+            <field name="CCAvenue_encryption_key">demo</field>
+        </record>
+    </data>
+</odoo>

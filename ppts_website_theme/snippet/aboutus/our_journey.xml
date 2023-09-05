@@ -1,0 +1,77 @@
+<odoo>
+	<data>
+		<template id="illuminations_our_journey_snippet" name="Our Journey">
+			<!-- Our journey start -->
+			<style>
+				.journeyshapeclipped {
+				width: 100%;
+				right: 0;
+				top: 0;
+				clip-path: url('#journeyclip-path');
+				-webkit-clip-path: url('#journeyclip-path');
+				object-fit: cover;
+				object-position: center;
+				}
+			</style>
+			<section class="sectiion_btm_padding80 journeysec">
+				<div class="ourjourney " data-aos="fade-up" data-aos-delay="100">
+
+					<h2 class="ourjourneyhead">Our journey</h2>
+
+
+					<div class="journeydescripton cls_06">
+						<h4>2006</h4>
+						<p>Our small initiative began by organizing non-profit events to give people the opportunity to discover
+							and explore the powerful resources residing within their inner self.</p>
+						</div>
+						<div class="journeydescripton cls_08">
+							<h4>2008</h4>
+							<p>From rented hotel apartments, to a tiny room in a villa, to a small space in downtown Dubai, we moved
+								all around Dubai offering our services.</p>
+							</div>
+							<div class="jpureywithimage">
+								<div class="journemorp">
+									<img class="journeyshapeclipped" src="/ppts_website_theme/static/src/img/bathroomdesign.png" />
+									<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.6 252.84">
+										<clipPath id="journeyclip-path">
+											<path
+												d="M44.74,223.82S3.65,198.06,5.25,156.12s48.9-80.87,48.9-80.87,50.78-44.2,75.23-50.79,55.5-8.08,55.5-8.08,73.45,1.27,80-1.52S325.07,25.12,356,41.32A431.38,431.38,0,0,0,433.85,72.6c17.48,5.07,38.37,19.38,42.68,25.45s21.52,30.14,17.73,52.69-7.48,44.45-30,60.4-46.1,27.61-89.92,38.75-92.82,18.55-114.1,17.29-69.4-12.92-90.42-9.88-91,4.59-125.06-33.48"
+												transform="translate(-5.2 -14.48)" style="fill:#fff" />
+											</clipPath>
+										</svg>
+									</div>
+									<div class="journeydescripton cls_11">
+										<h4>2011</h4>
+										<p>We found the perfect home and opened the doors to our dream center in Jumeirah Lake Towers in
+											October 2011.
+										</p>
+									</div>
+								</div>
+								<div class="journeydescripton cls_13">
+									<h4>2013</h4>
+									<p>With the success of our 1st Center in Dubai, Illuminations found an opportunity to open our second
+										center in Pune, India’s 7th largest city and home to many spiritual practices.
+									</p>
+								</div>
+								<div class="journeydescripton cls_16">
+									<h4>2016</h4>
+									<p>
+										Illuminations Launches its Franchise Program &amp; Sells its 1st Franchise in the Emirati Neighborhood in Mirdif, Dubai.
+									</p>
+								</div>
+								<div class="journeydescripton clspresent">
+									<h4>Presently</h4>
+									<p>
+										Illuminations a Company registered under Illuminations Training Centre DMCC is now the 1st, Largest &amp; Premiere Well-Being Center of its kind in the middle east.</p>
+									</div>
+
+								</div>
+
+								<div class="ourjourneyimagee">
+									<img src="/ppts_website_theme/static/src/img/spaceroom1.jpg" />
+								</div>
+							</section>
+							<!-- Our journey end -->
+						</template>
+					</data>
+				</odoo>

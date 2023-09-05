@@ -1,0 +1,24 @@
+.employee-scroll{
+  height: 270px;
+  overflow: auto;
+}
+
+.employee {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.employee td{
+  text-align: left;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.employee tr:nth-child(even){background-color: #f2f2f2;}
+
+.employee tr:hover {background-color: #ddd;}
+
+.orderline-employee{
+    padding:0;
+    float:right;
+}

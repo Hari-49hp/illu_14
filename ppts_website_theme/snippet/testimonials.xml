@@ -1,0 +1,198 @@
+<odoo>
+	<data>
+		<template id="theme_testimonials_page" name="Testimonials">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure">
+					<style>
+					    footer > section > div > svg{
+                            background: #fff;
+                        }
+					</style>
+
+					<section class=" ">
+						<div class="row hero-section-two mycontainer">
+							<div class="col-lg-5 col-md-12 col-xl-5  col-sm-12 col-xs-12">
+								<div class="hero-two-left">
+									<div class="breadcrum-sec">
+										<label>
+											<a href="/">Home /</a>
+											<a>Testimonials</a>
+										</label>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+
+					<section class="fqa-wrapperlistsitems testimonials mycontainer">
+						<div class="row headertitle-filters">
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 m-filter-border-bottom" data-aos="fade-up" data-aos-delay="100">
+								<h2>Testimonials</h2>
+								<button class="filter-popupbtn" onclick="mobile_filter()" style="color:#585858;">
+									<span class="input-group-addon iconinoutbtn">
+										<img class="input-icon" src="/ppts_website_theme/static/src/img/filter_icon.svg"/>
+									</span> 
+									Filters
+								</button>
+								<br/>
+								<hr style="border-top: 1px solid #fff;"/>
+							</div>
+
+							<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 heading-right-fields" data-aos="fade-up" data-aos-delay="100">
+								<h4 class="mobile-block">
+									Filter 
+									<button type="button" class="header-search-icon" onclick="mobile_filter_close()" style="background: none;border: none;float:right;">
+										<img src="/ppts_website_theme/static/src/img/closeicon.svg" loading="lazy"/>
+									</button>
+								</h4>
+
+								<div class="dropdown withbluevorder inputwrap select-arrow">
+									<select class="testimonial_select_field" onchange="testimonial_view_type(this)" name="testimonial_type" id="testimonial_type" aria-labelledby="dropdownMenuButton">
+										<option value="text" selected="selected">Text</option>
+										<option value="video">Video</option>
+									</select>
+								</div>
+								<div class="dropdown withbluevorder inputwrap select-arrow">
+									<select class="testimonial_select_field" onchange="on_change_testimonial_filter()" name="testimonial_employee_type" id="testimonial_employee_type" aria-labelledby="dropdownMenuButton">
+										<option value="all">All</option>
+										<t t-foreach="hr_categ_ids" t-as="type_id">
+											<option t-att-value="type_id['id']">
+												<t t-esc="type_id['name']" />
+											</option>
+										</t>
+									</select>
+								</div>
+								<div class="dropdown withbluevorder inputwrap select-arrow">
+									<select class="testimonial_select_field" onchange="on_change_testimonial_filter()" name="testimonial_service_categ_id" id="testimonial_service_categ_id" aria-labelledby="dropdownMenuButton">
+										<option value="all">Service Category</option>
+										<t t-foreach="service_categ_ids" t-as="service_id">
+											<option t-att-value="service_id['id']">
+												<t t-esc="service_id['name']" />
+											</option>
+										</t>
+									</select>
+								</div>
+							</div>
+
+
+						</div>
+						<!-- Start Tabs -->
+						<div class="nav-tabs-wrapper faqtabwrapper-header" data-aos="fade-up" data-aos-delay="200">
+							<ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal testimonials_ul">
+								<li class="nav-item testimonials_li">
+									<!-- onclick="on_click_testimonials_ul(0)" -->
+									<a class="nav-link active" data-id="0" data-toggle="tab" href="#tabA">All</a>
+								</li>
+								<t t-foreach="tag_ids" t-as="tag_id">
+									<li class="nav-item testimonials_li" t-att-id="tag_id['id']">
+										<!-- onclick="on_click_testimonials_ul(this.id)" -->
+										<a class="nav-link" t-att-data-id="tag_id['id']" data-toggle="tab" t-attf-href="#E{{tag_id['id']}}">
+											<t t-esc="tag_id['name']" />
+										</a>
+									</li>
+								</t>
+							</ul>
+						</div>
+						<div class="tab-content faqtabs-contentcontainer tab_view_testimonial" data-aos="fade-up" data-aos-delay="300">
+							<div class="tab-pane fade show active" id="tabA">
+								<t t-foreach="all_cards" t-as="card_id">
+									<div class="testomonial-list-card" t-att-data-service-type="card_id['service_type']" t-att-data-employee-type="card_id['employee_type']">
+										<div class="userprofiletesto">
+											<img t-att-src="card_id['image_url']" />
+											<h5>
+												<t t-esc="card_id['customer_name']"/>
+											</h5>
+										</div>
+										<div>
+											<h3>
+												<t t-esc="card_id['title']"/>
+											</h3>
+											<p>
+												<t t-esc="card_id['description']"/>
+											</p>
+										</div>
+									</div>
+								</t>
+
+								<div class="testomonial-videocard d-none">
+									<div class="row">
+
+										<t t-foreach="all_cards" t-as="card_id">
+											<div class="col-lg-6 col-xl-4  col-md-6 col-sm-12 col-xs-12 testomonial-listcard" t-if="card_id['video_url']" t-att-data-employee-type="card_id['employee_type']" t-att-data-service-type="card_id['service_type']">
+												<div class="testomonial-imgvideo">
+													<iframe t-attf-src="{{card_id['video_url']}}?controls=0"></iframe>
+												</div>
+												<h4>
+													<t t-esc="card_id['title']"/>
+												</h4>
+											</div>
+										</t>
+
+									</div>
+								</div>
+
+
+							</div>
+							<t t-foreach="tag_ids" t-as="tag_id">
+								<div class="tab-pane fade list_tab_testimonial" t-attf-id="E{{tag_id['id']}}">
+									<t t-set="testimonial" t-value="request.env['testimonial'].sudo().search([('tags_ids','in',tag_id['id'])])" />
+									<t t-foreach="testimonial" t-as="testimonial_id">
+										<div class="testomonial-list-card" t-att-data-employee-type="testimonial_id.employee_type.ids" t-att-data-service-type="testimonial_id.service_type.id">
+											<div class="userprofiletesto">
+												<t t-if="testimonial_id.image_av">
+													<img t-att-src="testimonial_id.get_image()" />
+												</t>
+												<t t-if="not testimonial_id.image_av">
+													<img src="/ppts_website_theme/static/src/img/profile-empty-round.png" />
+												</t>
+
+												<h5>
+													<t t-esc="testimonial_id.partner_id.name"/>
+												</h5>
+											</div>
+											<div>
+												<h3>
+													<t t-esc="testimonial_id.name"/>
+												</h3>
+												<p>
+													<t t-esc="testimonial_id.description"/>
+												</p>
+											</div>
+										</div>
+									</t>
+
+									<div class="testomonial-videocard d-none">
+										<div class="row">
+
+											<t t-foreach="testimonial" t-as="testimonial_id">
+												<div class="col-lg-6 col-xl-4  col-md-6 col-sm-12 col-xs-12 testomonial-listcard" t-if="testimonial_id.video_url" t-att-data-employee-type="testimonial_id.employee_type.ids" t-att-data-service-type="testimonial_id.service_type.id">
+													<div class="testomonial-imgvideo">
+														<iframe t-attf-src="{{testimonial_id.video_url}}?controls=0"></iframe>
+													</div>
+
+													<h4>
+														<t t-esc="testimonial_id.name"/>
+													</h4>
+												</div>
+											</t>
+
+										</div>
+									</div>
+
+
+								</div>
+							</t>
+
+
+						</div>
+						<!-- End Tabs -->
+					</section>
+
+					<script src="/ppts_website_theme/static/src/js/testimonial.js"></script>
+
+				</div>
+			</t>
+		</template>
+	</data>
+</odoo>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="event_registration_confirmation" model="ir.ui.view">
+            <field name="name">Pay Now</field>
+            <field name="model">event.registration.confirmation</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Pay Now" class="pay_now_wiz_frm_cls">
+                    <sheet>
+
+                        <h1 class="booking_ref">
+                            <span>Event Reference # </span>
+                            <span>
+                                <field name="sequence"/>
+                                <field name="user_id" invisible="1"/>
+                            </span>
+                        </h1>
+
+                        <div class="apt_order_confirmation_parent">
+
+                            <div class="apt_order_confirmation_main">
+                                <h2>Payment Order Information</h2>
+
+                                <div class="field_grp_div_wiz">
+                                    <label for="payment_method_id" string="Payment Method"/>
+                                    <field name="payment_method_id" widget="many2many_tags"/>
+                                </div>
+
+                                <div class="field_grp_div_wiz">
+                                    <label for="cheque" string="Cheque #"/>
+                                    <field name="cheque"/>
+                                </div>
+
+                                <h2>Order Information</h2>
+
+
+                                <div class="col_2_grp">
+                                    <div class="field_grp_div_wiz">
+                                        <label for="customer_code" string="Customer Code"/>
+                                        <field name="customer_code" />
+                                    </div>
+
+                                    <div class="field_grp_div_wiz">
+                                        <label for="location_ids" string="Locations"/>
+                                        <field name="location_ids" widget="many2many_tags"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col_2_grp">
+                                    <div class="field_grp_div_wiz">
+                                        <label for="partner_id" string="Name"/>
+                                        <field name="partner_id" readonly="1" options="{'no_create_edit': True, 'no_open': True,'no_create': True}"/>
+                                    </div>
+                                    <div class="field_grp_div_wiz">
+                                        <label for="sequence" string="Event Ref #"/>
+                                        <field name="sequence"/>
+                                    </div>
+                                </div>
+
+                                    
+
+
+                                <div class="col_2_grp">
+                                    <div class="field_grp_div_wiz">
+                                        <label for="mobile" string="Mobile"/>
+                                        <field name="mobile" />
+                                    </div>
+
+                                    <div class="field_grp_div_wiz">
+                                        <label for="sales_rep_id" string="Sales Rep"/>
+                                        <field name="sales_rep_id" readonly="1" options="{'no_create_edit': True, 'no_open': True,'no_create': True}"/>
+                                    </div>
+                                </div>
+
+
+                                <div class="col_2_grp">
+                                    <div class="field_grp_div_wiz">
+                                        <label for="address_single_line" string="Address" style="vertical-align: top;"/>
+                                        <field name="address_single_line" readonly="1" />
+                                    </div>
+
+                                    <div class="field_grp_div_wiz">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="col_2_grp">
+                                    <div class="field_grp_div_wiz">
+                                        <label for="gender" string="Gender"/>
+                                        <field name="gender" />
+                                    </div>
+
+                                    <div class="field_grp_div_wiz">
+                                    </div>
+                                </div>
+
+                                <h2>Order Details</h2>
+
+                                <field name="lines" class="pay_later_line_apt_delete" force_save="1">
+                                    <tree editable="bottom" delete="true">
+                                        <field name="product_id" force_save="1" required="1" string="Description" />
+                                        <field name="qty" string="Qty" />
+                                        <field name="price_unit" string="Price"/>
+                                        <field name="discount_type" invisible="1"/>
+                                        <field name="discount"/>
+                                        <field name="total_amt" invisible="1"/>
+                                        <field name="amount_discount" invisible="1"/>
+                                        <field name="price_subtotal_incl" force_save="1"/>
+
+
+                                        <field name="price_subtotal" invisible="1" force_save="1" string="SubTotal W/O"/>
+                                        <field name="tax_ids" widget="many2many_tags" invisible="1"/>
+
+
+                                        
+                                    </tree>
+                                </field>
+
+                                <notebook>
+
+                                    <page string="Product Add-on's" class="child-a-padding-left-0">
+                                        <div class="field_grp_div_wiz">
+                                            <label for="product_categ_id"/>
+                                            <field name="product_categ_id" options="{'no_quick_create':True,'no_create':True, 'no_open': True}"/>
+                                        </div>
+
+                                        <div class="field_grp_div_wiz">
+                                            <label for="product_id"/>
+                                            <field name="product_id" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" />
+                                        </div>
+                                        <div style="border-top:1px solid #08acc4">
+                                       
+                                        </div>
+                                        <div class="field_grp_div_wiz" style="padding-top: 5px">
+                                            <label for="price_unit"/>
+                                            <field name="price_unit" />
+                                        </div>
+
+                                        <div class="field_grp_div_wiz">
+                                            <label for="qty"/>
+                                            <field name="qty" />
+                                        </div>
+                                        <div style="border-top:1px solid #08acc4">
+                                       
+                                        </div>
+
+                                        
+
+                                      <!--   <div class="field_grp_div_wiz">
+                                            <label for="discount_type"/>
+                                            <field name="discount_type" />
+                                        </div>
+
+                                        <div class="field_grp_div_wiz">
+                                            <label for="discount"/>
+                                            <field name="discount"/>
+                                        </div>
+
+ -->
+                     <div class="field_grp_div_wiz" style="padding-top: 5px">
+                    <label for="single_prod_subtotal"/>
+        <field name="single_prod_subtotal" class="currency_in_price"/>
+    </div>
+    <div style="border-top:1px solid #08acc4">
+                                       
+                                        </div>     
+
+                                    <div class="field_grp_div_wiz" style="padding-top:5px;padding-bottom:5px">
+            <label for="discount"/>
+            <field name="discount" options="{&quot;no_open&quot;: True}"  />
+            <field name="discount_type" 
+                class="oe_edit_only oe_inline" style="margin-left:20px"/>
+        </div >
+         <div style="border-top:1px solid #08acc4">
+                                       
+                                        </div>
+      
+
+
+                                        <div class="field_grp_div_wiz" style="padding-top:5px">
+                                            <button name="add_item" type="object" string="Add Item"/>
+                                        </div>
+                                    </page>
+
+                                    <page string="Payment Order Information" class="child-a-padding-left-0">
+
+                                        <div class="field_grp_div_wiz">
+                                            <label for="select_payment_mode"/>
+                                            <field name="select_payment_mode" widget="radio" options="{'horizontal': true}"/>
+                                        </div>
+
+                                        <br/>
+
+                                        <h2 attrs="{'invisible':[('select_payment_mode','!=','credit')]}">Apply Credit Balance</h2>
+
+                                        <div class="field_grp_div_wiz" attrs="{'invisible':[('select_payment_mode','!=','credit')]}">
+                                            <label for="partner_credit"/>
+                                            <field name="partner_credit" readonly="1"/>
+                                        </div>
+
+                                        <div class="field_grp_div_wiz" attrs="{'invisible':[('select_payment_mode','!=','credit')]}">
+                                            <label for="credit_reconcile"/>
+                                            <field name="credit_reconcile" style="width: 150px;margin-right: 30px;"/>
+                                            <button name="apply_credit" string="Apply &amp; Move to Pos" type="object"></button>
+                                        </div>
+
+                                        <h2 attrs="{'invisible':[('select_payment_mode','!=','online_payment')]}">Online Payment</h2>
+
+                                        <div class="field_grp_div_wiz" style="margin-left: 8px;" attrs="{'invisible':[('select_payment_mode','!=','online_payment')]}">
+                                            <label for="customer_phone_number" style="width:100%"/>
+                                            <field name="customer_phone_number"/>
+                                        </div>
+
+                                        <div class="field_grp_div_wiz" style="margin-left: 8px;" attrs="{'invisible':[('select_payment_mode','!=','online_payment')]}">
+                                            <label for="quick_invoice_sms" style="width:100%"/>
+                                            <field name="quick_invoice_sms"/>
+                                        </div>
+
+                                         <div class="field_grp_div_wiz" style="margin-left: 8px;" attrs="{'invisible':[('select_payment_mode','!=','online_payment')]}">
+                                            <label for="payment_link" style="width:100%" invisible="1"/>
+                                            <field name="payment_link" invisible="1"/>
+                                        </div>
+
+                                        <button name="preview_invoice" type="object" string="Preview Invoice" style="margin-left: 8px;margin-top: 15px;margin-right: 21px;" attrs="{'invisible':[('select_payment_mode','!=','online_payment')]}" invisible="1"></button>
+                                        <button name="send_by_sms" type="object" string="Send By SMS" style="margin-top: 15px;" attrs="{'invisible':[('select_payment_mode','!=','online_payment')]}"></button>
+
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                    </page>
+
+                                </notebook>
+
+
+                            </div>
+
+
+                            <div class="apt_order_confirmation_sub">
+                                <div class="boder-gray">
+                                    <h2>Order Summary</h2>
+
+                                    <field name="line_description" style="pointer-events:none;">
+                                        <tree class="order_summary_tree">
+                                            <field name="product_id" string="Description" />
+                                            <field name="qty" string="Qty" class="qty_td" widget="integer"/>
+                                            <field name="price_subtotal_incl" class="price_unit" string="Price" style="width: 30%;"/>
+                                        </tree>
+                                    </field>
+
+                                    <div class="padding-left-4">
+                                        <label for="subtotal_overall" string="Subtotal"></label>
+                                        <field name="subtotal_overall" class="currency_in_price"/>
+                                    </div>
+                                     <div class="padding-left-4">
+                                        <label for="amount_discount" attrs="{'invisible':[('amount_discount','=', 0)]}"></label>
+                                        <field name="amount_discount" class="currency_in_price" attrs="{'invisible':[('amount_discount','=', 0)]}"/>
+                                    </div>
+                                    <div class="padding-left-4">
+                                        <label for="shipping_handling_overall" string="Shipping &amp; Handling"></label>
+                                        <field name="shipping_handling_overall" class="currency_in_price" style="width:50px;"/>
+                                    </div>
+                                    <div class="padding-left-4">
+                                        <label for="taxes_overall" class="taxes_overall" string="Taxes"></label>
+                                        <field name="taxes_overall" class="currency_in_price"/>
+                                    </div>
+
+                                    <div class="padding-left-4">
+                                        <label for="total_overall" string="Total" style="font-size: 18px;"></label>
+                                        <field name="total_overall" class="currency_in_price"/>
+                                    </div>
+
+                                    <div class="padding-left-4">
+
+                                          <button name="send_email" string="Move to Pos" type="object" class="move_to_pos_btn" style="font-size: 15px;
+                                         " attrs="{'invisible':[('select_payment_mode','=','credit')]}"/>
+
+                                        <button name="move_to_pos" string="Move to Pos" type="object" class="move_to_pos_btn" style="font-size: 15px;margin-left:5px
+                                        " invisible="1"/>
+                                      
+                                        <button name="move_to_pos" string="Move to Pos" type="object" class="move_to_pos_btn" style="font-size: 15px;margin-top:0px;" invisible="1"/>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                     
+
+                        <footer style="border: none;"></footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- for mail template and pos-->
+
+        <record model="ir.ui.view" id="mail_compose_wizard_inherit_for_event">
+        <field name="name">Event Mail</field>
+        <field name="model">mail.compose.message</field>
+        <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_send_mail']" position="after">
+                <button name="event_create_pos_mail_send" class="oe_highlight" type="object" string="Submit" attrs="{'invisible':[('model','!=','event.registration.confirmation')]}"/>
+            </xpath>
+
+             <xpath expr="//button[@name='save_as_template']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            
+        </field>
+    </record>
+
+
+
+    </data>
+</odoo>

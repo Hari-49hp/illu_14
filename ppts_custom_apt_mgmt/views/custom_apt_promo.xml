@@ -1,0 +1,261 @@
+<odoo>
+	<data>
+
+<!--		<record id="coupon_program_view_search_aptts" model="ir.ui.view">-->
+<!--        <field name="name">coupon.program.search</field>-->
+<!--        <field name="model">coupon.program</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <search>-->
+<!--                <field name="name"/>-->
+<!--                <filter string="Expired" name="expired" domain="[('rule_date_to', '&lt;', datetime.datetime.now())]" help="Expired Programs"/>-->
+<!--                <separator/>-->
+<!--                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>-->
+<!--            </search>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="coupon_program_view_promo_program_formteeest" model="ir.ui.view">-->
+<!--        <field name="name">coupon.promotion.program.form</field>-->
+<!--        <field name="model">coupon.program</field>-->
+<!--        <field name="inherit_id" ref="coupon.coupon_program_view_form_common"/>-->
+<!--        <field name="mode">primary</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//div[@name='title']" position="inside">-->
+<!--                <label class="oe_edit_only" for="name" string="Promotion Program Name"/>-->
+<!--                <h1><field name="name" class="oe_title" placeholder="Promotion Program Name..." height="20px"/></h1>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//div[@name='button_box']" position="inside">-->
+<!--                <button class="oe_stat_button" type="action" icon="fa-ticket" name="%(coupon.coupon_action)d" attrs="{'invisible': [('promo_applicability', '=', 'on_current_order')]}">-->
+<!--                    <field name="coupon_count" string="Coupons" widget="statinfo"/>-->
+<!--                </button>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//group[@name='reward']" position="before">-->
+<!--                <field name="sequence" invisible="1"/>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//field[@name='program_type']" position="after">-->
+<!--                <field name="rule_partners_domain" placeholder="Select customer" widget="domain" options="{'model': 'res.partner', 'in_dialog': true}"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//div[@name='rule_minimum_amount']" position="after">-->
+<!--                <field name="promo_code_usage" widget="radio"/>-->
+<!--                <field name="promo_code" attrs="{'required': [('promo_code_usage', '=', 'code_needed')], 'invisible': [('promo_code_usage', '=', 'no_code_needed')]}"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//group[@name='validity']" position="inside">-->
+<!--                <label string="Apply on First" for="maximum_use_number" class="oe_inline"/>-->
+<!--                <div>-->
+<!--                    <field name="maximum_use_number" class="oe_inline"/>-->
+<!--                    <span> Orders</span>-->
+<!--                    <span class="oe_grey"> if 0, infinite use</span>-->
+<!--                </div>-->
+<!--                <field name="rule_date_from" class="oe_inline"/>-->
+<!--                <field name="rule_date_to" class="oe_inline"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//group[@name='reward']" position="before">-->
+<!--                <group>-->
+<!--                    <field name="promo_applicability" widget="radio"/>-->
+<!--                </group>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+<!--    <record id="coupon_program_view_promo_program_recharge" model="ir.ui.view">-->
+<!--		<field name="name">coupon.promotion.program.form.recharge</field>-->
+<!--		<field name="model">coupon.program</field>-->
+<!--        <field name="inherit_id" ref="coupon_program_view_promo_program_formteeest"/>-->
+<!--		<field name="arch" type="xml">-->
+
+<!--            <xpath expr="//field[@name='promo_code']" position="before">-->
+<!--                <field name="partner_id" invisible="0"/>-->
+<!--            </xpath>-->
+
+<!--            <xpath expr="//field[@name='rule_partners_domain']" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+
+<!--            <xpath expr="//field[@name='rule_products_domain']" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+<!--            <xpath expr="//label[@for='rule_min_quantity']" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+<!--            <xpath expr="//field[@name='promo_applicability']" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+<!--            <xpath expr="//group[1]" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+<!--            <xpath expr="//group[1]" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+<!--            <xpath expr="//group[2]" position="before">-->
+<!--                <group>-->
+<!--                <field name="partner_id" invisible="0"/>-->
+<!--                </group>-->
+<!--            </xpath>-->
+
+
+
+<!--        </field>-->
+<!--    </record>-->
+
+<!--         <record id="coupon_program_view_comm_program_recharge" model="ir.ui.view">-->
+<!--		<field name="name">coupon.promotion.program.comm.recharge</field>-->
+<!--		<field name="model">coupon.program</field>-->
+<!--        <field name="inherit_id" ref="coupon.coupon_program_view_form_common"/>-->
+<!--		<field name="arch" type="xml">-->
+<!--            <xpath expr="//label[@for='rule_minimum_amount']" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+<!--&lt;!&ndash;            <xpath expr="//div[@for='rule_minimum_amount']" position="attributes">&ndash;&gt;-->
+<!--&lt;!&ndash;					<attribute name="invisible">True</attribute>&ndash;&gt;-->
+<!--&lt;!&ndash;				</xpath>&ndash;&gt;-->
+
+<!--            <xpath expr="//field[@name='discount_apply_on']" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+<!--            <xpath expr="//label[@for='discount_max_amount']" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+
+<!--            <xpath expr="//group[2]/group[2]/div[4]" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+<!--            <xpath expr="//group[2]/group[1]" position="attributes">-->
+<!--					<attribute name="invisible">True</attribute>-->
+<!--				</xpath>-->
+
+
+
+
+<!--        </field>-->
+<!--         </record>-->
+
+
+<!--	<record id="coupon_program_action_promo_program_appt" model="ir.actions.act_window">-->
+<!--        <field name="name">Rechargeable Coupon</field>-->
+<!--        <field name="res_model">coupon.program</field>-->
+<!--        <field name="view_mode">tree,kanban,form</field>-->
+<!--        <field name="view_id" ref="coupon_program_view_promo_program_formteeest" />-->
+
+<!--&lt;!&ndash;        <field name="view_ids" eval="[&ndash;&gt;-->
+<!--&lt;!&ndash;            (5, 0, 0),&ndash;&gt;-->
+<!--&lt;!&ndash;            (0, 0, {'view_mode': 'tree'}),&ndash;&gt;-->
+<!--&lt;!&ndash;            (0, 0, {'view_mode': 'form', 'view_id': ref('coupon.coupon_program_view_promo_program_form')})]"/>&ndash;&gt;-->
+
+<!--		<field name="search_view_id" ref="coupon_program_view_search_aptts"/>-->
+<!--        <field name="domain">[('program_type', '=', 'promotion_program')]</field>-->
+<!--        <field name="context">{-->
+<!--            'default_program_type': 'promotion_program',-->
+<!--            'default_promo_code_usage': 'no_code_needed',-->
+<!--            'default_validity_duration': 0,-->
+<!--            'search_default_opened': 1-->
+<!--            }</field>-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="o_view_nocontent_smiling_face">-->
+<!--                Create a new promotion program-->
+<!--            </p><p>-->
+<!--                Build up promotion programs to attract more customers with discounts, free products, free delivery, etc.-->
+<!--                You can share promotion codes or grant the promotions automatically if some conditions are met.-->
+<!--             </p>-->
+<!--        </field>-->
+<!--    </record>-->
+<!--	<menuitem id="apppointments_promo_master" action="coupon_program_action_promo_program_appt"-->
+<!--		name="Rechargeable Coupon" parent="menu_appointments_configuration" sequence="7" />-->
+
+
+<!--		<record id="coupon_program_action_coupon_program_appt" model="ir.actions.act_window">-->
+<!--        <field name="name">Promo Code</field>-->
+<!--        <field name="res_model">coupon.program</field>-->
+<!--        <field name="view_mode">tree,kanban,form</field>-->
+<!--&lt;!&ndash;        <field name="search_view_id" ref="coupon_program_view_search"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        <field name="view_ids" eval="[&ndash;&gt;-->
+<!--&lt;!&ndash;            (5, 0, 0),&ndash;&gt;-->
+<!--&lt;!&ndash;            (0, 0, {'view_mode': 'tree'}),&ndash;&gt;-->
+<!--&lt;!&ndash;            (0, 0, {'view_mode': 'form', 'view_id': ref('coupon_program_view_coupon_program_form')})]"/>&ndash;&gt;-->
+<!--        <field name="domain">[('program_type','=', 'coupon_program')]</field>-->
+<!--        <field name="context">{-->
+<!--            'default_program_type': 'coupon_program',-->
+<!--            'promo_code_usage': 'code_needed',-->
+<!--            'search_default_opened': 1-->
+<!--            }</field>-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="o_view_nocontent_smiling_face">-->
+<!--                Create a new coupon program-->
+<!--            </p><p>-->
+<!--                Generate and share coupon codes with your customers to get discounts or free products.-->
+<!--             </p>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+<!--        #recharge program-->
+
+
+        <record id="coupon_program_action_coupon_program_appt" model="ir.actions.act_window">
+        <field name="name">Promotion Programs</field>
+        <field name="res_model">coupon.program</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'tree'}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('coupon.coupon_program_view_promo_program_form')})]"/>
+        <field name="search_view_id" ref="coupon.coupon_program_view_promo_program_search"/>
+        <field name="domain">[('program_type', '=', 'promotion_program')]</field>
+        <field name="context">{
+            'default_program_type': 'promotion_program',
+            'default_promo_code_usage': 'no_code_needed',
+            'default_validity_duration': 0,
+            'search_default_opened': 1
+            }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new promotion program
+            </p><p>
+                Build up promotion programs to attract more customers with discounts, free products, free delivery, etc.
+                You can share promotion codes or grant the promotions automatically if some conditions are met.
+             </p>
+        </field>
+    </record>
+
+<!--        <menuitem id="apppointments_promo_master" action="coupon_program_action_coupon_program_appt"-->
+<!--		name="Rechargeable Coupon" parent="menu_appointments_configuration" sequence="7" />-->
+
+<!--        #Promo codes -->
+        <record id="coupon_program_action_coupon_program_apt" model="ir.actions.act_window">
+        <field name="name">Coupon Programs</field>
+        <field name="res_model">coupon.program</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="coupon.coupon_program_view_search"/>
+        <field name="view_ids" eval="[
+            (5, 0, 0),
+            (0, 0, {'view_mode': 'tree'}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('coupon.coupon_program_view_coupon_program_form')})]"/>
+        <field name="domain">[('program_type','=', 'coupon_program')]</field>
+        <field name="context">{
+            'default_program_type': 'coupon_program',
+            'promo_code_usage': 'code_needed',
+            'search_default_opened': 1
+            }</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new coupon program
+            </p><p>
+                Generate and share coupon codes with your customers to get discounts or free products.
+             </p>
+        </field>
+    </record>
+
+	</data>
+</odoo>

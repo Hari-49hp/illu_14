@@ -1,0 +1,249 @@
+<odoo>
+    <data>
+        <record id="appointment_cancel_mail" model="mail.template">
+            <field name="name">Cancellation : Appointment Cancelled</field>
+            <field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="subject">Appointment Cancelled - ${object.name}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+                
+                <p>Dear ${object.partner_id.name or ''},</p>
+                    <p>
+                        We regret to inform you that our ${object.name} has been cancelled. We made this difficult decision to cancel.
+                        We understand that this change may cause great inconvenience for you and are sincerely sorry.
+                    </p>
+                    <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]>
+            </field>
+        </record>
+        <record id="appointment_cancel_mail_customer" model="mail.template">
+            <field name="name">Appointment - Appointment Cancel Customer</field>
+            <field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="subject">Appointment Cancel - ${object.name}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+                
+                <p>Dear ${object.partner_id.name or ''},</p>
+                <p>
+                    Appointment Cancel
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                <img src="${'/logo.png?company=%s' % object.company_id.id}" style="width: 200px;" alt="${'%s' % object.company_id.name}">
+                
+                <p> Dear ${object.partner_id.name or ''}, </p>
+                
+                <p> The following appointments on 
+                
+                % if object.booking_date: 
+                    ${object.booking_date.strftime('%A')}, 
+                % endif 
+                
+                ${object.booking_date or ''} have been cancelled by ${object.altered_booked_by.name or ''} 
+                
+                % if object.cancellation_datetime: 
+                    as of ${object.cancellation_datetime.strftime('%I:%M %p')}, on ${object.cancellation_datetime.strftime('%d/%m/%Y')}:
+                % endif
+                
+                </p>
+              
+                % if object.company_id.website:
+                   <p>View & Join Our Upcoming Events:</p>
+                   <p>${object.company_id.website or ''}</p>
+                % endif
+
+                <p> Kindly Note Our Policy on Appointment Cancellations: </p>
+                <p> o In case of rescheduled or cancelled appointments, you must inform Illuminations Well Being Center with 24 hours’ notice so that we are able to accommodate another client. </p>
+                <p> o Cancellations that occur within a 24 hours are subject to an amount equal to the full session fee and advanced payment for following session may be required </p>
+                <p> We look forward to serving you again soon. </p>
+                <p> We look forward to greeting you at the center soon. </p>
+                
+                <p> Live Light & Shine Bright, </p>
+
+                <p>The Illuminations Family</p>
+                <br/>
+                % if object.company_id.website:
+                   <p>Web: ${object.company_id.website or ''}</p>
+                % endif
+                % if object.company_id.phone:
+                   <p>Phone: ${object.company_id.phone or ''}</p>
+                % endif
+                <p>Address: ${object.company_id.street or ''}, ${object.company_id.street2 or ''}, </p> 
+                <p> &emsp;&emsp;&emsp;&emsp; ${object.company_id.city or ''}, ${object.company_id.state_id.name or ''}, </p>
+                <p> &emsp;&emsp;&emsp;&emsp; ${object.company_id.country_id.name or ''}, ${object.company_id.zip or ''}</p>
+
+
+                ]]>
+            </field>
+        </record>
+        <record id="appointment_cancel_mail_mail_listed" model="mail.template">
+            <field name="name">Appointment - Appointment Cancel Mailing List</field>
+            <field name="model_id" ref="mass_mailing.model_mailing_contact"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="subject">Appointment Cancel - ${ctx.get('appointment_name')}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+                
+                <p>Dear ${object.name or ''},</p>
+                <p>
+                    Appointment Cancel
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]>
+            </field>
+        </record>
+        <record id="appointment_reschedule_mail_customer" model="mail.template">
+            <field name="name">Appointment - Appointment Reschedule Customer</field>
+            <field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="subject">Appointment Reschedule - ${object.name}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+                
+                <img src="${'/logo.png?company=%s' % object.company_id.id}" style="width: 200px;" alt="${'%s' % object.company_id.name}">
+                <p>Dear ${object.partner_id.name or ''},</p>
+
+                <p>The following appointments have been changed:</p>
+                <p>Appointment Date: ${object.booking_date or ''}</p>
+                <p>Appontment Type:
+                % if object.appointment_type == 'type_online':
+                    Online
+                % endif
+
+                % if object.appointment_type == 'type_onsite':
+                    Onsite
+                % endif</p>
+                <p>Venue: ${object.company_id.name or ''}, ${object.company_id.state_id.name or ''}.</p>
+                <p>Therapist: ${object.therapist_id.name or ''}</p>
+                <p>---</p>
+                <p>Your new appointment details are as follows:</p>
+                <p>Appointment Reschedule Date: ${object.booking_date or ''}</p>
+                <p>Appontment Type:
+                % if object.appointment_type == 'type_online':
+                    Online
+                % endif
+
+                % if object.appointment_type == 'type_onsite':
+                    Onsite
+                % endif</p>
+                <p>Therapist: ${object.therapist_id.name or ''}</p>
+                <p>Venue: ${object.company_id.name or ''}, ${object.company_id.state_id.name or ''}.</p>
+
+                <p>---</p>
+                <p>If you have any questions, please contact us using the information below.</p>
+
+                <p>Live Light & Shine Bright,</p>
+                
+                
+                <p>Thank you! Live Light & Shine Bright,</p>
+                <p>The Illuminations Family</p>
+                <br/>
+                % if object.company_id.website:
+                   <p>Web: ${object.company_id.website or ''}</p>
+                % endif
+                % if object.company_id.phone:
+                   <p>Phone: ${object.company_id.phone or ''}</p>
+                % endif
+                <p>Address: ${object.company_id.street or ''}, ${object.company_id.street2 or ''}, </p> 
+                <p> &emsp;&emsp;&emsp;&emsp; ${object.company_id.city or ''}, ${object.company_id.state_id.name or ''}, </p>
+                <p> &emsp;&emsp;&emsp;&emsp; ${object.company_id.country_id.name or ''}, ${object.company_id.zip or ''}</p>
+                
+                <p>For Daily Up to Date information on Illuminations events and activities, please visit:</p>
+                <p>Illuminations Facebook Page: https://www.facebook.com/IlluminationsPune</p>
+                <p>Illuminations Meet Up Page: http://www.meetup.com/Illuminations-Well-Being-Centre/ </p>
+
+
+                ]]>
+            </field>
+        </record>
+        <record id="appointment_reschedule_mail_mail_listed" model="mail.template">
+            <field name="name">Appointment - Appointment Reschedule Mailing List</field>
+            <field name="model_id" ref="mass_mailing.model_mailing_contact"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+            <field name="subject">Appointment Reschedule - ${ctx.get('appointment_name')}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+                
+                <p>Dear ${object.name or ''},</p>
+                <p>
+                    Appointment Reschedule
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]>
+            </field>
+        </record>
+        <record id="appointment_2hrs_attendee_mail_mail_listed" model="mail.template">
+            <field name="name">Appointment - Attendee Remainder 2Hrs Before</field>
+            <field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.partner_id.email}</field>
+            <field name="subject">Appointment 2 Hrs to Go - ${object.name}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+                
+                <p>Dear ${object.partner_id.name or ''},</p>
+                <p>
+                    Appointment ${object.name} 2 hrs to go
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]>
+            </field>
+        </record>
+        <record id="appointment_1day_attendee_mail_mail_listed" model="mail.template">
+            <field name="name">Appointment - Attendee Remainder 1day Before</field>
+            <field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.partner_id.email}</field>
+            <field name="subject">Appointment 1 Day to Go - ${object.name}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html">
+                <![CDATA[
+                
+                <p>Dear ${object.partner_id.name or ''},</p>
+                <p>
+                    Appointment ${object.name} 1 Day to go
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

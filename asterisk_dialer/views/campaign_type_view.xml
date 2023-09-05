@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_campaign_type_form" model="ir.ui.view">
+		<field name="name">campaign.type.form</field>
+		<field name="model">campaign.type</field>
+		<field name="arch" type="xml">
+			<form string="Campaign Type">
+				<sheet>
+				<group>
+					<group>
+						<field name="name" />
+						<field name="code" />
+	                    <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+				</group>
+			</sheet>
+			</form>
+		</field>
+	</record>
+	
+	<!-- Tree -->
+	<record id="view_campaign_type_tree" model="ir.ui.view">
+		<field name="name">campaign.type.tree</field>
+		<field name="model">campaign.type</field>
+		<field name="arch" type="xml">
+			<tree string="Campaign Type">
+				<field name="name"/>
+				<field name="code"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Action View -->
+	<record id="view_campaign_type_action" model="ir.actions.act_window">
+		<field name="name">Campaign Type</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">campaign.type</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<!-- Menu Details -->
+	<menuitem id="view_campaign_type_menu" name="Campaign Type" parent="asterisk_common.asterisk_settings_menu" 
+		sequence="99" action="view_campaign_type_action"/>
+	
+	
+</odoo>   

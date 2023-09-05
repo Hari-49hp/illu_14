@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <template id="illuminations_therapy_header" name=" Therapy Header">
+            <section class="fullviewimage-hero therapypagehero">
+                <div class="row hero-overlaytexts mycontainer">
+                    <div class="col-xl-5">
+                        <div class="breadcrum-sec topbreadcrum">
+                            <label>
+                                <a href="/" style="text-decoration:none;">Home /</a>
+                                <a>Therapy </a>
+
+                            </label>
+                        </div>
+                        <div class="hero-two-left herotexcenter">
+
+                            <div class="hero-intro-text">
+                                <!-- <h6 data-aos="fade-up" data-aos-delay="10" >Well Being</h6> -->
+                                <h1 data-aos="fade-up" data-aos-delay="150">Therapy. Change for the Better.</h1>
+                                <p data-aos="fade-up" data-aos-delay="200">You have a problem? We have the solution. At
+                                    Illuminations we integrate powerful holistic healing modalities to help you resolve a wide
+                                    range of issues.</p>
+
+                                <a href= "#book_free_apt_snippet" data-aos="fade-up" data-aos-delay="200" class="fullbutton">Get Started</a>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="therapy-heroimageorvideocont">
+                    <img src="/ppts_website_theme/static/src/img//therapyhero.jpg" />
+                    <a class="playicon"></a>
+                </div>
+            </section>
+            <!--  header end -->
+            <section class="therapistwerepeat eachsection">
+                <div class="mycontainer">
+                    <h2>
+                        We Repeat What We <br/> Don’t Repair
+                    </h2>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

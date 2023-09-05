@@ -1,0 +1,105 @@
+<odoo>
+	<data>
+		<template id="illuminations_franchise_info_header" name="Franchise info">
+			<section class="contactus-sections">
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<h2>Franchise info</h2>
+						<a href="tel:+971044487043" class="phonetext">+971-04-448 7043</a>
+						<br />
+						<a href="mailto:info@illuminationsworld.com" class="emailtext">info@illuminationsworld.com</a>
+						<br />
+						<a href="mailto:info@illuminationsworld.com" class="emailtext">
+							<small>(CC)</small>
+							alex@illuminationsworld.com
+						</a>
+
+					</div>
+					<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+						<p>Our corporate wellness sector is dedicated to delivering powerful &amp; effective tools and techniques based on wellness, stress management, work life balance, to enhance productivity &amp; happiness! Illuminations aim to create a culture of success and happiness, by focusing on the individual’s physical, mental and emotional well-being in order to achieve optimal results in their performance in the workplace! We offer executive wellness packages where we combine a range of our services to provide your company a complete 360% solution to managing stress.</p>
+					</div>
+				</div>
+			</section>
+		</template>
+
+		<template id="illuminations_contact_feedback" name="Feedback">
+			<section class="">
+				<div class="noanimate_top_wave">
+					<svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 169" preserveAspectRatio="xMinYMax meet" version="1.1">
+						<g>
+							<path class="light-blue-svg" d="M1440.2,170l0.1-69.1c-56,6.2-123.8,19.2-203.6-2.8c-106.3-29.3-189-80.5-315.3-55.6
+							C737.9,78.7,636.2,0,471.7,16.2c-164.5,16.1-269-41.1-373.7,0C65.7,28.8,33,43.2,0.3,57.7V170" />
+						</g>
+					</svg>
+				</div>
+
+				<div class="light-blue-bg enquireformcontainer ">
+					<div class="mycontainer sectiion_btm_padding80">
+						<div class="row">
+							<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+								<h2 data-aos="fade-up" data-aos-delay="100">Feedback Form</h2>
+								<h4 data-aos="fade-up" data-aos-delay="100">We want to hear from you. </h4>
+							</div>
+							<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+								<div class="header-form-box-wrapper " data-aos="fade-up" data-aos-delay="100">
+									<h5>Fill in only these 3 fields</h5>
+									<form class="enquireform">
+										<div class="row">
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+												<div class="form-group">
+													<input class="form-control " type="text " placeholder="Name " />
+												</div>
+												<div class="form-group">
+													<input class="form-control " type="text " placeholder="Phone " />
+												</div>
+												<div class="form-group">
+													<input class="form-control " type="email " placeholder="Name " />
+												</div>
+												<div class="form-group">
+													<div class="dropdown form-control inputwrap">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															Location
+														</button>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+															<a class="dropdown-item" href="#">Therapy</a>
+															<a class="dropdown-item" href="#">Healing</a>
+															<a class="dropdown-item" href="#">Therapy</a>
+															<a class="dropdown-item" href="#">Online Therapy</a>
+															<a class="dropdown-item" href="#">Corporate</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+												<div class="form-group">
+													<div class="dropdown form-control inputwrap">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															Location
+														</button>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+															<a class="dropdown-item" href="#">Therapy</a>
+															<a class="dropdown-item" href="#">Healing</a>
+															<a class="dropdown-item" href="#">Therapy</a>
+															<a class="dropdown-item" href="#">Online Therapy</a>
+															<a class="dropdown-item" href="#">Corporate</a>
+														</div>
+													</div>
+												</div>
+												<div>
+													<textarea class="form-control" placeholder="Message" value=""></textarea>
+												</div>
+												<button type="button " class="formsubmitbtn"> Submit
+												</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</template>
+	</data>
+</odoo>

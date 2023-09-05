@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+	
+		<record model="master.aboutus" id="about_demo_data1">
+			<field name="name">Social Media</field>
+			<field name="sequence">SM</field>
+		</record>
+		
+		<record model="master.aboutus" id="about_demo_data2">
+			<field name="name">Google</field>
+			<field name="sequence">Gl</field>
+		</record>
+		
+		<record model="master.aboutus" id="about_demo_data3">
+			<field name="name">Word of Mouth</field>
+			<field name="sequence">WM</field>
+		</record>
+		
+		<record model="master.aboutus" id="about_demo_data4">
+			<field name="name">Walk In</field>
+			<field name="sequence">WI</field>
+		</record>
+		
+		<record model="master.aboutus" id="about_demo_data5">
+			<field name="name">Exhibition/Event</field>
+			<field name="sequence">EE</field>
+		</record>
+		
+		<record model="master.aboutus" id="about_demo_data6">
+			<field name="name">Online</field>
+			<field name="sequence">Onl</field>
+		</record>
+		
+	</data>
+</odoo>

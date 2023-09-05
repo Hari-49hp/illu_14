@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="assets" inherit_id="point_of_sale.assets">
+	  <xpath expr="." position="inside">
+	  	<link rel="stylesheet" href="/ppts_employee_commission/static/src/css/employee.css"/>
+	  	<script type="text/javascript" src="/ppts_employee_commission/static/src/js/models.js"></script>
+	    <script type="text/javascript" src="/ppts_employee_commission/static/src/js/orderline.js"></script>
+	    <script type="text/javascript" src="/ppts_employee_commission/static/src/js/employee.js"></script>
+	    <script type="text/javascript" src="/ppts_employee_commission/static/src/js/employeepopup.js"></script>
+	  </xpath>
+	</template>
+</odoo>

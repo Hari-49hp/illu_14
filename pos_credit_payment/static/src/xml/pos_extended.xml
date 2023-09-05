@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template_custom_latest_extended" inherit_id="point_of_sale.template" xml:space="preserve">
+
+	<t t-extend="ClientDetails" t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('client-details-left')]" position="inside">
+
+			<div class="client-detail">
+				<span class='label'>Credit Amount</span>
+                <span>
+					<t t-esc='props.partner.custom_credit'/>
+				</span>
+
+			</div>
+		</xpath>
+	</t>
+
+
+    <t t-extend="ActionpadWidget" t-inherit="point_of_sale.ActionpadWidget" t-inherit-mode="extension" owl="1">
+		<xpath expr="//button[hasclass('set-customer')]" position="inside">
+			<br/>
+            <t t-if="env.pos.get_client()">
+				<span>
+					[Credit:
+					<t t-esc="((env.pos.get_client().custom_credit * 100) / 100)"/>
+                    ]
+				</span>
+			</t>
+		</xpath>
+	</t>
+
+    <t t-name="CustomPaymentScreenWidget" t-inherit="point_of_sale.PaymentScreenStatus" t-inherit-mode="extension"
+       owl="1">
+		<xpath expr="//div[@class='payment-status-total-due']" position="after">
+<!--			<t t-foreach="currentOrder.get_paymentlines()" t-as="payment_line" >-->
+            <!--				<t t-esc="currentOrder.get_total_with_tax()"/>-->
+            <!--			</t>-->
+            <t t-if="currentOrder.get_total_with_tax() &lt; 0">
+<!--				<div style="font-size: 18px;">-->
+<!--					<label for="return_reason">Return reason</label>-->
+<!--				</div>-->
+				<br/>
+                <div class="return_reason">
+					<textarea id="return_reason" name="return_reason" rows="2" cols="40"
+							  placeholder="Please add the reason for return the product"
+							  style="font-size: 14px;">
+					</textarea>
+				</div>
+			</t>
+            <t t-if="currentOrder.get_change() != 0 ">
+				<span class="label">Add To Credit</span>
+                <span>
+					<input type="checkbox" id="checkbox_cgv" class="custom-control-input"
+                           onchange="checkbox_cgv(this)"/>
+				</span>
+
+                <script>
+					function checkbox_cgv(checkboxElem) {
+						if (checkboxElem.checked) {
+							$('div.payment-status-change span.label').text("Credit");
+						} else {
+							$('div.payment-status-change span.label').text("Change");
+						}
+					}
+				</script>
+			</t>
+		</xpath>
+	</t>
+
+
+    <t t-name="PaymentScreen" t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('customer-button')]" position="before">
+				<div class="pos-customer-payment" style="color: red;font-size: 12px;height: 15mm;">
+                      <div class="pos-customer-payment-infor" t-on-click="">
+                          <span class="">
+                             Note : This order is selected for below payment information. 
+                          </span>
+                          <br/>
+                          <span t-esc="env.pos._update_payment_info(env.pos.get_order().name, env.pos.get_order().return_ref)" class="">
+                             Cheque : <span class="pos-customer-payment-cheque"/> <br/>
+                             Method : <span class="pos-customer-payment-method"/> <br/>
+                          </span>
+                      </div>
+                  </div>
+		</xpath>
+		
+		
+		<xpath expr="//span[hasclass('js_customer_name')]" position="after">
+			<t t-if="env.pos.get_client()">
+				<br/>
+				<span>
+					Credit:
+					<t t-esc="((env.pos.get_client().custom_credit * 100) / 100)"/>
+				</span>
+			</t>
+		</xpath>		
+		
+	</t>
+
+    <t t-extend="ClientListScreenWidget" t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+		<xpath expr="//table//thead//tr" position="inside">
+			<th>Credit</th>
+		</xpath>
+	</t>
+
+    <t t-extend="ClientLine" t-inherit="point_of_sale.ClientLine" t-inherit-mode="extension" owl="1">
+		<xpath expr="//tr" position="inside">
+			<td id="bal">
+				<t t-esc='env.pos.setdigit(props.partner.custom_credit, 2) or "0"'/>
+			</td>
+		</xpath>
+	</t>
+	
+	 <t t-name="ClientLine1" t-inherit="point_of_sale.ClientLine" t-inherit-mode="extension" owl="1">
+       <!--  <xpath expr="//tr/td[6]" position="replace">
+        </xpath> -->
+        <xpath expr="//tr/td[3]" position="replace">
+        </xpath>
+    </t>
+
+    <!-- <t t-name="ClientListScreen1" t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//tr/th[6]" position="replace">
+        </xpath>
+    </t> -->
+
+
+</templates>

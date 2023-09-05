@@ -1,0 +1,28 @@
+@mixin list-xs() {
+    .o_action_manager {
+        .o_view_controller {
+            .o_content {
+                .table-responsive {
+                    padding: 0px;
+                }
+                .o_list_view {
+                    .o_list_selection_box {
+                        position: relative;
+                        max-width: 100%;
+                        padding: 5px 0px;
+                        min-width: 100%;
+                        text-align: center;
+                    }
+                    .o_optional_columns {
+                        right: 0 !important;
+                        left: auto !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.o_web_client.ad_mobile {
+    @include list-xs();
+}

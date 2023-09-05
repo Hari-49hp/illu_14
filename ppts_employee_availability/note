@@ -1,0 +1,10 @@
+Record rule issue 
+
+**  company rule employee --> [('id','in', company_ids)]
+
+	inactive the rule
+
+**	Employee multi company rule (model employee) ---> ['|',('location_ids','=',False),('location_ids', 'in', company_ids)]
+
+	initails --> ['|',('company_id','=',False),('company_id', 'in', company_ids)]
+

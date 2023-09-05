@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <template id="assets_backend" name="assets_backend" inherit_id="web.assets_backend">
+
+    <xpath expr="." position="inside">
+      <script type="text/javascript" src="/ppts_campaign_dashboard/static/src/js/campaign_view.js"></script>
+      <script type="text/javascript" src="/ppts_campaign_dashboard/static/src/js/campaign_renderer.js"></script>
+      <script type="text/javascript" src="/ppts_campaign_dashboard/static/src/js/campaign_controller.js"></script>
+      <script type="text/javascript" src="/ppts_campaign_dashboard/static/src/js/campaign_model.js"></script>
+      <script type="text/javascript" src="/ppts_campaign_dashboard/static/src/js/campaign_search.js"></script>
+      <!-- <script type="text/javascript" src="/ppts_campaign_dashboard/static/src/js/view.js"></script> -->
+    </xpath>
+
+    <xpath expr="link[last()]" position="after">
+      <link rel="stylesheet" type="text/scss" href="/ppts_campaign_dashboard/static/src/scss/dashboard.scss"/>
+    </xpath>
+
+  </template>
+</odoo>

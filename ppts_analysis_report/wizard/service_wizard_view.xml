@@ -1,0 +1,41 @@
+<odoo>
+
+<record id="sale_service_summary_wizard_form" model="ir.ui.view">
+	<field name="name">sservice.wizard.wizard</field>
+	<field name="model">service.wizard</field>
+	<field name="arch" type="xml">
+		<form string="Sales By Service">
+		<group>
+		<group string="Dates">
+			<field name="date_from" required="0"/>
+			<field name="date_to" required="0"/>
+			<field name="date_range" widget="radio"/>
+		</group>
+		<group string="Filter">
+			<field name="company_id"/>
+			<field name="entered_by"/>
+			<field name="serv_id"/>
+		</group>
+			<group string="Option">
+				<field name="view"/>
+			</group>
+	</group>
+		<footer>
+			<button name="action_apply" string="Apply" type="object" class="btn btn-sm btn-primary"/>
+			<button string="Cancel" class="btn btn-sm btn-default" special="cancel"/>
+		</footer>
+		</form>
+	</field>
+</record>
+<record id="sale_service_summary_action_wizard" model="ir.actions.act_window">
+	<field name="name">Sales By Service</field>
+	<field name="type">ir.actions.act_window</field>
+	<field name="res_model">service.wizard</field>
+	<field name="view_mode">form</field>
+	<field name="view_id" ref="sale_service_summary_wizard_form"/>
+	<field name="target">new</field>
+</record>
+
+
+
+</odoo>

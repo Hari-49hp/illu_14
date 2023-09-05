@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!--<templates xml:space="preserve">-->
+    <header t-extend="Menu">
+        <t t-jquery=".o_main_navbar" t-operation="after">
+            <style>
+                .resourcesearchform{
+                    width: 100%;
+                    max-width: 200px;
+                    margin-bottom: -3px;
+                    margin-right: 10px;
+                }
+                .searchcontainer{
+                    white-space: nowrap;
+                    font-size: 14px;
+                    margin: 0px;
+                    height: 30px;
+                    width:200px;
+                    border: 1px solid #D5D9DE;
+                    background-color: white;
+                    position: relative;
+                    align-items: center;
+                    padding: 0px;
+                    border-radius: 2px;
+                    text-align: center;
+                }
+                .searchinfo{
+                    right: 20px;
+                    top: 6px;
+                }
+                .searchicon{
+                    left: 8px;
+                    top: 7px;
+                }
+                .searchcontainer  i, .searchcontainer  a{
+                    z-index: 1;
+                    position: absolute;
+                }
+                .searchcontainer input{
+                    font-weight: 400;
+                    width: 100%;
+                    border: 0px;
+                    outline: 0;
+                    border-radius: 0;
+                    height: 100%;
+                    border: 0px;
+                    font-size: 14px;
+                    padding: 4px 30px;
+                }
+                .searchcontainer input:focus{
+                    border: 0px;
+                    outline: none;
+                    box-shadow: none;
+                    -webkit-box-shadow: none;
+                }
+                .o_home_menu_background .resourcesearchform{
+                    display: none;
+                }
+                .ui-autocomplete .ui-menu-item-wrapper:hover{
+                    background: #b8b8b8 !important;
+                    border: #b8b8b8 !important;
+                }
+                
+                .ui-autocomplete:hover, .ui-autocomplete .ui-menu-item:hover{
+                    background: #b8b8b8 !important;
+                    border: #b8b8b8 !important;
+                }
+            </style>
+
+            <nav class="o_partner_search_panel">
+                 <!-- <input id="master" type="hidden" name="master" value="master"/> -->
+                <div class="o_partner_search_panel_top d-flex">
+                    <form class="resourcesearchform" autocomplete="off">
+                        <div class="searchcontainer">
+                            <i class="fa fa-search searchicon"></i>
+                            <input id="client-head-search" class="customer-autocomplete ui-autocomplete-input" placeholder="Search for client" autocomplete="off" spellcheck="false" maxlength="250" data-name="searchInput" value=""/>
+                            <a class="searchinfo">
+                                <i id="client-circle-tooltip" class="fa fa-info-circle" style="margin-top: 1px;" data-html="true" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Search for clients using multiple terms (like email, phone number, and ID)."></i>
+                            </a>
+                        </div>
+                    </form>
+                    <a href="/booking/url/redirect/customer_create" class="header-client-add-btn" title="Add New Client" >
+                        <i class="fa fa-plus-circle"></i>
+                    </a>
+                </div>
+            </nav>
+            
+          <script type="text/javascript" src="/partner_search/static/src/js/search.js"/>
+        </t>
+    </header>
+
+</templates>

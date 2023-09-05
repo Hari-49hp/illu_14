@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+<!-- inherit the based voip template using jquery syntax 07-08-22 -->
+    <t t-extend="voip.switch_panel_top_button">
+        <t t-jquery="a[title='Display Dialing Panel']" t-operation="replace">
+            <a
+        href="#"
+        title="Display Dialing Panel" id="voip_dialler_ids">
+        <i
+            aria-label="Display Dialing Panel"
+            class="
+                fa
+                fa-fw
+                fa-phone"
+            role="img"/>
+    </a>
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="event_cancallation_wizard" model="ir.ui.view">
+			<field name="name">Cancellation Reason</field>
+			<field name="model">event.cancellation</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Cancellation Reason">
+					<group>
+						<group >
+							
+							<field name="eve_cancellation_type" string="Cancellation Type"/>
+							<!-- <field name="cancel_reason_id"/> -->
+							<field name="event_cancel_charge" readonly="1" force_save="1"/>
+							<field name="event_id" invisible="1"/>
+							<field name="cancel_options"/>
+							<field name="note"/>
+
+						</group>
+					</group>
+						
+					<footer>
+						<button name="confirm_event_cancel" string="Confirm" type="object"/>
+						<button name="cancel" string="Discard" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+	<record id="action_event_cancellation_wizard" model="ir.actions.act_window">
+    <field name="name">Event Cancellation</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">event.cancellation</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+    <field name="view_id" ref="event_cancallation_wizard"/>
+<!--     <field name="target">new</field>
+ --></record>		
+
+	</data>
+</odoo>

@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
+{
+    'name': 'PPTS: Custom Event Notification',
+    'version': '1.0.1',
+    'category': 'Event',
+    'sequence': 20,
+    'summary': '',
+    'description': "",
+    'depends': ['base','website','mass_mailing' ,'ppts_custom_room_mgmt','ppts_custom_apt_mgmt',
+                'event','sale', 'website_payment', 'website_mail',
+                'website_form', 'digest','website_event',
+                'hr','base_setup','contacts','ppts_watsapp_integration'],
+    'data': [
+        "security/ir.model.access.csv",
+        # 'data/ir_cron.xml',
+        'edi/event_registration_mail.xml',
+        'edi/event_cancel_mail.xml',
+        'edi/event_responsible_person_change_mail.xml',
+        'edi/event_thanks_mail.xml',
+        'edi/event_rescheduled_mail.xml',
+        'edi/event_payment_reminder_mail.xml',
+        'edi/employee_remainder_mail.xml',
+        # 'edi/employee_remainder_cron.xml',
+        'edi/event_allocation_mail.xml',
+        'edi/event_allocation_checklist_mail.xml',
+        'edi/user_welcome_mail.xml',
+        'edi/event_confirmation_mail.xml',
+        'edi/user_welcome_mail_cron.xml',
+        'edi/event_ticket_available_mail.xml',
+        'views/event.xml',
+        'views/res_partner.xml',
+        'views/res_config.xml',
+        'views/template_configuration.xml',
+    ],
+    'demo': [
+    ],
+    'installable': True,
+    'application': True,
+    'website': 'https://www.odoo.com/page/point-of-sale-shop',
+}

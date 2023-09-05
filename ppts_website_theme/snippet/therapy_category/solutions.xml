@@ -1,0 +1,127 @@
+<odoo>
+    <data>
+        <template id="illuminations_therapy_category_solutions" name=" Therapy Category Solutions">
+
+        <section class=" section-topbtm-padding eachsection ">
+                <div class=" mycontainer " data-aos=" fade-up " data-aos-delay=" 100 ">
+                    <div class=" row ">
+                        <div class=" col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 missionvission-left aos-init aos-animate ">
+                            <span class=" blakwordtexts " data-aos=" fade-up " data-aos-delay=" 100 ">Relationship </span>
+                            <h2 class=" header size56 ">Healing &amp; Therapy Solutions:</h2>
+                        </div>
+                        <div class=" col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 questtobehappytypo ">
+                        </div>
+                    </div>
+                    <div class=" row ">
+                        <div class=" col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                            <p style=" max-width: 600px;margin: 0 !important; " class=" desc mt-3 mb-4 "> Our qualified relationship
+                                therapists, guide you to make the necessary mental, emotional and behavioral changes to take
+                                charge of your relationship issues. </p>
+                        </div>
+                        <div class=" col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                            <h4 class=" bigpragraph ">Relationship Healing &amp; Therapy Solutions focuses on counseling for the
+                                following individuals:</h4>
+                            <div>
+                                <ul class=" awardlists listwithdots font16 ">
+                                    <li>
+                                        Couples in Crisis: People looking to manage and bring alive their current relationship.
+                                    </li>
+                                    <li>
+                                        People who have decided to end a relationship.
+                                    </li>
+                                    <li>
+                                        People who are struggling to find a potential suitable partner.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" mt-4 mb-4 accfullimg">
+                        <img src="/ppts_website_theme/static/src/img/healingtherapy.jpg " class=" img-fluid " alt=" Cinque Terre "/>
+                    </div>
+                    <div>
+                        <div class=" faqtabs-contentcontainer ">
+                            <div id=" accordion ">
+                                <div class=" card " data-aos=" fade-up " data-aos-delay=" 500 ">
+                                    <div class=" card-header " id=" headingOne ">
+                                        <h5 class=" mb-0 ">
+                                            <button class=" btn btn-link notopborder" data-toggle=" collapse " data-target="
+                                #collapse_five "
+                                                aria-expanded=" true " aria-controls=" collapseOne ">Learn More<a
+                                                    class=" accarrow "></a>
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id=" collapse_five " class=" collapse show " aria-labelledby=" headingOne "
+                                        data-parent=" #accordion ">
+                                        <div class=" card-body ">
+                                            <div class=" certification-section ">
+                                                <div class=" row ">
+                                                    <div class=" col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                                        <ul class=" normalblt-list ">
+                                                            <li> Identify &amp; Release Subconscious Belief Systems </li>
+                                                            <li> Identifying &amp; Releasing Limiting &amp; Toxic Emotions: anger, hurt,
+                                                                fear of loneliness, guilt and rejection. </li>
+                                                            <li> Reprogramming thought &amp; Behavior Patterns &amp; Positive Based
+                                                                Suggestion Work </li>
+                                                            <li> Age Regression &amp; Inner Child Integration. </li>
+                                                            <li> Cognitive Coaching to Identify Goals &amp; Values. </li>
+                                                            <li> *Optional: Spiritual Healing: Forgiveness, Understanding Karmic
+                                                                Contracts, Cord Cutting) </li>
+                                                            <li>
+                                                                Energy Healing Energetic Processes to address &amp; Heal On the
+                                                                Cellular Memory, Soul &amp; Metaphysical (Karmic Contracts,
+                                                                Forgiveness &amp; Energy Exchange, Cord Cutting &amp; Past Life)
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class=" col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+                                                        <div>
+                                                            <h4>Approaches Include:</h4>
+                                                            <p>
+                                                                Hypnosis &amp; Hypnotherapy, NLP, Cognitive Behavioral Therapy,
+                                                                Emotional Intelligence, Life Coaching, Energy Healing &amp;
+                                                                Cleansing, Spiritual Healing, Psychotherapy &amp; Counseling.
+                                                            </p>
+                                                            <p> Clients Would Require 3 – 5 Sessions To Resolve The Above Issue.
+                                                                Clients Can Avail Single Sessions Or Avail The Benefits Of Our
+                                                                Discount Packages!</p>
+                                                            <p> Discounts Include: Package Of 3 (5% Discount) Package Of 5 (10%
+                                                                Discount) Package Of 10 (15% Discount) </p>
+                                                        </div>
+                                                        <div class=" mt-4 ">
+                                                            <h4>Our Packages Include:</h4>
+                                                            <div>
+                                                                <ul class=" normalblt-list ">
+                                                                    <li>
+                                                                        1 Free 30 Minute Consultation
+                                                                    </li>
+                                                                    <li>
+                                                                        Treatment Packages of 3, 5 or 10 sessions recommended by
+                                                                        the practitioner with special discounts and offers
+                                                                    </li>
+                                                                    <li>
+                                                                        MP3 Audio or Hand Outs offering tools and techniques for
+                                                                        daily practice and lifestyle changes
+                                                                    </li>
+                                                                </ul>
+                                                                <span class=" disclaim ">**Disclaimer: The mentioned above
+                                                                    benefits are based on each individual’s experience and
+                                                                    results vary for every individual.</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>
+

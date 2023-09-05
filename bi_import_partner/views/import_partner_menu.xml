@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- <menuitem
+				id="bi_import_partner_menu"
+				name="Import Partner"
+				action="import_partner_wizard_action"
+				parent="ppts_my_practice.menu_my_crm"
+				sequence='106'
+		/> -->
+
+	</data>
+</odoo>

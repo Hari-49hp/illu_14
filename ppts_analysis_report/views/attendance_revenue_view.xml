@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="client_view_order_tree" model="ir.ui.view">
+            <field name="name">client.view.order.tree</field>
+            <field name="model">client.view</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="day"/>
+                    <field name="date" />
+                    <field name="time"/>
+                    <field name="visit_serv_categ_id" />
+                    <field name="visit_type_id" />
+                    <field name="pricing_option" />
+                    <field name="type_id" />
+                    <field name="expiry_date"/>
+                    <field name="visit_rem"/>
+                    <field name="staff"/>
+                    <field name="visit_location"/>
+                    <field name="staff_paid"/>
+                    <field name="late_cancel"/>
+                    <field name="no_show"/>
+                    <field name="booking_mode"/>
+                    <field name="payment_method"/>
+                    <field name="pos_id" invisible="1"/>
+                    <field name="apt_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="client_view_order_form" model="ir.ui.view">
+            <field name="name">client.view.form</field>
+            <field name="model">client.view</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+                            <field name="name" />
+                            <field name="day"/>
+                            <field name="date" />
+                            <field name="time"/>
+                            <field name="visit_serv_categ_id" />
+                            <field name="visit_type_id" />
+                            <field name="pricing_option" />
+                            <field name="type_id" />
+                            <field name="expiry_date"/>
+                            <field name="visit_rem"/>
+                            <field name="staff"/>
+                            <field name="visit_location"/>
+                            <field name="staff_paid"/>
+                            <field name="late_cancel"/>
+                            <field name="no_show"/>
+                            <field name="booking_mode"/>
+                            <field name="payment_method"/>
+                            <field name="pos_id" invisible="1"/>
+                            <field name="apt_id" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+
+        <record id="client_view_action_menu" model="ir.actions.act_window">
+            <field name="name">Client View</field>
+            <field name="res_model">client.view</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('client_view_order_tree')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('client_view_order_form')})]"/>
+        </record>
+
+        <record id="att_service_view_order_tree" model="ir.ui.view">
+            <field name="name">attendance.service.view.tree</field>
+            <field name="model">attendance.service.category</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" />
+                    <field name="day" invisible="1"/>
+                    <field name="date" invisible="0"/>
+                    <field name="time" invisible="1"/>
+                    <field name="visit_serv_categ_id" invisible="0"/>
+                    <field name="visit_type_id" />
+                    <field name="pricing_option" />
+                    <field name="type_id" invisible="1"/>
+                    <field name="expiry_date"/>
+                    <field name="visit_rem"/>
+                    <field name="staff"/>
+                    <field name="visit_location"/>
+                    <field name="staff_paid"/>
+                    <field name="late_cancel"/>
+                    <field name="no_show"/>
+                    <field name="booking_mode"/>
+                    <field name="payment_method"/>
+                    <field name="pos_id" invisible="1"/>
+                    <field name="apt_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="att_service_view_order_form" model="ir.ui.view">
+            <field name="name">attendance.service.view.form</field>
+            <field name="model">attendance.service.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="day" invisible="1"/>
+                            <field name="date" invisible="1"/>
+                            <field name="time" invisible="1"/>
+                            <field name="visit_serv_categ_id" invisible="1"/>
+                            <field name="visit_type_id" />
+                            <field name="pricing_option" />
+                            <field name="type_id" invisible="1"/>
+                            <field name="expiry_date"/>
+                            <field name="visit_rem"/>
+                            <field name="staff"/>
+                            <field name="visit_location"/>
+                            <field name="staff_paid"/>
+                            <field name="late_cancel"/>
+                            <field name="no_show"/>
+                            <field name="booking_mode"/>
+                            <field name="payment_method"/>
+                            <field name="pos_id" invisible="1"/>
+                            <field name="apt_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="attendance_service_search_ppts" model="ir.ui.view">
+            <field name="name">attendance.service.detail.search.ppts</field>
+            <field name="model">attendance.service.category</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Report">
+                    
+
+                    <group string="Group By">
+                        <filter name="group_by_type" string="Type" context="{'group_by': 'visit_type_id'}"/>
+                        <filter name="group_by_date" string="Date" context="{'group_by': 'date'}"/>
+                    </group>
+
+                    <filter string="Date" name="date" date="date"/>
+                    <separator/>
+
+                    <filter string="Today" name="today_booking_date" domain="[('date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday_date" domain="[('date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]" help="Yesterday"/>
+                    <filter string="Tomorrow"  name="tomorrow_date" domain="[('date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]" help="Tomorrow"/>
+                    <separator/>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="att_service_categ_action_menu" model="ir.actions.act_window">
+            <field name="name">Service Category</field>
+            <field name="res_model">attendance.service.category</field>
+            <field name="context">{'search_default_group_by_type': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('att_service_view_order_tree')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('att_service_view_order_form')})]"/>
+        </record>
+
+<!--        Summary View-->
+
+        <record id="attendance_summary_tree" model="ir.ui.view">
+            <field name="name">attendance.summary.tree.view</field>
+            <field name="model">attendance.summary</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="time"/>
+                    <field name="visit_serv_categ_id"/>
+                    <field name="staff_id"/>
+                    <field name="type_id"/>
+                    <field name="visit_type_id"/>
+                    <field name="visit_location"/>
+                    <field name="paid_client"/>
+                    <field name="comp_client"/>
+                    <field name="late_cancel"/>
+                    <field name="no_show"/>
+                    <field name="online_booking"/>
+                    <field name="members"/>
+                    <field name="members_revenue" widget="monetary"/>
+                    <field name="total_revenue" widget="monetary"/>
+                </tree>
+            </field>
+        </record>
+        <record id="attendance_summary_form" model="ir.ui.view">
+            <field name="name">attendance.summary.form.view</field>
+            <field name="model">attendance.summary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="time"/>
+                            <field name="visit_serv_categ_id"/>
+                            <field name="staff_id"/>
+                            <field name="type_id"/>
+                            <field name="visit_type_id"/>
+                            <field name="visit_location"/>
+                            <field name="paid_client"/>
+                            <field name="comp_client"/>
+                            <field name="late_cancel"/>
+                            <field name="no_show"/>
+                            <field name="online_booking"/>
+                            <field name="members"/>
+                            <field name="members_revenue" widget="monetary"/>
+                            <field name="total_revenue" widget="monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="attendance_summary_search" model="ir.ui.view">
+            <field name="name">attendance.summary.search.ppts</field>
+            <field name="model">attendance.summary</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Report">
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Date" name="xdate_group" domain="[]" context="{'group_by': 'date:day'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]"
+                                context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="attendance_summary_action_view" model="ir.actions.act_window">
+            <field name="name">Attendance With Revenuse-Summary View</field>
+            <field name="res_model">attendance.summary</field>
+            <field name="context">{'search_default_xdate_group': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('attendance_summary_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('attendance_summary_form')})]"/>
+        </record>
+
+<!--        Staff Member View-->
+        <record id="attendance_staff_tree" model="ir.ui.view">
+            <field name="name">attendance.staff.tree.view</field>
+            <field name="model">attendance.staff</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="day" optional="hide"/>
+                    <field name="date" optional="hide"/>
+                    <field name="time" optional="hide"/>
+                    <field name="staff_id" optional="hide"/>
+                    <field name="client"/>
+                    <field name="visit_serv_categ_id"/>
+                    <field name="visit_type_id"/>
+                    <field name="pricing_option_id"/>
+                    <field name="expiry_date"/>
+                    <field name="visit_rem"/>
+                    <field name="visit_location"/>
+                    <field name="staff_paid"/>
+                    <field name="late_cancel"/>
+                    <field name="no_show"/>
+                    <field name="booking_mode"/>
+                    <field name="payment_method" widget="many2many_tags"/>
+                    <field name="revenue" widget="monetary"/>
+                </tree>
+            </field>
+        </record>
+        <record id="attendance_staff_form" model="ir.ui.view">
+            <field name="name">attendance.staff.form.view</field>
+            <field name="model">attendance.staff</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="day" invisible="1"/>
+                            <field name="date" invisible="1"/>
+                            <field name="time" invisible="1"/>
+                            <field name="staff_id" invisible="1"/>
+                            <field name="client"/>
+                            <field name="visit_serv_categ_id"/>
+                            <field name="visit_type_id"/>
+                            <field name="pricing_option_id"/>
+                            <field name="expiry_date"/>
+                            <field name="visit_rem"/>
+                            <field name="visit_location"/>
+                            <field name="staff_paid"/>
+                            <field name="late_cancel"/>
+                            <field name="no_show"/>
+                            <field name="booking_mode"/>
+                            <field name="payment_method"/>
+                            <field name="revenue" widget="monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="attendance_staff_search" model="ir.ui.view">
+            <field name="name">attendance.staff.search.ppts</field>
+            <field name="model">attendance.staff</field>
+            <field name="arch" type="xml">
+                <search string="Search Staff Member">
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Staff" name="xstaff_groupby" domain="[]" context="{'group_by': 'staff_id'}"/>
+                        <filter string="Date" name="xdate_group" domain="[]" context="{'group_by': 'date:day'}"/>
+                        <filter string="Time" name="xtime_groupby" domain="[]" context="{'group_by': 'time'}"/>
+                        <filter string="Visit Type" name="xtype_groupby" domain="[]" context="{'group_by': 'visit_type_id'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]"
+                                context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="attendance_staff_action_view" model="ir.actions.act_window">
+            <field name="name">Attendance With Revenuse-Staff Member View</field>
+            <field name="res_model">attendance.staff</field>
+            <field name="context">{'search_default_xstaff_groupby': 1,'search_default_xdate_group': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('attendance_staff_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('attendance_staff_form')})]"/>
+        </record>
+
+<!--        Date View-->
+
+        <record id="attendance_date_tree" model="ir.ui.view">
+            <field name="name">attendance.date.tree.view</field>
+            <field name="model">attendance.date</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="day" optional="hide"/>
+                    <field name="date" optional="hide"/>
+                    <field name="time" optional="hide"/>
+                    <field name="client"/>
+                    <field name="visit_serv_categ_id"/>
+                    <field name="visit_type_id"/>
+                    <field name="pricing_option_id"/>
+                    <field name="expiry_date"/>
+                    <field name="visit_rem"/>
+                    <field name="staff_id"/>
+                    <field name="visit_location"/>
+                    <field name="staff_paid"/>
+                    <field name="late_cancel"/>
+                    <field name="no_show"/>
+                    <field name="booking_mode"/>
+                    <field name="payment_method" widget="many2many_tags"/>
+                    <field name="revenue" widget="monetary"/>
+                </tree>
+            </field>
+        </record>
+        <record id="attendance_date_form" model="ir.ui.view">
+            <field name="name">attendance.date.form.view</field>
+            <field name="model">attendance.date</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="day" invisible="1"/>
+                            <field name="date" invisible="1"/>
+                            <field name="time" invisible="1"/>
+                            <field name="staff_id"/>
+                            <field name="client"/>
+                            <field name="visit_serv_categ_id"/>
+                            <field name="visit_type_id"/>
+                            <field name="pricing_option_id"/>
+                            <field name="expiry_date"/>
+                            <field name="visit_rem"/>
+                            <field name="visit_location"/>
+                            <field name="staff_paid"/>
+                            <field name="late_cancel"/>
+                            <field name="no_show"/>
+                            <field name="booking_mode"/>
+                            <field name="payment_method"/>
+                            <field name="revenue" widget="monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="attendance_date_search" model="ir.ui.view">
+            <field name="name">attendance.date.search.ppts</field>
+            <field name="model">attendance.date</field>
+            <field name="arch" type="xml">
+                <search string="Search Daye Attendance">
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Staff" name="xstaff_groupby" domain="[]" context="{'group_by': 'staff_id'}"/>
+                        <filter string="Date" name="xdate_group" domain="[]" context="{'group_by': 'date:day'}"/>
+                        <filter string="Time" name="xtime_groupby" domain="[]" context="{'group_by': 'time'}"/>
+                        <filter string="Visit Type" name="xtype_groupby" domain="[]" context="{'group_by': 'visit_type_id'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]"
+                                context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="attendance_date_action_view" model="ir.actions.act_window">
+            <field name="name">Attendance With Revenuse-Date View</field>
+            <field name="res_model">attendance.date</field>
+            <field name="context">{'search_default_xdate_group': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('attendance_date_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('attendance_date_form')})]"/>
+        </record>
+
+<!--        Visit Type View-->
+
+        <record id="attendance_visit_type_tree" model="ir.ui.view">
+            <field name="name">attendance.visit.type.tree.view</field>
+            <field name="model">attendance.visit.type</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="day" optional="hide"/>
+                    <field name="date" optional="hide"/>
+                    <field name="time" optional="hide"/>
+                    <field name="client"/>
+                    <field name="visit_serv_categ_id"/>
+                    <field name="visit_type_id" optional="hide"/>
+                    <field name="pricing_option_id"/>
+                    <field name="expiry_date"/>
+                    <field name="visit_rem"/>
+                    <field name="staff_id"/>
+                    <field name="visit_location"/>
+                    <field name="staff_paid"/>
+                    <field name="late_cancel"/>
+                    <field name="no_show"/>
+                    <field name="booking_mode"/>
+                    <field name="payment_method" widget="many2many_tags"/>
+                    <field name="revenue" widget="monetary"/>
+                </tree>
+            </field>
+        </record>
+        <record id="attendance_visit_type_form" model="ir.ui.view">
+            <field name="name">attendance.visit.type.form.view</field>
+            <field name="model">attendance.visit.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="day" invisible="1"/>
+                            <field name="date" invisible="1"/>
+                            <field name="time" invisible="1"/>
+                            <field name="staff_id" invisible="1"/>
+                            <field name="client"/>
+                            <field name="visit_serv_categ_id"/>
+                            <field name="visit_type_id"/>
+                            <field name="pricing_option_id"/>
+                            <field name="expiry_date"/>
+                            <field name="visit_rem"/>
+                            <field name="visit_location"/>
+                            <field name="staff_paid"/>
+                            <field name="late_cancel"/>
+                            <field name="no_show"/>
+                            <field name="booking_mode"/>
+                            <field name="payment_method"/>
+                            <field name="revenue" widget="monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="attendance_visit_type_search" model="ir.ui.view">
+            <field name="name">attendance.visit.type.search.ppts</field>
+            <field name="model">attendance.visit.type</field>
+            <field name="arch" type="xml">
+                <search string="Search Daye Attendance">
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Staff" name="xstaff_groupby" domain="[]" context="{'group_by': 'staff_id'}"/>
+                        <filter string="Date" name="xdate_group" domain="[]" context="{'group_by': 'date:day'}"/>
+                        <filter string="Time" name="xtime_groupby" domain="[]" context="{'group_by': 'time'}"/>
+                        <filter string="Visit Type" name="xtype_groupby" domain="[]" context="{'group_by': 'visit_type_id'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]"
+                                context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="attendance_visit_type_action_view" model="ir.actions.act_window">
+            <field name="name">Attendance With Revenuse-Visit Type View</field>
+            <field name="res_model">attendance.visit.type</field>
+            <field name="context">{'search_default_xtype_groupby': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('attendance_visit_type_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('attendance_visit_type_form')})]"/>
+        </record>
+
+<!--        NO Show Late Cancel-->
+
+        <record id="noshow_cancels_tree" model="ir.ui.view">
+            <field name="name">attendance.noshow.cancels.tree.view</field>
+            <field name="model">attendance.noshow.cancels</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="client"/>
+                    <field name="day"/>
+                    <field name="date"/>
+                    <field name="time"/>
+                    <field name="visit_serv_categ_id"/>
+                    <field name="visit_type_id"/>
+                    <field name="pricing_option_id"/>
+                    <field name="expiry_date"/>
+                    <field name="visit_rem"/>
+                    <field name="staff_id"/>
+                    <field name="visit_location"/>
+                    <field name="staff_paid"/>
+                    <field name="late_cancel"/>
+                    <field name="no_show"/>
+                    <field name="booking_mode"/>
+                    <field name="payment_method" widget="many2many_tags"/>
+                    <field name="revenue" widget="monetary"/>
+                </tree>
+            </field>
+        </record>
+        <record id="noshow_cancels_form" model="ir.ui.view">
+            <field name="name">attendance.noshow.cancels.form.view</field>
+            <field name="model">attendance.noshow.cancels</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="day" />
+                            <field name="date" />
+                            <field name="time" />
+                            <field name="staff_id" />
+                            <field name="client"/>
+                            <field name="visit_serv_categ_id"/>
+                            <field name="visit_type_id"/>
+                            <field name="pricing_option_id"/>
+                            <field name="expiry_date"/>
+                            <field name="visit_rem"/>
+                            <field name="visit_location"/>
+                            <field name="staff_paid"/>
+                            <field name="late_cancel"/>
+                            <field name="no_show"/>
+                            <field name="booking_mode"/>
+                            <field name="payment_method"/>
+                            <field name="revenue" widget="monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="noshow_cancels_search" model="ir.ui.view">
+            <field name="name">attendance.noshow.cancels.search.ppts</field>
+            <field name="model">attendance.noshow.cancels</field>
+            <field name="arch" type="xml">
+                <search string="Search Daye Attendance">
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Staff" name="xstaff_groupby" domain="[]" context="{'group_by': 'staff_id'}"/>
+                        <filter string="Date" name="xdate_group" domain="[]" context="{'group_by': 'date:day'}"/>
+                        <filter string="Time" name="xtime_groupby" domain="[]" context="{'group_by': 'time'}"/>
+                        <filter string="Visit Type" name="xtype_groupby" domain="[]" context="{'group_by': 'visit_type_id'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]"
+                                context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="noshow_cancels_action_view" model="ir.actions.act_window">
+            <field name="name">Attendance With Revenuse - No-shows / Late cancels</field>
+            <field name="res_model">attendance.noshow.cancels</field>
+<!--            <field name="context">{'search_default_xtype_groupby': 1, 'expand': 1}</field>-->
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('noshow_cancels_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('noshow_cancels_form')})]"/>
+        </record>
+
+    </data>
+</odoo>

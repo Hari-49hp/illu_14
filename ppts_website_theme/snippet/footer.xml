@@ -1,0 +1,210 @@
+<odoo>
+	<data>
+
+		<template id="illuminations_custom_footer" inherit_id="website.layout" name="Illuminations Footer">
+
+			<xpath expr="//div[@id='footer']" position="replace">
+				<style>
+						.side_side {
+						width: 360px;
+						height: 100%;
+						background: #fff;
+						clip-path: url("#slopeclip");
+						position: absolute;
+						transition: all linear 150ms;
+						transform: translate(0px, 0px);
+						right: 0;
+						}
+
+						.wrapper:hover .side_side {
+						background: #E0F3F9;
+						clip-path: url("#ameba");
+						transition: all ease 150ms;
+						transform: translate(20px, 20px);
+						}
+				</style>
+				<!--  FOOTER SECTION START-->
+				<section class="light-blue-bg">
+					<div class="footcontainer">
+
+						<svg x="0" y="0" width="100%" height="100%" viewBox="0 0 1440 170" fill="none">
+							<path fill-rule="evenodd" fill="#00AEC7" clip-rule="evenodd" d="M312 116C170.534 98.6093 77.7496 105.621 -1.35948e-05 120.986L0 432H1315.12H1440V283.068V169V0.22876C1397.9 83.1297 1292.05 137.312 1159 135.632C1128.35 135.246 1096.25 131.893 1063.16 125.244C1012.63 115.092 966.253 112.172 921 112.739C880.457 113.248 840.817 116.556 799.908 119.97C777.442 121.845 754.593 123.752 731 125.244C722.03 125.812 713.191 126.393 704.417 126.971C648.332 130.66 594.887 134.176 526.5 132.774C469.031 131.595 401.01 126.942 312 116Z" />
+						</svg>
+						<div class="footersection">
+
+							<div class="footer footer-wrapper mycontainer">
+
+								<div class="row footer-links-cont ">
+
+									<div class="col-12 col-xs-12 col-sm-12 col-md-4 col-lg-2 order-md-1 mbl-margin-btm">
+										<a href="/">
+											<img class="footerlogo mbl-d-none" src="/ppts_website_theme/static/src/img/footerlogo.svg "/>
+											<img class="footerlogo mbl-visible-blk" style="display:none" src="/ppts_website_theme/static/src/img/logo-footer-mbl.png "/>
+										</a>
+										<div class="socialicons mbl-d-none">
+											<t t-set="company_ids" t-value="request.env['res.company'].sudo().search([('id','=',1)])" />
+											<a t-attf-href="{{company_ids.social_instagram}}">
+												<img src="/ppts_website_theme/static/src/img/instagram-logo-fill.svg" />
+											</a>
+
+											<a t-attf-href="{{company_ids.social_twitter}}">
+												<img src="/ppts_website_theme/static/src/img/twitter.svg" />
+											</a>
+											<a t-attf-href="{{company_ids.social_github}}">
+												<img src="/ppts_website_theme/static/src/img/typcn_social-tumbler.svg" />
+											</a>
+											<a t-attf-href="{{company_ids.social_linkedin}}">
+												<img src="/ppts_website_theme/static/src/img/typcn_social-linkedin.svg" />
+											</a>
+											<a t-attf-href="{{company_ids.social_facebook}}">
+												<img src="/ppts_website_theme/static/src/img/typcn_social-facebook.svg" />
+											</a>
+											<a t-attf-href="{{company_ids.social_youtube}}">
+												<img src="/ppts_website_theme/static/src/img/youtube.png" />
+											</a>
+										</div>
+
+									</div>
+									<div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-2 order-md-2">
+										<ul class="footer-links ">
+											<li>
+												<a href="/event">Events</a>
+											</li>
+											<li>
+												<a href="/meditation">Meditation</a>
+											</li>
+											<li>
+												<a href="/healing">Healing</a>
+											</li>
+											<li>
+												<a href="/therapy">Therapy</a>
+											</li>
+
+										</ul>
+									</div>
+									<div class="col-6 col-xs-6 col-sm-6 col-md-4 col-lg-2 order-md-3">
+										<ul class="footer-links ">
+											<li>
+												<a href="/training">Academy</a>
+											</li>
+											<li>
+												<a href="/welliness/retreats">Wellness Retreat</a>
+											</li>
+											<li>
+												<a href="/corporate">Corporate</a>
+											</li>
+											<li>
+												<a href="/team">Our Team</a>
+											</li>
+
+										</ul>
+									</div>
+									<div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-3 order-sm-5 order-md-4 order-5">
+										<ul class="footer-links contactus ">
+											<li>
+												<a href="/contactus">Contact Us</a>
+											</li>
+											<li>
+												<a href="mailto:info@illuminationsworld.com ">
+													<u>info@illuminationsworld.com</u>
+												</a>
+											</li>
+											<li>
+												<a onclick="location.href = 'tel:044487043';">
+													<u>04-448-70-43</u>
+												</a>
+											</li>
+
+										</ul>
+									</div>
+									<div class="col-12 col-xs-12 col-sm-6 col-md-6 col-lg-3 order-md-5">
+										<ul class="footer-links newsletter ">
+											<li>
+												<p class="l-list-dsk-margin" style="margin-left:-15px">Subscribe to our newsletter</p>
+											</li>
+											<li>
+												<form id="newsletterformfooter" class="row" action="/newsletter/submit" method="post" data-mark="*" autocomplete="off">
+													<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+													<input class="form-control" id="newsletter-email" name="email" type="email" placeholder="Enter Your Email" required="required"/>
+													<h2 id="newsletter-result" class="mbl-d-none"></h2>
+													<button type="button" class="emailnewsbtn" onclick="newsletterform()"> Submit </button>
+												</form>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="socialicons mbl-visible" style="display:none">
+									<t t-set="company_ids" t-value="request.env['res.company'].sudo().search([('id','=',1)])" />
+									<a t-attf-href="{{company_ids.social_instagram}}">
+										<img src="/ppts_website_theme/static/src/img/instagram-logo-fill.svg" />
+									</a>
+
+									<a t-attf-href="{{company_ids.social_twitter}}">
+										<img src="/ppts_website_theme/static/src/img/twitter.svg" />
+									</a>
+									<a t-attf-href="{{company_ids.social_github}}">
+										<img src="/ppts_website_theme/static/src/img/typcn_social-tumbler.svg" />
+									</a>
+									<a t-attf-href="{{company_ids.social_linkedin}}">
+										<img src="/ppts_website_theme/static/src/img/typcn_social-linkedin.svg" />
+									</a>
+									<a t-attf-href="{{company_ids.social_facebook}}">
+										<img src="/ppts_website_theme/static/src/img/typcn_social-facebook.svg" />
+									</a>
+									<a t-attf-href="{{company_ids.social_youtube}}">
+										<img src="/ppts_website_theme/static/src/img/youtube.png" />
+									</a>
+								</div>
+
+
+								<div class="footerbtm-sec ">
+									<p class="company-ryts-mbl">
+										<span>Illuminations World 2021 </span>
+										<img src="/ppts_website_theme/static/src/img/footer-dot.png" />
+										<span>All Rights Reserved</span>
+									</p>
+									<div class="termwithcardicon">
+										<p>
+											<a class="float-sml-left" t-attf-href="/terms/condition/{{slug(request.env.company)}}">Terms &amp; Condition</a>
+											<img class="img-sml-margin-65" src="/ppts_website_theme/static/src/img/footer-dot.png" />
+											<a class="" t-attf-href="/privacy/policy/{{slug(request.env.company)}}" style="margin-left: 12px;">Privacy Policy</a>
+											<br style="display:none"/>
+											<span>
+												<a>
+													<img src="/ppts_website_theme/static/src/img/visacard.png" />
+												</a>
+												<a>
+													<img src="/ppts_website_theme/static/src/img/mastercard.png" />
+												</a>
+												<a>
+													<img src="/ppts_website_theme/static/src/img/americanexpresscard.png" />
+												</a>
+												<a>
+													<img src="/ppts_website_theme/static/src/img/discovercard.png" />
+												</a>
+											</span>
+										</p>
+
+
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+
+				<script src="/ppts_website_theme/static/src/js/footer.js"></script>
+				<script src="/ppts_website_theme/static/src/vendor/multiselect/bootstrap-multiselect.min.js"></script>
+				<script src="/ppts_website_theme/static/src/vendor/multiselect/bootstrap-multiselect.js"></script>
+				<!-- <script src="/ppts_website_theme/static/src/vendor/handlebars.runtime-v4.7.7.js"></script> -->
+				<!--  FOOTER SECTION END-->
+			</xpath>
+
+		</template>
+
+	</data>
+</odoo>

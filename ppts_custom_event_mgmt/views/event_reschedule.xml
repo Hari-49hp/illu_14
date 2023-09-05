@@ -1,0 +1,43 @@
+<odoo>
+	<data>
+
+
+		<!-- Form_view Parking Tab in event-->
+		<record id="view_event_form_inherited_reschdule" model="ir.ui.view">
+			<field name="name">Event Reschedule Form</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//header" position="inside">
+					<button name="create_reschedule" type="object"
+							string="Reschdule"
+							attrs="{'invisible':['|','|',('stage_id', '=', 1),('stage_id', '=', 4),('stage_id', '=', 5)]}"
+							groups="ppts_custom_event_mgmt.group_admin,ppts_custom_event_mgmt.group_manager"
+					/>
+				</xpath>
+
+				<xpath expr="//field[@name='company_id']" position="after">
+					<field name="reschedule_enable" invisible="1"/>
+				</xpath>
+
+				<xpath expr="//form/sheet/notebook/page[3]" position="after">
+					<page string="Reschedule Info" attrs="{'invisible':[('reschedule_enable', '=', False)]}">
+
+							<field name="event_reschdule_ids" widget="section_and_note_one2many" mode="tree" attrs="{'readonly':[('event_publish', '!=',False)]}">
+
+							<tree  string="Event Reschedule" editable="bottom" create="false" edit="false" delete="false">
+
+								 <field name="rs_name" readonly="0"/>
+								 <field name="rs_event_type_id" readonly="0"/>
+								 <field name="rs_date_begin" readonly="0"/>
+								 <field name="rs_date_end" readonly="0"/>
+								 <field name="rs_address_id" readonly="0"/>
+								 <field name="rs_therapist_ids"  widget="many2many_tags"  readonly="0"/>
+							</tree>
+							</field>
+					</page>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

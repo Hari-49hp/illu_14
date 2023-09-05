@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+
+    <record id="event_campaign" model="campaign.type">
+      <field name="name">Events</field>
+      <field name="code">EV</field>
+    </record>
+
+    <record id="appointment_campaign" model="campaign.type">
+      <field name="name">Appointment</field>
+      <field name="code">APP</field>
+    </record>
+
+    <record id="general_campaign" model="campaign.type">
+      <field name="name">General</field>
+      <field name="code">Gen</field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+		<template name="Mindbody Calendar" id="event_mindbody_calendar_view">
+
+
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+			<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.js"></script>
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.css'/>
+			<!-- <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet' />
+			<link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'/> -->
+
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.css'/>
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.css'/>
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.css'/>
+
+			<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> -->
+			<link rel="stylesheet" href="/ppts_mindbody_calendar/static/src/dist/css/bootstrap-multiselect.css" type="text/css"/>
+			<script type="text/javascript" src="/ppts_mindbody_calendar/static/src/dist/js/bootstrap-multiselect.js"></script>
+
+
+			<link href="/ppts_mindbody_calendar/static/src/css/v3.css" rel="stylesheet" type="text/css" />
+			<link href="/ppts_mindbody_calendar/static/src/css/fullcalendar.css" rel="stylesheet" type="text/css" />
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.js'></script>
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.js'></script>
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.js'></script>
+			<script src="/ppts_mindbody_calendar/static/src/js/fullcalendar_week.js"></script>
+			<script src='/ppts_mindbody_calendar/static/src/js/resource-grid-time-v4.js'></script>
+			<script src='/ppts_mindbody_calendar/static/src/js/resource-grid-v4.js'></script>
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.4.2/main.min.js'></script>
+			<script src='https://unpkg.com/popper.js/dist/umd/popper.min.js'></script>
+			<script src='https://unpkg.com/tooltip.js/dist/umd/tooltip.min.js'></script>
+
+
+			<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/resource-timegrid@4.4.2/main.min.js'></script>
+			<script src="/ppts_mindbody_calendar/static/src/js/fullcalendar.js"></script>
+			<script src="/ppts_mindbody_calendar/static/src/js/calendar.js"/>
+
+			<link href="/ppts_mindbody_calendar/static/src/css/datepicker.css" rel = "stylesheet"/>
+
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+			<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+
+
+
+			<link rel="stylesheet" href="/ppts_mindbody_calendar/static/src/loader/css/normalize.css"/>
+			<link rel="stylesheet" href="/ppts_mindbody_calendar/static/src/css/pos.css"/>
+			<link rel="stylesheet" href="/ppts_mindbody_calendar/static/src/loader/css/main.css"/>
+			<script src="/ppts_mindbody_calendar/static/src/loader/js/vendor/modernizr-2.6.2.min.js"></script>
+			<!-- <script src="/ppts_mindbody_calendar/static/src/loader/js/vendor/main.js"></script> -->
+
+
+			<script type="text/javascript" src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+
+
+
+			<script> $(document).ready(function(){ if(document.getElementById('appointment_result').value=='Appointment updated successfully')
+				{
+				alert('Appointment updated sucessfully'); } else { if(document.getElementById('appointment_result').value=='Another appointment scheduled already.')
+				{
+				alert('Another appointment scheduled already.'); } else { if(document.getElementById('appointment_result').value=='Appointment Created successfully')
+				{
+				alert('Appointment Created successfully.'); } else { if(document.getElementById('appointment_result').value=='There is no available slots.')
+				{
+				alert('There is no available slots.');
+
+				}
+				}
+				}
+				}
+
+				document.getElementById('appointment_result').value = "";
+				$.ajax({
+				url: "/clear/session",
+				type: 'POST',
+				async:false,
+				data: {},
+				success: function(result) {
+
+				},
+				});
+				});
+			</script>
+
+			<div id="sidebar">
+				<a class="openButton">
+					<span id="right-arrow-sidebar">
+						<i class="fa fa-arrow-right fa-top-arrow-sidebar"></i>
+					</span>
+					<span id="right-arrow-sidebar-l">
+						<i class="fa fa-arrow-right fa-bottom-arrow-sidebar"></i>
+					</span>
+				</a>
+
+				<span class="toggler-unshow" style="display:none">
+					<i class="fa fa-plus toggleDatepicker"></i>
+					<span style="">Show calendar</span>
+				</span>
+
+				<div class="date-picker" style="display:none"/>
+				<span class="toggler-show" style="display:none">
+					<i class="fa fa-minus toggler-minus"></i>
+				</span>
+
+				<form id="editAvail" autocomplete="off" class="wellContainer" method="POST" style="display:none;height: 100%;overflow:hidden;" action="javascript:void(0);">
+					<div class="well clean" style="height: 50%;overflow:hidden;">
+						<ul class="ul-book-app">
+							<li>
+								<div class="well-div searchbar-app-div" style="height: 100%;">
+									<div class="autocomplete" style="width:100%;">
+										<h4 style="font-weight: bold;">Book Appointments</h4>
+										<!-- <input id="searchbar" type="text" name="searchbar" placeholder="Search for client">
+									</input> -->
+
+										<input type="text" id="searchbar" required="required" name="searchbar" class="typeahead tt-query" autocomplete="off" spellcheck="false"/>
+
+										<button name="searchbar-button" id="searchbar-button" string="Book">Book</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="page-footer-add-client">
+						<a class="add-client-set-addon" href="/web#id=&amp;action=131&amp;model=res.partner&amp;view_type=form&amp;cids=&amp;menu_id=102">
+							<i class="fa fa-plus-circle"></i>Add Client</a>
+
+						<a class="add-client-set-addon-cancel">Cancel</a>
+					</div>
+				</form>
+
+				<!-- <form id="editAvail-client" autocomplete="off" class="wellContainer" method="POST" style="display:none;">
+		</form> -->
+
+				<form id="editAvail-client-add" autocomplete="off" class="wellContainer" action="/event/calendar/appointment/edit" method="POST" style="display:none;">
+					<input type="text" name="appointment_result" id="appointment_result" t-att-value="request.session.get('appointment_result')" style="display:none;"/>
+
+					<input type="text" name="app_id" id="app_id" value="" style="display:none;"/>
+					<input type="text" name="app_line_id" id="app_line_id" value="" style="display:none;"/>
+					<input type="text" name="fac_id" id="fac_id" value="" style="display:none;"/>
+
+					<div class="well clean">
+						<div class="tab-content " style="display:flex;height: 23px;background: #f5f5f5;" id="myTabContent">
+							<div class="tab-pane" id="tab-payment-balance" role="tabpanel">
+								<img class="tab-view-pane" src="https://static.mindbodyonline.com/a/asp/adm/images/money-16px.png"/>
+							</div>
+							<div class="tab-pane" id="tab-payment-status" role="tabpanel">
+								<img class="tab-view-pane" style="width: 12px;" src="https://static.mindbodyonline.com/a/asp/adm/images/icon_red_circle.png"/>
+							</div>
+							<!-- <div class="tab-pane" id="tab-pre-payment" role="tabpanel">
+						<img class="tab-view-pane" style="width: 14px;margin-top: 4px;" src="https://static.mindbodyonline.com/a/asp/adm/images/appt-schedule-clock.png"/>
+					</div> -->
+						</div>
+						<div class="hover-tab tab-payment-balance-show" style="display:none;">
+					Balance amount: 0AED
+						</div>
+						<div class="hover-tab tab-payment-status-show" style="display:none;">
+					Unpaid
+						</div>
+						<!-- <div class="hover-tab tab-pre-payment-show" style="display:none;">
+					Balance amount:30$
+				</div> -->
+						<ul class="ul-book-add-app">
+							<li>
+								<span class="editAvail-client-span">Client</span>
+								<span class="editAvail-client-name" style="margin-left: 16px;"></span>
+								<input type="text" id="editAvail-client-name-fi" name="editAvail-client-name-fi" value="" />
+								<input type="text" id="editAvail-client-name-id" name="editAvail-client-name-id" value=""/>
+
+							</li>
+							<li>
+								<span class="editAvail-client-span">Phone</span>
+								<input type="type" class="well-input" id="editAvail-client-phone-fi" style="margin-left: 9px;" name="editAvail-client-phone-fi" value=""/>
+							</li>
+							<li>
+								<span class="editAvail-client-span">Email</span>
+								<input type="type" class="well-input" id="editAvail-client-email-fi" style="margin-left: 13px;" name="editAvail-client-email-fi" value=""/>
+
+								<input type="hidden" id="editAvail-client-date-fi" name="editAvail-client-date-fi" value=""/>
+								<input type="hidden" id="editAvail-client-id" name="editAvail-client-id" value=""/>
+							</li>
+						</ul>
+					</div>
+
+					<div id="DIV_PAST_1" class="DIV_PAST_1_ENABLE" style="display:none;">
+						<div id="DIV_PAST_4">
+							<h4 id="H4_5">
+						Rebook a Past Visit
+							</h4>
+							<div id="DIV_PAST_6">
+								<ul id="UL_7">
+									<li id="LI_8">
+								No visit history available.
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div id="DIV_MINI_1">
+							<i id="I_MINI_2" class="rebook_disable"></i>
+						</div>
+					</div>
+
+					<div id="DIV_PAST_1" class="DIV_PAST_1_DISABLE" style="display:none;">
+						<div id="DIV_PAST_4" class="DIV_PAST_4_DISABLE">
+							<h4 id="H4_5">
+						Rebook a Past Visit
+							</h4>
+						</div>
+						<div id="DIV_MINI_1">
+							<i id="I_MINI_2_DISABLE" class="rebook_enable"></i>
+						</div>
+					</div>
+
+
+
+					<div class="well clean" style="margin-top: 0px;">
+						<ul class="ul-book-add-app">
+							<li>
+								<div class="well-div">
+									<!-- <div class="autocomplete" style="width:100%;">
+									<label for="services_offer">Services</label>
+									<input type="text" id="services_offer" name="services_offer" class="typeahead tt-query" autocomplete="off" spellcheck="false"/>
+								</div> -->
+									<label for="services_offer">Services Type</label>
+									<select name="services_offer" class="well-select" id="services_offer" required="required">
+										<option value=""></option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="well-div" style="width: 45%;margin-right: 15px;">
+									<label for="name">Start</label>
+									<select name="start_time_app" class="well-select" required="required" id="start_time_app">
+										<t t-call="ppts_mindbody_calendar.time"/>
+									</select>
+								</div>
+								<div class="well-div" style="width: 48%;margin-right: 0px;">
+									<label for="length_app">Length in Hrs</label>
+									<input id="length_app" class="well-input" type="text" readonly="readonly" name="length_app">
+									</input>
+								</div>
+							</li>
+							<li>
+								<div class="well-div" style="width: 45%;margin-right: 0px;">
+									<label for="end_time_app">End</label>
+									<input id="end_time_app" class="well-input" type="text" readonly="readonly" name="end_time_app">
+									</input>
+								</div>
+							</li>
+							<li>
+								<div class="well-div" style="margin-right: 0px;">
+									<label for="resource_app">Resource</label>
+									<select id="resource_app" class="well-select" type="text" required="required" name="resource_app">
+										<option value="">Select a room</option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="well-div" style="margin-right: 0px;">
+									<label for="note_app">Notes</label>
+									<input id="note_app" class="well-input" type="text" name="note_app">
+									</input>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="well clean" style="margin-top: 0px;">
+						<ul class="ul-book-add-app" style="margin-top: 0px;">
+							<li>
+								<div class="well-div" style="margin-right: 0px;">
+									<label for="icd_app">ICD</label>
+									<input id="icd_app" name ="icd_app" type="text" class="well-input" readonly="readonly" placeholder="Search for ICD codes">
+									</input>
+								</div>
+							</li>
+							<li>
+								<div class="well-div" style="margin-right: 0px;">
+									<label for="provider_app">Provider ID</label>
+									<input id="provider_app" type="text" class="well-input" name="provider_app">
+									</input>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+
+					<div class="page-footer">
+						<li class="buttons control-actions sidebar-bottom-buttons">
+							<a class="cancelBtn standardBtn sidebar-bottom-buttons-cancel">Cancel</a>
+							<button class="save-hide neutralBtn standardBtn sidebar-bottom-buttons-submit" type="submit">Save</button>
+						</li>
+					</div>
+				</form>
+
+
+
+
+				<form id="addAvail" class="wellContainer" method="POST" action="/event/calendar/add/availability" style="display:none;">
+					<div class="page-header">
+						<h3 class="h3-sidebar add-avail-sidebar-name"></h3>
+					</div>
+					<div class="well clean">
+						<ul>
+							<li>
+								<p class="fasilitator-name-sidebar"></p>
+								<div class="well-div" style="display:none">
+									<label for="name">Facilitator</label>
+									<input class="" type="text" name="facilitator" id="facilitator_selection">
+									</input>
+								</div>
+							</li>
+							<li>
+								<div class="well-div" style="height: auto;">
+									<label for="name">Services Type</label>
+									<select class="well-select-ll" name="services" id="services_type" multiple="multiple" required="required">
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="well-div">
+									<label for="name">Location</label>
+									<select class="well-select" name="location" required="required" id="facilitator_location">
+										<option value=""></option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<div class="well-div">
+									<label for="date-add-avail">Date</label>
+									<input type="date" class="well-input" required="required" id="date-add-avail" name="date-add-avail" onchange="checkDate()"/>
+								</div>
+							</li>
+							<li>
+								<div class="well-div" style="width: 45%;margin-right: 13px;">
+									<label for="name">Start</label>
+									<select name="start_time" class="well-select" required="required" disabled="disabled" id="avail-start_time">
+										<t t-call="ppts_mindbody_calendar.time"/>
+									</select>
+
+									<select name="start_time_cu" class="" id="avail-start_time-cus" style="display:none">
+										<t t-call="ppts_mindbody_calendar.time"/>
+									</select>
+
+									<select name="end_time_cu" class="" id="avail-end_time-cus" style="display:none">
+										<t t-call="ppts_mindbody_calendar.time"/>
+									</select>
+								</div>
+								<div class="well-div" style="width: 50%;margin-right: 0px;">
+									<label for="name">End</label>
+									<select name="end_time" class="well-select" required="required" disabled="disabled" id="avail-end_time">
+										<t t-call="ppts_mindbody_calendar.time"/>
+									</select>
+								</div>
+							</li>
+
+							<li>
+								<div class="well-div">
+									<label for="name">Privacy</label>
+									<select name="privacy" class="well-select" id="avail_privacy">
+										<option value="0">Allow clients to see schedule</option>
+										<option value="1">Mask staff member's name</option>
+										<option value="2">Hide schedule from clients</option>
+									</select>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+
+					<a href="/web#id=&amp;action=678&amp;model=availability.availability&amp;view_type=form&amp;cids=1&amp;menu_id=488" class="moreOptionsLink multiday-add-avail" style="display:none">
+					Add a multi-day schedule
+					</a>
+
+					<div class="page-footer">
+						<li class="buttons control-actions sidebar-bottom-buttons">
+							<a class="cancelBtn standardBtn sidebar-bottom-buttons-cancel" onclick="add_availability_sidebar_close()">Cancel</a>
+							<button class="save-hide neutralBtn standardBtn sidebar-bottom-buttons-submit" type="submit">Save</button>
+						</li>
+					</div>
+
+				</form>
+				<!-- <div class="page-footer" style="display:none">
+					<li class="buttons control-actions sidebar-bottom-buttons">
+						<a class="cancelBtn standardBtn sidebar-bottom-buttons-cancel" onclick="add_availability_sidebar_close()">Cancel</a>
+						<button class="save-show neutralBtn standardBtn sidebar-bottom-buttons-submit" type="submit">Save</button>
+					</li>
+				</div> -->
+
+				<div class="legend cf colorbysessiontype legend-custom" style="display:none">
+
+					<ul id="divStatuses" style="">
+						<li class="swatch" title="Booked" style="background-color: rgb(0, 100, 0);">
+							<span id="bookedNum">0</span>
+						</li>
+
+						<li class="swatch" title="Confirmed" style="background-color: rgb(153, 102, 153);">
+							<span id="confirmedNum">0</span>
+						</li>
+
+						<li class="swatch" title="Arrived" style="background-color: rgb(136, 17, 85);">
+							<span id="arrivedNum">0</span>
+						</li>
+						<li class="swatch" title="Completed" style="background-color: rgb(0, 63, 135);">
+							<span id="completedNum">0</span>
+						</li>
+						<!-- <li class="swatch" title="No Show" style="background-color: rgb(96, 51, 17);">
+							<span id="noshowNum">0</span>
+						</li> -->
+						<li id="divAvail" class="swatch" title="Available Times" style="background-color: rgb(221, 221, 221);float:right">
+							A
+						</li>
+
+					</ul>
+
+				</div>
+
+
+
+			</div>
+
+			<div id="main" style="margin-left:2%">
+				<a class="closeButton">
+					<span class="fa fa-arrow-left" style="margin-top: 10px;"></span>
+				</a>
+
+
+				<div class='fc-button-group-week' style="display:none;">
+					<select name='header_location_week' style="width: 10%;" class='header_location_week header-selection' id='header_location_week'>
+						<option value='all'>All</option>
+						<!-- "+location_option+" -->
+					</select>
+					<select name='header_services_week' style="width: 40%;" class='header_services_week header-selection right-margin-header' id='header_services_week'>
+						<option value='all'>All Service Category</option>
+						<!-- "+services_option+" -->
+					</select>
+					<select id="header_instructor-filter-week" multiple="multiple">
+					</select>
+					<!-- <button id='instructor-wizard-btn-week'>All Instructors</button>   -->
+					<select name='header_gender_week' class='header_gender_week header-selection' id='header_gender_week'>
+						<option value='all'>All</option>
+						<option value='male'>Male</option>
+						<option value='female'>Female</option>
+					</select>
+				</div>
+
+
+				<div class="day-view-filters-div">
+					<select name="header_location" style="width: 15%;" class="header_location header-selection" id="header_location">
+						<option value="all">All</option>
+					</select>
+
+					<select name="header_services" style="width: 32%;" class="header_services header-selection right-margin-header" id="header_services">
+						<option value="all">All Service Category</option>
+					</select>
+
+					<button id="instructor-wizard-btn">Instructors</button>
+
+					<select name="header_gender" class="header_gender header-selection" id="header_gender">
+						<option value="all">All</option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+					</select>
+				</div>
+
+
+
+				<div id='calendar-event-mindbody'></div>
+				<div id='calendar-event-mindbody-week-view' style="display:none;"></div>
+				<span id="calendar_view_type" style="display:none;">Day</span>
+			</div>
+
+			<div id="instructor-wizard" class="modal">
+				<div class="modal-content">
+					<span class="close">&amp;times;</span>
+
+					<center>
+						<div style="width: 35%;">
+							<select id="header_instructor-filter" multiple="multiple">
+							</select>
+							<p class="header_instructor-err d-none" style="margin-bottom: 0px;">*Select Instructor before apply</p>
+							<button class="filter-apply">Apply</button>
+						</div>
+					</center>
+
+				</div>
+			</div>
+
+			<div id="reset-filter-wizard" class="modal">
+				<div class="modal-content">
+					<span class="close">&amp;times;</span>
+
+					<center>
+						<h1>No instructors available</h1>
+						<button class="filter-reset">Reset</button>
+					</center>
+
+				</div>
+			</div>
+
+			<div id="popper-wizard" class="modal modal-popper">
+				<div class="modal-content" style="width: 789px;height: 616px;border-radius: 0px;">
+					<div id="demo-content">
+						<div id="loader-wrapper">
+							<div id="loader"></div>
+						</div>
+					</div>
+					<t t-call="ppts_mindbody_calendar.pos_wizard"/>
+				</div>
+			</div>
+
+			<div id="retails-wizard" class="modal">
+				<div class="modal-content">
+					<span class="close close-btn-wiz">&amp;times;</span>
+
+					<center>
+						<ul class="pos-session-list"></ul>
+					</center>
+
+				</div>
+			</div>
+
+			<script type="text/javascript" src="/ppts_mindbody_calendar/static/src/js/autocomplete.js"></script>
+			<script>
+				function myFunction() {
+				document.getElementById("myDropdown").classList.toggle("show");
+				}
+
+				function filterFunction() {
+				var input, filter, ul, li, a, i;
+				input = document.getElementById("myInput");
+				filter = input.value.toUpperCase();
+				div = document.getElementById("myDropdown");
+				a = div.getElementsByTagName("a");
+				for (i = 0; i &lt; a.length; i++) {
+				txtValue = a[i].textContent || a[i].innerText;
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				a[i].style.display = "";
+				} else {
+				a[i].style.display = "none";
+				}
+				}
+				}
+			</script>
+			<script>
+				function checkDate() {
+				var selectedText = document.getElementById('date-add-avail').value;
+				var selectedDate = new Date(selectedText);
+				var now = new Date();
+				now.setHours(0,0,0,0);
+				if (selectedDate &lt; now) {
+				document.getElementById('date-add-avail').value = "new Date()";
+				alert("Date must be in the future");
+				}
+				}
+			</script>
+
+			<script>
+				var prevScrollpos = window.pageYOffset;
+				window.onscroll = function() {
+				var currentScrollPos = window.pageYOffset;
+				if (prevScrollpos > currentScrollPos) {
+				$(".day-view-filters-div").css("display","none");
+				} else {
+				$(".day-view-filters-div").css("display","block");
+				}
+				prevScrollpos = currentScrollPos;
+				}
+			</script>
+
+			<script type="text/javascript" src="/ppts_mindbody_calendar/static/src/js/external.js"></script>
+
+		</template>
+	</data>
+</odoo>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sales_by_product_sumy_tree" model="ir.ui.view">
+            <field name="name">sales.product.summary.tree.view</field>
+            <field name="model">sales.product.summary</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="product_name" optional="hide"/>
+                    <field name="pos_categ_id" invisible="1"/>
+                    <field name="product_id"/>
+                    <field name="color"/>
+                    <field name="size"/>
+                    <field name="barcode"/>
+                    <field name="location_id" optional="hide"/>
+                    <field name="company_id" optional="hide"/>
+                    <field name="currency_id" optional="hide"/>
+                    <field name="qty" sum="Total Quantity"/>
+                    <field name="total" widget="monetary" sum="Grand Total"/>
+                    <field name="cash_equal" widget="monetary" sum="Cash Total"/>
+                    <field name="non_cash_equal" widget="monetary" sum="Non-cash Total"/>
+                    <field name="pos_id" invisible="1"/>
+                    <field name="date" invisible="1"/>
+                    <field name="payment_method" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sales_by_product_sumy_form" model="ir.ui.view">
+            <field name="name">sales.product.summary.form.view</field>
+            <field name="model">sales.product.summary</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+							<field name="name" invisible="1"/>
+                            <field name="product_id"/>
+                            <field name="product_name" invisible="1"/>
+                            <field name="pos_categ_id" invisible="1"/>
+                            <field name="color" invisible="1"/>
+                            <field name="size" invisible="1"/>
+                            <field name="barcode" invisible="1"/>
+                            <field name="location_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="qty" invisible="1"/>
+                            <field name="total" widget="monetary" invisible="1"/>
+                            <field name="cash_equal" widget="monetary" invisible="1"/>
+                            <field name="non_cash_equal" widget="monetary" invisible="1"/>
+                            <field name="pos_id" invisible="1"/>
+                            <field name="date" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+        <record id="sales_by_product_sumy_search" model="ir.ui.view">
+            <field name="name">sales.product.summary.search.ppts</field>
+            <field name="model">sales.product.summary</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Report">
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Category" name="xcateg_group_by" domain="[]" context="{'group_by': 'pos_categ_id'}"/>
+                        <filter string="Product" name="xproduct_group_by" domain="[]" context="{'group_by': 'product_id'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]" context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="sales_by_product_sumy_action_view" model="ir.actions.act_window">
+            <field name="name">Sales By Product Summary View</field>
+            <field name="res_model">sales.product.summary</field>
+            <field name="context">{'search_default_xcateg_group_by': 1,'search_default_xproduct_group_by': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('sales_by_product_sumy_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('sales_by_product_sumy_form')})]"/>
+        </record>
+
+<!--        Detail View-->
+
+        <record id="sales_by_product_detail_tree" model="ir.ui.view">
+            <field name="name">sales.product.detail.tree.view</field>
+            <field name="model">sales.product.detail</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="pos_id" optional="hide"/>
+                    <field name="product_name" optional="hide"/>
+                    <field name="product_id" optional="hide"/>
+                    <field name="client"/>
+                    <field name="pos_categ_id"/>
+                    <field name="sale_date"/>
+                    <field name="location_id" optional="hide"/>
+                    <field name="company_id" optional="hide"/>
+                    <field name="currency_id" optional="hide"/>
+                    <field name="unit_price" widget="monetary"/>
+                    <field name="qty" sum="Total Quantity"/>
+                    <field name="total" widget="monetary" sum="Grand Total"/>
+                    <field name="cash_equal" widget="monetary" sum="Cash Total"/>
+                    <field name="non_cash_equal" widget="monetary" sum="Non-cash Total"/>
+                    <field name="payment_method" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sales_by_product_detail_form" model="ir.ui.view">
+            <field name="name">sales.product.detail.form.view</field>
+            <field name="model">sales.product.detail</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+                            <field name="name" invisible="1"/>
+                            <field name="product_name" invisible="1"/>
+                            <field name="product_id" invisible="1"/>
+                            <field name="client"/>
+                            <field name="pos_categ_id"/>
+                            <field name="sale_date"/>
+                            <field name="location_id" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="unit_price" widget="monetary"/>
+                            <field name="qty"/>
+                            <field name="total" widget="monetary"/>
+                            <field name="cash_equal" widget="monetary"/>
+                            <field name="non_cash_equal" widget="monetary"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+
+        <record id="sales_by_service_search" model="ir.ui.view">
+            <field name="name">sales.product.detail.search.ppts</field>
+            <field name="model">sales.product.detail</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Report">
+                    <filter string="Sale Date" name="sale_date" date="sale_date"/>
+                    <separator/>
+
+                    <filter string="Today" name="today_booking_date" domain="[('sale_date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday_date" domain="[('sale_date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('sale_date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]" help="Yesterday"/>
+                    <filter string="Tomorrow"  name="tomorrow_date" domain="[('sale_date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('sale_date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]" help="Tomorrow"/>
+                    <separator/>
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Product" name="xproduct_group" domain="[]" context="{'group_by': 'product_id'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]" context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="sales_by_product_detail_action_view" model="ir.actions.act_window">
+            <field name="name">Sales By Product Detail View</field>
+            <field name="res_model">sales.product.detail</field>
+            <field name="context">{'search_default_xproduct_group': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('sales_by_product_detail_tree')})]"/>
+        </record>
+
+    </data>
+</odoo>

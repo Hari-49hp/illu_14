@@ -1,0 +1,28 @@
+<odoo>
+	<data>
+
+		<record id="view_mailing_contact_inherit_customer_type" model="ir.ui.view">
+			<field name="name">mailing.contact</field>
+			<field name="model">mailing.contact</field>
+			<field name="inherit_id" ref="mass_mailing.mailing_contact_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='title_id']" position="before">
+					<field name="mobile" widget="phone"/>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="view_event_res_partner_customer_type" model="ir.ui.view">
+			<field name="name">Rec Partner Type</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='category_id']" position="before">
+					<field name="is_existing_customer" invisible="1"/>
+					<button name="send_welcome_email" type="object" string="Send Mail" invisible="1"/>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>

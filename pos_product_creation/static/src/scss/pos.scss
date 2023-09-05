@@ -1,0 +1,20 @@
+.product-creation-btn-btm{
+    position: fixed;
+    right: 62px;
+    bottom: 20px;
+    background: #e2e2e2 !important;
+    color: #555;
+    font-size: 16px !important;
+    font-weight: 800;
+    z-index: 999;
+    padding: 10px !important;
+}
+
+.product-creation-btn-btm:hover{
+    background: #00aec7 !important;
+    color: #ffff;
+}
+
+.product_configurator_attributes input, .pos .product_configurator_attributes select{
+    width: -webkit-fill-available !important;
+}

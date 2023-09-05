@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="action_print_survey"
+                string="Print Survey"
+                model="survey.survey"
+                report_type="qweb-pdf"
+                name="ppts_print_survey_form.ppts_print_survey_form"
+                file="ppts_print_survey_form.ppts_print_survey_form"
+        />
+    </data>
+</odoo>

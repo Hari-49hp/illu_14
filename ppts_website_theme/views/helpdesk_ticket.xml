@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<odoo>
+	<record id="helpdesk_ticket_view_form_ppts" model="ir.ui.view">
+		<field name="name">helpdesk.ticket.form.inherit1</field>
+		<field name="model">helpdesk.ticket</field>
+		<field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+		<field name="arch" type="xml">
+			<field name="partner_email" position="after">
+				<field name="partner_mobile"/>
+			</field>
+		</field>
+	</record>
+
+
+	<record id="form_event_event_view_form_ppts" model="ir.ui.view">
+		<field name="name">event.event.form.inherit1</field>
+		<field name="model">event.event</field>
+		<field name="inherit_id" ref="event.view_event_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='evnt_description']" position="after">
+				<field name="is_retreat" invisible="1"/>
+				<field name="about_desc" widget="html" options="{'style-inline': true}" attrs="{'invisible': [('is_retreat','=', True)],'readonly': [('event_publish', '!=', False)]}" />
+				<field name="employe_quote" widget="html" options="{'style-inline': true}"  invisible ='1' attrs="{'readonly': [('event_publish', '!=', False)]}" />
+
+				<field name="certification" widget="html" options="{'style-inline': true}" string="Certification Body" attrs="{'invisible': [('is_retreat','=', True)],'readonly': [('event_publish', '!=', False)]}"/>
+				<field name="qualification" widget="html" options="{'style-inline': true}" attrs="{'invisible': [('is_retreat','=', True)],'readonly': [('event_publish', '!=', False)]}"/>
+				<field name="prerequisite_note" widget="html" options="{'style-inline': true}" attrs="{'invisible': [('is_retreat','=', True)],'readonly': [('event_publish', '!=', False)]}"/>
+				<field name="prerequisite_client_types" widget="many2many_tags" attrs="{'readonly':[('event_publish', '!=',False)]}"/>
+				<field name="auto_assigned_client_types" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" attrs="{'readonly':[('event_publish', '!=',False)]}"/>
+
+<!--				<field name="minimum_age"/>-->
+
+<!--				<field name="maximum_age"/>-->
+
+				 <label for="minimum_age" string="Age Prerequisite"/>
+
+                                <div class="o_row">
+									 <label for="minimum_age" />
+
+                                    <field name="minimum_age" style="width: 2px;" class="oe_inline"  attrs="{'readonly':[('event_publish', '!=',False)]}" />
+
+								</div>
+
+				<label for="minimum_age" string="Age Prerequisite" style="display:none"/>
+
+                                <div class="o_row">
+									 <label for="maximum_age"/>
+
+                                    <field name="maximum_age" style="width: 2px;" class="oe_inline"  attrs="{'readonly':[('event_publish', '!=',False)]}" />
+
+								</div>
+
+
+
+				<field name="retreat_accomadatiens_desc" attrs="{'invisible': [('is_retreat','!=', True)], 'readonly': [('event_publish', '!=', False)]}"/>
+
+				<field name="retreat_activity_desc" attrs="{'invisible': [('is_retreat','!=', True)],'readonly': [('event_publish', '!=', False)]}"/>
+				<field name="retreat_accomadatiens_image" attrs="{'invisible': [('is_retreat','!=', True)], 'readonly': [('event_publish', '!=', False)]}" widget="many2many_binary"/>
+				<field name="retreat_activity_ids" attrs="{'invisible': [('is_retreat','!=', True)], 'readonly': [('event_publish', '!=', False)]}">
+					<tree editable="bottom">
+						<field name="name"/>
+						<field name="image_1920"/>
+						<field name="event_id" invisible="1"/>
+					</tree>
+				</field>
+
+				<field name="retreat_location_desc" attrs="{'invisible': [('is_retreat','!=', True)], 'readonly': [('event_publish', '!=', False)]}"/>
+				<field name="retreat_locations_ids" attrs="{'invisible': [('is_retreat','!=', True)], 'readonly': [('event_publish', '!=', False)]}">
+					<tree editable="bottom">
+						<field name="name"/>
+						<field name="image_1920"/>
+						<field name="event_id" invisible="1"/>
+					</tree>
+				</field>
+
+				<field name="retreat_tips_desc" attrs="{'invisible': [('is_retreat','!=', True)], 'readonly': [('event_publish', '!=', False)]}"/>
+				<field name="retreat_tips_ids" attrs="{'invisible': [('is_retreat','!=', True)], 'readonly': [('event_publish', '!=', False)]}">
+					<tree editable="bottom">
+						<field name="name"/>
+						<field name="event_id" invisible="1"/>
+					</tree>
+				</field>
+
+
+				<field name="certification_ids" attrs="{'invisible': [('is_retreat','=', True)],'readonly': [('event_publish', '!=', False)]}">
+					<tree editable="bottom">
+						<field name="certificate_id"/>
+					</tree>
+				</field>
+			</xpath>
+		</field>
+	</record>
+</odoo>

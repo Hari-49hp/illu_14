@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[@class='pos-receipt-amount receipt-change']" position="replace">
+            <div class="pos-receipt-amount receipt-change">
+                <t t-if="env.pos['add_to_credit'] == true">Credit</t>
+                <t t-if="env.pos['add_to_credit'] == false">Changes</t>
+                <span t-esc="env.pos.format_currency(receipt.change)" class="pos-receipt-right-align" />
+            </div>
+        </xpath>
+    </t>
+</templates>

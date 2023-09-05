@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+
+        <record id="clean_setting_from_view" model="ir.ui.view">
+            <field name="name">Clean Setting</field>
+            <field name="model">clean.setting</field>
+            <field name="arch" type="xml"> 
+                <form>
+                    <sheet>
+                        <group>
+
+                            <field name="name"/>
+                            <field name="model_id"/>
+                            <field name="model"/>
+                            <button name="apply_clean" type="object" string="Execute Query"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="clean_setting_tree_view" model="ir.ui.view">
+            <field name="name">Clean Setting</field>
+            <field name="model">clean.setting</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="model_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="clean_setting_action_view" model="ir.actions.act_window">
+            <field name="name">Clean Setting</field>
+            <field name="res_model">clean.setting</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="clean_setting_tree_view"/>
+        </record>
+
+        <menuitem id="clean_setting_menu_id" name="Data Clean" parent="base.menu_administration" groups="base.group_no_one" />
+        <menuitem id="clean_setting_menu_sub_id" name="Data Clean" parent="base.menu_administration" action="clean_setting_action_view" groups="base.group_no_one"/>
+
+
+    </data>
+</odoo>

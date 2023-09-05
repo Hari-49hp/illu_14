@@ -1,0 +1,30 @@
+@mixin spreadsheet-xs() {
+    .o_spreadsheet_cp {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .o_cp_top {
+            flex: 1 1 100%;
+        }
+    }
+    .ad_spreadsheet {
+        .o_spreadsheet_action {
+            .o_spreadsheet_container {
+                .o-spreadsheet {
+                    .o-spreadsheet-topbar {
+                        .o-topbar-toolbar {
+                            .o-tool {
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+body.o_web_client.ad_mobile {
+    @include spreadsheet-xs();
+}

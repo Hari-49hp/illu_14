@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+		
+		<record model="master.holistic" id="holistic_demo_data1">
+			<field name="name">Mind &amp; Behavioral Sciences</field>
+		</record>
+		
+		<record model="master.holistic" id="holistic_demo_data2">
+			<field name="name">Energy Medicine</field>
+		</record>
+		
+		<record model="master.holistic" id="holistic_demo_data3">
+			<field name="name">Spiritual &amp; Sacred Healing Arts</field>
+		</record>
+		
+		<record model="master.holistic" id="holistic_demo_data4">
+			<field name="name">Naturopathy &amp; Health</field>
+		</record>
+		
+		<record model="master.holistic" id="holistic_demo_data5">
+			<field name="name">Naturopathy</field>
+		</record>
+		
+		<record model="master.holistic" id="holistic_demo_data6">
+			<field name="name">Readings</field>
+		</record>
+		
+	</data>
+</odoo>

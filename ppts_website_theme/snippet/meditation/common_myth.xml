@@ -1,0 +1,45 @@
+ <odoo>
+    <data>
+        <template id="illuminations_common_myth" name="Common Myth"> 
+            <section class="section-topbtm-padding">
+                <div class="eachsection">
+                    <div class="mycontainer">
+                        <div class="aboutus-title row justify-content-between align-items-center">
+                            <h2 class="col-sm-12 col-md-4 col-12">Common Myths about meditation </h2>
+                            <div class="col-sm-12 col-md-5 col-12">
+                                <p>
+                                    Our small initiative began by organizing non-profit events to give people the opportunity to
+                                    discover and explore the powerful resources residing within their inner self.
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="commonmithmedication-wrapper">
+                            <div class=" commonmith_topcentercontent  commonmith_first_fordrsk">
+                                <p class="commonmith_content commonmith_one">
+                                    Meditation takes a long time
+                                </p>
+                            </div>
+                            <div class="commonmith_secont_container">
+                                <div class="commonmith_leftcontent">
+                                    <p class="commonmith_content">Meditation is when sitting cross-legged</p>
+                                    <p class="commonmith_content">Meditation is a religious practice</p>
+                                    <p class="commonmith_content commonmith_first_fordmob"> Meditation takes a long time </p>
+                                </div>
+                                <div class=" commonmith_centerimgcontent">
+                                    <img src="/ppts_website_theme/static/src/img/commonmith_center.svg" />
+                                </div>
+                                <div class="  commonmith_rightcontent">
+                                    <p class="commonmith_content">Meditation Is Serious</p>
+                                    <p class="commonmith_content">People meditate to go into trance</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

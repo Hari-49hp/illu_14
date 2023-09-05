@@ -1,0 +1,108 @@
+<odoo>
+	<data>
+
+		<record id="custom_attendee_event_coupon" model="ir.ui.view">
+			<field name="name">Custom Attendee Event Coupon</field>
+			<field name="model">event.registration</field>
+			<field name="inherit_id" ref="event.view_event_registration_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='partner_id']" position="attributes">
+					<attribute name="attrs">{"invisible": [["type_partner","=","type_new"]]}</attribute>
+					<attribute name="domain">[('is_company','=',False),('user_ids','=',False)]</attribute>
+					<attribute name="context">{'partner_id': False}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='partner_id']" position="attributes">
+					<attribute name="context">{'form_view_ref': 'custom_partner.res_partner_history_history_from_view'} </attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<!-- <field name="pos_order_id" domain="[('partner_id','=',partner_id),('state','in',('paid','done'))]"/> -->
+					
+
+					<!-- <field name="pos_order_line_id" attrs="{'invisible': [('pos_order_atv', '=', False)],'required': [('pos_order_atv', '=', True)]}"/> -->
+					<field name="client_id" invisible="0"/>
+					<field name="gift_name" invisible="1"/>
+					<field name="gift_name_partner_id" domain="[('is_company','=',False),('employee','=',False)]" string="Receiver Name" attrs="{'invisible': [('type_booking', '!=', 'type_gift')],'required': [('type_booking', '=', 'type_gift')]}"
+						context="{'form_view_ref': 'custom_partner.res_partner_history_history_from_view'}"/>
+					<field name="gift_name" invisible="1"/>
+					<!-- <field name="gift_name" string="Receiver Name" attrs="{'invisible': [('type_booking', '!=', 'type_gift')],'required': [('type_booking', '=', 'type_gift')]}"/> -->
+					<field name="gift_email" string="Receiver Email ID" attrs="{'invisible': [('type_booking', '!=', 'type_gift')],'required': [('type_booking', '=', 'type_gift')]}"/>
+					<field name="gift_mobile" string="Receiver Mobile No" attrs="{'invisible': [('type_booking', '!=', 'type_gift')],'required': [('type_booking', '=', 'type_gift')]}"/>
+					
+					<!-- <field name="pos_order_atv" invisible="1"/> -->
+				</xpath>
+
+				<xpath expr="//field[@name='partner_id']" position="before">
+					<field name="type_partner" widget="radio" options="{'horizontal': true}" string="Type of Customer" />
+					<field name="type_booking" widget="radio" options="{'horizontal': true}"/>
+					<field name="extras_partner_id" string="Customer Name" class="apt_external_wid" attrs="{'invisible':[('type_partner', '=', 'type_existing')]}" options="{'no_quick_create': True, }"
+						context="{'default_gender': False, 'form_view_ref': 'custom_partner.res_partner_history_history_from_view'}"/>
+
+				</xpath>
+
+				<!-- <xpath expr="//div[@name='button_box']" position="inside">
+					<button name="action_pos_order" type="object" class="oe_stat_button" icon="fa-usd" string="POS Order" attrs="{'invisible': [('pos_order_atv', '=', False)]}">
+					</button>
+				</xpath> -->
+
+				<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="attrs">{'invisible': [('type_booking', '=', 'type_gift')],'required': [True]}</attribute>
+				</xpath>
+				<xpath expr="//field[@name='email']" position="attributes">
+					<attribute name="attrs">{'invisible': [('type_booking', '=', 'type_gift')],'required': [True]}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='mobile']" position="attributes">
+					<attribute name="attrs">{'invisible': [('type_booking', '=', 'type_gift')],'required': [True]}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='event_ticket_id']" position="after">
+					<field name="ticket_price" readonly='1' force_save='1'/>
+				</xpath>
+
+				<xpath expr="//field[@name='date_closed']" position="after">
+					<field name="apply_coupon_flag" invisible="1"/>
+
+					<field name="apply_coupon_code" attrs="{'invisible':[('apply_coupon_flag','=',False)], 'readonly': [('apply_coupon_status', '=', True)]}"/>
+					<button name="apply_coupon_on_sale" type="object" string="Apply" attrs="{'invisible':['|', ('apply_coupon_flag', '=', False),('apply_coupon_status', '=', True)]}"/>
+					<field name="apply_coupon_status" invisible="1"/>
+				</xpath>
+
+			</field>
+		</record>
+
+		<!-- <record id="custom_attendee_event_coupon_sale_btn" model="ir.ui.view">
+			<field name="name">Sale Button</field>
+			<field name="model">event.registration</field>
+			<field name="inherit_id" ref="event_sale.event_registration_ticket_view_form"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//button[@name='action_view_sale_order']" position="attributes">
+					<attribute name="attrs">{'invisible': [('pos_order_atv', '=', True)]}</attribute>
+				</xpath>
+
+			</field>
+		</record> -->
+
+
+		<record id="event.action_registration" model="ir.actions.act_window">
+            <field name="name">Event Registration</field>
+            <field name="res_model">event.registration</field>
+            <field name="domain"></field>
+            <field name="view_mode">pivot,graph,kanban,tree,form</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="event.view_registration_search"/>
+        </record>
+		<record id="action_client_registration" model="ir.actions.act_window">
+            <field name="name">Client Registration Page</field>
+            <field name="res_model">event.registration</field>
+            <field name="domain"></field>
+            <field name="view_mode">tree,form,pivot,graph,kanban</field>
+            <field name="context">{}</field>
+            <field name="search_view_id" ref="event.view_registration_search"/>
+        </record>
+
+	</data>
+</odoo>

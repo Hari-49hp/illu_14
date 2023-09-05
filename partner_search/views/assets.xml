@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+
+    <template id="assets_backend_partner_search" name="Partner Search Backend Assets" inherit_id="web.assets_backend">
+      <xpath expr="//link[last()]" position="after">
+        <link rel="stylesheet" type="text/css" href="/partner_search/static/src/scss/style.scss"/>
+        <script type="text/javascript" src="/partner_search/static/src/js/search.js"></script>
+        <script type="text/javascript" src="/partner_search/static/src/js/partner.js"></script>
+
+      </xpath>
+    </template>
+
+  </data>
+</odoo>

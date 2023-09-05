@@ -1,0 +1,261 @@
+<odoo>
+    <data>
+        <template id="website_blog.blog_post_complete" name="Blog Post Inherit" track="1">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure about-page-toppon">
+                    <!--  header start-->
+                    <style>
+                        #bottom > footer > section > div > svg{
+                            background-color: #fff;
+                        }
+                    </style>
+
+
+                    <section class="subpage-top-hero-section-two eachsection">
+                        <div class="row hero-section-two mycontainer textmobnopad">
+                            <div class="col-lg-6 col-md-12 col-xl-6  order-2 order-lg-1order-sm-2  ">
+                                <div class="breadcrum-sec topbreadcrum ">
+                                    <label>
+                                        <a href="/">Home /</a>
+                                        <a href="/blog">Blog /</a>
+                                        <a>
+                                            <u>
+                                                <t t-esc="blog_post.name"/>
+                                            </u>
+                                        </a>
+                                    </label>
+                                </div>
+                                <div class="hero-two-left herotexcenter">
+
+                                    <div class="blogherotext">
+                                        <div class="oberlay-tags tagsrelative" data-aos="fade-up" data-aos-delay="100">
+                                            <t t-foreach="blog_post.tag_ids" t-as="i">
+                                                <label t-esc="i.name"/>
+                                            </t>
+                                        </div>
+                                        <h1 data-aos="fade-up" data-aos-delay="200">
+                                            <t t-esc="blog_post.name"/>
+                                        </h1>
+                                        <div class="bloginfocont" data-aos="fade-up" data-aos-delay="300">
+                                            <span class="userprofile">
+                                                <img t-attf-src="/web/image?model=res.partner&amp;id={{blog_post.sudo().author_id.id}}&amp;field=image_1920"/>
+
+                                                <t t-set="employee_id" t-value="request.env['hr.employee'].sudo().search([('partner_id','=',blog_post.sudo().author_id.id)], limit=1)" />
+
+                                                <t t-if="employee_id">
+                                                    <a class="underline-a" style="color:#8A8A8A;" t-attf-href="/team/therapists/{{employee_id.id}}" t-esc="blog_post.sudo().author_id.name"/>
+                                                </t>
+                                                <t t-if="not employee_id">
+                                                    <a class="underline-a" style="color:#8A8A8A;" t-esc="blog_post.sudo().author_id.name"/>
+                                                </t>
+
+                                            </span>
+                                            <span class="timetext">30 min read</span>
+                                            <span class="dates" t-field="blog_post.post_date" t-options="{&quot;format&quot;: &quot;d MMMM , yyyy&quot;}"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6 col-md-12 col-xl-6 order-1 order-lg-2 order-sm-1 rightsideslide">
+                            <div class="hero-two-right">
+
+                                <div class="image-orvideocpnt herorightmobilehide">
+
+                                    <t t-if="blog_post.image_av">
+                                        <img t-attf-src="/web/image?model=blog.post&amp;id={{blog_post.sudo().id}}&amp;field=image_av" />
+                                    </t>
+
+                                    <t t-if="not blog_post.image_av">
+                                        <img src="/ppts_website_theme/static/src/img/blogheaderimg.jpg" />
+                                    </t>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+                    <!--  header end -->
+
+                    <section id="o_wblog_post_footer" class="d-none"/>
+
+
+                    <div class="eachsection section-topbtm-padding">
+                        <hr class="blueborder" />
+                        <div class="row mycontainer">
+                            <div class="col-xl-8 col-lg-8 col-md-9 col-sm-12 col-xs-12 order-lg-1 order-2 order-md-1  order-sm-2 order-xs-2">
+                                <div class="blog-details-cont blogs-typos">
+                                    <p>If you’ve heard somebody remark, “Oh, you are an old soul,” you can rest assured it is a
+                        compliment.
+                        The term ‘old soul’ usually implies that you are wise beyond your years and you are the one that
+                        loved ones turn to for advice and support. You usually have the simplicity of a child and want
+                        to do
+                        good for the world.</p>
+
+
+
+                                    <div class="oe_structure">
+
+
+                                    </div>
+
+
+                                    <div class="blog-footerdetails">
+                                        <div class="blogauth-info">
+                                            <span class="userprofile">
+                                                <img t-attf-src="/web/image?model=res.partner&amp;id={{blog_post.sudo().author_id.id}}&amp;field=image_1920"/>
+
+                                                <t t-if="employee_id">
+                                                    <a class="underline-a" style="color:#8A8A8A !important;" t-attf-href="/team/therapists/{{employee_id.id}}" t-esc="blog_post.sudo().author_id.name"/>
+                                                </t>
+                                                <t t-if="not employee_id">
+                                                    <a class="underline-a" style="color:#8A8A8A !important;" t-esc="blog_post.sudo().author_id.name"/>
+                                                </t>
+                                            </span>
+                                            <p>
+                                                <t t-esc="blog_post.sudo().author_id.website_quote"/>
+                                            </p>
+                                        </div>
+                                        <div class="blogtagsandsocial ">
+                                            <div class="oberlay-tags tagsrelative twogrid">
+                                                <span class="spaceletters">Tags: </span>
+                                                <div class="flexwithwrap">
+                                                    <t t-foreach="blog_post.tag_ids" t-as="i">
+                                                        <label t-esc="i.name"/>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                            <div class="socialshareevents twogrid">
+                                                <span class="spaceletters">Share: </span>
+                                                <div>
+                                                    <a href="#">
+                                                        <img src="/ppts_website_theme/static/src/img/facebook-border.svg" />
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="/ppts_website_theme/static/src/img/twitter-border.svg" />
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="/ppts_website_theme/static/src/img/whatsapp.svg" />
+                                                    </a>
+                                                    <a href="#">
+                                                        <img src="/ppts_website_theme/static/src/img/email-blue.svg" />
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-4 col-md-3 col-sm-12 col-xs-12 order-lg-2 order-1 order-md-2  order-sm-1 order-xs-1">
+                                <div class="righttabmenu webblogtab">
+                                    <label class="spaceletters">Contents:</label>
+                                    <ul class="">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#tabA">Top signs</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#tabB">Focus</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#tabC">Meditations</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#tabD">You seek out</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#tabE">spiritually inclined</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="  fqa-wrapperlistsitems mobileblogtab">
+
+                                    <div class="nav-tabs-wrapper">
+                                        <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#tabA">Top signs</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#tabB">Focus</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#tabC">Meditations</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#tabD">You seek out</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#tabE">spiritually inclined</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- FEATURES POST SECTION START -->
+                    <section class="featured-post   section-topbtm-padding eachsection" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mycontainer">
+                            <h2>More like this</h2>
+                            <div class="row owl-carousel mostlike-this_slider">
+                                <t t-set="blog_ids" t-value="request.env['blog.post'].sudo().search([('is_published','=',True),('id','!=',blog_post.id)], limit=10)" />
+
+                                <t t-foreach="blog_ids" t-as="post_id">
+                                    <a t-attf-href="/blog/{{slug(post_id.blog_id)}}/{{post_id.id}}" class="leadercont featurecard-items" data-aos="fade-up" data-aos-delay="200">
+                                        <div class="featurecard-items">
+                                            <div class="oberlay-tags">
+                                                <t t-foreach="post_id.tag_ids" t-as="i">
+                                                    <label t-esc="i.name"/>
+                                                </t>
+                                            </div>
+
+                                            <t t-if="post_id.image_av">
+                                                <img t-attf-src="/web/image?model=blog.post&amp;id={{post_id.sudo().id}}&amp;field=image_av" />
+                                            </t>
+
+                                            <t t-if="not post_id.image_av">
+                                                <img src="/ppts_website_theme/static/src/img/post1.png" />
+                                            </t>
+
+                                            <h5>
+                                                <t t-esc="post_id.name"/>
+                                            </h5>
+                                            <p>
+                                                <t t-esc="post_id.subtitle"/>
+                                            </p>
+
+                                            <div class="post-infos">
+                                                <label class="views">1.3K</label>
+                                                <label class="dates">
+                                                    <span t-field="blog_post.post_date" t-options="{&quot;format&quot;: &quot;d MMMM , yyyy&quot;}"/>
+                                                </label>
+                                                <label class="user">
+                                                    <t t-esc="post_id.sudo().author_id.name"/>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </t>
+
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- FEATURES POST SECTION END -->
+
+                </div>
+            </t>
+
+        </template>
+    </data>
+</odoo>

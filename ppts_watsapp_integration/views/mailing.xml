@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="mailing_mailing_inherit_view_form" model="ir.ui.view">
+		<field name="name">Whatsapp Template</field>
+		<field name="model">mailing.mailing</field>
+		<field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//page[@name='settings']/group" position='inside'>
+				<group string="Whatsapp" groups="base.group_no_one,mass_mailing.group_mass_mailing_campaign">
+					<field name="whatsapp_template"/>
+				</group>
+			</xpath>
+		</field>
+	</record>
+
+</odoo>

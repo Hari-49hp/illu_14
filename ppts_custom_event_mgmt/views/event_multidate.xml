@@ -1,0 +1,146 @@
+<odoo>
+	<data>
+
+		<!-- Form_view event multiple days and single date functionality -->
+
+		<record id="view_event_form_inherited_multidate" model="ir.ui.view">
+			<field name="name">Event MultiDate Form</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_form" />
+			<field name="arch" type="xml">
+
+<!--				<xpath expr="//label[@for='date_begin']" position="before">-->
+
+<!--					<label for="event_multiple_date"/>-->
+<!--						<div class="o_row">-->
+<!--							<field name="event_multiple_date" required="1" widget="radio" attrs="{'readonly':[('event_publish', '=',True)]}"/>-->
+<!--							<field name="is_multi_date" required="1" invisible="1" attrs="{'readonly':[('event_publish', '=',True)]}"/>-->
+<!--						</div>-->
+
+<!--					<label for="multi_date_wiz" string="Add multiple Date" class="oe_edit_only" attrs="{'invisible':[('is_multi_date', '=',False)]}"/>-->
+<!--						<div class="o_row">-->
+<!--							<button name="multi_date_wiz" type="object"-->
+<!--									string="Add/Edit Multiple Date"-->
+<!--									class="oe_inline oe_edit_only"-->
+<!--									icon="fa-file-text"-->
+<!--									attrs="{'invisible':[('is_multi_date', '=',False)]}"-->
+<!--									title="Used to Add/ Edit date &amp; time if Event is planned for multiple days."-->
+<!--							/>-->
+<!--						</div>-->
+
+<!--					<field name="s_start_date" required="0"-->
+<!--						   attrs="{'invisible':[('event_multiple_date', '!=','oneday')],-->
+<!--						   'required':[('event_multiple_date', '=','oneday')],-->
+<!--						   'readonly':[('event_publish', '=',True)]-->
+<!--						   }"-->
+<!--						   title="Used to Add/ Edit date &amp; time if Event is planned for multiple days."-->
+<!--					/>-->
+
+<!--					<label for="time_begin" string="Time" attrs="{'invisible':[('event_multiple_date', '!=','oneday')]}"/>-->
+
+<!--					<div attrs="{'invisible':[('event_multiple_date', '!=','oneday')],-->
+<!--					'required':[('event_multiple_date', '=','onedayed')],-->
+<!--					'readonly':[('event_publish', '=',True)]-->
+<!--					}">-->
+
+<!--						<field name="hour_time_begin" style="width: 2px;" nolabel="1" class="oe_inline"  attrs="{'required':[('event_multiple_date', '=','oneday')],'readonly':[('event_publish', '=',True)]}" />-->
+<!--						<span>:</span>-->
+<!--						<field name="min_time_begin" style="width: 2px;" nolabel="1" class="oe_inline" attrs="{'required':[('event_multiple_date', '=','oneday')],'readonly':[('event_publish', '=',True)]}"/>-->
+
+<!--						<i class="fa fa-long-arrow-right" aria-label="Arrow icon" title="Arrow"/>-->
+
+<!--						<field name="hour_time_end" style="width: 2px;" nolabel="1" class="oe_inline" attrs="{'required':[('event_multiple_date', '=','oneday')],'readonly':[('event_publish', '=',True)]}"/>-->
+<!--						<span>:</span>-->
+<!--						<field name="min_time_end" style="width: 2px;" nolabel="1" class="oe_inline" attrs="{'required':[('event_multiple_date', '=','oneday')],'readonly':[('event_publish', '=',True)]}"/>-->
+<!--					</div>-->
+<!--					<field name="time_begin" widget="date_time" nolabel="1"  invisible="1"/>-->
+<!--					<field name="time_end" widget="date_time" nolabel="1"  invisible="1"/>-->
+
+<!--					</xpath>-->
+
+<!--				<xpath expr="//i[@class='fa fa-long-arrow-right mx-2']" position="attributes">-->
+<!--					<attribute name="attrs">{'invisible':[('event_multiple_date', '=','oneday')]}</attribute>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//field[@name='date_begin']" position="attributes">-->
+<!--					<attribute name="attrs">{'invisible':[('event_multiple_date', '=','oneday')]}</attribute>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//field[@name='date_end']" position="attributes">-->
+<!--					<attribute name="attrs">{'invisible':[('event_multiple_date', '=','oneday')]}</attribute>-->
+<!--				</xpath>-->
+
+<!--				<xpath expr="//label[@for='date_begin']" position="attributes">-->
+<!--					<attribute name="attrs">{'invisible':[('event_multiple_date', '=','oneday')]}</attribute>-->
+<!--				</xpath>-->
+
+
+				<xpath expr="//form/sheet/notebook/page[3]" position="after">
+					<page string="Multi Date" >
+						<button name="action_update_multidate" string="Update Multidate" type="object" attrs="{'invisible':['|',('event_multiple_date', '!=','multiday'),('is_published', '!=',False)]}"/>
+					<!--	attrs="{'invisible':[('is_multi_date', '=',False)]}"-->
+
+							<field name="multi_date_line_ids" widget="section_and_note_one2many"
+								   mode="tree"
+								   options="{'limit': 10}" attrs="{'readonly':[('event_publish', '!=',False)]}">
+
+
+							<tree  string="Event Multidate" editable="bottom" create="0">
+
+								<field name="date_begin" required="1" />
+								<field name="hour_time_begin" required="1" />
+								<field name="min_time_begin" required="1" />
+								<field name="m_date_begin" required="1" />
+
+								<field name="date_end" required="1" />
+								<field name="hour_time_end" required="1" />
+								<field name="min_time_end" required="1" />
+								<field name="m_date_end" required="1"/>
+
+								<field name="duration" />
+							</tree>
+
+							</field>
+<!--						<footer>-->
+<!--							<button string="Add to Event" class="oe_highlight" name="update_multidate_fields" type="object" />-->
+<!--						</footer>-->
+					</page>
+				</xpath>
+			</field>
+		</record>
+
+
+
+	<record model="ir.ui.view" id="view_event_calendar">
+        <field name="name">event.event.calendar</field>
+        <field name="model">multi.date.line</field>
+        <field eval="2" name="priority"/>
+        <field name="arch" type="xml">
+            <calendar date_start="m_date_begin" date_stop="m_date_end" string="Event Organization" mode="month" delete="0" create="0">
+                <field name="name"/>
+                <field name="event_id"/>
+                <field name="m_date_begin"/>
+                <field name="m_date_end"/>
+            </calendar>
+        </field>
+	</record>
+
+	<record id="open_view_even_calendar" model="ir.actions.act_window">
+		<field name="name">Event Calender View</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">multi.date.line</field>
+		<field name="view_mode">calendar</field>
+		<field name="view_id" ref="view_event_calendar" />
+		<field name="domain">[("event_id" ,'!=', False),("event_id.active",'=',True)]</field>
+		<field name="target">current</field>
+	</record>
+
+	<menuitem name="Events Calendar"
+        id="menu_event_calndar_view"
+        sequence="0"
+        parent="event.event_main_menu"
+        action="open_view_even_calendar"/>
+
+
+	</data>
+</odoo>

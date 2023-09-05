@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!--Tree view -->
+        <record id="dashboard_tree_view" model="ir.ui.view">
+            <field name="name">my.practice.tree.view</field>
+            <field name="model">my.practice</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!--        Form View-->
+        <record id="dashboard_form_view" model="ir.ui.view">
+            <field name="name">my.practice.form</field>
+            <field name="model">my.practice</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="name"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="dashboard_action_view" model="ir.actions.act_window">
+            <field name="name">Dashboard</field>
+            <field name="res_model">my.practice</field>
+            <field name="view_mode">form</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+																				(0, 0, {'view_mode': 'tree', 'view_id': ref('dashboard_tree_view')}),
+																				(0, 0, {'view_mode': 'form', 'view_id': ref('dashboard_form_view')})]"/>
+
+        </record>
+    </data>
+</odoo>

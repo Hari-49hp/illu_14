@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<!--Checklist Smartbutton-->
+	<record id="event_class_form_view_inherit" model="ir.ui.view">
+		<field name="name">Event Class Inherit</field>
+		<field name="model">event.class.master</field>
+		<field name="inherit_id" ref="ppts_custom_event_mgmt.event_class_from_view" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='class_level']" position="after">
+<!--				<field name="class_room_id" required="1" options="{'no_create_edit': True,  'no_create': True}"/>-->
+				<field name="class_room_incharge_id" invisible="1"/>
+				<field name="reception_id" invisible="1"/>
+			</xpath>
+
+			<xpath expr="//notebook" position="inside">
+				<notebook string="Checklist Lines">
+					<page string="Checklist Lines" name="class_checklist_lines">
+						<button name="class_add_checklists" type="object" string="Add Checklists" invisible="1"/>
+
+						<field name="class_checklist_line_ids" widget="section_and_note_one2many" mode="tree">
+							<tree editable="bottom">
+								<field name="checklist_master_id" />
+								<field name="checklist_description" />
+								<field name="checklist_category_id" />
+								<field name="checklist_responsible"  domain="[('share', '=', False)]" required="1"/>
+							</tree>
+							<form>
+								<group>
+									<field name="checklist_master_id" />
+									<field name="checklist_description" />
+									<field name="checklist_category_id" />
+								</group>
+							</form>
+
+						</field>
+					</page>
+				</notebook>
+
+			</xpath>
+		</field>
+	</record>
+</odoo>

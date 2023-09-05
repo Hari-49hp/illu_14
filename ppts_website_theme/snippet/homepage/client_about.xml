@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <template id="illuminations_client_about_snippet" name="Client About">
+            <!-- CLIENTS ABOUT ILLUMINATION IN SECTION START -->
+            <section class="client-about-illumincations clientaboutillu_btn_wave sectiion_top_padding80">
+                <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row client-about-illumincations-headings align-items-center">
+                        <div class="col-xl-8 col-lg-9 col-md-9 col-sm-8 col-xs-8">
+                            <label>REAL STORIES. REAL PEOPLE.</label>
+                            <h3>Clients About Illuminations</h3>
+                        </div>
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-4 col-xs-4 align-items-center justify-content-center">
+                            <div class="ourexpert_arrow align-items-center">
+                                <button class="clisneillum-left">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="clisneillum-right">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="owl-carousel clientsaboutillu-slider-caresole " id="therapist-review-slider-home">
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="text-center pad-btn30">
+                        <a href="/testimonials">
+                            <button type="button" class="seeallpost-btns">All testimonials</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="bottom-wave-svg btnsvg-reverse">
+                    <svg class="topsvg svgclass"
+                        xmlns="http://www.w3.org/2000/svg" style="background: #fff;" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                        <g>
+                            <path class="light-blue-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+                        c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+                        l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z" />
+                        </g>
+                    </svg>
+                </div>
+
+            </section>
+            <!-- CLIENTS ABOUT ILLUMINATION IN SECTION END -->
+        </template>
+    </data>
+</odoo>

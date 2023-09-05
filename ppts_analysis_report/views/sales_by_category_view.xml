@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sales_by_category_tree" model="ir.ui.view">
+            <field name="name">sales.category.tree.view</field>
+            <field name="model">sales.category</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="pos_category_id" optional="hide"/>
+                    <field name="category_id"/>
+                    <field name="sub_category_id" invisible="1"/>
+                    <field name="qty" invisible="1"/>
+                    <field name="sub_total" sum="Grand Sub Total"/>
+                    <field name="vat" sum="Total VAT"/>
+                    <field name="total" sum="Grand Total"/>
+                    <field name="per_revenue_category"/>
+                    <field name="user_id" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sales_by_category_form" model="ir.ui.view">
+            <field name="name">sales.category.form.view</field>
+            <field name="model">sales.category</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+							<field name="name" invisible="1"/>
+                            <field name="pos_category_id" invisible="1"/>
+                            <field name="category_id" invisible="1"/>
+                            <field name="sub_category_id"/>
+                            <field name="qty" invisible="1"/>
+                            <field name="sub_total" invisible="1"/>
+                            <field name="vat" invisible="1"/>
+                            <field name="total" invisible="1"/>
+                            <field name="per_revenue_category" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+
+        <record id="sales_by_categ_search" model="ir.ui.view">
+            <field name="name">sales.category.search.ppts</field>
+            <field name="model">sales.category</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales By Category">
+                    <filter string="Date" name="date" date="date"/>
+                    <separator/>
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="POS Category" name="xpos_group" domain="[]" context="{'group_by': 'pos_category_id'}"/>
+                        <filter string="Category" name="xcateg_group" domain="[]" context="{'group_by': 'category_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="sales_by_category_action_view" model="ir.actions.act_window">
+            <field name="name">Sales By Category</field>
+            <field name="res_model">sales.category</field>
+            <field name="context">{'search_default_xpos_group': 1,'search_default_xcateg_group': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('sales_by_category_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('sales_by_category_form')})]"/>
+        </record>
+    </data>
+</odoo>

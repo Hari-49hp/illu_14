@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<t t-name="FieldDateMultipleDate">
+		<t t-if="widget.mode !== 'readonly'">
+			<input type="text" class="input_datepicker"/>
+		</t>
+		<span t-if="widget.mode === 'readonly'"/>
+	</t>
+
+	<t t-extend="ListView.buttons">
+		<t t-jquery="button.o_list_button_add" t-operation="before">
+			<button t-if="widget.modelName == 'base.recurrent'" class="btn btn-primary oe_action_button oe_recurrent_btn" type="button" accesskey="f">Recurrent</button>
+		</t>
+	</t>
+
+	<!-- <t t-extend="CalendarView.buttons">
+		<t t-jquery="div.o_calendar_buttons" t-operation="append">
+			<button class="btn btn-primary oe_action_button oe_recurrent_btn" type="button">Recurrent</button>
+		</t>
+	</t> -->
+
+</templates>
+
+

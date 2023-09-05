@@ -1,0 +1,261 @@
+<odoo>
+	<data>
+		<template id="illuminations_service_snippet" name="Services">
+			<!-- SERVICES SECTION START -->
+			<section class="section section-topbtm-padding  eachsection">
+
+				<div class=" section_padd_left_right190_80">
+					<div class="arrow-scroll leftside">
+						<svg viewBox="0 0 426 142" fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+								<path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+								<path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+	                            c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+							</g>
+
+						</svg>
+					</div>
+					<div class="mycontainer">
+
+
+						<div class="services-wrapper ">
+							<div class="row">
+								<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-heading-typos">
+									<span class="blakwordtexts" data-aos="fade-up" data-aos-delay="100">Choose Your
+                                    Way</span>
+									<h2 class="main-heading" data-aos="fade-up" data-aos-delay="150">Services</h2>
+									<p data-aos="fade-up" data-aos-delay="150">Illuminations is a one stop shop for all your
+                                    well-being needs! Select from our wide range of services!
+									</p>
+								</div>
+								<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="250">
+									<div class="service-lists-item">
+										<img src="/ppts_website_theme/static/src/img/service1.jpg" alt="serviceimageone" loading="lazy" />
+										<div class="service-svg-shapes-overlay">
+											<div class="wrapper">
+												<div class="side_side"></div>
+
+												<svg class="side_wave" id="gt">
+													<clipPath id="slopeclip">
+														<path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+                                                    C291.52,25.62,277.81,69.57,251.96,125.52z" />
+													</clipPath>
+												</svg>
+												<svg class="morp">
+													<clipPath id="ameba">
+														<path fill="#9cccfd">
+															<animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                            c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                            c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                            c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+                                            
+                                            M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                            c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                            c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                            C48.9,198.6,57.8,191,51,171.3z;
+                                            
+                                            M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                            c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                            c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                            c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+														</path>
+													</clipPath>
+												</svg>
+
+											</div>
+											<a href="/therapy">
+												<h4>Therapy</h4>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="350">
+									<div class="service-lists-item">
+										<img src="/ppts_website_theme/static/src/img/service2.jpg" alt="serviceimageone" loading="lazy" />
+										<div class="service-svg-shapes-overlay">
+											<div class="wrapper">
+												<div class="side_side"></div>
+
+												<svg class="side_wave" id="gt">
+													<clipPath id="slopeclip">
+														<path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+														C291.52,25.62,277.81,69.57,251.96,125.52z" />
+													</clipPath>
+												</svg>
+												<svg class="morp">
+													<clipPath id="ameba">
+														<path fill="#9cccfd">
+															<animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+												c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+												c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+												c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+												
+												M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+												c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+												c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+												C48.9,198.6,57.8,191,51,171.3z;
+												
+												M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+												c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+												c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+												c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+														</path>
+													</clipPath>
+												</svg>
+
+											</div>
+											<a href="/healing">
+												<h4>Healing</h4>
+											</a>
+
+										</div>
+									</div>
+								</div>
+
+								<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="450">
+									<div class="service-lists-item">
+										<img src="/ppts_website_theme/static/src/img/service3.jpg" alt="serviceimageone" loading="lazy" />
+										<div class="service-svg-shapes-overlay">
+											<div class="wrapper">
+												<div class="side_side"></div>
+
+												<svg class="side_wave" id="gt">
+													<clipPath id="slopeclip">
+														<path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+														C291.52,25.62,277.81,69.57,251.96,125.52z" />
+													</clipPath>
+												</svg>
+												<svg class="morp">
+													<clipPath id="ameba">
+														<path fill="#9cccfd">
+															<animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+												c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+												c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+												c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+												
+												M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+												c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+												c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+												C48.9,198.6,57.8,191,51,171.3z;
+												
+												M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+												c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+												c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+												c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+														</path>
+													</clipPath>
+												</svg>
+
+											</div>
+											<a href="/training">
+												<h4>Academy</h4>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="550">
+									<div class="service-lists-item">
+										<img src="/ppts_website_theme/static/src/img/service4.jpg" alt="serviceimageone" loading="lazy" />
+										<div class="service-svg-shapes-overlay">
+											<div class="wrapper">
+												<div class="side_side"></div>
+
+												<svg class="side_wave" id="gt">
+													<clipPath id="slopeclip">
+														<path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+														C291.52,25.62,277.81,69.57,251.96,125.52z" />
+													</clipPath>
+												</svg>
+												<svg class="morp">
+													<clipPath id="ameba">
+														<path fill="#9cccfd">
+															<animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+												c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+												c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+												c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+												
+												M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+												c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+												c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+												C48.9,198.6,57.8,191,51,171.3z;
+												
+												M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+												c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+												c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+												c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+														</path>
+													</clipPath>
+												</svg>
+
+											</div>
+											<a href="/therapy">
+												<h4>Online Therapy </h4>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="650">
+									<div class="service-lists-item">
+										<img src="/ppts_website_theme/static/src/img/service5.jpg" alt="serviceimageone" loading="lazy" />
+										<div class="service-svg-shapes-overlay">
+											<div class="wrapper">
+												<div class="side_side"></div>
+
+												<svg class="side_wave" id="gt" style="height: 0%;">
+													<clipPath id="slopeclip">
+														<path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+														C291.52,25.62,277.81,69.57,251.96,125.52z" />
+													</clipPath>
+												</svg>
+												<svg class="morp" style="height: 0;">
+													<clipPath id="ameba">
+														<path fill="#9cccfd">
+															<animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+												c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+												c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+												c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+												
+												M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+												c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+												c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+												C48.9,198.6,57.8,191,51,171.3z;
+												
+												M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+												c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+												c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+												c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+														</path>
+													</clipPath>
+												</svg>
+
+											</div>
+											<a href="/meditation">
+												<h4>Meditation</h4>
+											</a>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- <div class="text-center padtop30" data-aos="fade-up" data-aos-delay="300">
+							<button class="fullbutton">Get Started</button>
+						</div> -->
+					</div>
+
+				</div>
+
+			</section>
+			<!-- SERVICES SECTION END -->
+
+
+		</template>
+	</data>
+</odoo>

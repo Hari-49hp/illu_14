@@ -1,0 +1,139 @@
+  <odoo>
+    <data>
+        <template id="illuminations_how_we_work" name="How We Work"> 
+            <section class="top-btmspace section-topbtm-padding swapingsectioncontainer">
+                <div class="mycontainer swapingsectioncontainer-inner">
+                    <h1 data-aos="fade-up"
+                    data-aos-delay="100">How We Work</h1>
+                    <div class="centershapes" id="swapbtn">
+                        <div class="chatbtnont">
+                            <div class="moving_shape">
+                                Reflects
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="swapper-insidecotainer"> 
+                    
+                    <div class="row approchcontainer swap_startcontent" id="defaultviewsection">
+                     
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 swptexts">
+
+                            <div class="section-typo missionvission blacktexts swaptexts" data-aos="fade-up"
+                                data-aos-delay="100">
+                                <br/>
+                                <br/>
+                                <span class="blakwordtexts">Online therapy</span>
+                                <h2>Heal from home</h2>
+                                <p>What goes on outside is a mere reflection of what's happening on the inside.
+                                    <br /> <br />
+                                    The unresolved pain we store deep in our thoughts and emotions eventually manifest as issues
+                                    we face in our daily life.
+                                </p>
+                                <div class="swapimagesection mobileimg" >
+                                    <img src="/ppts_website_theme/static/src/img/visityournearest.jpg" class="img-fluid"/>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>Health</h4>
+                                    </div>
+
+
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>career</h4>
+                                    </div>
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>Relationship</h4>
+                                    </div>
+
+                                </div>
+
+                                <!-- <button type="button" class="btn learnmore-btn">Onsite</button> -->
+
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12  swpimg">
+                            <div class="swapimagesection" data-aos="fade-up" data-aos-delay="100">
+                                <img src="/ppts_website_theme/static/src/img/visityournearest.jpg" class="img-fluid" />
+                                <div class="swapimages-texts">
+                                    <h3>Visit Your Nearest Illuminations Branch</h3>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="row approchcontainer  swap_hoveredcotent" id="hoveredviewsection"> 
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 swpimg">
+                            <div class="swapimagesection" data-aos="fade-up" data-aos-delay="100">
+                                <img src="/ppts_website_theme/static/src/img/healfromhome.jpg" class="img-fluid" />
+                                <div class="swapimages-texts">
+                                    <h3>Heal from home</h3>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12  swptexts leftpad">
+
+                            <div class="section-typo missionvission blacktexts swaptexts" data-aos="fade-up"
+                                data-aos-delay="100">
+                                <span class="blakwordtexts">Onsite Therapy</span>
+                                <h2>Visit Your Nearest Illuminations Branch</h2>
+                                <h4>You Create Your Own Reality.</h4>
+                                <p>Neurosciences provide enough research &amp; evidence to suggest the powerful impact of our
+                                    thoughts and feelings have in shaping the reality we experience.
+                                    <br /> <br />
+                                    Your mind, body emotions and energy are intangibly connected and influence your potential at
+                                    every level:
+                                </p>
+
+                                <div class="swapimagesection mobileimg" >
+                                    <img src="/ppts_website_theme/static/src/img/healfromhome.jpg" class="img-fluid"/>
+                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-4 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>emotional &amp; spiritual</h4>
+                                    </div>
+
+
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-4 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>physical</h4>
+                                    </div>
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-4 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>mental</h4>
+                                    </div>
+
+                                </div>
+
+                                <!-- <button type="button" class="btn learnmore-btn">Onsite</button> -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

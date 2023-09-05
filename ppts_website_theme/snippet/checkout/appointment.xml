@@ -1,0 +1,1225 @@
+<odoo>
+    <data>
+
+
+        <template id="website_checkout_assets_css">
+            <link href="/ppts_website_theme/static/src/css/bookappointment.css" rel="stylesheet"/>
+        </template>
+
+        <template id="website_checkout_assets_js">
+            <script src="/ppts_website_theme/static/src/js/appointment/appointment.js" />
+            <script src="/ppts_website_theme/static/src/js/appointment/bookappointmentfullcalender.js" />
+
+        </template>
+
+
+        <template id="website_appointment_page" name="Appointment">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <!-- TOP NAVIGATION END style ="max-height : 53px !important;" -->
+                    <style>
+                    footer > section > div > svg{
+                        background: #fff;
+                    }
+
+                    .strugglimgcrop {
+                        clip-path: url(#strugglecliping);
+                        -webkit-clip-path: url(#strugglecliping);
+                        width: 94px;
+                        height: 94px;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+
+                    .serviceseclowheight .wrapper:hover .side_side,
+                    .serviceseclowheight h4 span:hover .side_side {
+                        background: #CBEEF3;
+                        clip-path: url(#slopeclip);
+                        -webkit-clip-path: url(#slopeclip);
+                        transform: translate(0, 0);
+                    }
+                    </style>
+                    <t t-call="ppts_website_theme.website_checkout_assets_css"/>
+
+                    <!-- .side_side {
+                        width: 378px;
+                        height: 100%;
+                        background: #fff;
+                        clip-path: url(#slopeclip);
+                        -webkit-clip-path: url(#slopeclip);
+                        position: absolute;
+                        right: 0;
+                        transition: 1s;
+                        -webkit-transition: 1s;
+                        -moz-transition: 1s;
+                        -ms-transition: 1s;
+                        -o-transition: 1s;
+                        transform: translate(0px, 0px);
+                        -webkit-transform: translate(0px, 0px);
+                        -moz-transform: translate(0px, 0px);
+                        -ms-transform: translate(0px, 0px);
+                        -o-transform: translate(0px, 0px);
+                    } -->
+                    <section class="fqa-wrapperlistsitems  bookaappointment-wrapper">
+
+                        <div class="eachsection">
+                            <div class="mycontainer">
+
+
+                                <h4 class="bookappheading">Book an appointment</h4>
+                                <!-- Start Tabs -->
+                                <div class="nav-tabs-wrapper faqtabwrapper-header" data-aos="fade-up" data-aos-delay="50">
+
+                                    <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+                                        <li class="nav-item" id="">
+                                            <a class="nav-link active" id="open-service-menu">Select a service</a>
+                                        </li>
+                                        <li class="nav-item" id="">
+                                            <a class="nav-link" id="open-location-menu">Select Location</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="open-therapist-menu">Select a Therapist</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="open-appointment-calendar-menu">Select Date</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="open-numbers-sessions-menu">Numbers of sessions</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="open-appointment-cuustomer-menu">Customer details</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="">Payment details</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+
+                                <!-- <p class="alert alert-warning" id="appointment-warning"></p> -->
+                                <!-- <p class="badge-warning">This product is no longer available.</p>
+                                <p class="o_invalid_warning">This product is no longer available.</p> -->
+
+                                <div class="tab-content" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="tab-pane fade show active" id="open-content-service-menu">
+                                        <div class="bookappointment-subheader">
+                                            <a class="backbuttontext service-tag-back" id="service_back_button">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+                                            <a class="backbuttontext service-tag-back-sub-menu" id="service_back_sub_menu_button">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+                                            <div class="row bookapptab-headersub">
+                                                <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                                                    <h5 class="bookappsubheading service-tag">Select a service</h5>
+                                                    <h5 class="bookappsubheading service-platform">Select a platform</h5>
+                                                </div>
+                                                <!-- <div class="col-xl-6 col-lg-8 col-md-6 col-sm-12 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                                            
+                                            <div class="form-group">
+                                                <t t-set="location_ids" t-value="request.env['res.company'].sudo().search([])" />
+                                                <select id="" class="multi-dropdown-toggle-dep location-drop-down dropdown-toggle form-control inputwrap">
+                                                    <t t-foreach="location_ids" t-as="location_id">
+                                                        <option t-att-value="location_id.id">
+                                                            <t t-esc="location_id.name" />
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                                            <div class="form-group">
+                                                <select id="" class="multi-dropdown-toggle-dep dropdown-toggle form-control inputwrap">
+                                                	<option value="" disabled="disabled" selected="selected">Type</option>
+	                                                <option value="therapy">Therapy</option>
+	                                                <option value="healing">Healing</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                    </div>
+
+
+
+                                </div> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="bookappointmain">
+                                            <!-- SERVICES SECTION START -->
+                                            <section class="section">
+
+                                                <input hidden="hidden" name="appointment_type" id="appointment_type" type="text" placeholder="Appointment type" t-att-value="appointment_type"/>
+                                                <input id="platform" hidden="hidden" type="text" placeholder="Platform"/>
+                                                <input hidden="hidden" id="selected_service_type" type="text" placeholder="Service Type"/>
+                                                <input hidden="hidden" id="selected_conslt_type" type="text" placeholder="Conslt Type"/>
+                                                <input hidden="hidden" id="selected_service_id" type="text" placeholder="Service"/>
+                                                <input hidden="hidden" id="selected_service_categ_id" type="text" placeholder="Service category"/>
+                                                <input hidden="hidden" id="selected_service_location_id" type="text" placeholder="Service Location"/>
+                                                <input hidden="hidden" name="selected_service_therapist_id" id="selected_service_therapist_id" t-att-value="therapist_id" type="text" placeholder="Service Therapist"/>
+                                                <input hidden="hidden" name="selected_redirect_therapist_id" id="selected_redirect_therapist_id" t-att-value="therapist_id" type="text" placeholder="Service Therapist"/>
+                                                <input hidden="hidden" id="selected_appointment_date" type="text" placeholder="Service Date"/>
+                                                <input hidden="hidden" id="selected_appointment_month" type="text" placeholder="Service Month"/>
+                                                <input hidden="hidden" id="selected_appointment_year" type="text" placeholder="Service Year"/>
+                                                <input hidden="hidden" id="selected_appointment_day" type="text" placeholder="Service Day"/>
+                                                <input hidden="hidden" id="selected_appointment_slot_id" type="text" placeholder="Service Slot"/>
+                                                <input hidden="hidden" id="selected_appointment_session_type" type="text" placeholder="Service Session Type"/>
+                                                <input hidden="hidden" id="selected_appointment_single_session_id" type="text" placeholder="Service Single Session"/>
+                                                <input hidden="hidden" id="selected_appointment_package_session_id" type="text" placeholder="Service Package Session"/>
+                                                <input hidden="hidden" id="customer_appointment_id" type="text" placeholder="Appointment ID"/>
+                                                
+                                               <!--  Auto selection fields. -->
+                                                <input id="sub_categ_id" hidden="hidden" type="text" t-att-value="sub_categ_id"/>
+                                                <input id="sub_categ_id_type_id" hidden="hidden" type="text" t-att-value="sub_categ_id_type_id"/>
+                                                <input id="sub_categ_id_type" hidden="hidden" type="text" t-att-value="sub_categ_id_type"/>
+
+                                                <div class="">
+                                                    <div class="row serviceseclowheight">
+
+                                                        <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-platform="online" id="appointment_service_platform">
+                                                            <div class="service-lists-item">
+                                                                <img src="/ppts_website_theme/static/src/img/service1.jpg" alt="serviceimageone" loading="lazy" />
+                                                                <!-- <img t-if="service_id.image" t-att-src="'data:image/png;base64,%s' % to_text(service_id['image'])" loading="lazy"/> -->
+
+                                                                <div class="service-svg-shapes-overlay">
+                                                                    <div class="wrapper">
+                                                                        <div class="side_side"></div>
+                                                                        <svg class="side_wave" id="gt" height="0" width="0" x="200" y="200">
+                                                                            <defs>
+                                                                                <clipPath id="slopeclip">
+                                                                                    <path class="st0" d="M453,0c-7,0.4-84.1-1.7-112.1,6.7c-39.4,11.8-71.2,43.4-100.5,69.2c-37.2,32.8-44.9,44.1-139.9,44.1l0,0H453" />
+                                                                                </clipPath>
+                                                                            </defs>
+                                                                        </svg>
+
+                                                                    </div>
+                                                                    <h4>
+                                                                        <span>Online</span>
+                                                                    </h4>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="service_hoveredcontainer">
+                                                                <span>Online</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-platform="onsite" id="appointment_service_platform">
+
+                                                            <div class="service-lists-item">
+                                                                <img src="/ppts_website_theme/static/src/img/service1.jpg" alt="serviceimageone" loading="lazy" />
+
+                                                                <!-- <img t-if="service_id.image" t-att-src="'data:image/png;base64,%s' % to_text(service_id['image'])" loading="lazy"/> -->
+
+                                                                <div class="service-svg-shapes-overlay">
+                                                                    <div class="wrapper">
+                                                                        <div class="side_side"></div>
+                                                                        <svg class="side_wave" id="gt" height="0" width="0" x="200" y="200">
+                                                                            <defs>
+                                                                                <clipPath id="slopeclip">
+                                                                                    <path class="st0" d="M453,0c-7,0.4-84.1-1.7-112.1,6.7c-39.4,11.8-71.2,43.4-100.5,69.2c-37.2,32.8-44.9,44.1-139.9,44.1l0,0H453" />
+                                                                                </clipPath>
+                                                                            </defs>
+                                                                        </svg>
+
+                                                                    </div>
+                                                                    <h4>
+                                                                        <span>Onsite</span>
+                                                                    </h4>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="service_hoveredcontainer">
+                                                                <!-- <h5>Mind Science</h5>
+	                                                <p>Hover effect here where, when you hover on any one of the services a
+	                                                    small description.</p> -->
+
+                                                                <span>Onsite</span>
+                                                            </div>
+                                                        </div>
+
+
+
+
+                                                        <!--                                     	<t t-set="service_ids" t-value="request.env['appointment.category'].sudo().search([('website_publish','=',True)])" />
+                                    
+                                    	<t t-foreach="service_ids" t-as="service_id">
+                                    	
+	                                    	<div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper service-tag">
+	                                            <div class="service-lists-item">
+	                                                <img src="/ppts_website_theme/static/src/img/service1.jpg" alt="serviceimageone" loading="lazy" />
+	                                                    
+	                                                <img t-if="service_id.image" t-att-src="'data:image/png;base64,%s' % to_text(service_id['image'])" loading="lazy"/>
+	                                                    
+	                                                <div class="service-svg-shapes-overlay">
+	                                                    <div class="wrapper">
+	                                                        <div class="side_side"> </div>
+	                                                        <svg class="side_wave" id="gt" height="0" width="0" x="200" y="200">
+	                                                            <defs>
+	                                                                <clipPath id="slopeclip">
+	                                                                    <path class="st0" d="M453,0c-7,0.4-84.1-1.7-112.1,6.7c-39.4,11.8-71.2,43.4-100.5,69.2c-37.2,32.8-44.9,44.1-139.9,44.1l0,0H453" />
+	                                                                </clipPath>
+	                                                            </defs>
+	                                                        </svg>
+	
+	                                                    </div>
+	                                                    <h4><span t-esc="service_id.name"/></h4>
+	                                                </div>
+	
+	                                            </div>
+	                                            <div class="service_hoveredcontainer">
+	                                                <h5>Mind Science</h5>
+	                                                <p>Hover effect here where, when you hover on any one of the services a
+	                                                    small description.</p>
+	                                                    
+	                                                <span t-esc="service_id.maincateg_notes"/>
+	                                            </div>
+	                                        </div>
+                                        
+                                        </t> -->
+
+
+
+
+                                                    </div>
+
+
+                                                    <!-- <div t-if="appointment_type == 'free'" class="row serviceseclowheight">
+
+                                                        <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-conslt-type="free" data-platform-type="holistic" id="service_platform_type">
+
+                                                            <div class="service-lists-item">
+                                                                <img src="/ppts_website_theme/static/src/img/service1.jpg" alt="serviceimageone" loading="lazy" />
+                                                                <div class="service-svg-shapes-overlay">
+                                                                    <div class="wrapper">
+                                                                        <div class="side_side"></div>
+                                                                        <svg class="side_wave" id="gt" height="0" width="0" x="200" y="200">
+                                                                            <defs>
+                                                                                <clipPath id="slopeclip">
+                                                                                    <path class="st0" d="M453,0c-7,0.4-84.1-1.7-112.1,6.7c-39.4,11.8-71.2,43.4-100.5,69.2c-37.2,32.8-44.9,44.1-139.9,44.1l0,0H453" />
+                                                                                </clipPath>
+                                                                            </defs>
+                                                                        </svg>
+
+                                                                    </div>
+                                                                    <h4>
+                                                                        <span>Holistic Healing Sessions</span>
+                                                                    </h4>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="service_hoveredcontainer">
+
+                                                                <span>Holistic Healing Sessions</span>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-conslt-type="free" data-platform-type="is_struggling" id="service_platform_type">
+                                                            <div class="service-lists-item">
+                                                                <img src="/ppts_website_theme/static/src/img/service1.jpg" alt="serviceimageone" loading="lazy" />
+
+                                                                <div class="service-svg-shapes-overlay">
+                                                                    <div class="wrapper">
+                                                                        <div class="side_side"></div>
+                                                                        <svg class="side_wave" id="gt" height="0" width="0" x="200" y="200">
+                                                                            <defs>
+                                                                                <clipPath id="slopeclip">
+                                                                                    <path class="st0" d="M453,0c-7,0.4-84.1-1.7-112.1,6.7c-39.4,11.8-71.2,43.4-100.5,69.2c-37.2,32.8-44.9,44.1-139.9,44.1l0,0H453" />
+                                                                                </clipPath>
+                                                                            </defs>
+                                                                        </svg>
+
+                                                                    </div>
+                                                                    <h4>
+                                                                        <span>What Are you Struggling With?</span>
+                                                                    </h4>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="service_hoveredcontainer">
+                                                                <span>What Are you Struggling With?</span>
+                                                            </div>
+                                                        </div>
+
+
+
+
+                                                    </div>-->
+
+
+
+                                                    <div class="service-category-header">
+                                                        <!--  <h5 class="bookappsubheading">Select a Mind Science Sub-Category</h5> -->
+                                                    </div>
+                                                    <div class="minsecinebtn_cont service-category-list">
+                                                        <!-- <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button>
+                                        <button class="mindbtn"> Subcategory text</button> -->
+                                                    </div>
+                                                </div>
+                                            </section>
+
+                                            <section>
+                                                <div class="service-category-struggling-header">
+                                                    <h5 class="bookappsubheading">Select your Struggle?</h5>
+                                                </div>
+                                                <svg style="height: 0;" viewBox="0 0 94 94" xml:space="preserve">
+                                                    <clipPath id="strugglecliping">
+                                                        <path class="st0" d="M82.6,12.9C75.8,2.7,65.5,0,48.5,0C35.2,0,13,0,4,0C1.8,0,0,1.8,0,4v86c0,2.2,1.8,4,4,4h59.3
+                                    c10.4,0,9.8-6.6,14.9-11.7c8-7.9,14.2-14.9,15.5-22.9c1.7-11-3.3-20.9-5.9-26.3S86.9,19.2,82.6,12.9z" />
+                                                    </clipPath>
+                                                </svg>
+
+                                                <div class="row strugglecontwrapper service-category-struggling-list">
+                                                    <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st1.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Aches &amp;amp; Pain</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st2.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Anger</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st3.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Anxiety &amp;amp; Panic Attack Solutions</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st4.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Child &amp;amp; Teen</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st5.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Depression</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st6.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Fears &amp;amp; Phobias</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st7.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Financial Distress</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st8.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Insomnia</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st9.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Quit Smoking &amp;amp; Other Addictions</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st10.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Relationship Counseling</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st11.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Stress Management</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st12.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Weight Loss</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                        <div class="strugglecards"> 
+                                                <img class="strugglimgcrop" src="/ppts_website_theme/static/src/img/st13.jpg" /> 
+                                            <div class="struhletypos">
+                                                <h5>Loss &amp; Grief</h5>
+                                            </div>
+                                        </div>
+                                    </div>-->
+
+                                                </div>
+                                            </section>
+                                            <!-- SERVICES SECTION END -->
+                                        </div>
+                                        <div class="bookapp-footersection rigthsidebtn">
+
+
+                                            <a class="backbuttontext service-tag-back-footer" id="service_back_button_footer">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+                                            <a class="backbuttontext service-tag-back-sub-menu-footer" id="service_back_sub_menu_button_footer">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+
+
+                                            <!-- <a href="#upcoming_retreats_section" class="fullbutton">View Upcoming Retreats</a> -->
+                                            <button href="#open-location-menu" class="fullblurbookbtn" id="open_location_menu"> Continue to Select Location</button>
+                                        </div>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="open-content-location-menu">
+                                        <div class="bookappointment-subheader">
+                                            <t t-if ="appointment_type != 'free'">
+                                                <a class="backbuttontext" id="location_back_button">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+                                            </t>
+                                            <div class="row bookapptab-headersub">
+                                                <div class="col-xl-4 col-lg-4">
+                                                    <h5 class="bookappsubheading">select location preference</h5>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="bookappointmain">
+                                            <div class="bookpackagecard bookpackagecard-location">
+
+                                                <!-- <div class="sessionslistcard">
+                                    <h4>illuminations JLT</h4>
+                                </div>
+
+
+                                <div class="sessionslistcard">
+                                    <h4>Illuminations Mardif</h4>
+                                </div>
+
+
+                                <div class="sessionslistcard">
+                                    <h4>illuminations JLT</h4>
+                                </div>
+
+
+                                <div class="sessionslistcard">
+                                    <h4>Online</h4>
+                                </div> -->
+
+
+                                            </div>
+                                        </div>
+                                        <div class="bookapp-footersection rigthsidebtn">
+
+                                            <a class="backbuttontext" id="location_back_button_footer">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+				            
+				            <t t-if="therapist_id">
+				            	<button class="fullblurbookbtn" id="open_appointment_calendar_menu_skip_sel_therapist"> Continue to Date</button>
+				            </t>
+				            
+				            <t t-if="not therapist_id">
+                                            	<button class="fullblurbookbtn" id="open_therapist_menu"> Continue to Select Therapist</button>
+                                    	    </t>	
+                                    		
+                                            <!-- <button class="fullblurbookbtn" id="open_therapist_menu" onclick="open_therapist_menu()"> Continue to Select Therapist</button> -->
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="open-content-therapist-menu">
+                                        <div class="bookappointment-subheader" id="open-content-sub-therapist-menu">
+                                            <a class="backbuttontext" id="therapist_back_button">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+                                            <div class="row bookapptab-headersub">
+                                                <div class="col-xl-9 col-lg-6 col-md-8 col-sm-6 col-xs-12">
+                                                    <h5 class="bookappsubheading">Choose therapist</h5>
+                                                </div>
+                                                <!-- <div class="col-xl-3 col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="dropdown inputwrap">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="input-group-addon iconinoutbtn"> <i class="fas fa-map-marker-alt"></i></span>
+                                            All Locations
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#"><label> <input type="checkbox" />
+                                                    All</label> </a>
+                                            <a class="dropdown-item" href="#"> <label> <input type="checkbox" />
+                                                    Illuminations
+                                                    JLT</label></a>
+                                            <a class="dropdown-item" href="#"><label> <input type="checkbox" />
+                                                    Illuminations
+                                                    Maldr</label> </a>
+                                            <a class="dropdown-item" href="#"><label> <input type="checkbox" />
+                                                    Illuminations
+                                                    Abu-Dhabi</label> </a>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                            </div>
+
+
+                                            <div class="bookapp-footersection rigthsidebtn">
+                                                <a class="backbuttontext" id="therapist_back_button_footer">
+                                                    <i class="fas fa-chevron-left"></i>Back</a>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="bookappointmain">
+                                            <div class="row book-choose-therapist bookapp-choose-therapist" id="">
+                                                <!-- <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-xs-12 therapychooslist">
+                                    <div class="therapest-list-container">
+                                        <img src="/ppts_website_theme/static/src/img/expert1.jpg"/>
+                                        <h5>Soniyaa Kiran Punjabi</h5>
+
+                                        <a class="buttonwithbtnshape"> More info </a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-xs-12 therapychooslist">
+                                    <div class="therapest-list-container">
+                                        <img src="/ppts_website_theme/static/src/img/expert1.jpg"/>
+                                        <h5>Soniyaa Kiran Punjabi</h5>
+
+                                        <a class="buttonwithbtnshape"> More info </a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-xs-12 therapychooslist">
+                                    <div class="therapest-list-container">
+                                        <img src="/ppts_website_theme/static/src/img/expert1.jpg"/>
+                                        <h5>Soniyaa Kiran Punjabi</h5>
+
+                                        <a class="buttonwithbtnshape"> More info </a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-xs-12 therapychooslist">
+                                    <div class="therapest-list-container">
+                                        <img src="/ppts_website_theme/static/src/img/expert1.jpg"/>
+                                        <h5>Soniyaa Kiran Punjabi</h5>
+
+                                        <a class="buttonwithbtnshape"> More info </a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-xs-12 therapychooslist">
+                                    <div class="therapest-list-container">
+                                        <img src="/ppts_website_theme/static/src/img/expert1.jpg"/>
+                                        <h5>Soniyaa Kiran Punjabi</h5>
+
+                                        <a class="buttonwithbtnshape"> More info </a>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-xs-12 therapychooslist">
+                                    <div class="therapest-list-container">
+                                        <img src="/ppts_website_theme/static/src/img/expert1.jpg"/>
+                                        <h5>Soniyaa Kiran Punjabi</h5>
+
+                                        <a class="buttonwithbtnshape"> More info </a>
+                                    </div>
+                                </div> -->
+
+                                                <div class="bookapp-footersection rigthsidebtn">
+
+                                                    <button class="fullblurbookbtn book-choose-therapist-continue" id="open_appointment_calendar_menu1()"> Continue to Date</button>
+                                                </div>
+                                            </div>
+
+                                            <!-- ******************************************* -->
+                                            <div class="bookappointmain d-none" id="therapist-profile-menu">
+
+                                                <div class="bookappointment-subheader">
+                                                    <a class="backbuttontext" id="therapist_profile_back_button">
+                                                        <i class="fas fa-chevron-left"></i>Back</a>
+
+                                                    <div class="row bookapp-therapyinfo">
+                                                        <div class="col-xl-3 col-lg-5 col-md-12 col-sm-12 col-xs-12 bookapptab-headersub">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <h5 class="bookappsubheading">Choose therapist</h5>
+                                                                </div>
+                                                                <div class="col-xl-12 col-lg-12 col-md-4 col-sm-5 col-xs-12">
+
+                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
+                                                                        <div class="form-group">
+                                                                            <select style ="max-height : 53px !important;" id="selection_therapist_id" class="multi-dropdown-toggle-dep dropdown-toggle form-control inputwrap therapist-location-list">
+                                                                                <!-- <option value="" disabled="disabled" selected="selected">Therapist</option>
+				                                                <option value="therapy">Therapy</option>
+				                                                <option value="healing">Healing</option> -->
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- <div class="dropdown inputwrap">
+	                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                                                        <span class="input-group-addon iconinoutbtn"> <i class="fas fa-map-marker-alt"></i></span>
+	                                                        All Locations
+	                                                    </button>
+	                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	                                                        <a class="dropdown-item" href="#"><label> <input type="checkbox" />
+	                                                                All</label> </a>
+	                                                        <a class="dropdown-item" href="#"> <label> <input type="checkbox" />
+	                                                                Illuminations JLT</label></a>
+	                                                        <a class="dropdown-item" href="#"><label> <input type="checkbox" />
+	                                                                Illuminations Maldr</label> </a>
+	                                                        <a class="dropdown-item" href="#"><label> <input type="checkbox" />
+	                                                                Illuminations Abu-Dhabi</label> </a>
+	                                                    </div>
+	                                                </div> -->
+                                                                </div>
+                                                                <!-- <div class="col-xl-12 col-lg-12 col-md-4 col-sm-5 col-xs-12">
+	                                                <div class="dropdown inputwraptwo ">
+	                                                    <button class="dropdownbtn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	                                                        Text
+	                                                    </button>
+	                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	                                                        <a class="dropdown-item" href="#">EN</a>
+	                                                        <a class="dropdown-item" href="#">EN</a>
+	                                                        <a class="dropdown-item" href="#">EN</a>
+	                                                    </div>
+	                                                </div>
+	                                            </div> -->
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 therapist-profile">
+                                                            <!-- <div class="row bookapp-therapyinfo-innersec">
+	                                            <div class="col-xl-5=6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	                                                <h5>Irine Lekishvili</h5>
+	                                                <p><b>Languages Spoken:</b> English, Hindi, Russian &amp;amp; Georgian</p>
+	                                                <p><b>Nationality:</b> Georgian</p>
+	                                                <label class="therapestlocation">illuminations JLT</label>
+	                                                <label class="onlinegobalicon">Online appointments</label>
+	                                            </div>
+	                                            <div class="col-xl-5=6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	                                                <img src="/ppts_website_theme/static/src/img/expert2.jpg"/>
+	                                            </div>
+	                                        </div>
+	                                        <p>The heart of this class focuses on techniques that allow one to change life
+	                                            patterns
+	                                            held
+	                                            in place by core, genetic, historic and soul beliefs, either self-inflicted
+	                                            or
+	                                            externally imposed. The student will learn to identify and release his or
+	                                            her own
+	                                            beliefs as well as practicing on others in the class.</p> -->
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="bookapp-footersection rigthsidebtn">
+                                                    <a class="backbuttontext" id="therapist_profile_back_button_footer">
+                                                        <i class="fas fa-chevron-left"></i>Back</a>
+
+                                                    <button class="fullblurbookbtn" id="open_appointment_calendar_menu"> Continue to Date</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="tab-pane fade" id="open-content-appointment-calendar-menu">
+                                        <div class="bookappointment-subheader">
+						<t t-if="therapist_id">
+		                                    <a class="backbuttontext" id="therapist_back_button_skip_sel_therapist">
+                                                	<i class="fas fa-chevron-left"></i>Back</a>
+	                                        </t>
+	                                        
+	                                         <t t-if="not therapist_id">
+                                         		<a class="backbuttontext" id="appointment_calendar_back_button">
+		                                        <i class="fas fa-chevron-left"></i>Back</a>
+	                                         </t>
+                                        </div>
+
+                                        <div class="bookappointmain">
+
+                                            <div class="row bookapptab-headersub">
+
+                                                <div class="col-xl-8 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                                    <h5 class="bookappsubheading">select date</h5>
+                                                </div>
+
+
+                                                <div class="col-xl-2 col-lg-4 col-md-6 col-sm-6 col-xs-12 form-group">
+
+                                                    <div class="form-group select-arrow-apt-cal select-arrow">
+                                                        <t t-set="time_ids" t-value="request.env['time.time'].sudo().search([])" />
+                                                        <select id="appointment_time_id" class="multi-dropdown-toggle-dep appointment-time-drop-down dropdown-toggle form-control inputwrap">
+                                                            <t t-foreach="time_ids" t-as="time_id">
+
+                                                                <t t-if="appointment_type == 'free' and time_id.name == '30 Mins'">
+                                                                    <option t-att-value="time_id.id" selected="selected">
+                                                                        <t t-esc="time_id.name" />
+                                                                    </option>
+                                                                </t>
+                                                                <option t-att-value="time_id.id">
+                                                                    <t t-esc="time_id.name" />
+                                                                </option>
+                                                            </t>
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <!-- <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-xs-12 col-6">
+                                
+                                    <div id="calenderViewSelectOption " class="dropdown inputwrap">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="input-group-addon iconinoutbtn"> <i class="fas fa-list-ul"></i>
+                                            </span> <span>Month</span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a id="upComingEventDateViewTypeWeek" class="dropdown-item" value="week">Week</a>
+                                            <a id="upComingEventDateViewTypeMonth" class="dropdown-item" value="month">Month</a>
+                                        </div>
+                                    </div>
+                             </div> -->
+
+                                                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-xs-12 col-6">
+
+                                                    <div class="calendernextpreviewbtns">
+                                                        <button id="currentCalendarmonthLeftArrow">
+                                                            <i class="fas fa-caret-left"></i>
+                                                        </button>
+
+                                                        <label id="currentCalendarWeekRange">12 -20 December</label>
+
+                                                        <button id="currentCalendarmonthRightArrow">
+                                                            <i class="fas fa-caret-right"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                            <div id='bookappointmentCalendar'></div>
+                                            <h5>Note : </h5><p>N/A - No Slots available for the selected slot duration and date. Please change the slot duration or date range for availability.</p>
+                                        </div>
+                                        <div id="timePicker" class="time-picker">
+
+                                            <div class="timepicker-wrapper">
+                                                <div class=" ">
+                                                    <h5 class="bookappsubheading">Time</h5>
+                                                </div>
+                                                <!--  <div class="timepickerrows">
+                            <a class="timepickerbuttons timeshooseactive">10 AM - 11AM</a>
+                            <a class="timepickerbuttons">10 AM - 11AM</a>
+                            <a class="timepickerbuttons">10 AM - 11AM</a>
+                            <a class="timepickerbuttons">10 AM - 11AM</a>
+                            <a class="timepickerbuttons">10 AM - 11AM</a>
+                            <a class="timepickerbuttons">10 AM - 11AM</a>
+                            <a class="timepickerbuttons">10 AM - 11AM</a>
+                        </div> -->
+
+
+                                                <div class="timepickerrows" id="appointment-timepickerrows">
+
+
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <!--                         <div class="bookappointmain">
+
+                            <div class="row bookapptab-headersub">
+                                <div class="col-xl-8 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                    <h5 class="bookappsubheading">Choose therapist</h5>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-xs-12 col-6">
+                                
+                                    <div id="calenderViewSelectOption " class="dropdown inputwrap">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="input-group-addon iconinoutbtn"> <i class="fas fa-list-ul"></i>
+                                            </span> <span>Month</span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a id="upComingEventDateViewTypeWeek" class="dropdown-item" value="week">Week</a>
+                                            <a id="upComingEventDateViewTypeMonth" class="dropdown-item" value="month">Month</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-xs-12 col-6">
+                                
+                                    <div class="calendernextpreviewbtns">
+                                        <button id="currentCalendarWeekLeftArrow"> <i class="fas fa-caret-left"></i></button>
+                                                
+                                        <label id="currentCalendarWeekRange">12 -20 December</label>
+                                        
+                                        <button id="currentCalendarWeekRightArrow"><i class="fas fa-caret-right"></i></button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="calendar-wrapper" id="calendar-mainwrap">
+
+                                <div class="calendar-weeklybutton" data-aos="fade-up" data-aos-delay="300">
+                                    <div id='upComingEventCalendar'></div>
+                                </div>
+                                <div class="calendar-eventlist-view-wrapper" id="upComingCalendarEventsContainer">
+                                    <div class="calenday-eventlist-item" data-aos="fade-up" data-aos-delay="600">
+                                        <div class="cal-event-img">
+                                            <label class="filtercatlabel">Onsite</label>
+                                            <img src="/ppts_website_theme/static/src/img/post1.png" />
+                                        </div>
+                                        <div class="eventfullinfos">
+                                            <div class="event-typoingo">
+                                                <div class="eventtitleinfos">
+                                                    <h5>ThetaHealing You &amp; Your Significant Others</h5> <label class="training chipsone">Training</label> <label class="chipsone">Event</label>
+                                                    <label class="meditation chipsone">Meditation</label>
+                                                </div>
+                                                <div class="eventinfos">
+                                                    <label><i class="fas fa-map-marker-alt"></i> Illuminations
+                                                        JLT</label>
+                                                    <label><i class="far fa-calendar-minus"></i>14 December</label>
+                                                    <label><i class="far fa-clock"></i> 10:00 To 12:00 (UTC+3)</label>
+                                                    <label><i class="far fa-user"></i> Khan Dan</label>
+                                                </div>
+                                            </div>
+                                            <div class="event-listbtn">
+                                                <button class="borderedbtn">Enquire Now</button>
+                                                <button class="fullbutton">Book Now <b> 120 <i>AED </i> </b></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+                                    <button class="borderedbtn ">Load more events</button>
+                                    <button class="fullbutton">Go to all events</button>
+                                </div>
+                            </div>
+                        </div> -->
+                                        <div class="bookapp-footersection rigthsidebtn">
+
+                                            <a class="backbuttontext" id="appointment_calendar_back_button_footer">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+                                            <t t-if ="appointment_type != 'free'">
+
+                                                <button class="fullblurbookbtn" id="open_appointment_number_session_menu"> Continue to select packages...</button>
+                                            </t>
+                                            <t t-else="">
+                                                <button class="fullblurbookbtn" id="open_appointment_number_session_menu"> Continue</button>
+
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="open-content-number-session-menu">
+                                        <div class="bookappointment-subheader">
+                                            <a class="backbuttontext" id="appointment_number_session_button">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+                                            <div class="row bookapptab-headersub">
+                                                <div class="col-xl-4 col-lg-4">
+                                                    <h5 class="bookappsubheading">Numbers of sessions</h5>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="bookappointmain">
+                                            <div class="bookpackagecard" id="bookpackagecard-sessionslistcard">
+
+                                                <!--  <div class="sessionslistcard">
+                                    <h4>One session</h4>
+                                </div>
+
+
+                                <div class="sessionslistcard">
+                                    <h4>Package of 3</h4>
+                                    <p>with 5% OFF</p>
+                                </div>
+
+
+                                <div class="sessionslistcard">
+                                    <h4>Package of 5</h4>
+                                    <p>with 10% OFF</p>
+
+                                </div>
+
+
+                                <div class="sessionslistcard">
+                                    <h4>Package of 10</h4>
+                                    <p>with 15% OFF</p>
+
+                                </div> -->
+
+
+                                            </div>
+                                            <div class="bookpackagecard benifitlists">
+                                                <div class="abouttherappoints ">
+                                                    <div class="sessionslistcard">
+                                                        <h6>Benefits of buying <br />
+ a package:</h6>
+
+                                                    </div>
+                                                    <div class="sessionslistcard">
+
+                                                        <ul>
+                                                            <li> V7 Digital Photo Printing</li>
+                                                            <li> Download Free Song</li>
+                                                            <li> The Best Answers</li>
+                                                        </ul>
+
+                                                    </div>
+                                                    <div class="sessionslistcard">
+
+                                                        <ul>
+                                                            <li> Help Finding Information </li>
+                                                            <li> Windows Registry</li>
+
+                                                        </ul>
+
+                                                    </div>
+                                                    <div class="sessionslistcard">
+
+                                                        <ul>
+                                                            <li> Download Anything </li>
+                                                            <li> Anonymous Proxy</li>
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bookapp-footersection rigthsidebtn">
+                                            <a class="backbuttontext" id="appointment_number_session_button_footer">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+
+                                            <button class="fullblurbookbtn" id="open_appointment_customer_menu"> Continue...</button>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="open-content-customer-menu">
+                                        <div class="bookappointment-subheader">
+                                             <t t-if ="appointment_type != 'free'">
+                                             <a class="backbuttontext" id="appointment_customer_button">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+                                            </t>
+                                            <div class="row bookapptab-headersub">
+                                                <div class="col-xl-4 col-lg-4">
+                                                    <h5 class="bookappsubheading">Customer details</h5>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="bookappointmain">
+                                            <form class="row">
+                                                <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="row">
+                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input class="form-control" id="customer_name" type="text" placeholder="Full name" autocomplete="off"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input class="form-control" id="email" type="email" placeholder="Enter your email" autocomplete="off"/>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input class="form-control" id="phone" type="tel" placeholder="Phone" autocomplete="off"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-12">
+
+                                                            <div class="form-group select-arrow select-arrow-apt-cal margin-bottom-0">
+                                                                <t t-set="country_ids" t-value="request.env['res.country'].sudo().search([])" />
+                                                                <select id="appointment_country_id" class="multi-dropdown-toggle-dep appointment-time-drop-down dropdown-toggle form-control inputwrap">
+                                                                    <option value="" disabled="disabled" selected="selected">Select a Country/Region</option>
+                                                                    <t t-foreach="country_ids" t-as="country_id">
+                                                                        <option t-att-value="country_id.id">
+                                                                            <t t-esc="country_id.name" />
+                                                                        </option>
+                                                                    </t>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="form-group select-arrow select-arrow-apt-cal margin-bottom-0 " >
+                                                                <t t-set="city_ids" t-value="request.env['city.master'].sudo().search([])" />
+                                                                <select id="appointment_city_id" class="multi-dropdown-toggle-dep appointment-time-drop-down dropdown-toggle form-control inputwrap check_out_filters_id">
+                                                                    <option value="" disabled="disabled" selected="selected">Select a City/Town</option>
+                                                                    <t t-foreach="city_ids" t-as="city_id">
+                                                                        <option t-att-value="city_id.id">
+                                                                            <t t-esc="city_id.name" />
+                                                                        </option>
+                                                                    </t>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <input class="form-control" id="street" type="text" placeholder="Street Address" autocomplete="off"/>
+                                                            </div>
+                                                            <!-- <button class="fullblurbookbtn" id="submit-appointment">Book</button> -->
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                            <div class="bookapp-footersection rigthsidebtn">
+                                                <a class="backbuttontext" id="appointment_customer_button_footer">
+                                                    <i class="fas fa-chevron-left"></i>Back</a>
+
+                                                <button class="fullblurbookbtn" id="submit-appointment" onclick=""> Continue to Book and Pay</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="">
+                                        <div class="bookappointment-subheader">
+                                            <a class="backbuttontext">
+                                                <i class="fas fa-chevron-left"></i>Back</a>
+
+                                        </div>
+                                        <div class="bookappointmain">
+                                            <div class="row">
+                                                <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                    <h5 class="bookappsubheading">Payment method</h5>
+
+                                                    <div class="paymentmethod-list">
+                                                        <label>
+                                                            <input type="radio" />
+ Credit card (Visa, Master Card) </label>
+                                                        <div class="cardfield row">
+                                                            <div class="form-group col-xl-7 col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                                                <input type="text" class="form-control" placeholder="XXXX- XXXX-XXXX-XXXX" />
+                                                            </div>
+                                                            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-6 col-6">
+                                                                <input type="text" placeholder="MM/YY" />
+                                                            </div>
+                                                            <div class="form-group col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-6 col-6">
+                                                                <input type="text" placeholder="CVV" />
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="paymentmethod-list">
+                                                        <label>
+                                                            <input type="radio" />
+ PayPal</label>
+                                                    </div>
+                                                    <div class="paymentmethod-list">
+                                                        <label>
+                                                            <input type="radio" />
+ G Pay </label>
+                                                    </div>
+                                                    <div class="paymentmethod-list">
+                                                        <label>
+                                                            <input type="radio" />
+ Apple Pay </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="paymentdetailscard-container">
+                                                        <div class="paymentdetailscard-header">
+                                                            <h5 class="bookappsubheading">Your Appointment is:</h5>
+                                                            <div class="oberlay-tags tagsrelative">
+                                                                <label> SPIRITUAL HEALING </label>
+                                                                <label> MEDITATION </label>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <div class=" ">
+                                                                <h6>
+                                                                    <small> Service:</small> Healing </h6>
+                                                                <h6>
+                                                                    <small> Facilitator:</small> Irine Dhara </h6>
+                                                                <div class="paymentdetail-event">
+                                                                    <label>
+                                                                        <i class="fas fa-map-marker-alt"></i> Illuminations
+                                                        JLT</label>
+                                                                    <label>
+                                                                        <i class="far fa-calendar-minus"></i>14 December</label>
+                                                                    <label>
+                                                                        <i class="far fa-clock"></i> 15:30 (UTC+3)</label>
+                                                                    <label>
+                                                                        <i class="fas fa-list-ul"></i> Naturopathy</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="coupon_code_container">
+                                                            <div class="coupon_code_fields">
+                                                                <input type="text" placeholder="Coupon Code" class="" />
+                                                                <button type="submit" class="couponapplybtn">Apply</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="total-amount-foot">
+                                                            <h4>
+                                                                <label>Total: </label>
+                                                                <span>120 د.إ </span>
+                                                            </h4>
+                                                            <small>Included in the price VAT ( Adding Tax Booking Amount)</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="bookapp-footersection rigthsidebtn">
+                                                <a class="backbuttontext">
+                                                    <i class="fas fa-chevron-left"></i>Back</a>
+
+                                                <button class="fullblurbookbtn"> Continue to Date</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <p class="alert alert-warning" id="appointment-warning"></p>
+
+                                    <!-- End Tabs -->
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </section>
+
+                    <t t-call="ppts_website_theme.website_checkout_assets_js"/>
+                    <!-- <script src="/ppts_website_theme/static/src/js/appointment.js"></script> -->
+
+                </div>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

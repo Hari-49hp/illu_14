@@ -1,0 +1,55 @@
+<odoo>
+	<data>
+		<record id="view_event_form_inherited_payrate" model="ir.ui.view">
+			<field name="name">Event payrate Form</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//form/sheet/notebook/page[3]" position="after">
+					<page string="Payrate Info">
+						<field name="pay_rate_line" widget="section_and_note_one2many"
+												mode="tree">
+
+							<tree>
+								<field name="therapist_id"/>
+								<field name="invoice_amount"/>
+
+							</tree>
+						</field>
+
+					</page>
+				</xpath>
+
+			</field>
+		</record>
+
+
+				<!-- Action_view -->
+<!--		<record id="event_custom_master_payrate" model="ir.actions.act_window">-->
+<!--			<field name="name">Event Pay Types</field>-->
+<!--			<field name="res_model">event.pay.rate.line</field>-->
+<!-- 			<field name="view_mode">tree,form</field>-->
+<!--			<field name="view_id" ref="ppts_payrate.event_custom_master_payrate_list" />-->
+<!--		</record>-->
+
+		<!-- Tree_view -->
+		<record id="event_custom_master_payrate_list" model="ir.ui.view">
+			<field name="name">Event Type Treesss</field>
+			<field name="model">event.pay.rate.line</field>
+			<field name="arch" type="xml">
+				<tree default_order="event_id asc">
+					<field name="event_id" />
+					<field name="therapist_id"/>
+					<field name="invoice_amount"/>
+				</tree>
+			</field>
+		</record>
+
+<!--		<menuitem id="test_event_custom_master_payrate" action="ppts_payrate.event_custom_master_payrate"-->
+<!--			name="Payrates" parent="ppts_payrate.event_custom_mastersss"  sequence="1" />-->
+
+<!--		<menuitem id="event_custom_mastersss" name="Pay Rate"-->
+<!--			parent="event.menu_event_configuration" sequence="3" />-->
+
+	</data>
+</odoo>

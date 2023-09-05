@@ -1,0 +1,394 @@
+<odoo>
+	<data>
+		<record id="event_event_view_form_form" model="ir.ui.view">
+			<field name="name">event.event.view.form.inherit.website.inherit</field>
+			<field name="model">event.event</field>
+			<field name="priority" eval="5"/>
+			<field name="inherit_id" ref="website_event.event_event_view_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//button[@name='action_open_badge_editor']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//form[1]/sheet[1]/div[@name='event_menu_configuration']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record id="view_event_form_inherited_ppts_new" model="ir.ui.view">
+			<field name="name">event event form</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//form[1]/sheet[1]/div[hasclass('oe_title')]" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//form[1]/sheet[1]/group[1]/group[1]" position="attributes">
+					<attribute name="attrs">{}</attribute>
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//form[1]/sheet[1]/group[1]/group[2]" position="attributes">
+					<attribute name="attrs">{}</attribute>
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='website_id']" position="attributes">
+					<attribute name="attrs">{}</attribute>
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='stage_id']" position="attributes">
+					<attribute name="options">{'no_open': True,'no_create_edit': True}</attribute>
+				</xpath>
+
+				<div name="button_box" position="inside">
+					<button class="oe_stat_button" name="event_registration" type="object" icon="fa-users" style ="width: 170px;max-width: 161px !important;">
+						<field name="seats_expected" widget="statinfo" string="Event Register" />
+					</button>
+					<button class="oe_stat_button" type="action" name="%(action_event_sources)d" icon="fa-bar-chart-o" context="{'default_event_id': active_id}" groups="base.group_no_one">
+						<div class="o_field_widget o_stat_info">
+							<span class="o_stat_text">Trackers</span>
+						</div>
+					</button>
+				</div>
+
+
+
+				<xpath expr="//form[1]/header[1]/button[@name='action_invite_contacts'][2]" position="replace"/>
+				<!--				<xpath expr="//button[@name='action_open_badge_editor']" position="attributes">-->
+				<!--					<attribute name="invisible">1</attribute>-->
+				<!--				</xpath>-->
+
+				<xpath expr="//header" position="inside">
+					<button name="approve_move_stage" type="object" string="Approve Event" attrs="{'invisible':[('stage_id', '!=', 1)]}" groups="ppts_custom_event_mgmt.group_admin,ppts_custom_event_mgmt.group_manager" />
+					<button name="action_event_reject" type="object" string="Reject" attrs="{'invisible':[('stage_id', '!=', 1)]}" groups="ppts_custom_event_mgmt.group_manager"/>
+
+					<button name="end_move_stage" type="object" string="End Event" attrs="{'invisible':[('stage_id', '!=', 2)]}" groups="ppts_custom_event_mgmt.group_admin,ppts_custom_event_mgmt.group_manager" />
+				</xpath>
+				<xpath expr="//header" position="inside">
+					<button name="cancel_event_stage" type="object" confirm="Do you want to cancel the event, if any of our customers were paid, it will be refunded to their customer account. Is it okay to cancel this event?" string="Cancel Event" attrs="{'invisible':[('stage_id', 'in',(1,4,5,7))]}" groups="ppts_custom_event_mgmt.group_admin,ppts_custom_event_mgmt.group_manager" />
+
+				</xpath>
+
+				<xpath expr="//field[@name='organizer_id']" position="attributes">
+					<attribute name="string">Facilitator</attribute>
+				</xpath>
+
+				<xpath expr="//label[@for='name']" position="attributes">
+					<attribute name="string">Event Title</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='name']" position="attributes">
+					<attribute name="attrs">{'readonly':[('event_publish', '=',True)]}</attribute>
+				</xpath>
+
+				
+
+				<xpath expr="//form/sheet/notebook/page[1]" position="after">
+					<page string="Event Image" invisible="1">
+						<group>
+
+							<div class="oe_edit_only">
+								<label for="event_img_url" string="Image URL"/>
+								<span>
+									<field name="event_img_url" nolabel="1" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+									<button name="onchange_image_url" type="object" string="Add Image"/>
+								</span>
+							</div>
+						</group>
+
+						<group>
+							<field name="event_img" widget='image' nolabel="1" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+						</group>
+					</page>
+				</xpath>
+				<xpath expr="//form/sheet/notebook/page[1]" position="after">
+					<page string="Website" name="evnt_website" >
+						<group class="disable_img_icon_html_field disable_code_html_field disable_table_html_field disable_link_attach_html_field disable_dropdown_html_field disable_undo_html_field disable_repeat_html_field">
+							<field name="evnt_description" widget="html" options="{'style-inline': true}" attrs="{'readonly':[('event_publish', '!=',False)]}"/>
+						</group>
+					</page>
+
+					<page string="Recurrent Option" name="evnt_recurrent" invisible="1">
+						<group>
+							<group>
+								<label for="duration"/>
+								<div>
+									<field name="duration" string="Duration" class="oe_inline"/>
+									<span> hours</span>
+								</div>
+								<field name="allday"/>
+							</group>
+
+							<group>
+								<div>
+									<group>
+										<field name="recurrency"/>
+									</group>
+									<div attrs="{'invisible': [('recurrency', '=', False)]}">
+										<group>
+											<label for="interval"/>
+											<div class="o_row">
+												<field name="interval" attrs="{'required': [('recurrency', '=', True)]}"/>
+												<field name="rrule_type" attrs="{'required': [('recurrency', '=', True)]}"/>
+											</div>
+											<label string="Until" for="end_type"/>
+											<div class="o_row">
+												<field name="end_type" attrs="{'required': [('recurrency', '=', True)]}"/>
+												<field name="count" attrs="{'invisible': [('end_type', '!=', 'count')], 'required': [('recurrency', '=', True)]}"/>
+												<field name="final_date" attrs="{'invisible': [('end_type', '!=', 'end_date')], 'required': [('end_type', '=', 'end_date'), ('recurrency', '=', True)]}"/>
+											</div>
+										</group>
+										<group attrs="{'invisible': [('rrule_type', '!=', 'weekly')]}" name="weekdays">
+											<field name="mo"/>
+											<field name="tu"/>
+											<field name="we"/>
+											<field name="th"/>
+											<field name="fr"/>
+											<field name="sa"/>
+											<field name="su"/>
+										</group>
+										<group attrs="{'invisible': [('rrule_type', '!=', 'monthly')]}">
+											<label string="Day of Month" for="month_by"/>
+											<div class="o_row">
+												<field name="month_by"/>
+												<field name="day" attrs="{'required': [('month_by', '=', 'date'), ('rrule_type', '=', 'monthly')],
+																'invisible': [('month_by', '!=', 'date')]}"/>
+												<field name="byday" string="The" attrs="{'required': [('recurrency', '=', True), ('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
+																	'invisible': [('month_by', '!=', 'day')]}"/>
+												<field name="week_list" nolabel="1" attrs="{'required': [('recurrency', '=', True), ('month_by', '=', 'day'), ('rrule_type', '=', 'monthly')],
+																		'invisible': [('month_by', '!=', 'day')]}"/>
+											</div>
+										</group>
+										<button name="recurrent" type="object" string="Create Recurrent"/>
+									</div>
+								</div>
+							</group>
+						</group>
+					</page>
+				</xpath>
+
+				<xpath expr="//field[@name='event_type_id']" position="before">
+					<style>
+														.o_ChatterTopbar_actions{
+														display: none;
+														}
+					</style>
+					<field name="duration" widget="float_time" string="Duration" readonly="True"/>
+					<field name="multiday" invisible='1'/>
+				</xpath>
+				<xpath expr="//field[@name='event_type_id']" position="after">
+					<field name="type_event" string ="Mode of Event" required ="1" invisible="1" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+					<field name="type_online" attrs="{'invisible': [('type_event', '!=', 'type_online')], 'readonly':[('event_publish', '=',True)], 'required': [('type_event', '=', 'type_online')]}"/>
+
+					<field name="eve_therapist_id" invisible="1" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+
+
+					<div>
+						<h3>Event Limit &amp; Waitlist</h3>
+					</div>
+					<field name="events_type" invisible="1"/>
+
+					<label for="seats_limited" string="Limit Registrations"/>
+					<div>
+						<field name="seats_limited" attrs="{'readonly':[('event_publish', '=',True)]}" required="1"/>
+						<span attrs="{'invisible': [('seats_limited', '=', False)], 'required': [('seats_limited', '=', False)]}">to <field name="seats_max" class="oe_inline" required="1" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+ Attendees</span>
+					</div>
+					<br/>
+
+					<field name="evnt_online_limit" attrs="{'readonly':[('event_publish', '=',True)],'invisible': [('seats_limited', '=', False)]}" invisible="1"/>
+					<field name="evnt_offline_limit" attrs="{'invisible': [('seats_limited', '=', False)]}" invisible="1"/>
+					<field name="evnt_waitlist_limit" attrs="{'readonly':[('event_publish', '=',True)],'invisible': [('seats_limited', '=', False)]}" invisible="1"/>
+					<field name="event_external" invisible="1"/>
+					<br/>
+					<field name="evnt_meeting_loc" attrs="{'invisible': [('event_external', '=', False)]}"/>
+					<field name="dress_code" attrs="{'invisible': [('event_external', '=', False)]}"/>
+					<field name="contact_person" attrs="{'invisible': [('event_external', '=', False)]}"/>
+
+					<field name="evnt_weblink" widget="url" attrs="{'invisible': [('type_event', '!=', 'type_online')],
+													'readonly':[('event_publish', '=',True)]
+													}"/>
+
+					<field name="event_publish" invisible="1"/>
+
+				</xpath>
+
+				<xpath expr="//group[2]/div" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//group[2]/label[@for='seats_limited']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//group[2]/field[@name='address_id']" position="replace"/>
+				<xpath expr="//group[2]/field[@name='organizer_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//group[1]/field[@name='tag_ids']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//group[1]/field[@name='date_tz']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//group[2]/field[@name='user_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				<xpath expr="//group[2]/field[@name='auto_confirm']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='organizer_id']" position="before">
+					<!--													<style>-->
+					<!--														.o_ChatterTopbar_actions{-->
+					<!--														display: none;-->
+					<!--														}-->
+					<!--													</style>-->
+					<div>
+						<h3>Facilitator &amp; Venue</h3>
+					</div>
+					<field name="facilitator_evnt_ids" widget="many2many_tags" attrs="{'readonly':[('event_publish', '=',True)],'required':[('date_begin', '!=', False)]}"/>
+					<field name="evnt_assistant" widget="many2many_tags" attrs="{'readonly':[('event_publish', '=',True)]}" invisible="1"/>
+
+					<label for="address_id" string="Venue"/>
+					<div class="o_row">
+						<field name="address_id"  context="{'show_address': 1}" options="{'no_create_edit': True, 'no_open': True,'no_create': True,'always_reload':True}" attrs="{'readonly':[('event_publish', '=',True)]}" />
+						<button type="object" name="open_google_map" class="btn-sm btn-link mb4 fa fa-map-marker fa-fw mr-1" aria-label="Open in Google Map" groups="base.group_system" title="Open in Google Map" />
+					</div>
+					<field name="user_id" required="1" string="Created By" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+					<field name="hosted_by" invisible="1" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+					<div>
+						<h3>Other Details</h3>
+					</div>
+					<field name="organizer_id" invisible="1" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+					
+		          	<field name="sale_incharge_id" readonly="0" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" attrs="{'readonly':[('event_publish', '!=',False)]}" domain="[('company_id', '=', company_id),('employee_id.department_id.name','ilike','Sales Department')]"/>
+
+
+					<field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_quick_create': True}" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+					<field name="date_tz" attrs="{'readonly':[('event_publish', '=',True)]}"/>
+				</xpath>
+			</field>
+		</record>
+
+
+		<record id="product_product_form_inherit" model="ir.ui.view">
+			<field name="name">product.product.inherit</field>
+			<field name="model">product.product</field>
+			<field name="priority" eval="5"/>
+			<field name="inherit_id" ref="product.product_normal_form_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='event_ok']" position="after">
+					<field name="shipping_handling_charge" groups="base.group_no_one"/>
+				</xpath>
+			</field>
+		</record>
+
+
+		<record id="event.act_event_registration_from_event" model="ir.actions.act_window">
+			<field name="res_model">event.registration</field>
+			<field name="name">Attendees</field>
+			<field name="view_mode">tree,form,calendar,graph</field>
+			<field name="domain">[('event_id', '=', active_id)]</field>
+			<field name="context">{'default_event_id': active_id,}</field>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+																Create an Attendee
+				</p>
+			</field>
+		</record>
+
+
+
+		<!-- <record id="view_event_form_inherited_apt_class" model="ir.ui.view">
+														<field name="name">Event Class Form</field>
+														<field name="model">event.event</field>
+														<field name="inherit_id" ref="ppts_custom_event_mgmt.view_event_form_inherited_class" />
+														<field name="arch" type="xml">
+
+															<field name="class_type" position="after">
+																
+															</field>
+
+															<field name="class_code" position="after">
+															</field>
+
+														</field>
+													</record> -->
+		<record id="view_event_tree_inherited_ppts_new" model="ir.ui.view">
+			<field name="name">event event tree</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="event.view_event_tree"/>
+			<field name="arch" type="xml">
+				<!--                 <xpath expr="//field[@name='name']" position="before">
+                    <button name="action_register" type="object" class="custom_identifier" icon="fa-sign-in" string="Register" />
+                </xpath> -->
+
+
+				<xpath expr="//field[@name='user_id']" position="attributes">
+					<attribute name="string">Created By</attribute>
+				</xpath>
+				<xpath expr="//field[@name='website_id']" position="attributes">
+					<attribute name="attrs">{}</attribute>
+					<attribute name="invisible">1</attribute>
+				</xpath>
+			</field>
+		</record>
+
+	<!-- Event Reject Master -->
+
+	<record id="event_reject_master_form" model="ir.ui.view">
+    <field name="name">event.reject.form</field>
+    <field name="model">event.reject.master</field>
+    <field name="arch" type="xml">
+        <form string="Event Reject">
+        	<sheet>
+                <group>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </group>
+            </sheet>
+<!--             <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div> -->
+        </form>
+    </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="event_reject_master_tree" model="ir.ui.view">
+        <field name="name">event.reject.tree</field>
+        <field name="model">event.reject.master</field>
+        <field name="arch" type="xml">
+            <tree string="Event Reject">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action View -->
+    <record id="action_event_reject_master" model="ir.actions.act_window">
+        <field name="name">Event Reject</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">event.reject.master</field>
+        <field name="view_id" ref="event_reject_master_tree"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <!-- Menu Details -->
+
+    	<menuitem id="menu_event_reject_master" action="action_event_reject_master"
+	name="Event Reject" parent="ppts_custom_event_mgmt.event_custom_master"
+	sequence="18" />
+
+	<!-- Added the field in event stage master -->
+
+	
+	</data>
+</odoo>

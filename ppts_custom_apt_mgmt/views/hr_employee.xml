@@ -1,0 +1,37 @@
+<odoo>
+	<data>
+
+	 <!-- <record id="view_appt_res_partner_histories" model="ir.ui.view">
+		<field name="name">partner form loc</field>
+		<field name="model">res.partner</field>
+		<field name="inherit_id" ref="base.view_partner_form" />
+		<field name="arch" type="xml">
+
+			<xpath expr="//div[@name='button_box']" position="inside">
+				<button  name="action_partner_appt"
+						 type="object"
+						 groups="event.group_event_user"
+						 class="oe_stat_button"
+						 string="Appointments History"
+						 icon="fa-bullhorn">
+						</button>
+			</xpath>
+
+		</field>
+	</record> -->
+
+	<!-- <record id="view_appt_hr_employee_histories" model="ir.ui.view">
+		<field name="name">hr.employee</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_form"/>
+		<field name="arch" type="xml">
+
+			<xpath expr="//field[@name='employee_desc']" position="after">
+				<field name="calendar_appointment_type_id" widget="many2many_tags"/>
+			</xpath>
+
+		</field>
+	</record> -->
+
+	</data>
+</odoo>

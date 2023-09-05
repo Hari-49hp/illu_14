@@ -1,0 +1,834 @@
+/* To highlight selected appointment date Added by jana */
+
+.div_slot {
+    text-align: center;
+}
+
+.selected-service-platform {
+    /* background: #00aec7 !important;
+    color: #424242 !important;
+    display: block;
+    opacity: 1; */
+}
+
+.selected-service-location .strugglecards {
+    background: #00aec7 !important;
+}
+
+.selectedDate {
+    background: #CBEEF3;
+    box-shadow: 0px 3px 12px -1px rgba(7, 115, 121, 0.15);
+    border-radius: 4px;
+}
+
+.select-therapest {
+    background: #CBEEF3;
+    box-shadow: 0px 6px 16px 1px #00000026;
+    transform: scale(1.01);
+}
+
+.select-sessionslistcard {
+    background: #CBEEF3;
+}
+
+.service-category-struggling-list .strugglecards .struhletypos {
+    width: 175px;
+}
+
+/* .bookaappointment-wrapper {
+    padding: 20px 80px;
+
+} */
+.bookaappointment-wrapper {
+    padding-bottom: 60px;
+}
+
+.bookappheading {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 160%;
+    text-transform: capitalize;
+    color: #333333;
+    margin: 30px 0px;
+}
+
+.bookaappointment-wrapper.fqa-wrapperlistsitems .nav-tabs-wrapper {
+    padding: 0px;
+}
+
+/* .bookaappointment-wrapper .faqbutton-button-container{
+    border: 1px solid #CBEEF3 !important;
+    border-width: 1px 0px 1px 0px;
+} */
+
+.bookaappointment-wrapper .faqbutton-button-container {
+    border-bottom: 0px !important;
+    padding: 0px;
+    border: 1px solid #CBEEF3 !important;
+    border-width: 1px 0px 1px 0px !important;
+
+}
+
+.bookaappointment-wrapper .faqbutton-button-container .nav-link {
+    color: #333;
+    opacity: 0.5;
+    font-weight: 500;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.bookaappointment-wrapper .faqbutton-button-container .nav-link.active {
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    opacity: 1;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+
+}
+
+.bookaappointment-wrapper .faqbutton-button-container .nav-link.active::after {
+    content: "\2713";
+    margin-left: 6px;
+    position: relative;
+    font-weight: 600;
+    font-size: inherit;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+
+}
+
+.backbuttontext {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: capitalize;
+    color: #333333;
+    /* padding: 8px 16px; */
+    display: inline-block;
+    border-radius: 20px;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    margin: 16px 0px;
+}
+
+.backbuttontext i {
+    margin-right: 6px;
+}
+
+.backbuttontext:hover {
+    /* background: #CBEEF3; */
+    color: #00AEC7 !important;
+}
+
+.bookappsubheading {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    text-transform: capitalize;
+    color: #333333;
+}
+
+
+
+.bookapptab-headersub {
+    margin-bottom: 20px;
+}
+
+.bookapp-footersection {
+    padding-top: 30px;
+}
+
+.bookapp-footersection .backbuttontext {
+    display: none;
+}
+
+.fullblurbookbtn {
+    background: #00AEC7;
+    border-radius: 4px;
+    max-width: 296px;
+    width: 100%;
+    padding: 10px 12px;
+    border: 0px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 20px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.fullblurbookbtn:hover {
+    background: #00879A;
+}
+
+.rigthsidebtn {
+    text-align: right;
+}
+
+
+.sessionslistcard {
+    width: 100%;
+    height: 15vw;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 6px; */
+    box-shadow: 0px 3px 18px rgb(27 114 119 / 8%);
+    -webkit-box-shadow: 0px 3px 18px rgb(27 114 119 / 8%);
+    border-radius: 4px;
+    transition: .2s;
+    flex-direction: column;
+    cursor: pointer;
+    margin-bottom: 20px;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.sessionslistcard:hover {
+    background: #CBEEF3;
+}
+
+.sessionslistcard h4 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 33px;
+
+    text-align: center;
+    text-transform: capitalize;
+
+    color: #333333;
+}
+
+.sessionslistcard p {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #00AEC7;
+}
+
+.bookappointmain .therapest-list-container h5 {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+    margin: 2px 0px 13px 0px;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.bookappointmain .therapest-list-container {
+    margin-top: 0px;
+    margin-bottom: 16px;
+}
+
+.bookappointmain .therapest-list-container img {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 10px;
+}
+
+.therapychooslist {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-radius: 4px;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    cursor: pointer;
+
+}
+
+.therapychooslist:hover {
+    background: rgba(128, 215, 227, 0.15);
+    box-shadow: 0px 6px 16px 1px #00000026;
+
+}
+
+.bookapp-therapyinfo {
+    justify-content: space-between;
+}
+
+.bookapp-therapyinfo-innersec img {
+    width: 290px;
+    height: 248px;
+    object-fit: cover;
+    object-position: top center;
+    margin-bottom: 20px;
+}
+
+.bookapp-therapyinfo-innersec h5 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.bookpackagecard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+}
+
+.paymentmethod-list {
+    margin-bottom: 12px;
+}
+
+.paymentmethod-list label {
+    cursor: pointer;
+}
+
+.cardfield {
+    /* display: grid;
+    grid-template-columns: 1.6fr 100px 100px;
+    grid-gap: 16px; */
+}
+
+.cardfield input {
+    border: 1px solid #E8E8E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    outline: none;
+    padding: 8px 16px;
+    width: 100%;
+    min-width: none;
+}
+
+.paymentdetailscard-container {
+    background: #F6FDFF;
+    border-radius: 4px;
+    padding: 20px;
+    max-width: 560px;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.paymentdetailscard-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-content: space-around;
+    grid-gap: 16px;
+
+}
+
+.paymentdetailscard-header .oberlay-tags {
+    text-align: right;
+}
+
+.paymentdetailscard-header .oberlay-tags label {
+    background: #CBEEF3;
+    color: #828282;
+}
+
+.paymentdetail-event {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #CBEEF3;
+    margin-bottom: 20px;
+}
+
+.paymentdetail-event label {
+    margin: 0;
+}
+
+.paymentdetail-event label i {
+    color: #00AEC7;
+    margin-right: 8px;
+}
+
+.total-amount-foot {
+    margin-top: 20px;
+}
+
+.total-amount-foot h4 {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total-amount-foot h4 label {
+    margin: 0px;
+}
+
+.total-amount-foot h4 span {
+    font-weight: 600;
+    font-size: 22px;
+    color: #00AEC7;
+}
+
+.total-amount-foot small {
+    opacity: 0.4;
+}
+
+.coupon_code_fields {
+    display: grid;
+    align-items: center;
+    justify-self: center;
+    grid-template-columns: 1.2fr .8fr;
+}
+
+.coupon_code_fields input {
+    padding: 8px 16px;
+    outline: none;
+    height: 40px;
+    border: 1px solid #BDBDBD;
+    border-radius: 4px 0px 0px 4px;
+    border-right: 0px !important;
+    width: 102%;
+    background: transparent !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+
+}
+
+.coupon_code_fields .couponapplybtn {
+    border: 1px solid #00AEC7;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    background: #F6FDFF;
+    color: #00AEC7;
+    height: 40px;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.coupon_code_fields .couponapplybtn:hover {
+    background: #00AEC7;
+    color: #FFFFFF;
+
+
+}
+
+.cartlistonprice {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 18px;
+}
+
+.cartlistonprice h4 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cartlistonprice .cardcountsection {
+    gap: 16px;
+}
+
+.cartlistonprice .cardcountsection p {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.bookapp-footersectionbutton {
+    display: inline-block;
+    text-align: left;
+}
+
+.bookapp-footersectionbutton button {
+    margin-bottom: 8px;
+}
+
+.bookapp-footersection .backbuttontext {
+    margin: 9px 0px;
+}
+
+.bookpackagecard.benifitlists .abouttherappoints .sessionslistcard,
+.bookpackagecard.benifitlists .abouttherappoints .sessionslistcard:hover {
+    background: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.bookpackagecard.benifitlists .abouttherappoints .sessionslistcard h6 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: capitalize;
+    color: #00AEC7;
+}
+
+
+
+.service_hoveredcontainer {
+    display: none;
+    opacity: 0;
+    background: #00AEC7;
+    padding: 16px;
+    color: #FFFFFF;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    /* left: 0; */
+    border-radius: 8px;
+    height: 120px;
+    transition: .5s;
+    animation: fadeindivshow .3s ease-in-out;
+    -webkit-animation: fadeindivshow .3s ease-in-out;
+}
+
+.service-lists-items-wrapper.selected-service-platform .service_hoveredcontainer {
+    display: block;
+    opacity: 1;
+    width: 93%;
+}
+
+.select-arrow-apt-cal:after {
+    top: 33% !important;
+    right: 10px !important;
+}
+
+.select-arrow-apt-cal select {
+    padding-left: 10px !important;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0 !important;
+}
+
+button.mindbtn.selected-service-platform {
+    background-color: #00AEC7;
+    color: #FFFFFF;
+}
+
+#open_appointment_calendar_menu i,
+#submit-appointment i {
+    margin-right: 15px;
+}
+
+.bookappointmain input,
+.bookappointmain select {
+    height: 43px;
+    font-size: 13px !important;
+}
+
+.month-fc-day-number,
+.fc-day.fc-widget-content,
+#month-fc-day-number {
+    cursor: pointer;
+}
+
+@keyframes fadeindivshow {
+    0% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@-webkit-keyframes fadeindivshow {
+    0% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.minsecinebtn_cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 30px;
+}
+
+.mindbtn {
+    border: 1px solid #00AEC7;
+    box-sizing: border-box;
+    border-radius: 4px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #00AEC7;
+    display: inline-block;
+    min-width: 150px;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    background: transparent;
+    transition: .2s;
+}
+
+.mindbtn.selectedmindbtn {
+    background: #00AEC7;
+    color: #FFFFFF;
+}
+
+.mindbtn:hover {
+    background: #CBEEF3;
+    color: #00AEC7;
+}
+
+.row.book-choose-therapist {
+    margin: 0;
+}
+
+.bookapp-rightusersec {
+    max-width: 600px;
+}
+
+.bookappointmain .fc-content-skeleton {
+    display: none;
+}
+
+.timepicker-wrapper {
+    margin-top: 60px;
+}
+
+.timepickerrows {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.timepickerbuttons {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #CCEFF4;
+    border-bottom: 1px solid #CCEFF4;
+    padding: 12px 5px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 19px;
+    border-radius: 4px;
+    /* identical to box height */
+
+    text-transform: capitalize;
+
+}
+
+.timeshooseactive {
+    background: #CBEEF3;
+    box-shadow: 0px 3px 12px -1px rgba(7, 115, 121, 0.15);
+    border-radius: 4px;
+}
+
+
+.strugglecards {
+    background: #FFFFFF;
+    box-shadow: 0px 3px 18px rgba(27, 114, 119, 0.08);
+    border-radius: 4px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+}
+
+.strugglecontwrapper>div {
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.strugglecards {
+    display: grid;
+    grid-template-columns: 94px auto;
+    grid-gap: 16px;
+    align-items: center;
+}
+
+.strugglecards:hover {
+    box-shadow: 0px 13px 8px rgb(9 50 52 / 8%);
+}
+
+.strugglecards h5 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: capitalize;
+    color: #333333;
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0 auto;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* .bookappointmain .row.serviceseclowheight{
+    margin: 0;
+} */
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .service_hoveredcontainer {
+        background: #FFFFFF;
+        color: #333333;
+        position: relative;
+        height: auto;
+    }
+
+    .service_hoveredcontainer h5 {
+        display: none;
+    }
+
+    .bookappointmain .service-lists-items-wrapper:hover .side_side {
+        background: #00aec7;
+    }
+
+    .bookappointmain .service-lists-items-wrapper:hover .service-svg-shapes-overlay h4 {
+        color: #FFFFFF;
+    }
+
+    .fullblurbookbtn {
+        padding: 14px 12px;
+    }
+
+    .bookpackagecard.benifitlists {
+        grid-template-columns: auto;
+        margin-top: 30px;
+    }
+
+    .bookpackagecard.benifitlists .abouttherappoints .sessionslistcard,
+    .bookpackagecard.benifitlists .abouttherappoints .sessionslistcard:hover {
+        height: auto;
+    }
+
+    .cartlistonprice {
+        grid-template-columns: auto;
+    }
+
+    .cartlistonprice .cardcountsection {
+        justify-content: space-between;
+    }
+
+    .bookappointment-subheader .backbuttontext {
+        display: none;
+    }
+
+    .bookapp-footersection {
+        display: grid;
+        align-items: flex-start;
+        justify-content: flex-end;
+        grid-template-columns: auto auto;
+        grid-gap: 16px;
+        align-items: center;
+    }
+
+    .bookapp-footersection .backbuttontext {
+        display: inline-block;
+    }
+
+    .paymentdetailscard-header {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        flex-direction: column-reverse;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .paymentdetail-event {
+        grid-template-columns: auto;
+    }
+
+    .bookapp-therapyinfo-innersec img {
+        margin-top: 20px;
+    }
+
+    /* .bookaappointment-wrapper {
+        padding: 20px 10px;
+    } */
+
+    .sessionslistcard h4 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    .bookpackagecard {
+
+        grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
+    }
+
+    .sessionslistcard {
+        height: 200px;
+        margin: 0px;
+
+    }
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .bookpackagecard.benifitlists {
+        grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 769px) {
+
+    /* .bookaappointment-wrapper {
+        padding: 20px 40px;
+    } */
+
+    .bookpackagecard {
+
+        grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
+    }
+
+    .sessionslistcard {
+        height: 200px;
+        margin: 0px;
+    }
+}
+
+.free_con_message {
+    margin-bottom: 30px;
+    margin-top: 10px;
+}

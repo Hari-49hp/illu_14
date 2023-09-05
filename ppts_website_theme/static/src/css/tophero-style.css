@@ -1,0 +1,954 @@
+/* ******************************************* Home page  TOP BANNER HERO CSS START ************************************* */
+
+.emp_resize_img {
+    max-height:600px; 
+    max-width:600px;
+    display: block;
+    margin: auto;
+
+}
+
+.top-hero {
+    min-height: 500px;
+}
+
+.top-hero_two {
+    min-height: 500px;
+}
+
+.hero-wrapper {
+    position: relative;
+    height: 400px;
+    /* display: inline-table; */
+    width: 100%;
+    padding: 0;
+}
+
+.hero-container {
+    /* float: right; */
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* overflow: hidden; */
+    transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    animation: heroshapeanimation 2.5s ease-in;
+    -webkit-animation: heroshapeanimation 2.5s ease-in;
+}
+
+.hero-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+.hpmehero-wrap {
+    padding: 5rem 0;
+}
+
+.hero3btncont {
+    display: flex;
+    gap: 8px;
+}
+
+.corpwelless .hero3btncont {
+    align-items: center;
+    width: 100%;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+@keyframes heroshapeanimation {
+    from {
+        transform: translate(90%, -80%);
+    }
+
+    to {
+        transform: translate(0%, 0%);
+    }
+}
+
+
+@-webkit-keyframes heroshapeanimation {
+    from {
+        transform: translate(90%, -80%);
+    }
+
+    to {
+        transform: translate(0%, 0%);
+    }
+}
+
+/* .top-hero svg {
+    width: 0;
+    height: 0;
+} */
+
+.clipped {
+    width: 610px;
+    height: 400px;
+    right: 0;
+    top: 0;
+    clip-path: url('#clip-path');
+    -webkit-clip-path: url('#clip-path');
+    /* transform: translate(10px, 0%); */
+    overflow: hidden;
+}
+
+.clipped img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.5);
+    animation: backgroundzoom 4s;
+    -webkit-animation: backgroundzoom 4s;
+}
+
+@keyframes backgroundzoom {
+    from {
+        transform: scale(.5);
+    }
+
+    to {
+        transform: scale(1.5);
+    }
+}
+
+/* button:hover+.clipped {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%, 0% 50%);
+    z-index: 2;
+} */
+
+.roundredbutton {
+    position: absolute;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    background: #E76666;
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    font-size: .75rem;
+    line-height: 1rem;
+    text-decoration: none;
+    z-index: 1;
+    outline: none;
+    border: 0px;
+    bottom: 2vw;
+    right: 320px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.roundredbutton:hover {
+    background: #e80909;
+    transform: scale(1.05);
+}
+
+.hero-intro-text {
+    height: 100%;
+    max-width: 760px;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px 0px 0px;
+    /* padding-left: 80px; */
+    float: left;
+}
+
+.hero-intro-text h6,
+.hearblackstyletext {
+    font-family: 'Blacksword';
+    font-weight: normal;
+    font-size: 32px;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    color: #00AEC7;
+}
+
+.hero-intro-text h1,
+.mainherotext {
+    font-weight: 600;
+    font-size: 62px;
+    text-transform: capitalize;
+    color: #3A3A3A;
+    line-height: 4rem;
+}
+
+.head-font-56px {
+    font-size: 56px !important;
+}
+
+.hero-intro-text p,
+.herotxtprag {
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    color: #333333;
+    line-height: 2.2rem;
+    max-width: 500px;
+}
+
+.eventonsitetemp .herotexcenter {
+    padding: 0px;
+}
+
+.eventonsitetemp .event-headerinfo {
+    grid-template-columns: auto;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+    border-bottom: 0px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.eventonsitetemp .event-headerinfo label {
+    color: #333333;
+    font-weight: 500;
+}
+
+.eventonsitetemp .breadcrum-sec {
+    margin-bottom: 20px;
+}
+
+.eventonsitetemp .event-useringo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.eventonsitetemp .event-useringo a {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+
+    align-items: center;
+}
+
+.eventonsitetemp .onsiteventimg label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #00AEC7;
+}
+
+.socialinformation label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: capitalize;
+    color: #333333;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+.socialinformation label i {
+    color: #00AEC7;
+    margin-right: 8px;
+}
+
+.onsiteventimg {
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.event-page-hero .eventonsitetemp .hero-two-left {
+    max-width: 530px;
+}
+
+/* Home her0 *********************************************************** */
+
+@media only screen and (max-width: 610px) and (min-width: 300px) {
+    .socialinformation {
+        max-width: 400px;
+        display: flex;
+        display: -webkit-box;
+
+        display: -moz-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .herotexcenter {
+        padding: 0px 0px 40px 0px;
+    }
+
+    .topbreadcrum {
+        padding: 0 !important;
+    }
+
+    .hero-container,
+    .herotwo-container-right {
+        position: relative;
+    }
+
+    .clipped {
+        width: 100%;
+    }
+
+    .top-hero {
+        display: flex;
+        display: -webkit-box;
+
+        display: -moz-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+
+        flex-direction: column;
+    }
+
+    .roundredbutton {
+        bottom: 40px;
+        left: 170px;
+    }
+
+    .hero-wrapper,
+    .herotwo_wrapper {
+        order: 2;
+        -webkit-order: 2;
+    }
+
+    .hero-container,
+    .herotwo-container-right {
+        order: 1;
+        -webkit-order: 1;
+    }
+
+    .hero-cards-wrapper {
+        order: 3;
+        -webkit-order: 3;
+    }
+
+}
+
+.hero-two-right {
+    height: 100%;
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 611px) {
+
+    .hero-container,
+    .herotwo-container-right {
+        position: relative;
+    }
+
+    .top-hero {
+        display: flex;
+        display: -webkit-box;
+
+        display: -moz-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+
+        flex-direction: column;
+    }
+
+    .roundredbutton {
+        bottom: 40px;
+        right: 330px;
+    }
+
+    .hero-wrapper,
+    .herotwo_wrapper {
+        order: 2;
+        -webkit-order: 2;
+    }
+
+    .hero-container,
+    .herotwo-container-right {
+        order: 1;
+        -webkit-order: 1;
+    }
+
+    .hero-cards-wrapper {
+        order: 3;
+        -webkit-order: 3;
+    }
+
+    .clipped {
+        float: right;
+    }
+}
+
+/* Home hero end ************************* */
+
+.searchpagerightsection {
+    padding: 0px;
+}
+
+.search-page-banner {
+    min-height: 500px;
+}
+
+/* ******************************************* Home page TOP BANNER HERO CSS END ************************************* */
+
+/* Big right side section hero css */
+.herotwo_wrapper {
+    padding: 0px;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    /* display: grid;
+    grid-template-columns: .8fr 1.2fr; */
+
+}
+
+.hero-leftintrotexts {
+    width: 100%;
+    max-width: 532px;
+    float: left;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 16px;
+    position: relative;
+}
+
+.herotwo-container-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    max-width: 60%;
+    /* text-align: right; */
+    float: left;
+    /* animation: heroshapeanimation 2.5s ease-in; */
+}
+
+/* .otherpageclipped {
+    width: 100%;
+    min-height: 500px;
+    max-width: 880px;
+    float: right;
+    right: 0;
+    top: 0;
+    clip-path: url('#clip-pathherobig');
+    -webkit-clip-path: url('#clip-pathherobig');
+    background-clip: content-box;
+    object-fit: cover;
+    overflow: hidden;
+} */
+
+.subintrotext {
+    min-height: 70%;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0px;
+}
+
+.subpagebigheroimage .hero-intro-text {
+    width: 40%;
+    float: left;
+}
+
+.subpagebigheroimage .hero-container {
+    width: 60%;
+    /* float: left; */
+    max-width: 904px;
+}
+
+.subpagebigheroimage.hero-wrapper.hero-withbreadcrum .hero-intro-text {
+    min-height: 100%;
+    justify-content: normal;
+}
+
+.subpagebigheroimage .subintrotext {
+    min-height: 90%;
+    align-items: flex-start;
+    justify-content: center;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    flex-direction: column;
+}
+
+.heroleftarrow {
+    position: absolute;
+    left: -150px;
+    bottom: 0;
+    right: 0;
+    top: auto;
+}
+
+/* Therapy page hero css - Full view Image ad textoverlay */
+
+.fullviewimage-hero {
+    /* min-height: 100vh; */
+    position: relative;
+}
+
+.therapy-heroimageorvideocont {
+    height: 100%;
+
+}
+
+
+
+.therapy-heroimageorvideocont img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlaytexts {
+
+    width: 100%;
+    min-height: calc(100vh - 95px);
+    /* padding: 10px 80px; */
+    z-index: 1;
+    position: relative;
+}
+
+.therapy-heroimageorvideocont {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-overlaytexts .hero-intro-text {
+    padding: 0px 0px 20px 0px;
+}
+
+.hero-overlaytexts .hero-intro-text h1,
+.hero-overlaytexts .hero-intro-text p,
+.hero-overlaytexts .topbreadcrum,
+.hero-overlaytexts .breadcrum-sec label,
+.hero-overlaytexts .hero-intro-text h6 {
+    color: #fff;
+}
+
+/* faq */
+.subpage-top-hero-section-two.faq-hero {
+    /* min-height: calc(100vh - 94px); */
+    min-height: 500px;
+
+}
+
+.faq-hero .hero-section-two {
+    margin: 0px;
+}
+
+.subpage-top-hero-section-two.faq-hero .hero-section-two {
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.subpage-top-hero-section-two.faq-hero .hero-two-left {
+    max-width: 100%;
+
+}
+
+.hero-section-two>div {
+    padding-left: 0px;
+}
+
+.subpage-top-hero-section-two.faq-hero .therapists-detail-hero h5 {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 160%;
+    margin-top: 16px;
+    border-bottom: 0px;
+}
+
+.rightsideslide {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 0;
+    z-index: -1;
+
+}
+
+.rightsideslide .hero-two-right .breadcrum-sec.mobilrbread {
+    margin-bottom: 20px;
+}
+
+.subpage-top-hero-section-two {
+    min-height: calc(100vh - 94px);
+    max-height: 1300px;
+}
+
+.eventonsitetemp .hero-two-right img {
+    max-width: 100%;
+    margin-top: 30px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.eventonsitetemp {
+    margin-bottom: 100px !important;
+}
+
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+    /* .otherpageclipped {
+        width: 100%;
+        min-height: 500px;
+        max-width: 880px;
+        float: right;
+        right: 0;
+        top: 0;
+        clip-path: url('#clip-pathherobigmobile');
+        -webkit-clip-path: url('#clip-pathherobigmobile');
+        background-clip: content-box;
+        object-fit: cover;
+        overflow: hidden;
+    } */
+
+    .herotwo_wrapper {
+        order: 1 !important;
+        -webkit-order: 1 !important;
+    }
+
+    .herotwo-container-right {
+
+        width: 300px !important;
+        float: right !important;
+
+        order: 2 !important;
+        -webkit-order: 2 !important;
+        align-self: flex-end;
+        top: -70px;
+        z-index: -2;
+    }
+
+    .clipped {
+        width: 300px;
+        height: 200px;
+        float: right;
+        clip-path: url('#clip-path-mobile');
+        -webkit-clip-path: url('#clip-path-mobile');
+        background-size: cover;
+        transform: translate(0%, 0%);
+        animation: none;
+        -webkit-animation: none;
+    }
+
+    .roundredbutton {
+        bottom: auto !important;
+        left: auto !important;
+        right: 110px;
+        top: 90px;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .fullpagebannerimg .therapy-heroimageorvideocont {
+        position: absolute;
+    }
+
+    .fullpagebannerimg {
+        margin-bottom: 20px;
+    }
+
+    .fullpagebannerimg .therapy-heroimageorvideocont {
+        padding: 0 !important;
+    }
+
+    .fullpagebannerimg .hero-overlaytexts .hero-intro-text h1,
+    .fullpagebannerimg .hero-overlaytexts .hero-intro-text p {
+        color: #fff !important;
+    }
+
+    .eventonsitetemp .event-headerinfo {
+        align-items: flex-start;
+
+
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .holisticbnr {
+        height: 240px;
+    }
+
+    .wellness_firstcards {
+        margin-bottom: 30px;
+        height: auto !important;
+    }
+
+    .hero3btncont {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .wellnessheros .hero-overlaytexts .hero-intro-text h6 {
+        color: #3A3A3A;
+    }
+
+    .wellnessheros .hero-intro-text {
+        margin: 20px 0 0;
+    }
+
+    .wellnessheros .hero-overlaytexts .hero-intro-text h1 {
+        margin: 0 !important;
+    }
+
+    .trymeditation .abt-title-img img {
+        height: 170px;
+        min-height: 170px !important;
+        object-position: top center;
+    }
+
+    .herotexcenter {
+        padding: 0px !important;
+    }
+
+    .mobileoverlays {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.07) 0%, #000000 100%);
+    }
+
+    .hero-intro-text h1 {
+        font-size: 36px;
+        line-height: 3rem;
+        margin: 20px 0px !important;
+    }
+
+    .hero-intro-text h6,
+    .hearblackstyletext {
+        font-size: 20px;
+    }
+
+    .breadcrum-sec label {
+        font-size: 12px;
+    }
+
+    .subintrotext {
+        padding: 10px 0px;
+    }
+
+    .hero-leftintrotexts {
+        padding-top: 0;
+    }
+
+    .herotwo_wrapper {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .hero-leftintrotexts {
+        order: 2;
+        -webkit-order: 2;
+        width: 100%;
+        max-width: 100%;
+        /* top: -30px; */
+    }
+
+    .herotwo_wrapper {
+        padding: 0px;
+    }
+
+    .therapy-heroimageorvideocont {
+        position: relative;
+        padding: 0px 10px;
+    }
+
+    .mobileabsoposition .therapy-heroimageorvideocont {
+        position: absolute;
+        padding: 0;
+    }
+
+    .mobileabsoposition .hero-overlaytexts .hero-intro-text h1,
+    .mobileabsoposition .hero-overlaytexts .hero-intro-text p,
+    .mobileabsoposition .hero-overlaytexts .topbreadcrum,
+    .mobileabsoposition .hero-overlaytexts .breadcrum-sec label {
+        color: #fff;
+    }
+
+    .hero-overlaytexts {
+        padding: 10px;
+        margin: 0;
+        min-height: 1px;
+    }
+
+    .hero-overlaytexts .hero-intro-text h1,
+    .hero-overlaytexts .hero-intro-text p,
+    .hero-overlaytexts .topbreadcrum,
+    .hero-overlaytexts .breadcrum-sec label {
+        color: #3A3A3A;
+        margin: 0;
+    }
+
+    .therapypagehero .herotexcenter {
+        display: block;
+    }
+
+    .hero-intro-text h1,
+    .mainherotext {
+        font-size: 40px;
+    }
+
+    .hero-intro-text p,
+    .herotxtprag {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .herotwo_wrapper {
+        padding: 00px 00px 0px 40px;
+    }
+
+    .herotwo-container-right {
+        /* position: relative; */
+        /* left: 1rem; */
+    }
+
+
+
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+    .herotwo-container-right {
+        /* position: relative;
+        left: 3rem; */
+    }
+}
+
+@media only screen and (max-width: 770px) and (min-width: 500px) {
+    .herotwo_wrapper {
+        max-width: 380px !important;
+        margin: 0% !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 499px) and (min-width: 300px) {
+
+    .herotwo-container-right {
+        position: relative;
+        width: 100%;
+        float: none;
+        max-width: 100%;
+        order: 1;
+        -webkit-order: 1;
+    }
+
+    .herotwo_wrapper {
+        order: 2;
+        -webkit-order: 2;
+    }
+
+    .top-hero_two {
+        display: flex;
+        display: -webkit-box;
+
+        display: -moz-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+
+        flex-direction: column;
+
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+
+    .subpage-top-hero-section-two {
+        min-height: 100%;
+    }
+
+    .image-orvideocpnt img {
+/*        height: auto;
+        zoom in zoomout fix*/    
+        width: auto;
+    }
+
+    .image-orvideocpnt {
+        height: 100% !important;
+    }
+}

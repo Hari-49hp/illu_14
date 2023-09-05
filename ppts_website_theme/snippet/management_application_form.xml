@@ -1,0 +1,191 @@
+<odoo>
+    <data>
+
+        <template id="management_application_form_page" name="Management Application Form">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <style>
+                        footer > section > div{
+							background: #fff;
+						}
+                    </style>
+
+                    <t t-set="jobp_ids" t-value="request.env['hr.job'].sudo().browse(int(job_id))" />
+
+                    <section class="fullviewimage-hero">
+                        <div class="mycontainer subintrotext" data-aos="fade-up" data-aos-delay="150" style="padding:30px 0px;">
+                            <div class="row justify-content-between">
+                                <div class="col-xl-5 blacktext ">
+                                    <div class="hero-intro-text  ">
+                                        <h6 class="hearblackstyletext ">Management </h6>
+                                        <h2 t-esc="jobp_ids.name"/>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5">
+                                    <br />
+                                    <br />
+                                    <p style="line-height:28px">
+                                        Thank you for your interest in Joining our team. We'd love to get to know you better and hear
+                                        more about what you do and how you can serve! 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <!-- <div class="modal-body therapyconsultant modelscrollinner"> -->
+
+                    <section>
+                        <div class="mycontainer">
+                            <div class="text-left">
+                                <img class="student-image d-50-m-100" alt="Student image" src="/ppts_website_theme/static/src/img/therapyconst.jpg" />
+                            </div>
+                            <h3 class="student-sub-heading m-top-30">Job Description</h3>
+                            <p class="student-desc">
+                                At Illuminations we offer a variety of different classes for personal and professional development. 
+                                These classes include meditation, yoga, workshops, training programs, free seminars &amp; destination retreats!
+                            </p>
+                            <h3 class="student-sub-heading m-top-30">Responsibilities</h3>
+                            <ul class="student-certification-list listwithdots responsibilities-lst">
+
+                            </ul>
+                            <h3 class="student-sub-heading m-top-30">Qualifications</h3>
+                            <ul class="student-certification-list listwithdots qualifications-lst">
+
+                            </ul>
+                        </div>
+                        <div class="student-forms mycontainer m-top-30">
+                            <h4>Fill out form to apply Career position</h4>
+                            <br/>
+                            <br/>
+                            <form class="recruitement-fill-form" t-attf-action="/management/application/submit/{{jobp_ids.id}}" method="post" data-mark="*" data-success-mode="redirect" enctype="multipart/form-data" autocomplete="off">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" name="name" placeholder="Name" required="required" autofocus="autofocus"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" name="contact" placeholder="Contact" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="email" name="email" placeholder="Email" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" type="text " name="designation" placeholder="Designation" required="required"/>
+                                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12 mobileorderforinputs">
+                                        <div class="dropdown currentloc inputwrap">
+                                            <t t-set="location_ids" t-value="request.env['res.company'].sudo().search([])" />
+                                            <select id="" name="company_id" class="uploadbtnprogress-select inputwrap" required="required">
+                                                <option value="" disabled="disabled" selected="selected">
+                                                    Current Location 
+                                                </option>
+                                                <t t-foreach="location_ids" t-as="location_id">
+                                                    <option t-att-value="location_id.id">
+                                                        <t t-esc="location_id.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="d-none">
+                                            <input id="resumePopup" type="file" name="resume" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,.pdf" class="dataset" required="required" />
+                                        </div>
+                                        <div>
+                                            <div class="uploadbtnprogress-input inputwrap" onclick="uploadResume()">
+                                                <label for="resume" style="overflow: hidden;display: inline-block;text-overflow: ellipsis;white-space: nowrap;"> 
+                                                    Upload resume <i class="fas fa-upload"></i>
+                                                </label>
+                                                <div class="progress hidden">
+                                                    <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"></div>
+                                                </div>
+                                            </div>
+                                            <div class="mob-hide">
+                                                <label class="checkboxlabel">
+                                                    More than 4MB file not allowed. And file extension must be in .pdf, .xls, .xlsx, .doc, .docx .
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" name="work_exp" type="text " placeholder="Relevant Work Experience" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" name="notice_period" type="text" placeholder="Notice Period" required="required"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 form-group mob-show">
+                                        <label class="checkboxlabel">
+                                            More than 4MB file not allowed. And file extension must be in .pdf, .xls, .xlsx, .doc, .docx .
+                                        </label>
+                                    </div>
+                                    <div class="col-12 form-group">
+                                        <label class="checkboxlabel">
+                                            <input class="" name="terms" type="checkbox" required="required"/>
+                                            I agree to the Privacy Policy &amp; Terms and Conditions
+                                        </label>
+                                    </div>
+                                    <div class="col-12 no-align-justify-center">
+                                        <button type="submit" class="formsubmitbtn m-width-30" id="ResumeSubmit">Apply</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </section>
+                    <div style="display:none;">
+                        <input type="hidden" value="all" name="next_job_id_type" id="next_job_id_type"/>
+                        <input type="hidden" value="0" name="current_partner_id" id="current_partner_id"/>
+                        <input type="hidden" value="A" name="current_tab" id="current_tab"/>
+                        <input type="hidden" value="0" name="next_job_id" id="next_job_id"/>
+                    </div>
+                </div>
+
+                <script>
+                    const $content = document.querySelector('.content')
+                    const $label = document.querySelector('label')
+                    const $input = document.querySelector('#file')
+                    const $progress = document.querySelector('.progress')
+                    const $progressBar = document.querySelector('.progress-bar')
+                    const $progressBarWraper = document.querySelector('.uploadbtnprogress-input')
+            
+            
+            
+                    const TIME = 10000
+                    const step = 400 / TIME * 16;
+                    let total = 0;
+            
+                    const updateProgress = () => {
+                        if (total > 400) {
+                            updateStatus()
+                            return
+                        }
+                        $progressBar.style.width = total + 'px';
+                        total += step
+                        requestAnimationFrame(updateProgress)
+                    }
+            
+                    const updateStatus = () => {
+                        const success = [1058, 1067, 32, 1055, 1048, 1044, 1054, 1056]
+                        $content.classList.add('success')
+                    }
+            
+                    $input.addEventListener('change', () => {
+                        $input.classList.toggle('hidden')
+                        $progress.classList.toggle('hidden')
+                        $label.textContent = 'Analyzing...'
+                        requestAnimationFrame(updateProgress)
+            
+                    })
+                </script>
+                <script src="/ppts_website_theme/static/src/js/management_application.js"></script>
+            </t>
+        </template>
+
+    </data>
+</odoo>

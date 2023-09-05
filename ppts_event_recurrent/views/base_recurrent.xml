@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<!-- Form_view -->
+		<record id="base_recurrent_form_view" model="ir.ui.view">
+			<field name="name">Base Recurrent</field>
+			<field name="model">base.recurrent</field>
+			<field name="arch" type="xml">
+				<form string="order">
+					<header>
+						<field name="state" widget="statusbar"/>
+					</header>
+					<sheet>
+						<field name="base_multi_select" widget="radio"/>
+						<group attrs="{'invisible':[('base_multi_select', '!=','single')]}">
+							<group>
+								<field name="start"/>
+							</group>
+							<group>
+								<field name="start_time"/>
+								<field name="end_time"/>
+							</group>
+						</group>
+
+						<group attrs="{'invisible':[('base_multi_select', '=','single')]}">
+							<group>
+								<field name="multi_select_date" widget="multiple_datepicker" attrs="{'required':[('base_multi_select', '!=','single')]}"/>
+							</group>
+							<group>
+								<button name="multi_process" string="Set Dates" type="object" class="oe_inline fa fa-arrow-right oe_link"/>
+							</group>
+						</group>
+
+						<group>
+							<field name="event_id"/>
+							<field name="event_type"/>
+
+
+							<field name="stop" invisible="1"/>
+							<field name="duration" invisible="1"/>
+							<field name="allday" invisible="1"/>
+						</group>
+
+
+
+						<field name="recurrent_ids" attrs="{'invisible':[('base_multi_select', '=','single')]}">
+							<tree string="Dates" editable="bottom">
+								
+								<field name="selected_date"/>
+								<field name="start_time"/>
+								<field name="end_time"/>
+								<field name="duration" invisible="0"/>
+								<field name="recurrent_id" invisible="1"/>
+							</tree>
+						</field>
+						<footer>
+							<button name="base_recurrent_event_rec" type="object" string="Multi Recurrent" icon="fa-table" attrs="{'invisible':[('base_multi_select', '=','single')]}"/>
+							<button string="Discard" class="btn btn-secondary" special="cancel"/>
+ 						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Form -->
+
+		<!-- Tree_view -->
+		<record id="base_recurrent_tree_view" model="ir.ui.view">
+			<field name="name">Base Recurrent</field>
+			<field name="model">base.recurrent</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="start"/>
+					<field name="start_time"/>
+					<field name="end_time"/>
+					<field name="event_id"/>
+					<field name="event_type"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Calendar_view -->
+		<record id="base_recurrent_calendar_view" model="ir.ui.view">
+			<field name="name">Base Recurrent</field>
+			<field name="model">base.recurrent</field>
+			<field name="priority" eval="2"/>
+			<field name="arch" type="xml">
+				<calendar string="Recurrent" mode="month" date_start="start" date_stop="stop" date_delay="duration" all_day="allday" event_open_popup="true" event_limit="2" color="event_type" quick_add="False">
+					<field name="start"/>
+					<field name="stop" invisible="1"/>
+				</calendar>
+			</field>
+		</record>
+		<!-- Calendar -->
+
+		<!-- Action_view -->
+		<record id="base_recurrent_action" model="ir.actions.act_window">
+			<field name="name">Base Recurrent</field>
+			<field name="res_model">base.recurrent</field>
+			<field name="view_mode">calendar,form,tree</field>
+			<field name="view_id" ref="base_recurrent_tree_view" />
+		</record>
+		<!-- Action -->
+
+	</data>
+</odoo>

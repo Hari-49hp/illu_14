@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="aspl_gift_card_assets" inherit_id="point_of_sale.assets">
+        <xpath expr="." position="inside">
+
+            <link rel="stylesheet" href="/aspl_gift_card/static/src/css/style.css"/>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/db.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/models.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Screens/ProductScreen/ControlButtons/giftCardControlButton.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Screens/GiftCardScreen/GiftCardScreen.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Screens/GiftCardScreen/GiftCardLine.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Screens/GiftCardScreen/giftCardCreateScreen.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Popups/giftCardCreatePopupConform.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Screens/PaymentScreen/PaymentScreen.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Popups/giftCardRedeemPopup.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Popups/giftCardEditExpirePopup.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Popups/giftCardRechargePopup.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/Popups/giftCardExchangePopup.js"></script>
+            <script type="text/javascript" src="/aspl_gift_card/static/src/js/JsBarcode.all.min.js"></script>
+        </xpath>
+    </template>
+</odoo>

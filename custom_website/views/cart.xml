@@ -1,0 +1,60 @@
+<odoo>
+
+	<template id="adjust_advance" inherit_id="website_sale.total" name="Adjust Advance">
+		<xpath expr="//div[@id='cart_total']//table/tr[last()]" position="after">
+			<tr t-if="(website_sale_order.partner_id.total_due)">
+				<td colspan="3" class="text-center text-xl-right border-0">
+					<span class="">
+						<a href="#" class="show_adjust_advance">Adjust Advanced</a>
+						<div class="adjust_advance_grp input-group w-100 d-none">
+							<form action="/shop/cart/adjust-advance" style="display: contents;" method="post" name="adjust_advance">
+							<input name="adjust_advance" class="form-control adjust_advance_field" type="text" placeholder="Enter Outstanding Amount"/>
+							<input name="value_adjust_advance" class="d-none form-control adjust_for_pass_value" type="text"/>
+							<div class="input-group-append">
+								<a href="#" id="outstanding_payment_btn" role="button" class="btn btn-secondary a-submit outstanding_payment_btn">Add</a>
+							</div>
+							</form>
+						</div>
+					</span>
+				</td>
+			</tr>
+		</xpath>
+		<xpath expr="//tr[@id='order_total']" position="after">
+			<tr id="partner_outstanding_payment" t-if="(website_sale_order.partner_id.total_due) &lt; 0">
+				<td class="text-right border-0">Outstanding Amount (Credit):</td>
+				<td class="text-xl-right border-0">
+
+					<span t-esc="abs(website_sale_order.partner_id.total_due)" class="monetary_field partner_outstanding_payment" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}"/>
+
+				</td>
+			</tr>
+			<tr id="partner_outstanding_payment" t-if="(website_sale_order.partner_id.total_due) &gt; 0">
+				<td class="text-right border-0">Outstanding Amount to Pay:</td>
+				<td class="text-xl-right border-0">
+
+					<span t-esc="abs(website_sale_order.partner_id.total_due)" class="monetary_field partner_outstanding_payment" style="white-space: nowrap;" t-options="{'widget': 'monetary', 'display_currency': website_sale_order.currency_id}"/>
+
+				</td>
+			</tr>
+		</xpath>
+
+		<xpath expr="//*[@id='order_total']/td[2]/strong" position="attributes">
+			<attribute name="class">amount_total_order</attribute>
+		</xpath>
+
+	</template>
+
+	<template id="cart_custom" inherit_id="website_sale.cart" name="Custom Cart">
+		<xpath expr="//*[@id='wrap']/div[1]" position="before">
+			<div class="outstanding_amt_alert alert alert-info oe_hidden">
+				<center id="err-content">Amount Total is greater than Given Outstanding Amount!</center>
+			</div>
+
+			<div class="outstanding_amt_alert_l alert alert-info oe_hidden">
+				<center id="err-content_l">Given Outstanding Amount is greater than your available Outstanding Amount!</center>
+			</div>
+
+		</xpath>
+	</template>
+
+</odoo>

@@ -1,0 +1,519 @@
+<odoo>
+	<data>
+
+
+		<!-- Form_view Master -->
+		<!--		<record id="appointment_subcateg_from_view" model="ir.ui.view">-->
+		<!--			<field name="name">Appointment subCateg Form</field>-->
+		<!--			<field name="model">appointment.sub.category</field>-->
+		<!--			<field name="arch" type="xml">-->
+		<!--				<form>-->
+		<!--					<sheet>-->
+		<!--						<group>-->
+		<!--							<field name="name" required="1" />-->
+		<!--							<field name="main_categ_id"/>-->
+		<!--							<field name="code"/>-->
+		<!--							<field name="notes"/>-->
+		<!--						</group>-->
+		<!--					</sheet>-->
+		<!--					<div class="oe_chatter">-->
+		<!--                         <field name="message_ids"/>-->
+		<!--                    </div>-->
+		<!--				</form>-->
+		<!--			</field>-->
+		<!--		</record>-->
+
+		<!-- Tree_view -->
+		<record id="employee_commission_tree_view" model="ir.ui.view">
+			<field name="name">Employee Commission</field>
+			<field name="model">employee.commission</field>
+			<field name="arch" type="xml">
+				<tree editable="bottom" sample="1" create="0">
+					<field name="employee_id"/>
+					<field name="sale_id"/>
+					<field name="appointment_id" invisible="1"/>
+					<field name="commission"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="employee_commission_action_view" model="ir.actions.act_window">
+			<field name="name">Employee Commission</field>
+			<field name="res_model">employee.commission</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="employee_commission_tree_view" />
+		</record>
+
+
+		<!-- Tree_view -->
+		<record id="appointment_emails_tree_view" model="ir.ui.view">
+			<field name="name">Appointment remainder Tree</field>
+			<field name="model">appointment.remainder</field>
+			<field name="arch" type="xml">
+				<tree default_order="user_id asc" editable="bottom" sample="1">
+					<field name="user_id" required="1" />
+					<field name="email"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="apppointment_emails_action_view" model="ir.actions.act_window">
+			<field name="name">Appointment Email Category</field>
+			<field name="res_model">appointment.remainder</field>
+			<field name="view_mode">tree</field>
+			<field name="view_id" ref="appointment_emails_tree_view" />
+		</record>
+
+
+		<!-- Form_view Master -->
+		<record id="appointment_cancel_reason_from_view" model="ir.ui.view">
+			<field name="name">Appointment Cancel Reason</field>
+			<field name="model">appointment.cancel.reason</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" required="1"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="appointment_cancel_reason_tree_view" model="ir.ui.view">
+			<field name="name">Appointment Cancel Reason</field>
+			<field name="model">appointment.cancel.reason</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="appointment_cancel_reason_action_view" model="ir.actions.act_window">
+			<field name="name">Appointment Cancel Reason</field>
+			<field name="res_model">appointment.cancel.reason</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="appointment_cancel_reason_tree_view" />
+		</record>
+
+
+
+		<!-- Form_view Master -->
+		<record id="appointment_categ_from_view" model="ir.ui.view">
+			<field name="name">Appointment MainCateg Form</field>
+			<field name="model">appointment.category</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<br/>
+						<field name="image" widget="image" class="oe_avatar"/>
+						<div class="oe_title">
+							<label class="oe_edit_only" for="name" string="Service Category Name"/>
+							<h1 >
+								<field name="name" required="1"/>
+							</h1>
+							<label for="website_publish" string="Website Publish"/>
+							<field name="website_publish" widget="boolean_toggle"/>
+							<label for="feature_in_homepage" string="Feature In Homepage"/>
+							<field name="feature_in_homepage" widget="boolean_toggle"/>
+						</div>
+						<group>
+							<group string="Category" class="o_group emp_grp_bg_other_info">
+								<field name="category_type" />
+								<field name='is_event_sub_category' invisible='1'/>
+								<field name="maincateg_code"/>
+								<field name="active_id" invisible="1"/>
+								<field name="tag_ids" widget="many2many_tags" required ="0"/>
+								<field name="color_code" widget="colorpicker"/>
+							</group>
+							<group string="Website" class="o_group emp_grp_bg_other_info">
+								<field name="is_training"/>
+								<field name="is_corporate"/>
+								<field name="is_retreats"/>
+								<field name="is_meditation"/>
+								<field name="is_event"/>
+								<field name="is_appointment"/>
+								<field name='event_categ_id' attrs="{'invisible':[('is_event', '!=', True)]}" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}" />
+							</group>
+						</group>
+						<grouo>
+							<label for="maincateg_notes" string="Notes"/>
+							<field name="maincateg_notes"/>
+						</grouo>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="appointment_maincateg_tree_view" model="ir.ui.view">
+			<field name="name">Appointment Main Categ Tree</field>
+			<field name="model">appointment.category</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="sequence" widget="handle"/>
+					<field name="name" required="1" />
+					<field name="maincateg_code"/>
+					<field name="maincateg_notes"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="appointment_maincateg_master_search" model="ir.ui.view">
+			<field name="name">appointment.category.search</field>
+			<field name="model">appointment.category</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="name"/>
+					<field name="maincateg_code"/>
+					<field name="maincateg_notes"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="apppointment_maincateg_action_view" model="ir.actions.act_window">
+			<field name="name">Service Category</field>
+			<field name="res_model">appointment.category</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="appointment_maincateg_tree_view" />
+			<field name="domain">[('is_event','!=',True)]</field>
+		</record>
+		
+	 <!-- menu action to view configuration under event configuration -->
+
+		<record id="event_service_category_action" model="ir.actions.act_window">
+			<field name="name">Event Category</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">appointment.category</field>
+			<field name="domain">[('is_event', '=', True)]</field>
+			<field name="context">{'default_is_event':True}</field> 
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+					Create a new Event category
+				</p>
+			</field>
+		</record>
+
+	 <!-- menu action to view configuration under event configuration -->
+
+
+
+		<!--Sub category		-->
+		<!-- Form_view Master -->
+		<record id="appointment_subcateg_from_view" model="ir.ui.view">
+			<field name="name">Appointment subCateg Form</field>
+			<field name="model">appointment.sub.category</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" required="1" />
+							<field name="code"/>
+
+							<field name="sarvice_categ_id" required="1"/>
+							<field name="sarvice_categ_code"/>
+
+							<field name="tag_by_therapy_id" widget="many2many_tags"/>
+
+							<field name="notes"/>
+
+							<field name="main_categ_id" invisible="1"/>
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_ids"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="appointment_subcateg_tree_view" model="ir.ui.view">
+			<field name="name">Appointment sub Categ Tree</field>
+			<field name="model">appointment.sub.category</field>
+			<field name="arch" type="xml">
+				<tree default_order="name asc">
+					<field name="name"/>
+					<field name="sarvice_categ_id"/>
+					<field name="code"/>
+					<field name="notes"/>
+				</tree>
+			</field>
+		</record>
+		<!--	Search vioew main categ	-->
+
+		<record id="appointment_subcateg_master_search" model="ir.ui.view">
+			<field name="name">appointment.subcategory.search</field>
+			<field name="model">appointment.sub.category</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="name"/>
+					<field name="main_categ_id"/>
+					<field name="code"/>
+					<field name="notes"/>
+
+					<group expand="0" string="Group By">
+						<filter string="Main Category" name="main_categ_id" domain="[]" context="{'group_by': 'main_categ_id'}"/>
+					</group>
+
+				</search>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="apppointment_subcateg_action_view" model="ir.actions.act_window">
+			<field name="name">Appointment Sub Category</field>
+			<field name="res_model">appointment.sub.category</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="appointment_subcateg_tree_view" />
+		</record>
+
+
+
+		<!--	APT Source	-->
+
+		<!-- Form_view Master -->
+		<record id="appointment_source_from_view" model="ir.ui.view">
+			<field name="name">Appointment source Form</field>
+			<field name="model">appointment.source</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" required="1" />
+							<field name="code"/>
+							<field name="notes"/>
+
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_ids"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="appointment_source_tree_view" model="ir.ui.view">
+			<field name="name">Appointment Source Tree</field>
+			<field name="model">appointment.source</field>
+			<field name="arch" type="xml">
+				<tree default_order="name asc">
+					<field name="name" required="1" />
+					<field name="code"/>
+					<field name="notes"/>
+				</tree>
+			</field>
+		</record>
+		<!--	Search vioew main categ	-->
+
+		<record id="appointment_source_master_search" model="ir.ui.view">
+			<field name="name">appointment.source.search</field>
+			<field name="model">appointment.source</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="name"/>
+					<field name="code"/>
+					<field name="notes"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="apppointment_source_action_view" model="ir.actions.act_window">
+			<field name="name">Appointment Source</field>
+			<field name="res_model">appointment.source</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="appointment_source_tree_view" />
+		</record>
+
+
+		<!--venue not need... branch can be used..-->
+		<!--		<menuitem id="apppointment_venue_master" action="ppts_custom_event_mgmt.event_venue_action_view"-->
+		<!-- name="Venue" parent="menu_appointments_configuration" sequence="9"/>-->
+
+
+
+		<!--main category		-->
+		<!-- Form_view Master -->
+		<record id="appointment_maincateg_from_view" model="ir.ui.view">
+			<field name="name">Appointment.type.Categ Form</field>
+			<field name="model">appointment.type.category</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" required="1" />
+							<field name="maincateg_code"/>
+							<field name="maincateg_notes"/>
+
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_ids"/>
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="appointment_typecateg_tree_view" model="ir.ui.view">
+			<field name="name">Appointment.type.Categ Tree</field>
+			<field name="model">appointment.type.category</field>
+			<field name="arch" type="xml">
+				<tree default_order="name asc">
+					<field name="name" required="1" />
+					<field name="maincateg_code"/>
+					<field name="maincateg_notes"/>
+				</tree>
+			</field>
+		</record>
+		<!--	Search vioew main categ	-->
+
+		<record id="appointment_typecateg_tree_view" model="ir.ui.view">
+			<field name="name">appointment.type.category.search</field>
+			<field name="model">appointment.type.category</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="name"/>
+					<field name="maincateg_code"/>
+					<field name="maincateg_notes"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="apppointment_typecateg_action_view" model="ir.actions.act_window">
+			<field name="name">Appointment Category</field>
+			<field name="res_model">appointment.type.category</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="appointment_typecateg_tree_view" />
+		</record>
+
+		<menuitem id="apppointments_master_parent" action="apppointment_maincateg_action_view" name="Main Master" parent="menu_appointments_configuration" sequence="1"/>
+
+		<!--		Appointments Type renamed as sub categories-->
+		<menuitem id="apppointment_maincateg_master" action="custom_calendar_appointment_type_action" name="Sub Category" parent="apppointments_master_parent" sequence="2"/>
+
+		<menuitem id="apppointments_package_master" action="apppointment_package_action_view" name="Packages" parent="apppointments_master_parent" sequence="3"/>
+
+
+		<record id="appointment_quick_remarks_from_view" model="ir.ui.view">
+			<field name="name">Appointment.quick.remarks Form</field>
+			<field name="model">appointment.quick.remark</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" required="1" />
+							<field name="code"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="appointment_quick_remarks_tree_view" model="ir.ui.view">
+			<field name="name">Appointment.quick.remarks.tree</field>
+			<field name="model">appointment.quick.remark</field>
+			<field name="arch" type="xml">
+				<tree default_order="name asc">
+					<field name="name" />
+					<field name="code"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="appointment_quick_remarks_search_view" model="ir.ui.view">
+			<field name="name">appointment.quick.remarks.search</field>
+			<field name="model">appointment.quick.remark</field>
+			<field name="arch" type="xml">
+				<search string="Search Remarks">
+					<field name="name"/>
+					<field name="code"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- Action_view -->
+		<record id="apppointment_quick_remarks_action_view" model="ir.actions.act_window">
+			<field name="name">Appointment Quick Remarks</field>
+			<field name="res_model">appointment.quick.remark</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="appointment_quick_remarks_tree_view" />
+		</record>
+
+
+		<!--employee therapist only		-->
+
+		<record id="apppointment_employee_action_view" model="ir.actions.act_window">
+			<field name="name">Therapist</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.employee</field>
+			<field name="domain">[('employee_type.name', '=', 'Therapist')]</field>
+			<!--				<field name="context">{'search_default_service_categ_id_group': 1}</field>-->
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="o_view_nocontent_smiling_face">
+				Create a new appointment sub category
+				</p>
+				<p>
+			Allow your customers to book an appointment on your website
+			by creating appointment sub category here.
+				</p>
+			</field>
+		</record>
+
+
+
+		<!-- <menuitem id="apppointments_employee_master" action="apppointment_employee_action_view" name="Therapist" parent="apppointments_master_parent_sub" sequence="2"/> -->
+
+		<menuitem id="apppointments_master_parent_sub" action="apppointment_maincateg_action_view" name="Sub Master" parent="menu_appointments_configuration" sequence="1"/>
+
+
+
+		<menuitem id="apppointments_maincateg_master" action="apppointment_maincateg_action_view" name="Service Category" parent="apppointments_master_parent" sequence="1"/>
+
+		<!--	Appointment type is consider as sub category	-->
+		<!--		<menuitem id="apppointments_subcateg_master" action="apppointment_subcateg_action_view" name="Sub Category" parent="apppointments_master_parent_sub" sequence="2"/>-->
+
+		<menuitem id="apppointments_typecateg_master" action="apppointment_typecateg_action_view" name="Appointment Category" parent="apppointments_master_parent_sub" sequence="3"/>
+		<menuitem id="apppointments_typecateg_master" action="apppointment_typecateg_action_view" name="Appointment Category" parent="apppointments_master_parent_sub" sequence="3"/>
+
+		<menuitem id="apppointment_source_master" action="apppointment_source_action_view" name="Source" parent="apppointments_master_parent_sub" sequence="3"/>
+
+		<menuitem id="apppointments_promo_code_master" action="coupon_program_action_coupon_program_apt" name="Promo Codes" parent="apppointments_master_parent_sub" sequence="7"/>
+
+		<menuitem id="apppointments_revenue_master" action="apppointment_revenue_action_view" name="Revenue Category" parent="apppointments_master_parent_sub" sequence="4"/>
+
+		<!-- <menuitem id="apppointments_pricing_master" action="apppointment_pricing_action_view" name="Pricing Options" parent="apppointments_master_parent_sub" sequence="5"/> -->
+
+		<menuitem id="time_time_master" action="time_time_action_view" name="Duration" parent="apppointments_master_parent_sub" sequence="6"/>
+
+		<menuitem id="time_slot_master" action="time_slot_action_view" name="Time Slot" parent="apppointments_master_parent_sub" sequence="7" groups="base.group_no_one"/>
+
+		<menuitem id="date_date_master" action="date_date_action_view" name="Date" parent="apppointments_master_parent_sub" sequence="8" groups="base.group_no_one"/>
+
+		<menuitem id="change_apt_appointment_cancel_reason" action="appointment_cancel_reason_action_view" name="Cancellation Reason" parent="apppointments_master_parent_sub" sequence="9"/>
+
+		<menuitem id="apppointments_master_parent_sub" action="apppointment_maincateg_action_view" name="Sub Master" parent="menu_appointments_configuration" sequence="1"/>
+
+<!-- 		<menuitem id="therapist_commission_master_parent_sub" action="employee_commission_action_view" name="Therapist Commission" parent="hr.menu_human_resources_configuration" sequence="1"/> -->
+
+		<menuitem id="apppointments_quick_remarks_master" action="apppointment_quick_remarks_action_view" name="Quick Remarks" parent="apppointments_master_parent_sub" sequence="7"/>
+
+		<!-- <menuitem id="apt_mailing_list" name="Mailing List" parent="menu_appointments_configuration" sequence="2" />
+
+		<menuitem id="apt_mailing_list_sub" action="mass_mailing.action_view_mass_mailing_lists" name="Mailing List" parent="apt_mailing_list" sequence="1"/>
+
+		<menuitem id="apt_mailing_list_contact" action="mass_mailing.action_view_mass_mailing_contacts" name="Mailing List Contact" parent="apt_mailing_list" sequence="2"/> -->
+
+	</data>
+</odoo>

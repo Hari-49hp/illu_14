@@ -1,0 +1,502 @@
+<odoo>
+	<data>
+
+		<!-- Form_view CRM Master -->
+		<record id="master_aboutus_from_view" model="ir.ui.view">
+			<field name="name">Aboutus</field>
+			<field name="model">master.aboutus</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="sequence"/>
+							<field name="sequence_first" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Form -->
+
+		<!-- Tree_view -->
+		<record id="master_aboutus_tree_view" model="ir.ui.view">
+			<field name="name">Aboutus</field>
+			<field name="model">master.aboutus</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_aboutus_action_view" model="ir.actions.act_window">
+			<field name="name">Aboutus</field>
+			<field name="res_model">master.aboutus</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_aboutus_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_view_aboutus" name="Master"
+			parent="crm.crm_menu_config" sequence="1" />
+
+		<menuitem id="crm_master_menu_view_master" action="master_aboutus_action_view"
+			name="How Did You Hear About Us?" parent="crm_master_menu_view_aboutus"
+			sequence="1" />
+
+		<menuitem id="partner_master_menu_view_master" action="master_aboutus_action_view" name="How Did You Hear About Us?" parent="contacts.res_partner_menu_config" sequence="1" />
+
+
+		<record id="master_branch_form_view_inherit" model="ir.ui.view">
+			<field name="name">Branch</field>
+			<field name="model">master.branch</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="sequence"/>
+							<field name="sequence_first" invisible="1"/>
+						</group>
+						<label for="street" string="Address"/>
+						<group>
+							<div class="o_address_format">
+								<field name="street" placeholder="Street..." class="o_address_street" />
+								<field name="street1" placeholder="Street 2..." class="o_address_street" />
+								<field name="city" placeholder="City" class="o_address_city" />
+								<field name="state_id" class="o_address_state"
+									placeholder="State" options="{&quot;no_open&quot;: True}"
+									context="{'country_id': country_id, 'zip': zip}" />
+								<field name="zip" placeholder="ZIP" class="o_address_zip" />
+								<field name="country_id" placeholder="Country" class="o_address_country"
+									options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" />
+							</div>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="master_branch_tree_view" model="ir.ui.view">
+			<field name="name">Branch</field>
+			<field name="model">master.branch</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_branch_action_view" model="ir.actions.act_window">
+			<field name="name">Branch</field>
+			<field name="res_model">master.branch</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_branch_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_branch" action="master_branch_action_view"
+			name="Branch" parent="crm_master_menu_view_aboutus" sequence="1" />
+
+
+
+
+
+		<record id="master_online_form_view_inherit" model="ir.ui.view">
+			<field name="name">Online</field>
+			<field name="model">master.online</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="master_online_tree_view" model="ir.ui.view">
+			<field name="name">Online</field>
+			<field name="model">master.online</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_online_action_view" model="ir.actions.act_window">
+			<field name="name">Online</field>
+			<field name="res_model">master.online</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_online_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_online" action="master_online_action_view"
+			name="Online" parent="crm_master_menu_view_aboutus"
+			sequence="1" />
+
+
+
+
+		<record id="master_refferal_form_view_inherit" model="ir.ui.view">
+			<field name="name">Referral</field>
+			<field name="model">master.refferal</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="master_refferal_tree_view" model="ir.ui.view">
+			<field name="name">Referral</field>
+			<field name="model">master.refferal</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_refferal_action_view" model="ir.actions.act_window">
+			<field name="name">Referral</field>
+			<field name="res_model">master.refferal</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_refferal_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_refferal" action="master_refferal_action_view"
+			name="Referral Type" parent="crm_master_menu_view_aboutus" sequence="1" />
+
+
+		<!-- Form_view CRM Master -->
+		<record id="master_intrestedin_from_view" model="ir.ui.view">
+			<field name="name">Intrested In</field>
+			<field name="model">master.intrestedin</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Form -->
+
+		<!-- Tree_view -->
+		<record id="master_intrestedin_tree_view" model="ir.ui.view">
+			<field name="name">Intrested In</field>
+			<field name="model">master.intrestedin</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_intrestedin_action_view" model="ir.actions.act_window">
+			<field name="name">Intrested In</field>
+			<field name="res_model">master.intrestedin</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_intrestedin_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_intrestedin" action="master_intrestedin_action_view"
+			name="What Services Are you Interested In?" parent="crm_master_menu_view_aboutus"
+			sequence="1" />
+
+		<!-- Form_view CRM Master -->
+		<record id="master_struggling_from_view" model="ir.ui.view">
+			<field name="name">Struggling</field>
+			<field name="model">master.struggling</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Form -->
+
+		<!-- Tree_view -->
+		<record id="master_struggling_tree_view" model="ir.ui.view">
+			<field name="name">Struggling</field>
+			<field name="model">master.struggling</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_struggling_action_view" model="ir.actions.act_window">
+			<field name="name">Struggling</field>
+			<field name="res_model">master.struggling</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_struggling_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_struggling" action="master_struggling_action_view"
+			name="Which Areas are you struggling with?" parent="crm_master_menu_view_aboutus"
+			sequence="1" />
+
+
+
+
+		<!-- Form_view CRM Master -->
+		<record id="master_holistic_from_view" model="ir.ui.view">
+			<field name="name">Holistic</field>
+			<field name="model">master.holistic</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Form -->
+
+		<!-- Tree_view -->
+		<record id="master_holistic_tree_view" model="ir.ui.view">
+			<field name="name">Holistic</field>
+			<field name="model">master.holistic</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_holistic_action_view" model="ir.actions.act_window">
+			<field name="name">Holistic</field>
+			<field name="res_model">master.holistic</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_holistic_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_holistic" action="master_holistic_action_view"
+			name="Which Holistic Approaches are you interested in?" parent="crm_master_menu_view_aboutus"
+			sequence="1" />
+
+
+		<!-- Form_view CRM Master -->
+		<record id="master_membership_from_view" model="ir.ui.view">
+			<field name="name">Membership</field>
+			<field name="model">master.membership</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- Form -->
+
+		<!-- Tree_view -->
+		<record id="master_membership_tree_view" model="ir.ui.view">
+			<field name="name">Membership</field>
+			<field name="model">master.membership</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_membership_action_view" model="ir.actions.act_window">
+			<field name="name">Membership</field>
+			<field name="res_model">master.membership</field>
+			<!-- <field name="view_type">form</field> -->
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_membership_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_membership" action="master_membership_action_view"
+			name="Membership Status?" parent="crm_master_menu_view_aboutus"
+			sequence="1" />
+
+
+
+
+
+		<record id="master_visit_form_view_inherit" model="ir.ui.view">
+			<field name="name">Visit</field>
+			<field name="model">master.visit</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="master_visit_tree_view" model="ir.ui.view">
+			<field name="name">Visit</field>
+			<field name="model">master.visit</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_visit_action_view" model="ir.actions.act_window">
+			<field name="name">Visit</field>
+			<field name="res_model">master.visit</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_visit_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_visit" action="master_visit_action_view"
+			name="Visit" parent="crm_master_menu_view_aboutus" sequence="1" />
+		
+		
+		<record id="master_category_form_view_inherit" model="ir.ui.view">
+			<field name="name">Event Type</field>
+			<field name="model">master.category</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="master_category_tree_view" model="ir.ui.view">
+			<field name="name">Event Type</field>
+			<field name="model">master.category</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="master_category_action_view" model="ir.actions.act_window">
+			<field name="name">Event Type</field>
+			<field name="res_model">master.category</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="master_category_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="crm_master_menu_master_category" action="event.action_event_type"
+			name="Event Type" parent="crm_master_menu_view_aboutus" sequence="1" />
+<!--master_category_action_view"-->
+
+
+
+		<record id="city_master_form_view_inherit" model="ir.ui.view">
+			<field name="name">City Master</field>
+			<field name="model">city.master</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="country_id" options="{'no_create': True,'no_open':True, 'no_edit': True}"/>
+							<field name="state_id" options="{'no_create': True,'no_open':True, 'no_edit': True}"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<!-- Tree_view -->
+		<record id="city_master_tree_view" model="ir.ui.view">
+			<field name="name">City Master</field>
+			<field name="model">city.master</field>
+			<field name="arch" type="xml">
+				<tree>
+					
+					<field name="name" />
+					<field name="state_id"/>
+					<field name="country_id"/>
+				</tree>
+			</field>
+		</record>
+		<!-- Tree -->
+
+		<!-- Action_view -->
+		<record id="city_master_action_view" model="ir.actions.act_window">
+			<field name="name">City Master</field>
+			<field name="res_model">city.master</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="city_master_tree_view" />
+		</record>
+		<!-- Action -->
+
+		<menuitem id="city_master_menu_view" action="city_master_action_view" name="Cities" parent="contacts.menu_localisation" sequence="1" />
+
+	</data>
+</odoo>

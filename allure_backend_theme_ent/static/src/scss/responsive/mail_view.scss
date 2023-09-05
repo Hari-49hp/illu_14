@@ -1,0 +1,67 @@
+@mixin mail-xs() {
+    .o_action_manager {
+        .o_widget_Discuss {
+            .o_control_panel {
+                border-bottom: 0;
+                .o_cp_top {
+                    .o_cp_top_left {
+                        flex: 1;
+                        overflow: hidden;
+                    }
+                }
+            }
+            .o_Discuss {
+                .o_DiscussMobileMailboxSelection {
+                    > button {
+                        border: 0;
+                        box-shadow: unset;
+                        background-color: transparent;
+                        color: var(--Label-value);
+                        &.o-active {
+                            @include border-animation();
+                        }
+                    }
+                }
+                .o_MobileMessagingNavbar {
+                    box-shadow: unset;
+                    border-top: 1px solid var(--border);
+                    .o_MobileMessagingNavbar_tab {
+                        box-shadow: unset;
+                        color: var(--Label-value);
+                        &.o-active {
+                            @include border-animation();
+                        }
+                    }
+                }
+                .o_NotificationList {
+                    .o_ThreadPreview.o-muted {
+                        background-color: $tr-hover;
+                    }
+                }
+                .o_ThreadView {
+                    .o_MessageList {
+                        .o_Message.o-not-discussion {
+                            background-color: $tr-hover;
+                        }
+                    }
+                }
+            }
+            &.ad_open_search {
+                .o_control_panel {
+                    z-index: 10;
+                    .o_cp_top {
+                        .o_search_options {
+                            display: flex !important;
+                        }
+                    }
+                }
+                .o_Discuss {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
+.o_web_client.ad_mobile {
+    @include mail-xs();
+}

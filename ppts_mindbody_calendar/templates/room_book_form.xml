@@ -1,0 +1,328 @@
+<odoo>
+<data>
+<template id="room_booking_form">
+<t t-call="website.layout">
+<link rel='stylesheet' href='/ppts_mindbody_calendar/static/src/css/room/room_booking.css'/>
+<script src='/ppts_mindbody_calendar/static/src/js/room/room_booking.js'></script>
+<script src='/ppts_mindbody_calendar/static/src/js/room/room_booking_default.js'></script>
+<center>
+<form name="frmResrc" action="/room/booking/appointment/create" method="post">
+<div id="DIV_1">
+<div id="DIV_2">
+<div id="DIV_3">
+<div id="DIV_4"></div>
+<div id="DIV_5">
+<div id="DIV_6">
+<table id="TABLE_7">
+<tbody id="TBODY_8">
+<tr id="TR_9">
+<td id="TD_10">
+<br id="BR_11" />
+<table id="TABLE_12">
+<tbody id="TBODY_13">
+<tr id="TR_14">
+<td id="TD_15">
+<b id="B_16">Schedule Room</b>
+</td>
+</tr>
+<tr id="TR_17">
+<td id="TD_18">
+<table id="TABLE_19">
+<tbody id="TBODY_20">
+	<tr id="TR_21">
+		<td id="TD_22">
+			<script type="text/javascript" id="SCRIPT_45">function DisplayEnterValidDate()
+				{
+				return 'The value you entered is not a valid date.';
+				}
+			</script>
+			<link rel="stylesheet" type="text/css" href="https://static.mindbodyonline.com/a/styles/subscription_options_3917612181.css" id="LINK_51" />
+			<style id="STYLE_52">.reservationUIUpdate {
+				margin: 20px 0;
+				}
+				.reservationUIUpdate .tableSpacing td {
+				padding-bottom: 5px;
+				}
+				.reservationUIUpdate input[type="text"] {
+				width: 106px;
+				}
+				.reservationUIUpdate label {
+				display: inline-block;
+				vertical-align: middle;
+				}
+				.reservationUIUpdate input[type="radio"] {
+				margin-right: 5px;
+				}
+				.reservationUIUpdate input[disabled] ~ label {
+				color: #999;
+				}
+				.reservationUIUpdate .reverseInputs {
+				display: inline-flex;
+				flex-direction: row-reverse;
+				vertical-align: middle;
+				}
+				.reservationUIUpdate .subscriptionText {
+				color: #696C74;
+				max-width: 300px;
+				font-size: 12px;
+				padding-bottom: 10px;
+				}
+				.reservationUIUpdate .subscriptionOption td:last-child {
+				padding: 0 0 5px 10px;
+				}
+				.reservationUIUpdate .subscriptionOption td:last-child input[disabled] + label {
+				color: #D5D9DE;
+				}
+				.reservationUIUpdate .subscriptionOption td:last-child label.margin {
+				margin-right: 15px;
+				}
+				.reservationUIUpdate .hasTipsy {
+				margin-left: 2px;
+				}
+				.reservationUIUpdate .prefersNotToProvideEmail {
+				padding-left: 3px;
+				margin-bottom: 3px;
+				}
+			</style>
+			<input type="hidden" name="CSRFToken" value="SQlchIBKZ7" id="INPUT_55" />
+			<input type="hidden" name="frmOnStep" id="INPUT_56" />
+			<input type="hidden" name="frmreqReferredByBiz" value="False" id="INPUT_57" />
+			<input type="hidden" name="frmreqGenderBiz" value="False" id="INPUT_58" />
+			<table id="TABLE_59">
+				<tbody id="TBODY_60">
+					<tr id="TR_61">
+						<td id="TD_62"></td>
+					</tr>
+				</tbody>
+			</table>
+			<script type="text/javascript" id="SCRIPT_63">$(document).ready(function() {
+				referSelectCtrl.ready(function() { });
+
+
+				referSelectCtrl.setCustomText({ 'client': 'Client' });
+				$('select[name=optReferralType]').change(function() {
+				referSelectCtrl.change();
+				});
+
+				var validateCustomGender = function(genderID, newCustomGender) {
+				newCustomGender = $.trim(newCustomGender);
+				if (genderID !== "-1") {
+				return true;
+				}
+				if (newCustomGender == '') {
+				alert('Please enter at least one character.')
+				return false;
+				}
+				if (newCustomGender.length > 20) {
+				alert('Please enter a gender with 20 characters or less.')
+				return false;
+				}
+				var duplicateMsg = genderIsDuplicate(newCustomGender);
+				if (duplicateMsg !== ''){
+				alert(duplicateMsg);
+				return false;
+				}
+
+				return true;
+
+				}
+
+				$('#addClientButt').click(function() {
+				var validGender = validateCustomGender($('#optGender').val(), $('#txtGender').val());
+				if (referSelectCtrl.canSubmit() &amp;&amp; validGender) {
+				addNewClienttest();
+				}
+				});
+				});
+			</script>
+		</td>
+	</tr>
+	<tr id="TR_64">
+		<td id="TD_65">
+			<br id="BR_66" />
+			<table id="TABLE_67">
+				<input type="hidden" name="CSRFToken" value="SQlchIBKZ7" id="INPUT_69" />
+				<tbody id="TBODY_70">
+					<tr id="TR_71">
+						<td colspan="2" id="TD_72">
+							<img height="2" width="100%" src="https://static.mindbodyonline.com/a/asp/adm/images/trans.gif" id="IMG_73" alt='' />
+						</td>
+					</tr>
+					<tr id="TR_74">
+						<td id="TD_75">
+							<strong id="STRONG_76">Client</strong>
+						</td>
+						<td id="TD_77">
+							<select class="optClient" name="optClientName" id="SELECT_87 optLocation" required="required">
+								<option value="" id="OPTION_88">
+									Select Client
+								</option>
+							</select>
+						</td>
+					</tr>
+					<tr id="TR_80">
+						<td colspan="2" id="TD_81">
+							<img height="1" width="100%" src="https://static.mindbodyonline.com/a/asp/adm/images/trans.gif" id="IMG_82" alt='' />
+						</td>
+					</tr>
+					<tr id="TR_83">
+						<td id="TD_84">
+							<strong id="STRONG_85">Location</strong>
+						</td>
+						<td id="TD_86">
+							<select class="optLocation" name="optLocation" id="SELECT_87 optLocation" required="required">
+								<option value="" id="OPTION_88">
+									Select location
+								</option>
+							</select>
+							<script type="text/javascript" id="SCRIPT_91">document.frmResrc.optLocation.options[0].text = 'Select location';
+							</script>
+						</td>
+					</tr>
+					<tr id="TR_92">
+						<td id="TD_93">
+							<strong id="STRONG_94">Service category</strong>
+						</td>
+						<td id="TD_95">
+							<select class="optTypeGroup" name="optServicesCategory" id="SELECT_87 optLocation" required="required">
+								<option value="" id="OPTION_88">
+									Select Category
+								</option>
+							</select>
+						</td>
+					</tr>
+					<tr id="TR_97">
+						<td id="TD_98">
+							<strong id="STRONG_99">Appointment type</strong>
+						</td>
+						<td id="TD_100">
+							<select name="optVisitType" id="SELECT_101" class="optAptType" required="required">
+								<option value="" id="OPTION_102">
+									Any
+								</option>
+							</select>
+							<input type="hidden" name="frmLastVTID" value="0" id="INPUT_103" />
+						</td>
+					</tr>
+					<tr id="TR_104">
+						<td id="TD_105">
+							<strong id="STRONG_106">Room</strong>
+						</td>
+						<td id="TD_107">
+							<select class="roomselectfield" name="optRoom" id="SELECT_87" required="required">
+								<option value="" id="OPTION_88" >
+									Select Room
+								</option>
+							</select>
+						</td>
+					</tr>
+					<tr id="TR_132">
+						<td id="TD_133"></td>
+						<td id="TD_134"></td>
+					</tr>
+					<tr id="TR_135">
+						<td id="TD_136">
+							<strong id="STRONG_137">Supervisor:</strong>
+						</td>
+						<td id="TD_138">
+							<select class="roomSupervisor" name="optSupervisor" id="SELECT_87" required="required">
+								<option value="" id="OPTION_88">
+									Select Supervisor
+								</option>
+							</select>
+						</td>
+					</tr>
+					<tr id="TR_213">
+						<td id="TD_214">
+							<strong id="STRONG_215">Date</strong>
+						</td>
+						<td id="TD_216">
+							<input type="date" id="room_appDate" required="required" name="room_appDate"/>
+						</td>
+					</tr>
+					<tr id="TR_221">
+						<td id="TD_222">
+							<strong id="STRONG_223">Start time</strong>
+						</td>
+						<td id="TD_224">
+							<select name="optStartTime" id="SELECT_225" required="required">
+								<t t-call="ppts_mindbody_calendar.time"/>
+							</select>
+						</td>
+					</tr>
+					<tr id="TR_297">
+						<td id="TD_298">
+							<strong id="STRONG_299">End time</strong>
+						</td>
+						<td id="TD_300">
+							<select name="optEndTime" id="SELECT_301" required="required">
+								<t t-call="ppts_mindbody_calendar.time"/>
+							</select>
+						</td>
+					</tr>
+					<tr id="TR_363">
+						<td id="TD_364">
+							<strong id="STRONG_365">Notes</strong>
+						</td>
+						<td id="TD_367">
+							<textarea name="txtNotes" id="TEXTAREA_368" cols="70" rows="3" required="required"></textarea>
+						</td>
+					</tr>
+					<tr id="TR_369">
+						<td colspan="2" id="TD_370">
+							<img height="2" width="100%" src="https://static.mindbodyonline.com/a/asp/adm/images/trans.gif" id="IMG_371" alt='' />
+						</td>
+					</tr>
+					<input type="hidden" name="frmPmtRefNo" id="INPUT_372" value="0" />
+					<input type="hidden" name="frmRtnAction" id="INPUT_373" value="main_resrc.asp" />
+					<input type="hidden" name="frmRtnScreen" id="INPUT_374" value="rsrc_sch" />
+					<tr id="TR_375">
+						<td colspan="2" id="TD_376">
+							<br id="BR_377" />
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</td>
+	</tr>
+	<tr id="TR_378">
+		<td id="TD_379">
+			<button class="booking-save" type="submit" value="Save">Save</button>
+		</td>
+	</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr id="TR_380">
+<td id="TD_381"></td>
+</tr>
+</tbody>
+</table>
+
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</center>
+</t>
+</template>
+
+
+
+<template id="room_booking_form_success" name="room_booking_form_success">
+<t t-call="website.layout">
+<center>
+<h1>Room Booked Successfull</h1>
+<a href="/room/dashbord">Go Back</a>
+</center>
+</t>
+</template>
+</data>
+</odoo>

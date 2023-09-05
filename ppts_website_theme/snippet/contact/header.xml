@@ -1,0 +1,87 @@
+<odoo>
+	<data>
+		<template id="illuminations_contactus_header" name="Header">
+			<section class="contacrus-header mycontainer">
+				<div class="">
+					<div class="breadcrum-sec">
+						<label data-aos="fade-up" data-aos-delay="50">
+							<a>Home /</a>
+							<a>Contact Us</a>
+
+						</label>
+					</div>
+				</div>
+				<div class="row therapists-detail-hero">
+					<div class="col-lg-6 col-md-12 col-xl-6  col-sm-12 col-xs-12">
+						<div class="hero-two-left">
+							<div data-aos="fade-up" data-aos-delay="100">
+								<h3>Contact Us</h3>
+							</div>
+							<div>
+								<div class="nav-tabs-wrapper" data-aos="fade-up" data-aos-delay="200">
+									<ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+										<li class="nav-item">
+											<a class="nav-link active" data-toggle="tab" href="#tabAa">JLT,
+												Dubai</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#tabBb">Mardif,
+												Dubai</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" data-toggle="tab" href="#tabcC">Abu Dhabi</a>
+										</li>
+									</ul>
+								</div>
+
+								<div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+									<div class="tab-pane fade show active" id="tabAa">
+										<!-- <a href="mailto:info@illuminationsworld.com"
+											class="emailtext">info@illuminationsworld.com</a>
+										<a href="tel:+971044487043" class="phonetext">+971-0-4 448 7043</a> -->
+										<label class="timetext">8am – 10pm Daily</label>
+										<label class="contactlocation">409, Fortune Executive Towers, Cluster T, Plot T1,
+											Jumeirah
+											Lakes Towers – Dubai – UAE</label>
+
+										<label class="contacticons">
+											<a href="mailto:info@illuminationsworld.com">
+												<i class="far fa-envelope"></i>
+											</a>
+											<a href="tel:+971044487043">
+												<i class="fas fa-phone"></i>
+											</a>
+											<a href="https://wa.me/971044487043">
+												<i class="fab fa-whatsapp"></i>
+											</a>
+										</label>
+										<a class="linktext">Parking Details</a>
+									</div>
+									<div class="tab-pane fade" id="tabBb">
+										<p>This is tab B</p>
+									</div>
+									<div class="tab-pane fade" id="tabcC">
+										<p>and C</p>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+						<div class="mapbox">
+							<div class="mapouter">
+
+								<div class="map-responsive">
+									<iframe width="600" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Illuminations%20Well%20Being%20Center%20JLT...&amp;t=&amp;z=9&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</template>
+	</data>
+</odoo>

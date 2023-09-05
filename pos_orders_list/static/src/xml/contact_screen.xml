@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <!-- <t t-name="ClientListScreenCustom" t-inherit="point_of_sale.ClientListScreen" t-inherit-mode="extension" owl="1">
+        <xpath expr="//tr" position="replace">
+            <tr t-attf-class="client-line {{highlight}}" t-if="props.partner.is_a_customer == True" t-att-data-id="props.partner.id" t-on-click="trigger('click-client', {client: props.partner})">
+                <td>
+                    <t t-esc="props.partner.name" />
+                    <span t-if="highlight">
+                        <br />
+                        <button class="edit-client-button" t-on-click.stop="trigger('click-edit')">EDIT</button>
+                    </span>
+                </td>
+                <td t-if="!env.isMobile">
+                    <t t-esc="props.partner.address" />
+                </td>
+                <td t-if="!env.isMobile" style="width: 130px;">
+                    <t t-esc="props.partner.phone || ''" />
+                </td>
+                <td t-if="env.isMobile">
+                    <t t-esc="props.partner.zip or ''" />
+                    <span t-if="highlight">
+                        <br />
+                    </span>
+                </td>
+                <td>
+                    <t t-esc="props.partner.email or ''" />
+                    <span t-if="highlight">
+                        <br />
+                    </span>
+                </td>
+            </tr>
+        </xpath>
+    </t> -->
+
+</templates>

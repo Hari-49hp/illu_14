@@ -1,0 +1,632 @@
+<odoo>
+    <data>
+        <record id="appointments_appointments_single_from_view" model="ir.ui.view">
+            <field name="name">single.appointment.from.view</field>
+            <field name="model">appointment.appointment</field>
+            <field name="arch" type="xml">
+
+                <form class="apt_frm">
+                    <style>
+						.o_ChatterTopbar_actions{
+							display: none;
+						}
+                    </style>
+                   <script>
+						$("#SaveRedirectHeadDTMBOO").click(function(){
+							
+							if (localStorage.getItem("open_log") == "edit") {
+								localStorage.setItem("open_log", "book");	
+							}
+							
+							$("#SaveRedirectHeadDTM").click();
+						});
+
+						setTimeout(function(){ 
+							$("#SaveRedirectHeadDTMBOO").click(function(){
+							
+								if (localStorage.getItem("open_log") == "edit") {
+									localStorage.setItem("open_log", "book");
+								}
+							
+								$("#SaveRedirectHeadDTM").click();
+							}); 
+						}, 2000);
+                    </script>
+                    <header>
+                        <field name="state" statusbar_visible="new,confirm,arrive,done" widget="statusbar" attrs="{'invisible': [('id', '=', False)]}" />
+                        <field name="payment_button_show" invisible="1" />
+                        <field name="cancellation_datetime" invisible="1" />
+                        <button name="action_sale_register_payment" type="object" string="Pay Now" invisible="1" />
+                        <button name="action_adjust_credit" type="object" string="Adjust Credit Note" invisible="1" />
+                        <button name="action_move_to_pos" type="object" string="Move to POS" invisible="1"/>
+                        <!-- attrs="{'invisible': ['|','|','|',('id','=',False),('pos_order_id', '!=', False), ('is_package_claim', '=', True),('state','in',['no_show','cancel'])]}"  -->
+                        <button id="SaveRedirectHeadDTM" name="save_redirect" type="object" string="Book" style="display:none;" />
+                        <button name="action_pack_confirm" type="object" string="Package Claim" invisible="1" />
+                        <button name="action_confirm" type="object" string="Confirm" attrs="{'invisible': ['|',('id', '=', False),'&amp;',('apt_partner_historys', '!=', False),('state','!=','new')]}" />
+                        <button name="reset_cancel_charges" type="object" string="Reset Cancellation Due" attrs="{'invisible': [(True)]}" />
+
+                        <button name="action_no_show" type="object" string="No Show" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('session_type','=','type_package')]}" />
+                        <button name="action_no_show_process" type="object" string="Confirm - No Show" attrs="{'invisible': ['|','|',('state', '!=', 'no_show'),('session_type','=','type_package'),('is_no_show_done','=',True)]}" />
+
+                        <button name="action_arrived" type="object" string="Arrived" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('session_type','=','type_package')]}" />
+
+                        <button name="action_done" type="object" string="Completed" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('session_type','!=','type_package')]}" />
+                        <button name="action_done" type="object" string="Completed" attrs="{'invisible': [('state', '!=', 'arrive')]}" />
+
+                        <button name="action_cancel" type="object" string="Cancel" invisible="1" />
+                        <button name="action_two_step_cancel" type="object" string="Cancel" attrs="{'invisible': ['|', ('state', 'not in', ['confirm', 'ongoing', 'arrive']), ('id', '=', False)]}" />
+
+                        <!-- <t attrs="{'invisible': ['|',('state', 'not in', ['done']), ('id', '=', False)]}"> -->
+                        <button name="action_two_step_void" type="object" string="Void" groups="ppts_custom_apt_mgmt.appointment_void_super_user" attrs="{'invisible': ['|','|',('state', '!=', 'done'), ('session_type','=','type_package'), ('id','=', False)]}" />
+
+                        <button name="action_two_step_void" type="object" string="Cancel" groups="ppts_custom_apt_mgmt.appointment_void_super_user" attrs="{'invisible': ['|','|',
+                            ('state', 'not in', ['ongoing']), ('session_type','=','type_package'), ('id','=', False)
+                            ]}" />
+                        <!-- </t> -->
+
+                        <button name="action_cancel_and_refund" type="object" string="Return &amp; Refund" attrs="{'invisible': ['|','|',('state', 'not in', ['cancel','void']),('payment_status_apt','=', 'no_paid'),('customer_balance','&gt;=', 0)]}" />
+
+                        <button name="action_reschedule" type="object" string="Reschedule" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('session_type', '=', 'type_package')]}" />
+                        <button name="create_invoice" type="object" string="Create Invoice" invisible="1" />
+                        <button name="action_apt_so" type="object" class="oe_highlight" icon="fa-shopping-cart" groups="base.group_no_one" string="View Cart" attrs="{'invisible':['|',('pos_order_id', '=', False), ('is_package_claim', '=', True)]}" />
+
+                        <field name="color" widget="color_picker" invisible="1" />
+                        <field name="website_payment_statuss" invisible="1" />
+                    </header>
+
+                    <sheet>
+                        <t attrs="{'invisible':[('session_type','=','type_single')]}">
+                            <div class="alert alert-danger" role="alert" attrs="{'invisible':[('appointment_line_id','!=', [])]}">
+                                <strong>Package not imported</strong>
+                            </div>
+                        </t>
+
+                        <div class="head_seq_pay">
+                            <h2>
+                                <field name="sequence" readonly="1" nolabel="1" />
+                            </h2>
+                            <h2>
+                                <field name="payment_status_apt" readonly="1" nolabel="1" />
+                            </h2>
+                        </div>
+
+                        <t attrs="{'invisible':['|',('id','=',False),('website_payment_statuss','=',False)]}">
+                            <div class="head_seq_pay">
+                                <h2>
+                                    <field name="website_payment_status_char" invisible="1"/>
+                                </h2>
+                            </div>
+                        </t>
+                        <group>
+                            <group class="emp_grp_bg_other_info" string="Customer Info">
+                                <field name="type_partner" widget="radio" options="{'horizontal': true}" attrs="{'readonly': ['|',('id', '!=', False),('partner_inv','!=',False)]}" string="Type of Customer" />
+                                <field name="partner_id" required="1" force_save="1" autocomplete="off" string="Customer Name" options="{'no_quick_create':True,'no_create':True,'no_open':True}" attrs="{'invisible':[('type_partner', '!=', 'type_existing')],'readonly': ['|',('id', '!=', False),('partner_inv','!=',False)]}" context="{'show_partner_id': True}" />
+                                <field name="extras_partner_id" string="Customer Name" autocomplete="off" attrs="{'invisible':[('type_partner', '=', 'type_existing')], 'required':[('type_partner', '!=', 'type_existing')],'readonly': [('state', '!=', 'new')]}" options="{'no_quick_create': True,'no_open':True}" context="{'default_gender': False, 'form_view_ref': 'custom_partner.res_partner_history_history_from_view'}"  style="width:90%%" />
+                                <field name="email" string="Email" />
+                                <field name="mobile" />
+                            </group>
+                            <group class="emp_grp_bg_other_info" string="Appointment Info">
+                                <field name="company_id" required="1" widget="selection" attrs="{'readonly': ['|',('id', '!=', False),('partner_inv','!=',False)]}" />
+                                <field name="partner_inv" invisible="1"/>
+                                <field name="booked_by" readonly="1" widget="many2one_avatar_user" string="Created By" />
+                                <field name="creation_date" invisible="1" />
+                                <field name="creation_datetime" readonly="1" />
+                                <field name="sales_rep_id" widget="many2one_avatar_user" string="Sales Rep" options="{'no_quick_create':True,'no_create':True, 'no_open': True}" attrs="{'readonly': ['|',('id', '!=', False),('partner_inv','!=',False)]}" />
+                                <field name="altered_booked_by" style="padding-bottom:12px !important;" readonly="1" widget="many2one_avatar_user" string="Modified By" />
+                                <!-- <br /> -->
+                                <field name="reffer_type_id" attrs="{'readonly': ['|',('id', '!=', False),('partner_inv','!=',False)]}" options="{'no_quick_create':True,'no_create':True,'no_open': True}" force_save="1"/>
+                                <field name="booking_mode" required="1" attrs="{'readonly': ['|',('id', '!=', False),('partner_inv','!=',False)]}" />
+                                <!--Cancellation -->
+                                <field name="due_cancellation_charge" invisible="1" />
+                                <field name="cancel_charge_applied" invisible="1" />
+                                <!--No show -->
+                                <field name="pay_no_show" invisible="1" force_save="1" />
+                                <!--Pack claim -->
+                                <field name="package_line_id" invisible="1" force_save="1" />
+                                <field name="is_package_claim" invisible="1" />
+                            </group>
+                        </group>
+                        <group class="emp_grp_bg_other_info" string="Account Info">
+                            <group>
+                                <field name="account_balance" invisible='1'/>
+                                <field name="customer_balance" attrs="{'invisible': [('customer_balance','&lt;=', 0)]}" style="background-color:#228B22;padding: 5px;font-weight: 700;font-size: 14px;color:#fff" readonly='1' force_save='1'/>
+                                <field name="customer_balance" attrs="{'invisible': [('customer_balance','&gt;=', 0)]}" style="background-color: #D22B2B;color: #fff;padding: 5px;font-weight: 700;font-size: 14px;" readonly='1' force_save='1' />
+                                <field name ="invoice_balance" invisible='1'/>
+                                <!--Cancellation -->
+                                <field name="topay_cancellation_charge" attrs="{'invisible': ['|',('topay_cancellation_charge', '=', 0),('is_package_claim', '=', True)]}" readonly="1" force_save="1" />
+                                <field name="cancel_options" attrs="{'required':[('topay_cancellation_charge', '>', 0),('state','=','new')],'invisible': ['|',('topay_cancellation_charge', '=', 0), ('is_package_claim', '=', True)], 'readonly': [('state', '!=', 'new')]}" />
+                                <!--No show -->
+                                <field name="topay_no_show_charges" attrs="{'invisible': ['|',('topay_no_show_charges', '=', 0),('is_package_claim', '=', True)]}" readonly="1" force_save="1" />
+                                <field name="noshow_options" attrs="{'required':[('topay_no_show_charges', '>', 0),('state','=','new')],'invisible': ['|',('topay_no_show_charges', '=', 0),('is_package_claim', '=', True)], 'readonly': [('state', '!=', 'new')],'required': [('topay_no_show_charges', '!=', 0)]}" />
+                            </group>
+                            <group></group>
+                        </group>
+                        <group invisible="1">
+                            <field name="appointment_type" />
+                            <field name="online_web_link" />
+                            <field name="pac_pos_atv" />
+                            <field name="session_type" />
+                            <field name="expiry_date" />
+                            <field name="location_id" widget="selection" />
+                            <field name="use_rescheule" />
+                            <field name="tag_by_healing_id" />
+                            <field name="tag_by_sub_healing_id" domain="[('parent_id','=',tag_by_healing_id)]" />
+                            <field name="tag_by_therapy_id" domain="[('parent_id','=',tag_by_healing_id)]" />
+                            <field name="account_id" readonly="1" string="Revenue Category" />
+                            <field name="sale_order_id" />
+                            <field name="invoice_id" />
+                            <field name="refund_id" />
+                            <field name="cc_cancel_atv" />
+                            <field name="cc_cancellation_charge" />
+                            <field name="cc_refund" />
+                            <field name="cc_confirmed" string="total confirmed" />
+                            <field name="cc_cancelled" string="total canceled" />
+                            <field name="cc_total_invoiced" string="total invoiced" />
+                            <field name="reschedule_flag" />
+                            <field name="use_partial_cancel" />
+                            <field name="refund_enable" />
+                            <field name="package_discount" />
+                            <field name="appointment_type" />
+                            <field name="sale_person_id" domain="[('share','=',True)]" attrs="{'readonly': [('state', '!=', 'new')]}" options="{'no_create_edit': True,'no_create': True}" />
+                            <field name="name" placeholder="Name of Appointment" />
+                            <field name="account_id" />
+                            <field name="type_appointment" />
+                            <field name="parent_id" />
+                            <field name="package_line_id" />
+                            <field name="pos_order_id" />
+                            <field name="start_time_str" />
+                            <field name="start_time" />
+                            <field name="end_time_str" string="End Time" />
+                            <field name="end_time" />
+                            <field name="duration" />
+                            <field name="date_day" />
+                            <field name="credit_note_id" />
+                            <field name="cancel_options" />
+                            <field name="due_cancellation_charge" />
+                            <field name="topay_cancellation_charge" />
+                            <field name="cancel_charge_applied" />
+                            <field name="is_no_show_date" />
+                            <field name="is_no_show_done" />
+                            <field name="no_show_charges" />
+                            <field name="no_show_invoice_id" />
+                            <field name="payment_status_apt" />
+                            <field name="cancel_charge_applied" />
+                        </group>
+                        <field name="available_dates_list" id="available_dates_list" style="display:none;" />
+                        <group>
+                            <notebook>
+                                <page id="notebook_service_categ" string="Service Details">
+                                    <group>
+                                        <group class="emp_grp_bg_other_info" string="Service Info">
+                                            <field name="session_type" string="Type of Session" widget="radio" attrs="{'readonly':[('id', '!=', False)],'invisible':[('is_package_claim','=',True)]}" options="{'horizontal': true}" />
+                                            <field name="pre_booking" attrs="{'readonly':[('state', '!=', 'new')],'invisible':['|','|',('is_package_claim','=',True),('session_type','=','type_package'),('state','!=','new')]}"/>
+                                            <field name="booking_date" autocomplete="off" attrs="{'readonly':['|','|',('state', '!=', 'new'), '&amp;',('booking_date','=',False),('pre_booking','=',False),('change_time','=',False)], 'invisible':['|','|',('session_type', '=', 'type_package'),('is_prebook','=',True),('is_package_claim', '=', True)]}" />
+                                            <field name="change_time" string="Update Details" attrs="{'invisible':['|','|',('session_type', '=', 'type_package'),('id','=',False),('is_prebook','=',True)], 'readonly':[('state', '!=', 'new')]}" force_save="1" />
+                                            <field name="apt_date" invisible="1"/>
+
+
+                                            <field name="available_booking_date" widget="date_highlighter" class="date_highlighter_avail" attrs="{'readonly':[('state', '!=', 'new')],'required':[('is_package_claim', '=', True),('pre_booking','=',False)],'invisible':[('is_package_claim', '!=', True)]}" />
+                                            <field name="available_booking_date" widget="date_highlighter" class="date_highlighter_avail" attrs="{'invisible':['|',('apt_date','=',False),('pre_booking','=',True)],'readonly':['|','|',('state', '!=', 'new'), '&amp;',('booking_date','=',False),('pre_booking','=',False),('change_time','=',False)]}"/>
+
+                                            <field name="employee_type_apointment" invisible="1" />
+                                            <field name="employee_type_apointment" invisible="1" />
+                                            
+                                            <field name="therapist_id" required="1" attrs="{'readonly':['|','|',('state', '!=', 'new'), '&amp;',('booking_date','=',False),('pre_booking','=',False),('change_time','=',False)],'invisible':[('session_type', '=', 'type_package')]}" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open':True}" force_save="1"/>
+                                            <field name="therapist_id" required="1" attrs="{'readonly':['|',('state', '!=', 'new'),('id','!=',False),'&amp;',('session_type','=','type_package')],'invisible':['|',('session_type', '=', 'type_single'),('pre_booking','=',True)]}"  options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open':True}" force_save="1"/>
+                                            <field name="du_service_categ_id" required="1" force_save="1" attrs="{'readonly':['|','|',('state', '!=', 'new'),('therapist_id','=',False),('change_time','=',False)]}" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True,}" />
+                                            <field name="service_categ_id" invisible="1" force_save="1" attrs="{'readonly':[('state', '!=', 'new')]}" />
+                                            <field name="appointments_type_id" string="Sub Category" required="1" attrs="{'readonly':['|','|','|',('state', '!=', 'new'),('therapist_id','=',False),('du_service_categ_id','=',False),('change_time','=',False)]}" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True,}" />
+                                            <field name="appointment_type" required="1" attrs="{'readonly':[('state', '!=', 'new')]}" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True,}" />
+                                            <field name="is_prebook" readonly="1" invisible="1" force_save="1"/>
+                                            <field name="s_service_categ_id" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True,}" attrs="{'readonly':['|','|','|','|',('state', '!=', 'new'), ('therapist_id','=',False), ('du_service_categ_id','=',False), ('appointments_type_id','=',False), ('time_id','=',False),],'required':[('session_type', '=', 'type_package')],'invisible':[('session_type', '!=', 'type_package')]}" />
+                                            <field name="quick_remarks_id"  attrs="{'readonly':[('state', '!=', 'new')]}" options="{'no_quick_create':True,'no_create':True,'no_open':True,'no_create_edit':True}"/>
+                                            <field name="notes"  class="textarea_height_cust_apt" attrs="{'readonly':[('state', '!=', 'new')]}" />
+
+                                            <field name="check_package" invisible="1" />
+                                            
+                                        </group>
+                                        <group string="Booking Info" class="emp_grp_bg_other_info">
+
+                                            <!-- <field name="change_time" attrs="{'invisible':['|',('session_type', '=', 'type_package'),('id','=',False)], 'readonly':[('state', '!=', 'new')]}" force_save="1" /> -->
+                                            <field name="time_id" attrs="{'invisible':[('session_type', '=', 'type_packages')],'readonly':['|','|','|','|',('therapist_id','=',False), ('du_service_categ_id','=',False), ('appointments_type_id','=',False),('state', '!=', 'new'),('change_time','=',False)],'required':[('pre_booking','=',False)]}" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True,}" />
+                                            <field name="time_slot_id" force_save="1" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True,}" attrs="{'invisible':['|',('session_type', '=', 'type_package'),('pre_booking','=',True)],'readonly':['|','|','|','|','|',('change_time','=',False),('state', '!=', 'new'),('therapist_id','=',False),('du_service_categ_id','=',False),('appointments_type_id','=',False),('time_id','=',False)],'required':[('session_type', '!=', 'type_package'),('pre_booking','=',False)]}" />
+                                            <field name="apt_room_id" attrs="{'readonly':['|','|','|','|','|',('state', '!=', 'new'),('therapist_id','=',False),('du_service_categ_id','=',False),('appointments_type_id','=',False),('time_id','=',False),('time_slot_id','=',False)],'required':[('session_type', '!=', 'type_package'),('pre_booking','=',False)],'invisible':['|',('session_type', '=', 'type_package'),('pre_booking','=',True)]}" options="{'no_quick_create': True, 'no_create_edit' : True, 'no_create' : True, 'no_open': True,}" />
+                                            <field name="start_time_str" invisible="1" />
+                                            <field name="end_time_str" invisible="1" />
+                                            <field name="booking_date_time" invisible="1" />
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <div class="oe_inline" attrs="{'invisible':[('session_type', '!=', 'type_package')]}">
+                                                <button name="add_package_line" string="Update" type="object" class="oe_inline oe_edit_only fa fa-arrow-right oe_link" attrs="{'invisible':[('state', '!=', 'new')]}" context="{'add_package_pop': True}" />
+                                                <button name="remove_package_line" string="Remove Package" type="object" class="oe_inline oe_edit_only fa fa-trash oe_link" attrs="{'invisible':[('state', '!=', 'new')]}" />
+                                            </div>
+                                    </group>
+                                    <group string="Unclaimed Package Sessions" class="emp_grp_bg_other_info" invisible='1'></group>
+                                    <field name="apt_partner_historys" readonly="1" force_save="1" invisible='1'>
+                                        <tree class="booking_apt_state_book package_info_tree" editable="bottom">
+                                            <field name="therapist_id" invisible="1" />
+                                            <field name="appointments_package_id" invisible="0" />
+                                            <field name="service_categ_id" invisible="1" />
+                                            <field name="appointments_type_id" string="Sub Category" />
+                                            <field name="package_expired_date" />
+                                            <field name="state" string="Package State" style="width: 50px;" invisible="1" />
+                                            <field name="state_line" string="Package Status" style="width: 50px;" />
+                                            <button name="action_claim_pack" type="object" string="Claim" attrs="{'invisible':[('state_line','!=','draft')]}" context="{'claim_operation': False, 'apt_id': parent.id}" />
+                                        </tree>
+                                    </field>
+                                    <!-- <group> -->
+                                    <group string="Package Information" class="emp_grp_bg_other_info" attrs="{'invisible':[('session_type', '!=', 'type_package')]}"></group>
+                                    <field name="appointment_line_id" string="Package Information" widget="section_and_note_one2many" mode="tree" attrs="{'invisible':[('session_type', '!=', 'type_package')]}">
+                                        <tree delete="false" create="false" class="package_info_tree">
+
+                                            <field name="appointment_id" string="Package Ref #"/>
+                                            <field name="service_categ_id" string="Category" />
+                                            <field name="therapist_id" string="Therapist" />
+                                            <field name="package_expired_date" />
+                                            <field name="appointment_package_reference_id" string="Ref #" />
+                                            <field name="claimed_apt_date" string="Appointment Date" />
+                                            <field name="claimed_apt_time_slot_id" string="Start &amp; End Time" />
+                                            <field name="state" string="Package State" invisible="1" />
+                                            <field name="state_line" string="Package Status" />
+                                            <!-- <button name="action_void_line" type="object" string="Void" attrs="{'invisible': ['|',('state_line', 'not in', ('draft')),('state_line', '=', 'void')]}" /> -->
+                                            
+                                            <!-- replace method to show particular appointment -->
+                                            <button name="action_redirect_main_apt" type="object" string="Void" attrs="{'invisible': [('state_line', '!=', 'confirm')]}" />
+                                            
+                                            <!-- made invisble as per dinesh/Rahul input  -->
+                                           <!--  <button name="action_partial_cancel" type="object" string="Return &amp; Refund" attrs="{'invisible': ['|',('state_line', 'not in', ('draft')),('state_line', '=', 'cancel')]}" /> -->
+                                            <!-- made invisble as per dinesh/Rahul input  -->
+
+                                            <!-- <button name="action_redirect_main_apt" type="object" title="Redirect To Appointment" icon="fa-arrow-right" attrs="{'invisible': [('state_line', '!=', 'confirm')]}" /> -->
+<!--                                             <button name="action_redirect_main_apt" type="object" title="Redirect To Appointment" icon="fa-arrow-right" attrs="{'invisible': [('state_line', '!=', 'confirm')]}" />-->
+
+
+                                            <field name="single_session_id" string="Ref #" invisible="1" />
+                                            <field name="appointments_type_id" string="Sub Category" invisible="1" />
+                                            <field name="id" invisible="1" />
+                                            <field name="appointments_package_id" invisible="1" />
+                                            <field name="time_id" string="Duration" invisible="1" />
+                                            <field name="unit_price" string="Price" invisible="1" />
+                                            <field name="therapist_assistant_id" optional="hide" invisible="1" />
+                                            <field name="expiry_date" optional="hide" invisible="1" />
+                                            <field name="duration" invisible="1" optional="show" />
+                                            <field name="start_time" optional="show" invisible="1" />
+                                            <field name="end_time_str" optional="show" string="End Time" invisible="1" />
+                                            <field name="payrate_type" invisible="1" />
+                                            <field name="staff_rate_percentage" invisible="1" />
+                                            <field name="apt_room_id" optional="hide" invisible="1" />
+                                            <field name="unit_qty" invisible="1" />
+                                            <field name="discount" optional="hide" invisible="1" />
+                                            <field name="use_promo_code" optional="hide" invisible="1" />
+                                            <field name="promo_code" optional="hide" invisible="1" />
+                                            <field name="tax_ids" widget="many2many_tags" optional="hide" invisible="1" />
+                                            <field name="price_subtotal" invisible="1" />
+                                            <field name="commision_amt" invisible="1" />
+                                            <field name="sale_id" invisible="1" optional="hide" />
+                                            <field name="invoice_id" invisible="1" optional="hide" />
+                                            <field name="calendar_id" invisible="1" optional="hide" />
+                                            <field name="sale_id" invisible="1" />
+                                            <field name="sale_line_id" invisible="1" />
+                                            <field name="course_used" invisible="1" />
+                                            <field name="attended_date" optional="hide" invisible="1" />
+                                            <field name="course_cancelled" invisible="1" />
+                                            <field name="price_subtotal" invisible="1" />
+                                            <field name="cancel_charge" invisible="1" />
+                                        </tree>
+                                        <form>
+                                            <div class="apt-container">
+                                                <div class="box">
+                                                    <div class="apt-container-sub">
+                                                        <div class="box box-head">Service Info</div>
+                                                        <div class="box box-content">
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="appointments_package_id" string="Type of Package"  />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="appointments_package_id" readonly="1" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="therapist_id" string="Therapist" />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="therapist_id" attrs="{'readonly': [('state_line', '!=', 'draft')]}" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}" readonly="1"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="service_categ_id" string="Service Category" />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="service_categ_id" required="1" widget="selection" attrs="{'readonly': [('state_line', '!=', 'draft')]}" readonly="1"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="appointments_type_id" string="Sub Category" />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="appointments_type_id" required="1" widget="selection" attrs="{'readonly': [('state_line', '!=', 'draft')]}" readonly="1"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="apt-container-sub">
+                                                        <div class="box box-head">Rooms Info</div>
+                                                        <div class="box box-content">
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="apt_room_id" string="Room" />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="apt_room_id" attrs="{'readonly': [('state_line', '!=', 'draft')]}" widget="selection" readonly="1"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="box">
+                                                    <div class="apt-container-sub">
+                                                        <div class="box box-head">Booking Info</div>
+                                                        <div class="box box-content">
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="appointments_package_id" string="Appointment Date" />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="booking_start_date" attrs="{'readonly': [('state_line', '!=', 'draft')]}" invisible="1"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="time_id" string="Duration" />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="time_id" force_save="1" attrs="{'readonly': [('state_line', '!=', 'draft')]}" readonly="1"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="time_slot_id" string="Time Slots" />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="time_slot_id" attrs="{'readonly': [('state_line', '!=', 'draft')]}" readonly="1"/>
+                                                                </div>
+                                                            </div>
+                                                            <div class="apt-inner-box">
+                                                                <div class="apt-inner-box-head">
+                                                                    <label for="package_expired_date" string="Expiry Date" />
+                                                                </div>
+                                                                <div class="apt-inner-box-content">
+                                                                    <field name="package_expired_date" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <group>
+                                                <button name="action_arrived" type="object" string="Mark as Arrived" attrs="{'invisible': [('state_line', '!=', 'confirm')]}" />
+                                            </group>
+                                            <group attrs="{'invisible': [('state', '=', 'new')]}">
+                                                <button name="action_partial_cancel" type="object" string="Cancel" attrs="{'invisible': [(True)]}" />
+                                                <button name="confirm_package" type="object" string="Confirm" attrs="{'invisible': [('state_line', '!=', 'draft')]}" />
+                                                <button name="action_void_line" type="object" string="Void" attrs="{'invisible': ['|',('state_line', 'not in', ('draft')),('state_line', '=', 'void')]}" />
+                                            </group>
+                                            <group invisible="1">
+                                                <group>
+                                                    <field name="set_confirmed" />
+                                                    <field name="appointments_package_id" widget="selection" attrs="{'required': [('parent.session_type', '=', 'type_package')],'invisible': [('parent.session_type', '=', 'type_single')],'readonly': [True]}" />
+                                                    <field name="therapist_id" widget="selection" attrs="{'readonly': [('state_line', '!=', 'draft')]}" />
+                                                    <field name="service_categ_id" required="1" attrs="{'readonly': [('state_line', '!=', 'draft')]}" />
+                                                    <field name="company_id" />
+                                                    <field name="appointments_type_id" required="1" attrs="{'readonly': [('state_line', '!=', 'draft')]}" />
+                                                    <field name="therapist_assistant_id" attrs="{'readonly': [('state_line', '!=', 'draft')]}" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" />
+                                                    <field name="apt_room_id" required="0" attrs="{'readonly': [('state_line', '!=', 'draft')]}" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" />
+                                                </group>
+                                                <group>
+                                                    <field name="booking_start_date" attrs="{'readonly': [('state_line', '!=', 'draft')]}" />
+                                                    <field name="state_line" />
+                                                    <field name="expiry_date" attrs="{'invisible': [True]}" />
+                                                    <field name="time_id" force_save="1" attrs="{'readonly': [('state_line', '!=', 'draft')]}" />
+                                                    <field name="time_slot_id" attrs="{'readonly': [('state_line', '!=', 'draft')]}" />
+                                                    <field name="duration" />
+                                                    <field name="start_time_str" readonly="1" force_save="1" />
+                                                    <field name="start_time" force_save="1" />
+                                                    <field name="end_time_str" string="End Time" readonly="1" force_save="1" />
+                                                    <field name="end_time" force_save="1" />
+                                                    <field name="arrived_date" invisible="0" readonly="1" string="Completed Date and Time" />
+                                                    <field name="attended_date" />
+                                                    <field name="payrate_type" />
+                                                    <field name="staff_rate_percentage" />
+                                                    <field name="commision_amt" />
+                                                    <field name="sale_id" />
+                                                    <field name="invoice_id" />
+                                                    <field name="calendar_id" />
+                                                    <field name="course_used" />
+                                                    <field name="course_cancelled" readonly="0" />
+                                                    <field name="cancelled_date" readonly="1" invisible="0" />
+                                                    <field name="package_expired_av" />
+                                                    <field name="state" />
+                                                    <field name="package_expired_date" />
+                                                    <field name="tax_ids" widget="many2many_tags" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" />
+                                                    <field name="package_tax_ids" widget="many2many_tags" options="{'no_create_edit': True, 'no_open': True,'no_create': True}" />
+                                                    <field name="unit_price" />
+                                                    <field name="amount_discount" />
+                                                    <field name="discount" />
+                                                    <field name="price_subtotal" />
+                                                    <field name="tax_amount" />
+                                                    <button name="action_arrived" type="object" string="Mark as Arrived" attrs="{'invisible': [('state_line', '!=', 'confirm')]}" />
+                                                </group>
+                                                <group attrs="{'invisible': [('state', '=', 'new')]}">
+                                                    <button name="action_partial_cancel" type="object" string="Cancel" attrs="{'invisible': [('state_line', '!=', 'draft')]}" />
+                                                    <button name="confirm_package" type="object" string="Confirm" attrs="{'invisible': [('state_line', '!=', 'draft')]}" />
+                                                </group>
+                                                <group>
+                                                    <field name="unit_qty" />
+                                                    <field name="discount_type" />
+                                                    <field name="use_promo_code" />
+                                                    <field name="promo_code" />
+                                                    <button name="action_use_promo" type="object" string="Apply Promo Code" attrs="{'invisible': ['|',('apply_coupon_status', '=', True),                  ('use_promo_code', '=', False)]}" />
+                                                    <field name="apply_coupon_status" readonly="1" attrs="{'invisible': [('use_promo_code', '=', False)]}" />
+                                                    <field name="amount_promotion" attrs="{'invisible': [('use_promo_code', '=', False)]}" />
+                                                    <field name="use_rc_coupon_code" />
+                                                    <field name="rc_coupon_code" attrs="{'required': [('use_rc_coupon_code', '=', True)],                    'invisible': [('use_rc_coupon_code', '=', False)]}" />
+                                                    <button name="action_use_rc_coupon" type="object" string="Apply Recharge Card" />
+                                                    <field name="apply_rc_coupon_status" readonly="1" attrs="{'invisible': [('use_rc_coupon_code', '=', False)]}" />
+                                                    <field name="amount_rc_coupon" attrs="{'invisible': [('use_rc_coupon_code', '=', False)]}" />
+                                                    <field name="price_after_dis" />
+                                                    <field name="percentage_discount" />
+                                                </group>
+                                            </group>
+                                            <div class="alert alert-success" role="alert" attrs="{'invisible': [('set_confirmed', '!=', True)]}">
+                                                <strong>Success!</strong>
+                                                Appointment Confirmed Successfully!
+                                            </div>
+                                            <div class="alert alert-danger" role="alert" attrs="{'invisible': [('package_expired_av', '!=', True)]}">
+                                                <strong>Expired!</strong>
+                                                Package Got Expired!
+                                            </div>
+                                        </form>
+                                    </field>
+                                    <!-- </group> -->
+                                    <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total" invisible="1">
+                                        <field name="amount_unit_price_tot" string="Subtotal" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                        <field name="amount_discount" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                        <field name="amount_tax" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                        <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                            <label for="amount_total" string="Grand Total" />
+                                        </div>
+                                        <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                        <field name="amount_due" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                        <field name="total_advance_amount_paid" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                    </group>
+                                    <group>
+                                        <field name="quick_remarks" attrs="{'readonly':[('state', '!=', 'new')]}" invisible='1' />
+                                        
+                                        <field name="cancel_notes" readonly="1" force_save="1" attrs="{'invisible':[('state', '!=', 'cancel')]}" />
+                                        <field name="void_notes" readonly="1" force_save="1" attrs="{'invisible':[('state', '!=', 'void')]}" />
+                                    </group>
+                                </page>
+                                <page id="notebook_partner_history" string="Appointment History" attrs="{'invisible':[('id','!=',False)]}">
+                                    <field name="apt_partner_history" readonly="1">
+                                        <tree class="booking_apt_state_book" limit="5">
+                                            <field name="booking_date" style="width: 125px;" />
+                                            <field name="time_slot_id" string="Start &amp; End Time" />
+                                            <field name="session_type" />
+                                            <field name="therapist_id" />
+                                            <field name="service_categ_id" />
+                                            <field name="appointments_type_id" string="Sub Category" />
+                                            <field name="state" />
+                                        </tree>
+                                    </field>
+                                </page>
+                                <page string="Reschedule History" name="resch_history_lines" attrs="{'invisible': [('reschedule_flag', '=', False)]}">
+                                    <field name="appointment_resch_line" widget="section_and_note_one2many" mode="tree" readonly="1">
+                                        <tree>
+                                            <field name="resch_by" />
+                                            <field name="resch_date" />
+                                            <field name="booked_by" string="Created By" />
+                                            <field name="therapist_id" />
+                                            <field name="service_categ_id" />
+                                            <field name="appointments_type_id" />
+                                            <field name="booking_date" string="Appointment Date" />
+                                            <field name="time_id" string="Duration" />
+                                            <field name="time_slot_id" string="Time Slot" />
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+                        <field name="activity_ids" widget="mail_activity" />
+                        <field name="message_ids" widget="mail_thread" />
+                    </div>
+                </form>
+            </field>
+        </record>
+        <!--Tree view -->
+        <record id="appointments_appointments_single_tree_view" model="ir.ui.view">
+            <field name="name">appointments.appointments.tree.view</field>
+            <field name="model">appointment.appointment</field>
+            <field name="arch" type="xml">
+                <tree default_order="id desc" class="booking_apt_state_book" delete="false" decoration-bf="state == 'new'" export_xlsx="false" expand="context.get('expand', False)">
+                    <header>
+                        <button name="mass_move_to_pos" type="object" string="Move to POS" />
+                    </header>
+                    <field name="booking_mode" string="Mode"/>
+                    <field name="creation_date" width="130px"/>
+                    <button name="action_confirm" type="object" class="custom_identifier" icon="fa-shopping-cart" string="Confirm" attrs="{'invisible': ['|',('state', '!=', 'new'),('session_type','=','type_package')]}" />
+                    <button name="action_arrived" type="object" icon="fa-clock-o" string="Arrived" attrs="{'invisible': ['|',('state', '!=', 'confirm'),('session_type','=','type_package')]}" />
+                    <button name="action_done" type="object" icon="fa-check" string="Completed" attrs="{'invisible': ['|',('state', '!=', 'arrive'),('session_type','=','type_package')]}" />
+                    <field name="state" string="Status" width="100px" />
+                    <field name="partner_id" width="150px" widget="many2one_clickable" context="{'form_view_ref': 'custom_partner.res_partner_history_history_from_view'}"/>
+                    <field name="session_type" width="150px"/>
+                    <field name="pack_differ" invisible="1" />
+                    <field name="amount_differ" invisible="1" />
+                    <field name="service_categ_id" width="150px" />
+                    <field name="appointments_type_id" string="Sub Category" width="250px"/>
+                    <field name="therapist_id" width="250px" />
+                    <field name="booking_date" width="150px"/>
+                    <field name="time_slot_id" string="Start &amp; End Time" width="150px" />
+                    <field name="sales_rep_id" string="Sales Rep" width="100px"/>
+                    <field name="payment_status_apt" string="Payment Status" width="120px"/>
+                    <button name="action_two_step_cancel" class="oe_highligt" type="object" string="Cancel" attrs="{'invisible': [('state', 'not in', ['confirm', 'ongoing', 'arrive'])]}" />
+                    <!-- <button name="action_move_to_pos" class="oe_highlight" type="object" string="Move to POS" attrs="{'invisible': ['|','|',('pos_order_id', '!=', False), ('is_package_claim', '!=', False), ('state', 'in', ['no_show','cancel'])]}" context="{'move_to_pos_tree': True}" /> -->
+
+                    <field name="session_type" optional="show" invisible="1" />
+                    <field name="pos_order_id" invisible="1" />
+                    <field name="is_package_claim" invisible="1" />
+                </tree>
+            </field>
+        </record>
+        <record id="appointments_appointments_single_action_view" model="ir.actions.act_window">
+            <field name="name">Appointments</field>
+            <field name="res_model">appointment.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_session_type': 'type_single','search_default_creation_date':1}</field>
+            <field name="domain"></field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('appointments_appointments_single_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('appointments_appointments_single_from_view')})]" />
+        </record>
+
+        <record id="appointments_appointments_single_action_dashboard_view" model="ir.actions.act_window">
+            <field name="name">Appointments Dashboart</field>
+            <field name="res_model">appointment.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_session_type': 'type_single','search_default_state':1}</field>
+            <field name="domain"></field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('appointments_appointments_single_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('appointments_appointments_single_from_view')})]" />
+        </record>
+
+        <record id="appointments_appointments_single_dash_view" model="ir.actions.act_window">
+            <field name="name">Sales by Sales person</field>
+            <field name="res_model">appointment.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_group_rep_id': 1}</field>
+            <field name="domain"></field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('appointments_appointments_single_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('appointments_appointments_single_from_view')})]" />
+        </record>
+
+        <record id="appointments_appointments_single_dash2_view" model="ir.actions.act_window">
+            <field name="name">Booking by Facilitator</field>
+            <field name="res_model">appointment.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_group_therapist_id': 1,'search_default_appoinment_dates': 1, 'expand': 1}</field>
+            <field name="domain"></field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('appointments_appointments_single_tree_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('appointments_appointments_single_from_view')})]" />
+        </record>
+    </data>
+</odoo>

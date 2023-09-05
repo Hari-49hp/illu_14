@@ -1,0 +1,3 @@
+var uploadResume = () => {
+    $("#resumePopup").click();
+}

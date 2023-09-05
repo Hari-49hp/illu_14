@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_client_registrations" model="ir.actions.act_window">
+            <field name="name">Client Registrations Page</field>
+            <field name="res_model">event.event</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban</field>
+            <field name="search_view_id" ref="event.view_event_search"/>
+            <field name="domain">[('is_published_event', '=',True)]</field>
+        </record>
+
+        <record id="view_event_form_reg_inherit" model="ir.ui.view">
+            <field name="name">event event form reg</field>
+            <field name="model">event.event</field>
+            <field name="inherit_id" ref="ppts_custom_event_mgmt.new_event_form_view" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="events_therapist" invisible="1" force_save="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="event_event_kanban_view_extened">
+            <field name="name">event.event.kanban.view.extened</field>
+            <field name="inherit_id" ref="event.view_event_kanban"/>
+            <field name="model">event.event</field>
+            <field name="arch" type="xml">
+                <xpath expr="//kanban" position="replace">
+                    <kanban class="o_event_kanban_view" create="false" sample="1">
+                    <field name="user_id"/>
+                    <field name="name"/>
+                    <field name="stage_id" options='{"group_by_tooltip": {"description": "Description"}}'/>
+                    <field name="address_id"/>
+                    <field name="date_begin"/>
+                    <field name="date_end"/>
+                    <field name="auto_confirm"/>
+                    <field name="seats_unconfirmed"/>
+                    <field name="seats_reserved"/>
+                    <field name="seats_used"/>
+                    <field name="seats_expected"/>
+                    <field name="legend_blocked"/>
+                    <field name="legend_normal"/>
+                    <field name="legend_done"/>
+                    <field name="activity_ids"/>
+                    <field name="activity_state"/>
+                    <field name="room_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="d-flex flex-column p-0 oe_kanban_card oe_kanban_global_click;"
+                            style="width:1300px">
+                                <div class="o_kanban_record_title" width="100%" t-att-title="record.name.value">
+                                    <p>
+                                        <span
+                                                style="font-family:Helvetica Neue,Helvetica, Lucida Grande, Arial, sans-serif;font-weight:inherit;font-size:20px;color: #003f87; width: 100%;">
+                                            <field name="name" /></span>
+                                        <a style="font-family:Helvetica Neue,Helvetica, Lucida Grande, Arial, sans-serif;font-weight:inherit;font-size:18px;color: #999; width: 100%;"> With  </a>
+                                        <span style="font-family:Helvetica Neue,Helvetica, Lucida Grande, Arial, sans-serif;font-weight:inherit;font-size:18px;color: #003f87; width: 100%;">
+<!--                                            <field name="facilitator_evnt_ids" />-->
+                                            <field name="events_therapist" />
+
+
+
+                                            <a style="font-family:Helvetica Neue,Helvetica, Lucida Grande, Arial, sans-serif;font-weight:inherit;font-size:18px;color: #999; width: 100%;text-align:right;"> Location </a>
+                                            <span style="vertical-align:baseline;font-family:Helvetica Neue,Helvetica, Lucida Grande, Arial, sans-serif;font-weight:inherit;font-size:18px;;color: #003f87; width: 100%;">
+                                            <a t-if="record.address_id.value"><i style="text-align:right;" title="Location"/> <span class="o_text_overflow o_event_kanban_location" style="padding-top:2px" t-esc="record.address_id.value"/></a>
+                                        </span>
+                                        </span>
+
+                                    </p>
+
+
+                                </div>
+                                <div style="padding-bottom:5px;padding-top:5px" >
+                                    <span style="color:#999 !important;box-shadow: 2px 2px grey;background-color:white">
+                                    <field  name="event_days"/>
+                                </span>
+                                    - Date :
+
+                                        <field name="event_multiple_date" invisible="1"/>
+<!--                                    <field name="s_start_date" attrs="{'invisible': [('event_multiple_date', '!=', 'oneday')]}"/>-->
+
+
+                                    <field name="date_begin" attrs="{'invisible': [('event_multiple_date', '=', 'onedays')]}"/>
+                                    <span attrs="{'invisible': [('event_multiple_date', '=', 'onedays')]}"> - </span>
+                                    <field name="date_end" attrs="{'invisible': [('event_multiple_date', '=', 'onedays')]}"/>
+<!--                                    <field name="r_start_time" widget="float_time" />-->
+
+<!--                                    <field name="date_begin" t-options="{'widget': 'datetime', 'time_only': True, 'format': 'short'}" attrs="{'invisible': [('event_multiple_date', '=', 'oneday')]}"/>-->
+
+<!--                                    <time itemprop="startDate" t-att-datetime="record.date_begin">-->
+<!--                                        <span t-field="record.with_context(tz=record.date_tz).date_begin" t-options="{'date_only': 'true', 'format': 'long'}"/> - -->
+<!--                                        <span t-field="record.with_context(tz=record.date_tz).date_begin" t-options="{'time_only': 'true', 'format': 'short'}"/>-->
+<!--                                    </time>-->
+
+                                </div>
+
+                                <div style="padding-bottom:15px" >
+                                    Room : <strong><field name="room_id"/></strong>
+                                </div>
+                                <h5 class="o_event_fontsize_11 p-0">
+                                    <button name="%(event.act_event_registration_from_event)d"
+                                       type="action" context="{'search_default_expected': True}"
+                                       style="font-family:Verdana, Arial,sans-serif;
+                                       font-weight:bold;font-size:12px;color: #158374;
+                                       width: 15%;color:black" >Enroll a Client
+                                    </button>
+                                </h5>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

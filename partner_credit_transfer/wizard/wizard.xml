@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="partner_credit_transfer_wizard_form" model="ir.ui.view">
+            <field name="name">partner.credit.transfer.form</field>
+            <field name="model">partner.credit.transfer</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Credit Transfer">
+                    <group>
+                        <group>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="total_due" readonly="1" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <br/>
+                        <group>
+                            <field name="from_partner_id" readonly="1"/>
+                            <field name="from_partner_account"/>
+                        </group>
+                        <group>
+                            <field name="to_partner_id"/>
+                            <field name="to_partner_account"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="transfer_amount"/>
+                        </group>
+                        <group>
+                            <field name="tax_ids" widget="many2many_tags" groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                    <footer>
+                     <button name="cancel" string="Cancel" special="cancel"/>
+                     <button name="transfer" string="Transfer" type="object"/>
+                 </footer>
+             </form>
+         </field>
+     </record>
+ </data>
+</odoo>

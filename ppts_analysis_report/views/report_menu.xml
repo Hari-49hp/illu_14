@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="Reports"
+              id="menu_analysis_report"
+              sequence="67"
+              action="board.open_board_my_dash_action"
+              web_icon="website_slides,static/description/icon.png"
+              groups="ppts_analysis_report.group_analysis_report"/>
+<!--Attendance With Revenue-->
+    <menuitem id="menu_attendance_revenue"
+              name="Attendance With Revenue"
+              parent="ppts_analysis_report.menu_analysis_report"
+              action="ppts_analysis_report.attendance_wizard_action_wizard"
+              sequence="500"/>
+    <!--Attendance With Revenue-->
+
+    <menuitem id="menu_report_sales_sumy"
+              name="Sales Report"
+              parent="ppts_analysis_report.menu_analysis_report"
+              sequence="230"/>
+    <menuitem id="menu_sales_report_summary"
+              name="Sales"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.service_summary_action_wizard"
+              sequence="11"/>
+    <menuitem id="menu_sales_service_summary"
+              name="Sales By Service"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.sale_service_summary_action_wizard"
+              sequence="12"/>
+    <menuitem id="menu_sales_category"
+              name="Sales By Category"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.sale_by_category_action_wizard"
+              sequence="13"/>
+    <menuitem id="menu_sales_rep_summary"
+              name="Sales By Rep"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.sale_rep_summary_action_wizard"
+              sequence="14"/>
+    <menuitem id="menu_invoice_report"
+              name="Invoice"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.invoice_action_wizard"
+              sequence="666"/>
+    <menuitem id="menu_sales_product_summary"
+              name="Sales By Product"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.sale_product_summary_action_wizard"
+              sequence="15"/>
+    <menuitem id="menu_voided_sales_summary"
+              name="Voided Sales"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.sale_voided_summary_action_wizard"
+              sequence="16"/>
+    <menuitem id="menu_sales_tax_summary"
+              name="Sales Tax"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.sale_tax_summary_action_wizard"
+              sequence="17"/>
+    <menuitem id="menu_best_sellers_summary"
+              name="Best Sellers"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.sale_sellers_summary_action_wizard"
+              sequence="18"/>
+    <menuitem id="menu_returns_summary"
+              name="Returns"
+              parent="ppts_analysis_report.menu_report_sales_sumy"
+              action="ppts_analysis_report.returns_report_action_wizard"
+              sequence="19"/>
+<!--    need Return Wizard Access Rights-->
+
+<!--    New Menu-->
+
+</odoo>

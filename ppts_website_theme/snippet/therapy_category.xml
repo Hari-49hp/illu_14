@@ -1,0 +1,473 @@
+<odoo>
+	<data>
+		<template id="website_therapy_category_page" name="Therapy">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure">
+
+					<section class="subpage-top-hero-section-two abouttophero eachsection therapy-intevidual-header-sec">
+						<div class="row hero-section-two ourstory mycontainer">
+							<div class="col-lg-6 col-md-6 col-xl-6  col-sm-12" data-aos="fade-up" data-aos-delay="200">
+								<div class="breadcrum-sec topbreadcrum  ">
+									<label>
+										<a href='/'>Home /</a>
+										<a href="/therapy">Therapy /</a>
+										<a t-esc="sub_id.name"/>
+									</label>
+								</div>
+								<div class="hero-two-left subintrotext herotexcenter m-margin-bottom-25">
+									<h1 class="mainherotext ">
+										<t t-esc="sub_id.name"/>
+									</h1>
+									<p class="herotxtprag">
+										<t t-raw="sub_id.description"/>
+									</p>
+									<a type="button" class="fullbutton" t-att-href="'/appointment/checkout?appointment_type=free&amp;sub_categ_id=%s' % sub_id.id">Book a free general consultation</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-12 col-xl-6  col-sm-12 rightsideslide">
+							<div class="hero-two-right">
+								<div class="image-orvideocpnt">
+									<img t-attf-src="/web/image?model=calendar.appointment.type&amp;id={{sub_id.sudo().id}}&amp;field=image" />
+								</div>
+							</div>
+						</div>
+					</section>
+
+
+					<!-- Our journey start -->
+					<section class="section-topbtm-padding therapycategory whatareyoustrugle">
+						<div class="noanimate_top_wave">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                                c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                                c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                                c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+								</g>
+							</svg>
+						</div>
+						<div class="light-blue-bg strugglejourney">
+							<div class="ourjourney sectiion_btm_padding80" data-aos="fade-up" data-aos-delay="100">
+								<h2 class="ourjourneyhead">What are you strugling with?</h2>
+								<div class="journeydescripton cls_06">
+									<h4>01</h4>
+									<p>Our small initiative began by organizing non-profit events to give people the opportunity to
+                                discover and explore the powerful resources residing within their inner self.</p>
+								</div>
+								<div class="journeydescripton cls_08">
+									<h4>02</h4>
+									<p>From rented hotel apartments, to a tiny room in a villa, to a small space in downtown Dubai, we
+                                moved all around Dubai offering our services.</p>
+								</div>
+								<div class="jpureywithimage">
+									<div class="journemorp">
+										<img class="journeyshapeclipped" src="/ppts_website_theme/static/src/img/whatareyou.png" />
+									</div>
+									<div class="journeydescripton cls_11">
+										<h4>03</h4>
+										<p>We found the perfect home and opened the doors to our dream center in Jumeirah Lake Towers in
+                                    October 2011. </p>
+									</div>
+								</div>
+								<div class="journeydescripton cls_13">
+									<h4>04</h4>
+									<p>With the success of our 1st Center in Dubai, Illuminations found an opportunity to open our
+                                second center in Pune, India’s 7th largest city and home to many spiritual practices. </p>
+								</div>
+								<div class="journeydescripton cls_16">
+									<h4>05</h4>
+									<p> Illuminations a Company registered under Illuminations Training Centre DMCC is now the 1st,
+                                Largest &amp; Premiere Well-Being Center of its kind in the middle east. </p>
+								</div>
+							</div>
+							<div class="ourjourneyimagee" data-aos="fade-up" data-aos-delay="200">
+								<img src="/ppts_website_theme/static/src/img/who2.jpg"/>
+							</div>
+						</div>
+						<div class="noanimtionbtm-wave btnsvg-reverse">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                                    c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                                    c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                                    c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+								</g>
+							</svg>
+						</div>
+					</section>
+
+					<section>
+						<div class="bookafreetrial  section-topbtm-padding">
+							<div class="  book-free-consultant  section-topbtm-padding section_padd_left_right190_80  eachsection">
+								<div class="arrow-scroll leftside">
+									<svg viewBox="0 0 426 142" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+											<path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+											<path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                                    			c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+										</g>
+									</svg>
+								</div>
+								<div class="row align-items-center mycontainer" data-aos="fade-up" data-aos-delay="100">
+									<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12">
+										<span class="blakwordtexts">
+											Get Started
+										</span>
+										<h2>Book an appointment </h2>
+										<p style="max-width: 100%;">Experience Our Wide Range of Powerful Healing &amp; Therapy Service</p>
+									</div>
+									<!-- <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+										<a class="fullbutton wid290" href="/appointment/checkout">Book a meeting</a>
+									</div> -->
+									<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12">
+										<a class="fullbutton wid290"  t-att-href="'/appointment/checkout?&amp;category_struggling_id=%s&amp;general=therapy' %sub_id.id">Book An Appointment</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="section-topbtm-padding aboutillumination">
+						<div>
+							<div class="noanimate_top_wave">
+								<svg class="topsvg svgclass" viewBox="0 0 1440 180" preserveAspectRatio="none" version="1.1">
+									<path class="light-brown-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                            c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                            c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                            c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+								</svg>
+							</div>
+							<div class="container-fluid questtobehappy aboutherapest lightbrown-bg">
+								<div class="eachsection">
+									<div class="mycontainer">
+										<div class="row">
+											<div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+												<h2 class="" style="color: #00AEC7;">
+													<t t-esc="sub_id.name"/>
+												</h2>
+											</div>
+										</div>
+										<br />
+										<br />
+										<div class="row">
+											<div class="col-lg-6 background-clr-#f8f1e8">
+												<!-- <ul class="awardlists listwithdots font16"> -->
+												<t t-raw="sub_id.therapy_full_description_list"/>
+												<!-- </ul> -->
+											</div>
+											<div class="col-lg-6">
+												<h4 class="bigpragraph">Did You Know?!</h4>
+												<p t-raw="sub_id.therapy_did_you_know"/>
+											</div>
+										</div>
+										<br />
+										<br />
+										<div class="row">
+											<div class="col-lg-6">
+												<img src="/ppts_website_theme/static/src/img/relationshiphealing.jpg" style="width: 100%;margin-bottom: 20px;" class="img-fluid" alt="Cinque Terre" />
+											</div>
+											<div class="col-lg-6 faqtabs-contentcontainer textaccording">
+												<div id="accordion">
+													<div class="card  transcard">
+														<div class="card-header" id="headingaOne">
+															<h5 class="mb-0">
+																<button class="btn btn-link notopborder" data-toggle="collapse" data-target="#collapse_sfive" aria-expanded="true" aria-controls="collapseOne">Learn More<a class="accarrow"></a>
+																</button>
+															</h5>
+														</div>
+														<div id="collapse_sfive" class="collapse show" aria-labelledby="headingaOne" data-parent="#accordion">
+															<div class="card-body background-clr-#f8f1e8" style="background-color: #f8f1e8 !important;">
+																<p t-raw="sub_id.therapy_learn_more"/>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="noanimtionbtm-wave  ">
+								<svg class="topsvg svgclass" viewBox="0 0 1440 180"
+									xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMax meet" version="1.1">
+									<path class="light-brown-svg" clip-rule=" evenodd " d=" M1440 117.866V0H0V73.5068C19.1681 83.3977 38.333 94.0027 57.4609 104.587C81.5364 117.909
+                                105.553 131.198 129.444 142.991C184.872 170.351 242.702 168.004 310.495 165.252C366.178 162.992
+                                428.583 160.46 501.9 173.892C576.426 187.545 648.519 172.448 722.07 157.045C808.986 138.843
+                                897.938 120.214 995.347 148.101C1088.43 174.75 1160.53 156.195 1236.64 136.606C1261.76 130.141
+                                1287.31 123.564 1314.2 118.461C1360.3 109.715 1402.24 112.146 1440 117.866Z " />
+								</svg>
+							</div>
+						</div>
+					</section>
+
+					<section class=" section-topbtm-padding eachsection eachsection-thearapy-solution-sec">
+						<div class=" mycontainer " data-aos=" fade-up " data-aos-delay=" 100 ">
+							<div class=" row ">
+								<div class=" col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 missionvission-left aos-init aos-animate ">
+									<span class=" blakwordtexts " data-aos=" fade-up " data-aos-delay=" 100 ">
+										<t t-esc="sub_id.name"/>
+									</span>
+									<h2 class=" header size56 ">Healing &amp; Therapy Solutions:</h2>
+								</div>
+								<div class=" col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 questtobehappytypo ">
+								</div>
+							</div>
+							<div class=" row ">
+								<t t-raw="sub_id.therapy_healing_therapy_header"/>
+							</div>
+							<div class=" mt-4 mb-4 accfullimg">
+								<img src="/ppts_website_theme/static/src/img/healingtherapy.jpg " class=" img-fluid " alt=" Cinque Terre "/>
+							</div>
+							<div>
+								<div class=" faqtabs-contentcontainer ">
+									<div id=" accordion ">
+										<div class=" card " data-aos=" fade-up " data-aos-delay=" 500 ">
+											<div class=" card-header " id=" headingOne ">
+												<h5 class=" mb-0 ">
+													<button class=" btn btn-link notopborder" data-toggle=" collapse " data-target="#collapse_five " aria-expanded=" true " aria-controls=" collapseOne ">Learn More<a class=" accarrow "></a>
+													</button>
+												</h5>
+											</div>
+											<div id=" collapse_five " class=" collapse show " aria-labelledby=" headingOne " data-parent=" #accordion ">
+												<t t-raw="sub_id.therapy_healing_therapy_learn_more"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="therapists-wrapper section-topbtm-padding">
+						<div class="noanimate_top_wave">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                                c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                                c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                                c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+								</g>
+							</svg>
+						</div>
+						<div class="light-blue-bg">
+
+
+							<div class="mycontainer browsetherap">
+								<div class="row">
+									<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+										<span class="blakwordtexts ">Browse</span>
+										<h2>Our Therapist</h2>
+									</div>
+									<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+										<div class="row">
+											<div class="col-12">
+												<h3>I am looking for a therapist:</h3>
+											</div>
+											<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 findthrright-inpu">
+												<!-- <label>Help me deal with</label> -->
+												<div class="dropdown inputwrap select-arrow">
+													<select class="btn btn-secondary dropdown-toggle meditation-service-list" id="categ_browse_help">
+														<option value="" disabled="disabled" selected="selected">To Help me with</option>
+														<t t-set="help_ids" t-value="request.env['by.solution'].sudo().search([])" />
+														<t t-foreach="help_ids" t-as="help">
+															<option t-att-value="help.id">
+																<t t-esc="help.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 findthrright-inpu">
+												<!-- <label>Work with me</label> -->
+												<div class="dropdown inputwrap select-arrow">
+													<select class="btn btn-secondary dropdown-toggle meditation-service-list" id="categ_browse_platform">
+														<option value="" disabled="disabled" selected="selected">Online/In-Person</option>
+														<option value="online">Online</option>
+														<option value="onsite">Onsite</option>
+														<option value="online/onsite">Online/Onsite</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 findthrright-inpu">
+												<!-- <label>Work with me</label> -->
+												<div class="dropdown inputwrap select-arrow">
+													<select class="btn btn-secondary dropdown-toggle meditation-service-list" id="categ_browse_qualified">
+														<option value="" disabled="disabled" selected="selected">Qualified in</option>
+														<t t-set="qualified_ids" t-value="request.env['by.support'].sudo().search([])" />
+														<t t-foreach="qualified_ids" t-as="qualified">
+															<option t-att-value="qualified.id">
+																<t t-esc="qualified.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12 findthrright-inpu">
+												<!-- <label>Work with me</label> -->
+												<div class="dropdown inputwrap select-arrow">
+													<select class="btn btn-secondary dropdown-toggle meditation-location-list" id="categ_browse_location">
+														<option value="" disabled="disabled" selected="selected">Location in</option>
+														<t t-set="company_data_ids" t-value="request.env['res.company'].sudo().search([('website_show_location','=',True)])" />
+														<t t-foreach="company_data_ids" t-as="company">
+															<option t-att-value="company.id">
+																<t t-esc="company.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="" data-aos="fade-up" data-aos-delay="200">
+									<div class="row owl-carousel myblue-caresole-dots" id="therapycategoryslider">
+										<t t-set="job_id" t-value="request.env['hr.employee.category'].sudo().search([('name','=','Therapist')],limit=1)" />
+										<t t-set="employee_ids" t-value="request.env['hr.employee'].sudo().search([('employee_type','in',job_id.id)])" />
+										<t t-foreach="employee_ids" t-as="employee_id">
+
+											<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+												<a t-attf-href="/team/therapists/{{employee_id.id}}">
+													<div class="therapest-list-container">
+														<img t-attf-src="/web/image?model=hr.employee&amp;id={{employee_id.sudo().id}}&amp;field=image_1920" />
+														<h5>
+															<t t-esc="employee_id.name"/>
+														</h5>
+														<p>
+															<t t-esc="employee_id.get_job_position_website()"/>
+														</p>
+														<label class="therapestlocation">
+															<t t-esc ="employee_id.address_id.name"/>
+														</label>
+														<a t-attf-href="/appointment/checkout?therapist_id={{employee_id.sudo().id}}" class="buttonwithbtnshape"> Book an appointment </a>
+
+													</div>
+												</a>
+
+											</div>
+										</t>
+
+
+									</div>
+								</div>
+
+								<div class="  text-center d-none d-md-block" data-aos="fade-up" data-aos-delay="100">
+									<br />
+									<br />
+									<a href="/team" style="text-decoration:none;" class="fullbutton">Show more</a>
+								</div>
+							</div>
+						</div>
+						<div class="noanimtionbtm-wave btnsvg-reverse">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" style=" transform: scaleX(-1);" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                                    c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                                    c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                                    c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+								</g>
+							</svg>
+						</div>
+					</section>
+
+					<!-- BOOOK A FREE CONSULTANT SECTION START-->
+					<t t-call="ppts_website_theme.request_call_for_all_page">
+						<t t-set="callback_content" t-value="{'req_header': 'Support!
+						Call back!', 
+						'req_desc': 'Experience Our Wide Range of Powerful Healing &amp; Therapy Service' }" />
+					</t>
+					<!-- BOOOK A FREE CONSULTANT SECTION END-->
+
+
+					<style>
+                  #therapycategoryslider.row.owl-carousel.off{
+                    display: flex;
+                    display: -webkit-box;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+             
+                  }
+					</style>
+
+					<script>
+                function openNav() {
+                    $('#mySidenav').toggleClass("activemenu");
+                    $('html').toggleClass("menuopened");
+                }
+         
+					</script>
+
+					<script>
+                if (window.innerWidth &lt; 600) {
+                  startCarousel();
+              } else {
+                  $('#therapycategoryslider').addClass('off');
+              }
+
+              $(window).resize(function () {
+                  // footerwave();
+                  // console.log($(window).width(), 'asd');
+                  // console.log(window.innerWidth, 'a11111111sd');
+                  if (window.innerWidth &lt; 600) {
+                      // alert("aone");
+                      startCarousel();
+                  } else {
+                      stopCarousel();
+                  }
+              });
+
+
+                  function startCarousel() {
+                  var popularpostlists = $("#therapycategoryslider").owlCarousel({
+
+                      responsive: {
+                          0: {
+                              items: 1,
+                              autoplay: false,
+                              dots: true,
+                              loop: false,
+                              responsiveClass: true,
+                              margin: 20,
+                              stagePadding: 20,
+                              autoWidth: false,
+                              touchDrag: true,
+                
+                          },
+                          400: {
+                            items: 2,
+                              autoplay: false,
+                              dots: true,
+                              loop: false,
+                              responsiveClass: true,
+                              margin: 20,
+                              stagePadding: 20,
+                              autoWidth: false,
+                              touchDrag: true,
+                          },
+
+                      }
+                  });
+              }
+
+              function stopCarousel() {
+                  var owl = $('.popularpost-caresole-mobile');
+                  owl.trigger('destroy.owl.carousel');
+                  owl.addClass('off');
+              }
+					</script>
+
+
+
+
+				</div>
+			</t>
+		</template>
+	</data>
+</odoo>

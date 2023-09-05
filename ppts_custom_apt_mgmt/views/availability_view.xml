@@ -1,0 +1,82 @@
+<odoo>
+    <data>
+        <record id="availability_from_view_inherit" model="ir.ui.view">
+            <field name="name">Availability Inherit</field>
+            <field name="model">availability.availability</field>
+            <field name="inherit_id" ref="ppts_employee_availability.availability_from_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='availability']" position="after">
+                    <field name="service_categ_domain" attrs="{'invisible':['|','|','|',('date_range', '=','custom'),('id','=', False),('state','!=','draft'),('availability','=','unavailable')]}"/>
+                    <field name="service_categ_id" widget="many2many_tags" attrs="{'invisible':[('availability', '=','unavailable')],'required': [('availability', '!=','unavailable')],'readonly': ['|','&amp;',('id','!=',False),('service_categ_domain','=',False),('state', 'in', ['availability_created', 'unavailability_created'])]}"/>
+                    <field name="sub_categ_id" widget="many2many_tags" attrs="{'invisible':[('availability', '=','unavailable')],'required': [('availability', '!=','unavailable')],'readonly': ['|','&amp;',('id','!=',False),('service_categ_domain','=',False),('state', 'in', ['availability_created', 'unavailability_created'])]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='facilitator']" position="after">
+                    <field name="service_category_ids" attrs="{'invisible':[('availability', '!=','available')],'readonly': [('state', 'in', ['availability_created', 'unavailability_created'])]}" invisible="1">
+                        <tree editable="bottom" create="false" delete="false">
+                            <field name="service_id"/>
+                            <field name="active_id" widget="boolean_toggle"/>
+                        </tree>
+                    </field>
+                </xpath>
+
+                <xpath expr="//field[@name='app_line_id']/tree/field[@name='start_time']" position="before">
+                    <field name="service_categ_id" widget="many2many_tags" attrs="{'column_invisible':[('parent.availability', '=', 'unavailable')]}"/>
+                    <field name="sub_categ_id" widget="many2many_tags" attrs="{'column_invisible':[('parent.availability', '=', 'unavailable')]}"/>
+                </xpath>
+
+                <!-- service_categ_id field in wizards.-->
+                <xpath expr="//field[@name='app_line_id']/form/group/group/field[@name='date_app']" position="before">
+                    <field name="service_categ_id" widget="many2many_tags" attrs="{'column_invisible':[('parent.availability', '=', 'unavailable')], 'readonly': [('is_services', '=', False)]}"/>
+                </xpath>
+
+                <!-- sub_categ_id field in wizards.-->
+                <xpath expr="//field[@name='app_line_id']/form/group/group/field[@name='end_time']" position="before">
+                    <field name="sub_categ_id" widget="many2many_tags" attrs="{'column_invisible':[('parent.availability', '=', 'unavailable')], 'readonly': [('is_services', '=', False)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='availabilities_ids']/tree/field[@name='location_id']" position="after">
+                    <field name="service_categ_id" widget="many2many_tags" style="width: 250px;" attrs="{'column_invisible':[('parent.availability', '==', 'unavailable')]}"/>
+                    <field name="sub_categ_id" widget="many2many_tags" style="width: 250px;" attrs="{'column_invisible':[('parent.availability', '==', 'unavailable')]}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="availability_tree_view_inherit" model="ir.ui.view">
+            <field name="name">Availability Inherit</field>
+            <field name="model">availability.availability</field>
+            <field name="inherit_id" ref="ppts_employee_availability.availability_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_id']" position="after">
+                    <field name="service_categ_id" widget="many2many_tags"/>
+                    <field name="sub_categ_id" widget="many2many_tags"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_form_view_inherit_be_change" model="ir.ui.view">
+            <field name="name">hr.employee</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="ppts_employee_availability.view_event_view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='availability_ids']/tree/field[@name='end_time']" position="after">
+                    <field name="services_length"/>
+                    <field name="sub_categ_name"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="availability_set_to_draft_from_view_inherit" model="ir.ui.view">
+            <field name="name">Availability Inherit</field>
+            <field name="model">availability.setdraft</field>
+            <field name="inherit_id" ref="ppts_employee_availability.availability_setdraft_wizard"/>
+            <field name="arch" type="xml">
+                <xpath expr="//h4" position="after">
+                    <br/>
+                    <field name="review_appointment_ids" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+
+    <record id="appointment_void_super_user" model="res.groups">
+      <field name="name">Void Appointment</field>
+      <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]" /> -->
+    </record>
+    <record id="partner_pos_order_user" model="res.groups">
+      <field name="name">POS Client Payment</field>
+      <!-- <field name="implied_ids" eval="[(4, ref('base.group_user'))]" /> -->
+    </record>
+
+  </data>
+
+</odoo>

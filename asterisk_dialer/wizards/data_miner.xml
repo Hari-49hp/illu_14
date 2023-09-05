@@ -1,0 +1,393 @@
+<odoo>
+    <record id="data_miner_view" model="ir.ui.view">
+        <field name="name">Data Miner</field>
+        <field name="model">data.miner</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <link rel="stylesheet"
+                          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+                    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+                    <script src="/asterisk_dialer/static/src/js/backendjs.js"></script>
+                    <section style="background:rgb(236,236,236);height:7rem;">
+                        <div class="col-lg-12 text-right">
+                            <img style="width:auto;height:7rem;"
+                                 src="/asterisk_dialer/static/src/img/data_mining_logo1.png" alt="Data Mining Logo"/>
+
+                        </div>
+                    </section>
+                    <div class="col-lg-12" style="margin-bottom:1em;margin-top:1em;">
+                        <h3>
+                            DataMiner
+                        </h3>
+                        <div class="row">
+
+
+                            <div class="col-lg-3" style="height:auto;padding-left:initial;">
+                                <div class="text-center" style="background:gold;height:8rem;">
+                                    <p style="font-size:13px;padding-top:0.5em;">
+                                        Records to add to your list
+                                    </p>
+                                    <p style="font-size:27px;">
+                                        <field name="res_partner_count" readonly='1'/>
+                                    </p>
+                                    <p style="font-size:13px;">
+                                        Query execution time
+                                        <field name="query_execution_time" readonly='1'/>
+                                        s
+                                    </p>
+                                </div>
+
+                                <div class="text-center" style="background:grey;height:7rem;">
+                                    <p style="font-size:13px;">
+                                        Average list score
+                                    </p>
+                                    <p style="font-size:27px;">
+                                        <field name="res_partner_percentage" readonly='1' force_save="1"/>
+                                        <span>%</span>
+                                    </p>
+                                </div>
+
+                                <div class="text-center" style="background:skyblue;height:6rem;">
+                                    <!-- <button  class="btn btn-secondary" style="border-radius:0;margin-top:1em;margin-bottom:1em;">
+                                        Start Mining
+                                    </button> -->
+                                    <button name="download_list_report_xl" type="object" class="btn btn-secondary"
+                                            style="border-radius:0;margin-top:1.6em;">
+                                        Download the list
+                                    </button>
+
+                                </div>
+
+                            </div>
+                            <div class="col-lg-9" style="height:auto;">
+                                <div>
+                                    <button class="accordions custom_wizard">
+                                        <span style="margin-right:0.5em;">
+                                            <i class='fas fa-map-marker-alt'
+                                               style='color:#ffdd00;display:contents !important;font-size:25px;' title="Location"></i>
+                                        </span>
+
+                                        <span style="font-size:15px;">
+
+                                            Location
+                                        </span>
+                                        <span style="float:right;font-size:10px;padding-top:6px;">
+                                            City,States,Countries,Postal Codes,Area codes
+                                            <i class="right_arrow" style="margin-left:0.5em;"></i>
+                                        </span>
+                                    </button>
+                                    <div class="custom_panel">
+                                        <div class="row">
+
+
+                                            <group>
+
+                                                <field name="country_ids" widget="many2many_tags"
+                                                       options="{'no_create': True, 'no_create_edit':True}"/>
+                                                
+                                                <field name="state_ids" widget="many2many_tags"
+                                                       options="{'no_create': True, 'no_create_edit':True}"/>
+
+                                                <field name="city_ids" widget="many2many_tags"
+                                                       options="{'no_create': True, 'no_create_edit':True}"/>
+
+                                                
+
+                                                <field name="postal_code"/>
+
+                                                <field name="location_ids" widget="many2many_tags"
+                                                       options="{'no_create': True, 'no_create_edit':True}"/>
+
+                                            </group>
+                                            <group>
+                                                <group>
+                                                    <field name="is_country" string="No Country"/>
+                                                    <field name="is_city" string="No City"/>
+                                                    <field name="is_state" string="No State"/>
+
+                                                </group>
+                                                <group>
+                                                    <field name="is_zip" string="No Zip"/>
+                                                    <field name="is_location" string="No Location"/>
+
+                                                </group>
+
+
+                                            </group>
+
+                                            <div class="col-lg-12" style="text-align:center;">
+                                                <button class="btn btn-primary count_button"
+                                                        style="color: black;background: rgb(236,236,236);border: 1px solid rgb(140,140,140);margin-top:1em;margin-bottom:1em;">
+                                                    Update Record Count
+
+                                                </button>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <button class="accordions custom_wizard">
+                                        <span>
+                                            <i class='fa fa-signal'
+                                               style='color:#ffdd00;display:contents !important;font-size:25px;' title="Types of Categories"></i>
+                                        </span>
+                                        <span style="font-size:15px;">
+
+                                            Types of Categories
+                                        </span>
+                                        <span style="float:right;font-size:10px;padding-top:6px;">
+                                            Categories,Sub Categories,Tags,Keywords
+                                            <i class="right_arrow" style="margin-left:0.5em;"></i>
+                                        </span>
+
+                                    </button>
+                                    <div class="custom_panel">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <group>
+
+                                                    <group string="Filter by:">
+                                                        <field name="du_service_categ_ids" widget="many2many_tags"
+                                                               options="{'no_create': True, 'no_create_edit':True}"
+                                                               string="Search by Categories"/>
+
+                                                        <field name="appointments_type_ids" widget="many2many_tags"
+                                                               domain="[('service_categ_id', 'in', du_service_categ_ids)]" options="{'no_create': True, 'no_create_edit':True}"
+                                                               string="Search by Sub Categories"/>
+
+
+                                                        <!--                                                        <field name="event_type_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}" string="Event ID" />-->
+
+                                                        <!--                                                        <field name="event_subcateg_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}" string="Event Subtype ID" />-->
+
+                                                        <field name="tag_by_therapy_ids" widget="many2many_tags"
+                                                               options="{'no_create': True, 'no_create_edit':True}"
+                                                               string="Search by Tags"/>
+                                                        <!--                                                        <field name="search_by_key_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}" string="Key ID" />-->
+                                                        <!--                                                         <field name="search_by_key" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}" string="Search by Keyword" />-->
+
+                                                        <!--                                                        <field name="partner_job_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}" string="Partner Job ID"/>-->
+                                                        <!--                                                        -->
+                                                        <!--                                                        <field name="therapist_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}" string="Therapists ID"/>-->
+
+
+                                                    </group>
+                                                    
+
+                                                </group>
+                                                <group>
+                                                    <group string='Search By:'>
+                                                        <field name="filter_start_date" string="Start Date"/>
+                                                        <field name="filter_end_date" string="End Date"/>
+                                                        <!--                                                            <field name="event_type_selection" string=" Event Type" />-->
+                                                        <!--                                                            <field name="event_subcateg_selection" string="Event Subtype" />-->
+                                                        <!--                                                            <field name="tag_by_therapy_selection" string="Tags"/>-->
+                                                        <!--                                                            <field name="partner_job_selection" string="Partner Job"/>-->
+                                                        <!--                                                            <field name="therapist_selection" string="Therapist"/>-->
+                                                    </group>
+                                                </group>
+
+                                            </div>
+                                            <div class="col-lg-12" style="text-align:center;">
+                                                <button class="btn btn-primary count_button"
+                                                        style="color: black;background: rgb(236,236,236);border: 1px solid rgb(140,140,140);margin-top:1em;margin-bottom:1em;">
+                                                    Update Record Count
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <button class="accordions custom_wizard">
+                                        <span>
+                                            <i class='fa fa-group'
+                                               style='color:#ffdd00;display:contents !important;font-size:25px;' title="People"></i>
+                                        </span>
+                                        <span style="font-size:15px;">
+
+                                            People
+                                        </span>
+                                        <span style="float:right;font-size:10px;padding-top:6px;">
+                                            Therapists
+                                            <i class="right_arrow" style="margin-left:0.5em;"></i>
+                                        </span>
+
+                                    </button>
+
+                                    <div class="custom_panel">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <group>
+                                                     <field name="therapist_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}" string="Therapists" domain="[('employee_type.name', 'in',['Facilitator','Therapist'] )]" />
+                                                 </group>
+                                                 <div class="col-lg-12" style="text-align:center;">
+                                                    <button class="btn btn-primary count_button"
+                                                            style="color: black;background: rgb(236,236,236);border: 1px solid rgb(140,140,140);margin-top:1em;margin-bottom:1em;">
+                                                        Update Record Count
+
+                                                    </button>
+
+                                            </div>
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                    <button class="accordions custom_wizard">
+                                        <span>
+                                            <i class='fas fa-tty'
+                                               style='color:#ffdd00;display:contents !important;font-size:25px;' title="List Type"></i>
+                                        </span>
+                                        <span style="font-size:15px;">
+
+                                            List Type
+                                        </span>
+                                        <span style="float:right;font-size:10px;padding-top:6px;">
+                                            Phone Numbers,Company Names,Firstname and Lastname,Email,Website
+                                            <i class="right_arrow" style="margin-left:0.5em;"></i>
+                                        </span>
+                                    </button>
+                                    <div class="custom_panel">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <group>
+                                                    <group string="Records Must Have:">
+                                                        <field name="is_mobile" string="Mobile"/>
+
+                                                        <field name="wit_email" string="With Email"/>
+                                                        <!-- <field name='first_last_name' string="firstname and lastname" /> -->
+
+                                                    </group>
+                                                    <group string='Other Options:'>
+                                                        <!-- <field name='unique_phone' string="Unique Phone numbers" /> -->
+                                                        <!-- <div> -->
+                                                            <!-- <span style="font-weight:500;color:black;">
+                                                                Unique Company Name 
+                                                            </span> -->
+                                                            
+                                                                <field name="location_ids" widget="many2many_tags"
+                                                                   options="{'no_create': True, 'no_create_edit':True}"
+                                                                   string="Unique Company Name" invisible="1"/>
+                                                                   <field name="unique_company_name" string="Unique Company Name"/>
+                                                                   
+                                                                   
+    
+                                                           
+                                                        <!-- </div> -->
+                                                        
+                                                        
+                                                    </group>
+
+
+                                                </group>
+
+
+                                            </div>
+                                            <div class="col-lg-12" style="text-align:center;">
+                                                <button class="btn btn-primary count_button"
+                                                        style="color: black;background: rgb(236,236,236);border: 1px solid rgb(140,140,140);margin-top:1em;margin-bottom:1em;">
+                                                    Update Record Count
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <button class="accordions custom_wizard">
+                                        <span>
+                                            <i class='fa fa-percent'
+                                               style='color:#ffdd00;display:contents !important;font-size:25px;' title="Percent"></i>
+                                        </span>
+                                        <span style="font-size:15px;">
+                                            Lead Score Settings
+                                        </span>
+                                        <span style="float:right;font-size:10px;padding-top:6px;">
+                                            Demographic,Industrial,Scaling Weight
+                                            <i class="right_arrow" style="margin-left:0.5em;"></i>
+                                        </span>
+                                    </button>
+                                    <div class="custom_panel">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <group>
+                                                    <group string="Behavourial">
+                                                        <field name="inqiury" string="Inquiry"/>
+                                                        <field name="tag" string="Tags"/>
+                                                        <field name="social_media" string="Social Media"/>
+                                                        <field name="google_ads" string="Google Ads"/>
+                                                        <field name="seo" string="SEO"/>
+                                                        <field name="others" string="Others"/>
+
+                                                    </group>
+                                                    <group string="Demographic">
+                                                        <field name="location" string="Location"/>
+                                                        <field name="country" string="Country"/>
+                                                        <field name="gender" string="Gender"/>
+
+
+                                                    </group>
+
+
+                                                </group>
+
+
+                                            </div>
+                                            <div class="col-lg-12" style="text-align:center;">
+                                                <button class="btn btn-primary count_button"
+                                                        style="color: black;background: rgb(236,236,236);border: 1px solid rgb(140,140,140);margin-top:1em;margin-bottom:1em;">
+                                                    Update Record Count
+
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-12">
+                                <group>
+                                    <field name="partner_ids" nolabel="1">
+                                        <tree limit="10" >
+                                            <field name="display_name" string="Name"/>
+                                            <field name="phone"/>
+                                            <field name="mobile"/>
+                                            <field name="email"/>
+                                            <field name="country_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <footer>
+                        <button string="Start Mining" name="generate" type="object" class="oe_highlight"/>
+                        <button name="cancel" string="Cancel" type="object" class="oe_highlight"/>
+                    </footer>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='data_miner_action' model='ir.actions.act_window'>
+        <field name='name'>Data Miner</field>
+        <field name='res_model'>data.miner</field>
+        <field name="target">new</field>
+        <field name='view_mode'>form</field>
+    </record>
+
+</odoo>

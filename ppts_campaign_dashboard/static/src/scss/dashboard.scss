@@ -1,0 +1,87 @@
+// @font-face {
+//     font-family: "OpenSans-Regular";
+//     src: url("/ppts_campaign_dashboard/static/src/scss/fonts/OpenSans-Regular.woff") format('woff');
+// }
+
+@font-face {
+    font-family: OpenSans-Regular;
+    src: url("/ppts_campaign_dashboard/static/src/font/OpenSans-Regular.ttf")
+}
+
+table.campaign_table {
+    width: 100%;
+
+    thead {
+        height: 55px;
+        background: #00aec7;
+        color: #fff;
+        text-align: center;
+        font-family: OpenSans-Regular;
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: unset;
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    tbody {
+        text-align: center;
+
+        tr {
+            font-family: OpenSans-Regular;
+            font-size: 15px;
+            line-height: 1.2;
+            font-weight: unset;
+
+            td {
+                height: 50px;
+                border: 1px solid #d5cfcf;
+                font-family: OpenSans-Regular;
+
+
+                button {
+                    background: transparent;
+                    padding: 8px 10px;
+                    margin: 15px 0;
+                    border: 2px solid #00aec7;
+                    font-family: OpenSans-Regular;
+                    border-radius: 90px;
+
+                    &:hover {
+                        background: #00aec7;
+                        color: #fff;
+                        transition: 1s linear 0s;
+                    }
+
+                }
+
+                .progress {
+                    height: 30px;
+                    margin: 0px 10px;
+                    font-size: 16px;
+                    font-family: OpenSans-Regular;
+
+
+                    .progress-bar {
+                        background-color: #00aec7;
+                    }
+                }
+
+
+            }
+
+
+            &:nth-child(even) {
+                background-color: #e7e7e7;
+            }
+
+        }
+
+    }
+
+}

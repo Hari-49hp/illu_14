@@ -1,0 +1,160 @@
+<odoo>
+    <data>
+        <template id="illuminations_blog_snippet1" name="Blog Section 1">
+            <section>
+                <h5 class="bluecolortopbtmborder">Guide To Taking Care Of Your Mental Health Overseas</h5>
+
+                <p>Sometimes, it can also mean that you may not feel like you fit in a world that prizes
+                        youthfulness
+                        and instant gratification. For instance, the Urban Dictionary defines an old soul as “someone
+                        who
+                        has a greater appreciation and understanding of things that might be dismissed by others their
+                        age.”
+                        
+                </p>
+
+            </section>
+        </template>
+
+        <template id="illuminations_blog_snippet2" name="Blog Section 2">
+            <section>
+                <h3>Top signs that you are an old soul</h3>
+                <p>If you know you are an old soul or if you want to confirm that you are one, here are the top ten
+                        signs that can help you understand yourself better.</p>
+                <h5>You seek out alone time</h5>
+                <p>You love spending time by yourself, either reading, pursuing something creative, daydreaming, or
+                        simply contemplating. You feel “peopled” out when you meet too many people and feel the need to
+                        recharge after a social event. This is usually because you tend to be in touch with the emotions
+                        of
+                        people around you and you end up feeling overwhelmed.</p>
+
+            </section>
+        </template>
+
+        <template id="illuminations_blog_snippet3" name="Blog Section 3">
+            <section class="tableshow-wrapper">
+                <h6 class="smalltitleblue">1. Seek out alone time</h6>
+                <small>
+                                                love spending time by yourself, either reading, pursuing something creative, daydreaming, or simply contemplating
+                </small>
+
+                <div class="tablecontainer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Countries</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Quantity</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Countries">Jersey</td>
+                                <td data-label="Year">2020</td>
+                                <td data-label="Quantity">83 000</td>
+                            </tr>
+                            <tr>
+                                <td scope="row" data-label="Countries">Isle of Man</td>
+                                <td data-label="Year">2020</td>
+                                <td data-label="Quantity">6800 </td>
+                            </tr>
+                            <tr>
+                                <td scope="row" data-label="Countries">Djibouti</td>
+                                <td data-label="Year">2020</td>
+                                <td data-label="Quantity">3021 </td>
+                            </tr>
+                            <tr>
+                                <td scope="row" data-label="Countries">Niue</td>
+                                <td data-label="Year">2020</td>
+                                <td data-label="Quantity">6584 </td>
+                            </tr>
+                            <tr>
+                                <td scope="row" data-label="Countries">Swaziland</td>
+                                <td data-label="Year">2020</td>
+                                <td data-label="Quantity">7772 </td>
+                            </tr>
+                            <tr>
+                                <td scope="row" data-label="Countries">Liberia</td>
+                                <td data-label="Year">2020</td>
+                                <td data-label="Quantity">96 </td>
+                            </tr>
+                            <tr>
+                                <td scope="row" data-label="Countries">Vietnam</td>
+                                <td data-label="Year">2019</td>
+                                <td data-label="Quantity">9682 </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </template>
+
+        <template id="illuminations_blog_snippet4" name="Blog Section 4">
+            <section class="tableshow-wrapper">
+                <div>
+                    <img src="/ppts_website_theme/static/src/img/blogdetimg.jpg" class="blogfullimg" />
+                    <h4 class="quotestext-top">If you’ve heard somebody remark, “Oh, you are an old soul,” you can rest assured it is a
+                                                compliment. The term ‘old soul’ usually implies that you are wise beyond your years and you are the one that loved ones turn to for advice and support. </h4>
+                    <div class="event-useringo">
+                        <img src="/ppts_website_theme/static/src/img/expert2.jpg"/>
+                        <a>Irine Lekishvili</a>
+                    </div>
+
+                </div>
+
+            </section>
+        </template>
+
+        <template id="illuminations_blog_snippet5" name="Blog Section 5">
+            <section class="tableshow-wrapper">
+                <h5>You are spiritually inclined</h5>
+                <p>Do you love spending time reading spiritual books or listening to youtube videos that talk
+                                            about
+                                            something bigger than you and this world? If yes, you are likely an old soul. Old souls love
+                                            exploring their spiritual side – they know about eckhart tolle’s new book and probably have
+                                            an
+                                            alan watts playlist on youtube.</p>
+                <img src="/ppts_website_theme/static/src/img/bloghand.jpg" class="blogfullimg" />
+
+            </section>
+        </template>
+
+        <template id="illuminations_blog_snippet6" name="Blog Section 6">
+            <section class="tableshow-wrapper">
+                <h5>Students certified</h5>
+                <img src="/ppts_website_theme/static/src/img/Histo.jpg" />
+                <h2 class="ktexts">19k<sup>+ </sup>
+                </h2>
+                <small>Srudents in 2020</small>
+
+            </section>
+        </template>
+
+        <template id="illuminations_blog_snippet7" name="Blog Section 7">
+            <section class="tableshow-wrapper">
+                <h5>You focus on meaningful relationships</h5>
+                <p>If you have old soul you probably have a handful of friends because meaningful connections
+                                            are more important to you than having a long list of acquaintances. Also, your friends may
+                                            be from different age groups, (mainly people who are older) or social backgrounds but you
+                                            connect on a deep level.</p>
+            </section>
+        </template>
+
+        <template id="illuminations_blog_snippet8" name="Blog Section 8">
+            <section class="tableshow-wrapper">
+                <div>
+                    <h6 class="smalltitleblue">2. Old soul</h6>
+                    <small>someone who has a greater appreciation and understanding of things that might be
+                                                dismissed by others their age</small>
+                    <img src="/ppts_website_theme/static/src/img/blogdetailsimg.jpg" class="blogfullimg" />
+                    <h4>We offer several holistic healing workshops and trainings at our centers at
+                                                Illuminations. If you are an old soul and feel that you want to pursue a career in
+                                                healing and spiritual connections, <a>get in touch with us today! </a>
+                    </h4>
+                </div>
+            </section>
+        </template>
+
+    </data>
+</odoo>

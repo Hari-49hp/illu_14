@@ -1,0 +1,74 @@
+<odoo>
+	<data>
+		<record id="ppts_custom_appmt_search" model="ir.ui.view">
+        <field name="name">appointment.appointment.search.ppts</field>
+        <field name="model">appointment.appointment</field>
+        <field name="arch" type="xml">
+			<search string="Search Appointment">
+                <field name="partner_id"/>
+                <field name="mobile" />
+                <field name="booked_by"/>
+                <field name="sale_person_id"/>
+                <field name="source_id"/>
+                <field name="location_id"/>
+                <field name="appointment_type"/>
+                <field name="booking_mode"/>
+
+                <filter string="Upcoming Appointments" name="booking_date" domain="[('booking_date','&gt;=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+
+                <separator/>
+                <filter string="Today" name="today_booking_date" domain="[('booking_date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                <filter string="Yesterday" name="yesterday_date" domain="[('booking_date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('booking_date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]" help="Yesterday"/>
+                <filter string="Tomorrow"  name="tomorrow_date" domain="[('booking_date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('booking_date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]" help="Tomorrow"/>
+                <separator/>
+
+                <filter string="Online" name="appointment_type" help="Online" domain="[('appointment_type', '=', 'type_online')]"/>
+                <filter string="Onsite" name="appointment_type" help="Onsite" domain="[('appointment_type', '=', 'type_onsite')]"/>
+                <filter string="Online | Onsite" name="appointment_type" help="Online | Onsite" domain="[('appointment_type', '=', 'type_onsite')]"/>
+                <separator/>
+
+                <filter string="Single Session" name="session_type" help="Single Session" domain="[('session_type', '=', 'type_single')]"/>
+                <filter string="Package Session" name="session_type" help="Package Session" domain="[('session_type', '=', 'type_package')]"/>
+                
+				<separator/>
+				<filter string="New" name="state" help="New Appointments" domain="[('state', '=', 'new')]"/>
+                <filter string="Confirmed" name="state" help="Confirmed Appointments" domain="[('state', '=', 'confirm')]"/>
+                <filter string="Arrived" name="state" help="Arrived Appointments" domain="[('state', '=', 'arrive')]"/>
+                <filter string="Completed" name="state" help="Completed Appointments" domain="[('state', '=', 'done')]"/>
+				<separator/>
+                <group expand="0" string="Group By">
+                    <filter string="Creation Date" name="creation_dates" domain="[]" context="{'group_by': 'creation_date'}"/>
+                    <filter string="Appionment Date" name="appoinment_dates" domain="[]" context="{'group_by': 'booking_date'}"/>
+                    <filter string="Appointments Type" name="appointment_type" domain="[]" context="{'group_by': 'appointment_type'}"/>
+                    <filter string="Session Type" name="session_type" domain="[]" context="{'group_by': 'session_type'}"/>
+                    <filter string="Venue" name="company_id" domain="[]" context="{'group_by': 'company_id'}"/>
+                    <filter string="Sales Rep" name="booked_by" domain="[]" context="{'group_by': 'booked_by'}"/>
+                    <filter string="State" name="state" domain="[]" context="{'group_by': 'state'}"/>
+                    <filter string="Sales Person" name="group_rep_id" domain="[]" context="{'group_by': 'sales_rep_id'}"/>
+                    <filter string="Facilitator" name="group_therapist_id" domain="[]" context="{'group_by': 'therapist_id'}"/>
+                </group>
+			</search>
+        </field>
+    	</record>
+
+        <record id="ppts_custom_appt_type_search" model="ir.ui.view">
+        <field name="name">ppts.custom.appt.type.search</field>
+        <field name="model">calendar.appointment.type</field>
+        <field name="arch" type="xml">
+            <search string="Search Appointment Type">
+                <field name="name" string="Name"/>
+                <field name="type_appointment"/>
+                <field name="service_categ_id"/>
+                <field name="sub_categ_id"/>
+
+                <group expand="0" string="Group By">
+                    <filter string="Type of Appointment" name="type_appointment" domain="[]" context="{'group_by': 'type_appointment'}"/>
+                    <filter string="Service Category" name="service_categ_id_group" domain="[]" context="{'group_by': 'service_categ_id'}"/>
+                    <filter string="Sub Category" name="sub_categ_id" domain="[]" context="{'group_by': 'sub_categ_id'}"/>
+                </group>
+			</search>
+        </field>
+    	</record>
+
+	</data>
+</odoo>

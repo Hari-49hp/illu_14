@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="sh_assets_frontend" inherit_id="point_of_sale.assets">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/sh_pos_whatsapp_integration/static/src/js/pos.js"/>
+
+			<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.js"></script>
+			<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.css'/>
+
+			
+
+
+		</xpath>
+
+
+		<xpath expr="//script[@src='/point_of_sale/static/src/js/Screens/PaymentScreen/PaymentScreen.js']" position="replace">
+			<script src="/sh_pos_whatsapp_integration/static/src/js/PaymentScreen.js" type="text/javascript"/>
+		</xpath>
+
+	</template>
+
+
+</odoo>

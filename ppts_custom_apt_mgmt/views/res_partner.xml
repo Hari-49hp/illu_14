@@ -1,0 +1,121 @@
+<odoo>
+	<data>
+
+		<record id="view_appt_res_partner_histories" model="ir.ui.view">
+			<field name="name">partner form loc</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//div[@name='button_box']" position="inside">
+					<field name="single_line_address" invisible="1"/>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="view_appt_account_move_histories_manual_entries" model="ir.ui.view">
+			<field name="name">Account Move</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_move_form"/>
+			<field name="arch" type="xml">
+
+					<xpath expr="//field[@name='partner_id']" position="attributes">
+					<attribute name="context">{'form_view_ref': 'custom_partner.res_partner_history_history_from_view'} </attribute>
+				</xpath>
+
+				<xpath expr="//label[@for='ref']" position="before">
+					<field name="manual_entries" widget="boolean_toggle"/>
+					<field name="sale_id" readonly="1" invisible="1"/>
+					<field name="desc_update" invisible="1"/>
+				</xpath>
+				<xpath expr="//button[@name='button_draft']" position="attributes">
+					<attribute name="string">Edit Sale</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='to_check']" position="after">
+					<field name="appointment_ref_id" string="Appointment"/>
+				</xpath>
+				<xpath expr="//div[@name='journal_div']" position="after">
+					<field name="payment_method" readonly='1' attrs="{'invisible': ['|',('payment_state', '=', 'not_paid'), ('move_type', 'not in', ('out_invoice','in_refund'))]}"/>
+					<field name="package_status" decoration-danger="apt_color == True" widget="badge"/>
+					<field name="apt_color" invisible="1"/>
+					<field name="return_all_inv" invisible="1"/>
+					
+				</xpath>
+				<xpath expr="//field[@name='appointment_ref_id']" position="after">
+					<field name="return_status" decoration-warning="return_status == 'partial'" decoration-danger="return_status == 'returned'" widget="badge"/>
+				</xpath>
+
+				<xpath expr="/form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='tax_ids']" position="after">
+					<field name="tax_amt" optional="show"/>
+				</xpath>
+				<xpath expr="//field[@name='amount_residual']" position="after">
+					<button name="action_return_all" string="Return All" type="object"  attrs="{'invisible': [('return_all_inv', '!=',True)]}"/>
+				</xpath>
+				 <xpath expr="//page[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+					
+
+
+
+			</field>
+		</record>
+
+		<record id="account_invoice_report_view_account_invoice_report_pivot_inherit" model="ir.ui.view">
+			<field name="name">Account Move Report</field>
+			<field name="model">account.invoice.report</field>
+			<field name="inherit_id" ref="account.view_account_invoice_report_pivot"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='price_subtotal']" position="after">
+					<field name="manual_entries"/>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="account_invoice_report_view_search_ppts" model="ir.ui.view">
+			<field name="name">Account Move Report</field>
+			<field name="model">account.invoice.report</field>
+			<field name="inherit_id" ref="account.view_account_invoice_report_search"/>
+			<field name="arch" type="xml">
+				<xpath expr="//filter[@name='creditnote']" position="after">
+					<separator/>
+					<filter name="manual_entries_set" string="Automatic Entries" domain="[('manual_entries','=',False)]"/>
+					<filter name="manual_entries_not_set" string="Manual Entries" domain="[('manual_entries','=',True)]"/>
+				</xpath>
+			</field>
+		</record>
+
+
+		<!-- <record id="view_appt_res_company_histories" model="ir.ui.view">
+			<field name="name">Res Company</field>
+			<field name="model">res.company</field>
+			<field name="inherit_id" ref="base.view_company_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='vat']" position="after">
+					<field name="res_active"/>
+				</xpath>
+
+			</field>
+		</record> -->
+
+		<record id="base.action_res_company_form" model="ir.actions.act_window">
+			<field name="domain">[]</field>
+		</record>
+
+		<record id="res_country_form_view_inherit" model="ir.ui.view">
+			<field name="name">Res Country</field>
+			<field name="model">res.country</field>
+			<field name="inherit_id" ref="base.view_country_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='phone_code']" position="after">
+					<field name="mobile_number_limit"/>
+				</xpath>
+			</field>
+		</record>
+
+
+	</data>
+</odoo>

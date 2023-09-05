@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="apt_payment_confirmation" model="ir.ui.view">
+			<field name="name">Pay Now</field>
+			<field name="model">apt.payment.confirmation</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Pay Now" class="pay_now_wiz_frm_cls">
+					<center>
+						<field name="appointments_id" invisible="1"/>
+
+						<img src="\ppts_custom_apt_mgmt\static\img\shop-cart.png" style="width:45%;"/>
+
+						<h1 style="font-size: 24px;margin: 10px;">Would you like to Process the Invoice for Payment?</h1>
+
+						<button name="pay_now" class="oe_highlight" string="Pay Now" type="object" style="font-size: 18px;"/>
+						<button name="pay_later" type="object" string="Pay Later" style="background: orange;border: 1px solid orange;color: #ffff;margin-left: 20px;font-size: 18px;"/>
+					</center>
+					<footer style="border: none;"></footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="adv_payment_wizard_form" model="ir.ui.view">
+			<field name="name">Advance Payment</field>
+			<field name="model">adv.payment</field>
+			<field name="priority" eval="8" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form create="false" edit="false" delete="false">
+					<sheet>
+
+						<group>
+							<group>
+								<field name="is_adjust_balance" invisible="1"/>
+								<field name="partner_id" groups="base.group_no_one"/>
+								<field name="amount" readonly="1"/>
+								<field name="outstanding_balance" readonly="1"/>
+								<field name="take_outstanding_balance" invisible="1"/>
+								<field name="payment_options" required="1"/>
+								<field name="amount_taken_from_outstanding" attrs="{'readonly':[('payment_options','=','full')],'required':[('payment_options','=','partial')]}"/>
+								<field name="amount_topay" invisible="0"/>
+
+							</group>
+
+							<group>
+								<div class='badge-success' name="info_note" attrs="{'invisible': [('outstanding_balance', '!=', 0)]}">
+									<h5>You have No Credit Balance to Adjust...!</h5>
+								</div>
+
+							</group>
+
+						</group>
+
+						<group invisible="1">
+							<group>
+								<field name="partner_id" groups="base.group_no_one"/>
+								<field name="journal_id" domain="[('company_id', '=', company_id),('type', 'in', ('bank', 'cash'))]"/>
+								<field name="amount"/>
+								<field name="outstanding_balance"/>
+								<field name="take_outstanding_balance"/>
+								<field name="amount_taken_from_outstanding" invisible="1"/>
+							</group>
+							<group>
+								<field name="payment_date"/>
+								<field name="ref"/>
+								<field name="destination_account_id" groups="base.group_no_one"/>
+								<field name="appointment_id" groups="base.group_no_one"/>
+								<field name="company_id" groups="base.group_no_one"/>
+								<field name="currency_id" invisible="1"/>
+							</group>
+
+
+						</group>
+						<footer>
+							<button string="Create Payment" class="oe_highlight" name="create_adv_payment" type="object" invisible="1"/>
+							<button string="Confirm" class="oe_highlight" name="confirm_adjust_payment" type="object" attrs="{'invisible': [('outstanding_balance', '=', 0)]}"/>
+							<button name="cancel" string="Cancel" special="cancel" />
+						</footer>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="single_session_wizard_form" model="ir.ui.view">
+			<field name="name">single.session.wizard</field>
+			<field name="model">single.session.wizard</field>
+			<field name="priority" eval="8" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="case" create="false" edit="false" delete="false">
+					<sheet>
+
+						<group>
+							<field name="appointments_id" invisible="1"/>
+							<field name="apt_atv" invisible="1"/>
+							<field name="booking_date"/>
+
+							<field name="customer_id" groups="base.group_no_one" readonly="1"/>
+							<field name="pos_order_id" domain="[('partner_id','=',customer_id),('state','in',('paid','done'))]" widget="selection"/>
+
+							<field name="product_ids" widget="many2many_tags" groups="base.group_no_one"/>
+
+							<field name="service_categ_id" widget="selection" required="1"/>
+
+							<field name="appointments_type_id" widget="selection" attrs="{'invisible':[('apt_atv','=',True)],'required':[('apt_atv','=',False)]}" domain="[('service_categ_id','=',service_categ_id)]"/>
+
+							<field name="pos_order_line_id" string="Appointment Type" widget="selection" attrs="{'invisible':[('apt_atv','=',False)],'required':[('apt_atv','=',True)]}" domain="[('order_id','=',pos_order_id),('service_used_count','!=',0)]"/>
+
+							<field name="therapist_id" widget="selection" required="1"/>
+							<field name="therapist_assistant_id" widget="selection"/>
+							<field name="apt_room_id" required="1" widget="selection"/>
+							<field name="time_id"/>
+							<field name="duration" groups="base.group_no_one"/>
+							<field name="start_time_str" required="1"/>
+							<field name="start_time" invisible="1"/>
+							<field name="end_time_str" string="End Time" readonly="True"/>
+							<field name="end_time" invisible="1"/>
+							<field name="company_id" groups="base.group_no_one"/>
+						</group>
+						<footer>
+							<button string="Add Appointment" class="oe_highlight" name="add_appointment_wiz" type="object" />
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="single_session_wizard_act" model="ir.actions.act_window">
+			<field name="name">single.session.wizard.act</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">single.session.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="single_session_wizard_form" />
+			<field name="target">new</field>
+		</record>
+
+
+
+		<record id="apt_coupon_wizard" model="ir.ui.view">
+			<field name="name">apt.coupon</field>
+			<field name="model">apt.coupon</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Coupon">
+					<group>
+						<field name="code"/>
+					</group>
+					<footer>
+						<button name="apply" string="Apply" type="object" />
+						<button name="cancel" string="Cancel" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="apt_promo_wizard" model="ir.ui.view">
+			<field name="name">apt.promo</field>
+			<field name="model">apt.promo</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Promotion">
+					<group>
+						<field name="code"/>
+					</group>
+					<footer>
+						<button name="apply" string="Apply" type="object" />
+						<button name="cancel" string="Cancel" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="apt_two_step_cancel_wizard" model="ir.ui.view">
+			<field name="name">Cancellation Reason</field>
+			<field name="model">apt.two.step.cancel</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Cancellation Reason">
+					<group>
+						<group attrs="{'invisible': [('is_no_show', '=', True)]}">
+							<field name="appointments_id" invisible="1"/>
+							<field name="is_no_show" invisible="1"/>
+							<field name="is_line_cancel" invisible="1"/>
+							<field name="line_cancel_charges" invisible="1"/>
+							<field name="session_type" invisible="1"/>
+							<field name="cancellation_type" string="Cancellation Type" attrs="{'required': [('is_no_show', '=', False)]}"/>
+							<field name="cancel_reason_template" attrs="{'required': [('is_no_show', '=', False)]}" options="{'no_create_edit': True, 'no_quick_create':True,'no_create':True,'no_open':True}"/>
+
+							<field name="cc_cancellation_charge"/>
+							<field name="cancel_options" attrs="{'readonly': [('cc_cancellation_charge', '=', 0)],'required':[('is_no_show', '=', False),('cc_cancellation_charge', '!=', 0)],'invisible':[('cc_cancellation_charge', '=', 0)]}"/>
+
+							<field name="create_invoice" invisible="1"/>
+							<field name="cc_confirmation" invisible="1"/>
+							<field name="note"/>
+
+						</group>
+						<group attrs="{'invisible': [('is_no_show', '=', False)]}">
+							<field name="is_no_show" invisible="1"/>
+							<field name="noshow_options" string="No Show Policy" attrs="{'required': [('is_no_show', '=', True)]}"/>
+							<field name="no_show_charges"/>
+
+						</group>
+
+					</group>
+
+					<div attrs="{'invisible': [('is_no_show', '=', False)]}">
+						<label for="note" />
+						<field name="note" />
+						<field name="is_paid" invisible="1"/>
+
+
+						<div class='badge-success' name="info_note" attrs="{'invisible': ['|',('is_paid', '!=', 'payment_received'),
+							('is_paid', '!=', 'paid')]}" style="background-color: #06a14e;padding: 5px;">
+							<h5 style="font-weight: bold;color: #fff;">Appointment is Already Paid, So Credit Note will Be Generated for the Above Details</h5>
+						</div>
+						<div class='badge-success' attrs="{'invisible': ['|',('is_paid', '=', 'payment_received'),
+							('is_paid', '=', 'paid')]}" style="background-color: #06a14e;padding: 5px;">
+							<h5 style="font-weight: bold;color: #fff;">Appointment is Yet to Pay, So No show Charges will Be added on next Booking..</h5>
+						</div>
+					</div>
+
+
+					<footer>
+						<button name="cancel_and_create" string="Cancel &amp; Create Appointment" type="object" attrs="{'invisible': [('is_no_show', '=', True)]}"/>
+						<button name="cancel_apt" string="Cancel Appointment" type="object" attrs="{'invisible': [('is_no_show', '=', True)]}"/>
+						<button name="process_no_show" string="Process Billing" type="object" attrs="{'invisible': [('is_no_show', '=', False)]}"/>
+						<button name="cancel" string="Discard" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+
+
+		<record id="apt_two_step_void_wizard" model="ir.ui.view">
+			<field name="name">Void Reason</field>
+			<field name="model">apt.two.step.void</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Cancellation Reason">
+					<group>
+						<field name="appointments_id" invisible="1"/>
+						<field name="note" string="Remarks"/>
+					</group>
+
+					<footer>
+						<button name="action_void" string="Void Appointment" type="object"/>
+						<button name="cancel" string="Discard" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="apt_completion_wizard" model="ir.ui.view">
+			<field name="name">apt.complete</field>
+			<field name="model">apt.complete</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Payment">
+					<group>
+						<field name="name" invisible="1"/>
+						<field name="appointments_id" readonly="1" invisible="1"/>
+						<div class="alert alert-danger" role="alert">
+							<h2>Please Complete Your Payment !!</h2>
+						</div>
+					</group>
+					<footer>
+						<button name="pay" string="Pay" type="object" invisible="1"/>
+						<button name="cancel" string="Close" special="cancel"/>
+					</footer>
+				</form>
+			</field>
+		</record>
+
+	</data>
+</odoo>

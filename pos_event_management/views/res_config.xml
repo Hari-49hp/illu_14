@@ -1,0 +1,28 @@
+<odoo>
+	<data>
+
+		<!-- Ir Config Settings Inherit -->
+		<record id="configuration_event_registrations_extended" model="ir.ui.view">
+			<field name="name">Event Registrations</field>
+			<field name="model">res.config.settings</field>
+			<field name="inherit_id" ref="event.res_config_settings_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[@id='manage_tracks']" position='after'>
+					<div class="col-12 col-lg-6 o_setting_box" id="event_pos_order">
+						 <div class="o_setting_left_pane">
+                                    <field name="is_pos_order"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label string="Create POS Order" for="is_pos_order"/>
+                                <div class="text-muted">
+                                    Will create POS order on confirm
+                                </div>
+
+                            </div>
+					</div>
+				</xpath>
+			</field>
+		</record>
+		
+	</data>
+</odoo>

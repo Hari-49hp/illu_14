@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+        <template id="illuminations_press_and_media_articles" name="Articles">
+            <!-- Articles Section Start -->
+            <section class="upcomingsection articals mycontainer">
+                <h2 data-aos="fade-up" data-aos-delay="50">
+                    Articles
+                    <hr class="borderhr" />
+                </h2>
+
+                <div class="calendar-wrapper">
+                    <div class="calendar-eventlist-view-wrapper">
+
+
+                        <t t-set="blog_ids" t-value="request.env['blog.post'].sudo().search([], limit=7)" />
+
+                        <t t-foreach="blog_ids" t-as="post_id">
+                            <div class="calenday-eventlist-item" data-aos="fade-up">
+                                <div class="cal-event-img">
+                                    <t t-foreach="post_id.tag_ids" t-as="i">
+                                        <div class='multiple-tag-contanier'>
+                                            <label class="filtercatlabel" t-esc="i.name"/>
+                                        </div>
+                                    </t>
+
+                                    <t t-if="post_id.image_av">
+                                        <img t-attf-src="/web/image?model=blog.post&amp;id={{post_id.sudo().id}}&amp;field=image_av" />
+                                    </t>
+
+                                    <t t-if="not post_id.image_av">
+                                        <img src="/ppts_website_theme/static/src/img/art1.jpg" />
+                                    </t>
+
+                                </div>
+
+
+                                <div class="eventfullinfos">
+                                    <div class="event-typoingo">
+                                        <div class="eventtitleinfos">
+                                            <h5>
+                                                <t t-esc="post_id.name"/>
+                                            </h5>
+                                        </div>
+                                        <div class="eventinfos">
+                                            <label>
+                                                <t t-esc="post_id.subtitle"/>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="event-listbtn">
+                                        <a t-attf-href="/blog/{{slug(post_id.blog_id)}}/{{post_id.id}}">
+                                            <button class="borderedbtn">read now</button>
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </t>
+
+
+
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up">
+                    <a href="/blog">
+                        <button type="button" class="seeallpost-btns">
+                        Load more articles
+                            <i class="fas fa-caret-down"></i>
+                        </button>
+                    </a>
+                </div>
+            </section>
+            <!-- Articles Section END -->
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- Form_view Checklist Category -->
+		<record id="checklist_category_from_view" model="ir.ui.view">
+			<field name="name">Checklist Category</field>
+			<field name="model">checklist.category</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="code"/>
+							<field name="notes" />
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_ids"/>
+					</div>
+
+				</form>
+			</field>
+		</record>
+
+
+		<!-- Tree_view Checklist Category-->
+		<record id="checklist_category_tree_view" model="ir.ui.view">
+			<field name="name">Checklist Category</field>
+			<field name="model">checklist.category</field>
+			<field name="arch" type="xml">
+				<tree default_order="code asc">
+					<field name="name" />
+					<field name="code"/>
+					<field name="notes" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="checklist_maincatetg_search" model="ir.ui.view">
+			<field name="name">checklist.category.search</field>
+			<field name="model">checklist.category</field>
+			<field name="arch" type="xml">
+				<search string="Search Category">
+					<field name="name" />
+					<field name="code"/>
+					<field name="notes" />
+				</search>
+			</field>
+		</record>
+
+		<!-- Action Checklist Category -->
+		<record id="checklist_category_action" model="ir.actions.act_window">
+			<field name="name">Checklist Category</field>
+			<field name="res_model">checklist.category</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="checklist_category_tree_view" />
+		</record>
+		
+
+		<menuitem id="checklist_main_menu" name="Checklist"
+			parent="event.menu_event_configuration" sequence="1" />
+<!--			<menuitem id="checklist_category_menu" name="Checklist Category"-->
+<!--				parent="checklist_main_menu" sequence="1" action="checklist_category_action" />-->
+
+				<!-- Form_view Checklist Sub Category -->
+				<record id="checklist_sub_category_from_view" model="ir.ui.view">
+					<field name="name">Checklist Sub Category</field>
+					<field name="model">checklist.sub.category</field>
+					<field name="arch" type="xml">
+						<form>
+							<sheet>
+								<group>
+									<field name="name" />
+									<field name="code"/>
+									<field name="category_id"/>
+									<field name="notes" />
+								</group>
+							</sheet>
+							<div class="oe_chatter">
+								<field name="message_ids"/>
+							</div>
+						</form>
+					</field>
+				</record>
+
+
+				<!-- Tree_view Checklist Sub Category-->
+				<record id="checklist_sub_category_tree_view" model="ir.ui.view">
+					<field name="name">Checklist Sub Category</field>
+					<field name="model">checklist.sub.category</field>
+					<field name="arch" type="xml">
+						<tree default_order="code asc">
+							<field name="name" />
+							<field name="code"/>
+							<field name="category_id"/>
+							<field name="notes" />
+						</tree>
+					</field>
+				</record>
+
+				<record id="checklist_subcatetg_search" model="ir.ui.view">
+					<field name="name">checklist.subcategory.search</field>
+					<field name="model">checklist.sub.category</field>
+					<field name="arch" type="xml">
+						<search string="Search Category">
+							<field name="name" />
+							<field name="code"/>
+							<field name="category_id"/>
+							<field name="notes" />
+						</search>
+					</field>
+				</record>
+
+				<!-- Action Checklist Sub Category -->
+				<record id="checklist_sub_category_action" model="ir.actions.act_window">
+					<field name="name">Checklist Sub Category</field>
+					<field name="res_model">checklist.sub.category</field>
+					<field name="view_mode">tree,form</field>
+					<field name="view_id" ref="checklist_category_tree_view" />
+				</record>
+
+				<!-- <menuitem id="checklist_sub_category_menu" name="Checklist Sub Category"
+					parent="checklist_main_menu" sequence="1" action="checklist_sub_category_action" /> -->
+
+					<!-- Form_view Checklist master -->
+					<record id="checklist_master_from_view" model="ir.ui.view">
+						<field name="name">Event Checklist</field>
+						<field name="model">checklist.master</field>
+						<field name="arch" type="xml">
+							<form>
+								<sheet>
+									<group>
+										<group>
+											<field name="name" />
+											<field name="checklist_type" invisible="1"/>
+											<field name="category_id"/>
+										</group>
+										<group>
+											<field name="responsible" invisible="1" required="0"/>
+											<field name="description" required="0"/>
+											<field name="attachment" filename="filename"/>
+										</group>
+									</group>
+								</sheet>
+								<div class="oe_chatter">
+									<field name="message_ids"/>
+								</div>
+							</form>
+						</field>
+					</record>
+
+
+					<!-- Tree_view Checklist master-->
+					<record id="checklist_master_tree_view" model="ir.ui.view">
+						<field name="name">Event Checklist</field>
+						<field name="model">checklist.master</field>
+						<field name="arch" type="xml">
+							<tree>
+								<field name="name" />
+								<field name="checklist_type" invisible="1"/>
+								<field name="category_id"/>
+								<field name="responsible" invisible="1" required="0"/>
+								<field name="description" required="0"/>
+								<field name="attachment" />
+							</tree>
+						</field>
+					</record>
+
+					<record id="checklist_master_search" model="ir.ui.view">
+						<field name="name">checklist.master.search</field>
+						<field name="model">checklist.master</field>
+						<field name="arch" type="xml">
+							<search string="Search Category">
+								<field name="name" />
+<!--								<field name="checklist_type"/>-->
+								<field name="category_id"/>
+<!--								<field name="responsible" />-->
+								<field name="description" />
+								<group expand="0" string="Group By">
+									<filter string="Type" name="checklist_type" domain="[]" context="{'group_by': 'checklist_type'}"/>
+									<filter string="Category" name="category_id" domain="[]" context="{'group_by': 'category_id'}"/>
+									<filter string="Responsible" name="responsible" domain="[]" context="{'group_by': 'responsible'}"/>
+								</group>
+
+							</search>
+						</field>
+					</record>
+
+
+					<!-- Action Checklist master -->
+					<record id="checklist_master_action" model="ir.actions.act_window">
+						<field name="name">Checklist Data Master</field>
+						<field name="res_model">checklist.master</field>
+						<field name="view_mode">tree,form</field>
+						<field name="view_id" ref="checklist_master_tree_view" />
+					</record>
+
+<!--					<menuitem id="checklist_master_menu" name="Event Checklist"-->
+<!--						parent="checklist_main_menu" sequence="1" action="checklist_master_action" />-->
+
+						<!-- Form_view Checklist -->
+						<record id="check_list_from_view" model="ir.ui.view">
+							<field name="name">Event Checklist</field>
+							<field name="model">check.list</field>
+							<field name="arch" type="xml">
+								<form>
+									<sheet>
+										<group>
+											<group>
+												<field name="event_id" />
+												<field name="event_dt_time"/>
+												<field name="event_categ_id" />
+												<field name="event_sub_categ_id"/>
+											</group>
+											<group>
+												<field name="checklist_date" />
+												<field name="responsible_id" />
+												<field name="therapist_ids" widget="many2many_tags" />
+												<field name="event_mode" invisible="1"/>
+											</group>
+										</group>
+										<notebook>
+											<page string="Checklist Reminder" name="checklist_lines">
+												<button name="add_checklists" type="object" string="Add Checklists"/>
+												<button name="update_checklist" type="object" string="Update"/>
+												<field name="checklist_line_id" widget="section_and_note_one2many"
+													mode="tree">
+													<tree editable="bottom" create="false" edit="false">
+														<field name="checklist_master_id" />
+														<field name="project_task_id"/>
+														<field name="checklist_description" />
+														<field name="checklist_category_id" />
+														<field name="checklist_responsible" domain="[('share', '=', False)]" required="1"/>
+
+														<field name="start_date" required="1"/>
+														<field name="end_date"  required="1"/>
+														<field name="status" readonly="1"/>
+													</tree>
+<!--													<form>-->
+<!--														<group>-->
+<!--														<group>-->
+<!--														<field name="checklist_master_id" />-->
+<!--														<field name="project_task_id"/>-->
+<!--														<field name="checklist_description" />-->
+<!--														<field name="checklist_category_id" />-->
+
+<!--														</group>-->
+<!--														<group>-->
+<!--															<field name="checklist_responsible" />-->
+<!--														<field name="start_date" />-->
+<!--														<field name="end_date" />-->
+<!--														<field name="status" />-->
+
+<!--														</group>-->
+<!--														</group>-->
+<!--&lt;!&ndash;													<div class="oe_chatter">&ndash;&gt;-->
+<!--&lt;!&ndash;										<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>&ndash;&gt;-->
+<!--&lt;!&ndash;				  										<field name="message_ids" widget="mail_thread"/>&ndash;&gt;-->
+<!--&lt;!&ndash;													</div>&ndash;&gt;-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+
+<!--													</form>-->
+												</field>
+											</page>
+										</notebook>
+									</sheet>
+									<div class="oe_chatter">
+										<field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+  										<field name="message_ids" widget="mail_thread"/>
+									</div>
+								</form>
+							</field>
+						</record>
+
+
+						<!-- Tree_view Checklist -->
+						<record id="check_list_tree_view" model="ir.ui.view">
+							<field name="name">Checklist</field>
+							<field name="model">check.list</field>
+							<field name="arch" type="xml">
+								<tree>
+									<field name="event_id" />
+									<field name="event_dt_time"/>
+									<field name="facilitator_id"/>
+									<field name="event_categ_id"/>
+									<field name="checklist_date" />
+									<field name="responsible_id" />
+									<field name="event_mode" invisible="1"/>
+								</tree>
+							</field>
+						</record>
+
+						<!--Search		-->
+						<record id="checklist_main_search" model="ir.ui.view">
+							<field name="name">checklist.main.search</field>
+							<field name="model">check.list</field>
+							<field name="arch" type="xml">
+								<search string="Search Category">
+									<field name="event_id" />
+									<field name="event_dt_time"/>
+									<field name="facilitator_id"/>
+									<field name="event_categ_id"/>
+									<field name="checklist_date" />
+									<field name="responsible_id" />
+									<field name="event_mode" />
+									<group expand="0" string="Group By">
+										<filter string="Facilitator" name="facilitator_id" domain="[]" context="{'group_by': 'facilitator_id'}"/>
+										<filter string="Category" name="event_categ_id" domain="[]" context="{'group_by': 'event_categ_id'}"/>
+										<filter string="Responsible" name="responsible_id" domain="[]" context="{'group_by': 'responsible_id'}"/>
+										<filter string="Online Event" name="event_mode" domain="[]" context="{'group_by': 'event_mode'}"/>
+									</group>
+
+								</search>
+							</field>
+						</record>
+
+						<!-- Action Checklist -->
+						<record id="check_list_action" model="ir.actions.act_window">
+							<field name="name">Event Checklist</field>
+							<field name="res_model">check.list</field>
+							<field name="view_mode">tree,form</field>
+							<field name="view_id" ref="check_list_tree_view" />
+						</record>
+
+<!--						<menuitem id="check_list_menu" name="Checklist"-->
+<!--							parent="checklist_main_menu" sequence="1" action="check_list_action" />-->
+
+						<menuitem id="checklist_master_menu" name="Checklist"
+						parent="checklist_main_menu" sequence="1" action="checklist_master_action" />
+
+						<menuitem id="event_checklist_master_menu" name="Event Checklist"
+						parent="checklist_main_menu" sequence="12" action="check_list_action" />
+
+						</data>
+					</odoo>

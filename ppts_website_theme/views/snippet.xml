@@ -1,0 +1,187 @@
+<odoo>
+	<data>
+		<template id="website_theme_cuton_snippets" inherit_id="website.snippets" name="Illuminations Website Snippets">
+
+			<!-- <xpath expr="//*[@id='snippet_mega_menu']" position="replace">
+				<div id="snippet_mega_menu" class="o_panel d-none">
+
+					<div class="o_panel_header">Illuminations - Header</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.header_snippet_type_one" t-thumbnail="/ppts_website_theme/static/src/img/header/header1.png"/>
+
+						<t t-snippet="ppts_website_theme.header_snippet_type_two" t-thumbnail="/ppts_website_theme/static/src/img/header/header2.png"/>
+
+						<t t-snippet="ppts_website_theme.header_snippet_type_three" t-thumbnail="/ppts_website_theme/static/src/img/header/header3.png"/>
+
+						<t t-snippet="ppts_website_theme.header_snippet_type_four" t-thumbnail="/ppts_website_theme/static/src/img/header/header4.png"/>
+					</div>
+					
+				</div>
+			</xpath> -->
+
+			<xpath expr="//div[@id='snippet_structure']" position="before">
+
+				<div id="illuminations_structure" class="o_panel">
+
+					<div class="o_panel_header">Illuminations - Homepage</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_header_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet1.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_about_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet2.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_service_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet3.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_upcoming_event_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet4.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_participents_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet5.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_our_experts_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet6.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_achivements_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet7.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_featured_in_snippet" t-thumbnail="/ppts_website_theme/static/src/img/featured_in.png"/> 
+
+						<t t-snippet="ppts_website_theme.illuminations_client_about_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet8.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_snippet9.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_book_free_apt_snippet" t-thumbnail="/ppts_website_theme/static/src/img/book_an_apt.png"/>
+
+						<!-- <t t-snippet="ppts_website_theme.illuminations_custom_footer" t-thumbnail="/ppts_website_theme/static/src/img/book_an_apt.png"/> -->
+
+						<!-- <t t-snippet="ppts_website_theme.illuminations_homepage_footer_snippet" t-thumbnail="/ppts_website_theme/static/src/img/homepage_footer.png"/> -->
+					</div>
+
+					<div class="o_panel_header">Illuminations - About Us</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_our_story_snippet" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt1.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_insipiring_values_snippet" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt2.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_our_approach_snippet" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt3.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_power_lies_within_snippet" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt4.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_mission_vision_snippet" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt5.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_our_journey_snippet" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt6.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_awards_recognition_snippet" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt7.png"/>
+					</div>
+
+					<div class="o_panel_header">Illuminations - Our Team</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_our_team_therapists_snippet" t-thumbnail="/ppts_website_theme/static/src/img/ourteam/team1.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_our_team_therapists_list_one_snippet" t-thumbnail="/ppts_website_theme/static/src/img/ourteam/team2.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_our_team_therapists_list_two_snippet" t-thumbnail="/ppts_website_theme/static/src/img/ourteam/team3.png"/>
+					</div>
+
+					<div class="o_panel_header">Illuminations - Therapists</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.template_therapist_insipiring_values_page" t-thumbnail="/ppts_website_theme/static/src/img/therapist/th2.png"/>
+
+						<t t-snippet="ppts_website_theme.template_therapist_about_page" t-thumbnail="/ppts_website_theme/static/src/img/therapist/th3.png"/>
+
+						<t t-snippet="ppts_website_theme.template_therapist_certifications_qualifications_page" t-thumbnail="/ppts_website_theme/static/src/img/therapist/th4.png"/>
+
+						<t t-snippet="ppts_website_theme.template_therapist_services_page" t-thumbnail="/ppts_website_theme/static/src/img/therapist/th5.png"/>
+
+						<t t-snippet="ppts_website_theme.template_therapist_offers_page" t-thumbnail="/ppts_website_theme/static/src/img/therapist/th6.png"/>
+
+						<t t-snippet="ppts_website_theme.template_therapist_mission_and_vision_page" t-thumbnail="/ppts_website_theme/static/src/img/therapist/th7.png"/>
+
+						<t t-snippet="ppts_website_theme.template_therapist_featured_post_page" t-thumbnail="/ppts_website_theme/static/src/img/therapist/th8.png"/>
+
+						<t t-snippet="ppts_website_theme.template_therapist_upcomingsection_page" t-thumbnail="/ppts_website_theme/static/src/img/therapist/th9.png"/>
+					</div>
+
+					<div class="o_panel_header">Illuminations - Press And Media</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_press_and_media_header" t-thumbnail="/ppts_website_theme/static/src/img/press_media/p1.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_press_and_media_featured_in" t-thumbnail="/ppts_website_theme/static/src/img/press_media/p2.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_press_and_media_articles" t-thumbnail="/ppts_website_theme/static/src/img/press_media/p3.png"/>
+					</div>
+
+					<div class="o_panel_header">Illuminations - Contact Us</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_contactus_header" t-thumbnail="/ppts_website_theme/static/src/img/contact/contact1.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_contactus_corporates" t-thumbnail="/ppts_website_theme/static/src/img/contact/contact2.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_careers_header" t-thumbnail="/ppts_website_theme/static/src/img/contact/contact3.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_franchise_info_header" t-thumbnail="/ppts_website_theme/static/src/img/contact/contact4.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_customer_care_header" t-thumbnail="/ppts_website_theme/static/src/img/contact/contact5.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_general_inquiry_header" t-thumbnail="/ppts_website_theme/static/src/img/contact/contact6.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_contactus_enquiry_form" t-thumbnail="/ppts_website_theme/static/src/img/contact/contact7.png"/>
+						
+						<t t-snippet="ppts_website_theme.illuminations_contact_feedback" t-thumbnail="/ppts_website_theme/static/src/img/contact/contact8.png"/>
+					</div>
+
+
+					<div class="o_panel_header">Illuminations - Blogs</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet1" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt1.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet2" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt2.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet3" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt3.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet4" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt4.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet5" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt5.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet6" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt6.png"/>
+
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet7" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt7.png"/>
+						
+						<t t-snippet="ppts_website_theme.illuminations_blog_snippet8" t-thumbnail="/ppts_website_theme/static/src/img/aboutus/abt7.png"/>
+					</div>
+
+					<div class="o_panel_header">Illuminations - Meditation</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_meditation_header" t-thumbnail="/ppts_website_theme/static/src/img/Meditation/Meditation_header.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_meditation_video" t-thumbnail="/ppts_website_theme/static/src/img/Meditation/video_post.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_meditation_event_snippet" t-thumbnail="/ppts_website_theme/static/src/img/Meditation/video_post.png"/>
+						
+						<t t-snippet="ppts_website_theme.illuminations_free_introduction" t-thumbnail="/ppts_website_theme/static/src/img/Meditation/free_intro.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_types_of_meditation" t-thumbnail="/ppts_website_theme/static/src/img/Meditation/type_of_meditation.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_common_myth" t-thumbnail="/ppts_website_theme/static/src/img/Meditation/common_myths.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_why_you_need_this" t-thumbnail="/ppts_website_theme/static/src/img/Meditation/need_this.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_meditation_shop" t-thumbnail="/ppts_website_theme/static/src/img/Meditation/shop.png"/>
+					</div>
+
+
+					<div class="o_panel_header">Illuminations - Therapy</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_therapy_header" t-thumbnail="/ppts_website_theme/static/src/img/Therapy/1.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_therapy_help" t-thumbnail="/ppts_website_theme/static/src/img/Therapy/2.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_how_we_work" t-thumbnail="/ppts_website_theme/static/src/img/Therapy/3.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_book_consultation" t-thumbnail="/ppts_website_theme/static/src/img/Therapy/4.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_our_approach" t-thumbnail="/ppts_website_theme/static/src/img/Therapy/5.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_journey" t-thumbnail="/ppts_website_theme/static/src/img/Therapy/6.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_browse_therapist" t-thumbnail="/ppts_website_theme/static/src/img/Therapy/7.png"/>
+					</div>
+					<div class="o_panel_header">Illuminations - Therapy</div>
+					<div class="o_panel_body">
+						<t t-snippet="ppts_website_theme.illuminations_therapy_category_header" t-thumbnail="/ppts_website_theme/static/src/img/Therapy_categ/1.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_therapy_category_journey" t-thumbnail="/ppts_website_theme/static/src/img/Therapy_categ/2.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_therapy_category_booking" t-thumbnail="/ppts_website_theme/static/src/img/Therapy_categ/booking.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_therapy_category_relationship_healing" t-thumbnail="/ppts_website_theme/static/src/img/Therapy_categ/3.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_therapy_category_solutions" t-thumbnail="/ppts_website_theme/static/src/img/Therapy_categ/4.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_therapy_category_therapist" t-thumbnail="/ppts_website_theme/static/src/img/Therapy_categ/5.png"/>
+						<t t-snippet="ppts_website_theme.illuminations_therapy_category_support" t-thumbnail="/ppts_website_theme/static/src/img/Therapy_categ/6.png"/>
+					</div>
+
+				</div>
+			</xpath>
+		</template>
+	</data>
+</odoo>

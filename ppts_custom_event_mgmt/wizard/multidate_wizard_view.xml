@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="view_multidate_wizard_form" model="ir.ui.view">
+			<field name="name">multi.date.wizard</field>
+			<field name="model">multi.date.wizard</field>
+			<field name="priority" eval="8" />
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="case" create="false" edit="false" delete="false">
+					<sheet>
+						<group>
+ 							<field name="event_wiz_id" string="event" invisible="1" />
+							<field name="multi_date_select"  invisible="1"/>
+							<field name="duration"/>
+							<field name="facilitator_evnt_ids" widget="many2many_tags" required="1" options="{'no_create_edit': True, 'no_open': True,'no_create': True}"/>
+							<field name="multidate_inv" invisible="1" options="{'no_create_edit': True, 'no_open': True,'no_create': True}"/>
+							
+						</group>
+						<group colspan='4' col='2'>
+							<group string="Starting at" class="emp_grp_bg_other_info" >
+								<field name="date_begin" required="1" widget="date_highlighter" class="date_highlighter_avail" attrs="{'readonly':[('multidate_inv', '!=', True)]}"/>
+								<field name="available_dates_list" id="available_dates_list" style="display:none;" nolabel="1"/>
+								<field name="hour_time_begin" required="1" attrs="{'readonly':[('multidate_inv', '!=', True)]}"/>
+								<field name="min_time_begin" required="1" attrs="{'readonly':[('multidate_inv', '!=', True)]}"/>
+							</group>
+							<group string="Ending at" class="emp_grp_bg_other_info">
+								<field name="date_end" required="1" widget="date_highlighter" class="date_highlighter_avail" attrs="{'readonly':[('multidate_inv', '!=', True)]}"/>
+								<field name="hour_time_end" required="1" attrs="{'readonly':[('multidate_inv', '!=', True)]}"/>
+								<field name="min_time_end" required="1" attrs="{'readonly':[('multidate_inv', '!=', True)]}"/>
+							</group>
+						</group>
+						<group>
+							<field name="w_multi_date_ids" string="Dated Lines" nolabel="1">
+								<tree string="multipledate" >
+									<field name="date_begin" required="1"/>
+									<field name="hour_time_begin" required="1"/>
+									<field name="min_time_begin" required="1"/>
+									<field name="m_date_begin" required="1" invisible="1"/>
+
+									<field name="date_end" required="1"/>
+									<field name="hour_time_end" required="1"/>
+									<field name="min_time_end" required="1"/>
+									<field name="m_date_end" required="1" invisible="1"/>
+
+									<field name="duration" readonly="0"/>
+                                </tree>
+								<form>
+									<group>
+									<group string="Starting at" class="emp_grp_bg_other_info">
+
+										<field name="date_begin" required="1"/>
+										<field name="hour_time_begin" required="1"/>
+										<field name="min_time_begin" required="1"/>
+										<field name="m_date_begin" required="1" invisible="1"/>
+									</group>
+
+									<group string="Ending at" class="emp_grp_bg_other_info">
+										<field name="date_end" required="1"/>
+										<field name="hour_time_end" required="1"/>
+										<field name="min_time_end" required="1"/>
+										<field name="m_date_end" required="1" invisible="1"/>
+
+										<field name="duration"/>
+									</group>
+									</group>
+								</form>
+							</field>
+						</group>
+						<footer>
+							<button string="Add to Event" class="oe_highlight" name="submit_multidate_wiz" type="object" />
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="open_view_date_wiz" model="ir.actions.act_window">
+			<field name="name">multi.date Wizard</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">multi.date.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="view_multidate_wizard_form" />
+		<field name="target">new</field>
+
+	</record>
+	</data>
+</odoo>

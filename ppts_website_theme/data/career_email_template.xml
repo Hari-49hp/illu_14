@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+
+		<!-- // Email template for credit application -->
+		<record id="ask_for_anything_mail_template"
+			model="mail.template">
+			<field name="name">Ask For Anything</field>
+			<field name="email_from">admin@illumination.com</field>
+			<field name="subject">Ask For Anything-${ctx.get('name')}</field>
+			<field name="email_to">sales@illumination.com</field>
+			<field name="model_id"
+				ref="helpdesk.model_helpdesk_ticket" />
+			<field name="auto_delete" eval="False" />
+			<field name="lang">${ctx.get('lang')}</field>
+			<field name="body_html" type="xml">
+				<style type="text/css">
+					.tg {border-collapse:collapse;border-spacing:0;}
+					.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px
+					5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+					.tg th{font-family:Arial,
+					sans-serif;font-size:14px;font-weight:normal;padding:10px
+					5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+					.tg
+					.tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+					.tg .tg-0lax{text-align:left;vertical-align:top}
+					.center{text-align:center !important;}
+				</style>
+				<br />
+				<br />
+				<p>Dear Team,</p>
+				<br />
+				<p>A Support need for following request</p>
+				<table class="tg" style="width:900px;">
+					<tr>
+						<th class="tg-0pky" colspan="4">
+							<span style="font-weight:bold;text-decoration:underline">Information:</span>
+						</th>
+					</tr>
+					<tr>
+						<td class="tg-0lax" colspan="2">Name:	</td>
+						<td>${ctx.get('full_name')}</td>
+					</tr>
+					<!-- <tr>
+						<td class="tg-0lax" colspan="2">Phone:
+						</td>
+						<td>${ctx.get('phone')}</td>
+					</tr> -->
+					<tr>
+						<td class="tg-0lax" colspan="2">E-mail:
+						</td>
+						<td>${ctx.get('email')}</td>
+					</tr>
+					<tr>
+						<td class="tg-0lax" colspan="2">Question:</td>
+						<td>${ctx.get('subject')}</td>
+					</tr>
+				</table>
+			</field>
+		</record>
+
+	</data>
+</odoo>

@@ -1,0 +1,168 @@
+.certification-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.certification-section p,
+.certification-section li {
+    font-size: 16px;
+    opacity: 0.7;
+    max-width: 90%;
+}
+
+.certification-section li {
+    margin: 4px 0;
+
+}
+
+section.findyourneed h3 {
+    font-size: 56px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.therapy-box-inner {
+    background: #FFFFFF;
+    box-shadow: 0px 3px 18px rgba(27, 114, 119, 0.08);
+    border-radius: 4px;
+    padding: 24px;
+    height: 100%;
+}
+
+.therapy-box-inner h4 {
+    font-size: 22px;
+    line-height: 34px;
+    font-weight: 600;
+}
+
+.therapy-box-inner a {
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1024px) {
+    section.section.light-blue-bg p.desc {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .light-blue-bg h3.header.mb-4 {
+        font-size: 39px;
+    }
+
+    .light-blue-bg.training-academy-section h5 button {
+        font-size: 18px;
+        text-transform: capitalize;
+    }
+
+    .faqtabs-contentcontainer .card .btn-link .accarrow::after {
+        border-bottom: 5px solid #00aec7;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+    }
+
+    .certification-section .col-sm-6+.col-sm-6 {
+        margin-top: 21px;
+    }
+
+    .upcomingsection h2 {
+        font-size: 40px;
+    }
+
+    .certification-section h4,
+    .upcomingsection .calendar-header-one {
+        font-size: 16px;
+    }
+
+    .upcomingsection .calenday-eventlist-item {
+        position: relative;
+    }
+
+    .chips-cont {
+        /* left: 20px;
+        position: absolute;
+        top: 167px; */
+    }
+
+    label.chipsone.event-chips {
+        border-color: #fff;
+        color: #fff;
+    }
+
+    .eventinfos label {
+        width: 100%;
+    }
+
+    /* .eventinfos label:last-child {
+        text-decoration: underline;
+    } */
+
+    .calenday-eventlist-item {
+        margin-bottom: 50px;
+    }
+
+    .findyourneed {
+        margin: 0 0px !important;
+    }
+
+    .findyourneed h3 {
+        font-size: 36px !important;
+    }
+
+    .findyourneed .col-sm-4+.col-sm-4 {
+        display: inline-block;
+        padding: 0 16px !important;
+    }
+
+    .findyourneed .col-sm-4+.col-sm-4>div {
+        width: 100% !important;
+    }
+
+    .therapy-box h4 {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+        text-transform: capitalize;
+    }
+
+    .therapy-box {
+        margin-bottom: 30px;
+    }
+
+    .findyourneed .col-sm-4+.col-sm-4>div a {
+        font-size: 14px;
+        text-decoration: underline;
+        text-transform: capitalize;
+    }
+
+    .findyourneed .col-sm-4+.col-sm-4 .card {
+        padding: 24px !important;
+    }
+
+    .healing-box h4 {
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 33px;
+        text-transform: capitalize;
+
+    }
+
+    .form-section h2 {
+        color: #3a3a3a;
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+    .form-section h6 {
+        color: #3a3a3a;
+        margin-bottom: 20px;
+    }
+
+    /* button.filter-popupbtn { */
+    /* margin: 0 16px; */
+    /* } */
+
+    .responsive-center {
+        text-align: center;
+    }
+}

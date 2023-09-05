@@ -1,0 +1,451 @@
+<odoo>
+	<data>
+		<template id="illuminations_our_team_therapists_list_one_snippet" name="Therapists List 1">
+
+			<!-- Therapists Section Start -->
+			<section class="top-btmspace aboutillumination">
+				<div class="about_top_wave" data-aos="slide-up" data-aos-delay="300">
+					<svg id="svg-top-s" da="da" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 350" version="1.1" x="0px" y="0px" width="100%" style="enable-background:new 0 0 1440 350;">
+						<g>
+							<path fill="#f6fdff" d="M0.8,286.2c0,0-0.8-167.1,133.6-111.2C239.1,144.1,256.1,74.5,443,129.4c162.9,60.9,309.4-27.9,671.7,56.6c126.2-18.7,114.9-92.5,221.1-70.4c141.4,29.3,88.8,213.4,264.1,188.5v46H716.6l-395.3,0L0.8,350C0.8,351.4,0.8,286.2,0.8,286.2z"/>
+						</g>
+					</svg>
+				</div>
+				<div class=" light-blue-bg therapists-wrapper">
+					<div class="row">
+						<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+							<h2 >Therapists</h2>
+							<button class="filter-popupbtn">
+								<span class="input-group-addon iconinoutbtn">
+									<i class="fas fa-filter"></i>
+								</span> Filters
+							</button>
+						</div>
+						<div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12 heading-right-fields" data-aos="fade-up" data-aos-delay="150">
+							<div class="dropdown inputwrap">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="input-group-addon iconinoutbtn">
+										<img src="/ppts_website_theme/static/src/img/suitecaseicon.svg" />
+									</span>By Platform
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Therapy</a>
+									<a class="dropdown-item" href="#">Healing</a>
+									<a class="dropdown-item" href="#">Therapy</a>
+									<a class="dropdown-item" href="#">Online Therapy</a>
+									<a class="dropdown-item" href="#">Corporate</a>
+								</div>
+							</div>
+							<div class="dropdown inputwrap">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="input-group-addon iconinoutbtn">
+										<img src="/ppts_website_theme/static/src/img/usericon.svg" />
+									</span>By Support
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Therapy</a>
+									<a class="dropdown-item" href="#">Healing</a>
+									<a class="dropdown-item" href="#">Therapy</a>
+									<a class="dropdown-item" href="#">Online Therapy</a>
+									<a class="dropdown-item" href="#">Corporate</a>
+								</div>
+							</div>
+							<div class="dropdown inputwrap">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="input-group-addon iconinoutbtn"> 
+										<i class="fas fa-list-ul"></i>
+									</span>By Solution
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Therapy</a>
+									<a class="dropdown-item" href="#">Healing</a>
+									<a class="dropdown-item" href="#">Therapy</a>
+									<a class="dropdown-item" href="#">Online Therapy</a>
+									<a class="dropdown-item" href="#">Corporate</a>
+								</div>
+							</div>
+							<div class="dropdown inputwrap">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="input-group-addon iconinoutbtn">
+										<i class="fas fa-map-marker-alt"></i>
+									</span> All Locations
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">All</a>
+									<a class="dropdown-item" href="#">Illuminations JLT</a>
+									<a class="dropdown-item" href="#">Illuminations Maldr</a>
+									<a class="dropdown-item" href="#">Illuminations Abu-Dhabi</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+							<div class="therapest-list-container" >
+								<img src="/ppts_website_theme/static/src/img/expert1.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment  </a>
+
+							</div>
+
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="300">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert2.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment  </a>
+
+							</div>
+
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="400">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert3.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment  </a>
+
+							</div>
+
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="500">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert4.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment  </a>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="600">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert5.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment  </a>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="700">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert8.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment  </a>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="800">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert6.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment  </a>
+							</div>
+						</div>
+						<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="900">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert7.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment  </a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+			</section>
+			<!-- Therapists Section END -->
+
+		</template>
+
+		<template id="illuminations_our_team_therapists_list_two_snippet" name="Therapists List 2">
+
+			<!-- Therapists Section Start -->
+			<section class="top-btmspace aboutillumination sectiion_top_padding80">
+				<div class="noanimate_top_wave">
+					<svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180"
+						preserveAspectRatio="xMinYMax meet" version="1.1">
+						<g>
+							<path class="light-blue-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0 c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0 l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z"/>
+						</g>
+					</svg>
+				</div>
+
+				<div class=" light-blue-bg therapists-wrapper section-leftright-padding sectiion_btm_padding80">
+					<div class="row">
+						<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+							<h2>Therapists</h2>
+							<button class="filter-popupbtn ourteamfilter" id="ourteamfilterpopup"> <span class="input-group-addon iconinoutbtn"><i
+								class="fas fa-filter"></i></span> Filters</button>
+							</div>
+							<!-- <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12 heading-right-fields" data-aos="fade-up"
+								data-aos-delay="150">
+
+								<div class="dropdown inputwrap">
+									<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="input-group-addon iconinoutbtn"> <img src="/ppts_website_theme/static/src/img/suitecaseicon.svg" />
+									</span>By Platform
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Therapy</a>
+									<a class="dropdown-item" href="#">Healing</a>
+									<a class="dropdown-item" href="#">Therapy</a>
+									<a class="dropdown-item" href="#">Online Therapy</a>
+									<a class="dropdown-item" href="#">Corporate</a>
+								</div>
+							</div>
+							<div class="dropdown inputwrap">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="input-group-addon iconinoutbtn"> <img src="/ppts_website_theme/static/src/img/usericon.svg" />
+								</span>By Support
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Therapy</a>
+								<a class="dropdown-item" href="#">Healing</a>
+								<a class="dropdown-item" href="#">Therapy</a>
+								<a class="dropdown-item" href="#">Online Therapy</a>
+								<a class="dropdown-item" href="#">Corporate</a>
+							</div>
+						</div>
+						<div class="dropdown inputwrap">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="input-group-addon iconinoutbtn"> <i class="fas fa-list-ul"></i>
+							</span>By Solution
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">Therapy</a>
+							<a class="dropdown-item" href="#">Healing</a>
+							<a class="dropdown-item" href="#">Therapy</a>
+							<a class="dropdown-item" href="#">Online Therapy</a>
+							<a class="dropdown-item" href="#">Corporate</a>
+						</div>
+					</div>
+					<div class="dropdown inputwrap">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span class="input-group-addon iconinoutbtn"> <i class="fas fa-map-marker-alt"></i></span>
+							All Locations
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">All</a>
+							<a class="dropdown-item" href="#">Illuminations JLT</a>
+							<a class="dropdown-item" href="#">Illuminations Maldr</a>
+							<a class="dropdown-item" href="#">Illuminations Abu-Dhabi</a>
+						</div>
+					</div>
+				</div> -->
+			</div> 
+
+			<div class="row">
+				<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12" id="outteamfilter"  data-aos="fade-up" data-aos-delay="200">
+					<div class="ourteam-filter">
+						<h4>Filter <button type="button" class="close"  id="ourteamfilterpopupoe"> <span aria-hidden="true" class="popup-closebtn"></span> </button></h4>
+						<div id="accordion">
+							<div class="filterlist-container">
+								<div class="" id="headingOne">
+									<button class="headinglinktyp" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Type
+										<a class="arrow-drop"></a>
+									</button>
+								</div>
+
+								<div id="collapseOne" class="collapse show filterlists" aria-labelledby="headingOne"
+									data-parent="#accordion">
+									<label> <input type="checkbox" />All </label>
+									<label> <input type="checkbox" />Online </label>
+									<label> <input type="checkbox" />Onsite </label>
+									<label> <input type="checkbox" />Onsite/online </label>
+
+								</div>
+							</div>
+							<div class="filterlist-container">
+								<div class="" id="headingTwo">
+									<button class="headinglinktyp" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+										aria-controls="collapseTwo">
+										Location
+										<a class="arrow-drop"></a>
+									</button>
+								</div>
+
+								<div id="collapseTwo" class="collapse show filterlists" aria-labelledby="headingTwo"
+									data-parent="#accordion">
+									<div class="form-group">
+										<input type="search" class="form-control" placeholder="Search"/>
+									</div>
+									<label> <input type="checkbox" />Afghanista </label>
+									<label> <input type="checkbox" />Albania </label>
+									<label> <input type="checkbox" />The Bahamas </label>
+									<label> <input type="checkbox" />Barbados </label>
+									<label> <input type="checkbox" />Barbados </label>
+									<label> <input type="checkbox" />Bhutan </label>
+									<label> <input type="checkbox" />Dominica </label>
+									<label> <input type="checkbox" />Ethiopia </label>
+									<label> <input type="checkbox" />Fiji </label>
+									<label> <input type="checkbox" />Georgia </label>
+									<label> <input type="checkbox" />Germany </label>
+									<div class="text-center">
+										<a class="buttonwithbtnshape"> Show More (40) </a>
+									</div>
+								</div>
+							</div>
+
+							<div class="filterlist-container">
+								<div class="" id="headingThree">
+									<button class="headinglinktyp" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+										aria-controls="collapseThree">
+										By Solution
+										<a class="arrow-drop"></a>
+									</button>
+								</div>
+
+								<div id="collapseThree" class="collapse show filterlists" aria-labelledby="headingThree"
+									data-parent="#accordion">
+
+									<label> <input type="checkbox" />Anxiety </label>
+									<label> <input type="checkbox" />Depression </label>
+									<label> <input type="checkbox" />Fears &amp; Phobias </label>
+									<label> <input type="checkbox" />Relationships </label>
+									<label> <input type="checkbox" />Meditation </label>
+									<div class="text-center">
+										<a class="buttonwithbtnshape"> Show More (40) </a>
+									</div>
+								</div>
+							</div>
+							<div class="filterlist-container">
+								<div class="" id="headingFour">
+									<button class="headinglinktyp" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+										By Support
+										<a class="arrow-drop"></a>
+									</button>
+								</div>
+
+								<div id="collapseFour" class="collapse show filterlists" aria-labelledby="headingFour"
+									data-parent="#accordion">
+
+									<label> <input type="checkbox" />Shamic Healer </label>
+									<label> <input type="checkbox" />Tarrot Reader </label>
+									<label> <input type="checkbox" />Psychologist </label>
+									<label> <input type="checkbox" />Life Coach </label>
+									<label> <input type="checkbox" />Meditation </label>
+									<div class="text-center">
+										<a class="buttonwithbtnshape"> Show More (40) </a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="fiterbtn-btns">
+							<button class="clearbtn">Clear all filters</button>
+							<button class="filterbtn">Apply</button>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12">
+
+					<div class="row">
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert1.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment </a>
+
+							</div>
+
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="300">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert2.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment </a>
+
+							</div>
+
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="400">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert3.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment </a>
+
+							</div>
+
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="500">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert4.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment </a>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="600">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert5.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment </a>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="700">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert8.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment </a>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="800">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert6.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment </a>
+							</div>
+						</div>
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="900">
+							<div class="therapest-list-container">
+								<img src="/ppts_website_theme/static/src/img/expert7.jpg" />
+								<h5>Soniyaa Kiran Punjabi</h5>
+								<p>Founder &amp; Hypnotherapist</p>
+								<label class="therapestlocation">illuminations JLT</label>
+								<a class="buttonwithbtnshape"> Book an appointment </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</section>
+	<!-- Therapists Section END -->
+
+</template>
+
+</data>
+</odoo>

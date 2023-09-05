@@ -1,0 +1,9 @@
+.oe_hidden{
+	display:none !important;
+}
+.o_main_navbar{
+    border-bottom: 1px solid #51BBEB !important;
+    background-color: #51BBEB !important;
+    color: white !important;
+}
+

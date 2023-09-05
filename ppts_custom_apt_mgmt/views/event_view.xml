@@ -1,0 +1,41 @@
+<odoo>
+	<data>
+
+		<record id="view_event_subcateg_view_extended" model="ir.ui.view">
+			<field name="name">event_subcateg.inherit</field>
+			<field name="model">event.event</field>
+			<field name="inherit_id" ref="ppts_custom_event_mgmt.new_event_form_view" />
+			<field name="arch" type="xml">
+				<field name="event_type_id" position="before">
+					<field name="event_service_categ_id" required="1" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}" attrs="{'readonly':[('event_publish', '=',True)]}" domain="[('is_event','=',True)]"/>	
+				</field>
+				<field name="evnt_subcateg" position="before">
+                	<field name="event_sub_categ_id" required="1" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True}" attrs="{'readonly':[('event_publish', '=',True)]}" domain="[('service_categ_id','=',event_service_categ_id)]" />
+			</field>
+			<field name="date_tz" position="before">
+				<field name="image" attrs="{'readonly':[('event_publish', '!=',False)]}"/>
+			</field>
+			<field name="evnt_subcateg" position="replace">
+				<field name="evnt_subcateg" required="0" invisible='1'/>
+			</field>
+		</field>
+		</record>
+
+		<record id="view_event_class_view_extended" model="ir.ui.view">
+			<field name="name">event_class.inherit</field>
+			<field name="model">event.class.master</field>
+			<field name="inherit_id" ref="ppts_custom_event_mgmt.event_class_from_view" />
+			<field name="arch" type="xml">
+				<field name="class_sub_catg" position="before">
+					<field name="event_sub_categ_id" attrs="{'required': True}" options="{'no_open': True, 'no_create': True, 'no_quick_create': True}"/>
+
+
+			</field>
+			<field name="class_sub_catg" position="replace">
+				<field name="class_sub_catg" required="0" invisible='1'/>
+			</field>
+		</field>
+		</record>
+
+	</data>
+</odoo>

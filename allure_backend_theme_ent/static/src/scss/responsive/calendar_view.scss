@@ -1,0 +1,73 @@
+@mixin calendar-view-sm() {
+    .o_action_manager {
+        & > .o_action {
+            & > .o_content {
+                .o_calendar_container {
+                    & > .o_calendar_sidebar_container {
+                        .o_calendar_sidebar {
+                            .o_calendar_mini {
+                                .ui-datepicker-inline .ui-datepicker-calendar {
+                                    tbody > tr > td {
+                                        padding: 0px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin calendar-view-responisve() {
+    .o_calendar_container {
+        flex-direction: column;
+        max-height: 100%;
+        overflow: auto;
+        .o_calendar_view {
+            overflow: auto;
+        }
+        .o_other_calendar_panel {
+            padding: 8px 16px;
+            @for $a from 1 through length($o-colors-complete) {
+                $value: nth($o-colors-complete, $a);
+
+                .o_color_#{$a - 1} {
+                    color: $value;
+                }
+            }
+            .o_filter {
+                font-size: $font-size-3;
+            }
+        }
+        .o_calendar_sidebar_container {
+            &.d-md-block.d-none {
+                display: none !important;
+            }
+            .o_calendar_sidebar {
+                width: 100%;
+                .o_calendar_filter {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .popover {
+        .card-header {
+            background-color: var(--brand-secondary);
+            min-height: var(--control-panel-h);
+            color: white;
+            .popover-header {
+                background-color: transparent;
+                color: white;
+            }
+        }
+    }
+}
+
+
+body.o_web_client.ad_mobile {
+    @include calendar-view-sm();
+    @include calendar-view-responisve();
+}

@@ -1,0 +1,29 @@
+<odoo>
+
+    <template id="calendar_booking_popvers_only">
+        <div id="AvailabilityPopoverListCalc">
+            <ul id="context-menu" class="popoverlist selected-popover-content context-menu context-right ctx-right POP-select-option while-event-available">
+                <li>
+                    <a class="popover-container-selected-Value">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/booking/url/redirect/add_appointment_form_view" class="checkout" title="">
+                        <span id="popover-edit-today-schedule">
+                            <i class="fas fa-clipboard-list"></i> Add Appointment</span>
+                    </a>
+                </li>
+
+                <!-- <li class="display-none">
+                    <a href="#" class="checkout" id="markAsUnavailable">
+                        <span class="popover-add-availability">
+                            <i class="fas fa-highlighter"></i> Mark as Unavailable </span>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </template>
+
+</odoo>

@@ -1,0 +1,227 @@
+<odoo>
+	<data>
+
+		<record id="vencos_res_partner_form_view_inherit" model="ir.ui.view">
+			<field name="name">Res Partner</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form" />
+			<field name="arch" type="xml">
+
+				<field name="website" position="before">
+					<field name="alternate_mobile" widget="phone" options="{'enable_sms': True}" />
+					<field name="alternate_email" widget="email" />
+					<field name="reffer_type_id" string="Lead Source" required="1" force_save="1" />
+					
+					<field name="point_of_contact" attrs="{'invisible': [('is_company', '=', False)]}"/>
+					<field name="job_title" attrs="{'invisible': [('is_company', '=', False)]}" placeholder="e.g. Sales Director"/>
+					<field name="comment" />
+					<field name="website_quote" />
+
+				</field>
+
+
+				<xpath expr="//form/sheet/notebook/page[5]" position="after">
+					<page string="Other Info" invisible="1">
+						<group>
+							<field name="master_aboutus" />
+							<field name="master_intrestedin" />
+							<field name="master_struggling" />
+							<field name="master_holistic" />
+							<field name="master_membership" invisible="1"/>
+						</group>
+
+					</page>
+				</xpath>
+
+				<!-- <xpath expr="//span[@name='address_name']/b[1]" position="replace">
+					<b attrs="{'invisible': [('type', '!=', 'contact')]}">Address</b>
+				</xpath> -->
+
+
+				<xpath expr="//form/sheet/notebook/page[5]" position="after">
+					<page string="Customer Master" groups="base.group_no_one">
+						<group>
+							<field name="date_first_visit" />
+							<field name="date_last_visit" />
+							<field name="membership_expires" />
+							<field name="average_visit_month" />
+							<field name="average_service_utilize" />
+							<field name="total_number_visit" />
+						</group>
+						<group string="Highest amount of invoice">
+							<field name="by_cash" />
+							<field name="by_credit" />
+						</group>
+						<group>
+							<field name="total_spend" />
+							<field name="total_sale" />
+						</group>
+
+					</page>
+				</xpath>
+
+				<field name="vat" position="after">
+					<field name="dob" attrs="{'invisible': [('company_type', '!=', 'person')]}" />
+					<field name="gender" attrs="{'required': [('is_company', '=', False)],'invisible': [('company_type', '!=', 'person')]}" />
+					<field name="branch_id" invisible="1" />
+					<field name="location_ids" widget="many2many_tags" options="{'no_create_edit': False,'no_quick_create':True,'no_create':True,'no_open':True}" />
+					<field name="last_visit_details" invisible="1" />
+					<field name="next_visit_details" invisible="1" />
+				</field>
+
+				<field name="function" position="before">
+					<field name="customer_balance" attrs="{'invisible': [('customer_balance','&lt;=', 0)]}" style="background-color:#228B22;padding: 5px;font-weight: 700;font-size: 14px;color:#fff"/>
+                    <field name="customer_balance" attrs="{'invisible': [('customer_balance','&gt;=', 0)]}" style="background-color: #D22B2B;color: #fff;padding: 5px;font-weight: 700;font-size: 14px;" />
+					<field name="account_balance" attrs="{'invisible': [('account_balance','&lt;=', 0)]}" style="background-color:palegreen;padding: 5px;font-weight: 700;font-size: 11px;" invisible="1"  />
+					<field name="account_balance" attrs="{'invisible': [('account_balance','&gt;=', 0)]}" style="background-color: #fe0a0a;color: #fff;padding: 5px;font-weight: 700;font-size: 11px;" invisible="1"  />
+					<field name="blacklist_client" invisible="1" />
+				</field>
+
+				<field name="type" position="before">
+					<field name="sequence" string="Customer Code" />
+					<field name="website_id" invisible="1" />
+				</field>
+
+				<xpath expr="//field[@name='vat']" position="attributes">
+					<attribute name="attrs">{'invisible': [('company_type', '!=', 'company')]}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='parent_id']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='lastname']" position="after">
+					<field name="sub_parent_id" domain="['|',('is_a_customer','=',True),('is_a_vendor','=',True),('is_company','=',True)]" attrs="{'invisible': ['|', '&amp;', ('is_company','=', True),('sub_parent_id', '=', False),('company_name', '!=', False),('company_name', '!=', '')]}" widget="res_partner_many2one" placeholder="Company" string="Company" options="{'no_quick_create': True}" context="{'default_company_type': 'company', 'default_is_company': True}" />
+				</xpath>
+
+				<xpath expr="//field[@name='function']" position="attributes">
+					<attribute name="invisible">1</attribute>
+				</xpath>
+				
+				<xpath expr="//field[@name='website']" position="attributes">
+					<attribute name="attrs">{'invisible': 1}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='mobile']" position="attributes">
+					<attribute name="required">1</attribute>
+				</xpath>
+				<xpath expr="//field[@name='email']" position="attributes">
+					<attribute name="required">1</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='category_id']" position="attributes">
+					<attribute name="attrs">{'invisible': 1}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='type']" position="replace">
+					<field name="type" default="private" attrs="{'invisible': [('is_company','=', True)], 'readonly': [('user_ids', '!=', [])]}" />
+				</xpath>
+
+				<xpath expr="//div[@class='o_address_format']" position="replace">
+					<div class="o_address_format">
+						<field name="street" placeholder="Street..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+
+						<field name="street2" placeholder="Street 2..." class="o_address_street" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+
+						<field name="country_id" placeholder="Country" class="o_address_country" required="1" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+
+						<field name="state_id" class="o_address_state" placeholder="State" required="1" options="{'no_open': True, 'no_quick_create': True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" />
+
+						<field name="city" invisible="1" />
+
+						<field name="city_id" placeholder="City" class="o_address_city" required="1" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" options="{'no_create': True,'no_open':True, 'no_edit': True}"/>
+
+						<field name="zip" placeholder="PO Box" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" />
+
+					</div>
+
+
+				</xpath>
+
+				<xpath expr="//field[@name='child_ids']" position="attributes">
+					<attribute name="context">{'default_parent_id': active_id, 'default_name': name, 'default_street': street, 'default_street2': street2, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_lang': None, 'default_user_id': user_id, 'default_type': 'other'}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='function']" position="attributes">
+					<attribute name="attrs">{'invisible': [('company_type','!=','person')]}</attribute>
+				</xpath>
+
+				<xpath expr="//field[@name='industry_id']" position="after">
+					<field name="is_a_customer" />
+					<field name="is_a_vendor" />
+					<field name="is_job_location" attrs="{'invisible': [('is_company', '=', False)]}"/>
+					<!-- <field name="sale_order_count"/> -->
+				</xpath>
+				<xpath expr="//field[@name='child_ids']" position="before">
+					<div class="alert alert-info" role="alert">
+						<h3>Other Contacts And Addresses</h3>
+					</div>
+				</xpath>
+				<xpath expr="//field[@name='child_ids']" position="after">
+					<div class="alert alert-info" role="alert">
+								<h3>Bank Details</h3>
+						</div>
+					<group>
+						<group>
+
+						<field name="bank_ids"/>
+						</group>
+					</group>
+					<div class="alert alert-info" role="alert">
+								<h3>Online Survey</h3>
+						</div>
+					<group>
+
+						<field name="master_aboutus" />
+						<field name="master_intrestedin" />
+						<field name="master_struggling" />
+						<field name="master_holistic" />
+						<field name="master_membership" invisible="1"/>
+					</group>
+				</xpath>
+
+			</field>
+		</record>
+
+		<record id="account_move_form_view_inherit" model="ir.ui.view">
+			<field name="name">Account Move</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_move_form" />
+			<field name="arch" type="xml">
+
+				<field name="ref" position="after">
+					<field name="gift_voucher" />
+				</field>
+
+			</field>
+		</record>
+
+		<record id="view_account_payment_register_form_inherited" model="ir.ui.view">
+			<field name="name">account.payment.register.form</field>
+			<field name="model">account.payment.register</field>
+			<field name="inherit_id" ref="account.view_account_payment_register_form" />
+			<field name="arch" type="xml">
+				<field name="partner_id" position="after">
+					<field name="gift_voucher" invisible="1" />
+				</field>
+			</field>
+		</record>
+
+		<record id="res_company_abbreviation_form_view_inherit" model="ir.ui.view">
+			<field name="name">Res Company</field>
+			<field name="model">res.company</field>
+			<field name="inherit_id" ref="base.view_company_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='partner_id']" position="after">
+					<field name="abbreviation" />
+				</xpath>
+
+				<xpath expr="//field[@name='phone']" position="before">
+					<field name="landmark" />
+				</xpath>
+
+			</field>
+		</record>
+	</data>
+</odoo>

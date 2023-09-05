@@ -1,0 +1,78 @@
+<odoo>
+	<data>
+		<!-- Form_view Event -->
+		<record id="view_room_form_inherited_recurrent" model="ir.ui.view">
+			<field name="name">event.meeting.room.form.recur</field>
+			<field name="model">event.meeting.room</field>
+			<field name="inherit_id" ref="website_event_meet.event_meeting_room_view_form" />
+			<field name="arch" type="xml">
+				
+				<xpath expr="//form/sheet/notebook/page[2]" position="after">
+					<page string="Recurrent Option" name="r_evnt_recurrent" invisible="1">
+						<table style="width: 100%;" groups="base.group_no_one">
+							<tbody>
+								<tr>
+									<td style="width: 100;"><field name="r_start_date" placeholder="Start Date" style="width: 100%;"/></td>
+									<td><field name="r_start_time" attrs="{'invisible': [('r_allday', '=', True)]}"/></td>
+									<td style="text-align: center;">to</td>
+									<td style="width: 100;"><field name="r_end_date" placeholder="End Date" style="width: 100%;"/></td>
+									<td><field name="r_end_time" attrs="{'invisible': [('r_allday', '=', True)]}"/></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<group invisible="1">
+							<group>
+								<field name="r_allday"/>
+								<field name="r_recurrsion_type"/><br/>
+								<button name="recurrsion" type="object" string="Create Recurrsion"/>
+							</group>
+							<group>
+								<table style="width: 100%;">
+									<tbody>
+										<tr>
+											<td style="vertical-align: baseline;"><b>Repeat Every</b></td>
+											<td style="width: 10%;">
+												<field name="r_repeat_count"/>
+											</td>
+											<td style="width: 3%;">
+											</td>
+											<td style="width: 63%;">
+												<field name="r_repeat_type" attrs="{'invisible': [('r_recurrsion_type', '!=','custom')],'required': [('r_recurrsion_type', '=', 'custom')]}"/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+								<group>
+								</group>
+								<field name="r_repeat_end" widget='radio' />
+
+
+								<group attrs="{'invisible': ['|',('r_recurrsion_type', '!=', 'custom'),('r_repeat_type', '!=', 'week')]}">
+									<field name="MO"/>
+									<field name="TU"/>
+									<field name="WE"/>
+									<field name="TH"/>
+									<field name="FR"/>
+									<field name="SA"/>
+									<field name="SU"/>
+								</group>
+
+								<group attrs="{'invisible': [('r_repeat_type', 'not in', ['month'])]}">
+									<field name="r_repeat_type_month"/>
+								</group>
+
+								<group>
+									<field name="r_repeat_enddate" attrs="{'invisible': [('r_repeat_end', '!=', 'enddate')],'required': [('r_repeat_end', '=', 'enddate'),('r_recurrsion_type', '!=', 'norepeat')]}"/>
+									<field name="r_repeat_endcount" attrs="{'invisible': [('r_repeat_end', '!=', 'count')]}"/>
+								</group>
+
+							</group>
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

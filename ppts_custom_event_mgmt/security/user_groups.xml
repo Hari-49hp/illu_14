@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+
+
+    <record model="ir.module.category" id="illum_manager_security">
+      <field name="name">Illuminations Access Level</field>
+      <field name="description">Manage access level for this Events module</field>
+      <field name="sequence">3</field>
+    </record>
+
+    <record id="group_user" model="res.groups">
+      <field name="name">User</field>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+      <field name="users" eval="[(4, ref('base.user_root'))]" />
+      <field name="category_id" ref="ppts_custom_event_mgmt.illum_manager_security" />
+    </record>
+
+
+    <record id="group_admin_head" model="res.groups">
+      <field name="name">Admin  </field>
+      <field name="implied_ids" eval="[(4, ref('ppts_custom_event_mgmt.group_user'))]" />
+      <field name="category_id" ref="ppts_custom_event_mgmt.illum_manager_security" />
+    </record>
+
+    <record id="group_manager" model="res.groups">
+      <field name="name">Manager</field>
+      <field name="implied_ids" eval="[(4, ref('ppts_custom_event_mgmt.group_admin_head'))]" />
+      <field name="category_id" ref="ppts_custom_event_mgmt.illum_manager_security" />
+    </record>
+
+    <record id="group_admin" model="res.groups">
+      <field name="name">Super Admin  </field>
+      <field name="implied_ids" eval="[(4, ref('ppts_custom_event_mgmt.group_manager'))]" />
+      <field name="category_id" ref="ppts_custom_event_mgmt.illum_manager_security" />
+    </record>
+
+  </data>
+
+</odoo>

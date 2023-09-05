@@ -1,0 +1,62 @@
+<odoo>
+	<data>
+		<template id="illuminations_contactus_enquiry_form" name="Enquiry form">
+			<section class="">
+				<div class="about_top_wave" data-aos="slide-up" data-aos-delay="300" style="z-index: -1;position: relative;">
+					<svg id="svg-top-s" da="da" viewBox="0 0 1440 350" version="1.1" x="0px" y="0px" width="100%" style="enable-background:new 0 0 1440 350;">
+						<g>
+							<path fill="#f6fdff" d="M0.8,286.2c0,0-0.8-167.1,133.6-111.2C239.1,144.1,256.1,74.5,443,129.4c162.9,60.9,309.4-27.9,671.7,56.6c126.2-18.7,114.9-92.5,221.1-70.4c141.4,29.3,88.8,213.4,264.1,188.5v46H716.6l-395.3,0L0.8,350C0.8,351.4,0.8,286.2,0.8,286.2z"/>
+						</g>
+					</svg>
+				</div>
+				<div class="light-blue-bg enquireformcontainer">
+					<div class="header-form-box-wrapper " data-aos="fade-up" data-aos-delay="700">
+						<div class="row">
+							<div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12">
+								<h2>Enquiry form</h2>
+								<h4>Register with us to avail the following benefits: </h4>
+								<ul class="listitemwithbluedot">
+									<li>Sign up for classes, online bookings easily &amp; conveniently</li>
+									<li>Create your personalized schedule </li>
+									<li>View your account balance, past purchases, update personal info </li>
+								</ul>
+							</div>
+							<div class="col-lg-6 col-md-12 col-xl-6 col-sm-12 col-xs-12">
+								<form class="enquireform">
+									<div>
+										<input class="form-control " type="text " placeholder="Name "/>
+									</div>
+									<div>
+										<input class="form-control " type="text " placeholder="Phone "/>
+									</div>
+									<div>
+										<input class="form-control " type="email " placeholder="Name "/>
+									</div>
+									<div>
+										<div class="dropdown form-control inputwrap">
+											<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												Location
+											</button>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item" href="#">Therapy</a>
+												<a class="dropdown-item" href="#">Healing</a>
+												<a class="dropdown-item" href="#">Therapy</a>
+												<a class="dropdown-item" href="#">Online Therapy</a>
+												<a class="dropdown-item" href="#">Corporate</a>
+											</div>
+										</div>
+									</div>
+
+									<div>
+										<textarea class="form-control" placeholder="Message" value=""> </textarea>
+									</div>
+									<button type="button " class="formsubmitbtn"> Submit </button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</template>
+	</data>
+</odoo>

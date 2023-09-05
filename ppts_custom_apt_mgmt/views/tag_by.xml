@@ -1,0 +1,19 @@
+<odoo>
+	<data>
+
+		<record id="view_tag_by_therapy_inherit" model="ir.ui.view">
+		<field name="name">Tag By Therapy</field>
+		<field name="model">tag.by.therapy</field>
+		<field name="inherit_id" ref="ppts_modules_addon.tag_by_therapy_from_view"/>
+		<field name="arch" type="xml">
+
+			<xpath expr="//field[@name='parent_id']" position="after">
+				<field name="service_categ_ids" widget="many2many_tags" readonly="1" invisible="1"/>
+				<field name="service_sub_categ_ids" widget="many2many_tags" readonly="1"  invisible="1"/>
+			</xpath>
+
+		</field>
+	</record>
+
+	</data>
+</odoo>

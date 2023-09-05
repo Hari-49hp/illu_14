@@ -1,0 +1,59 @@
+<odoo>
+<data>
+        <template  id="website_cart_popup" name="website_cart Popup">
+
+              <!-- Modal -->
+              <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="cart-popup">
+                <div class="modal-dialog mymodelstyle modal-dialog-centered dialog-medium" role="document">
+                  <div class="modal-content">
+
+                    <form id="attendee_registration_customer_details" t-attf-action="/event/#{slug(event)}/registration/customer/details" method="post" class="js_website_submit_form">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <input type="hidden" t-attf-name="nb_register-#{ticket.id}" value="1" id="nb_register_cart"/>
+                        <t t-set="seats_max_ticket" t-value="(not ticket.seats_limited or ticket.seats_available &gt; 9) and 10 or ticket.seats_available + 1"/>
+                        <t t-set="seats_max_event" t-value="(not event.seats_limited or event.seats_available &gt; 9) and 10 or event.seats_available + 1"/>
+                        <t t-set="seats_max" t-value="min(seats_max_ticket, seats_max_event)"/>
+                        <div class="modal-header">
+                          <h5 class="modal-title">Cart</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="popup-closebtn"></span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="cart-list-container">
+                            <div class="cart-list">
+                              <div class="cart-left-info">
+                                <h5><t t-esc="event.name"/>
+                                  <span> <label class=" chipsone"> <t t-esc="dict(event._fields['type_event'].selection).get(event.type_event)"/></label> <label class="chipsone">Event</label></span>
+                                </h5>
+                                <div class="eventinfos">
+                                  <label><i class="fas fa-map-marker-alt"></i> <t t-esc="event.company_id.name"/></label>
+                                  <label><i class="far fa-calendar-minus"></i> <span t-field="event.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/></label>
+                                  <label><i class="far fa-clock"></i> <t t-esc="event.get_start_end_time()"/></label>
+                                  <label><i class="far fa-user"></i> <t t-esc="event.get_facilitator_name()"/></label>
+                                </div>
+                              </div>
+                              <div class="cart-right-detinfo">
+                                <div class="cardcountsection"> Ticket <a class="addsubbtn subcartbtn">-</a><input type="text" class="cartcounter" value="1"  min="1"  style="text-align: center;width: 40px;"/><a class="addsubbtn addcartbtn">+</a> <a class="closeicon" data-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></a>
+                                </div>
+                                <input type="hidden" name="hidden_amount_cart" id="hidden_amount_cart" t-attf-value="#{ticket.price}"/>
+                                <h4><b class="amount-cart-custom"><t t-esc="ticket.price"/></b>د.إ </h4>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="cart-footbtn">
+                            <a href="/event">See more events</a>
+                            <h5>Total: <span class="amount amount-total-cart-custom"><t t-esc="ticket.price"/></span> د.إ </h5>
+                          </div>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                          <button type="submit" class="full-blue-btn-popup">Checkout</button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- cart modle Popup end **********************************************-->
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,582 @@
+<odoo>
+    <data>
+
+
+        <template id="website_sale.wizard_checkout" name="Wizard Checkout">
+            <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+
+            <t t-call="ppts_website_theme.website_checkout_assets_css"/>
+
+            <section class="fqa-wrapperlistsitems  bookaappointment-wrapper" style="padding-bottom: 0px !important">
+                <t t-set="event" t-value="event or False"/>
+
+                <t t-if="not event">
+                    <h4 class="bookappheading">Book an appointment</h4>
+
+                    <div class="row">
+
+                        <div class="nav-tabs-wrapper faqtabwrapper-header" data-aos="fade-up" data-aos-delay="50">
+
+                            <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+                                <li class="nav-item" id="">
+                                    <a class="nav-link" id="open-service-menu">Select a
+	                                        service</a>
+                                </li>
+                                <li class="nav-item" id="">
+                                    <a class="nav-link" id="open-location-menu">Select Location</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="open-therapist-menu">Select a Therapist</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="open-appointment-calendar-menu">Select Date</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="open-numbers-sessions-menu">Numbers of sessions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="open-appointment-cuustomer-menu">Customer details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#tabF">Payment details</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+                </t>
+
+                <t t-if="event">
+
+
+                    <div class="breadcrum-sec topbreadcrum">
+                        <label>
+                            <a>Cart /</a>
+                            <a>Checkout</a>
+
+                        </label>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="nav-tabs-wrapper faqtabwrapper-header" data-aos="fade-up" data-aos-delay="50">
+
+                            <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+                                <li class="nav-item">
+                                    <a class="nav-link" id="open-appointment-cuustomer-menu">Customer details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#tabF">Payment details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">
+                                        <span style="color:white;">####################################################################</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+
+
+                </t>
+
+
+            </section>
+
+
+        </template>
+
+
+        <!-- <div t-if="back_button_txt" class="float-left mt-2" style="display:none">
+                <a role="button" t-att-href="back_button_link or '#'" t-att-class="back_button_class or 'btn btn-lg btn-secondary'">
+                    <i t-if="back_button_icon_class" t-attf-class="fa {{back_button_icon_class}}"/>
+                    <t t-esc="back_button_txt"/>
+                </a>
+            </div> -->
+
+
+        <template id="payment" name="Payment" inherit_id="website_sale.payment">
+
+
+            <xpath expr="//div[hasclass('oe_cart')]/div[hasclass('card')]" position="attributes">
+                <attribute name="style">display:none;</attribute>
+            </xpath>
+
+            <xpath expr="//div[hasclass('col-xl-auto')][1]" position="replace">
+
+                <t t-set="no_footer" t-value="0"/>
+
+                <t t-set="appoinment_id" t-value="request.env['appointment.appointment'].sudo().search([('sale_order_id','=',website_sale_order.id)])"/>
+                <t t-set="event_reg_id" t-value="request.env['event.registration'].sudo().search([('sale_order_id','=',website_sale_order.id)], limit=1)"/>
+                <t t-if="appoinment_id.appointments_type_id.name == 'Free Consultation'">
+
+                <div class="col-12 col-xl order-xl-2">
+
+                    <div class="paymentdetailscard-container" t-if="appoinment_id">
+                        <div class="paymentdetailscard-header">
+                            <h5 class="bookappsubheading">Your Appointment is:</h5>
+                            <div class="oberlay-tags tagsrelative">
+                                <label>
+                                    <span t-field="appoinment_id.du_service_categ_id.name" />
+                                </label>
+                                <label>
+                                    <span t-field="appoinment_id.appointments_type_id.name" />
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class=" ">
+                                <h6>
+                                    <small> Service</small>
+                                </h6>
+                                <h6>
+                                    <small> Facilitator:</small>
+                                    <span t-field="appoinment_id.therapist_id.name" />
+                                </h6>
+                                <div class="paymentdetail-event">
+                                    <label>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span t-field="appoinment_id.company_id.name" />
+                                    </label>
+                                    <label>
+                                        <i class="far fa-calendar-minus"></i>
+                                        <span t-field="appoinment_id.booking_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                    </label>
+                                    <label>
+                                        <i class="far fa-clock"></i>
+                                        <span t-field="appoinment_id.time_slot_id.name" />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- <t t-if="not hide_coupon">
+                            <td colspan="3" class="text-center text-xl-right border-0">
+                                <span class=''>
+                                    <t t-set='force_coupon' t-value="website_sale_order.pricelist_id.code or request.params.get('code_not_available')"/>
+                                    <t t-if="not force_coupon">
+                                        <a href="#" class="show_coupon">I have a promo code</a>
+                                    </t>
+                                    <div t-attf-class="coupon_form #{not force_coupon and 'd-none'}">
+                                        <t t-call="website_sale.coupon_form"/>
+                                    </div>
+                                </span>
+                            </td>
+                        </t> -->
+
+
+                        <div class="total-amount-foot">
+                            <h4>
+                                <label>VAT: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_tax" />
+ د.إ </span>
+                            </h4>
+                            <h4>
+                                <label>Subtotal: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_untaxed" />
+ د.إ </span>
+                            </h4>
+                        </div>
+
+
+                        <div class="total-amount-foot">
+                            <h4>
+                                <label>Total: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_total" />
+ د.إ </span>
+                            </h4>
+                            <small>Included in the price VAT ( Adding Tax Booking Amount)</small>
+                        </div>
+                       <!--  <div class="free_con_message">
+                            <h4 style="margin-bottom:20px;background-color:#F9F2EA !important;color:#333333 !important">Please click on the CONFIRM button to secure your free consultation, no payment is required</h4>
+                            <a role="button" class="fullblurbookbtn" href="/appointment/checkout?appointment_type=free" style="background: #00AEC7 !important;">
+                            <span >Confirm</span>
+                        </a>
+                        </div> -->
+                    </div>
+
+
+
+                    <div class="paymentdetailscard-container" t-if="event_reg_id">
+                        <div class="paymentdetailscard-header">
+                            <h5 class="bookappsubheading">Your Event is:</h5>
+                            <div class="oberlay-tags tagsrelative">
+                                <label>
+                                    <span t-field="event_reg_id.event_id.name" />
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class=" ">
+                                <h6>
+                                    <small> Facilitator:</small>
+                                    <span t-esc="event_reg_id.event_id.get_facilitator_name()" />
+                                </h6>
+                                <div class="paymentdetail-event">
+                                    <label>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span t-field="event_reg_id.event_id.address_id.name" />
+                                    </label>
+                                    <label>
+                                        <i class="far fa-calendar-minus"></i>
+
+
+                                        <span t-if="event_reg_id.event_id.event_multiple_date == 'oneday'" t-field="event_reg_id.event_id.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                        <t t-if="event_reg_id.event_id.event_multiple_date == 'multiday'">
+                                            <t t-set="event_start_date" t-value="event_reg_id.event_id.multi_date_line_ids.ids[0]"/>
+                                            <t t-set="event_start_date" t-value="request.env['multi.date.line'].sudo().browse(event_start_date)" />
+                                            <t t-set="event_end_date" t-value="event_reg_id.event_id.multi_date_line_ids.ids[-1]"/>
+                                            <t t-set="event_end_date" t-value="request.env['multi.date.line'].sudo().browse(event_end_date)" />
+                                            <span t-field="event_start_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                            To 
+                                            <span t-field="event_end_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                        </t>
+
+                                    </label>
+                                    <label>
+                                        <i class="far fa-clock"></i>
+
+
+                                        <t t-if="event_reg_id.event_id.event_multiple_date == 'oneday'">
+                                            <t t-esc="event_reg_id.event_id.hour_time_begin"/>
+                                               :                                                            
+                                            <t t-esc="event_reg_id.event_id.min_time_begin"/>
+                                               To 
+                                            <t t-esc="event_reg_id.event_id.hour_time_end"/>
+                                               :                                                        
+                                            <t t-esc="event_reg_id.event_id.min_time_end"/>
+                                        </t>
+
+                                        <t t-if="event_reg_id.event_id.event_multiple_date == 'multiday'">
+                                            <t t-esc="event_start_date.hour_time_begin"/>
+                                           : 
+                                            <t t-esc="event_start_date.min_time_begin"/>
+                                           To 
+                                            <t t-esc="event_end_date.hour_time_end"/>
+                                           :                                                    
+                                            <t t-esc="event_end_date.min_time_end"/>
+                                        </t>
+
+
+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                       <!--  <t t-if="not hide_coupon">
+                            <td colspan="3" class="text-center text-xl-right border-0">
+                                <span class=''>
+                                    <t t-set='force_coupon' t-value="website_sale_order.pricelist_id.code or request.params.get('code_not_available')"/>
+                                    <t t-if="not force_coupon">
+                                        <a href="#" class="show_coupon">I have a promo code</a>
+                                    </t>
+                                    <div t-attf-class="coupon_form #{not force_coupon and 'd-none'}">
+                                        <t t-call="website_sale.coupon_form"/>
+                                    </div>
+                                </span>
+                            </td>
+                        </t> -->
+
+
+                        <!-- <div class="total-amount-foot">
+                            <h4>
+                                <label>VAT: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_tax" />
+ د.إ </span>
+                            </h4>
+                            <h4>
+                                <label>Subtotal: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_untaxed" />
+ د.إ </span>
+                            </h4>
+                        </div>
+
+                        <div class="total-amount-foot">
+                            <h4>
+                                <label>Total: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_total" />
+ د.إ </span>
+                            </h4>
+                            <small>Included in the price VAT ( Adding Tax Booking Amount)</small>
+                        </div> -->
+                    </div>
+
+
+
+                    <div style="display:none;">
+
+                        <t t-call="website_sale.cart_summary"/>
+
+                    </div>
+
+                </div>
+            </t>
+            <t t-else="">
+                <div class="col-12 col-xl order-xl-2">
+
+                    <div class="paymentdetailscard-container" t-if="appoinment_id">
+                        <div class="paymentdetailscard-header">
+                            <h5 class="bookappsubheading">Your Appointment is:</h5>
+                            <div class="oberlay-tags tagsrelative">
+                                <label>
+                                    <span t-field="appoinment_id.du_service_categ_id.name" />
+                                </label>
+                                <label>
+                                    <span t-field="appoinment_id.appointments_type_id.name" />
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class=" ">
+                                <h6>
+                                    <small> Service</small>
+                                </h6>
+                                <h6>
+                                    <small> Facilitator:</small>
+                                    <span t-field="appoinment_id.therapist_id.name" />
+                                </h6>
+                                <div class="paymentdetail-event">
+                                    <label>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span t-field="appoinment_id.company_id.name" />
+                                    </label>
+                                    <label>
+                                        <i class="far fa-calendar-minus"></i>
+                                        <span t-field="appoinment_id.booking_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                    </label>
+                                    <label>
+                                        <i class="far fa-clock"></i>
+                                        <span t-field="appoinment_id.time_slot_id.name" />
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <t t-if="not hide_coupon">
+                            <td colspan="3" class="text-center text-xl-right border-0">
+                                <span class=''>
+                                    <t t-set='force_coupon' t-value="website_sale_order.pricelist_id.code or request.params.get('code_not_available')"/>
+                                    <t t-if="not force_coupon">
+                                        <a href="#" class="show_coupon">I have a promo code</a>
+                                    </t>
+                                    <div t-attf-class="coupon_form #{not force_coupon and 'd-none'}">
+                                        <t t-call="website_sale.coupon_form"/>
+                                    </div>
+                                </span>
+                            </td>
+                        </t>
+
+
+                        <div class="total-amount-foot">
+                            <h4>
+                                <label>VAT: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_tax" />
+ د.إ </span>
+                            </h4>
+                            <h4>
+                                <label>Subtotal: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_untaxed" />
+ د.إ </span>
+                            </h4>
+                        </div>
+
+
+                        <div class="total-amount-foot">
+                            <h4>
+                                <label>Total: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_total" />
+ د.إ </span>
+                            </h4>
+                            <small>Included in the price VAT ( Adding Tax Booking Amount)</small>
+                        </div>
+                    </div>
+
+
+
+                    <div class="paymentdetailscard-container" t-if="event_reg_id">
+                        <div class="paymentdetailscard-header">
+                            <h5 class="bookappsubheading">Your Event is:</h5>
+                            <div class="oberlay-tags tagsrelative">
+                                <label>
+                                    <span t-field="event_reg_id.event_id.name" />
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div class=" ">
+                                <h6>
+                                    <small> Facilitator:</small>
+                                    <span t-esc="event_reg_id.event_id.get_facilitator_name()" />
+                                </h6>
+                                <div class="paymentdetail-event">
+                                    <label>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span t-field="event_reg_id.event_id.address_id.name" />
+                                    </label>
+                                    <label>
+                                        <i class="far fa-calendar-minus"></i>
+
+
+                                        <span t-if="event_reg_id.event_id.event_multiple_date == 'oneday'" t-field="event_reg_id.event_id.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                        <t t-if="event_reg_id.event_id.event_multiple_date == 'multiday'">
+                                            <t t-set="event_start_date" t-value="event_reg_id.event_id.multi_date_line_ids.ids[0]"/>
+                                            <t t-set="event_start_date" t-value="request.env['multi.date.line'].sudo().browse(event_start_date)" />
+                                            <t t-set="event_end_date" t-value="event_reg_id.event_id.multi_date_line_ids.ids[-1]"/>
+                                            <t t-set="event_end_date" t-value="request.env['multi.date.line'].sudo().browse(event_end_date)" />
+                                            <span t-field="event_start_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                            To 
+                                            <span t-field="event_end_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+                                        </t>
+
+                                    </label>
+                                    <label>
+                                        <i class="far fa-clock"></i>
+
+
+                                        <t t-if="event_reg_id.event_id.event_multiple_date == 'oneday'">
+                                            <t t-esc="event_reg_id.event_id.hour_time_begin"/>
+                                               :                                                            
+                                            <t t-esc="event_reg_id.event_id.min_time_begin"/>
+                                               To 
+                                            <t t-esc="event_reg_id.event_id.hour_time_end"/>
+                                               :                                                        
+                                            <t t-esc="event_reg_id.event_id.min_time_end"/>
+                                        </t>
+
+                                        <t t-if="event_reg_id.event_id.event_multiple_date == 'multiday'">
+                                            <t t-esc="event_start_date.hour_time_begin"/>
+                                           : 
+                                            <t t-esc="event_start_date.min_time_begin"/>
+                                           To 
+                                            <t t-esc="event_end_date.hour_time_end"/>
+                                           :                                                    
+                                            <t t-esc="event_end_date.min_time_end"/>
+                                        </t>
+
+
+
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <t t-if="not hide_coupon">
+                            <td colspan="3" class="text-center text-xl-right border-0">
+                                <span class=''>
+                                    <t t-set='force_coupon' t-value="website_sale_order.pricelist_id.code or request.params.get('code_not_available')"/>
+                                    <t t-if="not force_coupon">
+                                        <a href="#" class="show_coupon">I have a promo code</a>
+                                    </t>
+                                    <div t-attf-class="coupon_form #{not force_coupon and 'd-none'}">
+                                        <t t-call="website_sale.coupon_form"/>
+                                    </div>
+                                </span>
+                            </td>
+                        </t>
+
+
+                        <div class="total-amount-foot">
+                            <h4>
+                                <label>VAT: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_tax" />
+ د.إ </span>
+                            </h4>
+                            <h4>
+                                <label>Subtotal: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_untaxed" />
+ د.إ </span>
+                            </h4>
+                        </div>
+
+                        <div class="total-amount-foot">
+                            <h4>
+                                <label>Total: </label>
+                                <span>
+                                    <t t-esc="website_sale_order.amount_total" />
+ د.إ </span>
+                            </h4>
+                            <small>Included in the price VAT ( Adding Tax Booking Amount)</small>
+                        </div>
+                    </div>
+
+
+
+                    <div style="display:none;">
+
+                        <t t-call="website_sale.cart_summary"/>
+
+                    </div>
+
+                </div>
+            </t>
+
+            </xpath>
+
+
+
+            <xpath expr="//div[hasclass('oe_cart')]/div[5]" position="replace">
+                <t t-set="apt_id" t-value="request.env['appointment.appointment'].sudo().search([('sale_order_id','=',website_sale_order.id)])"/>
+                <t t-set="event_reg_id" t-value="request.env['event.registration'].sudo().search([('sale_order_id','=',website_sale_order.id)], limit=1)"/>
+                <t t-if="apt_id.appointments_type_id.name != 'Free Consultation'">
+
+                <div class="js_payment mt-3" t-if="not website_sale_order.amount_total" id="payment_method">
+                    <form target="_self" action="/shop/payment/validate" method="post" class="float-right" t-if="order.amount_total &gt; 0">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                        <a role="button" class="a-submit fullblurbookbtn" href="#" style="background: #00AEC7 !important;">
+                            <span t-if="order.amount_total &gt; 0">Review And Pay Order <span class="fa fa-chevron-right"></span>
+                            </span>
+                        </a>
+                    </form>
+
+                    <div class="float-right" t-if="order.amount_total == 0">
+                        <a role="button" class="fullblurbookbtn" href="/website_sale/payment/process" style="background: #00AEC7 !important;">
+                            <span >Confirm <span class="fa fa-chevron-right"></span>
+                            </span>
+                        </a>
+                    </div>
+
+                </div>
+            </t>
+            <t t-if = "apt_id.appointments_type_id.name == 'Free Consultation'">
+
+             <div class="free_con_message">
+                            <h4 style="margin-bottom:20px;color:#333333 !important" class="alert alert-warning">Please click on the CONFIRM button to secure your free consultation, no payment is required</h4>
+                            <a role="button" class="fullblurbookbtn" href="/" style="background: #00AEC7 !important;">
+                            <span >Confirm</span>
+                        </a>
+                        </div>
+                    </t>
+
+
+            </xpath>
+
+
+            <xpath expr="//div[@id='payment_method'][hasclass('mt-3')]/h3[hasclass('mb24')]" position="replace">
+                <h3 class="mb24">Payment Method </h3>
+            </xpath>
+        </template>
+
+
+    </data>
+</odoo>

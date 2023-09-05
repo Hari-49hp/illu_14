@@ -1,0 +1,681 @@
+<odoo>
+    <data>
+        <template id="career_therapist_learn_more_page" name="Career Therapist Learn More">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section style="text-align: center;padding: 250px;">
+                        <div>
+                            <h2 class="mt0">Welcome to your <b>Learn More Page</b>!
+                            </h2>
+                            <p class="lead">Click on <b>Edit</b> in the top right corner to start designing.</p>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <template id="theme_career_therapist_page" name="Career Therapist">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <style>
+                        footer > section > div > svg{
+                            background-color: #f8f1e8;
+                        }
+                    </style>
+
+                    <!--  header start-->
+                    <section class="fullviewimage-hero therapypagehero mobileabsoposition">
+                        <div class="row hero-overlaytexts mobileoverlays mycontainer">
+                            <div class="col-xl-8 padding-0">
+                                <div class="breadcrum-sec topbreadcrum">
+                                    <label>
+                                        <a href="/" class="fnt-clr-white">Home /</a>
+                                        <a href="/career" class="fnt-clr-white"> Career /</a>
+                                        <a href="/career/therapist" class="fnt-clr-white"> Therapist </a>
+
+                                    </label>
+                                </div>
+                                <div class="hero-two-left herotexcenter">
+
+                                    <div class="hero-intro-text">
+                                        <!-- <h6 data-aos="fade-up" data-aos-delay="10">Well Being</h6> -->
+                                        <h1 data-aos="fade-up" data-aos-delay="150">Apply to be a Facilitator
+                            With Illuminations
+                                        </h1>
+                                        <p data-aos="fade-up" data-aos-delay="200">Illuminations is considered the most promising
+                            and organized platform for promoting healers,
+                            therapists, coaches, trainers in the field of wellbeing.</p>
+
+                                        <div class="d-md-flex w-100">
+                                            <a data-aos="fade-up" data-aos-delay="200" class="fullbutton" onclick="onclickTherapistBtn()" style="margin-right: 35px;">Apply Now</a>
+                                            <a data-aos="fade-up" data-aos-delay="200" class="borderedbtn" onclick="onclickPosition()">Learn more</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="therapy-heroimageorvideocont mobileusetposition">
+                            <img src="/ppts_website_theme/static/src/img/careertherapistbanner.jpg" />
+                            <!-- <a class="playicon"></a> -->
+                        </div>
+                    </section>
+                    <!--  header end -->
+
+                    <!--   HERO SECTION START  -->
+                    <section class="neverdoubt  ">
+                        <!-- <svg version="1.1" viewBox="0 0 1440 829" style="position: absolute;z-index: -1;"> 
+    <path class="light-brown-svg" d="M0,0l1440.3,0.3l-0.3,773.3c-604.3-241.9-887.1-70.8-1116.8-174C144.8,519.4,214.9,376.9,0,181.6"/>
+    </svg> -->
+
+                        <div class=" ">
+                            <div class="col-xl-6 neverdoubt-inner ">
+                                <h1>Never Doubt that a small group of thoughtful citizens can change the world</h1>
+                            </div>
+                            <!-- <img class=" " src="/ppts_website_theme/static/src/img/brainhead.svg" />  -->
+                        </div>
+
+                    </section>
+
+                    <!--   HERO SECTION START  -->
+
+                    <section class="eachsection section-topbtm-padding aboutillumination" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mycontainer">
+
+
+                            <div class="row  align-items-center  questtobehappy   aboutherapest">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <!-- <span class="">About</span> -->
+                                    <h2 class=" ">Who We Are Seeking </h2>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                                    <p>
+                                        Dynamic, Dedicated, Passionate, &amp; Inspiring change makers who offer mental, emotional, physical &amp; spiritual support.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row  whoseekimg">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who1.jpg" />
+                                    <p>Holistic Psychologists</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who2.jpg" />
+                                    <p>Energy Healers</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who3.jpg" />
+                                    <p>Life Coaches </p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who4.jpg" />
+                                    <p>Hypnotherapists</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who5.jpg" />
+                                    <p>Naturopaths</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who6.jpg" />
+                                    <p>Breath workers</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who7.jpg" />
+                                    <p>Esoteric Scientists </p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who8.jpg" />
+                                    <p>Psychic &amp; Clairvoyants</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/who9.jpg" />
+                                    <p>Mindfulness &amp; Mindset Trainers</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <!-- SERVICES SECTION START -->
+                    <section class="section section-topbtm-padding whofacilitate eachsection">
+                        <div class="row services-wrapper mycontainer">
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-heading-typos">
+                                <!-- <span class="blakwordtexts" data-aos="fade-up" data-aos-delay="100">Choose Your
+                            Way</span> -->
+                                <h2 class="main-heading" data-aos="fade-up" data-aos-delay="150">Who Facilitate</h2>
+                                <!-- <p data-aos="fade-up" data-aos-delay="150">Illuminations is a one stop shop for all your
+                            well-being needs! Select from our wide range of services!
+                        </p> -->
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="250">
+                                <a href="/contactus">
+                                    <div class="service-lists-item">
+                                        <img src="/ppts_website_theme/static/src/img/whof1.jpg" alt="serviceimageone" loading="lazy" />
+                                        <div class="service-svg-shapes-overlay">
+                                            <div class="wrapper">
+                                                <div class="side_side"></div>
+
+                                                <svg class="side_wave" id="gt">
+                                                    <clipPath id="slopeclip">
+                                                        <path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+                                                C291.52,25.62,277.81,69.57,251.96,125.52z" />
+                                                    </clipPath>
+                                                </svg>
+
+                                                <svg class="morp">
+                                                    <clipPath id="ameba">
+                                                        <path fill="#9cccfd">
+                                                            <animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                        c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                        c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                        c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+
+                                        M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                        c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                        c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                        C48.9,198.6,57.8,191,51,171.3z;
+
+                                        M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                        c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                        c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                        c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+                                                        </path>
+                                                    </clipPath>
+                                                </svg>
+
+                                            </div>
+                                            <h4>1-1 Healing &amp;<br />
+     Therapy</h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="350">
+                                <a href="/contactus">
+                                    <div class="service-lists-item">
+                                        <img src="/ppts_website_theme/static/src/img/service2.jpg" alt="serviceimageone" loading="lazy" />
+                                        <div class="service-svg-shapes-overlay">
+                                            <div class="wrapper">
+                                                <div class="side_side"></div>
+
+                                                <svg class="side_wave" id="gt">
+                                                    <clipPath id="slopeclip">
+                                                        <path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+                                            C291.52,25.62,277.81,69.57,251.96,125.52z" />
+                                                    </clipPath>
+                                                </svg>
+                                                <svg class="morp">
+                                                    <clipPath id="ameba">
+                                                        <path fill="#9cccfd">
+                                                            <animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                    c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                    c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                    c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+                                    
+                                    M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                    c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                    c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                    C48.9,198.6,57.8,191,51,171.3z;
+                                    
+                                    M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                    c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                    c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                    c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+                                                        </path>
+                                                    </clipPath>
+                                                </svg>
+
+                                            </div>
+                                            <h4>Meditations</h4>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="450">
+                                <a href="/contactus">
+                                    <div class="service-lists-item">
+                                        <img src="/ppts_website_theme/static/src/img/whof3.jpg" alt="serviceimageone" loading="lazy" />
+                                        <div class="service-svg-shapes-overlay">
+                                            <div class="wrapper">
+                                                <div class="side_side"></div>
+
+                                                <svg class="side_wave" id="gt">
+                                                    <clipPath id="slopeclip">
+                                                        <path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+                                            C291.52,25.62,277.81,69.57,251.96,125.52z" />
+                                                    </clipPath>
+                                                </svg>
+                                                <svg class="morp">
+                                                    <clipPath id="ameba">
+                                                        <path fill="#9cccfd">
+                                                            <animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                    c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                    c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                    c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+                                    
+                                    M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                    c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                    c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                    C48.9,198.6,57.8,191,51,171.3z;
+                                    
+                                    M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                    c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                    c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                    c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+                                                        </path>
+                                                    </clipPath>
+                                                </svg>
+
+                                            </div>
+                                            <h4>Certified Training Programs</h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="550">
+                                <a href="/contactus">
+                                    <div class="service-lists-item">
+                                        <img src="/ppts_website_theme/static/src/img/whof9.png" alt="serviceimageone" loading="lazy" />
+                                        <div class="service-svg-shapes-overlay">
+                                            <div class="wrapper">
+                                                <div class="side_side"></div>
+
+                                                <svg class="side_wave" id="gt">
+                                                    <clipPath id="slopeclip">
+                                                        <path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+                                            C291.52,25.62,277.81,69.57,251.96,125.52z" />
+                                                    </clipPath>
+                                                </svg>
+                                                <svg class="morp">
+                                                    <clipPath id="ameba">
+                                                        <path fill="#9cccfd">
+                                                            <animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                    c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                    c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                    c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+                                    
+                                    M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                    c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                    c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                    C48.9,198.6,57.8,191,51,171.3z;
+                                    
+                                    M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                    c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                    c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                    c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+                                                        </path>
+                                                    </clipPath>
+                                                </svg>
+
+                                            </div>
+                                            <h4> Free Consultations &amp; Classes </h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper" data-aos="fade-up" data-aos-delay="650">
+                                <a href="/contactus">
+                                    <div class="service-lists-item">
+                                        <img src="/ppts_website_theme/static/src/img/service5.jpg" alt="serviceimageone" loading="lazy" />
+                                        <div class="service-svg-shapes-overlay">
+                                            <div class="wrapper">
+                                                <div class="side_side"></div>
+
+                                                <svg class="side_wave" id="gt" style="height: 0%;">
+                                                    <clipPath id="slopeclip">
+                                                        <path class="st0" d="M251.96,125.52C219.14,196.59,190.6,260,106.75,260l0,0H380V0h-53.68
+                                            C291.52,25.62,277.81,69.57,251.96,125.52z" />
+                                                    </clipPath>
+                                                </svg>
+                                                <svg class="morp" style="height: 0;">
+                                                    <clipPath id="ameba">
+                                                        <path fill="#9cccfd">
+                                                            <animate repeatCount="indefinite" type="rotate" attributeName="d" dur="5s" values="M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                    c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                    c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                    c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z;
+                                    
+                                    M51,171.3c-6.1-17.7-15.3-17.2-20.7-32c-8-21.9,0.7-54.6,20.7-67.1c19.5-12.3,32.8,5.5,67.7-3.4C145.2,62,145,49.9,173,43.4
+                                    c12-2.8,41.4-9.6,60.2,6.6c19,16.4,16.7,47.5,16,57.7c-1.7,22.8-10.3,25.5-9.4,46.4c1,22.5,11.2,25.8,9.1,42.6
+                                    c-2.2,17.6-16.3,37.5-33.5,40.8c-22,4.1-29.4-22.4-54.9-22.6c-31-0.2-40.8,39-68.3,35.7c-17.3-2-32.2-19.8-37.3-34.8
+                                    C48.9,198.6,57.8,191,51,171.3z;
+                                    
+                                    M37.5,186c-12.1-10.5-11.8-32.3-7.2-46.7c4.8-15,13.1-17.8,30.1-36.7C91,68.8,83.5,56.7,103.4,45
+                                    c22.2-13.1,51.1-9.5,69.6-1.6c18.1,7.8,15.7,15.3,43.3,33.2c28.8,18.8,37.2,14.3,46.7,27.9c15.6,22.3,6.4,53.3,4.4,60.2
+                                    c-3.3,11.2-7.1,23.9-18.5,32c-16.3,11.5-29.5,0.7-48.6,11c-16.2,8.7-12.6,19.7-28.2,33.2c-22.7,19.7-63.8,25.7-79.9,9.7
+                                    c-15.2-15.1,0.3-41.7-16.6-54.9C63,186,49.7,196.7,37.5,186z	" />
+
+                                                        </path>
+                                                    </clipPath>
+                                                </svg>
+
+                                            </div>
+                                            <h4>Workshops </h4>
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- SERVICES SECTION END -->
+
+                    <section class="section-topbtm-padding">
+                        <div class="top-wave-svg">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                    c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                    c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                    c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="light-blue-bg">
+                            <div class="mycontainer jointheprocess" data-aos="fade-up" data-aos-delay="100">
+                                <div class="row howweworkcurvedpath-heading align-items-center">
+                                    <div class="col-lg-5">
+                                        <h1>The Joining Process</h1>
+                                    </div>
+                                </div>
+
+                                <div class="howweworkcurvedpath-wrapper ">
+                                    <svg width="1216" height="367" viewBox="0 0 1216 367" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M-115 229.768C-61.6667 150.768 87.9 -5.33206 259.5 2.26794C431.1 9.86794 575.5 160.581 656.5 229.768C832 384.58 905 374.279 992.5 352.768C1091.22 328.499 1138.5 250.645 1164.5 153.145C1184.63 77.6657 1197.28 57.9599 1211 44.2961" stroke="#00AEC7" stroke-width="3" />
+                                        <circle cx="503" cy="101" r="5" fill="#00AEC7" />
+                                        <circle cx="503" cy="101" r="2.5" fill="white" />
+                                        <circle cx="725" cy="287" r="5" fill="#00AEC7" />
+                                        <circle cx="725" cy="287" r="2.5" fill="white" />
+                                        <circle cx="1147" cy="207.998" r="5" fill="#00AEC7" />
+                                        <circle cx="1147" cy="207.998" r="2.5" fill="white" />
+                                        <circle cx="1211" cy="43" r="5" fill="#00AEC7" />
+                                        <circle cx="1211" cy="43" r="2.5" fill="white" />
+                                        <circle cx="87" cy="45.4004" r="5" fill="#00AEC7" />
+                                        <circle cx="87" cy="45.4004" r="2.5" fill="white" />
+                                        <circle cx="1003" cy="351" r="5" fill="#00AEC7" />
+                                        <circle cx="1003" cy="351" r="2.5" fill="white" />
+                                    </svg>
+
+
+
+                                    <div class="howweworkcurvedpath-centeredwaveimage">
+
+                                        <div class="howweworkcurvedline-text-cont howwe_01">
+                                            <h3>01</h3>
+                                            <p>Complete the Initial Application form </p>
+                                        </div>
+                                        <div class="howweworkcurvedline-text-cont howwe_mrp1">
+                                            <div class="wardimagemorping">
+                                                <img src="/ppts_website_theme/static/src/img/ytj1.jpg"/>
+                                            </div>
+                                        </div>
+                                        <div class="howweworkcurvedline-text-cont howwe_02">
+                                            <h3>02</h3>
+                                            <p>Application Review &amp; response within 7 days</p>
+                                        </div>
+                                        <div class="howweworkcurvedline-text-cont howwe_03">
+                                            <h3>03</h3>
+                                            <p>We will Schedule an Experiential Session with you</p>
+                                        </div>
+                                        <div class="howweworkcurvedline-text-cont howwe_mrp2">
+                                            <div class="wardimagemorping">
+                                                <img src="/ppts_website_theme/static/src/img/joinmorp.jpg "/>
+                                            </div>
+                                        </div>
+                                        <div class="howweworkcurvedline-text-cont howwe_04">
+                                            <h3>04</h3>
+                                            <p>Final Confirmation</p>
+                                        </div>
+                                        <div class="howweworkcurvedline-text-cont howwe_05">
+                                            <h3>05</h3>
+                                            <p>Complete Joining Formalities</p>
+                                        </div>
+                                        <div class="howweworkcurvedline-text-cont howwe_06">
+                                            <h3>06</h3>
+                                            <p>Launch</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bottom-wave-svg btnsvg-reverse">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                        c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                        c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                        c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                                </g>
+                            </svg>
+                        </div>
+                    </section>
+
+                    <section class="section-topbtm-padding missionvission whatyoucanexpert eachsection blacktexts">
+                        <div class="arrow-scroll leftside fullleftarrow">
+                            <svg viewBox="0 0 426 142" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+                                    <path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+                                    <path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                        c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="enquireformcontainer mycontainer" data-aos="fade-up" data-aos-delay="100">
+                            <div class="row">
+                                <div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 missionvission-left aos-init aos-animate">
+
+                                    <h2 class="header size56">What you Can Expect from Us:</h2>
+                                    <p class="desc mt-3 mb-4"> We take care of everything, whilst you do what you love to do! </p>
+
+                                </div>
+                                <div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 questtobehappytypo">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 listborder aos-init aos-animate">
+                                            <div class="visionmission-list">
+                                                <span class="moving_shape">
+                                                    <img src="/ppts_website_theme/static/src/img/suitecase.svg"/>
+                                                </span>
+                                                <h4>Manage Your <br/>
+ Schedule &amp; Bookings</h4>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 listborder aos-init aos-animate">
+                                            <div class="visionmission-list">
+                                                <span class="moving_shape">
+                                                    <img src="/ppts_website_theme/static/src/img/person.svg"/>
+                                                </span>
+                                                <h4>Event<br/>
+ Organization</h4>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 listborder aos-init aos-animate">
+                                            <div class="visionmission-list">
+                                                <span class="moving_shape">
+                                                    <img src="/ppts_website_theme/static/src/img/list.svg"/>
+                                                </span>
+                                                <h4>Administration<br/>
+ &amp; Accounts</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 listborder aos-init aos-animate">
+                                            <div class="visionmission-list">
+                                                <span class="moving_shape">
+                                                    <img src="/ppts_website_theme/static/src/img/horn.svg"/>
+                                                </span>
+                                                <h4>Marketing<br/>
+ &amp; Promotion</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 listborder  aos-init aos-animate">
+                                            <div class="visionmission-list">
+                                                <span class="moving_shape">
+                                                    <img src="/ppts_website_theme/static/src/img/horn.svg"/>
+                                                </span>
+                                                <h4>
+                                                    A professional 
+                                                    <br/>
+                                                    Space &amp; Setup
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                </div>
+                                <div class="col-xs-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                    <br/>
+                                    <br/>
+                                    <a href="/website/initial-application-form" type="button" class="fullbutton" style="width: 100%;" onclick="onclickTherapistBtn()">Start Your Application</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <style>  
+                        .management-filter-hide-div, [data-position-type="management"] {
+                            display:none;
+                        }
+                    </style>
+
+                    <t t-call="ppts_website_theme.carrer_openpositioncareer_section"/>
+
+
+                    <section class="eachsection section-topbtm-padding">
+                        <div class="row mycontainer questtobehappy   aboutherapest" data-aos="fade-up" data-aos-delay="200">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <!-- <span class="">About</span> -->
+                                <h2 class=" ">Apply Now! </h2>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                                <p>We are constantly exploring new healing approaches, to help
+                    Our clients reach their infinite potential. We are open to reviewing
+                    all applications. </p>
+
+                                <div>
+                                    <a href="/website/initial-application-form" type="button" class="fullbutton wid290" onclick="onclickTherapistBtn()">Start Your Application</a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="row enquireformcontainer mycontainer" data-aos="fade-up" data-aos-delay="200">
+                            <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 col-xs-12">
+                                <div class="abt-title-img aos-init aos-animate">
+                                    <script>
+                                        $("#myBannerVideo2").contents().find(".ytp-pause-overlay").remove();
+                                    </script>
+                                    <iframe id="myBannerVideo2" height="500" width="100%" src="https://www.youtube.com/embed/oanjg8uCAe4?rel=0&amp;modestbranding=1&amp;autohide=1&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;mute=1&amp;loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- BOOOK A FREE CONSULTANT SECTION START-->
+                    <section class="sectiion_top_padding80">
+                        <div class="top-wave-svg">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <g>
+                                    <path class="light-brown-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+                        c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+                        c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+                        c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="bookafreetrial lightbrown-bg ">
+                            <div class="  book-free-consultant  section_padd_left_right190_80  eachsection">
+                                <div class="arrow-scroll leftside">
+                                    <svg viewBox="0 0 426 142" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+                                            <path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+                                            <path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+                            c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="row align-items-center mycontainer sectiion_top_padding80">
+                                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+
+                                        <h2>Ask Us Anything </h2>
+                                        <p style="text-transform: none;">Have questions? Get in touch with us to learn more about how you can join our inspiring team.
+                                        </p>
+                                    </div>
+
+                                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="bookafree-card" data-aos="fade-up" data-aos-delay="100">
+                                            <h5>Fill in only these 5 fields</h5>
+                                            <form class="row" action="/career/ask/anything/submit/" method="post" data-mark="*" autocomplete="off">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" name ="full_name" placeholder="Full name" required="required"/>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="mobile" name ="phone" placeholder="Phone" required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group ">
+                                                        <textarea class="form-control " style="min-height: 100px;" name="subject" placeholder="Message" value="" required="required"></textarea>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+
+                                                        <label class="checkboxlabel">
+                                                            <input class="" type="checkbox" required="required"/>
+                                                            I agree to the Privacy Policy &amp; Terms and Conditions
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                    <button type="submit" class="formsubmitbtn">CALL ME BACK</button>
+                                                </div>
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- BOOOK A FREE CONSULTANT SECTION END-->
+                    <script src="/ppts_website_theme/static/src/js/career.js"></script>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

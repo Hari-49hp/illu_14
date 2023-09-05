@@ -1,0 +1,554 @@
+/*.booking_apt_state_book.o_list_view .o_list_table {
+    width: auto !important;
+}
+*/
+.apt-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.apt-container .box {
+    width: 50%;
+}
+
+.bg-color {
+    background: white;
+}
+
+.apt-container-sub {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.apt-container-sub .box {
+    width: 75%;
+    font-size: 13px;
+}
+
+.apt-container-sub .box-head {
+    font-size: 16px;
+    font-weight: bold;
+    width: 25%;
+}
+
+.apt-inner-box {
+    display: flex;
+}
+
+.apt-inner-box-head {
+    width: 40%;
+}
+
+.box-content {
+    margin-top: 3px;
+}
+
+.apt-inner-box-content {
+    width: 55%
+}
+
+.apt-inner-box-head label {
+    font-weight: bold !important;
+}
+
+.apt-inner-box:first-child {
+    margin-top: 20px;
+}
+
+.not_paid_widget span {
+    background-color: #f32525 !important;
+}
+
+.not_partially_paid_widget span {
+    background-color: #de9207 !important;
+}
+
+.not_payment_received_widget span {
+    background-color: #770777 !important;
+}
+
+.booking_apt_state_book [title="Booked"] {
+    background-color: #51c751;
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [title="Confirmed"] {
+    background-color: rgb(153 102 153);
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [title="Arrived"] {
+    background-color: rgb(133 16 83);
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [title="Completed"] {
+    background-color: #9cccdc;
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [title="Cancelled"] {
+    background-color: #ff3333;
+    color: #fff !important;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [title="Cancelled"] p {
+    color: #fff !important;
+}
+
+.booking_apt_state_book [title="Ongoing"] {
+    background-color: #9c5f33;
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [title="Availed"] {
+    background-color: rgb(153 102 153);
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [title="No Show"] {
+    background-color: #f79595;
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [title="Cancelled & Returned"] {
+    background-color: #b8b6b6;
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.booking_apt_state_book [data-name="booking_date"] {
+    width: 125px !important;
+}
+
+.booking_apt_state_book th[data-name="button_group_0"]::before {
+    content: "Next Activity";
+}
+
+.booking_apt_state_book th.o_list_button {
+    width: 105px !important;
+    padding: 13px !important;
+}
+
+
+/* visist page */
+
+div[name="visit_history_ids"] table:first-child,
+div[name="appointment_history_ids"] table:first-child,
+div[name="credit_note_history_ids"] table:first-child,
+div[name="purchase_history_ids"] table:first-child,
+div[name="purchase_detailed_history_ids"] table:first-child,
+div[name="unpaid_visit_history_id"] table:first-child,
+div[name="available_for_use_history_ids"] table:first-child,
+div[name="inactive_for_use_history_ids"] table:first-child,
+div[name="customer_journal_ids"] table:first-child,
+div[name="session_single_history_ids"] table:first-child,
+div[name="avail_for_use_history_ids"] table:first-child,
+div[name="message_ids"] table:first-child,
+div[name="appointment_line_history_ids"] table:first-child {
+    font-size: 11px;
+}
+
+div[name="visit_history_ids"] table:first-child thead tr:first-child,
+div[name="appointment_line_history_ids"] table:first-child thead tr:first-child,
+div[name="credit_note_history_ids"] table:first-child thead tr:first-child,
+div[name="purchase_history_ids"] table:first-child thead tr:first-child,
+div[name="purchase_detailed_history_ids"] table:first-child thead tr:first-child,
+div[name="unpaid_visit_history_id"] table:first-child thead tr:first-child,
+div[name="available_for_use_history_ids"] table:first-child thead tr:first-child,
+div[name="inactive_for_use_history_ids"] table:first-child thead tr:first-child,
+div[name="customer_journal_ids"] table:first-child thead tr:first-child,
+div[name="session_single_history_ids"] table:first-child thead tr:first-child,
+div[name="avail_for_use_history_ids"] table:first-child thead tr:first-child,
+div[name="message_ids"] table:first-child thead tr:first-child,
+div[name="appointment_history_ids"] table:first-child thead tr:first-child {
+    background: #eeee;
+}
+
+.oe_subtotal_footer,
+.oe_subtotal_footer label {
+    font-size: 11px !important;
+}
+
+th[data-name="booking_date"] {
+    width: 67px !important;
+}
+
+.top_head_margin {
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+.o_statusbar_buttons {
+    display: contents !important;
+}
+
+.purchase_detail_view_toggle {
+    float: right !important;
+}
+
+.emp_grp_bg tr:first-child td div.o_horizontal_separator {
+    padding-left: 5px;
+    color: #ffffff !important;
+}
+
+.emp_grp_bg tr:first-child {
+    background-color: #1b8e43;
+    color: #ffffff !important;
+    /*    font-style: italic;
+*/
+    border-right: 5px solid transparent;
+    font-weight: bolder;
+}
+
+.emp_grp_bg tr:not(:first-child) {
+    border-left: 10px solid transparent;
+}
+
+.emp_grp_bg tr:nth-child(2) {
+    border-top: 10px solid transparent;
+}
+
+.emp_grp_bg_other_info .o_horizontal_separator {
+    background-color: #99d9ea;
+    color: #212529 !important;
+    /*    font-style: italic;
+*/
+    border-right: 5px solid transparent;
+    font-weight: bolder !important;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.emp_grp_bg_other_info table {
+    border-left: 7px solid transparent;
+}
+
+.head_seq_pay {
+    display: flex;
+    margin-bottom: -20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.head_seq_pay h2 {
+    font-weight: bold;
+}
+
+.head_seq_pay h2:last-child {
+    margin-left: auto;
+}
+
+.apt_frm .o_group.o_inner_group>tbody>tr>td {
+    padding: 0 0 0 0;
+}
+
+.apt_frm div[name="partner_id"] {
+    width: 90% !important;
+}
+
+button.originate-call-lg-btn {
+    color: #00a09d !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.package_info_tree [title="Available"] {
+    color: Green;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.package_info_tree [title="Used"] {
+    color: Red;
+    font-weight: bolder;
+    text-align: center;
+}
+
+[name="appointment_history_ids"] .o_list_view .o_list_table tbody>tr>td:not(.o_list_record_selector):not(.o_handle_cell):not(.o_list_button) {
+    text-align: center;
+}
+
+.oe_image_av_for_web img {
+    height: 90px !important;
+}
+
+.o_calendar_sidebar_container {
+    padding: 0 !important;
+    display: none !important;
+}
+
+.datepicker .datepicker-switch,
+.datepicker .next,
+.datepicker .prev,
+.datepicker tfoot tr th {
+    background: #00aec7 !important;
+}
+
+div.o_calendar_mini>div>div.datepicker-days>table {
+    width: 100% !important;
+}
+
+.availability_form_backend .o_group.o_inner_group {
+    display: inherit !important;
+}
+
+.oe_row_bg_color {
+    background: aquamarine;
+}
+
+.pay_later_line_apt_delete>div.o_list_view>div>table>tbody>tr:nth-child(1)>td.o_list_record_remove {
+    display: none !important;
+}
+
+.customer_history_font {
+    font-size: 10px;
+}
+
+.chat-bubble-wrapper {
+    display: none !important;
+}
+
+div.o_action_manager>div>div>div.o_form_view.oe_form_configuration {
+    display: grid !important;
+}
+
+.btn.btn-secondary.o_documents_kanban_spreadsheet {
+    display: none;
+}
+
+.btn.btn-secondary.o_documents_kanban_url{
+     display: none;
+}
+.btn.btn-secondary.o_documents_kanban_share_domain{
+    display: none;
+}
+
+.remove-add-line-and-delete-one2many .o_field_x2many_list_row_add,
+.remove-add-line-and-delete-one2many .o_list_record_remove {
+    display: none !important;
+}
+
+.apt_order_confirmation_parent {
+    width: 100%;
+    display: flex;
+}
+
+.apt_order_confirmation_main {
+    width: 65%;
+    margin-right: 25px;
+}
+
+.apt_order_confirmation_sub {
+    width: 30%;
+    /* border: 1px solid #d1d1d1; */
+}
+
+.pay_now_wiz_frm_cls .booking_ref span {
+    font-size: 16px;
+}
+
+.pay_now_wiz_frm_cls .booking_ref span:last-child {
+    font-weight: 300;
+}
+
+.apt_order_confirmation_parent h2 {
+    font-weight: 300;
+    border-bottom: 1px solid #d1d1d1;
+    padding: 5px;
+}
+
+.apt_order_confirmation_sub h2 {
+    background: #d1d1d1;
+}
+
+.field_grp_div_wiz .o_field_widget {
+    width: 250px;
+}
+
+.field_grp_div_wiz label {
+    width: 150px;
+}
+
+.col_2_grp {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col_2_grp .field_grp_div_wiz .o_field_widget {
+    width: 165px !important;
+}
+
+.col_2_grp .field_grp_div_wiz label {
+    width: 125px !important;
+}
+
+.pay_now_wiz_frm_cls .pay_later_line_apt_delete th {
+    text-transform: capitalize !important;
+}
+
+.apt_order_confirmation_sub .order_summary_tree thead {
+    display: none;
+}
+
+.apt_order_confirmation_sub .qty_td::before {
+    content: "x";
+}
+
+.apt_order_confirmation_sub td {
+    border: none !important;
+}
+
+.order_summary_tree td:nth-child(2) {
+    width: 12%;
+}
+
+.boder-gray {
+    border: 1px solid #d1d1d1;
+}
+
+.order_summary_tree tfoot {
+    display: none;
+}
+
+.order_summary_tree .price_unit::after {
+    content: "AED";
+}
+
+.apt_order_confirmation_sub label {
+    width: 70%;
+}
+
+.currency_in_price::after {
+    content: "AED";
+}
+
+.padding-left-4 {
+    padding-left: 4px;
+}
+
+.apt_order_confirmation_sub .taxes_overall {
+    border-bottom: 1px solid #d1d1d1;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.move_to_pos_btn {
+    font-size: 15px;
+    margin: 20px 0px;
+    background: #edaf3e;
+    border: #edaf3e;
+    color: #4c4c4c;
+    width: 135px;
+    box-shadow: 2px 3px 1px 0px #888888;
+}
+
+.move_to_pos_btn:hover {
+    background: #d58b3e;
+    border: #d58b3e;
+}
+
+.pay_later_line_apt_delete .o_field_x2many_list_row_add {
+    display: none !important;
+}
+
+.child-a-padding-left-0 a {
+    padding-left: 0;
+}
+
+/*Event group headercolor*/
+.emp_grp_bg_other_info td:nth-child(odd){
+    padding-right: 0px !important;
+}
+
+/*html field disable image option*/
+.disable_img_icon_html_field .fa-file-image-o{
+    display: none;
+}
+
+/*html field disable code option*/
+.disable_code_html_field .fa-code{
+    display: none;
+}
+
+/*html field disable table option*/
+.disable_table_html_field .fa-table{
+    display: none;
+}
+
+/*html field disable link option*/
+.disable_link_attach_html_field .fa-link{
+    display: none;
+}
+
+/*html field disable dropdown option*/
+.disable_dropdown_html_field .note-table{
+    display: none;
+}
+
+/*html field disable undo option*/
+.disable_undo_html_field .fa-undo{
+    display: none;
+}
+
+/*html field disable repeat option*/
+.disable_repeat_html_field .fa-repeat{
+    display: none;
+}
+/*  remove the edit options in html fields */
+.remove_html_header .note-toolbar{
+    display: none;
+}
+
+/*event registration assign button color 27-09-22*/
+.assign_event_btn{
+    color: #00aec7 !important;
+}
+
+
+/* List view background color */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #edecea !important;
+}
+
+
+/* List view table layout fixed width 21-10-22*/
+table{
+
+table-layout: auto !important;
+}
+
+/*call feedback text box height increase*/
+.text_box_height{
+    height: 190px !important;
+    width: 330px !important;
+    overflow: scroll !important;
+}
+
+/*Change the header background color for all the tree view*/
+body.o_web_client > .o_action_manager > .o_action > .o_content .o_list_view table thead > tr {
+    height: 20px;
+    background-color: azure;
+}
+
+.textarea_height_cust_apt{
+    height: 150px !important;
+    padding-left: 20px!important;
+}

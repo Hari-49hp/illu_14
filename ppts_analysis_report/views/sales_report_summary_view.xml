@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sales_report_summary_tree" model="ir.ui.view">
+            <field name="name">sales.report.summary.tree.view</field>
+            <field name="model">sales.report.summary</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="sale_date" string="Sale Date / Tickets" sum="Total Ticket"/>
+                    <field name="ticket_sold" sum="Total Ticket" invisible="1"/>
+                    <field name="amount_cash" sum="Total Cash"/>
+                    <field name="amount_check" sum="Total Net Banking"/>
+                    <field name="amount_creditcard" sum="Total Bank"/>
+                    <field name="amount_miscellaneous" sum="Total Misc"/>
+                    <field name="amount_total" sum="Grand Total"/>
+                    <field name="pos_id" invisible="1"/>
+                    <field name="apt_id" invisible="1"/>
+                    <field name="entered_by" invisible="1"/>
+                    <field name="sales_rep_id" invisible="1"/>
+                    <field name="location" invisible="1"/>
+                    <field name="product_service" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sales_report_summary_form" model="ir.ui.view">
+            <field name="name">sales.report.summary.form.view</field>
+            <field name="model">sales.report.summary</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+							<field name="name" invisible="1"/>
+                            <field name="sale_date"/>
+                            <field name="ticket_sold" invisible="1"/>
+                            <field name="amount_cash" invisible="1"/>
+                            <field name="amount_check" invisible="1"/>
+                            <field name="amount_creditcard" invisible="1"/>
+                            <field name="amount_miscellaneous" invisible="1"/>
+                            <field name="amount_total" invisible="1"/>
+                            <field name="pos_id" invisible="1"/>
+                            <field name="apt_id" invisible="1"/>
+                            <field name="entered_by" invisible="0"/>
+                            <field name="sales_rep_id" invisible="0"/>
+                            <field name="location" invisible="0"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+        <record id="sales_report_sumy_search" model="ir.ui.view">
+            <field name="name">sales.report.summary.search.ppts</field>
+            <field name="model">sales.report.summary</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Report">
+                    <group expand="0" string="Group By">
+                        <filter string="Sales Date" name="xdate_group" domain="[]" context="{'group_by': 'sale_date:day'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="sales_report_summary_action_view" model="ir.actions.act_window">
+            <field name="name">Sales Report Summary</field>
+            <field name="res_model">sales.report.summary</field>
+            <field name="context">{'search_default_xdate_group': 1, 'expand': 0}</field>
+            <field name="view_mode">tree,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('sales_report_summary_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('sales_report_summary_form')})]"/>
+        </record>
+        <!--        Detail view-->
+        <record id="sales_report_detail_tree" model="ir.ui.view">
+            <field name="name">sales.report.detail.tree.view</field>
+            <field name="model">sales.report.detail</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="pos_id" invisible="1"/>
+                    <field name="detail_sale_date"/>
+                    <field name="payment_method" string="Method" widget="many2many_tags"/>
+                    <field name="client"/>
+                    <field name="sale_id"/>
+                    <field name="item_id"/>
+                    <field name="location"/>
+                    <field name="note" invisible="1"/>
+                    <field name="item_price"/>
+                    <field name="quantity"/>
+                    <field name="sub_total"/>
+                    <field name="vat" sum="VAT"/>
+                    <field name="discount"/>
+                    <field name="discount_amount"/>
+                    <field name="item_total"/>
+                    <field name="total_paid" sum="Total Amount Paid"/>
+                    <field name="entered_by" invisible="1"/>
+                    <field name="sales_rep_id" invisible="1"/>
+                    <field name="product_service" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sales_report_detail_form" model="ir.ui.view">
+            <field name="name">sales.report.detail.form.view</field>
+            <field name="model">sales.report.detail</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+							<field name="name" invisible="1"/>
+                            <field name="pos_id"/>
+                            <field name="detail_sale_date"/>
+                            <field name="payment_method" string="Method" widget="many2many_tags"/>
+                            <field name="client"/>
+                            <field name="sale_id"/>
+                            <field name="item_id"/>
+                            <field name="location"/>
+                            <field name="note"/>
+                            <field name="item_price"/>
+                            <field name="quantity"/>
+                            <field name="sub_total"/>
+                            <field name="vat"/>
+                            <field name="discount"/>
+                            <field name="discount_amount"/>
+                            <field name="item_total"/>
+                            <field name="total_paid"/>
+                            <field name="entered_by" invisible="1"/>
+                            <field name="sales_rep_id" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+        <record id="sales_report_search" model="ir.ui.view">
+            <field name="name">sales.report.detail.search.ppts</field>
+            <field name="model">sales.report.detail</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Report">
+                    <filter string="Sale Date" name="detail_sale_date" date="detail_sale_date"/>
+                    <separator/>
+
+                    <filter string="Today" name="today_booking_date" domain="[('detail_sale_date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday_date" domain="[('detail_sale_date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('detail_sale_date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]" help="Yesterday"/>
+                    <filter string="Tomorrow"  name="tomorrow_date" domain="[('detail_sale_date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('detail_sale_date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]" help="Tomorrow"/>
+                    <separator/>
+
+                    <filter string="Illumination - JLT (Branch)" name="location" help="Location" domain="[('location', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location" help="Location" domain="[('location', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location" help="Location" domain="[('location', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location" help="Location" domain="[('location', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location" help="Location" domain="[('location', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Day" name="x_day_group_by" domain="[ ]" context="{'group_by': 'detail_sale_date:day'}" />
+                        <filter string="Date" name="groupby_date" domain="[]" context="{'group_by': 'detail_sale_date'}"/>
+                        <filter string="Payment Method" name="xpayment_method_group" domain="[]" context="{'group_by': 'payment_method'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]" context="{'group_by': 'location'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record id="sales_report_detail_action_view" model="ir.actions.act_window">
+            <field name="name">Sales Report Detail</field>
+            <field name="res_model">sales.report.detail</field>
+             <field name="context">{'search_default_x_day_group_by': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('sales_report_detail_tree')})]"/>
+        </record>
+    </data>
+</odoo>

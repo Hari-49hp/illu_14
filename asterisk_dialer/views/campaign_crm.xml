@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="crm_lead_form_inherit" model="ir.ui.view">
+        <field name="name">CRM Lead inherited</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='action_view_sale_quotation']" position="replace"/>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_partner']/field[@name='partner_id']" position="attributes">
+                <attribute name="attrs">{"invisible": [["type_partner","=","type_new"]]}</attribute>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_partner']/field[@name='partner_id']" position="before">
+                <field name="type_partner" widget="radio" options="{'horizontal': true}" string="Type of Customer" />
+                <field name="title"/>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_info']/label[3]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_info']/div[3]/field[@name='phone']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='email_cc']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/div/h2" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_register','=',False)]}</attribute>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_info']/label[1]" position="replace"/>
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_info']/div[1]/field[@name='title']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='contact_name']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//button[@name='action_redirect_to_livechat_sessions']" position="after">
+                <button name="action_partner_appts" type="object" class="oe_stat_button" icon="fa-google-wallet" string="Visits">
+                </button>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='lead_partner']/field[@name='partner_id']" position="before">
+                <field name="first_name" string="First Name" attrs="{'invisible': [['type_partner', '=','type_existing']]}"/>
+                <field name="last_name" string="Last Name" attrs="{'invisible': [['type_partner', '=','type_existing']]}"/>
+            </xpath>
+            
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='opportunity_partner']/div[2]/field[@name='phone']" position="attributes">
+                <attribute name="attrs">{}</attribute>
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='opportunity_partner']/div[2]" position="replace"/>
+
+            <xpath expr="//form[1]/sheet[1]/group[1]/group[@name='opportunity_partner']/label[2]" position="replace"/>
+
+            <xpath expr="//form[1]/header[1]/button[@name='iap_enrich'][2]" position="replace"/>
+            <xpath expr="//button[@name='action_set_won_rainbowman']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_set_lost']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button[@name='%(crm.crm_lead_lost_action)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+                <!-- <button name="action_register" type="object" class="custom_identifier" string="Register" attrs="{'invisible': ['|','|','|',('campaign_type_id', '!=', %(event_campaign)d),('is_register','!=',True),('stage_status','=',False),'&amp;',('free_register','=',True),('stage_status','=',False),'&amp;',('paid_register','=',True)]}" />
+                <button name="action_appointment_register" type="object" class="custom_identifier" string="Register" attrs="{'invisible': ['|','|','|',('campaign_type_id', '!=', %(appointment_campaign)d),('is_register','!=',True),('stage_status','=',False),'&amp;',('free_register','=',True),('stage_status','=',False),'&amp;',('paid_register','=',True)]}" /> -->
+                <button name="action_register" type="object" class="custom_identifier" string="Register" attrs="{'invisible': ['|',('campaign_type_id', '!=', %(event_campaign)d),('is_register','=',False)]}" />
+                <button name="action_appointment_register" type="object" class="custom_identifier" string="Register" attrs="{'invisible': ['|',('campaign_type_id', '!=', %(appointment_campaign)d),('is_register','=',False)]}" />
+            </xpath>
+
+            <field name="user_id" position='after'>
+                <field name='is_register' invisible='1'/>
+                <field name='free_register' invisible='1'/>
+                <field name='paid_register' invisible='1'/>
+                <field name='stage_status' invisible='1'/>
+
+
+
+            </field>
+              <!--  <xpath expr="//form/sheet/notebook/page[3]" position="after">
+                    <page string="Lead Score">
+                         <group string='Demographic' col='4' colspan='2' >
+                               <field name='location'/>
+                               <field name='country'/>
+                               <field name='gender'/>
+                            </group>
+                            <group string='Source' col='4' colspan='2'>
+                              <field name='source'/>
+                              <field name='medium'/>
+                          </group>
+
+                    </page>
+                </xpath> -->
+
+            <field name="stage_id" position='replace'>
+                <field name="stage_id" widget="statusbar"
+                    options="{'clickable': '1', 'fold_field': 'fold'}"
+                    domain="['|', ('team_id', '=', team_id), ('team_id', '=', False)]"
+                    attrs="{'invisible': ['|', ('active', '=', False), ('type', '=', 'lead')]}"/>
+            </field>
+            <field name='team_id' position='after'>
+                <field name='campaign_type_id' readonly='1' groups="base.group_no_one"/>
+                <field name='campaign_type' readonly='1' force_save="1"/>
+                 <field name="appointment_id" invisible="1"/>
+                 <field name="event_reg_id" invisible="1"/>
+            </field>
+            <xpath expr="//page[1]" position="after">
+                <page string="History of Calls">
+                <field name="call_history_line_ids" >
+                    <tree create="0" edit="0" delete="0">
+                    <field name="quick_remark" readonly="1"/>
+                    <field name="remarks" readonly="1"/>
+                    <field name="user_id" readonly="1"/>
+                    <field name="call_date" readonly="1"/>  
+                    </tree>
+                </field>
+            </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_crm_lead_kanban_extended" model="ir.ui.view">
+        <field name="name">crm.lead.inherit.kanban</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+
+
+
+            <xpath expr="//div[@class='o_kanban_record_bottom']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <field name="user_id" position='after'>
+                <field name='mobile'/>
+                <field name='email_from'/>
+            </field>
+            <field name="name" position='replace'>
+                <field name="partner_id" invisible="1"/>
+                <a  t-attf-href="web#id={{record.partner_id.raw_value}}&amp;action=1181&amp;model=res.partner&amp;view_type=form&amp;cids=1%2C2;&amp;menu_id=528;lead_id={{record.id.raw_value}}"><field name="partner_id" context="{'form_view_ref': 'custom_partner.res_partner_history_history_from_view'}"/>
+                <field name="id" invisible="1"/>
+            </a><br/>
+                
+                <field name="contact_name" attrs="{'invisible': [('partner_id', '!=',False)]}"/>
+            </field>
+            <xpath expr="//div[hasclass('oe_kanban_content')]/div[3]" position="replace">
+                <div>
+                    <field name="mobile"/><button  onclick="open_dialler_func_crm()"  class="
+                            fa
+                            fa-fw
+                            fa-phone" role="img" style="color:green;border:none;background:none"
+                        ></button>
+                    <br/>
+                    <span t-if="record.email_from.value" t-esc="record.email_from.value"></span>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+        <record id="action_crm_pipeline" model="ir.actions.act_window">
+            <field name="name">Campaign Lead</field>
+            <field name="res_model">crm.lead</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,tree,graph,pivot,form,calendar,activity</field>
+            <field name="domain">[('campaign_lead_id', '=',active_id),('type','=','opportunity')]</field>
+            <field name="context">{'default_type': 'opportunity','search_default_assigned_to_me': 1}</field>
+        </record>
+
+    <record id="campaign_crm_view_kanban" model="ir.ui.view">
+                <field name="name">campaign.crm.view.kanban</field>
+                <field name="model">asterisk_dialer.campaign</field>
+                <field name="arch" type="xml">
+                    <kanban default_group_by="state" quick_create="false" create="false" sample="1">
+                        <field name="name"/>
+                        <field name="state" readonly="1"/>
+                        <templates>
+                            <t t-name="kanban-box">
+                                <div class="oe_kanban_card oe_kanban_global_click">
+                                    <div class="row no-gutters">
+                                        <span t-att-title="record.name.raw_value" class="text-primary">
+                                            <a  name="%(action_crm_pipeline)d" type="action"><t t-esc="record.name.raw_value"/></a>
+                                        </span>
+                                        <span class="col-4 text-primary text-uppercase text-right"><field name="campaign_type_id"/></span>
+                                    </div>
+                                    <div class="row text-uppercase text-center mt8">
+                                        <div class="col-4 text-muted">
+                                            <span>Total Leads</span>
+                                            <h2 class="mt4"><strong><field name="total_crm"/></strong></h2>
+                                        </div>
+                                        <div class="col-4 text-primary ">
+                                            <span>Book For Free Consultation</span>
+                                            <h2 class="mt4"><strong><field name="total_free_booking"/></strong></h2>
+                                        </div>
+                                        <div class="col-4 text-primary">
+                                            <span>Completed</span>
+                                            <h2 class="mt4"><strong><field name="total_paid_booking"/></strong></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </templates>
+                    </kanban>
+                </field>
+            </record>
+
+        <record id='campaign_crm_view_action' model='ir.actions.act_window'>
+                <field name='name'>Campaign CRM</field>
+                <field name='res_model'>asterisk_dialer.campaign</field>
+                <field name="view_mode">kanban</field>
+                <field name="domain">[]</field>
+        </record>
+        
+        <record id="crm_campaign_view_kanban" model="ir.actions.act_window.view">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="campaign_crm_view_kanban"/>
+            <field name="act_window_id" ref="campaign_crm_view_action"/>
+        </record>
+
+
+    <menuitem id="campaign_crm_menu" sequence="1"
+        name="Campaign CRM"  parent="crm.crm_menu_root" action="campaign_crm_view_action"/>
+
+    <record id="crm_case_form_view_oppor" model="ir.ui.view">
+            <field name="name">crm.lead.oppor.inherited.crm.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_sale_quotations_new']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+    </record>
+
+
+</odoo>

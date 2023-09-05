@@ -1,0 +1,1579 @@
+.ourjourney {
+    background: url(../img/journeywave.svg);
+    width: 100%;
+    height: 1800px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 80px 0;
+    max-width: 1024px;
+    margin: auto;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    flex-direction: column;
+}
+
+.abovefooter {
+    position: relative;
+}
+
+.journeydescripton {
+    width: 440px;
+    /* padding:0px 20px ; */
+}
+
+.journeydescripton h4 {
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 150%;
+    color: #333333;
+}
+
+.journeydescripton p {
+    font-size: 16px;
+    line-height: 180%;
+    color: #585858;
+}
+
+
+
+.ourjourneyhead {
+    position: relative;
+    top: 10px;
+    font-weight: 600;
+    font-size: 56px;
+    line-height: 130%;
+    color: #333333;
+    left: -60px;
+}
+
+.cls_06 {
+    position: relative;
+    left: -25px;
+    margin-bottom: 50px;
+    align-self: flex-end;
+}
+
+.cls_08 {
+    right: 0px;
+    text-align: right;
+    align-self: flex-start;
+}
+
+.journeydescripton {
+    position: relative;
+}
+
+.journeydescripton.cls_08 h4:before {
+    left: 471px !important;
+    top: 25px !important;
+}
+
+.cls_11 {
+    text-align: right;
+    max-width: 400px;
+}
+
+.cls_13 {
+    position: relative;
+    top: -46px;
+    /* margin-top: 64px; */
+    align-self: flex-end;
+}
+
+.journeydescripton.cls_13 h4:before {
+    left: 51px !important;
+    top: -28px !important;
+}
+
+.cls_16 {
+    position: relative;
+    top: -70px;
+    left: 61px;
+}
+
+.journeydescripton.cls_16 h4:before {
+    left: -61px !important;
+    top: 19px !important;
+}
+
+.journeydescripton.cls_11 h4:before {
+    right: -31px;
+    left: auto;
+}
+
+.clspresent {
+    position: relative;
+    /* left: 180px; */
+    top: 40px;
+    align-self: center;
+}
+
+.journeydescripton.clspresent h4:before {
+    left: -45px !important;
+    top: 18px !important;
+}
+
+.journeydescripton h4:before,
+.ourjourneyhead::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: #ffffff;
+    position: absolute;
+    left: -58px;
+    top: 25px;
+    border-radius: 50%;
+    border: 4px solid #00AEC7;
+}
+
+.ourjourneyhead::before {
+    right: auto;
+    top: 36px;
+    left: 360px;
+}
+
+.journemorp svg {
+    width: 100%;
+}
+
+.journemorp svg path {
+    width: 100%;
+}
+
+.journemorp {
+    max-width: 490px;
+    margin: 0;
+    height: 252px;
+    overflow: hidden;
+
+    /* max-width: 697px;
+    margin: 0;
+    overflow: hidden;
+    width: 697px;
+    height: 360px; */
+}
+
+.jpureywithimage {
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    height: auto;
+    margin-top: 180px;
+    align-items: center;
+    justify-content: flex-end;
+    right: 25px;
+    position: relative;
+    margin-bottom: 210px;
+}
+
+.journeyshapeclipped {
+    width: 100%;
+    /* height: 543px; */
+    right: 0;
+    top: 0;
+    clip-path: url('#journeyclip-path');
+    -webkit-clip-path: url('#journeyclip-path');
+    object-fit: cover;
+    object-position: center;
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-position: top right; */
+    /* background-size: 120%; */
+    /* transform: translate(10px, 0%); */
+    /* animation: backgroundzoom 1.6s ease-in; */
+}
+
+/* ***************************************About Us css Ends stages ***********************************/
+/* ***************************************negotiation stages ***********************************/
+.negotiationstages-heading h1 {
+    font-weight: 600;
+    font-size: 62px;
+    line-height: 122%;
+    text-transform: capitalize;
+    color: #3A3A3A;
+    margin-bottom: 60px;
+}
+
+.negotiationstages-wrapper {
+    position: relative;
+    min-height: 450px;
+    max-width: 1500px;
+    margin: auto;
+    /* margin-bottom: 100px; */
+}
+
+.negotiationstages-wrapper svg {
+    width: 85%;
+    position: absolute;
+    left: 0;
+}
+
+.negotiationstages-centeredwaveimage {
+    /* background: url(../img/negotiationstages-line.svg); */
+    /* background-position:left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 370px; */
+    position: relative;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.curvedline-text-cont {
+    display: inline-block;
+}
+
+.curvedline-text-cont h3 {
+    font-weight: 600;
+    font-size: 42px;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+
+    color: #333333;
+}
+
+.curvedline-text-cont p {
+    font-size: 16px;
+    line-height: 150%;
+    color: #585858;
+}
+
+.curvedline-text-cont p a {
+    text-decoration-line: underline !important;
+
+    color: #00AEC7 !important;
+}
+
+.nego_01 {
+    position: relative;
+    top: 10px;
+    left: 60px;
+}
+
+.nego_marp1 {
+    position: relative;
+    top: -60px;
+    left: 20px;
+}
+
+.nego_mrp1 .wardimagemorping {
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 180px;
+    height: 180px;
+}
+
+.nego_02 {
+    position: relative;
+    top: 100px;
+    left: 190px;
+}
+
+.nego_03 {
+    position: relative;
+    top: 260px;
+    left: 190px;
+}
+
+.nego_04 {
+    position: relative;
+    top: 230px;
+    left: 0;
+}
+
+.nego_05 {
+    position: relative;
+    top: -70px;
+    left: -60px;
+}
+
+.nego_mrp2 .wardimagemorping {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 280px;
+    height: 280px;
+}
+
+.nego_mrp2 {
+    position: relative;
+    left: 60px;
+    top: 0;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .negotiationstages-heading h1 {
+
+        font-size: 40px;
+
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 300px) {
+
+    .nego_mrp1 .wardimagemorping {
+        position: relative;
+    }
+
+    .negotiationstages-centeredwaveimage {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .curvedline-text-cont::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        border: 3px solid #00AEC7;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        left: -10px;
+        top: 0px;
+
+    }
+
+    .curvedline-text-cont {
+        display: flex;
+        display: -webkit-box;
+
+        display: -moz-box;
+
+        display: -ms-flexbox;
+
+        display: -webkit-flex;
+
+        align-items: center;
+    }
+
+    .curvedline-text-cont h3 {
+        margin-right: 14px;
+    }
+
+    .curvedline-text-cont p {
+        margin: 0;
+    }
+
+    .curvedline-text-cont p br {
+        display: none;
+    }
+
+    .curvedline-text-cont.nego_mrp2 {
+        order: 6;
+        border-left: 0px solid #00AEC7;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .curvedline-text-cont.nego_mrp2 .wardimagemorping {
+        width: 320px;
+        height: 320px;
+        margin-top: 20px;
+    }
+
+    .curvedline-text-cont.nego_mrp2::before {
+        display: none;
+    }
+
+    .negotiationstages-wrapper svg,
+    .curvedline-text-cont.nego_mrp1 {
+        display: none;
+    }
+
+    .nego_01,
+    .nego_02,
+    .nego_03,
+    .nego_04,
+    .nego_05,
+    .nego_mrp1,
+    .nego_mrp2 {
+        left: auto;
+        top: auto;
+        bottom: auto;
+        padding: 16px 0px;
+
+        padding-left: 0px;
+        margin-left: 20px;
+        gap: 0;
+    }
+
+    .nego_01::after,
+    .nego_02::after,
+    .nego_03::after,
+    .nego_04::after {
+        content: "";
+        width: 2px;
+        height: 100%;
+        background: #00AEC7;
+        display: inline-block;
+        border-left: 3px solid #00AEC7;
+        position: absolute;
+        left: -3px;
+        top: 39px;
+        z-index: -1;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .curvedline-text-cont.nego_mrp2 .wardimagemorping {
+        right: 60px;
+        position: absolute;
+    }
+
+    .curvedline-text-cont.nego_mrp2 {
+        position: absolute;
+        right: 0;
+    }
+}
+
+/* ***************************************negotiation stages End ***********************************/
+/* ***************************************How We Work Start ***********************************/
+.howweworkcurvedpath-heading h1 {
+    font-weight: 600;
+    font-size: 62px;
+    line-height: 122%;
+    text-transform: capitalize;
+    color: #3A3A3A;
+    margin-bottom: 60px;
+}
+
+.howweworkcurvedpath-wrapper {
+    position: relative;
+    min-height: 450px;
+    max-width: 1500px;
+    margin: auto;
+    /* margin-bottom: 100px; */
+}
+
+.howweworkcurvedpath-wrapper svg {
+    width: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_02 {
+    max-width: 230px;
+}
+
+.howweworkcurvedpath-centeredwaveimage {
+    /* background: url(../img/howweworkcurvedpath-line.svg); */
+    /* background-position:left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 370px; */
+    position: relative;
+    display: flex;
+    display: -webkit-box;
+
+    display: -moz-box;
+
+    display: -ms-flexbox;
+
+    display: -webkit-flex;
+
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.howweworkcurvedline-text-cont {
+    display: inline-block;
+}
+
+.howweworkcurvedline-text-cont h3 {
+    font-weight: 600;
+    font-size: 42px;
+    margin-bottom: 0px;
+    text-transform: capitalize;
+
+    color: #333333;
+}
+
+.howweworkcurvedline-text-cont p {
+    font-size: 16px;
+    line-height: 180%;
+    color: #3A3A3A;
+}
+
+.howweworkcurvedline-text-cont p a {
+    text-decoration-line: underline !important;
+    font-weight: 700;
+    display: block;
+    color: #00AEC7 !important;
+}
+
+.howwe_01 {
+    position: relative;
+    top: 10px;
+    left: 60px;
+}
+
+.howwe_marp1 {
+    position: relative;
+    top: -60px;
+    left: 20px;
+}
+
+.howwe_mrp1 .wardimagemorping {
+    position: absolute;
+    top: auto;
+    left: 260px;
+    right: auto;
+    width: 180px;
+    height: 180px;
+}
+
+.howwe_02 {
+    position: relative;
+    top: 160px;
+    left: 255px;
+}
+
+.howwe_03 {
+    position: relative;
+    top: 260px;
+    left: 380px;
+}
+
+.howwe_04 {
+    position: relative;
+    top: 115px;
+    left: 30px;
+}
+
+.howwe_05 {
+    position: relative;
+    top: -70px;
+    left: -60px;
+}
+
+.howwe_mrp2 .wardimagemorping {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    right: auto;
+    width: 280px;
+    height: 280px;
+}
+
+.howwe_mrp2 {
+    position: relative;
+    left: -40px;
+    top: -5px;
+}
+
+/* _________________________________jointheprocess__________________________________________________ */
+
+.jointheprocess .howweworkcurvedpath-wrapper {
+    min-height: 600px;
+    z-index: 0;
+}
+
+.jointheprocess .howweworkcurvedpath-wrapper svg {
+    width: 100%;
+    position: absolute;
+    left: -100px;
+}
+
+
+.jointheprocess .howwe_01 {
+    top: 0px;
+    left: 13px;
+}
+
+.jointheprocess .howwe_mrp1 .wardimagemorping {
+    width: 150px;
+    height: 150px;
+    top: 50px;
+    left: 210px;
+    right: auto;
+}
+
+.jointheprocess .howwe_02 {
+    top: 120px;
+    left: 205px;
+}
+
+.jointheprocess .howwe_03 {
+    left: 236px;
+}
+
+.jointheprocess .howwe_04 {
+
+    top: 290px;
+    left: -13px;
+}
+
+.jointheprocess .howwe_05 {
+    top: 130px;
+    left: 40px;
+}
+
+.jointheprocess .howwe_06 {
+    top: -64px;
+    left: -40px;
+    position: relative;
+}
+
+.jointheprocess .howwe_mrp2 .wardimagemorping {
+
+    top: 40px;
+    left: 40px;
+}
+
+
+
+/* ********************************* */
+
+
+.Holistichealing_getstart.howweworkcurvedpath-wrapper {
+    min-height: 640px;
+}
+
+.Holistichealing_getstart .howwe_01 {
+    position: relative;
+    top: 30px;
+    left: 0;
+    max-width: 150px;
+}
+
+.Holistichealing_getstart .howwe_02 {
+    position: relative;
+    top: 170px;
+    left: 130px;
+    max-width: 200px;
+}
+
+.Holistichealing_getstart .howwe_03 {
+    position: relative;
+    top: 280px;
+    left: -200px;
+    /* max-width: 150px; */
+}
+
+.Holistichealing_getstart .howwe_mrp1 .wardimagemorping {
+    top: 80px;
+    left: 230px;
+}
+
+.Holistichealing_getstart .howwe_mrp2 .wardimagemorping {
+    left: 65px;
+}
+
+/* ******************************************************************************************* */
+
+.therapycategory .ourjourney {
+    background: url(../img/therapycategoryarrows.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1480px;
+}
+
+.therapycategory .journeydescripton h4:before,
+.therapycategory .ourjourneyhead::before {
+    display: none;
+    content: none;
+}
+
+.therapycategory .ourjourneyhead {
+    max-width: 450px;
+}
+
+.therapycategory .cls_06 {
+
+    left: -10px;
+
+    top: -30px;
+    margin-bottom: 10px;
+}
+
+.therapycategory .cls_08 {
+    margin-top: 20px;
+}
+
+.therapycategory .jpureywithimage {
+    justify-content: space-between;
+    margin-top: 100px;
+
+    right: 45px;
+}
+
+.therapycategory .cls_13 {
+
+    left: -40px;
+}
+
+.therapycategory .cls_16 {
+
+    top: -100px;
+    left: 60px;
+}
+
+.therapycategory {}
+
+/* *********************************************************Reason TO train flow***************************************************************************** */
+.reasototrainflow {
+    background: url('../img/reasontotrainwithusflow.svg');
+    width: 100%;
+    height: 700px;
+    background-repeat: no-repeat;
+    background-position: 80px top;
+
+    max-width: 1024px;
+
+    /* margin: auto; */
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.reasontodescrip {
+    max-width: 400px;
+    position: relative;
+}
+
+.reasontodescrip h4 {
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 150%;
+
+}
+
+.reasontodescrip p {
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 180%;
+    /* or 29px */
+}
+
+.train-with-us-wrapper {
+    margin-bottom: 80px;
+}
+
+.reasontodes_01 {
+    top: -25px;
+}
+
+.reasontodes_02 {
+    align-self: end;
+    left: 90px;
+    top: -40px;
+}
+
+.reasontotrain_withimges {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reasontodes_03 {
+    text-align: right;
+    top: 90px;
+}
+
+.reasonimgcont {
+    position: absolute;
+    right: -180px;
+    bottom: 0;
+}
+
+/* *********************************************************Reason TO train flow end***************************************************************************** */
+
+
+
+
+/* *********************************************************Reason TO become coach***************************************************************************** */
+
+.reasontobecome_coach_journey {
+    position: relative;
+    min-height: 640px;
+}
+
+.reasontobecome_coach_journey .svgreasons {
+    width: 100%;
+    position: absolute;
+}
+
+.reasoncoach_img {
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+
+.resontobecome_coach_iner {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: normal;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.coursereasonone {
+    text-align: right;
+    top: 30px;
+}
+
+.coursereasontwo {
+    top: 260px;
+    left: 220px;
+}
+
+.coashreasonthree {
+    top: 410px;
+}
+
+
+.howweworkcurvedpath-wrapper.yourtherapyjourney {
+    min-height: 600px;
+}
+
+.howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_03 {
+    position: relative;
+    top: 300px;
+    left: 360px;
+}
+
+.howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_01 {
+    position: relative;
+    top: 40px;
+    left: 50px;
+}
+
+.strugglejourney .ourjourneyimagee {
+    display: none;
+}
+
+/* *********************************************************Reason TO become coach end***************************************************************************** */
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+
+    .howweworkcurvedpath-heading h1 {
+        margin-bottom: 30px;
+        font-size: 40px;
+
+    }
+
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp2 .wardimagemorping {
+        right: auto;
+        position: relative;
+        bottom: 0;
+        left: auto;
+    }
+
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp2 {
+        position: relative;
+
+        order: 5;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 300px) {
+
+    .reasontobecome_coach_journey .svgreasons {
+        display: none;
+    }
+
+    .reasoncoach_img {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .reasoncoach_img img {
+        max-width: 100%;
+    }
+
+    .coursereasonone,
+    .coursereasontwo,
+    .coursereasontwo,
+    .coashreasonthree {
+        left: unset;
+        right: unset;
+        top: unset;
+        bottom: unset;
+        text-align: left;
+    }
+
+    .resontobecome_coach_iner {
+        flex-direction: column;
+    }
+
+    .coashreasonthree.reasontodescrip::before {
+        display: none;
+    }
+
+    .strugglejourney .ourjourneyimagee {
+        display: block;
+        top: auto;
+
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin: auto;
+        margin-top: 40px;
+    }
+
+    .therapycategory .ourjourneyhead {
+        margin-bottom: 80px;
+        left: auto;
+        right: auto;
+        padding-left: 20px;
+    }
+
+    .therapycategory .ourjourney .journeydescripton h4 {
+        position: relative;
+    }
+
+    .therapycategory .ourjourney::before {
+        top: 66px;
+        height: 78%;
+    }
+
+    .therapycategory .ourjourney .journeydescripton h4::before,
+    .therapycategory .ourjourney h2:before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        background: #ffffff;
+        position: absolute;
+        left: -26px !important;
+        top: 12px !important;
+        border-radius: 50%;
+        border: 4px solid #00AEC7;
+    }
+
+    .therapycategory .ourjourney h2:before {
+        left: -6px !important;
+        top: 50px !important;
+    }
+
+    .therapycategory .ourjourney {
+        background: none;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        margin-left: 1rem;
+    }
+
+    .therapycategory .jpureywithimage {
+        left: auto;
+        right: auto;
+        margin: 0;
+    }
+
+    .therapycategory .ourjourney .cls_06,
+    .therapycategory .ourjourney .cls_08,
+    .therapycategory .ourjourney .cls_13,
+    .therapycategory .ourjourney .cls_16,
+    .therapycategory .ourjourney .cls_11 {
+        margin: 0;
+        left: auto;
+        right: auto;
+        /* margin-left: 1rem; */
+        height: auto;
+        position: relative;
+        top: auto;
+    }
+
+    /* .therapycategory .ourjourney::before{
+       display: none;
+       
+   } */
+    .therapycategory .journeydescripton::before {
+        /* content: "";
+    padding: 10px;
+    border-left: 2px solid #00AEC7;
+    position: absolute;
+    height: 100%;
+    top: 14px;
+    left: 2px; */
+    }
+
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney {
+        min-height: 100%;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_03 {
+
+        top: auto;
+        left: auto;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_01 {
+
+        top: auto;
+        left: auto;
+    }
+
+    .reasontodescrip h4 {
+        position: relative;
+    }
+
+    .reasontodescrip h4::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        background: #ffffff;
+        position: absolute;
+        left: -27px;
+        top: 20px;
+        border-radius: 50%;
+        border: 4px solid #00AEC7;
+    }
+
+    .reasontodes_02,
+    .reasontodes_01,
+    .reasontodes_03 {
+        left: auto;
+        top: auto;
+        text-align: left;
+        align-self: flex-start;
+    }
+
+    .reasonimgcont {
+        position: relative;
+        right: auto;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 50px;
+    }
+
+    .reasonimgcont img {
+        width: 100%;
+    }
+
+    .reasototrainflow {
+        position: relative;
+    }
+
+    .reasototrainflow {
+        background: none;
+        height: 100%;
+    }
+
+    .reasontodescrip {
+        padding-left: 20px;
+    }
+
+    .reasontotrain_withimges {
+        flex-direction: column;
+    }
+
+    .reasontodescrip::before {
+        content: "";
+        padding: 10px;
+        border-left: 2px solid #00AEC7;
+        position: absolute;
+        height: 100%;
+        top: 36px;
+        left: 0;
+    }
+
+    .reasontotrain_withimges .reasontodescrip::before {
+        display: none;
+    }
+
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp2 .wardimagemorping {
+        right: auto;
+        position: relative;
+        bottom: 0;
+        left: auto;
+    }
+
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp2 {
+        position: relative;
+
+        order: 5;
+    }
+
+    .Holistichealing_getstart .howwe_01,
+    .Holistichealing_getstart .howwe_02,
+    .Holistichealing_getstart .howwe_03 {
+        max-width: 100%;
+        left: auto;
+        top: auto;
+    }
+
+    .jointheprocess .howwe_01,
+    .jointheprocess .howwe_mrp1,
+    .jointheprocess .howwe_02,
+    .jointheprocess .howwe_03,
+    .jointheprocess .howwe_04,
+    .jointheprocess .howwe_05,
+    .jointheprocess .howwe_06,
+    .jointheprocess .howwe_mrp2 .wardimagemorping {
+        top: auto;
+        left: auto;
+        right: auto;
+    }
+
+    .jointheprocess .howwe_06 {
+        padding: 16px 0px;
+        padding-left: 0px;
+        margin-left: 20px;
+    }
+
+    .howwe_mrp1 .wardimagemorping {
+        position: relative;
+    }
+
+    .howweworkcurvedpath-centeredwaveimage {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .howweworkcurvedline-text-cont::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        border: 3px solid #00AEC7;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        left: -10px;
+        top: 0px;
+        z-index: 2;
+
+    }
+
+    .yourtherapyjourney .howweworkcurvedline-text-cont::before {
+        /* width: 18px; */
+    }
+
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp1 {
+        display: block;
+        /* margin: auto; */
+        /* text-align: center; */
+        width: 100%;
+    }
+
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp1::before {
+        display: none;
+    }
+
+    .yourtherapyjourney .howwe_01::after,
+    .yourtherapyjourney .howwe_02::after,
+    .yourtherapyjourney .howwe_03::after,
+    .yourtherapyjourney .howwe_04::after,
+    .yourtherapyjourney .jointheprocess .yourtherapyjourney.howwe_05::after,
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp1::after {
+        z-index: 0;
+        top: 60px;
+    }
+
+    .yourtherapyjourney .howwe_mrp1 .wardimagemorping {
+        left: auto;
+        right: auto;
+        margin: auto;
+    }
+
+    .howweworkcurvedline-text-cont {
+        display: block;
+
+    }
+
+    .howweworkcurvedline-text-cont h3 {
+        margin-right: 14px;
+        padding-left: 10px;
+    }
+
+    .howweworkcurvedline-text-cont p {
+        margin: 0;
+        padding-left: 10px;
+
+    }
+
+    .howweworkcurvedline-text-cont::before {
+        top: 38px
+    }
+
+    .howweworkcurvedline-text-cont p br {
+        display: none;
+    }
+
+    .howweworkcurvedline-text-cont.howwe_mrp2 {
+        order: 6;
+        border-left: 0px solid #00AEC7;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp2 {
+        order: 0;
+        padding: 16px 0px;
+        padding-left: 0px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .howweworkcurvedline-text-cont.howwe_mrp2 .wardimagemorping {
+        width: 320px;
+        height: 320px;
+        margin-top: 20px;
+    }
+
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp2 .wardimagemorping,
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp2 .wardimagemorping {
+        width: 240px;
+        height: 240px;
+    }
+
+    .howweworkcurvedline-text-cont.howwe_mrp2::before {
+        display: none;
+    }
+
+    .howweworkcurvedpath-wrapper svg,
+    .howweworkcurvedline-text-cont.howwe_mrp1 {
+        display: none;
+    }
+
+    .howwe_01,
+    .howwe_02,
+    .howwe_03,
+    .howwe_04,
+    .howwe_05,
+    .howwe_mrp1,
+    .howwe_mrp2 {
+        left: auto;
+        top: auto;
+        bottom: auto;
+        padding: 16px 0px;
+
+        padding-left: 0px;
+        margin-left: 20px;
+        gap: 0;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_02 {
+        max-width: 100%;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_mrp2 {
+        position: relative;
+        right: auto;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney {
+        padding-bottom: 30px;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_mrp2 .wardimagemorping {
+        position: relative;
+        right: auto;
+        left: auto;
+    }
+
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp1 {
+        position: relative;
+    }
+
+    .howwe_01::after,
+    .howwe_02::after,
+    .howwe_03::after,
+    .howwe_04::after,
+    .jointheprocess .howwe_05::after,
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp1::after,
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp2::after,
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp1::after {
+        content: "";
+        width: 2px;
+        height: 100%;
+        background: #00AEC7;
+        display: inline-block;
+        border-left: 3px solid #00AEC7;
+        position: absolute;
+        left: -3px;
+        top: 39px;
+        z-index: -1;
+    }
+
+    .jointheprocess .howwe_01::after,
+    .jointheprocess .howwe_02::after,
+    .jointheprocess .howwe_03::after,
+    .jointheprocess .howwe_04::after,
+    .jointheprocess .howwe_05::after {
+        top: 57px;
+
+    }
+
+    .yourtherapyjourney .howwe_04::after,
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp1::before {
+        display: none;
+    }
+
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp1::after {
+        z-index: 1;
+        top: 60px;
+    }
+
+    .Holistichealing_getstart .howweworkcurvedline-text-cont::after,
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp1::after {
+        z-index: 1;
+        top: 55px;
+    }
+
+    .yourtherapyjourney .howweworkcurvedline-text-cont.howwe_mrp2::after {
+        z-index: 0;
+        height: 112%;
+    }
+
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_mrp1 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+
+    .Holistichealing_getstart .howwe_mrp1 .wardimagemorping {
+        top: auto;
+        left: auto;
+        display: inline-block
+    }
+
+    .Holistichealing_getstart .howweworkcurvedline-text-cont.howwe_03::after {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+
+
+    .howweworkcurvedline-text-cont.howwe_mrp2 .wardimagemorping {
+        right: 60px;
+        position: absolute;
+    }
+
+    .howweworkcurvedline-text-cont.howwe_mrp2 {
+        position: absolute;
+        right: 0;
+    }
+}
+
+@media only screen and (max-width: 1270px) and (min-width: 1025px) {
+    .resontobecome_coach_iner {
+        top: 40px;
+        position: relative;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_mrp2 .wardimagemorping {
+        position: relative;
+        top: -30px;
+        left: -40px;
+
+    }
+
+    .reasoncoach_img img {
+        max-width: 90%;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_02 {
+
+        left: 210px;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_01 {
+        position: relative;
+        top: 60px;
+        left: 50px;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_03 {
+        left: 300px;
+    }
+
+    .reasontotrain_withimges {
+        display: flex;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .reasonimgcont {
+        position: relative;
+        right: auto;
+        margin: auto;
+        top: 130px;
+    }
+
+    .reasototrainflow {
+        height: 1000px;
+    }
+
+    .reasontodes_03 {
+        text-align: right;
+        top: 90px;
+    }
+
+    .reasontodes_02 {
+        align-self: unset;
+        left: 210px;
+        top: -40px;
+        text-align: right;
+    }
+
+    .jointheprocess .howwe_mrp1 .wardimagemorping {
+
+        top: 110px;
+        left: 110px;
+
+    }
+
+    .jointheprocess .howwe_02 {
+
+        left: 160px;
+    }
+
+    .jointheprocess .howwe_03 {
+        left: 216px;
+    }
+
+    .jointheprocess .howwe_mrp2 .wardimagemorping {
+        top: 10px;
+        left: 70px;
+    }
+
+    .jointheprocess .howwe_04 {
+        top: 260px;
+        left: 20px;
+    }
+
+    .jointheprocess .howwe_06 {
+        top: -40px;
+        left: -30px;
+        position: relative;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1025px) {
+    .therapycategory .ourjourneyhead {
+        top: 40px;
+    }
+
+    .therapycategory .cls_06 {
+        left: -110px;
+        top: -100px;
+
+    }
+
+    .therapycategory .cls_08 {
+        right: -120px;
+        text-align: right;
+        top: -70px;
+    }
+
+    .therapycategory .jpureywithimage {
+        right: auto;
+        /* margin-bottom: 100px; */
+        margin-top: 0;
+    }
+
+    .therapycategory .journemorp {
+        position: relative;
+        top: -30px;
+        left: 60px;
+    }
+
+    .therapycategory .cls_11 {
+        right: 30px;
+        top: -30px;
+    }
+
+    .therapycategory .cls_13 {
+        left: -140px;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_mrp1 .wardimagemorping {
+        position: absolute;
+        top: auto;
+        left: 150px;
+    }
+
+    .therapycategory .cls_16 {
+        top: -120px;
+        left: 40px;
+    }
+
+}
+
+@media only screen and (min-width: 1025px) {
+    .yourtherapyjourney .howwe_mrp1 .wardimagemorping {
+
+        top: 80px;
+        left: 210px;
+
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_03 {
+        left: 363px;
+    }
+
+    .howweworkcurvedpath-wrapper.yourtherapyjourney .howwe_04 {
+        left: -25px;
+    }
+}

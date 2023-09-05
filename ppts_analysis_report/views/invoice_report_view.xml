@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="invoice_report_tree" model="ir.ui.view">
+            <field name="name">invoice.report.tree.view</field>
+            <field name="model">invoice.report</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" invisible="1"/>
+                    <field name="tax_id"/>
+                    <field name="sale_date"/>
+                    <field name="client"/>
+                    <field name="client_id"/>
+                    <field name="location_id"/>
+                    <field name="status"/>
+                    <field name="inv_total" sum="Invoiced Grand Total"/>
+                </tree>
+            </field>
+        </record>
+        <record id="invoice_report_form" model="ir.ui.view">
+            <field name="name">invoice.report.form.view</field>
+            <field name="model">invoice.report</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+							<field name="name" invisible="1"/>
+                            <field name="tax_id"/>
+                            <field name="sale_date"/>
+                            <field name="client"/>
+                            <field name="client_id"/>
+                            <field name="location_id"/>
+                            <field name="status"/>
+                            <field name="inv_total"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+
+<!--        Filter-->
+
+        <record id="invoice_report_search" model="ir.ui.view">
+            <field name="name">invoice.report.search.ppts</field>
+            <field name="model">invoice.report</field>
+            <field name="arch" type="xml">
+                <search string="Search Invoice">
+                    <filter string="Sale Date" name="sale_date" date="sale_date"/>
+                    <separator/>
+
+                    <filter string="Today" name="today_booking_date" domain="[('sale_date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday_date" domain="[('sale_date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('sale_date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]" help="Yesterday"/>
+                    <filter string="Tomorrow"  name="tomorrow_date" domain="[('sale_date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('sale_date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]" help="Tomorrow"/>
+                    <separator/>
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Date" name="xsale_date_group" domain="[]" context="{'group_by': 'sale_date'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]" context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="invoice_report_action_view" model="ir.actions.act_window">
+            <field name="name">Invoice Report</field>
+            <field name="res_model">invoice.report</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('invoice_report_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('invoice_report_form')})]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,44 @@
+<odoo>
+	<data>
+
+        <record id="event.action_event_view" model="ir.actions.act_window">
+            <field name="search_view_id" ref="ppts_custom_event_search"></field>
+            <field name="context">{'search_default_current_month': 1,'search_default_is_published':1}</field>
+        </record>
+
+		<record id="ppts_custom_event_search" model="ir.ui.view">
+        <field name="name">event.event.search.ppts</field>
+        <field name="model">event.event</field>
+		<field name="inherit_id" ref="event.view_event_search" />
+
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="organizer_id"/>
+                <field name="event_type_id" string="Event Type"/>
+                <field name="evnt_maincateg"/>
+                <field name="evnt_subcateg"/>
+                <field name="registration_ids" string="Attendee"/>
+                <field name="address_id" string="Location"/>
+                <field name="class_type" string="Class"/>
+                <filter string="Online Events" name="type_event" help="Online Events" domain="[('type_event', '=', 'type_online')]"/>
+                <filter string="Offline Events" name="type_event" help="Offline Events" domain="[('type_event', '=', 'type_onsite')]"/>
+                <filter string="Current Month" name="current_month"
+                        domain="[('date_begin','&lt;',(context_today()+relativedelta(months=1)).strftime('%%Y-%%m-01')), ('date_begin','&gt;=',time.strftime('%%Y-%%m-01'))]"/>
+                <filter string="Website Publish" name="is_published"/>
+                <group expand="0" string="Group By">
+                    <filter string="Organizer" name="organizer_id" domain="[]" context="{'group_by': 'organizer_id'}"/>
+                    <filter string="Event Type" name="event_type_id" domain="[]" context="{'group_by': 'event_type_id'}"/>
+                    <filter string="Event Stage" name="event_stage_id" domain="[]" context="{'group_by': 'stage_id'}"/>
+                    <filter string="Event Main Category" name="evnt_maincateg" domain="[]" context="{'group_by': 'evnt_maincateg'}"/>
+                    <filter string="Event Sub Category" name="evnt_subcateg" domain="[]" context="{'group_by': 'evnt_subcateg'}"/>
+                    <filter string="Sales In-charge" name="sale_incharge_id" domain="[]" context="{'group_by': 'sale_incharge_id'}"/>
+                    <filter string="Location" name="address_id" domain="[]" context="{'group_by': 'address_id'}"/>
+                    <filter string="Event Class" name="class_type" domain="[]" context="{'group_by': 'class_type'}"/>
+                    <filter string="Online Event" name="type_event" domain="[]" context="{'group_by': 'type_event'}"/>
+                </group>
+			</xpath>
+        </field>
+    	</record>
+
+	</data>
+</odoo>

@@ -1,0 +1,67 @@
+ <odoo>
+    <data>
+        <template id="illuminations_types_of_meditation" name="Type Of Meditation"> 
+    <section class="eachsection section-topbtm-padding">
+
+        <div class="mycontainer">
+            <div class="section-typo-inner" style="max-width: 100%;">
+                <span class="blakwordtexts ">Types of </span>
+                <h2 class="">Meditation </h2>
+
+            </div>
+            <div class="row typeofmeditation">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+                    <img src="/ppts_website_theme/static/src/img/typeofmeditation1.svg" />
+                    <h5>Mindfulness Meditation</h5>
+                    <p>These meditations involve focused attention and awareness on the present moment, by observing
+                        your natural breath and thought patterns until we are able to move beyond the mind into a place
+                        of stillness and silence.</p>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+                    <img src="/ppts_website_theme/static/src/img/typeofmeditation2.svg" />
+                    <h5>Movement Meditation</h5>
+                    <p> These meditations involve incorporating an activity such as walking or a hobby such as painting
+                        or dancing through focused concentration where we move into a space of total oneness with our
+                        activity and away from the world of multitasking, in order to channel our creativity, intuition
+                        and stillness. </p>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+                    <img src="/ppts_website_theme/static/src/img/typeofmeditation3.svg" />
+                    <h5>Spiritual &amp; Energy Based Mediation</h5>
+                    <p> These meditations involve establishing a deeper spiritual connection with what we may call the
+                        universe, divine, higher self in order increase our faith, by moving beyond our mental control
+                        into a space of trust, faith and intuition. </p>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+                    <img src="/ppts_website_theme/static/src/img/typeofmeditation4.svg" />
+                    <h5>Sound, Vibration &amp; Mantra Meditation</h5>
+                    <p> These meditations involve continuous repetition and chanting of high-energy sounds, vibrations
+                        and mantras, which increase our energy vibration, bring us into a space of peace &amp; tranquility &amp;
+                        awaken the wisdom and compassion within us. </p>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+                    <img src="/ppts_website_theme/static/src/img/typeofmeditation5.svg" />
+                    <h5>Visualization &amp; Guided Meditation</h5>
+                    <p> These meditations take you through a beautiful healing journey by guiding your mind and body
+                        into a state of deep relaxation through visualization. In this tranquil state, positive
+                        reinforcement within the subconscious mind will accelerate the powerful manifestation process of
+                        our thoughts into creating an empowering reality. </p>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 typeofmeditation-item">
+                    <img src="/ppts_website_theme/static/src/img/typeofmeditation6.svg" />
+                    <h5>Full Moon Meditation</h5>
+                    <p> Full moons are about completion, change, releasing and cleansing. Meditating at the time of a
+                        full moon offers a powerful healing opportunity supporting you to release blocked energies and
+                        limiting beliefs. This powerful guided meditation manifests your dreams and deepest desires,
+                        allowing you to come into alignment with your higher self and connect with the endless
+                        possibilities the Universe can provide for you.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+        
+        </template>
+    </data>
+</odoo>

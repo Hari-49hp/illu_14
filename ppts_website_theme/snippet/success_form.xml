@@ -1,0 +1,92 @@
+<odoo>
+    <data>
+        <template id="theme_success_page" name="Success">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <style>
+                        .success-screen-fullview{
+                        max-width: 800px;
+                        margin: auto;
+                        text-align: center;
+                        padding: 40px 16px;
+                        position: relative;
+                        }
+                        .success-screen-fullview .succlogo{
+                        margin-bottom: 30px;
+                        }
+                        .success-screen-fullview   h1{
+                        font-weight: 600;
+                        font-size: 50px;
+                        line-height: 130%;
+                        text-align: center;
+                        text-transform: capitalize;
+                        margin-bottom: 30px;
+                        color: #00AEC7;
+                        }
+                        .success-screen-fullview  p{
+                        color: #3A3A3A;
+                        max-width: 400px;
+                        line-height: 180%;
+                        margin: auto;
+                        }
+                        .success-screen-fullview hr{
+                        border: 1px solid #CBEEF3;
+                        margin: 30px 0px;
+                        }
+                        .success-screen-fullview h5{
+                        max-width: 500px;
+                        margin: auto;
+                        margin-bottom: 30px;
+                        line-height: 33px;
+
+                        }
+                        .success-screen-fullview svg{
+                        position: fixed;
+                        bottom: 0;
+                        width: 100%;
+                        left: 0;
+                        z-index: -1;
+                        }
+                        @media only screen and (max-width: 768px) and (min-width: 300px) {
+                        .success-screen-fullview   h1{
+                        font-size: 32px;
+                        }
+                        .success-screen-fullview h5{
+                        font-size: 18px;
+                        }
+                        }
+                    </style>
+                    <div class="success-screen-fullview">
+                        <img src="/ppts_website_theme/static/src/img/Logo.svg" class="succlogo" />
+                        <h1>
+                            <t t-raw="title"/>
+                        </h1>
+                        <p>
+                            <t t-raw="msg"/>
+                        </p>
+                        <hr/>
+                        <t t-if="website.user_id == user_id">
+                            <h5>Would you like to create an account? So you can see your own schedule, track your purchases, and more!</h5>
+                        </t>
+                        <a href="/contactus" class="borderedbtn">Book appointment</a>
+                        <t t-if="website.user_id == user_id">
+                            <a class="fullbutton" href="/web/login">Create an account</a>
+                        </t>
+
+
+                        <svg class="topsvg svgclass"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+                            <g>
+                                <path class="light-blue-svg" d="M0,135.4V180h1440V94c-66.2-3.1-135.8-34.8-203.9-65.8l0,0c-3.5-1.6-7.1-3.2-10.6-4.8c-4.5-2-8.9-4-13.4-6
+c-29.3-13.2-58.6-17.3-89.5-17.4c-0.4,0-0.8,0-1.2,0c-23.4,0-47.8,2.4-73.8,4.9l-0.1,0h0C1000.2,9.4,933,15.1,870,8
+c-67.1-7.5-108,19.1-164,46.9c-64.4,31.9-130,64.4-216.1,44.9c-98.2-22.2-166.4,0-245.6,25.9l0,0c-10.1,3.3-20.4,6.7-31,10
+c-60.6,19.1-114.7,11.5-160,5C33.9,138,15.5,139.3,0,135.4z"/>
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

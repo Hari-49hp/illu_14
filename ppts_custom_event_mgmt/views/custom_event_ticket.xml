@@ -1,0 +1,58 @@
+<odoo>
+        <record id="portal_event_event_ticket_view_tree" model="ir.ui.view">
+            <field name="name">event.event.ticket.view.tree</field>
+            <field name="model">event.event.ticket</field>
+            <field name="inherit_id" ref="event.event_event_ticket_view_tree_from_event"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="ticket_type" attrs="{'readonly':[('parent.event_publish', '=',True)]}"/>
+                </field>
+
+                <xpath expr="//field[@name='price']" position="attributes">
+                    <attribute name="string">Unit Price</attribute>
+                </xpath>
+                <!--				<xpath expr="//label[@for='name']" position="attributes">-->
+                <!--					<attribute name="string">Sub Category Name</attribute>-->
+                <!--				</xpath>-->
+
+                <xpath expr="//field[@name='price']" position="after">
+                    <field name="discount_type" attrs="{'readonly':[('parent.event_publish', '=',True)]}"/>
+                    <field name="disc_rate"
+                           attrs="{'readonly':[('parent.event_publish', '=',True)],
+						   'required':[('discount_type', '!=', 'type_nodisc')],
+						   'invisible': [('discount_type', '=', 'type_nodisc')]}"/>
+                    <field name="full_price" string="Sub Total" required="1"
+                           attrs="{'readonly':[('parent.event_publish', '=',True)]}"/>
+                    <!--					<field name="disc_percent" attrs="{'readonly':[('parent.event_publish', '=',True)],'invisible':[('discount_type', '!=','type_percentage')]}"/>-->
+                </xpath>
+
+
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('parent.event_publish', '=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='description']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('parent.event_publish', '=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='start_sale_date']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('parent.event_publish', '=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='end_sale_date']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('parent.event_publish', '=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='seats_max']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('parent.event_publish', '=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='seats_reserved']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('parent.event_publish', '=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='product_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('parent.event_publish', '=',True)]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='price']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('parent.event_publish', '=',True)]}</attribute>
+                </xpath>
+
+            </field>
+        </record>
+</odoo>

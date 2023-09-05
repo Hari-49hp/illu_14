@@ -1,0 +1,671 @@
+/*-------------------------------------------------------------
+# Training academy Style
+--------------------------------------------------------------*/
+
+.display-only-pc {
+    display: block;
+}
+
+.section .hero-section-two {
+    padding: 0 0 0 80px;
+}
+
+.section .therapists-detail-hero .hero-two-left .breadcrum-sec {
+    margin-bottom: 105px;
+}
+
+.training-academy-section .browse-our-courses-cta {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.54;
+    margin-bottom: 87px;
+    padding: 10px 44px;
+    text-align: center;
+    width: auto;
+}
+
+.training-academy-section .certification-section p {
+    opacity: 0.7;
+}
+
+.training-academy-section .training-academy-section-video {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.train-with-us .train-with-us-header {
+    color: #333;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.train-with-us .train-with-us-content {
+    color: #585858;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+    /* margin: 50px 0 0; */
+}
+
+.browse-our-courses-list .owl-stage-outer {
+    padding: 30px 0px;
+}
+
+.browse-our-courses .browse-our-courses-header {
+    color: #3A3A3A;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.3;
+    padding: 0 80px 30px;
+    text-transform: capitalize;
+}
+
+.browse-our-courses .browse-our-courses-list-item {
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0px 3px 18px rgba(27, 114, 119, 0.08);
+    min-height: 470px;
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    grid-gap: 40px;
+    /* max-width: 840px; */
+    width: 850px;
+}
+
+.browsecourse-left-img img {
+    min-height: 410px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px
+}
+
+.browse-our-courses .browse-our-courses-list-item .course-header {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 160%;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+.browse-our-courses .browse-our-courses-list-item .course-subheader {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: capitalize;
+    margin-bottom: 4px;
+}
+
+.browse-our-courses .browse-our-courses-list-item .course-content {
+
+    line-height: 1.8;
+    margin: 0 0 20px;
+}
+
+
+.upcmingcourses .calenday-eventlist-item,
+.upcmingcourses .eventfullinfos {
+    grid-gap: 16px;
+}
+
+.upcmingcourses .event-typoingo h5 {
+    font-size: 22px;
+}
+
+.upsmtxt {
+    font-size: 14px;
+    line-height: 150%;
+    margin-bottom: 8lox;
+}
+
+.eventinfos label {
+    font-size: 13px;
+    margin: 0;
+    color: #8A8A8A;
+    font-weight: 500;
+}
+
+.upcmingcourses .eventinfos {
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+    /* grid-template-columns: auto; */
+    /* display: grid; */
+    /* grid-gap: 10px; */
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.accreditations-certifying .accreditations-certifying-header {
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 30px;
+    text-transform: capitalize;
+}
+
+.accreditations-certifying .accreditations-certifying-content {
+    color: #333333;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+    margin: 0 0 50px;
+    max-width: 420px;
+}
+
+
+.upcomingsection .start-today {
+    color: #00AEC7;
+    font-family: 'Blacksword';
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0 0 18px;
+    text-transform: capitalize;
+}
+
+.upcomingsection .upcomingsection-header {
+    color: #333333;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 40px;
+    text-transform: capitalize;
+}
+
+.upcomingsection .event-price-count,
+.upcomingsection .event-price-currency {
+    color: #585858;
+    font-weight: 500;
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+
+.upcomingsection .event-price-count {
+    font-size: 18px;
+}
+
+.upcomingsection .event-price-currency {
+    font-size: 14px;
+}
+
+.upcomingsection .speak-to-advisior {
+    margin: 50px auto 174px;
+}
+
+.upcomingsection .speak-to-advisior-cta {
+    font-size: 13px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 1.54;
+    min-width: 222px;
+    padding: 10px 16px;
+    text-align: center;
+    width: auto;
+}
+
+.get-started .get-started-main-header {
+    color: #00AEC7;
+    font-family: Blacksword;
+    font-size: 32px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin: 0 0 2px;
+    text-transform: capitalize;
+}
+
+.get-started .get-started-header {
+    color: #333333;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-transform: capitalize;
+    margin: 0 0 24px;
+}
+
+.get-started .get-started-content {
+    color: #333333;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin: 0 0 24px;
+}
+
+.get-started .get-started-cta {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    min-width: 240px;
+    padding: 10px 17px;
+    text-align: center;
+    width: auto;
+}
+
+.our-students .our-students-heading {
+    color: #3A3A3A;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 40px;
+    text-transform: capitalize;
+}
+
+.our-students .our-students-image {
+    margin: 0 0 50px;
+}
+
+.our-students .our-students-content {
+    color: #585858;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+    margin: 0 0 30px;
+}
+
+.client-about-illumincations.section {
+    background-color: #FFFFFF;
+}
+
+.clients-about-illuminations {
+    margin-top: -60px;
+}
+
+.clients-about-illuminations .header-clients-about-illuminations {
+    margin: 0 0 59px;
+}
+
+.clients-about-content .clientsaboutillu-slider-caresole {
+    padding-left: 80px;
+}
+
+.client-about-illumincations .next-setp-cta {
+    margin-top: 142px;
+    min-width: 290px;
+    padding: 10px 16px;
+    width: auto;
+}
+
+.aboutherapest .section-header-content,
+.speak-to-welness .speak-to-welness-heading {
+    color: #333333;
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 48px;
+    text-transform: capitalize;
+}
+
+.aboutillumination {
+    margin-bottom: 160px;
+}
+
+.aboutillumination .section-header-content {
+    color: #333333;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-transform: capitalize;
+}
+
+.start-your-journey .start-your-journey-heading {
+    color: #3a3a3a;
+    font-size: 62px;
+    line-height: 1.2;
+    margin-bottom: 14px
+}
+
+.start-your-journey .start-your-journey-right-heading {
+    color: #3A3A3A;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.start-your-journey .form-control {
+    border-color: #E8E8E8;
+}
+
+.in-number .section-header-content {
+    color: #3A3A3A;
+    font-weight: 600;
+    font-size: 62px;
+    line-height: 1.22;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.in-number .section-header-content-desc {
+    color: #585858;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+}
+
+.in-number .in-number-count {
+    color: #00AEC7;
+    font-family: Blacksword;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    letter-spacing: 3px;
+    line-height: 1.5;
+    margin-bottom: 13px;
+    text-transform: capitalize;
+}
+
+.in-number .in-number-desc {
+    color: #3A3A3A;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 46px;
+    text-transform: capitalize;
+}
+
+.watch-review .section-header-content-desc {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.watch-review .watch-review-cta {
+    background: #FFFFFF;
+    border-color: #00aec7;
+    border-radius: 4px;
+    color: #3A3A3A;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 10px 16px;
+    text-transform: capitalize;
+}
+
+.programs-section .programs-section-header {
+    color: #333333;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-transform: capitalize;
+    margin-bottom: 22px;
+}
+
+.pl-responsive {
+    padding-left: 80px;
+}
+
+.responsive-wrapper {
+    padding: 0 80px;
+}
+
+.header {
+    color: #333;
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+
+.desc {
+    color: #333;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.8;
+}
+
+.pc-hidden {
+    display: none;
+}
+
+.mobile-hidden {
+    display: block;
+}
+
+.cost-section .cost-section-count {
+    border: 1.75px solid #00AEC7;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 150px;
+    margin: 50px 0 60px auto;
+    padding: 22px 0 19px;
+    text-align: center;
+    width: 413px;
+}
+
+.cost-section-count .cost {
+    color: #585858;
+    font-size: 68px;
+    font-weight: 500;
+    line-height: 1.6;
+    text-transform: capitalize;
+}
+
+.cost-section-count .currency {
+    color: #00AEC7;
+    font-family: Cairo;
+    font-size: 68px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.87;
+    text-transform: capitalize;
+}
+
+
+/*************************** Training academy MEDIA QUERY START ************************************/
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .section .hero-section-two {
+        padding: 0 40px 70px;
+    }
+
+    .responsive-wrapper {
+        padding: 0 40px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .display-only-pc {
+        display: none;
+    }
+
+    .ourjourney::before {
+        height: 67%;
+    }
+
+    .browse-our-courses .browse-our-courses-header {
+        font-size: 36px;
+        padding: 0 16px 20px;
+    }
+
+    .accreditations-certifying .accreditations-certifying-wrapper,
+    .our-students,
+    .clients-about-illuminations,
+    .speak-to-welness,
+    .watch-review,
+    .programs-section .programs-section-wrapper {
+        padding: 0 0px;
+    }
+
+    .missionvission-left p {
+        max-width: none;
+    }
+
+    .pl-responsive {
+        padding-left: 40px;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 300px) {
+    .upcmingcourses .eventinfos {
+        /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+        /* grid-template-columns: auto; */
+
+        flex-direction: column;
+    }
+
+    .eventinfos label img {
+        margin-right: -3px;
+        position: relative;
+        left: -5px;
+    }
+
+    .browse-our-courses .browse-our-courses-list-item {
+        min-height: 10px;
+        padding: 10px;
+        margin-bottom: 20px;
+        grid-template-columns: auto;
+        grid-gap: 10px;
+        width: 100%;
+    }
+
+    .browse-our-courses .browse-our-courses-list-item .course-subheader {
+        font-size: 16px;
+    }
+
+    .browse-our-courses .browse-our-courses-list-item .course-header {
+        font-size: 18px;
+        margin-bottom: 14px;
+    }
+
+    .browse-our-courses .browse-our-courses-list-item .course-content {
+        font-size: 14px;
+    }
+
+    .browsecourse-left-img img {
+        min-height: 110px;
+        height: 110px !important;
+    }
+
+    .pl-responsive {
+        padding-left: 20px;
+    }
+
+    .mobile-hidden {
+        display: none;
+    }
+
+    .pc-hidden {
+        display: block;
+    }
+
+    .display-only-pc {
+        display: none;
+    }
+
+    .section .hero-section-two {
+        padding: 0 20px 70px;
+    }
+
+    .header-form-box-wrapper {
+        background: #FFFFFF;
+        border-radius: 17px;
+        box-shadow: 0px 0px 40px 0px #d0ebef;
+        margin: 50px auto;
+        max-width: 95%;
+        padding: 20px;
+    }
+
+    .responsive-wrapper {
+        padding: 0 20px;
+    }
+
+    .cost-section .cost-section-count {
+        height: auto;
+        margin: 50px 0 20px;
+        padding: 14px 0 16px;
+        width: 100%;
+    }
+
+    .cost-section-count .cost,
+    .cost-section-count .currency {
+        font-size: 46px;
+    }
+
+    .client-about-illumincations .next-setp-cta {
+        margin: 30px 0 50px;
+    }
+
+    .browse-our-courses .browse-our-courses-list-item .course-image {
+        height: auto;
+        width: 100%;
+        margin: 0 0 10px;
+    }
+
+    .accreditations-certifying-approver span {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .accreditations-certifying .approver-image {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .accreditations-certifying .accreditations-certifying-content,
+    .accreditations-certifying-approver {
+        margin-bottom: 30px;
+    }
+
+    .training-academy-section .browse-our-courses-cta,
+    .browse-our-courses .browse-our-courses-list-item .learn-more-cta,
+    .upcomingsection .speak-to-advisior-cta,
+    .get-started .get-started-cta,
+    .client-about-illumincations .next-setp-cta,
+    .watch-review .watch-review-cta,
+    .eventinfos label {
+        width: 100%;
+    }
+
+    .fullbutton {
+        max-width: none;
+        margin: 0;
+    }
+
+    .mobile-text-center {
+        text-align: center;
+    }
+
+    .mv-mb-20 {
+        margin-bottom: 20px;
+    }
+
+    .mv-mb-30 {
+        margin-bottom: 30px;
+    }
+
+    .mv-mb-50 {
+        margin-bottom: 50px;
+    }
+
+    .header,
+    .aboutherapest .section-header-content,
+    .speak-to-welness .speak-to-welness-heading,
+    .accreditations-certifying .accreditations-certifying-header {
+        font-size: 36px;
+    }
+}
+
+
+/*************************** Training academy MEDIA QUERY END ************************************/

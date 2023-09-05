@@ -1,0 +1,40 @@
+body.o_web_client.oe_base_menu>.o_action_manager {
+    border-top: none !important;
+}
+
+.o_partner_search_panel {
+    border-top: 1px solid #00aec7 !important;
+    padding-top: 10px;
+    margin-left: 65px;
+}
+
+.o_web_client.uc_theme_roboto.oe_base_menu.light_mode_on.o_home_menu_background .o_partner_search_panel {
+    border-top: 1px solid transparent !important;
+    padding-top: 10px;
+    margin-left: 65px;
+}
+
+.o_partner_search_panel_top {
+    margin-left: 8px;
+}
+
+.pos_header-client-add-btn {
+    background-color: #f8f9fa !important;
+    border: 1px solid #D5D9DE;
+    padding: 4px;
+    width: 25px;
+    text-align: center;
+    color: #343a40;
+
+
+    &:hover {
+        background-color: #00aec7 !important;
+        color: #fff;
+    }
+}
+
+.o_home_menu_background {
+    .header-client-add-btn {
+        display: none;
+    }
+}

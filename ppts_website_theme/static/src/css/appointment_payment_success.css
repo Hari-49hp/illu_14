@@ -1,0 +1,65 @@
+    .success-screen-fullview{
+        max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 40px 16px;
+    position: relative;
+    }
+    .success-screen-fullview .succlogo{
+        margin-bottom: 30px;
+    }
+    .success-screen-fullview   h1{
+        font-weight: 600;
+font-size: 50px;
+line-height: 130%;
+/* identical to box height, or 65px */
+
+text-align: center;
+text-transform: capitalize;
+
+/* Pantone */
+margin-bottom: 30px;
+color: #00AEC7;
+
+    }
+    .success-screen-fullview  p{
+        color: #3A3A3A;
+        max-width: 400px;
+        line-height: 180%;
+        margin: auto;
+
+    }
+    .success-screen-fullview hr{
+        border: 1px solid #CBEEF3;
+        margin: 30px 0px;
+    }
+    .success-screen-fullview h5{
+        max-width: 500px;
+        margin: auto;
+        margin-bottom: 30px;
+        line-height: 33px;
+
+    }
+    .success-screen-fullview svg{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        z-index: -1;
+    }
+    @media only screen and (max-width: 768px) and (min-width: 300px) {
+        .success-screen-fullview   h1{
+            font-size: 32px;
+        }
+        .success-screen-fullview h5{
+            font-size: 18px;
+        }
+    }
+    
+.text-danger-paid {
+  
+  	color : red !important;
+  
+  } 
+  
+    

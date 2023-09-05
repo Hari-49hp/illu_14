@@ -1,0 +1,39 @@
+<odoo>
+	<data>
+		<template id="website_wellness_retreats_all_page" name="Wellness Retreats">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure">
+					
+					<!--  header end -->
+
+					<section class="section-topbtm-padding eachsection">
+						<div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+							<div class="row align-items-end justify-content-between questtobehappy section-topbtm-padding">
+								<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+									<h2 class="">Our Retreats </h2>
+								</div>
+							</div>
+
+							<div class="row imagesectionwithtxt">
+								<t t-set="retreat_id" t-value="request.env['appointment.category'].sudo().search([('is_retreats','=',True)], limit=1)" />
+								<t t-set="sub_categ_ids" t-value="request.env['calendar.appointment.type'].sudo().search([('service_categ_id','=',retreat_id.id)])" />
+
+								<t t-foreach="sub_categ_ids" t-as="sub_categ_id">
+									<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
+										<img t-att-src="'/web/image?model=calendar.appointment.type&amp;id='+str(sub_categ_id.id)+'&amp;field=image' if  sub_categ_id.image else '/ppts_website_theme/static/src/img/ourret1.jpg' " style="height:217px"/>
+										<h5 class="imgheading">
+											<t t-esc="sub_categ_id.name"/>
+										</h5>
+										<p class="imgdes">
+											<t t-raw="sub_categ_id.description"/>
+										</p>
+									</div>
+								</t>
+							</div>
+						</div>
+					</section>
+				</div>
+			</t>
+		</template>
+	</data>
+</odoo>

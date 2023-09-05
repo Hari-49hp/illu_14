@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Blacksword';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Blacksword'), url('/ppts_website_theme/static/src/css/Blacksword.woff') format('woff');
+}

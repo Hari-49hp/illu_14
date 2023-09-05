@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="returns_report_tree" model="ir.ui.view">
+            <field name="name">returns.report.tree.view</field>
+            <field name="model">returns.report</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="date"/>
+                    <field name="client"/>
+                    <field name="item_name"/>
+                    <field name="color"/>
+                    <field name="size"/>
+                    <field name="qty" sum="Total Quantity"/>
+                    <field name="return_amount" widget="monetary" sum="Grand Total"/>
+                    <field name="payment_method"/>
+                    <field name="reason"/>
+                    <field name="defective"/>
+                    <field name="location_id" optional="hide"/>
+                    <field name="company_id" optional="hide"/>
+                    <field name="currency_id" optional="hide"/>
+                    <field name="pos_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="returns_report_form" model="ir.ui.view">
+            <field name="name">returns.report.form.view</field>
+            <field name="model">returns.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="date"/>
+                            <field name="client"/>
+                            <field name="item_name"/>
+                            <field name="color"/>
+                            <field name="size"/>
+                            <field name="qty"/>
+                            <field name="return_amount" widget="monetary"/>
+                            <field name="payment_method"/>
+                            <field name="reason"/>
+                            <field name="defective"/>
+                            <field name="location_id"/>
+                            <field name="company_id"/>
+                            <field name="currency_id"/>
+                            <field name="pos_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="returns_report_search" model="ir.ui.view">
+            <field name="name">returns.report.search.ppts</field>
+            <field name="model">returns.report</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Report">
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location"
+                            domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Return Date" name="xdate_group" domain="[]" context="{'group_by': 'date'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]"
+                                context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="returns_report_action_view" model="ir.actions.act_window">
+            <field name="name">Returns</field>
+            <field name="res_model">returns.report</field>
+            <field name="context">{'search_default_xdate_group': 1, 'expand': 1}</field>
+            <field name="view_mode">tree,form,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('returns_report_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('returns_report_form')})]"/>
+        </record>
+    </data>
+</odoo>

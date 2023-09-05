@@ -1,0 +1,35 @@
+<odoo>
+	<data>
+		<!-- Form_view Event -->
+		<record id="view_calendar_event_form_inherited" model="ir.ui.view">
+			<field name="name">view calendar event</field>
+			<field name="model">calendar.event</field>
+			<field name="inherit_id" ref="calendar.view_calendar_event_form" />
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='start_date']" position="before">
+					<field name="booking_type"/>
+					<field name="room_id" attrs="{'invisible': [('booking_type', '!=', 'room')]}" />
+					
+					<field name="name_facilitator"/>
+					<field name="name_event"/>
+				</xpath>
+				<xpath expr="//field[@name='allday']" position="before">
+					<label for="start_duration" string="Start Duration"/>
+					<div>
+						<field name="start_duration" widget="float_time"/>
+						<field name="du_start_light"/>
+					</div>
+					<label for="end_duration" string="End Duration"/>
+					<div>
+						<field name="end_duration" widget="float_time"/>
+						<field name="du_end_light"/>
+					</div>
+				</xpath>
+
+
+			</field>
+		</record>
+
+	</data>
+</odoo>

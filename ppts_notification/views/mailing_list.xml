@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+    <record id="mailing_list_inherit_form_view" model="ir.ui.view">
+      <field name="name">mailing.list</field>
+      <field name="model">mailing.list</field>
+      <field name="inherit_id" ref="website_mass_mailing.mailing_list_view_form"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//page[@name='website_popups']" position="after">
+          <page string="Event Notification" name="website_notification">
+
+            <group>
+              <group>
+                <h2>Event Creation</h2>
+                <field name="event_create_mail" widget="many2many_tags"/>
+                <field name="event_create_whatsapp"/>
+              </group>
+              <group>
+                <h2>Event Approval</h2>
+                <field name="event_approve_mail" widget="many2many_tags"/>
+                <field name="event_approve_whatsapp"/>
+              </group>
+
+              <group>
+                <h2>Event Cancel</h2>
+                <field name="event_cancel_mail" widget="many2many_tags"/>
+                <field name="event_cancel_whatsapp"/>
+              </group>
+              <group>
+                <h2>Event Reschedule</h2>
+                <field name="event_reschedule_mail" widget="many2many_tags"/>
+                <field name="event_reschedule_whatsapp"/>
+              </group>
+
+              <group>
+                <h2>Room Allocation</h2>
+                <field name="room_allocation_mail" widget="many2many_tags"/>
+                <field name="room_allocation_whatsapp"/>
+              </group>
+              <group>
+                <h2>Event Checklist</h2>
+                <field name="event_checklist_mail" widget="many2many_tags"/>
+                <field name="event_checklist_whatsapp"/>
+              </group>
+            </group>
+
+          </page>
+
+
+          <page string="Appointment Notification" name="apt_notification">
+
+            <group>
+              <group>
+                <h2>Appointment Creation</h2>
+                <field name="apt_create_mail" widget="many2many_tags"/>
+                <field name="apt_create_whatsapp"/>
+              </group>
+              <group>
+                <h2>Appointment Approval</h2>
+                <field name="apt_aprrove_mail" widget="many2many_tags"/>
+                <field name="apt_approve_whatsapp"/>
+              </group>
+
+              <group>
+                <h2>Appointment Cancel</h2>
+                <field name="apt_cancel_mail" widget="many2many_tags"/>
+                <field name="apt_cancel_whatsapp"/>
+              </group>
+              <!-- <group> -->
+                <!-- <h2>Appointment Reschedule</h2> -->
+                <!-- <field name="apt_rneschedule_mail" widget="many2many_tags"/> -->
+                <!-- <field name="apt_reschedule_whatsapp"/> -->
+              <!-- </group> -->
+            </group>
+          </page>
+
+
+        </xpath>
+
+      </field>
+    </record>
+  </data>
+</odoo>

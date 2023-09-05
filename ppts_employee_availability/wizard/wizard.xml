@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<data>
+		<record id="availability_unlink_wizard" model="ir.ui.view">
+			<field name="name">availability.unlink</field>
+			<field name="model">availability.unlink</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Appointment Assigned">
+					<h2>Appointment assigned for this availability do you want to cancel the appointment.</h2>
+					<footer>
+						<button name="set_av_unconfirmed" string="Yes" type="object" />
+						<button name="cancel" string="No" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="availability_setdraft_wizard" model="ir.ui.view">
+			<field name="name">availability.setdraft</field>
+			<field name="model">availability.setdraft</field>
+			<field name="priority" eval="8" />
+			<field name="arch" type="xml">
+				<form string="Availability Setdraft">
+					<field name="availability_id" invisible="1"/>
+					<h4>An Appointment is assigned on this availability, Try to reschedule or cancel the Appointment before resetting the availability</h4>
+					<!-- <field name="need_review_appointment_ids" readonly="1"/> -->
+					<footer>
+						<button name="cancel" string="Close" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+		
+	</data>
+</odoo>

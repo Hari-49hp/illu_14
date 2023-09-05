@@ -1,0 +1,33 @@
+<odoo>
+	<data>
+		<!-- Event Source Tree View -->
+    <record model="ir.ui.view" id="event_source_tree">
+        <field name="name">event.source.tree</field>
+        <field name="model">event.source</field>
+        <field name="arch" type="xml">
+            <tree string="Souces of Event" editable="top" class="o_recruitment_list" sample="1">
+                <field name="source_id" placeholder="e.g. Website" decoration-bf="1" attrs="{'readonly': [('id', '!=', False)]}"/>
+                <field name="campaign_id" placeholder="e.g. Mind Science" decoration-bf="1" attrs="{'readonly': [('id', '!=', False)]}"/>
+               	<field name="medium_id" placeholder="e.g. LinkedIn" decoration-bf="1" attrs="{'readonly': [('id', '!=', False)]}"/>
+                <field name="url" readonly='1'/>
+                <field name="event_id" attrs="{'readonly': [('id', '!=', False)]}"/>
+                <!-- <field name="email" attrs="{'invisible': [('email', '=', False)]}" widget="email"/>
+                <button name="create_alias" string="Generate Email" class="btn btn-primary" type="object" attrs="{'invisible': [('email', '!=', False)]}"/> -->
+            </tree>
+        </field>
+    </record>
+    <record id="event_source_action" model="ir.actions.act_window">
+        <field name="name">Sources of Event</field>
+        <field name="res_model">event.source</field>
+    </record>
+
+	<record model="ir.actions.act_window" id="action_event_sources">
+        <field name="name">Event Sources</field>
+        <field name="res_model">event.source</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref=""/>
+        <field name="context">{'default_event_id': active_id}</field>
+        <field name="domain">[('event_id', '=',active_id)]</field>
+    </record>
+	</data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="1">
+
+
+		<record model="master.branch" id="branch_demo_data1">
+			<field name="name">Abu Dhabi</field>
+			<field name="sequence">AD</field>
+		</record>
+		
+		<record model="master.branch" id="branch_demo_data2">
+			<field name="name">Mirdif</field>
+			<field name="sequence">Mir</field>
+		</record>
+		
+		<record model="master.branch" id="branch_demo_data3">
+			<field name="name">JLT</field>
+			<field name="sequence">JLT</field>
+		</record>
+		
+		<record model="master.branch" id="branch_demo_data4">
+			<field name="name">All Other Locations</field>
+			<field name="sequence">All</field>
+		</record>
+		
+		
+
+
+	</data>
+</odoo>

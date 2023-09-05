@@ -1,0 +1,218 @@
+<odoo>
+    <template id="calendar_forms_addnew_appointment">
+        <form id="AddBookingForm" class="display-none" action="/booking_activities/appointment/create" onsubmit="return BookingeventRerender()">
+            <div id="addEventForm" class="createformone">
+                <h4>Book Appointment</h4>
+                <t t-call="ppts_mindbody_calendar.calendar_forms_fieldset_appointment">
+                    <t t-set="rebook" t-value="true"/>
+                </t>
+            </div>
+            <div id="addClientbtm" class="btmfixedbar display-none">
+                <div class="elftrightbtn">
+                    <a onclick="addNewClientFlowCancel()" class="cancelbtn">Cancel</a>
+                    <a class="borderedbtn">
+                        <i class="fas fa-plus"></i> Add New Client
+                    </a>
+                </div>
+            </div>
+            <div id="saveCancelbtm" class="btmfixedbar display-none">
+                <div class="elftrightbtn">
+                    <a class="cancelbtn" onclick="BookingFormCancel()">Cancel</a>
+                    <input class="full-blue-btn-popup" type="submit" value="Book"/>
+                </div>
+            </div>
+        </form>
+
+
+        <form id="EditBookingForm" class="display-none" action="/booking_activities/appointment/edit" onsubmit="return BookingeventRerender()">
+            <div id="addEventForm" class="createformone edit_appointment_custom">
+                <h4>Edit Appointment</h4>
+                <t t-call="ppts_mindbody_calendar.calendar_forms_fieldset_appointment">
+                    <t t-set="edit_form" t-value="True"/>
+                </t>
+            </div>
+            <div id="editCancelbtm" class="btmfixedbar display-none">
+                <div class="elftrightbtn">
+                    <button style="pointer-events:auto !important;" type="button" class="full-blue-btn-popup content_hide" onclick="editable_appointment_form()" >Edit</button>
+                     
+                   
+                    <a class="cancelbtn content_show editable_content " style="display:none !important;"  onclick="BookingFormCancel()">Cancel</a>
+                    <input class="full-blue-btn-popup content_show editable_content " style="display:none !important;"  type="submit" value="Save"/>
+                </div>
+            </div>
+        </form>
+
+    </template>
+
+
+    <template id="calendar_forms_fieldset_appointment">
+        
+        <fieldset id="client-details-apt-se" style="padding: 9px 20px;">
+            <div class="">
+                <div class="box-sec-item box-client-p"> Client </div>
+                <div class="box-client-input-first box-sec-item box-client-input">
+                    <a class="display-none" onclick="changeClient()">Change</a>
+                    <input id="ap_client_name" type="text" class="box-client-input" name="client_name" readonly="readonly" style="margin-top: -8px;width:65%;font-weight: bold;padding-left: 4px;"/>
+                    <input id="client_id" name="client_id" type="hidden"/>
+                    <input id="booking_date" name="booking_date" type="hidden"/>
+                    <input id="therapist_id_hidden" name="therapist_id_hidden" type="hidden"/>
+                    <input id="appointment_id_hidden" name="appointment_id_hidden" type="hidden"/>
+                </div>
+            </div>
+            <div class="">
+                <div class="box-sec-item box-client-p"> Mobile </div>
+                <div class="box-sec-item box-client-input">
+                    <input type="text" name="client_mobile" class="box-client-input"/>
+                </div>
+            </div>
+            <div class="">
+                <div class="box-sec-item box-client-p"> Email </div>
+                <div class="box-sec-item box-client-input">
+                    <input type="text" name="client_email" class="box-client-input"/>
+                </div>
+            </div>
+        </fieldset>
+
+        <t t-if="rebook == true">
+            <fieldset class="rebookpast" style="padding: 9px 20px;">
+                <h4>Rebook Past Visit</h4>
+
+                <div>No Appointments in Past</div>
+                <!-- <div class="form-group ">
+                    <p>Sun 21 November 2021</p>
+                    <input class="form-control" value="4985734975" name="ss" disabled="disabled" />
+                </div>
+                <div class="form-group">
+                    <p>Mon 22 November 2021</p>
+                    <input class="form-control" value="4985734975" name="ss" disabled="disabled" />
+                </div>
+                <div class="form-group">
+                    <p>Mon 23 November 2021</p>
+                    <input class="form-control" value="4985734975" name="ss" disabled="disabled" />
+                </div> -->
+                <div id="Rebook-fauxBlockContent">
+
+                </div>
+
+            </fieldset>
+        </t>
+
+        <fieldset style="padding: 9px 20px;" id="client-details-apt-se2">
+            <div class="form-group editable_content">
+                <p>Therapist Requested </p>
+                <t t-set="employee_ids" t-value="request.env['hr.employee'].sudo().search([])" />
+                    <div style="display:-webkit-inline-box;">
+                        <input type="hidden" name="is_favourite_check" id="is_favourite_check" value="yes" />
+                            <div style="vertical-align:middle;margin:auto;" class="gold_star">
+                            
+                                <span  style="font-size:20px;cursor:pointer;" onclick="myfavorite_gold_star()" >
+                                    <i class="fa fa-star" style="color:gold" ></i>
+                                    
+                                </span>
+                            </div>
+                            <div style="vertical-align:middle;margin:auto;display:none;"  class="empty_star" >
+                                
+                                <span style="font-size:20px;cursor:pointer;" onclick="myfavorite_empty_star()">
+                                    <i class="fa fa-star"></i>
+                                    
+                                </span>
+                            </div>
+                            <select id="therapist_id" class="form-control therapist_id_add_apt" name="therapist_id" disabled="disabled">
+                                <t t-foreach="employee_ids" t-as="emp_id">
+                                    <option t-att-value="emp_id.id">
+                                        <t t-esc="emp_id.name"/> requested
+                                    </option>
+                                </t>
+                        </select>
+                    </div>
+            </div>
+            <div class="form-group editable_content">
+                <p> Service Category </p>
+                <t t-if="edit_form">
+                    <select id="service_categ_id" class="form-control" name="service_categ_id" required="required" onchange="service_categ_func(edit=true)"></select>
+                </t>
+
+                <t t-if="not edit_form">
+                    <select id="service_categ_id" class="form-control" name="service_categ_id" required="required" onchange="service_categ_func(edit=false)"></select>
+                </t>
+
+            </div>
+            <div class="form-group editable_content">
+                <p> Sub Category </p>
+                <select id="sub_categ_id" class="form-control" name="sub_categ_id" required="required" onchange="time_id_func()"></select>
+            </div>
+            <div class="form-group editable_content">
+                <p> Appointment Platform </p>
+                <select id="appointment_platform" class="form-control" name="appointment_platform" required="required">
+                    <option value="type_onsite" selected="selected">Onsite</option>
+                    <option value="type_online">Online</option>
+                    <!-- <option value="type_hybrid">Online/Onsite</option> -->
+                </select>
+            </div>
+
+            <div class="form-group ">
+                <p> Length </p>
+                <select id="time_id" class="form-control field-disabled" name="time_id" required="required" onchange="onchange_get_timeslot()">
+                    
+                    <t t-set="time_ids" t-value="request.env['time.time'].sudo().search([])" />
+                    <t t-foreach="time_ids" t-as="t_id">
+                        <option  t-att-value="t_id.id">
+                            <t  t-esc="t_id.name"/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <p> Time Slot </p>
+                <select id="time_slot_id" class="form-control field-disabled" name="time_slot_id" required="required">                    <!-- onchange="room_id_func()" -->
+                    <t t-set="time_slot_ids" t-value="request.env['time.slot'].sudo().search([])" />
+                    <t t-foreach="time_slot_ids" t-as="slot_id">
+                        <option t-att-value="slot_id.id">
+                            <t t-esc="slot_id.name"/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+
+            <div class="form-group editable_content">
+                <p> Room </p>
+                <select id="room_id" class="form-control" name="room_id" required="required">
+                    <option value=""></option>
+                    <t t-set="room_ids" t-value="request.env['roomtype.master'].sudo().search([])" />
+                    <t t-foreach="room_ids" t-as="r_id">
+                        <option t-att-value="r_id.id">
+                            <t t-esc="r_id.room_type"/>
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <div class="form-group editable_content">
+                <textarea id="note" name="apt_notes" type="text" class="form-control" placeholder="Notes"></textarea>
+            </div>
+        </fieldset>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+           
+                        <script>
+                        function myfavorite_empty_star() {
+
+                                        $('#client-details-apt-se2 #is_favourite_check').val("yes");
+                                        $("#client-details-apt-se2 .empty_star").css("display","none");
+                                        $("#client-details-apt-se2 .gold_star").css("display","block");
+                                        console.log("GOLD STAR xml")
+                        }
+                        function myfavorite_gold_star() {
+                                        $('#client-details-apt-se2 #is_favourite_check').val("no");
+                                        $("#client-details-apt-se2 .gold_star").css("display","none");
+                                        $("#client-details-apt-se2 .empty_star").css("display","block");
+                                        console.log("EMPTY STAR xml")
+                        }
+
+                        
+                        
+                        </script>
+
+    </template>
+
+</odoo>

@@ -1,0 +1,176 @@
+<odoo>
+    <data>
+        <template id="checkout_book_an_event" name="Checkout Book An Event Page">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="fqa-wrapperlistsitems  bookaappointment-wrapper">
+                        <div class="eachsection">
+                            <div class="mycontainer">
+                                <div class="breadcrum-sec topbreadcrum">
+                                    <label>
+                                        <a href="/shop/cart">Cart /</a>
+                                        <a href="">Checkout</a>
+                                    </label>
+                                </div>
+                                <div class="nav-tabs-wrapper faqtabwrapper-header" data-aos="fade-up" data-aos-delay="50">
+
+                                    <ul class="faqbutton-button-container nav nav-tabs dragscroll horizontal">
+                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tabE">Customer details</a> </li>
+                                    </ul>
+                                </div>
+
+                                <div class="tab-content" data-aos="fade-up" data-aos-delay="50">
+                                    <div class="tab-pane fade show active" id="tabE">
+                                        <div class="bookappointment-subheader">
+                                            <a class="backbuttontext"><i class="fas fa-chevron-left"></i>Back</a>
+                                            <div class="row bookapptab-headersub">
+                                                <div class="col-xl-4 col-lg-4">
+                                                    <h5 class="bookappsubheading">Customer details</h5>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bookappointmain">
+                                            <t t-set="counter_type" t-value="1"/>
+                                            <t t-set="counter" t-value="0"/>
+                                            <form id="attendee_registration_checkout" t-attf-action="/event/#{slug(event)}/registration/checkout" method="post" class="js_website_submit_form">
+                                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                                <t t-foreach="tickets" t-as="ticket" t-if="availability_check">
+                                                    <t t-foreach="range(1, ticket['quantity'] + 1)" t-as="att_counter" name="attendee_loop">
+                                                        <t t-set="counter" t-value="counter + 1"/>
+
+                                                        <h5 class="mt-1 pb-2 border-bottom">Ticket #<span t-esc="counter"/> <small class="text-muted">- <span t-esc="ticket['name']"/></small></h5>
+                                                        <div class="row">
+                                                                <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="row">
+                                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-12">
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" type="text" placeholder="Full name" t-attf-name="#{counter}-name" required="This field is required"/>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" type="email" placeholder="Enter your email" t-attf-name="#{counter}-email" required="This field is required"/>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" type="tel" placeholder="Phone" t-attf-name="#{counter}-phone" required="This field is required"/>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-12">
+                                                                            <div class="dropdown inputwrap">
+                                                                                <t t-set="country_ids" t-value="request.env['res.country'].sudo().search([])" />
+                                                                                <select class="form-control" t-attf-name="#{counter}-country_id" t-attf-id="#{counter}-country_id" t-attf-onchange="ChangeCountryCart(#{counter})">
+                                                                                    <option value="0">Select a Country/Region</option>
+                                                                                    <t t-foreach="country_ids" t-as="country_id">
+                                                                                        <option t-att-value="country_id.id">
+                                                                                            <t t-esc="country_id.name" />
+                                                                                        </option>
+                                                                                    </t>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="dropdown inputwrap">
+                                                                                <t t-set="city_ids" t-value="request.env['res.country.state'].sudo().search([])" />
+                                                                                <select class="form-control" t-attf-name="#{counter}-city_id" t-attf-id="#{counter}-city_id">
+                                                                                    <option value="0">City/Town</option>
+                                                                                    <t t-foreach="city_ids" t-as="city_id">
+                                                                                        <option t-att-value="city_id.country_id.id" t-att-id="city_id.id">
+                                                                                            <t t-esc="city_id.name" />
+                                                                                        </option>
+                                                                                    </t>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        <input class="d-none" type="text" t-attf-name="#{counter}-event_ticket_id" t-attf-value="#{ticket['id']}"/>
+                                                    </t>
+                                                    <t t-set="counter_type" t-value="counter_type + 1"/>
+                                                </t>
+                                                <div class="bookapp-footersection rigthsidebtn" t-if="availability_check">
+                                                    <button type="submit" class="fullblurbookbtn"> Continue to Payment</button>
+                                                </div>
+                                            </form>
+                                            <t t-if="not availability_check">
+                                                <div class="modal-body bg-light border-bottom">
+                                                    <strong> You ordered more tickets than available seats</strong>
+                                                </div>
+                                            </t>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Tabs -->
+                    </section>
+
+
+                     <!-- Vendor CSS Files -->
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+                    <link href="/ppts_website_theme/static/src/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet"/>
+                    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                    <link href="https://fonts.cdnfonts.com/css/blacksword" rel="stylesheet"/>
+                    <link
+                        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+                        rel="stylesheet"/>
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+                        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"/>
+                    <!-- full calender css -->
+                    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.css'/>
+                    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.css'/>
+                    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.css'/>
+                    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.4.2/main.min.css'/>
+                    <!-- Template Main CSS File -->
+                    <link href="/ppts_website_theme/static/src/css/header.css" rel="stylesheet"/>
+                    <link href="/ppts_website_theme/static/src/css/animation-style.css" rel="stylesheet"/>
+                    <link href="/ppts_website_theme/static/src/css/style.css" rel="stylesheet"/>
+                    <link href="/ppts_website_theme/static/src/css/bookappointment.css" rel="stylesheet"/>
+                    <link href="/ppts_website_theme/static/src/css/form-inputs.css" rel="stylesheet"/>
+                    <link href="/ppts_website_theme/static/src/css/calendarstyle.css" rel="stylesheet"/>
+                    <link href="/ppts_website_theme/static/src/css/popups.css" rel="stylesheet"/>
+                    <link href="/ppts_website_theme/static/src/css/footer.css" rel="stylesheet"/>
+                    <link href="/ppts_website_theme/static/src/css/media-query.css" rel="stylesheet"/>
+                <!-- Vendor JS Files -->
+
+                <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script> -->
+                <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
+                </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "
+                    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q " crossorigin="anonymous ">
+                </script>
+
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "
+                    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous ">
+                </script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js ">
+                </script>
+
+                <!-- <script src="/ppts_website_theme/static/src/vendor/jquery.easing/jquery.easing.min.js "></script> -->
+                <!-- <script src='https://rawgit.com/peacepostman/wavify/master/wavify.js'></script> -->
+                <!-- <script src='https://rawgit.com/peacepostman/wavify/master/jquery.wavify.js'></script> -->
+                <script src="/ppts_website_theme/static/src/vendor/owl.carousel/owl.carousel.min.js "></script>
+                <!-- <script src="/ppts_website_theme/static/src/vendor/aos/aos.js "></script> -->
+                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                <!-- full calender.js -->
+                <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.js'>
+                </script>
+                <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.js'>
+                </script>
+                <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.js'>
+                </script>
+                <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.4.2/main.min.js'>
+                </script>
+
+                <!--  Main JS File -->
+                <script src="/ppts_website_theme/static/src/js/main.js "></script>
+                <script src="/ppts_website_theme/static/src/js/fullcalenderScript.js "></script>
+
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,471 @@
+<odoo>
+	<data>
+		<template id="template_our_team_therapist_page" name="Therapist">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure">
+
+					<style>
+					    #bottom > footer > section > div > svg{
+                            background: #fff;
+                        }
+					</style>
+
+					<!--  header start-->
+					<section class=" light-blue-bg ">
+						<div class="subpage-top-hero-section-two abouttophero eachsection">
+							<div class="row hero-section-two ourstory therapists-detail-hero mycontainer">
+								<div class="col-lg-6 col-md-12 col-xl-6  order-2 order-lg-1   order-sm-2  " data-aos="fade-up" data-aos-delay="100">
+									<div class="breadcrum-sec topbreadcrum desktopbread">
+										<label>
+											<a href="/">Home /</a>
+											<a href="/team">Our Team /</a>
+											<a>
+												<u t-esc="emp_id.name"/>
+											</a>
+										</label>
+									</div>
+									<div class="hero-two-left herotexcenter">
+
+										<div>
+
+											<h3>
+												<t t-esc="emp_id.name"/>
+											</h3>
+											<h5>
+												<t t-esc="emp_id.get_by_support_website()"/>
+											</h5>
+											<p>
+												<b>Languages Spoken:</b>
+												<t t-esc="emp_id.get_language_website()"/>
+											</p>
+											<p>
+												<b>Nationality:</b>
+												<t t-esc="emp_id.country_id.name"/>
+											</p>
+											<p>
+												<b>Platform:</b>
+												<t t-esc="dict(emp_id._fields['by_platform'].selection).get(emp_id.by_platform)"/>
+											</p>
+
+											<label class="therapestlocation">
+												<t t-esc="emp_id.company_id.name"/>
+											</label>
+											<label class="onlinegobalicon">
+												<t t-esc="dict(emp_id._fields['by_platform'].selection).get(emp_id.by_platform)"/>
+ appointments </label>
+
+											<div class="twobtns">
+												<a t-att-href="'/appointment/checkout?&amp;therapist_id='+str(emp_id.sudo().id)">
+													<button class="fullbutton">Book An appointment</button>
+												</a>
+												<a t-att-href="'/appointment/checkout?&amp;therapist_id='+str(emp_id.sudo().id)+'&amp;appointment_type=free'">
+													<button class="borderedbtn">Free consultation</button>
+												</a>
+											</div>
+											<a href="#section_upcoming_events" class="linktext">Checkout the Upcoming Events</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-12 col-xl-6 order-1 order-lg-2 order-sm-1 rightsideslide">
+								<div class="hero-two-right">
+									<div class="breadcrum-sec mobilrbread">
+										<label>
+											<a href="/#">Home /</a>
+											<a href="/team">Our Team /</a>
+											<a>
+												<u>
+													<t t-esc="emp_id.name"/>
+												</u>
+											</a>
+										</label>
+									</div>
+									<div class="image-orvideocpnt">
+										<img t-attf-src="/web/image?model=hr.employee&amp;id={{emp_id.sudo().id}}&amp;field=image_1920" class="userimage emp_resize_img" alt="" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<!--  header end -->
+					<t t-if="emp_id.video_about_url">
+						<section class="section-topbtm-padding aboutillumination reacsection">
+
+
+							<div class="container-fluid aboutus-wrapper introductionvideo">
+								<div class="mycontainer">
+
+									<div class="aboutus-title" data-aos="fade-up" data-aos-delay="100" data-aos-anchor-placement="bottom-bottom">
+										<h2 class="order-sm-2 order-md-1 order-2">Introductory <br/>
+	 video by <t t-esc= "emp_id.name"/>
+									</h2>
+									<span class="order-sm-1 order-md-2 order-1">Insipiring &amp; Values</span>
+								</div>
+								<div class="abt-title-img" data-aos="fade-up" data-aos-delay="250">
+									<!-- <img src="/ppts_website_theme/static/src/img/viode-expert.jpg" class="img-fluid" loading="lazy"/> -->
+									<t t-if="emp_id.video_about_url">
+										<iframe class="img-fluid" t-att-src="emp_id.youtube_embed()"/>
+									</t>
+									<!-- <t t-if="not emp_id.video_about_url">
+										<img src="/ppts_website_theme/static/src/img/viode-expert.jpg" class="img-fluid" loading="lazy"/>
+									</t> -->
+								</div>
+								<div class="row abt-txt-info" data-aos="fade-up" data-aos-delay="300">
+									<div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+
+										<h3 class="">
+											<t t-raw = "emp_id.video_about_employee"/>
+										</h3>
+
+									</div>
+									<div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 abt-text-desc">
+										<p class="">
+											<t t-raw = "emp_id.video_about_employee_in_paragraph"/>
+										</p>
+
+										<div >
+											<div>
+
+
+												<a t-att-href="'/appointment/checkout?&amp;therapist_id='+str(emp_id.sudo().id)">
+													<button class="fullbutton">Book An appointment</button>
+												</a>
+												<a t-att-href="'/appointment/checkout?&amp;therapist_id='+str(emp_id.sudo().id)+'&amp;appointment_type=free'">
+													<button class="borderedbtn">Free consultation</button>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</section>
+				</t>
+
+
+
+				<!-- about therapist start -->
+
+				<section class="top-btmspace aboutillumination">
+					<div>
+						<div class="noanimate_top_wave">
+							<svg class="topsvg svgclass" viewBox="0 0 1440 180" preserveAspectRatio="none" version="1.1">
+								<path class="light-brown-svg" clip-rule="evenodd" d="M1440 130.384V180.001H0V26.4503C40.2284 35.0939 85.6333 40.9235 136.626 33.4994C163.713 29.5558 189.527 24.0814 214.9 18.7008C291.783 2.39635 364.605 -13.0465 456.461 17.5731C552.584 49.6149 642.254 34.8214 729.871 20.3666C804.015 8.13463 876.69 -3.85487 950.561 12.985C1023.23 29.5516 1085.69 29.6996 1141.42 29.8317C1209.27 29.9923 1267.15 30.1295 1321.35 59.8434C1344.71 72.6507 1368.13 86.9589 1391.62 101.302C1407.72 111.137 1423.85 120.989 1440 130.384Z" />
+							</svg>
+
+
+						</div>
+
+						<div class="container-fluid questtobehappy aboutherapest lightbrown-bg">
+
+							<div class="eachsection">
+								<div class="mycontainer">
+
+
+									<div class="row">
+										<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="500">
+											<span class="">About</span>
+											<h2 class="">
+												<t t-esc="emp_id.name"/>
+											</h2>
+
+										</div>
+										<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+											<!-- <img src="/ppts_website_theme/static/src/img/aboutusimg-1.jpg" data-aos="fade-up" data-aos-delay="800"/> -->
+											<h6 data-aos="fade-up" data-aos-delay="900">
+												<t t-raw="emp_id.about_employee"/>
+											</h6>
+
+											<p data-aos="fade-up" data-aos-delay="900">
+												<t t-raw="emp_id.about_employee_in_paragraph"/>
+											</p>
+											<hr data-aos="fade-up" data-aos-delay="1000" class="myhr"/>
+											<h6 t-if="emp_id.pay_rate_ids" data-aos="fade-up" data-aos-delay="1100">Services offered:</h6>
+											<div class="abouttherappoints" data-aos="fade-up" data-aos-delay="1200">
+												<div t-if="emp_id.pay_rate_ids">
+													<ul>
+														<t t-foreach="emp_id.website_emp_payrate()" t-as="pay_rate">
+															<li t-esc="pay_rate"/>
+														</t>
+													</ul>
+												</div>
+											</div>
+
+
+										</div>
+
+									</div>
+									<div class="featuresin-wrapper" data-aos="fade-left" data-aos-delay="750" t-if="emp_id.image_attachment_ids">
+										<div class="owl-carousel aboutTherapist" id="aboutTherapist-image">
+											<t t-foreach="emp_id.image_attachment_ids" t-as="each_image">
+												<div class="leadercont">
+													<img t-attf-src="/web/image?model=ir.attachment&amp;id={{each_image.sudo().id}}&amp;" class="userimage" alt="" />
+												</div>
+											</t>
+										</div>
+										<div class="caresolearrow">
+											<button class="ourExpertNextBtn aboutTherapist-team-left">
+												<i class="fas fa-caret-left"></i>
+											</button>
+											<button class="ourExpertPrevBtn aboutTherapist-team-right">
+												<i class="fas fa-caret-right"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="noanimtionbtm-wave  ">
+							<svg class="topsvg svgclass" viewBox="0 0 1440 180"
+								xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<path class="light-brown-svg" clip-rule="evenodd" d="M1440 117.866V0H0V73.5068C19.1681 83.3977 38.333 94.0027 57.4609 104.587C81.5364 117.909 105.553 131.198 129.444 142.991C184.872 170.351 242.702 168.004 310.495 165.252C366.178 162.992 428.583 160.46 501.9 173.892C576.426 187.545 648.519 172.448 722.07 157.045C808.986 138.843 897.938 120.214 995.347 148.101C1088.43 174.75 1160.53 156.195 1236.64 136.606C1261.76 130.141 1287.31 123.564 1314.2 118.461C1360.3 109.715 1402.24 112.146 1440 117.866Z" />
+							</svg>
+
+
+
+						</div>
+
+					</div>
+				</section>
+				<!-- about therapist end -->
+
+				<section class="sectiion_top_padding80 aboutillumination certificationqualifation eachsection">
+
+					<div class="section-topbtm-padding container-fluid questtobehappy awardreg mycontainer">
+						<!-- <div class="row justify-content-end">
+                    <div class="wardimagemorping" data-aos="fade-up" data-aos-delay="600">
+                        <img src="/ppts_website_theme/static/src/img/list1.png" />
+                    </div>
+                </div> -->
+						<div class="row">
+							<div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="800">
+								<h2 class="">Qualifications</h2>
+								<p>Pioneering Dubai’s Well-being <br/>
+ Movement Since 2006!</p>
+
+							</div>
+							<div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo" data-aos="fade-up" data-aos-delay="900">
+
+								<div>
+									<ul class="awardlists">
+										<t t-foreach="emp_id.employee_qualification_lines" t-as="each_qualification">
+											<li>
+												<t t-esc="each_qualification.name"/>
+											</li>
+										</t>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+
+				</section>
+
+
+
+
+				<!-- Our Mission & Vision -->
+				<t t-set="about_ids" t-value="request.env['testimonial'].sudo().search([('employee_id','=',emp_id.id)])" />
+				<section class=" missionvission" t-if="about_ids">
+					<div>
+						<div class="noanimate_top_wave">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="full-blue-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+                    c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+                    l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z"/>
+								</g>
+							</svg>
+						</div>
+
+						<div class="container-fluid  full-blue-bg ">
+
+							<div class="mycontainer reviewcaresole whitetxt" data-aos="fade-up" data-aos-delay="100">
+
+
+								<div class="row">
+									<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<label >Real Stories. Real People.</label>
+										<h2 >Testimonials</h2>
+									</div>
+									<div class="col-xs-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<div class="caresolearrow caresolewhitebtn">
+											<button class="clisneillum-left">
+												<i class="fas fa-caret-left"></i>
+											</button>
+											<button class="clisneillum-right">
+												<i class="fas fa-caret-right"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<div class="owl-carousel clientsaboutillu-slider-caresole " id="therapist-review-slider">
+									<t t-foreach="about_ids" t-as="each_about">
+										<div class="leadercont">
+											<div class="textomin-user">
+												<img t-attf-src="/web/image?model=res.partner&amp;id={{each_about.partner_id.sudo().id}}&amp;field=image_1920" class="userimage" alt=""/>
+												<h4>
+													<t t-esc="each_about.partner_id.name"/>
+												</h4>
+											</div>
+											<p>
+												<t t-esc="each_about.description"/>
+											</p>
+										</div>
+									</t>
+
+
+								</div>
+
+							</div>
+						</div>
+
+
+						<div class="noanimtionbtm-wave   light-blue-bg">
+
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 179" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<path class="full-blue-svg" clip-rule="evenodd" d="M1440 95.5884C1412.12 106.227 1384.06 118.848 1356.07 131.435C1330.98 142.721 1305.94 153.979 1281.16 163.756C1223.66 186.439 1166.22 179.319 1098.89 170.972C1043.58 164.115 981.601 156.431 907.424 163.755C832.025 171.201 761.427 150.194 689.401 128.762C604.287 103.437 517.18 77.5171 417.799 97.2544C322.828 116.116 252.517 91.6641 178.284 65.8486C153.787 57.3296 128.862 48.6616 102.484 41.353C66.1236 31.2788 31.8444 28.6299 0 29.3198V0H1440V95.5884Z" fill="#00AEC7"/>
+							</svg>
+
+
+
+						</div>
+					</div>
+				</section>
+				<!-- Our Mission & Vision end -->
+
+				<t t-set="blog_id" t-value="request.env['blog.post'].sudo().search([('author_id','=',emp_id.partner_id.id)])" />
+				<!-- FEATURES POST SECTION START -->
+				<section t-if="blog_id" class=" sectiion_btm_padding80" style="background: #f6fdff;">
+					<div class="light-blue-bg sectiion_top_padding80">
+						<div class="eachsection sectiion_top_padding80">
+							<div class="featured-post sectionspace mycontainer">
+								<h2 data-aos="fade-up" data-aos-delay="100">Featured <t t-esc="emp_id.name"/>
+ Posts</h2>
+								<div class="ourexpert_arrow align-items-center">
+									<button id="FeaturedPostTeamSinglePrevBtn">
+										<i class="fas fa-chevron-left"></i>
+									</button>
+
+									<button id="FeaturedPostTeamSingleNextBtn">
+										<i class="fas fa-chevron-right"></i>
+									</button>
+								</div>
+
+								<div class="row owl-carousel" id="featured-post-team-single">
+
+									<t t-foreach="blog_id" t-as="each_blog">
+										<div class="featurecard-items" data-aos="fade-up" data-aos-delay="200">
+											<div class="oberlay-tags">
+												<t t-foreach="each_blog.tag_ids[:2]" t-as="each_tag">
+													<label>
+														<t t-esc="each_tag.name"/>
+													</label>
+												</t>
+											</div>
+
+											<img t-attf-src="/web/image?model=blog.post&amp;id={{each_blog.sudo().id}}&amp;field=image_av" class="userimage" alt=""/>
+											<h5>
+												<t t-esc="each_blog.name"/>
+											</h5>
+											<p>
+												<t t-esc="each_blog.subtitle"/>
+											</p>
+											<div class="post-infos">
+												<label class="views">
+													<t t-esc="each_blog.visits"/>
+												</label>
+												<label class="dates">
+													<t t-esc="each_blog.create_date" t-options='{"widget": "date"}'/>
+												</label>
+												<label class="user">
+													<t t-esc="each_blog.author_id.name"/>
+												</label>
+											</div>
+										</div>
+									</t>
+								</div>
+
+								<div class="text-center" data-aos="fade-up" data-aos-delay="800">
+									<a href="/blog">
+										<button type="button" class="seeallpost-btns">See All Post</button>
+									</a>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+					<!-- <div>
+
+						<svg viewBox="0 0 1439 180" xmlns="http://www.w3.org/2000/svg">
+							<path clip-rule="evenodd" d="M415.802 180C390.997 179.994 366.039 179.202 340.847 177.382C238.882 170.015 109.824 155.584 -1 136.362V-3.05176e-05H1439V124.41C1340.54 150.925 1201.89 148.979 1060.55 146.995C982.393 145.898 903.416 144.789 829.957 148.475C769.861 151.49 711.366 157.577 653.437 163.606C574.227 171.849 496.075 179.982 416.336 180C416.158 180 415.98 180 415.802 180Z" fill="#F6FDFF"/>
+						</svg>
+
+
+
+ 
+					</div> -->
+				</section>
+				<!-- FEATURES POST SECTION END -->
+
+				<style>
+					#section_upcoming_events div div.row div.caldownbtn.order-sm-1,
+					.calendar-header-one-right div {
+						display:none;
+					}
+
+					#section_upcoming_events{
+						background: #f6fdff;
+						padding-top: 0px !important;
+					}
+
+					.calendar-header-one-left{
+						margin-bottom: 16px;
+					}
+
+					.calendar-header-one{
+						padding-left: 0px;
+					}
+
+					@media only screen and (max-width: 768px) and (min-width: 300px) {
+						.calendar-header-one .calendar-header-one-left{
+							display:none;
+						}
+
+						#upComingEventDatepicker {
+							display: flex;
+						}
+
+					}
+
+				</style>
+				<!-- UPCOMING EVENTS Section Start -->
+				<div style="background: #f6fdff;">
+					<span class="blackswordfont mycontainer" style="padding-bottom: 0;display: block;">
+						<t t-esc="emp_id.get_name_with_s()"/>
+					</span>
+				</div>
+				<t t-call="ppts_website_theme.upcoming_calendar_website_all">
+					<t t-set="calendar_domain" t-value="'team_therapist'"/>
+					<t t-set="calendar_employee_id" t-value="emp_id.id"/>
+				</t>
+				<!-- UPCOMING EVENTS Section END -->
+				<link href="/ppts_website_theme/static/src/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet" />
+				<script src="/ppts_website_theme/static/src/vendor/owl.carousel/owl.carousel.min.js"></script>
+				<script src="/ppts_website_theme/static/src/js/team.js"></script>
+
+			</div>
+		</t>
+	</template>
+</data>
+</odoo>

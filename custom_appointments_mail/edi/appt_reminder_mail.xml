@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record id="appointment_remainder_mail" model="mail.template">
+            <field name="name">Remainder : Appointment</field>
+            <field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.get_channel_mail_ids()}</field>
+<!--            <field name="lang">${object.partner_id.lang}</field>-->
+            <field name="subject">Appointment Confirm - Remainder</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html" type="html">
+                
+                <p>Dear Admin,</p>
+                    <p>
+                        Please confirm this appointment.
+                    </p>
+                    <br/>
+
+                <li>List of Appointments</li>
+
+                  <table border="1" class="dataframe">
+                      <thead>
+                        <tr style="text-align: right;">
+                          <th>Sl.No</th>
+                          <th>Type</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          % for row in object.get_record_ids():
+                              <tr>
+                                <th>${loop.index}</th>
+                                <td>${row['type_partner']}</td>
+                                <td>${row['partner_id']}</td>
+                                <td>${row['partner_email']}</td>
+                              </tr>
+                          % endfor
+                      </tbody>
+                </table>
+
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,155 @@
+
+
+.pos .center-pane{
+	width: 350px;
+	float: left;
+}
+
+.pos .custom-category-search-box{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px 12px;
+    cursor: pointer;
+    flex: 1;
+    text-align: left;
+    background: rgb(229, 229, 229);
+    border-right: solid 1px #d3d3d3;
+    line-height: 40px;
+    height: 38px;
+}
+.pos .custom-category-search-box:active{
+    color: white;
+    background: black;
+
+    -webkit-transition-property: background, border;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+}
+
+.pos .custom-category-search{
+	width: 74%;
+	height: 8.5mm;
+}
+
+.pos .custom-field-search{
+	width: 74%;
+	height: 8.5mm;
+}
+.pos .custom-panel-field-search{
+	width: 74%;
+	height: 6.5mm;
+}
+
+.pos .products-widget {
+    flex-direction: row !important;
+}
+
+.pos .product-list-container {
+	width: 90%;
+}
+
+.pos .nav-link {
+	height: 10mm;
+	font-size: 14px;
+	font-weight: 700;
+}
+.pos .rightpane-header .active {
+	background-color: white !important;
+	background: white !important;
+}
+
+
+.pos .center-pane .tab-content {
+	text-align: left;
+	margin: 10px 10px;
+}
+
+.pos .center-pane .nav {
+	text-align: left;
+	margin: 0px 0px 0px 0px;
+}
+
+.pos .custom-pos-search-boxes {
+	margin: 10px;
+	margin-left: 0px;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+
+}
+
+.pos .leftpane .pads .subpads{
+	display: inline-block;
+}
+.pos .subpads .numpad{
+	width: 345px;
+	min-width: 345px;
+}
+
+.pos .subpads .numpad button{
+	width: 86px;
+	border: 1px solid #bfbfbf;
+}
+.pos .subpads .actionpad{
+	width: 95.5%;
+	margin: 0px;
+	border: 0px;
+}
+.pos .subpads .actionpad .button.pay{
+	height: 56px;
+	display: flex;
+}
+.pos .subpads .actionpad .button.pay .pay-circle{
+	line-height: 40px;
+	width: 44px;
+	margin: 0px;
+	font-size: 16px;
+	margin-left: 60px;
+}
+.pos .subpads .actionpad .button.pay .pay-circle .fa{
+	top: -3px;
+}
+.pos .leftpane .pads{
+	background: #ececec;
+}
+.pos .subpads .actionpad .button{
+	border: 1px solid #bfbfbf;
+}
+
+.pos .pads .control-buttons .control-button{
+	border: 1px solid #bfbfbf;
+	border-radius: 3px !important
+}
+
+.clientlist-screen .screen-content{
+    max-width: 1324px;
+}
+
+.payment-screen .payment-buttons .customer-button .button {
+
+	/*line-height: 50px; */
+	line-height:15px;
+	
+}
+.payment-screen .payment-buttons .customer-button .button .js_customer_name {
+    display: block;
+    padding-left: 50px;
+    padding-right: 40px;
+    width: 215px;
+    line-height: 20px;
+    padding-top: 10px;
+
+
+}
+
+.customer-button div{
+    width:295px;
+}
+
+.pos .actionpad .button.set-customer{
+    padding-left: 40px;
+    padding-right: 40px;
+    text-overflow: ellipsis;
+    width: 345px;
+    overflow: hidden;
+}

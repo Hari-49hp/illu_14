@@ -1,0 +1,265 @@
+<odoo>
+    <data>
+        <template id="upcoming_event_page" name="Upcoming Event">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <!-- <t t-call-assets="web.assets_common" t-js="false"/> -->
+                    <!-- <t t-call-assets="web.assets_common" t-css="false"/> -->
+
+                    <!-- UPCOMING EVENTS Section Start -->
+
+                    <style>
+                        footer > section > div > svg{
+                            background-color: #fff;
+                        }
+
+                        .eventall-section-loadmore-a{
+                            display:none !important;
+                        }
+                    </style>
+                    <t t-call="ppts_website_theme.upcoming_calendar_website_all">
+                        <t t-set="calendar_domain" t-value="'upcoming_event'"/>
+                    </t>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <!-- BOOOK A FREE CONSULTANT SECTION START-->
+                    <t t-call="ppts_website_theme.request_call_for_all_page">
+                        <t t-set="callback_content" t-value="{'req_header': 'Request a Support Call back!', 'req_desc': 'Learn how we can help you on your healing Journey' }" />
+                    </t>
+                    <!-- BOOOK A FREE CONSULTANT SECTION END-->
+                </div>
+            </t>
+        </template>
+
+
+        <template id="upcoming_calendar_website_all">
+
+            <div class="modal left fade" id="calendar-mbl-filter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">Filters</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <img src="/ppts_website_theme/static/src/img/close_svg.svg" />
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <div class="filter-buttons-lists" style="display: block;margin-bottom: 10px;margin-top: -6px;">
+                                <button id="gridViewForCalModel">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button id="listViewForCalModel" class="selectedbtn">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                            </div>
+
+                            <div id="calenderViewSelectOption" class="evnt-clss-view-tog-model dropdown inputwrap display-none">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <!-- <span class="input-group-addon iconinoutbtn">
+                                        <i class="fas fa-list-ul"></i>
+                                    </span> -->
+                                    <span id="selectedView"></span>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a id="upComingEventDateViewTypeWeekT" class="dropdown-item" value="week">Week</a>
+                                    <a id="upComingEventDateViewTypeMonthT" class="dropdown-item" value="month">Month</a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown withbluevorder inputwrap multi-select-dd select-arrow">
+                                <select name="event_type" class="dropdown-toggle form-control inputwrap" style="padding-left: 10px;">
+                                    <option value="all">All</option>
+                                    <option value="online">Online</option>
+                                    <option value="onsite">Onsite</option>
+                                    <option value="online/onsite">Onsite/Online</option>
+                                </select>
+                            </div>
+                            <!-- 
+                            <div class="dropdown withbluevorder inputwrap select-arrow">
+                                <select class="testimonial_select_field" onchange="on_change_testimonial_filter()" name="testimonial_employee_type" id="testimonial_employee_type" aria-labelledby="dropdownMenuButton">
+                                    <option value="all" data-oe-model="ir.ui.view" data-oe-id="3415" data-oe-field="arch" data-oe-xpath="/t[1]/t[1]/div[1]/section[2]/div[1]/div[2]/div[2]/select[1]/option[1]">All</option>
+
+                                    <option value="1">
+                                            Facilitator
+                                    </option>
+
+                                </select>
+                            </div> -->
+
+                            <div class="dropdown inputwrap multi-select-dd meditation-loca-list">
+                                <t t-set="location_ids" t-value="request.env['res.company'].sudo().search([('website_show_location','=',True)])" />
+                                <select class="meditation-loca-list" name="location" id="calendar-multiselect-filter-location-m" multiple="multiple">
+                                    <t t-foreach="location_ids" t-as="location_id">
+                                        <option t-att-value="location_id.id">
+                                            <t t-esc="location_id.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+
+                            <!-- <div class="dropdown inputwrap multi-select-dd multi-select-dd-services" style="width: 285px !important;">
+                                <t t-set="event_type_ids" t-value="request.env['event.type'].sudo().search([])" />
+                                <select class="meditation-service-list" name="service_category" id="calendar-multiselect-filter-service-m" multiple="multiple">
+                                    <t t-foreach="event_type_ids" t-as="event_type_id">
+                                        <option t-att-value="event_type_id.id">
+                                            <t t-esc="event_type_id.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div> -->
+
+                            <div class="dropdown inputwrap multi-select-dd multi-select-dd-services meditation-service-list">
+                                <t t-set="event_type_ids" t-value="request.env['appointment.category'].sudo().search([('is_event','=',True)])" />
+                                <select class="meditation-service-list" name="service_category" id="calendar-multiselect-filter-service-m" multiple="multiple">
+                                    <t t-foreach="event_type_ids" t-as="event_type_id">
+                                        <option t-att-value="event_type_id.id">
+                                            <t t-esc="event_type_id.name" />
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="section_upcoming_events" class="upcomingsection fullviewupcoming eachsection">
+
+                <div class="mycontainer" data-aos="fade-up" data-aos-delay="50">
+
+                    <div class="row">
+                        <t t-if="eventt_content">
+                            <div class="col-xl-12 col-lg-12 col-md-8 col-sm-12 col-xs-12  order-2 order-lg-1  order-md-1 order-sm-2">
+                                <h2 t-esc="eventt_content['req_header']"/>
+                            </div>
+                        </t>
+                        <t t-if="not eventt_content">
+                            <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12  order-2 order-lg-1  order-md-1 order-sm-2">
+                                <h2>Upcoming Events</h2>
+                            </div>
+                            <!-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12  order-1 order-lg-2 order-md-2 caldownbtn  order-sm-1">
+                                <a class="borderedbtn" onclick="GetPDFCalendar()">download calendar</a>
+                            </div> -->
+                        </t>
+
+                    </div>
+
+                    <div class="calendar-wrapper" id="calendar-mainwrap">
+
+                        <div class="calendar-header-one" data-aos="fade-up" data-aos-delay="200">
+                            <div class="calendar-header-one-left">
+                                <div class="filter-buttons-lists">
+                                    <button id="ClnToggleEventType" event-data="all" class="selectedbtn"> All </button>
+                                    <button id="ClnToggleEventType" event-data="online" class=""> Online </button>
+                                    <button id="ClnToggleEventType" event-data="onsite" class=""> Onsite </button>
+                                    <button id="ClnToggleEventType" event-data="online/onsite" class=""> Onsite/Online </button>
+                                </div>
+                                <button class="filter-popupbtn" data-toggle="modal" data-target="#calendar-mbl-filter">
+                                    <span class="input-group-addon iconinoutbtn">
+                                        <img class="input-icon" src="/ppts_website_theme/static/src/img/filter_icon.svg" loading="lazy"/>
+                                    </span> Filters
+                                </button>
+                            </div>
+                            <div class="calendar-header-one-right">
+                                <div class="filter-buttons-lists">
+                                    <button id="gridViewForCal">
+                                        <img src="/ppts_website_theme/static/src/img/calendar_view.png"/>
+                                    </button>
+                                    <button id="listViewForCal" class="selectedbtn">
+                                        <img src="/ppts_website_theme/static/src/img/list_view.png"/>
+                                    </button>
+                                </div>
+                                <div class="dropdown inputwrap multi-select-dd meditation-loca-list">
+                                    <t t-set="location_ids" t-value="request.env['res.company'].sudo().search([('website_show_location','=',True)])" />
+                                    <select class="meditation-loca-list" name="location" id="calendar-multiselect-filter-location" multiple="multiple">
+                                        <t t-foreach="location_ids" t-as="location_id">
+                                            <option t-att-value="location_id.id">
+                                                <t t-esc="location_id.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="dropdown inputwrap multi-select-dd multi-select-dd-services meditation-service-list">
+                                    <!-- <t t-set="event_type_ids" t-value="request.env['event.type'].sudo().search([])" />
+                                     -->
+                                     <t t-set="event_type_ids" t-value="request.env['appointment.category'].sudo().search([('is_event','=',True)])" />
+                                    <select class="meditation-service-list" name="service_category" id="calendar-multiselect-filter-service" multiple="multiple">
+                                        <t t-foreach="event_type_ids" t-as="event_type_id">
+                                            <option t-att-value="event_type_id.id">
+                                                <t t-esc="event_type_id.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div id="upComingEventDatepicker" class="input-group date inputwrap" data-date-format="dd.mm.yyyy">
+                                    <span class="input-group-addon iconinoutbtn">
+                                        <img class="upComingEventDatepicker-img" src="/ppts_website_theme/static/src/img/calendar-icon.svg" />
+                                    </span>
+                                    <input type="text" readonly="readonly"/>
+                                </div>
+                                <div id="calenderViewSelectOption" class="evnt-clss-view-tog dropdown inputwrap display-none">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="input-group-addon iconinoutbtn">
+                                            <i class="fas fa-list-ul"></i>
+                                        </span>
+                                        <span id="selectedView"></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a id="upComingEventDateViewTypeWeek" class="dropdown-item" value="week">Week</a>
+                                        <a id="upComingEventDateViewTypeMonth" class="dropdown-item" value="month">Month</a>
+                                    </div>
+                                </div>
+                                <div class="calendernextpreviewbtns">
+                                    <button id="currentCalendarWeekLeftArrow">
+                                        <i class="fas fa-caret-left"></i>
+                                    </button>
+                                    <label id="currentCalendarWeekRange">12 -20 December</label>
+                                    <button id="currentCalendarWeekRightArrow">
+                                        <i class="fas fa-caret-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <input t-if="calendar_domain" id="calendar_domain" name="calendar_domain" type="hidden" t-att-value="calendar_domain"/>
+                        <input t-if="calendar_employee_id" id="calendar_employee_id" name="calendar_employee_id" type="hidden" t-att-value="calendar_employee_id"/>
+
+                        <div class="calendar-weeklybutton" data-aos="fade-up" data-aos-delay="300">
+                            <div id='upComingEventCalendar' class="calendarviewwrapper"></div>
+                        </div>
+                        <div class="calendar-eventlist-view-wrapper" id="upComingCalendarEventsContainer">
+
+                        </div>
+
+                        <div class="text-center padtop30 twobtns" data-aos="fade-up" data-aos-delay="500">
+                            <a class="borderedbtn o_default_snippet_text eventall-section-loadmore-a" href="/upcoming/event">
+								Load more events
+                                <i class="fas fa-caret-down"></i>
+                            </a>
+                            <a class="fullbutton o_default_snippet_text" href="/event">
+								Go to all events
+                                <i class="fas fa-caret-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- UPCOMING EVENTS Section END -->
+
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+            <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+            <script src="/ppts_website_theme/static/src/js/events/upcoming_events.js"></script>
+            <script src="/ppts_website_theme/static/src/js/events/events.js"></script>
+        </template>
+    </data>
+</odoo>

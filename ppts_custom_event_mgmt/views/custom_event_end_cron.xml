@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+            <!-- Cron used to move expired events to end state       -->
+        <record model="ir.cron" id="custom_move_event_to_end_cron">
+            <field name="name">Move Expired Event to End</field>
+            <field name="model_id" ref="ppts_custom_event_mgmt.model_event_event"/>
+            <field name="state">code</field>
+            <field name="code">model.event_move_to_end()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="priority">1</field>
+            <field name="doall" eval="True" />
+        </record>
+    </data>
+</odoo>

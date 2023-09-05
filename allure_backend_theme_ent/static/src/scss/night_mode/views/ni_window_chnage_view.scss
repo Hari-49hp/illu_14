@@ -1,0 +1,51 @@
+@mixin sync_window_chat_view() {
+    .o_ChatWindowManager {
+        .o_ChatWindow {
+            background-color: $btn-secondary;
+        }
+        .o_ThreadView.o_ChatWindow_thread {
+            background-color: $btn-secondary !important;
+            .o_MessageList {
+                background-color: $btn-secondary;
+                .o_MessageList_separator {
+                    .o_MessageList_separatorLabel {
+                        background-color: transparent;
+                    }
+                }
+            }
+            .o_Composer {
+                background-color: $night;
+                .o_Composer_coreMain {
+                    .o_ComposerTextInput {
+                        background-color: $night;
+                        textarea {
+                            background-color: $night;
+                            color: white;
+                        }
+                    }
+                    .o_Composer_buttons {
+                        .o_Composer_toolButtons {
+                            background-color: $night;
+                        }
+                    }
+                }
+                .o_AttachmentList {
+                    .o_AttachmentList_partialList {
+                        .o_AttachmentList_attachment {
+                            background-color: $btn-secondary;
+                            margin: 5px;
+                            border-radius: 0;
+                        }
+                    }
+                }
+            }
+            .o_Message_core {
+                .o_AttachmentList_partialList {
+                    .o_Attachment.o-has-card-details {
+                        background-color: $night;
+                    }
+                }
+            }
+        }
+    }
+}

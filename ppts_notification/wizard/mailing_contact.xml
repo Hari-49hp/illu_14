@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="add_to_mailing_list_wizard" model="ir.ui.view">
+            <field name="name">mailing.contact.wizard</field>
+            <field name="model">mailing.contact.wizard</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Add To Mailing List">
+                    <group>
+                        <field name="contacts_mailing" widget="many2many_tags"/>
+                        <field name="contacts_mailing_list" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button name="add_mailing" class="btn-primary" string="Add To Mailing List" type="object"/>
+                        <button name="cancel" string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

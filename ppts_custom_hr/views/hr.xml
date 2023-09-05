@@ -1,0 +1,158 @@
+<odoo>
+    <data>
+
+        <!-- Form -->
+        <record id="employee_qualified_in_from_view" model="ir.ui.view">
+            <field name="name">EmployeeQualifiedIn</field>
+            <field name="model">employee.qualified.in</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form -->
+
+        <!-- Tree_view -->
+        <record id="employee_qualified_in_tree_view" model="ir.ui.view">
+            <field name="name">EmployeeQualifiedIn</field>
+            <field name="model">employee.qualified.in</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="employee_qualified_in_action_view" model="ir.actions.act_window">
+            <field name="name">EmployeeQualifiedIn</field>
+            <field name="res_model">employee.qualified.in</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="employee_qualified_in_tree_view" />
+        </record>
+        <!-- Action remove due to no use -->
+
+        <!-- <menuitem id="config_menu_employee_details" name="Others" parent="hr.menu_human_resources_configuration" sequence="100" />
+        <menuitem id="website_employee_qualified" name="Qualified In" parent="config_menu_employee_details" action="employee_qualified_in_action_view" sequence="100" />
+ -->
+
+
+        <!-- Form -->
+        <record id="employee_help_from_view" model="ir.ui.view">
+            <field name="name">Employee Help</field>
+            <field name="model">employee.help</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form -->
+
+        <!-- Tree_view -->
+        <record id="employee_help_tree_view" model="ir.ui.view">
+            <field name="name">Employe Help</field>
+            <field name="model">employee.help</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="employee_help_action_view" model="ir.actions.act_window">
+            <field name="name">Employee Help</field>
+            <field name="res_model">employee.help</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="employee_help_tree_view" />
+        </record>
+        <!-- Action removed due to no use -->
+
+        <!-- <menuitem id="website_employee_help" name="Employee Help" parent="config_menu_employee_details" action="employee_help_action_view" sequence="100" />
+ -->
+
+        <record id="view_event_view_employee_form" model="ir.ui.view">
+            <field name="name">hr.employee.apr</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form" />
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="partner_id" readonly="0" context="{'form_view_ref': 'custom_partner.res_partner_history_history_from_view'}" />
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="replace">
+                    <field name="user_id" string="Related User" domain="[('share', '=', False)]" context="{'form_view_ref': 'base.view_users_form'}"/>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Website" name="website_tab">
+                        <group>
+                            <group>
+                                <field name="by_platform"/>
+                                <field name="by_support" string="Therapist Specialization" widget="many2many_tags"/>
+                                <field name="by_solution" widget="many2many_tags"/>
+                                <field name="about_employee"/>
+                                <field name="about_employee_in_paragraph"/>
+                            </group>
+                            <group>
+                                <!-- <field name="qualified_id" />
+                                <field name="help_id"/> -->
+                                <field name="video_about_url" widget="url"/>
+                                <field name="video_about_employee"/>
+                                <field name="video_about_employee_in_paragraph"/>
+                                <field name="image_attachment_ids" widget="many2many_binary"/>
+                            </group>
+                        </group>
+                        <group name="qualification">
+                            <field name="employee_qualification_lines">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <div class="o_row">
+                            <label for="feature_in_homepage" string="Feature in Homepage"/>
+                            <field name="feature_in_homepage" widget="boolean_toggle"/>
+                        </div>
+                        <div class="o_row">
+                            <label for="corporate_employees" string="Feature in Corporate"/>
+                            <field name="corporate_employees" widget="boolean_toggle"/>
+                        </div>
+                         <div class="o_row">
+                            <label for="feature_in_wellness" string="Feature in Retreat"/>
+                            <field name="feature_in_wellness" widget="boolean_toggle"/>
+                        </div>
+                    </page>
+                    <page string="User" name="user_creation" attrs="{'invisible': [('user_id', '!=', False)]}">
+                        <group>
+                           <button name="action_user_creation" type="object" class="oe_highlight" string="Create User"  />
+                        </group>
+                    </page>
+
+                </xpath>
+            </field>
+        </record>
+
+
+
+
+
+
+    </data>
+</odoo>

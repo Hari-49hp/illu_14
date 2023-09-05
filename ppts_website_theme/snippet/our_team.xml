@@ -1,0 +1,256 @@
+<odoo>
+	<data>
+		<template id="our_team_page" name="Our Team">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure our_team_page">
+					<style>
+					    #bottom > footer > section > div{
+                            background: #f6fdff;
+                        }
+						
+						.otherpageclipped {
+							width: 100%;
+							min-height: 500px;
+							max-width: 880px;
+							float: right;
+							right: 0;
+							top: 0;
+							clip-path: url(#clip-pathherobig);
+							-webkit-clip-path: url(#clip-pathherobig);
+							background-clip: content-box;
+							object-fit: cover;
+							overflow: hidden;
+						}
+
+						@media only screen and (max-width: 500px) and (min-width: 300px) {
+							.otherpageclipped {
+								width: 100%;
+								min-height: 500px;
+								max-width: 880px;
+								float: right;
+								right: 0;
+								top: 0;
+								clip-path: url(#clip-pathherobigmobile);
+								-webkit-clip-path: url(#clip-pathherobigmobile);
+								background-clip: content-box;
+								object-fit: cover;
+								overflow: hidden;
+							}
+						}
+					</style>
+
+
+					<!--   HERO SECTION START  -->
+					<section class="top-hero_two eachsection">
+						<!-- HOME PAGE HERO IMAGE CONTAINER  START  -->
+						<div class="herotwo_wrapper mycontainer">
+
+							<div class="hero-leftintrotexts">
+								<div class="breadcrum-sec">
+									<label>
+										<a href="/#">Home /</a>
+										<a href="/team">Our Team</a>
+									</label>
+								</div>
+								<div class="subintrotext">
+									<h6 class="hearblackstyletext" data-aos="fade-up" data-aos-delay="10">Therapists</h6>
+									<h1 class="mainherotext" data-aos="fade-up" data-aos-delay="150">Our Team</h1>
+									<p class="herotxtprag" data-aos="fade-up" data-aos-delay="200">At Illuminations we offer a variety
+									of different classes for personal and professional development. These classes include
+									meditation, yoga, workshops, training programs,
+									free seminars &amp; destination retreats!</p>
+									<div data-aos="fade-up" data-aos-delay="200">
+										<!-- <a class="fullbutton">Joining process</a> -->
+
+									</div>
+
+								</div>
+
+							</div>
+
+
+						</div>
+						<!-- HOME PAGE HERO RIGHT IMAGE START  -->
+						<div class="herotwo-container-right">
+
+							<div>
+
+								<img class="otherpageclipped" src="/ppts_website_theme/static/src/img/our-team-banner.jpg" />
+
+								<svg width="0" height="0">
+									<defs>
+										<clipPath id="clip-pathherobig">
+											<path class="cls-1" stroke="#000000" stroke-width="1.5794" stroke-miterlimit="10" d="M904,0v572.5c-317-198-473.5-36.2-593.8-119.9C189.9,368.9,292.1,246.6,0,0H904z" />
+										</clipPath>
+									</defs>
+								</svg>
+
+								<svg width="0" height="0">
+									<clipPath id="clip-pathherobigmobile" lipPathUnits="objectBoundingBox">
+										<path d="M3.2,284.1c2.9-8.6,5-17.5,8.9-25.6c9.6-19.6,25.6-33.6,43-46.1c24.2-17.6,50.8-31.2,77.2-45c34.8-18.2,70-35.6,101.7-59
+								c23.9-17.6,44.9-37.8,58.4-64.8c6.9-13.8,11-28.4,12.8-43.7c0,166.3,0,332.6,0,500c-5.3-27.3-23.9-41.8-45.6-53.5
+								c-28.1-15.3-58.7-24.1-89-33.5c-31.4-9.7-63.1-18.7-93.3-32.1c-19.1-8.5-37.5-18.4-52.3-33.6c-11-11.3-18.6-24.5-21-40.4
+								c-0.1-0.6-0.6-1.1-0.9-1.7C3.2,298.1,3.2,291.1,3.2,284.1z"/>
+									</clipPath>
+								</svg>
+
+							</div>
+
+						</div>
+						<!-- HOME PAGE HERO RIGHT IMAGE END  -->
+						<div class="arrow-scroll heroleftarrow relativearrow">
+							<svg viewBox="0 0 426 142" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+									<path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M403.9,128.7C293.9-3.6,126.7-27.4-21,93.4"></path>
+									<path class="arrow-head" fill="#00AEC7" d="M404.5,128.1c-15.3-3.1-29.7,0.2-30.4,1.5c0,0,0,0,0,0.1c0.1,0.1,23.1-2.4,33.8,3.4c0.6,0.3,3.6-2.2,2.8-2.6
+							c-1.5-0.8-7.6-11.3-5.7-14.9c0.6-1.2-3,0.4-3.8,1.9C399.7,120.3,403.2,126,404.5,128.1z"></path>
+								</g>
+								<text x="60" y="100" rotate="180deg" dominant-baseline="hanging" style=" transform: translate(0px, 10px);transition:2s; fill: #00aec7; font-size: 20px;" class="textaniamtion">
+									<textPath href="#discoverqq" startOffset="10%" id="transcls">
+								nwod llorcs
+									</textPath>
+								</text>
+							</svg>
+						</div>
+					</section>
+
+					<!--   HERO SECTION START  -->
+
+
+					<!-- Therapists Section Start -->
+					<section class="top-btmspace aboutillumination sectiion_top_padding80 ">
+						<div class="noanimate_top_wave">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="light-blue-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+								c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+								l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z" />
+								</g>
+							</svg>
+						</div>
+
+						<div class=" light-blue-bg therapists-wrapper sectiion_btm_padding80 ">
+							<div class="mycontainer">
+
+								<div class="row">
+									<div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+										<h2>Therapists</h2>
+										<button class="filter-popupbtn ourteamfilter" id="ourteamfilterpopup">
+											<span class="input-group-addon iconinoutbtn">
+												<img class="input-icon" src="/ppts_website_theme/static/src/img/filter_icon.svg"/>
+											</span>
+											Filters
+										</button>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12" id="outteamfilter" data-aos="fade-up" data-aos-delay="200">
+
+										<div class="ourteam-filter">
+											<h4 style="display: contents;">
+												Filter
+											</h4>
+											<button type="button" class="close" id="ourteamfilterpopupoe">
+												<img src="/ppts_website_theme/static/src/img/close_svg.svg" />
+											</button>
+
+											<div class="filterlists ">
+												<label>
+													<input id="show-available-therapist" name="show_available_therapist" type="checkbox" />
+													Show only Available Therapist
+												</label>
+												<br />
+											</div>
+											<div id="accordion">
+												<div class="left-filter-select-div">
+													<select name="team-by-platform" id="team-by-platform">
+<!-- 														<option value="all" checked="checked">All</option>
+ -->														<option value="online">Online</option>
+														<option value="onsite">Onsite</option>
+														<option value="online/onsite">Online/Onsite</option>
+													</select>
+												</div>
+
+												<div class="left-filter-select-div">
+													<select name="team-by-support" id="team-by-support" multiple="multiple">
+														<t t-set="services_ids" t-value="request.env['by.support'].sudo().search([])" />
+														<t t-foreach="services_ids" t-as="service_id">
+															<option t-att-value="service_id.id">
+																<t t-esc="service_id.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+
+												<div class="left-filter-select-div">
+													<select name="team-by-solution" id="team-by-solution" multiple="multiple">
+														<t t-set="sub_ids" t-value="request.env['by.solution'].sudo().search([])" />
+														<t t-foreach="sub_ids" t-as="sub_id">
+															<option t-att-value="sub_id.id">
+																<t t-esc="sub_id.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+
+												<div class="left-filter-select-div">
+													<select name="team-by-location" id="team-by-location" multiple="multiple">
+														<t t-set="company_data_ids" t-value="request.env['res.company'].sudo().search([('website_show_location','=',True)])" />
+														<t t-foreach="company_data_ids" t-as="company">
+															<option t-att-value="company.id">
+																<t t-esc="company.name" />
+															</option>
+														</t>
+													</select>
+												</div>
+
+											</div>
+											<div class="fiterbtn-btns">
+												<button class="clearbtn" id="clear-filter-btn">Clear all filters</button>
+												<button class="filterbtn" id="apply-filter">Apply</button>
+											</div>
+										</div>
+
+									</div>
+									<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12">
+
+										<div class="row" id="therapist-list-our-team">
+											<t t-foreach="employee_type" t-as="therapist_id">
+												<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-delay="therapist_id['aos_delay']">
+													<a t-attf-href="/team/therapists/{{therapist_id['id']}}">
+														<div class="therapest-list-container">
+															<img t-att-src="'data:image/png;base64,%s' % to_text(therapist_id['image_1920'])" />
+															<h5>
+																<t t-esc="therapist_id['name']" />
+															</h5>
+															<p t-if="therapist_id['job_position']">
+																<t t-esc="therapist_id['job_position']" />
+															</p>
+															<label class="therapestlocation">
+																<t t-esc="therapist_id['company_name']" />
+															</label>
+															<a t-attf-href="/appointment/checkout?therapist_id={{therapist_id['id']}}" class="buttonwithbtnshape"> Book an appointment </a>
+														</div>
+													</a>
+												</div>
+											</t>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</section>
+					<!-- Therapists Section END -->
+
+					<script src='/ppts_website_theme/static/src/js/our_team.js'></script>
+					<!-- Therapists Section END -->
+				</div>
+			</t>
+		</template>
+	</data>
+</odoo>

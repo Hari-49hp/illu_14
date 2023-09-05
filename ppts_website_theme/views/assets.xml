@@ -1,0 +1,118 @@
+<odoo>
+	<data>
+		<template id="assets_frontend_website_theme_illumination" inherit_id="website.assets_frontend" name="Illumination Theme Assets">
+			<xpath expr="." position="inside">
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+				<link href="/ppts_website_theme/static/src/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/vendor/multiselect/bootstrap-multiselect.css" rel="stylesheet" />
+
+
+				<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+				<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+				<script src="/ppts_website_theme/static/src/js/jquery.easeScroll.js"></script>
+
+				<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "></script> -->
+
+				<link rel="preconnect" href="https://fonts.gstatic.com" />
+				<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet" />
+				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+
+				<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' />
+				<link href="https://fonts.cdnfonts.com/css/blacksword" rel="stylesheet" />
+
+				<!-- full calender css -->
+				<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.css' />
+				<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.css' />
+				<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.css' />
+				<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.4.2/main.min.css' />
+
+				<!-- Template Main CSS File -->
+				<link href="/ppts_website_theme/static/src/css/style.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/tophero-style.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/animation-style.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/calendarstyle.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/form-inputs.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/popups.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/footer.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/curvedtimeline.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/corporate.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/elegant-icons.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/healing-responsive.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/larger_desktop.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/meditation.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/online-therapy.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/sliders-style.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/student.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/training-academy.css" rel="stylesheet" />
+				<link href="/ppts_website_theme/static/src/css/media-query.css" rel="stylesheet" />
+
+				<!-- <t t-call="ppts_website_theme.calendar_assets_front_end"/> -->
+
+
+				<link href="/ppts_website_theme/static/src/css/internal.css" rel="stylesheet" />
+				<!-- <link href="/ppts_website_theme/static/src/css/livechat.css" rel="stylesheet" /> -->
+
+				<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+				<script src="/ppts_website_theme/static/src/vendor/owl.carousel/owl.carousel.min.js"></script>
+				<script src="/ppts_website_theme/static/src/vendor/handlebars.js"></script>
+				<!-- <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script> -->
+
+				<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js'></script> -->
+				<!-- <script src='http://localhost:8068/ppts_website_theme/static/src/vendor/bootstrap-multiselect.min.js'></script> -->
+				<!-- <script>    
+					window.jQuery || document.write('<script src="/ppts_website_theme/static/src/vendor/bootstrap-multiselect.min.js"></script>')
+				</script> -->
+				<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css"/> -->
+				<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script> -->
+
+
+
+				<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.js'></script>
+				<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.js'></script>
+				<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.js'></script>
+				<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.4.2/main.min.js'></script>
+
+
+				<!--  Main JS File -->
+				<script src="/ppts_website_theme/static/src/js/MorphSVGPlugin.min.js"></script>
+				<script src="/ppts_website_theme/static/src/js/main.js"></script>
+				<script src="/ppts_website_theme/static/src/js/main_2.js"></script>
+				<script src="/ppts_website_theme/static/src/js/wave.js"></script>
+				<script src="/ppts_website_theme/static/src/js/login_popup.js"></script>
+				<script src="/ppts_website_theme/static/src/js/general_enquiry.js"></script>
+				<script src="/ppts_website_theme/static/src/js/cart.js"></script>
+				<!-- <script type="text/javascript" src="http://localhost:8068/im_livechat/loader/1"></script> -->
+
+				<!-- <script src="/ppts_website_theme/static/src/js/fullcalendarScript.js"></script> -->
+
+
+				<!-- <script>
+					AOS.init();
+				</script> -->
+
+			</xpath>
+		</template>
+		
+		
+		<template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
+			<xpath expr="//link[last()]" position="after">
+				<script type="text/javascript" src="/ppts_website_theme/static/src/js/views/form_controller.js" />
+			</xpath>
+		</template>
+
+		<!-- <template id="assets_frontend_custom">
+			<script type="text/javascript" src="/ppts_website_theme/static/src/cdnjs/bootstrap-multiselect.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+		</template> -->
+
+		<!-- <template id="assets_frontend_website_theme_illumination_layout_custom" inherit_id="website.layout" name="Illumination Theme Web Layout">
+			<xpath expr="//body" position="after">
+				<t t-call="ppts_website_theme.assets_frontend_custom"/>
+			</xpath>
+		</template> -->
+
+
+	</data>
+</odoo>

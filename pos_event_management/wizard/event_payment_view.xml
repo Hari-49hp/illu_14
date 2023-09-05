@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="view_event_payment_option_form" model="ir.ui.view">
+			<field name="name">event.payment.option.wizard</field>
+			<field name="model">event.payment.option</field>
+			<field name="arch" type="xml">
+				<form string="Payment" >
+					<sheet>
+						<group>
+							<field name="payment_option" widget="radio"/>
+							<field name="event_register_id" invisible='1'/>
+						</group>
+					<footer>
+                    <button string="Confirm" name="action_pay" type="object" class="oe_highlight"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+					</sheet>
+
+				</form>
+			</field>
+		</record>
+					
+		    <record id='action_event_payment_option' model='ir.actions.act_window'>
+		        <field name='name'>Payment Option</field>
+		        <field name='res_model'>event.payment.option</field>
+		        <field name="target">new</field>
+		        <field name='view_mode'>form</field>
+		    </record>
+
+	</data>
+</odoo>

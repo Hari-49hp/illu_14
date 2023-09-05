@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="asterisk_dialer_assets" name="asterisk_dialer assets" inherit_id="web.assets_backend">
+    <xpath expr="//link[last()]" position="after">
+      <link rel="stylesheet" type="text/css" href="/asterisk_dialer/static/src/css/collapse.css"/>
+    </xpath>
+    <xpath expr="." position="inside">      
+      <script type="text/javascript" src="/asterisk_dialer/static/src/js/event_handler.js"/>
+      <script type="text/javascript" src="/asterisk_dialer/static/src/js/collapse.js"/>
+      <script type="text/javascript" src="/asterisk_dialer/static/src/js/backendjs.js"/>
+      <script type="text/javascript" src="/asterisk_dialer/static/src/js/dialer_feedback.js"/>
+      
+    </xpath>
+  </template>
+
+</odoo>

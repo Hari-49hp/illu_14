@@ -1,0 +1,112 @@
+<odoo>
+  <data>
+
+
+  <record id="documents_view_list_inherit" model="ir.ui.view">
+    <field name="name">documents list</field>
+    <field name="model">documents.document</field>
+    <field name="inherit_id" ref="documents.documents_view_list" />
+    <field name="arch" type="xml">      
+    <field name="create_date" position='after'>
+        <field name="status"/>
+      </field>
+      <field name="create_date" position="attributes">
+        <attribute name="string">Submitted On </attribute>    
+      </field>      
+    </field>
+  </record>
+
+
+
+  <record id="view_appt_res_partner_doc" model="ir.ui.view">
+    <field name="name">partner form doc</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="documents.documents_document_res_partner_view" />
+    <field name="arch" type="xml">
+
+      <xpath expr="//button[@name='action_see_documents']" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_appt_res_partner_histories" model="ir.ui.view">
+    <field name="name">partner form loc</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="crm.view_partners_form_crm1" />
+    <field name="arch" type="xml">
+
+      <xpath expr="//button[@name='action_view_opportunity']" position="before">
+        <button name="action_client_consent_documents" type="object" class="oe_stat_button" style ="width: 170px;max-width: 161px !important;" icon="fa-file-text-o" string="Client Consent Form" invisible="1">
+            <div class="o_field_widget o_stat_info">
+                <span class="o_stat_value"><field name="document_count"/></span>
+            </div>
+        </button>
+        <button  name="button_membership" type="object" class="oe_stat_button" string="Membership" 
+        icon="fa-ticket" style="width: 130px;max-width: 130px !important;"/>
+        <button  name="credit_transfer" type="object" class="oe_stat_button" string="Credit Transfer" 
+        icon="fa-exchange"/>
+        <button  name="button_show_address" type="object" class="oe_stat_button" string="Misc Info" 
+        icon="fa-google-wallet"/>
+        
+      </xpath>
+
+    </field>
+  </record>
+
+  <record id="view_appt_res_partner_hide" model="ir.ui.view">
+    <field name="name">partner form hide</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form" />
+    <field name="arch" type="xml">
+
+      <field name="mobile" position="after">
+            <field name="show_address_tab" invisible='1'/>
+      </field>
+
+      <xpath expr="//page[@name='contact_addresses']" position="attributes">
+        <attribute name="attrs">{'invisible': [('show_address_tab','=',False)]}</attribute>    
+      </xpath>
+    </field>
+  </record>
+
+    <record id="view_res_partner_calls" model="ir.ui.view">
+    <field name="name">partner form calls</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="asterisk_calls.view_partner_form_1" />
+    <field name="arch" type="xml">
+
+      <xpath expr="//page[@name='recordings']" position="attributes">
+        <attribute name="attrs">{'invisible': [('show_address_tab','=',False)]}</attribute>    
+      </xpath>
+    </field>
+  </record>
+
+    <record id="view_res_partner_membership" model="ir.ui.view">
+    <field name="name">partner form Membership</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="membership.view_partner_form" />
+    <field name="arch" type="xml">
+
+      <xpath expr="//page[@name='membership']" position="attributes">
+        <attribute name="attrs">{'invisible': [('show_address_tab','=',False)]}</attribute>    
+      </xpath>
+    </field>
+  </record>
+
+<record id="view_res_partner_accounting" model="ir.ui.view">
+    <field name="name">partner form Accounting</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="account.view_partner_property_form" />
+    <field name="arch" type="xml">
+
+      <xpath expr="//page[@name='accounting']" position="attributes">
+        <attribute name="groups">base.group_no_one</attribute>    
+      </xpath>
+    </field>
+  </record>
+    
+ 
+
+</data>
+</odoo>

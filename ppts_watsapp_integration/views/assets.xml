@@ -1,0 +1,9 @@
+<odoo>
+	<data>
+		<template id="button_render_js" inherit_id="web.assets_backend">
+			<xpath expr="." position="inside">
+				<script src="/ppts_watsapp_integration/static/src/js/template_sync.js" type="text/javascript"/>
+			</xpath>
+		</template>
+	</data>
+</odoo>

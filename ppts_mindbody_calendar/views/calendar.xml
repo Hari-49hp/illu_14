@@ -1,0 +1,373 @@
+<odoo>
+    <data>
+        <template id="booking_activities_calendar_template" name="Booking Activities">
+            <title>Booking Activities</title>
+            <link rel="icon" href="//illuminations.ae/wp-content/uploads/2018/06/cropped-Illuminations-siteicon-32x32.png" sizes="32x32" />
+            <link rel="icon" href="//illuminations.ae/wp-content/uploads/2018/06/cropped-Illuminations-siteicon-192x192.png" sizes="192x192" />
+            <link rel="apple-touch-icon" href="//illuminations.ae/wp-content/uploads/2018/06/cropped-Illuminations-siteicon-180x180.png" />
+            <meta name="msapplication-TileImage" content="//illuminations.ae/wp-content/uploads/2018/06/cropped-Illuminations-siteicon-270x270.png" />
+
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+            <link href="https://fonts.cdnfonts.com/css/blacksword" rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/>
+
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"/>
+            <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.css'/>
+            <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.css'/>
+            <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.css'/>
+            <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.4.2/main.min.css'/>
+
+
+            <link href="/ppts_website_theme/static/src/css/header.css" rel="stylesheet"/>
+            <link href="/ppts_website_theme/static/src/css/style.css" rel="stylesheet"/>
+            <link href="/ppts_mindbody_calendar/static/assets/css/form-inputs.css" rel="stylesheet"/>
+            <link href="/ppts_website_theme/static/src/css/popups.css" rel="stylesheet"/>
+            <link href="/ppts_website_theme/static/src/css/media-query.css" rel="stylesheet"/>
+            <link href="/ppts_mindbody_calendar/static/assets/css/eventresource.css" rel="stylesheet"/>
+            <link href="/ppts_mindbody_calendar/static/assets/css/internal.css" rel="stylesheet"/>
+            <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+            <style>
+				body{
+					overflow: hidden;
+				}
+            </style>
+
+            <div id="BookingActivityLoaderCalendar" class=""></div>
+
+            <div id="afterLoad" class="main-page-wrapper d-none">
+
+                <div class="leftmenu-main">
+                    <!-- <div class="logo-container-main">
+                    </div> -->
+                    <ul class="menulist-leftmain">
+                        <a id="menu_toggle" href="/web" class="fav-a-menus-side fav-a-menus-side-home o_app oe_favorite ui-draggable ui-draggable-handle o_menu_toggle" title="Menu" accesskey="H">
+                            <span class="fas fa-th"></span>
+                        </a>
+                        <t t-set="favorite_menus_ids" t-value="request.env['ir.favorite.menu'].sudo().search([], limit=1)" />
+                        <t t-foreach="favorite_menus_ids.get_favorite_menus()" t-as="app">
+                            <a class="fav-a-menus-side o_app oe_favorite ui-draggable ui-draggable-handle" role="menuitem" t-attf-href="/web#menu_id=#{app['favorite_menu_id'][0]}&amp;action=#{app['favorite_menu_action_id'] or ''}" t-att-data-id="app['id']" t-att-data-menu-id="app['favorite_menu_id'][0]" t-att-data-menu-xmlid="app['favorite_menu_xml_id']" t-att-data-action-id="app['favorite_menu_action_id']" t-att-data-menu-sequence="app['sequence']" t-att-title="app['favorite_menu_id'][1]">
+                                <img t-attf-src="/web/image/ir.ui.menu/{{app['favorite_menu_id'][0]}}/theme_icon_data/30x30"/>
+                                <span>
+                                    <t t-esc="app['favorite_menu_id'][1]"/>
+                                </span>
+                            </a>
+                        </t>
+                    </ul>
+                </div>
+
+                <div>
+                    <header class="top-menu-header-wrapper ">
+
+                        <!-- Header nav bar -->
+                        <t t-call="ppts_mindbody_calendar.mindbody_navbar_top"/>
+
+                    </header>
+                    <!-- TOP NAVIGATION END -->
+
+                    <div class="eventresource-wrapper toogle-menuactive">
+                        <div class="left-side-navigation sidenav menuactive" id="leftsidenav">
+                            <div class="leftmenuwave">
+
+                                <!-- Date picker -->
+                                <div class="datepickercontainer opendatepicker">
+                                    <a class="dateheader" id="datecalendartootle"> Date Calendar
+                                        <i class="fas fa-caret-down"></i>
+                                    </a>
+                                    <div class="datepickerinner">
+                                        <div id="upComingEventDatepicker"></div>
+                                        <input type="hidden" id="my_hidden_input"/>
+                                    </div>
+                                </div>
+                                <!-- Date picker -->
+
+                                <div class="viewmaincontainer">
+
+                                    <!-- editAvailabilityForm -->
+
+                                    <div id="editAvailabilityForm" class="editappointmentform display-none">
+                                        <h4>Title Of the form</h4>
+                                        <form class="">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Service" />
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option>Start Time</option>
+                                                    <option>Start Time</option>
+                                                    <option>Start Time</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option>Length</option>
+                                                    <option>Start Time</option>
+                                                    <option>Start Time</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option>Select a room</option>
+                                                    <option>Start Time</option>
+                                                    <option>Start Time</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea type="text" class="form-control" placeholder="Notes"></textarea>
+                                            </div>
+                                            <div class="esourcecalformbtn">
+                                                <button type="button" class="borderedbtn">Cancel</button>
+                                                <button type="button" class="full-blue-btn-popup">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- editAvailabilityForm -->
+                                    <div id="bottomContainer" class="btmfixedbar">
+                                        <!-- <div class="topbuttons">
+                                            <a class="actionbuttoncal" data-toggle="tooltip" data-placement="top" title="Print Schedule" onclick="getPDF()">
+                                                <i class="fas fa-print" id="print-apt-pdf"></i>
+                                            </a>
+                                            <a class="actionbuttoncal" data-toggle="tooltip" data-placement="top" title="Chekin/Checkout">
+                                                <i class="fas fa-cart-arrow-down"></i>
+                                            </a>
+                                            <a class="actionbuttoncal" data-toggle="tooltip" data-placement="top" title="Find a appointment">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                            <span class="calendarresourceheaderdrop " data-toggle="tooltip" data-placement="top" title="View Request">
+                                                <a class="actionbuttoncal" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="input-group-addon iconinoutbtn">
+                                                        <i class="fas fa-envelope"></i>
+                                                    </span>
+                                                </a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">
+                                                        <label> Show Appoitment Request</label>
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <label> Hide Appoitment Request</label>
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <label> View All Appoitment Request</label>
+                                                    </a>
+                                                </div>
+                                            </span>
+                                        </div> -->
+                                        <div class="coloredboxcont">
+                                            <span class="colorbox colorbox-booked" data-toggle="tooltip" data-placement="top" title="Booked">0</span>
+                                            <span class="colorbox colorbox-confirmed" data-toggle="tooltip" data-placement="top" title="Confirmed">0</span>
+                                            <span class="colorbox colorbox-arrived" data-toggle="tooltip" data-placement="top" title="Arrived">0</span>
+                                            <span class="colorbox colorbox-no-show" data-toggle="tooltip" data-placement="top" title="No Show">0</span>
+                                            <span class="colorbox colorbox-completed" data-toggle="tooltip" data-placement="top" title="Completed">0</span>
+                                            <span class="colorbox colorbox-cancel" data-toggle="tooltip" data-placement="top" title="Cancel">0</span>
+                                            <span class="colorbox-avail" data-toggle="tooltip" data-placement="top" title="Color Name">A</span>
+                                        </div>
+                                    </div>
+
+                                    <t t-call="ppts_mindbody_calendar.calendar_forms_addnew_appointment"/>
+
+                                    <div id="selectContactForm" class="createformone display-none">
+                                        <h4 class="Book-apt-h4">Book Appointments</h4>
+                                        <form class="" style="width:100%">
+                                            <div class="searchcontainer">
+                                                <i class="fas fa-search searchicon"></i>
+                                                <input type="text" id="client-advance-search-sidebar"/>
+                                                <a class="searchinfo">
+                                                    <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="bottom" title="Search for clients using multiple terms (like email, phone number, and ID)."></i>
+                                                </a>
+                                            </div>
+                                        </form>
+                                        <div id="appointmentClientBTM" class="btmfixedbar display-none">
+                                            <div class="addClientleftbtn" style="padding: 6px 10px;">
+                                                <i class="fas fa-plus-circle"></i>
+                                                <a class="add-client-new-left" href="/booking/url/redirect/add_client">Add New Client</a>
+                                            </div>
+                                            <div class="addClientrightbtn">
+                                                <a class="cancelbtn" onclick="BookingFormCancel()">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="addUnavailabilityForm" class="display-none">
+                                        <h4 class="Book-apt-h4">Add Unavailability</h4>
+                                        <form class="" style="width:100%" action="/booking_activities/unavailability/create">
+                                            <fieldset>
+                                                <input id="unav_therapist_id" type="text" name="av_therapist_id"/>
+                                                <input id="unav_available_date" type="text" name="av_available_date"/>
+                                                <input id="unav_start_date" type="text" name="av_start_date"/>
+                                                <input id="unav_end_date" type="text" name="av_end_date"/>
+                                                <input id="unav_start_time" type="text" name="av_start_time"/>
+                                                <input id="unav_end_time" type="text" name="av_end_time"/>
+                                                <div class="form-group">
+                                                    <p> Reason </p>
+                                                    <textarea class="form-control" name="reason" required="required" type="text"></textarea>
+                                                </div>
+                                            </fieldset>
+                                            <div id="appointmentClientBTM" class="btmfixedbar">
+                                                <div class="addClientrightbtn">
+                                                    <a class="cancelbtn" onclick="BookingFormCancel()">Cancel</a>
+                                                    <input class="full-blue-btn-popup" type="submit" value="Save"/>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div id="addAavailabilityForm" class="display-none">
+                                        <h4 class="Book-apt-h4">Add Availability  </h4>
+                                        <form class="" style="width:100%" action="/booking_activities/availability/create">
+                                            <fieldset>
+                                                <input id="av_therapist_id" type="hidden" name="av_therapist_id"/>
+
+                                                <div class="form-group">
+                                                    <p> Therapist </p>
+                                                    <input class="form-control" id="av_therapist_name" type="text" readonly="readonly" name="av_therapist_name"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <p> Available </p>
+                                                    <input class="form-control" id="av_available_date" type="text" readonly="readonly" name="av_available_date"/>
+                                                </div>
+
+                                                <p style="margin-bottom: 1px;font-size: 11px;"> Start &amp; End Time </p>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <input class="form-control" id="av_start_time" type="text" readonly="readonly" name="av_start_time"/>
+                                                    </div>
+                                                    <div class="col">
+                                                        <input class="form-control" id="av_end_time" type="text" readonly="readonly" name="av_end_time"/>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div id="appointmentClientBTM" class="btmfixedbar">
+                                                <div class="addClientrightbtn">
+                                                    <a class="cancelbtn" onclick="BookingFormCancel()">Cancel</a>
+                                                    <input class="full-blue-btn-popup" type="submit" value="Save"/>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Calendar end Section Start -->
+                        <div class="right-sidemain menuopened" id="rightmain">
+                            <div class="eventresource-wrapper_calendar-wrapper" id="calendar-mainwrap">
+                                <div class="calendar-header-one">
+                                    <div class="resourcecalendar-header-one-right">
+                                        <span class="tooglebtn" id="recourcetooglenav">&#9776;</span>
+                                        <div class="resourcecalendar-header-one-innerrleft">
+                                            <div class="btn-group btngrp" role="group" aria-label="Basic example">
+                                                <button type="button" id="upComingEventDateGoToday" value="day" class="btn btn-secondary">Today</button>
+                                            </div>
+                                            <div class="btn-group btngrp" role="group" aria-label="Basic example">
+                                                <button type="button" id="upComingEventDateViewTypeDay" value="day" class="btn btn-secondary">Day</button>
+                                                <button type="button" id="upComingEventDateViewTypeWeek" value="week" class="btn btn-secondary">Week</button>
+                                            </div>
+                                            <div class="calendernextpreviewbtns">
+                                                <button id="currentCalendarWeekLeftArrow">
+                                                    <i class="fas fa-caret-left"></i>
+                                                </button>
+                                                <button id="currentCalendarWeekRightArrow">
+                                                    <i class="fas fa-caret-right"></i>
+                                                </button>
+                                                <label id="currentCalendarWeekRange">12 -20 December</label>
+                                            </div>
+                                        </div>
+                                        <div class="resourcecalendar-header-one-innerrright">
+                                            <select id="" class="multi-dropdown-toggle-dep location-filter-drop-down">
+                                                <option value="all">All Location</option>
+                                            </select>
+                                            <select id="" class="multi-dropdown-toggle-dep service-filter-drop-down">
+                                                <option value="all">All Services</option>
+                                            </select>
+                                            <select id="multiselect" multiple="multiple" class="multi-dropdown-toggle intructor-filter-drop-down">
+                                            </select>
+                                            <select id="" class="multi-dropdown-toggle-dep instructor-single-filter-drop-down d-none">
+                                            </select>
+                                            <!-- <div class="dropdown inputwrap" style="width: 10px;">
+                                                <button class="btn  dropdown-toggle" type="button" id="toolBTN" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tool </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">
+                                                        <label> Create New Service Category </label>
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <label> Create New Sub Category </label>
+                                                    </a>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="eventresourcegridcalendar">
+                                    <div id='upComingEventCalendar'></div>
+                                </div>
+                                <div id="no-staff-container" class="d-none">
+                                    <div>
+                                        <button type="button" class="btn btn-secondary">Add</button>
+                                    </div>
+                                    <div class="no-staff-container-content">
+                                        <p id="no-staff-container-p"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- UPCOMING EVENTS Section END -->
+
+                        <t t-call="ppts_mindbody_calendar.calendar_extended_models_code_list"/>
+                        <!-- <t t-call="ppts_mindbody_calendar.calendar_booking_popvers_only"/> -->
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Vendor JS Files -->
+            <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script> -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js "></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+            <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.4.2/main.min.js'></script>
+
+            <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.4.2/main.min.js'></script>
+
+            <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.4.2/main.min.js'></script>
+            <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@4.4.2/main.min.js'></script>
+            <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/list@4.4.2/main.min.js'></script>
+            <script src='/ppts_mindbody_calendar/static/assets/js/resource-grid-time-v4.js'></script>
+            <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/resource-daygrid@4.4.2/main.min.js'></script>
+            <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/resource-timegrid@4.4.2/main.min.js'></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.debug.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+            <script src="/ppts_mindbody_calendar/static/assets/js/upcomingEnventfullcalenderWithResource.js"></script>
+            <script src="/ppts_mindbody_calendar/static/assets/js/functions.js"></script>
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js'></script>
+            <script>
+        			$(function () { $('[data-toggle="tooltip"]').tooltip()
+        			})
+            </script>
+            <script>
+        			function resources_go_to_week_view(e) {
+        			$('#upComingEventDateViewTypeWeek').click();
+        			$(".instructor-single-filter-drop-down").val(e);
+        			}
+
+        			function getPDF(){
+
+
+        			var doc = new jsPDF();
+        			var specialElementHandlers = {
+        			'#upComingEventCalendar-pt': function (element, renderer) {
+        			return true;
+        			}
+        			};
+
+        			doc.fromHTML($('#upComingEventCalendar').html(), 15, 15, {
+        			'width': 170,
+        			'elementHandlers': specialElementHandlers
+        			});
+        			doc.save('pdf-version.pdf');
+        			};
+            </script>
+        </template>
+    </data>
+</odoo>

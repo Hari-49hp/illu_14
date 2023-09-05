@@ -1,0 +1,35 @@
+<odoo>
+	<data>
+		<template id="template_therapist_insipiring_values_page" name="Insipiring &amp; Values">
+			<section class="top-btmspace aboutillumination">
+				<div class="container-fluid aboutus-wrapper introductionvideo">
+					<div>
+						<div class="aboutus-title" data-aos="fade-up" data-aos-delay="300" data-aos-anchor-placement="bottom-bottom">
+							<h2 class="">Introductory <br/> video by Irine </h2>
+							<span class="">insipiring &amp; values</span>
+						</div>
+						<div class="abt-title-img" data-aos="fade-up" data-aos-delay="350">
+							<img src="/ppts_website_theme/static/src/img/viode-expert.jpg" class="img-fluid" loading="lazy"/>
+							<a class="playicon"></a>
+							<div class="blueoverlay"></div>
+						</div>
+						<div class="row abt-txt-info">
+							<div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="100">
+								<h3 class="">Dr. Irine Lekishvili is a well-known hypnotherapist, psychotherapist &amp; trans-generational healer</h3>
+							</div>
+							<div class="col-xs-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 abt-text-desc" data-aos="fade-up">
+								<p class="" data-aos-delay="120">The heart of this class focuses on techniques that allow one to change life patterns held in place by core, genetic, historic and soul beliefs, either self-inflicted or externally imposed. The student will learn to identify and release his or her own beliefs as well as practicing on others in the class. </p>
+								<div data-aos="fade-up" data-aos-delay="200">
+									<div>
+										<button class="fullbutton">Book An appointment</button>
+										<button class="borderedbtn">Free consultation</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</template>
+	</data>
+</odoo>

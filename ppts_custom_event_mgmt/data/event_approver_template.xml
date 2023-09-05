@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <data noupdate="1">
+       <!--Event created Email template -->
+        <record id="event_approver_mail_template" model="mail.template">
+           <field name="name">Event Created</field>
+           <field name="model_id" ref="ppts_custom_event_mgmt.model_event_event"/>
+           <field name="email_from"></field>
+           <field name="email_to" >${(object.event_approver_id.email)}
+           </field>
+           <field name="subject">${object.name} | Event Created</field>
+           <field name="auto_delete" eval="False"/>
+           <field name="body_html"><![CDATA[
+
+            HI ${object.event_approver_id.name},
+            <br/>
+            <br/>
+        
+            <p style="text-align:left">The Event has been created waiting for your approval.
+            </p><br/>
+            <p> Event Name : ${object.name}
+             </p></br>
+             <p>  Event Start Date : ${object.date_begin}</p></br>
+               <p>Event End Date : ${object.date_end}.</p></br>
+
+          
+                 ]]>
+           </field>
+       </record>
+
+       <!-- Event Approved mail template -->
+        <record id="event_approved_mail_template" model="mail.template">
+           <field name="name">Event Approved</field>
+           <field name="model_id" ref="ppts_custom_event_mgmt.model_event_event"/>
+           <field name="email_from"></field>
+           <field name="email_to" >${(object.user_id.email)}
+           </field>
+           <field name="subject"> ${object.name} | Event Approved</field>
+           <field name="auto_delete" eval="False"/>
+           <field name="body_html"><![CDATA[
+
+             HI ${object.user_id.name},
+            <br/>
+            <br/>
+        
+            <p style="text-align:left">The Event (${object.name}) has been Approved.
+            </p><br/>
+            <p> Approved By : ${object.eve_approved_by.name}
+             </p></br>
+             <p>  Approved On : ${object.eve_approved_on}</p></br>
+          
+                 ]]>
+           </field>
+       </record>
+
+       <!-- Event Reject mail template -->
+        <record id="event_reject_mail_template" model="mail.template">
+           <field name="name">Event Rejected</field>
+           <field name="model_id" ref="ppts_custom_event_mgmt.model_event_event"/>
+           <field name="email_from"></field>
+           <field name="email_to" >${(object.user_id.email)}
+           </field>
+           <field name="subject"> ${object.name} | Event Rejected</field>
+           <field name="auto_delete" eval="False"/>
+           <field name="body_html"><![CDATA[
+
+             HI ${object.user_id.name},
+            <br/>
+            <br/>
+        
+            <p style="text-align:left">The Event (${object.name}) has been Rejected.
+            </p><br/>
+            <p> Rejected Reason: ${object.reject_reason_id.name}
+             </p></br>
+             <p>  Description : ${object.reject_desc}</p></br>
+             <p>  Rejected By : ${object.reject_id.name}</p></br>
+             <p>  Rejected On : ${object.reject_on}</p></br>
+          
+                 ]]>
+           </field>
+       </record>
+
+
+   </data>
+</odoo>

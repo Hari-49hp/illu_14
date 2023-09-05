@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sales_tax_sumy_tree" model="ir.ui.view">
+            <field name="name">sales.tax.summary.tree.view</field>
+            <field name="model">sales.tax.summary</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" invisible="1"/>
+                    <field name="date"/>
+                    <field name="ticket_sold"/>
+                    <field name="vat" widget="monetary"/>
+                    <field name="wtax_rate" widget="monetary"/>
+                    <field name="xtax_rate" widget="monetary"/>
+                    <field name="ytax_rate" widget="monetary"/>
+                    <field name="ztax_rate" widget="monetary"/>
+                    <field name="total" widget="monetary" sum="Grand Total"/>
+                    <field name="apt_id" invisible="1"/>
+                    <field name="pos_id" invisible="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="entered_by" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sales_tax_sumy_form" model="ir.ui.view">
+            <field name="name">sales.tax.summary.form.view</field>
+            <field name="model">sales.tax.summary</field>
+            <field name="arch" type="xml">
+                <form>
+					<sheet>
+						<group>
+							<field name="name" invisible="1"/>
+                            <field name="date"/>
+                            <field name="ticket_sold"/>
+                            <field name="vat" widget="monetary"/>
+                            <field name="wtax_rate" widget="monetary"/>
+                            <field name="xtax_rate" widget="monetary"/>
+                            <field name="ytax_rate" widget="monetary"/>
+                            <field name="ztax_rate" widget="monetary"/>
+                            <field name="total" widget="monetary"/>
+                            <field name="apt_id" invisible="1"/>
+                            <field name="pos_id" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+            </field>
+        </record>
+
+<!--        Filter-->
+
+        <record id="sales_tax_sumy_search" model="ir.ui.view">
+            <field name="name">sales.tax.summary.search.ppts</field>
+            <field name="model">sales.tax.summary</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Tax Summary">
+                    <filter string="Date" name="date" date="date"/>
+                    <separator/>
+
+                    <filter string="Today" name="today_booking_date" domain="[('date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday_date" domain="[('date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]" help="Yesterday"/>
+                    <filter string="Tomorrow"  name="tomorrow_date" domain="[('date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]" help="Tomorrow"/>
+                    <separator/>
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Date" name="xsale_date_group" domain="[]" context="{'group_by': 'date'}"/>
+                        <filter string="Day" name="x_day_group_by" domain="[ ]" context="{'group_by': 'date:day'}" />
+                        <filter string="Location" name="xlocation_group" domain="[]" context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="sales_tax_sumy_action_view" model="ir.actions.act_window">
+            <field name="name">Sales Tax-Summary View</field>
+            <field name="res_model">sales.tax.summary</field>
+            <field name="context">{'search_default_x_day_group_by': 1, 'expand': 0}</field>
+            <field name="view_mode">tree,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+    				(0, 0, {'view_mode': 'tree', 'view_id': ref('sales_tax_sumy_tree')}),
+    				(0, 0, {'view_mode': 'form', 'view_id': ref('sales_tax_sumy_form')})]"/>
+        </record>
+
+        <record id="sales_tax_detail_tree" model="ir.ui.view">
+            <field name="name">sales.tax.detail.tree.view</field>
+            <field name="model">sales.tax.detail</field>
+            <field name="arch" type="xml">
+                <tree expand="context.get('expand', False)">
+                    <field name="name" invisible="1"/>
+                    <field name="client"/>
+                    <field name="sale_id"/>
+                    <field name="log"/>
+                    <field name="item_id"/>
+                    <field name="location_id"/>
+                    <field name="date" optional="hide"/>
+                    <field name="qty" sum="Total Qty"/>
+                    <field name="vat" widget="monetary" sum="Total VAT"/>
+                    <field name="wtax_rate" widget="monetary" sum="Total"/>
+                    <field name="xtax_rate" widget="monetary" sum="Total"/>
+                    <field name="ytax_rate" widget="monetary" sum="Total"/>
+                    <field name="ztax_rate" widget="monetary" sum="Total"/>
+                    <field name="total" widget="monetary" sum="Grand Total"/>
+                    <field name="entered_by" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="sales_tax_detail_form" model="ir.ui.view">
+            <field name="name">sales.tax.detail.form.view</field>
+            <field name="model">sales.tax.detail</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" invisible="1"/>
+                            <field name="client"/>
+                            <field name="sale_id"/>
+                            <field name="pos_line_id"/>
+                            <field name="log"/>
+                            <field name="item_id"/>
+                            <field name="location_id"/>
+                            <field name="date" invisible="1"/>
+                            <field name="qty"/>
+                            <field name="vat" widget="monetary"/>
+                            <field name="wtax_rate" widget="monetary"/>
+                            <field name="xtax_rate" widget="monetary"/>
+                            <field name="ytax_rate" widget="monetary"/>
+                            <field name="ztax_rate" widget="monetary"/>
+                            <field name="total" widget="monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--        Filter-->
+
+        <record id="sales_tax_detail_search" model="ir.ui.view">
+            <field name="name">sales.tax.detail.search.ppts</field>
+            <field name="model">sales.tax.detail</field>
+            <field name="arch" type="xml">
+                <search string="Search Sales Tax Detail">
+                    <filter string="Date" name="date" date="date"/>
+                    <separator/>
+
+                    <filter string="Today" name="today_booking_date" domain="[('date','=',datetime.datetime.now().strftime('%Y-%m-%d'))]"/>
+                    <filter string="Yesterday" name="yesterday_date" domain="[('date','&gt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d'))), ('date','&lt;=', ((context_today()+datetime.timedelta(days=-1)).strftime('%Y-%m-%d')))]" help="Yesterday"/>
+                    <filter string="Tomorrow"  name="tomorrow_date" domain="[('date','&gt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d'))), ('date','&lt;=', ((context_today()+datetime.timedelta(days=1)).strftime('%Y-%m-%d')))]" help="Tomorrow"/>
+                    <separator/>
+
+                    <filter string="Illumination - JLT (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination - JLT (Branch)')]"/>
+                    <filter string="Illuminations - Abu Dhabi (Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Abu Dhabi (Branch)')]"/>
+                    <filter string="Illuminations - Mirdif(Branch)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations - Mirdif(Branch)')]"/>
+                    <filter string="Illuminations World (Headquarters)" name="location_id" help="Location" domain="[('location_id', '=', 'Illuminations World (Headquarters)')]"/>
+                    <filter string="Illumination" name="location_id" help="Location" domain="[('location_id', '=', 'Illumination')]"/>
+                    <separator/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Date" name="xsale_date_group" domain="[]" context="{'group_by': 'date'}"/>
+                        <filter string="Day" name="x_day_group_by" domain="[ ]" context="{'group_by': 'date:day'}" />
+                        <filter string="Client" name="x_client_groupby" domain="[]" context="{'group_by': 'client'}"/>
+                        <filter string="Location" name="xlocation_group" domain="[]" context="{'group_by': 'location_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="sales_tax_detail_action_view" model="ir.actions.act_window">
+            <field name="name">Sales Tax-Detail View</field>
+            <field name="res_model">sales.tax.detail</field>
+            <field name="context">{'search_default_x_day_group_by': 1,'expand': 1}</field>
+            <field name="view_mode">tree,dashboard,pivot</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('sales_tax_detail_tree')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('sales_tax_detail_form')})]"/>
+        </record>
+
+    </data>
+</odoo>

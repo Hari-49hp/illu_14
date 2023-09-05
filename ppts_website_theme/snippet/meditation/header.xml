@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <template id="illuminations_meditation_header" name="Header">        
+           <!--  header start-->
+            <section class="subpage-top-hero-section-two abouttophero ">
+                <div class="eachsection orderchangeflex">
+
+
+                    <div class="row hero-section-two ourstory mycontainer order-2 order-sm-2">
+                        <div class="col-lg-6 col-md-6 col-xl-6  col-sm-12 " data-aos="fade-up" data-aos-delay="200">
+                            <div class="breadcrum-sec topbreadcrum  desktopbread">
+                                <label> <a href='/' style="text-decoration:none;">Home /</a> <a>Meditation</a> </label>
+                            </div>
+                            <div class="hero-two-left subintrotext herotexcenter">
+                                <h6 class="hearblackstyletext " data-aos="fade-up" data-aos-delay="10">Introduction</h6>
+                                <h1 class="mainherotext ">What is meditation?</h1>
+                                <p class="herotxtprag ">Don’t know how to start meditate take a short test and we will determine
+                                    which meditation is right for you and suggest a more suitable one</p>
+                                <ul class="grey_listwithdots">
+                                    <li>Dubai’s 1st in Meditation Studio</li>
+                                    <li> Have the best therapists</li>
+                                    <li> Online/Onsite meditations</li>
+                                    <li> Group Classes in Daily Meditation</li>
+                                    <li> Easy way to start</li>
+                                </ul>
+                                <a href= "#book_free_apt_snippet" class="fullbutton wid290">Start meditation Today </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-xl-6  col-sm-12 order-1 order-sm-1 rightsideslide">
+                        <div class="hero-two-right">
+                            <div class="breadcrum-sec mobilrbread">
+                                <label>
+                                    <a>Home /</a>
+                                    <a>Meditation</a>
+                                </label>
+                            </div>
+                            <div class="image-orvideocpnt"> <img src="/ppts_website_theme/static/src/img/meditationbanner.jpg" />
+
+                                <a class="playicon"></a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+           
+        </template>
+    </data>
+</odoo>

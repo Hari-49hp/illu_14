@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	<t t-name="ProductCreateButton" owl="1">
+		<div id="create-product-pos-cont-btn" class="control-button o_fiscal_position_button" style="display:none;">
+			<i class="fa fa-plus" role="img" aria-label="Create Product" title="Create Product"/>
+            <span>Create Product</span>
+		</div>
+	</t>
+
+
+	<t t-name="CustomProductList" t-inherit="point_of_sale.ProductList" t-inherit-mode="extension" owl="1">
+		<xpath expr="//div[hasclass('product-list')]" position="before">
+			<button type="submit" class="product-creation-btn-btm btn btn-primary btn-md" style="display: none;"
+			onclick="getElementById('create-product-pos-cont-btn').click()">Create Product</button>
+		</xpath>
+	</t>
+</templates>

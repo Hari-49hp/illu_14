@@ -1,0 +1,729 @@
+<odoo>
+    <data>
+        <template id="website_retreats_page" name="Retreats Page">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+
+                    <t t-call="ppts_website_theme.disable_edit_website_builder"/>
+                    <!--  header start-->
+                    <section class="subpage-top-hero-section-two event-page-hero ">
+                        <div class="eachsection orderchangeflex">
+
+
+                            <div class="row hero-section-two mycontainer order-2 order-sm-2">
+                                <div class="col-lg-6 col-md-12 col-xl-6  order-2 order-lg-1   order-sm-2  ">
+                                    <div class="hero-two-left">
+                                        <div class="breadcrum-sec topbreadcrum  desktopbread" data-aos="fade-up" data-aos-delay="50">
+                                            <label>
+                                                <a href="/" style="text-decoration:none;">Home /</a>
+                                                <a href="/about" style="text-decoration:none;">About Us /</a>
+                                                <a>
+                                                    <u>ThetaHealing basic DNA: Onsite training</u>
+                                                </a>
+                                            </label>
+                                        </div>
+                                        <div class="herotexcenter">
+                                            <label data-aos="fade-up" data-aos-delay="150" class="training chipsone">Meditation</label>
+                                            <h2 data-aos="fade-up" data-aos-delay="200">ThetaHealing basic DNA: Onsite training</h2>
+                                            <div class="event-headerinfo" data-aos="fade-up" data-aos-delay="400">
+                                                <div class="event-headerinfo-events">
+                                                    <label class="dates"> 14 December</label>
+                                                    <br />
+                                                    <label class="timetext">10:00 to 12:00 (UTC+3)</label>
+                                                    <br />
+
+                                                    <label class="therapestlocation">
+                                                        <u>illuminations JLT</u>
+                                                    </label>
+                                                    <a class="mobileimg" style="margin:0px;">
+                                                        <i class="far fa-user" style="color: #00AEC7;margin-right: 6px;"></i> Irine Lekishvili</a>
+                                                    <label class="pricetagicon-text desktopimg">
+                                                        <b>120</b> د.إ 
+                                                    </label>
+                                                    <br />
+
+                                                </div>
+                                                <div class="event-useringo desktopimg">
+                                                    <img src="/ppts_website_theme/static/src/img/expert2.jpg" />
+                                                    <a>Irine Lekishvili</a>
+                                                </div>
+
+                                            </div>
+                                            <div class="twobtns" data-aos="fade-up" data-aos-delay="500">
+                                                <p>Theta Healing™ is a powerful technique that teaches us how to put to use our natural
+                                                intuition, to experience</p>
+                                                <button class="fullbutton">book now</button>
+                                                <button class="borderedbtn">Reserve a place</button>
+                                            </div>
+
+                                            <div class="socialshareevents" data-aos="fade-up" data-aos-delay="600">
+
+                                                <p> Share this event via:</p>
+                                                <p>
+                                                    <a>
+                                                        <img src="/ppts_website_theme/static/src/img/facebook-border.svg" />
+                                                    </a>
+                                                    <a>
+                                                        <img src="/ppts_website_theme/static/src/img/twitter-border.svg" />
+                                                    </a>
+                                                    <a>
+                                                        <img src="/ppts_website_theme/static/src/img/whatsapp.svg" />
+                                                    </a>
+                                                    <a>
+                                                        <img src="/ppts_website_theme/static/src/img/email-blue.svg" />
+                                                    </a>
+
+
+
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-xl-6 order-1 order-sm-1  rightsideslide ">
+                                <div class="hero-two-right">
+                                    <div class="breadcrum-sec mobilrbread ">
+                                        <label>
+                                            <a>Home /</a>
+                                            <a>About Us /</a>
+                                            <a>
+                                                <u>ThetaHealing basic DNA: Onsite training</u>
+                                            </a>
+                                        </label>
+                                    </div>
+                                    <div class="image-orvideocpnt">
+                                        <img src="/ppts_website_theme/static/src/img/evenrpage-banner.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--  header end -->
+                    <section class="eachsection section-topbtm-padding" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mycontainer sectiion_top_padding80">
+
+
+                            <div class="row questtobehappy aboutherapest">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <!-- <span class="">About</span> -->
+                                    <h2 class=" ">Activities </h2>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                                    <h5>About Theta Healing Basic DNA Program:</h5>
+                                    <p>Inviting more Zen can cultivate more happiness, peace &amp; balance in our desrire for harmonious
+                                        relationships, in our pursuit of success and the need to remain physcially healthy and
+                                        energetic.</p>
+
+                                </div>
+                            </div>
+
+
+                            <div class="row  whoseekimg">
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/activ1.jpg"/>
+                                    <p>Holistic Psychologists</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/activ2.jpg"/>
+                                    <p>Energy Healers</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/activ3.jpg"/>
+                                    <p>Life Coaches </p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/activ4.jpg"/>
+                                    <p>Hypnotherapists</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/activ5.jpg"/>
+                                    <p>Naturopaths</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                    <img src="/ppts_website_theme/static/src/img/activ6.jpg"/>
+                                    <p>Breath workers</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+                    <section class="section-topbtm-padding ">
+                        <div class="noanimate_top_wave">
+                            <svg class="topsvg svgclass" viewBox="0 0 1440 180" preserveAspectRatio="none" version="1.1">
+                                <path class="light-brown-svg" clip-rule="evenodd" d="M1440 130.384V180.001H0V26.4503C40.2284 35.0939 85.6333 40.9235 136.626 33.4994C163.713 29.5558 189.527 24.0814 214.9 18.7008C291.783 2.39635 364.605 -13.0465 456.461 17.5731C552.584 49.6149 642.254 34.8214 729.871 20.3666C804.015 8.13463 876.69 -3.85487 950.561 12.985C1023.23 29.5516 1085.69 29.6996 1141.42 29.8317C1209.27 29.9923 1267.15 30.1295 1321.35 59.8434C1344.71 72.6507 1368.13 86.9589 1391.62 101.302C1407.72 111.137 1423.85 120.989 1440 130.384Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="lightbrown-bg">
+                            <div class="eachsection">
+                                <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="row   justify-content-between questtobehappy section-topbtm-padding">
+                                        <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                                            <span class="">About</span>
+                                            <h2 class="">About </h2>
+                                            <!-- <br /> -->
+                                            <!-- <h4 class="retreatsubdesc">A relaxing &amp; urban escape for healing, nurturing and transforming! Illuminations centers are custom designed over a 3,000 square feet space, suitable for consultations, meditation, trainings &amp; more!</h4> -->
+                                            <!-- <br /> -->
+
+
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                                            <p>A relaxing &amp; urban escape for healing, nurturing and transforming! Illuminations centers
+                                                are custom designed over a 3,000 square feet space, suitable for consultations,
+                                                meditation, trainings &amp; more!</p>
+                                            <div>
+                                                <button type="button" class="fullbutton  ">book now</button>
+                                                <button type="button" class="borderedbtn  ">reserve a place</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br/>
+                                    <br/>
+                                    <div class="row imagesectionwithtxt">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
+                                            <img src="/ppts_website_theme/static/src/img/spaceroom1.jpg"/>
+                                            <h5 class="imgheading">Consultation Rooms</h5>
+
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <img src="/ppts_website_theme/static/src/img/spaceroom2.jpg"/>
+                                            <h5 class="imgheading">Meditation Space</h5>
+
+
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <img src="/ppts_website_theme/static/src/img/spaceroom3.jpg"/>
+                                            <h5 class="imgheading">Conference &amp; Training Rooms </h5>
+
+
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <img src="/ppts_website_theme/static/src/img/spaceroom4.jpg"/>
+                                            <h5 class="imgheading">Lounge Areas </h5>
+
+
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <img src="/ppts_website_theme/static/src/img/spaceroom5.jpg"/>
+                                            <h5 class="imgheading">Retail Space </h5>
+
+
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <img src="/ppts_website_theme/static/src/img/spaceroom6.jpg"/>
+                                            <h5 class="imgheading">Reception Area </h5>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="noanimtionbtm-wave">
+                            <svg class="topsvg svgclass"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 179" preserveAspectRatio="xMinYMax meet" version="1.1">
+                                <path class="light-brown-svg" clip-rule="evenodd" d="M1440 95.5884C1412.12 106.227 1384.06 118.848 1356.07 131.435C1330.98 142.721 1305.94 153.979 1281.16 163.756C1223.66 186.439 1166.22 179.319 1098.89 170.972C1043.58 164.115 981.601 156.431 907.424 163.755C832.025 171.201 761.427 150.194 689.401 128.762C604.287 103.437 517.18 77.5171 417.799 97.2544C322.828 116.116 252.517 91.6641 178.284 65.8486C153.787 57.3296 128.862 48.6616 102.484 41.353C66.1236 31.2788 31.8444 28.6299 0 29.3198V0H1440V95.5884Z" fill="#00AEC7"></path>
+                            </svg>
+
+                        </div>
+                    </section>
+                    <section class="section-topbtm-padding">
+                        <div class="eachsection">
+                            <div class="row mycontainer accomacont" data-aos="fade-up" data-aos-delay="100">
+                                <div class="col-xl-5 col-lg-5 col-md-12 col-sm-6 col-xs-12 section-image wellnessleft accomaleft">
+                                    <img src="/ppts_website_theme/static/src/img/accmain.jpg" class=""/>
+                                </div>
+                                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-6 col-xs-12 section-typo accomaright">
+                                    <div class="section-typo-inner ourfranchies accomaimgtext">
+                                        <div class="row miniimages">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <img src="/ppts_website_theme/static/src/img/accom1.jpg" class=""/>
+
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <img src="/ppts_website_theme/static/src/img/accom2.jpg" class=""/>
+
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <!-- <div class="accomatexts"> -->
+<!--                                             <h2 class="">Accommodation </h2>
+                                            <p style="max-width: 440px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                            eiusmod tempor incididunt ut labore et dolore magna aliqua
+                                            </p>
+                                            <div class="twobtns">
+                                                <button class="fullbutton">Create an account </button>
+
+                                                <button class="borderedbtn">book event </button>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </section>
+
+
+
+
+<!--                     <section class="">
+                        <div class="eachsection">
+                            <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+                                <div class="costpricing_wrapper">
+                                    <div class="questtobehappy ">
+                                        <h2 class="">Cost  </h2>
+                                    </div>
+                                    <div class="costpricingtable desktopcose">
+                                        <table class="costtable table table-hover table-responsive">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>
+                                                        <p>Basic</p>
+                                                        <h3>120</h3>
+                                                        <small>AED</small>
+                                                    </th>
+                                                    <th>
+                                                        <p>Advanced</p>
+                                                        <h3>226</h3>
+                                                        <small>AED</small>
+                                                    </th>
+                                                    <th>
+                                                        <p>Pro</p>
+                                                        <h3>339</h3>
+                                                        <small>AED</small>
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="">
+                                                        <label> V7 Digital Photo Printing</label>
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <label> Download Free Song</label>
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <label> The Best Answers</label>
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <label> Help Finding Information</label>
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costLock.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <label> Windows Registry</label>
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costLock.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <label> Download Anything</label>
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costLock.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costLock.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+                                                        <label> Anonymous Proxy</label>
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costLock.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costLock.svg" />
+                                                    </td>
+                                                    <td>
+                                                        <img src="/ppts_website_theme/static/src/img/costcheck.svg" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="">
+
+                                                    </td>
+                                                    <td>
+                                                        <button class="fullbutton">Purchase</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="fullbutton">Purchase</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="fullbutton">Purchase</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                    <div class="mobilecost costwithcardshape">
+                                        <div class="costwithcardshape-list">
+                                            <h4>Basic</h4>
+                                            <ul>
+                                                <li>10 mobile layouts</li>
+                                                <li>Icons</li>
+                                                <li>Layer styles</li>
+                                                <li>Text styles</li>
+                                                <li>Fto keys</li>
+                                                <li>Text styles</li>
+                                                <li>Fto keys</li>
+                                            </ul>
+                                            <div>
+                                                <h3>226</h3>
+                                                <small>AED</small>
+                                            </div>
+                                            <button class="fullbutton">Purchase</button>
+                                        </div>
+                                        <div class="costwithcardshape-list">
+                                            <h4>Basic</h4>
+                                            <ul>
+                                                <li>10 mobile layouts</li>
+                                                <li>Icons</li>
+                                                <li>Layer styles</li>
+                                                <li>Text styles</li>
+                                                <li>Fto keys</li>
+                                                <li>Text styles</li>
+                                                <li>Fto keys</li>
+                                            </ul>
+                                            <div>
+                                                <h3>226</h3>
+                                                <small>AED</small>
+                                            </div>
+                                            <button class="fullbutton">Purchase</button>
+                                        </div>
+                                        <div class="costwithcardshape-list">
+                                            <h4>Basic</h4>
+                                            <ul>
+                                                <li>10 mobile layouts</li>
+                                                <li>Icons</li>
+                                                <li>Layer styles</li>
+                                                <li>Text styles</li>
+                                                <li>Fto keys</li>
+                                                <li>Text styles</li>
+                                                <li>Fto keys</li>
+                                            </ul>
+                                            <div>
+                                                <h3>226</h3>
+                                                <small>AED</small>
+                                            </div>
+                                            <button class="fullbutton">Purchase</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section> -->
+
+
+                    <!-- about therapist start -->
+
+                    <section class="section-topbtm-padding">
+
+                        <div class="container-fluid questtobehappy aboutherapest">
+                            <div class="eachsection">
+                                <div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="row">
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                            <!-- <span class="">About</span> -->
+                                            <h2 class="">Important tips
+                                            </h2>
+
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                                            <!-- <img src="/ppts_website_theme/static/src/img/aboutusimg-1.jpg" data-aos="fade-up" data-aos-delay="800"/> -->
+                                            <!-- <h6 data-aos="fade-up" data-aos-delay="900">Dr. Irine Lekishvili is a well-known hypnotherapist,
+                                            psychotherapist &amp; trans-generational healer focusing on resolved inherited family programs.
+                                        </h6> -->
+
+                                            <p  >Theta Healing™ is a powerful technique that
+                                                teaches us how to put to use our natural intuition, to experience instantaneous physical
+                                                and emotional healing. By altering our brain wave cycle to include the “Theta” state,
+                                                one can identify and replace limiting beliefs and negative life patterns, which are
+                                                stored deep in our core, genetic, historic and soul level.</p>
+                                            <hr class="myhr"/>
+                                            <h6 >Services offered:</h6>
+                                            <div class="abouttherappoints">
+                                                <div>
+                                                    <ul>
+                                                        <li> Relationship Coaching </li>
+                                                        <li> Private Consultations </li>
+                                                        <li> Private Consultations </li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <ul>
+                                                        <li> Empowerment Workshops </li>
+                                                        <li> Corporate &amp; Certified Training Programs </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </section>
+                    <!-- about therapist end -->
+
+
+                    <!-- CLIENTS ABOUT ILLUMINATION IN SECTION START -->
+                    <section class="client-about-illumincations clientaboutillu_btn_wave section-topbtm-padding">
+                        <div class="mycontainer" data-aos="fade-up" data-aos-delay="150">
+                            <div class="row client-about-illumincations-headings align-items-center">
+                                <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-xs-8">
+                                    <!-- <label>REAL STORIES REAL PEOPLE</label> -->
+                                    <h3>Reviews</h3>
+                                    <br />
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 align-items-center justify-content-center">
+                                    <div class="ourexpert_arrow align-items-center">
+                                        <button class="featuredin_NextBtn clisneillum-left" id="clisneillum-left">
+                                            <i class="fas fa-caret-left"></i>
+                                        </button>
+                                        <button class="featuredin_PrevBtn clisneillum-right" id="clisneillum-right">
+                                            <i class="fas fa-caret-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="owl-carousel clientsaboutillu-slider-caresole" id="clientsaboutillu-slider-caresole">
+
+                                        <div class="leadercont">
+                                            <div class="textomin-user">
+                                                <img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+                                                <h4>John Smith</h4>
+                                            </div>
+
+
+                                            <p>
+                                                <span class="ratingstar">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </span>
+                                                Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry. Lorem Ipsum has been the
+                                                industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and
+                                                scrambled it to make
+                                                a type specimen book. It has survived not only five
+                                                centuries, but also the </p>
+
+
+                                        </div>
+                                        <div class="leadercont">
+                                            <div class="textomin-user">
+                                                <img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+                                                <h4>John Smith</h4>
+                                            </div>
+                                            <p>
+                                                <span class="ratingstar">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </span>
+                                                Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry. Lorem Ipsum has been the
+                                                industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and
+                                                scrambled it to make
+                                                a type specimen book. It has survived not only five
+                                                centuries, but also the </p>
+                                        </div>
+                                        <div class="leadercont">
+                                            <div class="textomin-user">
+                                                <img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+                                                <h4>John Smith</h4>
+                                            </div>
+                                            <p>
+                                                <span class="ratingstar">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </span>
+                                                Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry. Lorem Ipsum has been the
+                                                industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and
+                                                scrambled it to make
+                                                a type specimen book. It has survived not only five
+                                                centuries, but also the </p>
+                                        </div>
+                                        <div class="leadercont">
+                                            <div class="textomin-user">
+                                                <img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+                                                <h4>John Smith</h4>
+                                            </div>
+                                            <p>
+                                                <span class="ratingstar">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </span>
+                                                Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry. Lorem Ipsum has been the
+                                                industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and
+                                                scrambled it to make
+                                                a type specimen book. It has survived not only five
+                                                centuries, but also the </p>
+                                        </div>
+                                        <div class="leadercont">
+                                            <div class="textomin-user">
+                                                <img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+                                                <h4>John Smith</h4>
+                                            </div>
+                                            <p>
+                                                <span class="ratingstar">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </span>
+                                                Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry. Lorem Ipsum has been the
+                                                industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and
+                                                scrambled it to make
+                                                a type specimen book. It has survived not only five
+                                                centuries, but also the </p>
+                                        </div>
+                                        <div class="leadercont">
+                                            <div class="textomin-user">
+                                                <img src="/ppts_website_theme/static/src/img/post1.png" class="userimage" alt=""/>
+                                                <h4>John Smith</h4>
+                                            </div>
+                                            <p>
+                                                <span class="ratingstar">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                </span>
+                                                Lorem Ipsum is simply dummy text of the printing and
+                                                typesetting industry. Lorem Ipsum has been the
+                                                industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and
+                                                scrambled it to make
+                                                a type specimen book. It has survived not only five
+                                                centuries, but also the </p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <br />
+                                <br />
+                                <br />
+                                <button class="fullbutton">Are you ready to take a next step</button>
+                            </div>
+                        </div>
+
+
+                    </section>
+                    <!-- CLIENTS ABOUT ILLUMINATION IN SECTION END -->
+
+
+                    <!-- BOOOK A FREE CONSULTANT SECTION START-->
+                    <t t-call="ppts_website_theme.request_call_for_all_page">
+                        <t t-set="callback_content" t-value="{'req_header': 'Request a Support Call back!', 
+                        'req_desc': 'Learn how we can help you on your healing Journey' }" />
+                    </t>
+                    <!-- BOOOK A FREE CONSULTANT SECTION END-->
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+illum_admin_access_tag_by_healing,illum_admin_access_tag_by_healing,model_tag_by_healing,sales_team.group_sale_manager,1,1,1,1
+illum_admin_access_tag_by_sub_healing,illum_admin_access_tag_by_sub_healing,model_tag_by_sub_healing,sales_team.group_sale_manager,1,1,1,1
+illum_admin_access_tag_by_therapy,illum_admin_access_tag_by_therapy,model_tag_by_therapy,sales_team.group_sale_manager,1,1,1,1

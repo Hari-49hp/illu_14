@@ -1,0 +1,543 @@
+<odoo>
+	<data>
+		<template id="website_wellness_retreats_page" name="Wellness Retreats">
+			<t t-call="website.layout">
+				<div id="wrap" class="oe_structure">
+					<!-- TOP NAVIGATION END -->
+					<!--  header start-->
+					<section class="fullviewimage-hero therapypagehero orderchangeflex wellnessheros">
+						<div class="row hero-overlaytexts mycontainer order-2 order-sm-2" data-aos="fade-up" data-aos-delay="100">
+							<div class="col-xl-6">
+								<div class="breadcrum-sec topbreadcrum  desktopbread">
+									<label>
+										<a href="/" style="text-decoration:none;">Home /</a>
+										<a>Wellness Retreat </a>
+
+									</label>
+								</div>
+								<div class="hero-two-left herotexcenter">
+
+									<div class="hero-intro-text">
+										<h6>Illuminations</h6>
+										<h1 >Wellness Retreats</h1>
+										<p >Do not know where to start your journey? Let us help
+				                            you! We will determine which retreat is right for you and suggest a more suitable one</p>
+
+										<a href="#upcoming_retreats_section" class="fullbutton">View Upcoming Reaterat</a>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="therapy-heroimageorvideocont order-1 order-sm-1 ">
+							<div class="breadcrum-sec mobilrbread" style="margin-bottom: 20px;" data-aos="fade-up" data-aos-delay="100">
+								<label>
+									<a href="/">Home /</a>
+									<a>Meditation</a>
+								</label>
+							</div>
+							<img class="wellnessbanner" src="/ppts_website_theme/static/src/img/willretreatbanner.jpg" />
+
+						</div>
+					</section>
+					<!--  header end -->
+
+					<section class="section-topbtm-padding eachsection">
+						<div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+							<div class="row align-items-end justify-content-between questtobehappy section-topbtm-padding">
+								<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+									<span class="">Enjoy</span>
+									<h2 class="">Our Retreats </h2>
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 questtobehappytypo"></div>
+
+								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 row wellness-col-divretreat">
+									<div class="col-sm-6">
+										<br />
+										<h4 class="retreatsubdesc">
+										Winners of the 2017 Travel &amp; Hospitality Awards, London for Bespoke
+				                        Wellness Retreat Experiences
+										</h4>
+										<br />
+										<div>
+											<a href="#upcoming_retreats_section" type="button" class="fullbutton wid200 d-sm-none d-md-inline-block d-none">book Retreat</a>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<br />
+										<p>
+											From Iceland to Japan, &amp; Bhutan to Burma, Illuminations, organizes spiritual healing &amp; wellness
+											retreats in exotic and breathtaking destinations all around the world! Illuminations retreats
+											emphasize on creating the much needed change by creating an inner &amp; outer voyage of
+											transformation
+										</p>
+										<a href="#upcoming_retreats_section" type="button" class="fullbutton d-sm-block d-md-none">book Retreat</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="row imagesectionwithtxt">
+								<t t-set="retreat_id" t-value="request.env['appointment.category'].sudo().search([('is_retreats','=',True)], limit=1)" />
+								<t t-set="sub_categ_ids" t-value="request.env['calendar.appointment.type'].sudo().search([('service_categ_id','=',retreat_id.id)], limit=3)" />
+
+								<t t-foreach="sub_categ_ids" t-as="sub_categ_id">
+									<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 ">
+										<img t-att-src="'/web/image?model=calendar.appointment.type&amp;id='+str(sub_categ_id.id)+'&amp;field=image' if  sub_categ_id.image else '/ppts_website_theme/static/src/img/ourret1.jpg'" style="height:217px"/>
+										<h5 class="imgheading">
+											<t t-esc="sub_categ_id.name"/>
+										</h5>
+										<p class="imgdes">
+											<t t-raw="sub_categ_id.description"/>
+										</p>
+									</div>
+								</t>
+
+							</div>
+							<div class="text-center">
+								<a href="/all/welliness/retreats" class="borderedbtn">see all retreats</a>
+							</div>
+						</div>
+					</section>
+
+
+					<section class="upcomingsection eachsection upcmingcourses section-topbtm-padding" id="upcoming_retreats_section">
+						<div class="noanimate_top_wave">
+							<svg class="topsvg svgclass" viewBox="0 0 1440 180" preserveAspectRatio="none" version="1.1">
+								<path class="light-blue-svg" clip-rule="evenodd" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+									c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+									l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z">
+								</path>
+							</svg>
+						</div>
+
+						<div class="light-blue-bg">
+
+							<div class="eachsection">
+								<div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+
+									<!-- <span class="blakwordtexts">Start today</span> -->
+
+									<h2>Upcoming Retreats </h2>
+									<div class="row">
+										<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-12 select-wellness-arrow">
+											<select id="number-day-filter" class="multi-dropdown-toggle-dep meditation-service-list dropdown-toggle inputwrap">
+												<option value="" selected="selecteds">Number of Days</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+											</select>
+										</div>
+										<div class="col-xl-2 col-lg-2 col-md-3 col-sm-3 col-xs-12 select-wellness-arrow">
+											<t t-set="location_ids" t-value="request.env['res.company'].sudo().search([])" />
+											<select id="location-filter" class="multi-dropdown-toggle-dep meditation-location-list dropdown-toggle inputwrap">
+												<option value="" selected="selected">All Locations</option>
+												<t t-foreach="location_ids" t-as="location_id">
+													<option t-att-value="location_id.id">
+														<t t-esc="location_id.name" />
+													</option>
+												</t>
+											</select>
+										</div>
+
+									</div>
+									<div class="row">
+
+										<div class="col-lg-12 col-xl-12 col-md-12">
+											<div class="calendar-wrapper">
+												<div class="calendar-eventlist-view-wrapper calendar_twocardview">
+
+													<t t-set="event_ids" t-value="request.env['event.event'].sudo().search([('event_service_categ_id','=',retreat_id.id),('stage_id','in',('Published','Announced'))], limit=4)" />
+
+													<t t-foreach="event_ids" t-as="event_id">
+
+														<div class="calenday-eventlist-item">
+															<div class="cal-event-img">
+																<img t-att-src="'/web/image?model=event.event&amp;id=%s&amp;field=image' % (event_id.id) if  event_id.image else '/ppts_website_theme/static/src/img/uc1.jpg' " />
+															</div>
+															<div class="eventfullinfos">
+																<div class="event-typoingo">
+																	<div class="eventtitleinfos">
+																		<h5>
+																			<a class="a-clr" t-attf-href="/event/{{slug(event_id)}}/register" data-toggle="tooltip" data-placement="top" t-att-title="event_id.name">
+																				<t t-esc="event_id.name"/>
+																			</a>
+																		</h5>
+																		<!-- <p class="upsmtxt">
+																			<t t-esc="event_id.event_sub_categ_id.name"/>
+																		</p> -->
+																	</div>
+																	<div class="eventinfos">
+																		<t t-set="event_start_date" t-value="event_id.multi_date_line_ids.ids[0]"/>
+																		<t t-set="event_start_date" t-value="request.env['multi.date.line'].sudo().browse(event_start_date)" />
+																		<t t-set="event_end_date" t-value="event_id.multi_date_line_ids.ids[-1]"/>
+																		<t t-set="event_end_date" t-value="request.env['multi.date.line'].sudo().browse(event_end_date)" />
+																		<label t-if="event_id.event_multiple_date == 'oneday'">
+																			<img src="/ppts_website_theme/static/src/img/time-icn.svg" width="24px" height="24px"/>
+																			<t t-esc="event_id.hour_time_begin"/>
+																				:                                                            
+																			<t t-esc="event_id.min_time_begin"/>
+																				To 
+																			<t t-esc="event_id.hour_time_end"/>
+																				:                                                        
+																			<t t-esc="event_id.min_time_end"/>
+																		</label>
+
+																		<label t-if="event_id.event_multiple_date == 'multiday'">
+																			<img src="/ppts_website_theme/static/src/img/time-icn.svg" width="24px" height="24px"/>
+																			<t t-esc="event_start_date.hour_time_begin"/>
+																			: 
+																			<t t-esc="event_start_date.min_time_begin"/>
+																			To 
+																			<t t-esc="event_end_date.hour_time_end"/>
+																			:                                                    
+																			<t t-esc="event_end_date.min_time_end"/>
+																		</label>
+
+																		<label>
+																			<img src="/ppts_website_theme/static/src/img/location-icon.svg" width="24px" height="24px"/>
+																			<t t-esc="event_id.company_id.name"/>
+																		</label>
+																		<label style="margin-left: 0px;">
+																			<img src="/ppts_website_theme/static/src/img/person-icon.svg" width="24px" height="24px"/>
+																			<a class="underline-a" t-attf-href="/team/therapists/{{event_id.facilitator_evnt_ids[0].id}}">
+																				<t t-esc="event_id.get_facilitator_name()"/>
+																			</a>
+																		</label>
+																		<label class="dateinfo-evt" t-att-title="event_id.get_event_dates()">
+																			<img src="/ppts_website_theme/static/src/img/calendar-icon.svg" width="24px" height="24px"/>
+																			<span t-if="event_id.event_multiple_date == 'oneday'" t-field="event_id.s_start_date" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+																			<t t-if="event_id.event_multiple_date == 'multiday'">
+																				<span t-field="event_start_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+																				To 
+																				<span t-field="event_end_date.date_begin" t-options="{&quot;format&quot;: &quot;d MMMM&quot;}"/>
+																			</t>
+																		</label>
+																	</div>
+
+																</div>
+																<div class="event-listbtn">
+																	<a href="#enquiry_retreats_page" class="borderedbtn">Enquire Now</a>
+																	<a id="selected-event-ID" t-att-data-event-id="event_id.id" class="fullbutton">
+																	book for 
+																		<t t-esc="event_id.get_event_price()"/>
+																	AED
+																	</a>
+																</div>
+															</div>
+														</div>
+
+													</t>
+
+
+
+
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+									<div class="text-center padtop30  twobtns">
+										<a class="borderedbtn" href="/upcoming/event">Load more events <i class="fas fa-caret-down"></i>
+										</a>
+										<a class="fullbutton" href="/event">Go to all events <i class="fas fa-caret-right"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="noanimtionbtm-wave">
+							<svg class="topsvg svgclass" viewBox="0 0 1440 180" fill="none">
+								<path fill-rule="evenodd" class="light-blue-svg" clip-rule="evenodd" d="M1440 82.5708V0H0V70.0293C52.6198 76.2637 107.414 104.347 161.88 132.262C183.892 143.543 205.849 154.796 227.588 164.569C278.023 187.243 328.404 180.126 387.464 171.782C435.974 164.929 490.341 157.248 555.403 164.569C620.34 171.876 674.11 159.864 728.283 147.761C794.48 132.971 861.277 118.048 949.784 138.079C1033.09 156.933 1094.76 132.491 1159.87 106.687C1181.36 98.1714 1203.22 89.5073 1226.36 82.2017C1286.99 63.0562 1341.03 70.7388 1386.34 77.1807C1405.91 79.9639 1423.86 82.5151 1440 82.5708Z"></path>
+							</svg>
+						</div>
+					</section>
+
+
+
+
+					<section class="eachsection section-topbtm-padding">
+						<div class="mycontainer" data-aos="fade-up" data-aos-delay="100">
+
+							<div class="">
+								<div class="row justify-content-between questtobehappy sectiion_btm_padding80">
+									<div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+										<!-- <span class="">Enjoy</span> -->
+										<h2 class="">for whom </h2>
+										<!-- <br />
+				                    <h4 class="retreatsubdesc">Winners of the 2017 Travel &amp; Hospitality Awards, London for Bespoke
+				                        Wellness Retreat Experiences</h4> -->
+
+									</div>
+									<div class="col-xl-6 col-lg-4 col-md-12 col-sm-8 col-xs-12 questtobehappytypo">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				                            labore et dolore Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+				                            tempor incididunt ut labore et dolore Lorem ipsum do</p>
+
+									</div>
+								</div>
+
+
+								<div class="row missionvission blacktexts questtobehappytypo ">
+									<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 visionmission-list nopborder">
+										<span class="moving_shape">
+											<img src="/ppts_website_theme/static/src/img/Holistic1.svg"/>
+										</span>
+										<h4>newbies <br />
+ to mindfulness</h4>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				                            labore et dolore
+										</p>
+
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 visionmission-list nopborder">
+										<span class="moving_shape">
+											<img src="/ppts_website_theme/static/src/img/Holistic2.svg"/>
+										</span>
+										<h4>experienced<br />
+ practitioners</h4>
+										<p>TheLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+				                            ut labore et dolore
+										</p>
+
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12 visionmission-list nopborder">
+										<span class="moving_shape">
+											<img src="/ppts_website_theme/static/src/img/suitcase.svg"/>
+										</span>
+										<h4>everyone<br />
+ who wants to reboot</h4>
+										<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				                            labore et dolore
+										</p>
+
+									</div>
+
+
+								</div>
+
+
+							</div>
+						</div>
+
+					</section>
+
+
+					<!-- OUREXPERT SECTION STARTS -->
+					<section class="section-topbtm-padding">
+						<div class="noanimate_top_wave">
+							<svg class="topsvg svgclass"
+								xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180" preserveAspectRatio="xMinYMax meet" version="1.1">
+								<g>
+									<path class="light-brown-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+				        c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+				        l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z">
+									</path>
+								</g>
+							</svg>
+						</div>
+						<div class="lightbrown-bg section-topbtm-padding">
+							<div class="eachsection">
+								<div class="arrow-scroll leftside">
+									<svg viewBox="0 0 426 142" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<g class="bbb-init bbb-discover" fill="none" fill-rule="evenodd" id="discover">
+											<path id="discoverqq" class="arrow-line" stroke="#00AEC7" stroke-width="2.83" d="M34.9,128.7C144.9-3.6,312.1-27.4,459.8,93.4" />
+											<path class="arrow-head" fill="#00AEC7" d="M35.7,128.1c2.9-15.4-0.6-29.7-2-30.4c0,0,0,0-0.1,0c-0.1,0.1,2.7,23.1-2.9,33.8c-0.3,0.6,2.3,3.6,2.7,2.8
+				                            c0.8-1.5,11.2-7.7,14.8-5.9c1.2,0.6-0.4-3-2-3.8C43.5,123.2,37.8,126.8,35.7,128.1z" />
+										</g>
+
+									</svg>
+								</div>
+								<div class="row   mycontainer">
+
+									<div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12">
+										<div class="ourteam-typo" data-aos="fade-up" data-aos-delay="200">
+											<span> World-Renowned </span>
+											<h2> speakers </h2>
+											<p>Illuminations is a one stop shop for all
+				                                your well-being needs! Select from our wide range of services. Stop shop for all
+				                                your well-being needs!</p>
+											<div>
+												<a type="button" class="white-btn" href="/contactus">Contact us</a>
+												<a type="button" class="viewallbtn-white viewbtmblueborder" href="/team">See all</a>
+											</div>
+
+										</div>
+									</div>
+									<div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-xs-12">
+										<div id="speaker-expert-owl-carousel" class="owl-carousel ">
+											
+										</div>
+										<div class="ourexpert_arrow" data-aos="fade-left" data-aos-delay="750">
+											<button id="SpeakerourExpertNextBtn" class="ourExpertNextBtn">
+												<i class="fas fa-caret-left"></i>
+											</button>
+											<button id="SpeakerourExpertPrevBtn" class="ourExpertPrevBtn">
+												<i class="fas fa-caret-right"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="noanimtionbtm-wave">
+							<svg class="topsvg svgclass" viewBox="0 0 1440 180" fill="none">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M1440 82.5708V0H0V70.0293C52.6198 76.2637 107.414 104.347 161.88 132.262C183.892 143.543 205.849 154.796 227.588 164.569C278.023 187.243 328.404 180.126 387.464 171.782C435.974 164.929 490.341 157.248 555.403 164.569C620.34 171.876 674.11 159.864 728.283 147.761C794.48 132.971 861.277 118.048 949.784 138.079C1033.09 156.933 1094.76 132.491 1159.87 106.687C1181.36 98.1714 1203.22 89.5073 1226.36 82.2017C1286.99 63.0562 1341.03 70.7388 1386.34 77.1807C1405.91 79.9639 1423.86 82.5151 1440 82.5708Z" fill="#F9F2EA"></path>
+							</svg>
+
+						</div>
+					</section>
+					<!-- OUREXPERT SECTION END -->
+
+					<section class="accreditations-certifying section-topbtm-padding">
+
+						<div class="eachsection">
+							<div class="mycontainer" data-aos="fade-up" data-aos-delay="150">
+
+								<div class="row align-items-center">
+									<div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-xs-12">
+										<h3 class=" accreditations-certifying-header">Previous retreats</h3>
+									</div>
+								</div>
+								<div class="align-items-center featuresin-wrapper">
+									<div class="sliderupdownimgs">
+										<div class="owl-carousel  " id="snapoftraining">
+
+											<div class="leadercont">
+												<img src="/ppts_website_theme/static/src/img/snapoftrain1.jpg" class="userimage" alt=""/>
+
+											</div>
+											<div class="leadercont">
+												<img src="/ppts_website_theme/static/src/img/snapoftrain2.jpg" class="userimage" alt=""/>
+
+											</div>
+											<div class="leadercont">
+												<img src="/ppts_website_theme/static/src/img/snapoftrain1.jpg" class="userimage" alt=""/>
+
+											</div>
+											<div class="leadercont">
+												<img src="/ppts_website_theme/static/src/img/snapoftrain2.jpg" class="userimage" alt=""/>
+
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="row align-items-end justify-content-end">
+									<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
+										<br />
+										<br />
+										<br />
+										<a href="#upcoming_retreats_section" class="fullbutton">book Retreat</a>
+									</div>
+
+									<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+										<div class="ourexpert_arrow align-items-center">
+											<button class="featuredin_NextBtn snapoftraining-left" id="snapoftraining-left">
+												<i class="fas fa-caret-left"></i>
+											</button>
+											<button class="featuredin_PrevBtn snapoftraining-right" id="snapoftraining-right">
+												<i class="fas fa-caret-right"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+
+
+
+							</div>
+						</div>
+
+					</section>
+
+					<!-- CLIENTS ABOUT ILLUMINATION IN SECTION START -->
+					<section class="client-about-illumincations clientaboutillu_btn_wave section-topbtm-padding" style="background:#fff !important;">
+						<div class="mycontainer" data-aos="fade-up" data-aos-delay="150">
+							<div class="row client-about-illumincations-headings align-items-center">
+								<div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-xs-8">
+									<!-- <label>REAL STORIES REAL PEOPLE</label> -->
+									<h3>Reviews</h3>
+									<br />
+								</div>
+								<div class="col-xl-6 col-lg-6 col-md-4 col-sm-4 col-xs-4 align-items-center justify-content-center">
+									<div class="ourexpert_arrow align-items-center">
+										<button class="featuredin_NextBtn clisneillum-left" id="clisneillum-left">
+											<i class="fas fa-caret-left"></i>
+										</button>
+										<button class="featuredin_PrevBtn clisneillum-right" id="clisneillum-right">
+											<i class="fas fa-caret-right"></i>
+										</button>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="row">
+								<div class="col-xl-12">
+									<div class="owl-carousel clientsaboutillu-slider-caresole" id="clientsaboutillu-slider-caresole">
+										<t t-set="about_ids" t-value="request.env['testimonial'].sudo().search([('in_retreats_page','=',True)])" />
+										<t t-foreach="about_ids" t-as="each_about">
+											<div class="leadercont">
+												<div class="textomin-user">
+													<img t-attf-src="/web/image?model=testimonial&amp;id={{each_about.sudo().id}}&amp;field=image_av" class="userimage" alt=""/>
+													<h4>
+														<t t-esc="each_about.employee_id.name"/>
+													</h4>
+												</div>
+												<p>
+													<t t-set="star" t-value='5'/>
+													<t t-set="active_star" t-value='each_about.priority'/>
+													<t t-set="inactive_star" t-value="star-int(active_star)" />
+													<span class="ratingstar">
+														<t t-foreach="range(0, int(active_star))" t-as="i">
+															<i class="fas fa-star"/>
+														</t>
+														<t t-foreach="range(0, int(inactive_star))" t-as="j">
+															<i class="far fa-star"/>
+														</t>
+													</span>
+													<t t-esc="each_about.description"/>
+												</p>
+											</div>
+										</t>
+									</div>
+								</div>
+							</div>
+							<div class="text-center">
+								<br />
+								<br />
+								<br />
+								<a href="/testimonials" class="fullbutton">Are you ready to take a next step</a>
+							</div>
+						</div>
+
+
+					</section>
+					<!-- CLIENTS ABOUT ILLUMINATION IN SECTION END -->
+
+
+					<!-- BOOOK A FREE CONSULTANT SECTION START-->
+					<section id="enquiry_retreats_page">
+						<t t-call="ppts_website_theme.request_call_for_all_page">
+							<t t-set="callback_content" t-value="{'req_header': 'Request a Support Call back!', 
+                        'req_desc': 'Learn how we can help you on your healing Journey' }" />
+						</t>
+					</section>
+					<!-- BOOOK A FREE CONSULTANT SECTION END-->
+
+					<script src="/ppts_website_theme/static/src/js/wellness.js"></script>
+					<script src="/ppts_website_theme/static/src/js/events/events.js"></script>
+		 			<script src='/ppts_website_theme/static/src/js/wellnes_retreat_speaker.js'></script>
+
+				</div>
+			</t>
+		</template>
+	</data>
+</odoo>

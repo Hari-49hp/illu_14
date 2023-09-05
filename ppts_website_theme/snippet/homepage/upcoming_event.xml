@@ -1,0 +1,13 @@
+<odoo>
+	<data>
+		<template id="illuminations_upcoming_event_snippet" name="Upcoming Event">
+			<style>
+				div.col-xl-3.col-lg-3.col-md-4.col-sm-12.col-xs-12.order-1.order-lg-2.order-md-2.caldownbtn.order-sm-1.o_colored_level > a,
+				.multi-select-dd .btn-group:not(:nth-child(2)){
+					display:none !important;
+				}
+			</style>
+			<t t-call="ppts_website_theme.upcoming_calendar_website_all"/>
+		</template>
+	</data>
+</odoo>

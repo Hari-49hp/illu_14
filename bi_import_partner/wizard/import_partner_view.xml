@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<!-- Import partner Wizard View -->
+		<record id="import_partner_form_view" model="ir.ui.view">
+			<field name="name">import.partner.wizard.view</field>
+			<field name="model">import.partner</field>
+			<field name="arch" type="xml">
+			<form string="Choose Your File">
+				<group>
+					<group>
+
+						<field name="file_type" widget="radio" options="{'horizontal': true}" />
+						<field name="file" placeholder="Choose Your File" nolabel="1" filename="file_name"/>
+						<field name="filename" invisible="1"/>
+						<field name="excel_file" invisible="1"/>
+						<div class="row">
+							<p style="margin-left:16px !important;color:black;font-weight:bold;margin-top:20px"> Download Sample Format :</p>
+						<button name="generate_sample_xls" type="object" class="fa fa-download " style="margin-top:10px"/>
+					</div>
+						<field name="file_name" invisible="1"/>
+						<field name="success_message" invisible="1"/>
+						<field name="import_count" invisible="1"/>
+						<field name="total_count" invisible="1"/>
+<!--						<field name="merge_duplicate_cont"/>-->
+
+
+
+
+					</group>
+
+
+				</group>
+				 <div class="o_row">
+
+                                    <field name="merge_duplicate_cont" style="width: 2px;" class="oe_inline"  invisible="1" />
+					  				<label for="merge_duplicate_cont" invisible="1"/>
+
+								</div>
+				<footer>
+					<button name="import_partner" string="Import" type="object" icon="fa-download" class="btn btn-primary active"/>
+					<button string="Cancel" special="cancel" icon="fa-times" class="btn btn-danger"  />
+				</footer>
+			</form>
+			</field>
+		</record>
+
+		<!-- Import Partner Wizard Action -->
+		<record id="import_partner_wizard_action" model="ir.actions.act_window">
+            <field name="name">Import Partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">import.partner</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+<!--		success message wizard action start 06-07-22-->
+
+		<record id="success_message_form_view" model="ir.ui.view">
+			<field name="name">success.message.wizard.view</field>
+			<field name="model">success.message</field>
+			<field name="arch" type="xml">
+			<form string="Success">
+				<group>
+
+						<field  name="name" invisible="1"/>
+					 <div class="o_row">
+						<img src="/bi_import_partner/static/description/success-icon.png" style="width:10%;height:auto"/>
+						<h1 style="font-size: 20px;margin: auto;">Your file has been uploaded successfully</h1>
+
+					 </div>
+
+
+				</group>
+				<field name="file" placeholder="Choose Your File" nolabel="1" readonly="1"/>
+				<group>
+					<field name="total_count" readonly="1"/>
+					<field name="import_count" readonly="1"/>
+					<field name="skipped_count" readonly="1"/>
+
+				</group>
+				<group>
+					<h9 style="font-size: 15px;margin: auto;">In the Contact section, you'll find the new customer, and in the campaign creator section, you'll find the duplicate record.</h9>
+				</group>
+				<footer>
+					<button name ="action_done" string="Done" type="object" style="background-color:#179adf;color:white"/>
+				</footer>
+			</form>
+			</field>
+		</record>
+
+		<!-- Import Partner Wizard Action -->
+		<record id="success_message_wizard_action" model="ir.actions.act_window">
+            <field name="name">Success</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">success.message</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+	</data>
+</odoo>

@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+
+		<record id="appt_confirmation_mail" model="mail.template">
+			<field name="name">Confirmation : Appointment Registration</field>
+			<field name="model_id" ref="ppts_custom_apt_mgmt.model_appointment_appointment"/>
+			<field name="subject">Confirmation : Appointment Registration</field>
+			<field name="auto_delete" eval="False"/>
+			<field name="email_from">test@illumination.com</field>
+			<field name="email_to" >${object.partner_id.email}</field>
+			<field name="lang">${object.partner_id.lang}</field>
+			<field name="body_html"><![CDATA[
+
+               <p>Dear ${object.partner_id.name},</p>
+                    <p>Thank you for your registration to (${object.name}) .We are happy to hereby confirm your participation.</p>
+                <br/>
+
+                <p>Please complete the payment for the appointment, Ignore if you already paid.</p>
+                <br/>
+
+                <a href="/shop/payment?access_token=False" target="_blank" style="background-color:#875A7B; padding:8px 16px 8px 16px; text-decoration:none; color:#fff; border-radius:5px; font-size:13px" data-original-title="" title="" aria-describedby="tooltip323257">
+                    Pay Now
+                </a>
+
+                <div>
+                        <br />
+                        <strong>Add this appointment to your calendar</strong>
+
+                        <a href="https://www.google.com/calendar/render?action=TEMPLATE&amp;text=${object.name}&amp;dates=${booking_date}/${booking_date}&amp;location=${location}" style="padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;" target="new"><img src="/web_editor/font_to_img/61525/rgb(135,90,123)/16" style="vertical-align:middle;" height="16" alt=""/> Google</a>
+                        <a href="/event/${slug(object)}/ics" style="padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;"><img src="/web_editor/font_to_img/61525/rgb(135,90,123)/16" style="vertical-align:middle;" height="16" alt=""/> iCal/Outlook</a>
+						<a href="https://calendar.yahoo.com/?v=60&amp;view=d&amp;type=20&amp;title=${object.name}&amp;in_loc=${location}&amp;st=${object.booking_date}&amp;et=${object.booking_date}" style="padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;" target="new">
+                            <img src="/web_editor/font_to_img/61525/rgb(135,90,123)/16" style="vertical-align:middle;" height="16" alt=""/> Yahoo
+
+                        </a>
+
+
+
+                        <br /><br />
+                    </div>
+
+                <br/>
+
+                <br/><br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+                ]]></field>
+        </record>
+    </data>
+</odoo>

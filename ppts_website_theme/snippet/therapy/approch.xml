@@ -1,0 +1,195 @@
+  <odoo>
+    <data>
+        <template id="illuminations_our_approach" name="Our Approach"> 
+
+            <section class="top-btmspace section-topbtm-padding swapingsectioncontainer">
+                <div class="mycontainer swapingsectioncontainer-inner">
+                   <div class="row align-items-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                        <span class="blakwordtexts">Our approach</span>
+                        <h1>A Powerful Integration</h1>
+                    </div>
+                    <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-6 col-xs-12">
+                       <h4 class="everyuyou">Everything You Need in One Place</h4>
+                        <p>Our qualified therapists work on both the conscious and subconscious levels by combining modern evidence-based behavioral sciences with powerful ancient holistic </p>
+                        <div class="swapimagesection mobileimg" >
+                            <img src="/ppts_website_theme/static/src/img/ancientheal.jpg" class="img-fluid"/>
+                        
+                        </div>
+                    </div>
+                   </div>
+                    <div class="centershapes" id="swapbtn">
+                        <div class="chatbtnont">
+                            <div class="moving_shape">
+                                +
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="swapper-insidecotainer"> 
+                        <div class="row approchcontainer  swap_startcontent align-items-center" id="defaultviewsection"> 
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 swpimg">
+                                <div class="swapimagesection" data-aos="fade-up" data-aos-delay="100">
+                                    <img src="/ppts_website_theme/static/src/img/ancientheal.jpg" class="img-fluid" />
+                                    <div class="swapimages-texts">
+                                        <h3>Ancient Holistic Healing</h3>
+                                    </div>
+                                </div>
+            
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12  swptexts fonttypetwo leftpad">
+            
+                                <div class="section-typo missionvission blacktexts swaptexts " data-aos="fade-up"
+                                    data-aos-delay="100">
+                                    <!-- <span class="blakwordtexts">Onsite Therapy</span> -->
+                                    <h2>Modern Mental Health</h2>
+                                    <!-- <h4>You Create Your Own Reality.</h4> -->
+                                    <!-- <p>Neurosciences provide enough research & evidence to suggest the powerful impact of our
+                                        thoughts and feelings have in shaping the reality we experience.
+                                        <br /> <br />
+                                        Your mind, body emotions and energy are intangibly connected and influence your potential at
+                                        every level:
+                                    </p> -->
+                                    <div class="row">
+                                        <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                            <span class="moving_shape">
+                                                <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                            </span>
+                                            <h4>Holistic Psychology</h4>
+                                        </div>
+            
+            
+                                        <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                            <span class="moving_shape">
+                                                <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                            </span>
+                                            <h4>Mindset Coaching</h4>
+                                        </div>
+                                        <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                            <span class="moving_shape">
+                                                <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                            </span>
+                                            <h4>Psychotherapy</h4>
+                                        </div>
+                                        <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                            <span class="moving_shape">
+                                                <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                            </span>
+                                            <h4>Counseling</h4>
+                                        </div>
+                                        <div class="col-xs-6 col-lg-6 col-md-6 col-sm-6 col-xs-4 col-12 cardmocingshape  ">
+                                            <span class="moving_shape">
+                                                <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                            </span>
+                                            <h4>Cognitive Behavioral Therapy (CBT)</h4>
+                                        </div>
+            
+                                    </div>
+            
+                                    <!-- <button type="button" class="btn learnmore-btn">Onsite</button> -->
+            
+                                </div>
+            
+                            </div>
+                        </div>
+                    <div class="row approchcontainer  swap_hoveredcotent align-items-center" id="hoveredviewsection">
+                     
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 swptexts fonttypetwo">
+
+                            <div class="section-typo missionvission blacktexts swaptexts " data-aos="fade-up"
+                                data-aos-delay="100">
+                                <!-- <span class="blakwordtexts">Online therapy</span> -->
+                                <div class="swapimagesection mobileimg"  >
+                                    <img src="/ppts_website_theme/static/src/img/mordenmental.jpg" class="img-fluid"/>
+                                
+                                </div>
+                                <h2>Ancient Holistic Healing</h2>
+                                <!-- <p>What goes on outside is a mere reflection of what's happening on the inside.
+                                    <br /> <br />
+                                    The unresolved pain we store deep in our thoughts and emotions eventually manifest as issues
+                                    we face in our daily life.
+                                </p> -->
+                                <div class="row">
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>Hypnosis</h4>
+                                    </div>
+
+
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>Energy Healing</h4>
+                                    </div>
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>Breath work</h4>
+                                    </div>
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>Shamanism</h4>
+                                    </div>
+                                    <div class="col-xs-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 col-6 cardmocingshape  ">
+                                        <span class="moving_shape">
+                                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                                        </span>
+                                        <h4>Mindfulness</h4>
+                                    </div>
+
+                                </div> 
+
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12  swpimg">
+                            <div class="swapimagesection" data-aos="fade-up" data-aos-delay="100">
+                                <img src="/ppts_website_theme/static/src/img/mordenmental.jpg" class="img-fluid" />
+                                <div class="swapimages-texts">
+                                    <h3>Modern Mental Health</h3>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                   
+                </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="row mycontainer safeeffective missionvission blacktexts sectiion_btm_padding80">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 cardmocingshape">
+                        <h2>Safe</h2>
+                        <span class="moving_shape">
+                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                        </span>
+                        <h4>Non-Bias</h4>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 cardmocingshape">
+                        <h2>Effective</h2>
+                        <span class="moving_shape">
+                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                        </span>
+                        <h4>Non-Bias</h4>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 cardmocingshape">
+                        <h2>Long Term</h2>
+                        <span class="moving_shape">
+                            <img src="/ppts_website_theme/static/src/img/Holistic3.svg"/>
+                        </span>
+                        <h4>Non-Religios</h4>
+                    </div>
+                </div>
+            </section>
+
+        </template>
+    </data>
+</odoo>
+

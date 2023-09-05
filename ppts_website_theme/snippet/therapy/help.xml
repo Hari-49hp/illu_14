@@ -1,0 +1,144 @@
+<odoo>
+    <data>
+        <template id="illuminations_therapy_help" name=" Therapy Help">
+            <section class="top-btmspace section-topbtm-padding aboutillumination">
+
+                <div class="mycontainer questtobehappy aboutherapest ">
+
+                    <div class="row  align-items-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <!-- <span class="">About</span> -->
+                            <h2 class="">What can we <br/> help you with </h2>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 questtobehappytypo">
+                            <p>Learn more about how we can help you heal from a variety
+                                of different issues.</p>
+                                <div>
+                                    <a href="#book_free_apt_snippet" class="fullbutton wid200">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row serviceseclowheight whatcanwehelp" data-aos="fade-up" data-aos-delay="100">
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc1.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4>Stress</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc2.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4>Relationship</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc3.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4>Anxiety</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc4.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4>Depression </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc5.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4>Fears &amp; Phobias </h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc6.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4> Weight </h4>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc7.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4> Smoking &amp; Addictions </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc8.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4> Loss &amp; Grief </h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 service-lists-items-wrapper">
+                                <div class="service-lists-item">
+                                    <img src="/ppts_website_theme/static/src/img/wc9.jpg" alt="serviceimageone" loading="lazy" />
+                                    <div class="service-svg-shapes-overlay">
+                                        <div class="wrapper">
+                                            <div class="side_side"> </div>
+                                        </div>
+                                        <h4> Anger </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+                <div class="svgreferences">
+
+                    <svg class="side_wave" id="gt" style="height: 0%;">
+                        <clipPath id="slopeclip" clipPathUnits="userSpaceOnUse">
+                            <path class="st0"
+                                d="M410.31,0c-17.05.23-41.82,2-53.75,5.54-34.22,10.27-61.83,37.67-87.23,60.1-32.27,28.49-60.12,54.21-142.55,54.21h0l283.53.15v-1.26" />
+                        </clipPath>
+                    </svg>
+
+                </div>
+
+            </template>
+        </data>
+    </odoo>

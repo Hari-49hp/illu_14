@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <template id="illuminations_meditation_video" name="Video Post">        
+            <!-- Let’s try to meditate with 5 min quick video -->
+            <section class="section-topbtm-padding aboutillumination  trymeditation">
+                <div class="container-fluid aboutus-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mycontainer">
+                        <div class="aboutus-title row">
+                            <h2 class="col-sm-7">Let’s try to meditate with 5 min quick video </h2>
+                            <div class="col-12 mb-4 d-sm-block d-md-none text-center">
+                                <br /> <br />
+                                <button type="button" class="fullbutton">Start meditation Today</button>
+                                <br /> <br />
+                            </div>
+                        </div>
+                        <div class="abt-title-img">
+                            <img src="/ppts_website_theme/static/src/img/trymeditation.jpg" class="img-fluid" loading="lazy"/>
+                            <a class="playicon"></a>
+                            <div class="blueoverlay"> </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+    </data>
+</odoo>

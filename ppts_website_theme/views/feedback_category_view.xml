@@ -1,0 +1,155 @@
+<odoo>
+	<data>
+        <!-- Form -->
+		 <record id="feedback_category_from_view" model="ir.ui.view">
+            <field name="name">Feedback Category</field>
+            <field name="model">feedback.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Title"/>
+                            </h1> 
+                            <div class="o_row">
+                                <label for="website_publish" string="Website Publish"/>
+                                <field name="website_publish" widget="boolean_toggle"/>
+                            </div> 
+                        </div>                          
+                        <group>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form -->
+
+        <!-- Tree_view -->
+        <record id="feedback_category_tree_view" model="ir.ui.view">
+            <field name="name">Feedback Category Tree</field>
+            <field name="model">feedback.category</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="feedback_category_action_view" model="ir.actions.act_window">
+            <field name="name">Feedback Category</field>
+            <field name="res_model">feedback.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="feedback_category_tree_view" />
+        </record>
+        <!-- Action -->
+
+        <menuitem id="website_feedback_category_" name="Feedback Category" parent="ppts_website_theme.website_master_menu_view_top" action="feedback_category_action_view" sequence="3" />
+                <!-- Form -->
+         <record id="featured_in_from_view" model="ir.ui.view">
+            <field name="name">Featured In</field>
+            <field name="model">featured.in</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Title"/>
+                            </h1> 
+                            <div class="o_row">
+                                <label for="website_publish" string="Website Publish"/>
+                                <field name="website_publish" widget="boolean_toggle"/>
+                            </div> 
+                        </div> 
+                        <group>
+                            <field name="featured_image"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form -->
+
+        <!-- Tree_view -->
+        <record id="featured_in_tree_view" model="ir.ui.view">
+            <field name="name">Featured In Tree</field>
+            <field name="model">featured.in</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="code"/>
+                    <field name="website_publish" widget="boolean_toggle"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="featured_in_action_view" model="ir.actions.act_window">
+            <field name="name">Featured In</field>
+            <field name="res_model">featured.in</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="featured_in_tree_view" />
+        </record>
+
+        <menuitem id="website_featured_in" name="Featured In" parent="ppts_website_theme.website_master_menu_view_top" action="featured_in_action_view" sequence="4" />
+
+
+           <!-- Our Training -->
+         <record id="our_training_from_view" model="ir.ui.view">
+            <field name="name">Our training</field>
+            <field name="model">our.training</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" default_focus="1" placeholder="Title"/>
+                            </h1> 
+                            <div class="o_row">
+                                <label for="website_publish" string="Website Publish"/>
+                                <field name="website_publish" widget="boolean_toggle"/>
+                            </div> 
+                        </div> 
+                        <group>
+                            <field name="image"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form -->
+
+        <!-- Tree_view -->
+        <record id="our_training_tree_view" model="ir.ui.view">
+            <field name="name">Our Training Tree</field>
+            <field name="model">our.training</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="code"/>
+                    <field name="website_publish" widget="boolean_toggle"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="our_training_action_view" model="ir.actions.act_window">
+            <field name="name">Our Training</field>
+            <field name="res_model">our.training</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="our_training_tree_view" />
+        </record>
+
+        <menuitem id="website_training" name="Our Training" parent="ppts_website_theme.website_master_menu_view_top" action="our_training_action_view" sequence="5" />
+
+
+
+	</data>
+</odoo>

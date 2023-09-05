@@ -1,0 +1,205 @@
+<odoo>
+	<data>
+		<template id="illuminations_meditation_event_snippet" name="Meditation Event">
+<!-- 
+			<div class="modal left fade" id="calendar-mbl-filter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<h4 class="modal-title" id="myModalLabel">Filters</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span>&amp;times;</span>
+							</button>
+						</div>
+
+						<div class="modal-body">
+
+							<div class="dropdown inputwrap multi-select-dd">
+								<select name="event_type" class="dropdown-toggle form-control inputwrap">
+									<option value="all">All</option>
+									<option value="online">Online</option>
+									<option value="onsite">Onsite</option>
+									<option value="online/onsite">Hybrid</option>
+								</select>
+							</div>
+							<div class="dropdown inputwrap multi-select-dd">
+								<t t-set="location_ids" t-value="request.env['res.company'].sudo().search([])" />
+								<select class="" name="location" id="calendar-multiselect-filter-location-m" multiple="multiple">
+									<t t-foreach="location_ids" t-as="location_id">
+										<option t-att-value="location_id.id">
+											<t t-esc="location_id.name" />
+										</option>
+									</t>
+								</select>
+							</div>
+							<div class="dropdown inputwrap multi-select-dd multi-select-dd-services" style="width: 285px !important;">
+								<t t-set="event_type_ids" t-value="request.env['event.type'].sudo().search([])" />
+								<select class="" name="service_category" id="calendar-multiselect-filter-service-m" multiple="multiple">
+									<t t-foreach="event_type_ids" t-as="event_type_id">
+										<option t-att-value="event_type_id.id">
+											<t t-esc="event_type_id.name" />
+										</option>
+									</t>
+								</select>
+							</div>
+						</div>
+
+
+
+					</div>
+				</div>
+			</div> -->
+
+			<section class="upcomingsection fullviewupcoming eachsection">
+	        <div class="noanimate_top_wave">
+	            <svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180"
+	                preserveAspectRatio="xMinYMax meet" version="1.1">
+	                <g>
+	                    <path class="light-blue-svg" d="M1439,180H0V54c9.3-0.7,18.7-3.9,23.9-6.4l0,0C49,36.3,74,25,98.8,15.3C156.3-7.4,213.7-0.3,281.1,8h0h0h0
+	            c55.3,6.9,117.3,14.5,191.5,7.2c74-7.3,135.3,4.7,197.1,16.8h0c75.5,14.8,151.6,29.7,252.5,9.7c95-18.9,165.3,5.6,239.5,31.4l0.1,0
+	            l0,0c24.5,8.5,49.3,17.2,75.7,24.5c69.1,19.2,130.7,11.5,182.4,5l0,0l0,0c6.5-0.8,12.9-1.6,19.1-2.3V180z">
+	                    </path>
+	                </g>
+	            </svg>
+	        </div>
+        	<div class="light-blue-bg">
+
+				<div class="mycontainer" data-aos="fade-up" data-aos-delay="50">
+
+					<div class="row">
+						<div class="col-xl-9 col-lg-9 col-md-8 col-sm-12 col-xs-12  order-2 order-lg-1  order-md-1 order-sm-2">
+							<h2>Find A Meditation Class Near You</h2>
+						</div>
+					</div>
+
+					<div class="calendar-wrapper" id="calendar-mainwrap">
+
+						<div class="calendar-header-one" data-aos="fade-up" data-aos-delay="200">
+							<div class="calendar-header-one-left">
+								<div class="filter-buttons-lists">
+									<button id="ClnToggleEventType" event-data="all" class="selectedbtn"> All </button>
+									<button id="ClnToggleEventType" event-data="online" class=""> Online </button>
+									<button id="ClnToggleEventType" event-data="onsite" class=""> Onsite </button>
+									<button id="ClnToggleEventType" event-data="online/onsite" class=""> Hybrid </button>
+								</div>
+								<button class="filter-popupbtn" data-toggle="modal" data-target="#calendar-mbl-filter">
+									<span class="input-group-addon iconinoutbtn">
+										<i class="fas fa-filter"></i>
+									</span> Filters
+								</button>
+							</div>
+							<div class="calendar-header-one-right">
+								<div class="dropdown inputwrap multi-select-dd meditation-location-list">
+									<t t-set="location_ids" t-value="request.env['res.company'].sudo().search([])" />
+									<select class="" name="location" id="calendar-multiselect-filter-location" multiple="multiple">
+										<t t-foreach="location_ids" t-as="location_id">
+											<option t-att-value="location_id.id">
+												<t t-esc="location_id.name" />
+											</option>
+										</t>
+									</select>
+								</div>
+								<div class="dropdown inputwrap multi-select-dd multi-select-dd-services meditation-service-list">
+									<t t-set="event_type_ids" t-value="request.env['event.type'].sudo().search([])" />
+									<select class="" name="service_category" id="calendar-multiselect-filter-service" multiple="multiple">
+										<t t-foreach="event_type_ids" t-as="event_type_id">
+											<option t-att-value="event_type_id.id">
+												<t t-esc="event_type_id.name" />
+											</option>
+										</t>
+									</select>
+								</div>
+								<div id="upComingEventDatepicker" class="input-group date inputwrap" data-date-format="dd.mm.yyyy">
+									<span class="input-group-addon iconinoutbtn">
+										<i class="far fa-calendar-alt"></i>
+									</span>
+									<input class="form-control" type="text" readonly="readonly" />
+								</div>
+								<div class="calendernextpreviewbtns">
+									<button id="currentCalendarWeekLeftArrow">
+										<i class="fas fa-caret-left"></i>
+									</button>
+									<label id="currentCalendarWeekRange">12 -20 December</label>
+									<button id="currentCalendarWeekRightArrow">
+										<i class="fas fa-caret-right"></i>
+									</button>
+								</div>
+							</div>
+
+						</div>
+						<div class="calendar-weeklybutton" data-aos="fade-up" data-aos-delay="300">
+							<div id='upComingEventCalendar' class="calendarviewwrapper"></div>
+						</div>
+						<div class="calendar-eventlist-view-wrapper" id="upComingCalendarEventsContainer">
+							<div class="calenday-eventlist-item" data-aos="fade-up" data-aos-delay="600">
+								<div class="cal-event-img">
+									<label class="filtercatlabel">Onsite</label>
+									<img src="/ppts_website_theme/static/src/img/post1.png" />
+								</div>
+								<div class="eventfullinfos">
+									<div class="event-typoingo">
+										<div class="eventtitleinfos">
+											<h5>ThetaHealing You &amp; Your Significant Others</h5>
+											<label class="training chipsone">Training</label>
+											<label class="chipsone">Event</label>
+											<label class="meditation chipsone">Meditation</label>
+										</div>
+										<div class="eventinfos">
+											<label>
+												<i class="fas fa-map-marker-alt"></i> Illuminations JLT</label>
+											<label>
+												<i class="far fa-calendar-minus"></i>14 December</label>
+											<label>
+												<i class="far fa-clock"></i> 10:00 To 12:00 (UTC+3)</label>
+											<label>
+												<i class="far fa-user"></i> Khan Dan</label>
+										</div>
+									</div>
+									<div class="event-listbtn">
+										<button class="borderedbtn">Enquire Now</button>
+										<button class="fullbutton">
+                                                    Book Now 
+											<b> 120 <i>AED </i>
+											</b>
+										</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="text-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+							<a class="borderedbtn" href="/upcoming/event">
+								Load more events
+								<i class="fas fa-caret-down"></i>
+							</a>
+							<a class="fullbutton" href="/event">
+								Go to all events
+								<i class="fas fa-caret-right"></i>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="noanimtionbtm-wave">
+            <svg class="topsvg svgclass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 180"
+                preserveAspectRatio="xMinYMax meet" version="1.1">
+                <g>
+                    <path class="light-blue-svg"
+                        d="M148.998 169.897C119.618 178.901 90.0254 180.801 58.8966 179.396C38.7206 180.472 19.2071 180.235 0 177.663V0H263V0.186939H1440V72.305C1392.32 67.2731 1349.05 72.6685 1311.14 77.395L1311.1 77.4006C1304.22 78.2579 1297.52 79.0933 1291 79.8403C1284.48 79.0933 1277.78 78.2579 1270.9 77.4006L1270.86 77.395C1219.21 70.9553 1157.6 63.2741 1088.47 82.4148C1062.13 89.7085 1037.24 98.3559 1012.78 106.857L1012.77 106.862L1012.67 106.895C938.44 132.694 868.13 157.13 773.157 138.281C672.252 118.254 596.098 133.174 520.628 147.96L520.627 147.961C458.866 160.061 397.564 172.071 323.532 164.765C256.831 158.183 199.99 163.73 148.998 169.897Z">
+                    </path>
+
+                </g>
+            </svg>
+        </div>
+			</section>
+
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+			<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+			<script src="/ppts_website_theme/static/src/js/events/upcoming_events.js"></script>
+		</template>
+	</data>
+</odoo>

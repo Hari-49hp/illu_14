@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="pos_config_duplicate_receipt">
+            <field name="name">pos.config.duplicate.receipt</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <div id="company" position="after">
+                    <div id="accessible_user" class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <label for="user_ids"/>
+                            <div>
+                                <field name="user_ids" widget="many2many_tags" required="1"/>
+                            </div>
+                            <div class="text-muted">
+                                Please select the users to access the POS session
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <xpath expr="//div[@class='row mt16 o_settings_container'][1]" position="before">
+                    <div class="row mt16 o_settings_container">
+
+                    </div>
+                </xpath>
+                <xpath expr="//div[@class='row mt16 o_settings_container'][6]" position="inside">
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="pos_auto_invoice"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="pos_auto_invoice"/>
+                            <div class="text-muted">
+                                Auto Invoice Enable
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="point_of_sale.action_pos_config_kanban" model="ir.actions.act_window">
+            <field name="name">Point of Sale</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pos.config</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">['|',('user_ids', 'in', uid),('user_ids','=',False)]</field>
+            <field name="search_view_id" ref="point_of_sale.view_pos_config_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new PoS
+                </p>
+                <p>
+                    Configure at least one Point of Sale.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

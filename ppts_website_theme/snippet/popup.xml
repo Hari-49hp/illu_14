@@ -1,0 +1,808 @@
+<odoo>
+	<data>
+		<template id="theme_website_popup_template">
+
+			<!-- Modal -->
+			<link href="/ppts_website_theme/static/src/css/popups.css" rel="stylesheet"/>
+
+			<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="loginmodal-popup">
+				<div class="modal-dialog mymodelstyle modal-dialog-centered dialog-small" role="document">
+					<div class="modal-content loginpopup">
+						<div class="modal-header">
+							<h5 class="modal-title">Log in my Account</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span class="popup-closebtn"></span>
+							</button>
+						</div>
+						<div class="modal-body modalbody-scroll form-class">
+
+							<p>Please enter an email address and password</p>
+							<form class="oe_login_form" role="form" t-attf-action="/web/login" method="post" onsubmit="this.action = this.action + location.hash" style="max-width: 100%;position: relative;margin: 0px;" autocomplete="off">
+								<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+								<input type="hidden" name="login_form_ept" value="1"/>
+								<t t-set="databases" t-value="request.db"/>
+								<div class="form-group field-db" t-if="debug">
+									<!-- <label for="db" class="col-form-label">Database</label> -->
+									<div t-attf-class="input-group {{'input-group-sm' if form_small else ''}}">
+										<input type="text" name="db" t-att-value="request.db" id="db" t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required" readonly="readonly"/>
+										<span class="input-group-append">
+											<a role="button" href="/web/database/selector" class="btn btn-secondary">
+												Select
+												<i class="fa fa-database" role="img" aria-label="Database" title="Database"/>
+											</a>
+										</span>
+									</div>
+								</div>
+								<div class="form-group field-login">
+									<!-- <label for="login">Email</label> -->
+									<input type="text" placeholder="Email" name="login" t-att-value="login" id="login" class="form-control" required="required" autofocus="autofocus" autocapitalize="off"/>
+								</div>
+
+								<div class="form-group field-password">
+									<!-- <label for="password">Password</label> -->
+									<input type="password" placeholder="Password" name="password" id="password" class="form-control" required="required" autocomplete="current-password" t-att-autofocus="'autofocus' if login else None" maxlength="4096"/>
+								</div>
+
+								<div class="alert-success-error" />
+
+								<p class="alert alert-danger d-none" role="alert">
+									<t> Wrong login/password </t>
+								</p>
+								<p class="alert alert-success" t-if="message" role="status">
+									<t t-esc="message"/>
+								</p>
+
+								<!-- <div class="justify-content-between mt-2 d-flex small"> -->
+								<a class="open_reset_password gforgotpwd" t-if="request.env['ir.config_parameter'].sudo().get_param('auth_signup.reset_password') == 'True'" t-attf-href="#resetPasswordPopup" data-keyboard="true">Forgot password?
+								</a>
+								<!-- </div> -->
+
+								<div class="clearfix oe_login_buttons text-center">
+									<button type="submit" class="btn btn-primary btn-block te_theme_button te_login_button full-blue-btn-popup" style="display: initial; max-width: 100%;">
+										Continue
+									</button>
+									<t t-if="debug">
+										<button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">
+											Log in as superuser
+										</button>
+									</t>
+
+									<div class="o_login_auth"/>
+									<!-- <t t-set="enable" t-value="request.env['ir.module.module'].sudo().search([['name', '=', 'auth_oauth']])"/>
+									<t t-if="enable and enable.state == 'installed'">
+										<t t-set="providers" t-value="request.env['auth.oauth.provider'].sudo().search_read([('enabled', '=', True)])">
+										</t>
+										<t t-if="len(providers) &gt; 0">
+											<em t-attf-class="d-block text-center text-muted small my-#{len(providers) if len(providers) &lt; 3 else 3}">
+												- or -
+											</em>
+											<div class="o_auth_oauth_providers list-group mt-1 mb-1 text-left">
+												<t t-foreach="providers" t-as="p">
+													<t t-set="return_url" t-value="request.env['website'].sudo().list_providers_ept()"/>
+													<t t-set="auth_link" t-value="'%s?%s' % (p['auth_endpoint'], return_url)"/>
+													<a class="list-group-item list-group-item-action py-2" t-att-href="auth_link">
+														<i t-att-class="p['css_class']"/>
+														<t t-esc="p['body']"/>
+													</a>
+												</t>
+											</div>
+										</t>
+									</t> -->
+								</div>
+								<input type="hidden" name="redirect" t-att-value="redirect"/>
+							</form>
+
+
+							<p class="d-none">
+								Dont have an account? 
+								<a class="gforgotpwd">Registration?</a>
+							</p>
+							<hr/>
+							<div class="loginsocialbtm d-none">
+								<p>Or use a social network</p>
+								<div class="loginsocialbtm-btns">
+									<button class="bordered-btn-two">Facebook</button>
+									<button class="bordered-btn-two">WhatsApp</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Log in my Account modle Popup end **********************************************-->
+
+			<script>
+				$('#loginmodal-open, #loginmodal-openmob').on('click', function () {
+
+				$('#loginmodal-popup').modal({
+				keyboard: false,
+				backdrop: 'static',
+				show: true,
+				focus: true,
+				});
+
+				});
+			</script>
+
+
+			<div class="modal right fade student-modal" id="studentModalform" tabindex="-1" role="dialog" aria-labelledby="studentModalformLabel" aria-hidden="true" style="overflow: hidden;">
+				<div class="modal-dialog dialog-medium-50percent" role="document">
+					<div class="modal-content">
+						<div class="modal-header modheadertwo">
+							<h5 class="modal-title" id="studentModalLabel">
+								<img src="/ppts_website_theme/static/src/img/Logo.svg"/>
+							</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span class="modal-dialog--close" aria-hidden="true">&amp;times;</span>
+							</button>
+						</div>
+						<div class="modal-body therapyconsultant modelscrollinner">
+							<div class="studentinnerpopup_container container">
+								<h4 class="career-management-title">Therapy Consultant</h4>
+								<div class="text-left">
+									<img class="student-image" alt="Student image" src="/ppts_website_theme/static/src/img/therapyconst.jpg" />
+								</div>
+								<h5 class="student-sub-heading">Job Description</h5>
+								<p class="student-desc">At Illuminations we offer a variety of different classes for personal and professional development. 
+                            These classes include meditation, yoga, workshops, training programs, free seminars &amp; destination retreats!
+								</p>
+								<h5 class="student-sub-heading">Responsibilities</h5>
+								<ul class="student-certification-list listwithdots responsibilities-lst">
+
+								</ul>
+								<h5 class="student-sub-heading">Qualifications</h5>
+								<ul class="student-certification-list listwithdots qualifications-lst">
+
+								</ul>
+							</div>
+							<div class="student-forms container">
+								<h4>Fill out form to apply Career position</h4>
+								<br/>
+								<br/>
+								<form class="recruitement-fill-form" action="#" method="post" data-mark="*" data-success-mode="redirect" enctype="multipart/form-data" autocomplete="off">
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12">
+											<div class="form-group">
+												<input class="form-control " type="text" name="name" placeholder="Name" required="required"/>
+											</div>
+											<div class="form-group">
+												<input class="form-control " type="text" name="contact" placeholder="Contact" required="required"/>
+											</div>
+											<div class="form-group">
+												<input class="form-control " type="email" name="email" placeholder="Email" required="required"/>
+											</div>
+											<div class="form-group">
+												<input class="form-control " type="text " name="designation" placeholder="Designation" required="required"/>
+												<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12 mobileorderforinputs">
+											<div class="dropdown currentloc inputwrap">
+												<!-- <select id="" name="location" class="multi-dropdown-toggle-dep location-drop-down dropdown-toggle form-control" required="required"></select> -->
+
+												<t t-set="location_ids" t-value="request.env['res.company'].sudo().search([])" />
+												<select id="" class="uploadbtnprogress-select inputwrap" required="required">
+													<option value="" disabled="disabled" selected="selected">
+														Current Location 
+													</option>
+													<t t-foreach="location_ids" t-as="location_id">
+														<option t-att-value="location_id.id">
+															<t t-esc="location_id.name" />
+														</option>
+													</t>
+												</select>
+											</div>
+											<div>
+												<div class="uploadbtnprogress-input inputwrap">
+													<label for="file_popup" style="overflow: hidden;display: inline-block;text-overflow: ellipsis;white-space: nowrap;"> Upload resume <i class="fas fa-upload"></i>
+													</label>
+													<input id="file_popup" type="file" name="resume" style="display: none" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,.pdf" class="dataset" required="required" />
+													<div class="progress hidden">
+														<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"></div>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<input class="form-control" name="work_exp" type="text " placeholder="Relevant Work Experience" required="required"/>
+											</div>
+											<div class="form-group">
+												<input class="form-control" name="notice_period" type="text" placeholder="Notice Period" required="required"/>
+											</div>
+										</div>
+
+									</div>
+									<div class="row">
+										<div class="col-12 form-group">
+											<label class="checkboxlabel">
+                                            	More than 4MB file not allowed. And file extension must be in .pdf, .xls, .xlsx, .doc, .docx .
+											</label>
+										</div>
+										<div class="col-12 form-group">
+											<label class="checkboxlabel">
+												<input class="" name="terms" type="checkbox" required="required"/>
+                                            	I agree to the Privacy Policy &amp; Terms and Conditions
+											</label>
+										</div>
+										<div class="col-12">
+											<button type="submit" class="formsubmitbtn" id="ResumeSubmit">Apply</button>
+										</div>
+									</div>
+								</form>
+							</div>
+
+						</div>
+						<!-- Checking Type career_management /career_therapist / all-->
+						<input type="hidden" value="all" name="next_job_id_type" id="next_job_id_type"/>
+						<input type="hidden" value="0" name="current_partner_id" id="current_partner_id"/>
+						<input type="hidden" value="A" name="current_tab" id="current_tab"/>
+						<!-- Checking Type career_management /career_therapist / all-->
+						<input type="hidden" value="0" name="next_job_id" id="next_job_id"/>
+						<div class="modal-footer hide_next_job_false">
+							<a class="madal-navigation" style="flex:auto" onclick="nxt_career()">Next</a>
+							<h5 class="modal-title Student-BottomNavigationBar" style="flex:auto">Spa Reception Agent</h5>
+							<a onclick="nxt_career()">
+								<i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<!-- Modal -->
+			<div class="modal fade blogsearchpopup" tabindex="-1" role="dialog" aria-hidden="true" id="searchmodel-popup">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span class="popup-closebtn"></span>
+							</button>
+						</div>
+						<div class="modal-body blogsearch-body eachsection">
+							<div class="mycontainer">
+
+
+								<div class="row">
+									<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+										<div class="listtexts">
+											<h4>History</h4>
+											<div id="blog-searchdata"></div>
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+										<h4>Recomendation</h4>
+										<div class="owl-carousel popularpost-caresole-mobile blog-recomen-list-model-cards">
+
+											<!-- <div class="popularpost-list" data-aos="fade-left" data-aos-delay="500">
+												<img src="/ppts_website_theme/static/src/img/rc1.jpg" />
+												<div class="popular-typos">
+													<h6>3 Ways Stress Kills You</h6>
+													<p>
+														Expat mental health is a critical issue to address
+													</p>
+													<div class="oberlay-tags">
+														<label> SPIRITUAL HEALING </label>
+														<label> MEDITATION </label>
+													</div>
+												</div>
+											</div> -->
+
+										</div>
+									</div>
+
+									<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+										<div class="blogpopsearch">
+											<input id="blog-model-global-search" type="search" placeholder="Search..." autocomplete="off" class="searchinput-icon form-control"/>
+										</div>
+										<div class="listtexts model-blog-search-result">
+											<!-- <p><b>Guide</b> To Taking Care Of Your Mental Health Overseas</p>
+											<p><b>Guide</b> How to Achieve Metabolic Flexibility</p> -->
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+			<!-- Modal -->
+			<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="newsletter-thankyou-popup">
+				<div class="modal-dialog mymodelstyle modal-dialog-centered dialog-small-two" role="document">
+					<div class="modal-content text-center">
+						<div class="modal-header">
+							<h5 class="modal-title">Thank you for registration!</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span class="popup-closebtn"></span>
+							</button>
+						</div>
+						<div class="modal-body getoffer text-center">
+							<h5>
+								You are now subscribed.
+							</h5>
+						</div>
+						<div class="modal-footer justify-content-center">
+							<button type="button" class="full-blue-btn-popup" data-dismiss="modal" aria-label="Close">Continue</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Thank you for registration! modle Popup end **********************************************-->
+			<!-- search modle Popup end **********************************************-->
+
+			<script id="EventTemplateForModalPreview" type="text/html">
+				<div class="modal-content text-center">
+					<div class="modal-header">
+						<h5 class="modal-title">Event Are Fully Booked!</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span class="popup-closebtn"></span>
+						</button>
+					</div>
+					<div class="modal-body getoffer text-center">
+						<div class="calenday-eventlist-item column-wisecard-listcontainer">
+							<div class="cal-event-img">
+								<img src="{{image}}" loading="lazy"/>
+							</div>
+							<div class="eventfullinfos">
+								<div class="event-typoingo">
+									<div class="eventtitleinfos">
+										<h5 class="l-event-h5-2line-elipsis">
+											<a class="a-clr" data-toggle="tooltip" data-placement="top" href="{{evt_url}}" title="{{name}}" data-original-title="{{name}}">
+												{{name}}
+											</a>
+										</h5>
+									</div>
+									<div class="eventinfos">
+										<label>
+											<img src="/ppts_website_theme/static/src/img/location-icon.svg" width="24px" height="24px" loading="lazy"/>
+											{{location}}
+										</label>
+										<label class="dateinfo-evt" title="{{event_dates}}">
+											<img src="/ppts_website_theme/static/src/img/calendar-icon.svg" width="24px" height="24px" loading="lazy"/>
+											<span>{{event_dates}}</span>
+										</label>
+										<label>
+											<img src="/ppts_website_theme/static/src/img/time-icn.svg" width="24px" height="24px" loading="lazy"/>
+											{{time}}
+										</label>
+										<label data-toggle="tooltip" data-placement="top" class="evt-card-rw-label" title="{{facilitator}}" data-original-title="{{facilitator}}">
+											<img src="/ppts_website_theme/static/src/img/person-icon.svg" width="24px" height="24px" loading="lazy"/>
+											<a class="underline-a" href="/team/therapists/{{facilitator_id}}">
+												{{facilitator}}
+											</a>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer justify-content-center">
+						<button type="button" class="full-blue-btn-popup" onclick="eventJoinWaitingList({{event_id}})">Join Waiting List</button>
+					</div>
+				</div>
+			</script>
+
+
+			<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="event-fullybooked-popup">
+				<div class="modal-dialog mymodelstyle modal-dialog-centered dialog-small-two" role="document">
+					<div id="EventTemplateForModalPreviewContent"></div>
+				</div>
+			</div>
+
+
+			<script id="event-join-waitinglist-popup-script" type="text/x-handlebars-template">
+				<form action="/action/join/event/ticket/waitinglist/{{event_id}}">
+					<div class="modal-header">
+						<p>You can join the queue for the event by leaving your contacts in the form below</p>
+						<h5 class="modal-title">Event Are Fully Booked</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span class="popup-closebtn"></span>
+						</button>
+					</div>
+					<div class="modal-body getoffer text-center">
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Full name" name="name" required="required"/>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Email" name="email" required="required"/>
+						</div>
+						<div class="form-group">
+							<input class="form-control" type="text" placeholder="Phone" name="phone" required="required"/>
+						</div>
+					</div>
+					<div class="modal-footer justify-content-center">
+						<button type="submit" class="full-blue-btn-popup">Join Waiting List</button>
+					</div>
+				</form>
+			</script>
+
+			<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="event-join-waitinglist-popup">
+				<div class="modal-dialog mymodelstyle modal-dialog-centered dialog-small-two" role="document">
+					<div class="modal-content text-center">
+						<div id="event-join-waitinglist-popup-scriptContent"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- STUDENT MODAL START -->
+			<div class="modal right fade student-modal" id="studentModalEmp" tabindex="-1" role="dialog" aria-labelledby="studentModalLabel" aria-hidden="true">
+				<div class="modal-dialog dialog-medium-50percent" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="studentModalLabel">Soniyaa Kiran Punjabi</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span class="popup-closebtn"></span>
+							</button>
+						</div>
+						<input type="hidden" value="0" name="next_emp_id" id="next_emp_id"/>
+						<div class="modal-body modelscrollinner">
+							<div class="studentinnerpopup_container">
+								<div class="text-center">
+									<img id="studentModalImage" class="student-image" alt="Student image" src="/ppts_website_theme/static/src/img/userphoto4.jpg" />
+								</div>
+								<h5 class="student-sub-heading">About</h5>
+								<p class="student-desc" id="studentModalDes">At Illuminations we offer a variety of different classes for personal and professional development.
+									These classes include meditation, yoga, workshops, training programs, free seminars &amp; destination retreats!
+								</p>
+								<h5 class="student-sub-heading">Сertifications</h5>
+								<ul class="student-certification-list" id="student-certification-list">
+									<li>Founder Awarded the Young Asian Entrepreneurs Award</li>
+									<li>Featured on the Cover of Start Up Magazine &amp; Several Leading Publications</li>
+									<li>Organizing Large Scale Events &amp; Trainings for World Renowned Author &amp; Healer</li>
+									<li>1st Center to Organize Regular Non Profit Awareness Seminar on Different Holistic &amp; Well-Being Topics</li>
+									<li>Largest Holistic Training Academy &amp; Student Base</li>
+									<li>1st Center to Pioneer the Regular Meditation Classes</li>
+								</ul>
+							</div>
+
+						</div>
+						<div class="modal-footer hide_next_emp_false">
+							<a class="madal-navigation" onclick="nxt_career()">Next</a>
+							<h5 class="modal-title" id="studentModalBottomTitle">Bharti Varma</h5>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- STUDENT MODAL END -->
+
+			<!-- STUDENT form -->
+			<div class="modal right fade student-modal" id="studentModalform" tabindex="-1" role="dialog" aria-labelledby="studentModalformLabel" aria-hidden="true">
+				<div class="modal-dialog dialog-medium-50percent" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="studentModalLabel">Student form</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span class="popup-closebtn"></span>
+							</button>
+						</div>
+
+
+
+						<div class="modal-body modelscrollinner">
+							<div class="student-forms container">
+								<p>Feel out form to apply Career position</p>
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12">
+										<div class="form-group">
+											<input class="form-control " type="text " placeholder="Name"/>
+										</div>
+										<div class="form-group">
+											<input class="form-control " type="text " placeholder="Contact"/>
+										</div>
+										<div class="form-group">
+											<input class="form-control " type="email " placeholder="Email"/>
+										</div>
+										<div class="form-group">
+											<input class="form-control " type="text " placeholder="Designation"/>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 col-xs-12">
+										<div>
+											<div class="uploadbtnprogress-input inputwrap">
+												<label for="file"> Upload resume <i class="fas fa-upload"></i>
+												</label>
+												<input id="file" type="file" accept="text/*,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" class="dataset" />
+												<div class="progress hidden">
+													<div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"></div>
+												</div>
+											</div>
+										</div>
+										<div class="dropdown currentloc inputwrap">
+											<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												Current Location <i class="fas fa-caret-down"></i>
+											</button>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item" href="#">
+													<label>
+														<input type="checkbox"> Therapy</input>
+													</label>
+												</a>
+												<a class="dropdown-item" href="#">
+													<label>
+														<input type="checkbox"> Healing</input>
+													</label>
+												</a>
+												<a class="dropdown-item" href="#">
+													<label>
+														<input type="checkbox"> Therapy</input>
+													</label>
+												</a>
+												<a class="dropdown-item" href="#">
+													<label>
+														<input type="checkbox"> Online Therapy</input>
+													</label>
+												</a>
+												<a class="dropdown-item" href="#">
+													<label>
+														<input type="checkbox"> Corporate</input>
+													</label>
+												</a>
+											</div>
+										</div>
+										<div class="form-group">
+											<input class="form-control " type="text " placeholder="Relevant Work Experience"/>
+										</div>
+										<div class="form-group">
+											<input class="form-control " type="text" placeholder="Notice Period"/>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-12 form-group">
+										<label class="checkboxlabel">
+											<input class="" type="checkbox"></input>I agree to the Privacy
+											Policy &amp; Terms and Conditions</label>
+									</div>
+									<div class="col-12">
+										<button type="button " class="formsubmitbtn"> Submit</button>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="modal-footer">
+							<a class="madal-navigation">Next</a>
+
+							<h5 class="modal-title">Spa Reception Agent</h5>
+							<a >
+								<i class="fas fa-arrow-right"></i>
+							</a>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- STUDENT form END -->
+			
+			
+			<!-- Modal Event Reservation modle-->
+			<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="event-reservation-popup">
+				<div class="modal-dialog mymodelstyle modal-dialog-centered dialog-medium" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Make a Reservation</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span class="popup-closebtn"></span>
+							</button>
+						</div>
+
+						<input hidden="hidden" id="selected_event_id" name="selected_event_id" type="text" placeholder="Event ID"/>
+
+						<div class="modal-body">
+						
+						
+							<div class="row pb-2">
+								
+								<div class="col-md-12 d-flex">
+								
+									<div class="col-md-4 pt-3" style="background:#f2f2f2;">
+										Make reservation for
+									</div>
+									
+								<div class="col-md-4 pt-3" style="background:#f2f2f2;">
+									
+										<input type="radio" name="gift-event-myself" value="myself" checked="true" id="gift-event-myself"/>
+										<label for="gift-event-myself">Myself</label><br/>
+										
+										<input type="radio" name="gift-event-other" value="other" id="gift-event-other"/>
+										<label for="gift-event-other">Someone Else</label><br/>
+										
+										
+									
+									</div>
+									
+								
+								</div>
+								
+								<div class="col-md-12 d-flex">
+								
+								
+									<div class="col-md-4 p-0" style="background:#f2f2f2;">
+									</div>
+								
+									
+									<div class="col-md-4 event-gift-info pr-4 pl-0 pb-2" style="background:#f2f2f2;">
+										<input class="form-control-sm" type="text" name="receiver_name" id="receiver_name" autocomplete="none" placeholder="Name"/>
+										<input type="email" class="form-control-sm" id="receiver_email" name="receiver_email" aria-describedby="emailHelp" autocomplete="none" placeholder="Enter email"/>
+										<input class="form-control-sm" type="tel" name="receiver_mobile" id="receiver_mobile" autocomplete="none" placeholder="Mobile no.."/>
+									</div>
+										
+								
+								</div>
+								
+								
+							</div>
+						
+							<div class="cart-list-container">
+								
+								<div class="cart-list">
+									<div class="cart-left-info">
+										<h5>ThetaHealing you  your significant other
+											<span>
+												<label class=" chipsone">Onsite</label>
+												<label class="chipsone">Event</label>
+											</span>
+										</h5>
+
+										<div class="eventinfos">
+											<label>
+												<i class="fas fa-map-marker-alt"></i> Illuminations JLT</label>
+											<label>
+												<i class="far fa-calendar-minus"></i>14 December</label>
+											<label>
+												<i class="far fa-clock"></i> 10:00 To 12:00 (UTC+3)</label>
+											<label>
+												<i class="far fa-user"></i> Khan Dan</label>
+										</div>
+									</div>
+									<!-- <div class="cart-right-detinfo">
+										<div class="cardcountsection">
+			                  Ticket <a class="addsubbtn">-</a>
+											<b>1</b>
+											<a class="addsubbtn">+</a>
+											<a class="closeicon">
+												<i class="fas fa-times"></i>
+											</a>
+										</div>
+										<h4>
+											<b>120</b>د.إ 
+										</h4>
+									</div> -->
+								</div>
+							</div>
+							<div class="cart-footbtn">
+								<a href="/event">See more events</a>
+								<!-- <h5>Total: <span class="amount" id="total-ticket-price">120</span>د.إ 
+								</h5> -->
+							</div>
+						</div>
+
+						<div class="modal-footer justify-content-center">
+
+							<button type="button" class="full-blue-btn-popup" id="event-reserve-click">Proceed with the Reservation</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Event Reservation modle Popup end **********************************************-->
+
+
+
+			<!-- Modal cart modle-->
+			<div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="cart-popup">
+				<div class="modal-dialog mymodelstyle modal-dialog-centered dialog-medium" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Cart</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span class="popup-closebtn"></span>
+							</button>
+						</div>
+
+						<input hidden="hidden" id="selected_event_id" name="selected_event_id" type="text" placeholder="Event ID"/>
+						
+
+						<div class="modal-body">
+							<div class="cart-list-container">
+								<div class="cart-list">
+									<div class="cart-left-info">
+										<h5>ThetaHealing you  your significant other
+											<span>
+												<label class=" chipsone">Onsite</label>
+												<label class="chipsone">Event</label>
+											</span>
+										</h5>
+
+										<div class="eventinfos">
+											<label>
+												<i class="fas fa-map-marker-alt"></i> Illuminations JLT</label>
+											<label>
+												<i class="far fa-calendar-minus"></i>14 December</label>
+											<label>
+												<i class="far fa-clock"></i> 10:00 To 12:00 (UTC+3)</label>
+											<label>
+												<i class="far fa-user"></i> Khan Dan</label>
+										</div>
+									</div>
+									<div class="cart-right-detinfo">
+										<div class="cardcountsection">
+			                  Ticket <a class="addsubbtn">-</a>
+											<b>0</b>
+											<a class="addsubbtn">+</a>
+											<a class="closeicon">
+												<i class="fas fa-times"></i>
+											</a>
+										</div>
+										<h4>
+											<b>120</b>د.إ 
+										</h4>
+									</div>
+								</div>
+							</div>
+							<div class="cart-footbtn">
+								<a href="/event">See more events</a>
+								<h5>Total: <span class="amount" id="total-ticket-price">0</span>د.إ 
+								</h5>
+							</div>
+						</div>
+
+						<div class="modal-footer justify-content-center">
+
+							<button type="button" class="full-blue-btn-popup" id="event-checkout-cart">Checkout</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- cart modle Popup end **********************************************-->
+
+
+
+			<!-- Modal -->
+			<div class="modal fade come-from-modal" tabindex="-1" role="dialog" id="resolution-wholepage-popup" data-backdrop="false">
+				<div class="modal-dialog mymodelstyle modal-dialog-centered dialog-small-two" role="document">
+					<div class="modal-content ">
+						<div class="modal-header">
+							<!-- <h5 class="modal-title">Sign Up</h5> -->
+							<button type="button" class="close" data-dismiss="modal">
+								<span class="popup-closebtn"></span>
+							</button>
+						</div>
+						<div class="modal-body getoffer text-center">
+							<div class="d-flex">
+								<div>
+									<img height="150" src="/ppts_website_theme/static/src/img/resolution_img.png"/>
+								</div>
+								<div style="align-self: center;">
+									<p>
+									Hi! 
+										<br/>
+									Your Screen Resolution is 
+										<b>
+											<span id="current_res"></span>
+										</b>
+										<br/>
+									Please use recommended screen Resolution for better experience <b>1920x1080</b>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- get your 20 % modle Popup end **********************************************-->
+
+
+		</template>
+	</data>
+</odoo>

@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <!-- Form_view CRM Master -->
+        <record id="by_support_from_view" model="ir.ui.view">
+            <field name="name">Support</field>
+            <field name="model">by.support</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form -->
+
+        <!-- Tree_view -->
+        <record id="by_support_tree_view" model="ir.ui.view">
+            <field name="name">Support</field>
+            <field name="model">by.support</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="by_support_action_view" model="ir.actions.act_window">
+            <field name="name">Support</field>
+            <field name="res_model">by.support</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="by_support_tree_view" />
+        </record>
+        <!-- Action -->
+
+        <!-- Form_view CRM Master -->
+        <record id="by_solution_from_view" model="ir.ui.view">
+            <field name="name">Solution</field>
+            <field name="model">by.solution</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Form -->
+
+        <!-- Tree_view -->
+        <record id="by_solution_tree_view" model="ir.ui.view">
+            <field name="name">Solution</field>
+            <field name="model">by.solution</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <!-- Tree -->
+
+        <!-- Action_view -->
+        <record id="by_solution_action_view" model="ir.actions.act_window">
+            <field name="name">Solution</field>
+            <field name="res_model">by.solution</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="by_solution_tree_view" />
+        </record>
+        <!-- Action -->
+
+        <menuitem id="by_parent_menu_view_our_team" name="Website" parent="hr.menu_human_resources_configuration" sequence="1" />
+        <menuitem id="by_support_menu_view_our_team" name="By Support" parent="ppts_custom_hr.by_parent_menu_view_our_team" action="ppts_custom_hr.by_support_action_view" sequence="1" />
+        <menuitem id="by_by_solution_action_view_menu_view_our_team" name="By Solution" parent="ppts_custom_hr.by_parent_menu_view_our_team" action="ppts_custom_hr.by_solution_action_view" sequence="2" />
+    </data>
+</odoo>

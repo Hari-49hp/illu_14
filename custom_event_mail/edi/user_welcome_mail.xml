@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record id="custom_user_welcome_mail_template" model="mail.template">
+            <field name="name">User Welcome Mail</field>
+            <field name="model_id" ref="event.model_res_partner"/>
+            <field name="email_from">test@illumination.com</field>
+            <field name="email_to" >${object.email}</field>
+<!--            <field name="lang">${object.partner_id.lang}</field>-->
+            <field name="subject">Thank you for Joining With Us!!! - ${object.name}</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                
+                <p>Dear ${object.name or ''},</p>
+                <p>
+                    We are more than thankful that you Are joined With Us.
+                    Looking forward to meeting you again next time.
+                </p>
+
+                <br/>
+                <p>Best Regards</p>
+                <p>${user.company_id.name}</p>
+
+                ]]></field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+@mixin syn_grid_view() {
+    .o_view_grid {
+        table {
+            color: var(--font-color);
+            & > tbody {
+                background-color: transparent;
+                & > tr:first-child {
+                    background-color: $night-light;
+                }
+                & > tr:hover {
+                    color: $white;
+                    background-color: $night;
+                }
+                & > tr {
+                    .o_grid_total {
+                        color: $font-color;
+                        & > div {
+                            opacity: 0.6;
+                        }
+                    }
+                }
+            }
+            & > tfoot {
+                color: $font-color;
+                .text-muted {
+                    color: #696969 !important;
+                }
+                .o_grid_cell_null {
+                    & > div {
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+    .o_grid_view {
+        .timesheet-timer {
+            background-color: $night;
+        }
+    }
+}
